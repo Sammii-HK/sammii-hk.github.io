@@ -7,4 +7,19 @@ body {
   background-color: purple;
   color: white;
   min-height: 100vh;
+  height: 2000px;
+}
+
+.landing-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.landing-title {
+  font-size: 400px;
+  font-weight: 600;
 }
