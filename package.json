@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "animate.css": "^3.7.2"
+    "animate.css": "^3.7.2",
+    "flickity": "^2.2.1"
   }
 }
