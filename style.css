@@ -1,25 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+
 * {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: purple;
+  background-color: #CCB0DA;
   color: white;
   min-height: 100vh;
-  height: 2000px;
+  /* height: 2000px; */
 }
 
-.landing-page {
-  height: 100vh;
+/* .landing-page {
+  position: -webkit-sticky;
+  position: sticky;
+} */
+
+.landing-page.hero.hero.is-fullheight-with-navbar {
+  height: 90vh;
   width: 100vw;
   display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  /* display: inline-block; */
+  background: rgb(76,216,191);
+  background: linear-gradient(80deg, rgba(76,216,191,1) 0%, rgba(178,118,225,1) 35%, rgba(221,137,100,0) 73%, rgba(255,153,0,1) 100%);
+}
+
+.landing-page-contents.hero-body {
+  width: auto;
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
 }
 
 .landing-title {
-  font-size: 400px;
+  /* display: block; */
+  font-size: 310px;
   font-weight: 600;
+  padding-top: 170px;
+  margin: 0;
+}
+
+.landing-subtitle {
+  font-size: 90px;
+  font-weight: 600;
+  margin-top: -100px;
+  /* width: 100%; */
+  display: flex;
+  justify-content: flex-end;
+  color: black;
 }
