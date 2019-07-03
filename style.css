@@ -51,7 +51,6 @@ body {
   /* display: block; */
   font-size: 310px;
   font-weight: 600;
-  /* padding-top: 20%; */
   margin: 0;
 }
 
@@ -60,16 +59,7 @@ body {
   font-weight: 600;
   margin-top: -100px;
   color: black;
-
-  /* width: 100%; */
-  /* display: flex;
-  justify-content: flex-end;
-  padding-left: 35%; */
 }
-
-/* .projects.hero.is-fullheight {
-  height: 100vh;
-} */
 
 .page-title {
   font-size: 50px;
