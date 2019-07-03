@@ -1,13 +1,36 @@
 console.log('JS loaded 🐛')
 
 
-const elem = document.querySelector('.main-carousel')
-
-const flkty = new Flickity( elem, {
-  // options
-  cellAlign: 'left',
-  contain: true
+const $carousel = $('.carousel').flickity({
+  imagesLoaded: true,
+  percentPosition: false
 })
+
+const $imgs = $carousel.find('.carousel-cell img')
+// get transform property
+const docStyle = document.documentElement.style
+const transformProp = typeof docStyle.transform === 'string' ?
+  'transform' : 'WebkitTransform'
+// get Flickity instance
+const flkty = $carousel.data('flickity')
+
+$carousel.on( 'scroll.flickity', function() {
+  flkty.slides.forEach( function( slide, i ) {
+    const img = $imgs[i]
+    const x = ( slide.target + flkty.x ) * -1/3
+    img.style[ transformProp ] = 'translateX(' + x  + 'px)'
+  })
+})
+
+
+//
+// const elem = document.querySelector('.main-carousel')
+//
+// const flkty = new Flickity( elem, {
+//   // options
+//   cellAlign: 'left',
+//   contain: true
+// })
 
 
 // // element argument can be a selector string

@@ -2,6 +2,7 @@
 
 * {
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -61,26 +62,16 @@ body {
   font-size: 50px;
   font-weight: 500;
   color: #000;
-  margin: 50px;
+  margin: 50px 50px 0 50px;
 }
-
-/* .projects-container.columns.container {
-  width: 100%;
-} */
 
 .projects-contents.hero-body {
   display: flex;
   justify-content: center;
+
+  padding-top: 0;
+  margin-top: 0;
 }
-
-
-
-
-/* external css: flickity.css */
-
-* { box-sizing: border-box; }
-
-body { font-family: sans-serif; }
 
 .carousel {
   background: #EEE;
@@ -88,12 +79,13 @@ body { font-family: sans-serif; }
 }
 
 .carousel-cell {
-  width: 66%;
-  height: 200px;
+  width: 80%;
+  height: 650px;
   margin-right: 10px;
   background: #8C8;
   border-radius: 5px;
   counter-increment: carousel-cell;
+  overflow: hidden;
 }
 
 /* cell number */
@@ -104,4 +96,10 @@ body { font-family: sans-serif; }
   line-height: 200px;
   font-size: 80px;
   color: white;
+}
+
+.sei-4 {
+  background-image: url('https://user-images.githubusercontent.com/40900195/58918469-494e0b00-8722-11e9-94c8-e0d17fc665c2.png');
+  background-position: center;
+  background-size: cover;
 }
