@@ -120,9 +120,9 @@ body {
   margin-top: 0; */
 }
 
-.carousel {
+.main-carousel {
   background: #EEE;
-  width: 80%;
+  /* width: 80%; */
 }
 
 .carousel-cell {
@@ -148,21 +148,51 @@ body {
 }
 
 /* cell number */
-.carousel-cell:before {
-  display: block;
+.carousel-cell a {
+  width: 100%;
+  height: 100%;
+  display: flex;
   text-align: center;
-  content: counter(carousel-cell);
+  justify-content: center;
+  /* content: counter(carousel-cell); */
+
+}
+
+.carousel-cell a .carousel-title {
   line-height: 200px;
   font-size: 80px;
   color: white;
+  opacity: 0;
+
+}
+
+/* .carousel-cell a .carousel-title:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2)
+} */
+
+.project {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .sei-4 {
   background-image: url('https://user-images.githubusercontent.com/40900195/58918469-494e0b00-8722-11e9-94c8-e0d17fc665c2.png');
-  background-position: center;
-  background-size: cover;
 }
 
+.sei-3 {
+  background-image: url('https://user-images.githubusercontent.com/40695746/57919387-a3c91980-7890-11e9-8ce1-8df3f62eeed0.png');
+}
+
+.sei-2 {
+  background-image: url('');
+}
+
+.sei-1 {
+  background-image: url('https://user-images.githubusercontent.com/40900195/55618685-08bc2a80-578f-11e9-9bb2-208cc4c79701.png');
+}
 
 .skills {
   background-color: #ddd;
