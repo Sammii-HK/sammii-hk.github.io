@@ -17,11 +17,11 @@ body {
   height: 50px;
 }
 
-.navbar-end a.navbar-item {
+.navbar-end div.navbar-item {
   font-size: 20px;
 }
 
-.navbar-end a.navbar-item:hover {
+.navbar-end div.navbar-item a:hover {
   color: rgba(255,153,0,1)
 }
 
