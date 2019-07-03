@@ -18,6 +18,19 @@ body {
   position: sticky;
 } */
 
+.navbar {
+  height: 50px;
+}
+
+.navbar-end a.navbar-item {
+  font-size: 20px;
+
+}
+
+.navbar-end a.navbar-item:hover {
+  color: rgba(255,153,0,1)
+}
+
 .landing-page.hero.hero.is-fullheight-with-navbar {
   background: rgb(76,216,191);
   background: linear-gradient(80deg, rgba(76,216,191,1) 0%, rgba(178,118,225,1) 35%, rgba(221,137,100,0) 73%, rgba(255,153,0,1) 100%);
@@ -58,6 +71,13 @@ body {
   height: 100vh;
 } */
 
+.page-title {
+  font-size: 50px;
+  font-weight: 800;
+  color: #000;
+  margin: 50px 50px 0 50px;
+}
+
 .projects {
   background-color: #fff;
   /* height: 100vh; */
@@ -67,13 +87,6 @@ body {
   display: flex;
   flex-direction: row;
 } */
-
-.projects-title {
-  font-size: 50px;
-  font-weight: 500;
-  color: #000;
-  margin: 50px 50px 0 50px;
-}
 
 .projects-contents.hero-body {
   display: flex;
@@ -128,4 +141,14 @@ body {
 .skill-item {
   font-size: 35px;
   color: darkBlue;
+}
+
+h5 {
+  font-size: 52px;
+  font-weight: 800;
+}
+
+h5 a {
+  color: #000;
+  text-align: right;
 }
