@@ -23,34 +23,44 @@ body {
   background: linear-gradient(80deg, rgba(76,216,191,1) 0%, rgba(178,118,225,1) 35%, rgba(221,137,100,0) 73%, rgba(255,153,0,1) 100%);
 }
 
-.landing-page-contents.hero-body {
-  width: 75%;
+.landing-page.hero.is-fullheight-with-navbar .landing-page-contents.hero-body {
   display: flex;
   flex-direction: column;
-  padding-left: 10%;
+
+  justify-content: center;
+  align-items: flex-end;
+  /* align-content: flex-end; */
+  /* width: 75%; */
+  padding-right: 10%;
 }
 
 .landing-title {
   /* display: block; */
   font-size: 310px;
   font-weight: 600;
-  padding-top: 170px;
+  /* padding-top: 20%; */
   margin: 0;
 }
 
 .landing-subtitle {
-  font-size: 90px;
+  font-size: 50px;
   font-weight: 600;
   margin-top: -100px;
-  /* width: 100%; */
-  display: flex;
-  justify-content: flex-end;
   color: black;
-  padding-left: 35%;
+
+  /* width: 100%; */
+  /* display: flex;
+  justify-content: flex-end;
+  padding-left: 35%; */
 }
+
+/* .projects.hero.is-fullheight {
+  height: 100vh;
+} */
 
 .projects {
   background-color: #fff;
+  /* height: 100vh; */
 }
 
 /* .projects-contents.hero-body {
@@ -69,8 +79,9 @@ body {
   display: flex;
   justify-content: center;
 
-  padding-top: 0;
-  margin-top: 0;
+
+  /* padding-top: 0;
+  margin-top: 0; */
 }
 
 .carousel {
@@ -102,4 +113,9 @@ body {
   background-image: url('https://user-images.githubusercontent.com/40900195/58918469-494e0b00-8722-11e9-94c8-e0d17fc665c2.png');
   background-position: center;
   background-size: cover;
+}
+
+
+.skills {
+  background-color: #ddd;
 }
