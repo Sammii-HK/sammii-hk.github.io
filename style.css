@@ -119,3 +119,13 @@ body {
 .skills {
   background-color: #ddd;
 }
+
+.skills-contents.hero-body {
+  display: flex;
+  justify-content: center;
+}
+
+.skill-item {
+  font-size: 35px;
+  color: darkBlue;
+}
