@@ -1,5 +1,24 @@
 console.log('JS loaded 🐛')
 
+
+const elem = document.querySelector('.main-carousel')
+
+const flkty = new Flickity( elem, {
+  // options
+  cellAlign: 'left',
+  contain: true
+})
+
+
+// // element argument can be a selector string
+// //   for an individual element
+// flkty = new Flickity( '.main-carousel', {
+//   // options
+// })
+
+
+
+
 // let scroll = 0
 //
 // window.addEventListener('scroll', () => {

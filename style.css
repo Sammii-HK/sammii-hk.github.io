@@ -48,9 +48,60 @@ body {
   padding-left: 35%;
 }
 
+.projects {
+  background-color: #fff;
+}
+
+/* .projects-contents.hero-body {
+  display: flex;
+  flex-direction: row;
+} */
+
 .projects-title {
   font-size: 50px;
   font-weight: 500;
   color: #000;
-  top: 50px;
+  margin: 50px;
+}
+
+/* .projects-container.columns.container {
+  width: 100%;
+} */
+
+.projects-contents.hero-body {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+/* external css: flickity.css */
+
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.carousel {
+  background: #EEE;
+  width: 80%;
+}
+
+.carousel-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
 }

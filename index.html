@@ -6,8 +6,12 @@
     <title>Sammii: Web Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
     <link rel="stylesheet" href="style.css">
+
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <script src="app.js" charset="utf-8"></script>
   </head>
@@ -15,8 +19,8 @@
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="---">
-          <img src="---" alt="---" width="112" height="28">
+        <a class="navbar-item" href="#home">
+          <img src="---" alt="Sammii" width="112" height="28">
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -27,32 +31,41 @@
       </div>
 
       <div class="navbar-end">
-        <a class="navbar-item">
+        <a class="navbar-item" href="#projects">
           Projects
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" href="#skills">
           Skills
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" href="#aboutMe">
           About Me
         </a>
       </div>
     </nav>
 
-    <div class="landing-page hero is-fullheight-with-navbar">
+    <div id="home" class="landing-page hero is-fullheight-with-navbar">
       <div class="landing-page-contents hero-body">
           <h1 class="landing-title sammii">Sammii</h1>
           <h4 class="landing-subtitle">Web Developer</h4>
       </div>
     </div>
-    <div class="projects hero is-fullheight">
+    <div id="projects" class="projects hero is-fullheight">
+      <h1 class="projects-title">Projects</h1>
       <div class="projects-contents hero-body">
-        <h1 class="projects-title">Projects</h1>
 
-        <div class="projects-carousel">
-          <!-- <div class="project-photo"></div> -->
-          <!-- bulma levels for live site and readme links -->
-        </div>
+        <div class="projects-container columns container">
+          <div class="main-carousel column is-12" data-flickity='{ "wrapAround": true }'>
+            <div class="carousel-cell">
+
+            </div>
+            <div class="carousel-cell">
+
+            </div>
+            <div class="carousel-cell">
+
+            </div>
+          </div>
+
       </div>
     </div>
   </body>
