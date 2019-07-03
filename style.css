@@ -140,7 +140,12 @@ body {
 
 .skill-item {
   font-size: 35px;
-  color: darkBlue;
+  font-weight: 600;
+  color: darkSlateGray;
+}
+
+.aboutMe {
+  background-color: darkSlateGray;
 }
 
 h5 {
@@ -151,4 +156,8 @@ h5 {
 h5 a {
   color: #000;
   text-align: right;
+}
+
+h5 a:hover {
+  color: #3cb08f;
 }
