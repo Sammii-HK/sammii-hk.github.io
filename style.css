@@ -360,3 +360,11 @@ p.more-aboutMe a:hover {
     font-size: 18px;
   }
 }
+
+a.column {
+  color: #fff;
+}
+
+a.column:hover {
+  color: #333;
+}
