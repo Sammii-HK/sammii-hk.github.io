@@ -34,10 +34,14 @@ h5 a:hover, p a:hover {
   color: rgba(255,153,0,1)
 }
 
+.navbar-item a {
+  color: darkSlateGray;
+}
+
 .landing-page.hero.hero.is-fullheight-with-navbar {
   /* background-color: #CCB0DA; */
   background: rgb(76,216,191);
-  background: linear-gradient(80deg, rgba(76,216,191,1) 0%, rgba(178,118,225,1) 35%, rgb(204, 176, 218, 1) 73%, rgba(255,153,0,1) 100%);
+  background: linear-gradient(80deg, rgba(76,216,191,1) 0%, rgba(178,118,225,1) 35%, rgba(204, 176, 218, 1) 73%, rgba(255,153,0,1) 100%);
   /* background: linear-gradient(80deg, rgba(76,216,191,1) 0%, rgba(178,118,225,1) 35%, rgba(221,137,100,0) 73%, rgba(255,153,0,1) 100%); */
 }
 
@@ -115,7 +119,7 @@ h5 a:hover, p a:hover {
 .page-subtitle {
   font-size: 40px;
   font-weight: 700;
-  color:rgba(76,216,191,1);
+  color:rgba(255,153,0,1);
   /* color: #a5f4b3; */
   margin: 50px 25px 0 50px;
 }
@@ -162,7 +166,7 @@ h5 a:hover, p a:hover {
   width: 80%;
   height: 650px;
   margin-right: 10px;
-  background: #8C8;
+  /* background: #8C8; */
   border-radius: 5px;
   counter-increment: carousel-cell;
   overflow: hidden;
@@ -220,7 +224,7 @@ h5 a:hover, p a:hover {
 }
 
 .sei-2 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60629114-5c6cfd00-9dec-11e9-9c1e-512d7bc8c874.png');
+  background-image: url('https://user-images.githubusercontent.com/40900195/60671988-3e46e180-9e6c-11e9-9e18-b33e64b2380a.png');
 }
 
 .sei-1 {
@@ -230,6 +234,7 @@ h5 a:hover, p a:hover {
 
 .skills {
   background-color: #ddd;
+  padding-bottom: 50px;
 }
 
 .skills-contents.hero-body {
