@@ -115,7 +115,7 @@ h5 a:hover, p a:hover {
 .page-subtitle {
   font-size: 40px;
   font-weight: 700;
-  color: #c2ffcd;
+  color:rgba(76,216,191,1);
   /* color: #a5f4b3; */
   margin: 50px 25px 0 50px;
 }
@@ -361,10 +361,14 @@ p.more-aboutMe a:hover {
   }
 }
 
+footer.footer {
+  padding-bottom: 45px;
+}
+
 a.column {
   color: #fff;
 }
 
 a.column:hover {
-  color: #333;
+  color:rgba(178,118,225,1);
 }
