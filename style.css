@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  background-color: #CCB0DA;
+  background-color: #ccc;
   color: white;
   min-height: 100vh;
   /* height: 2000px; */
@@ -101,6 +101,28 @@ body {
   }
 }
 
+.page-subtitle {
+  font-size: 40px;
+  font-weight: 700;
+  color: #c2ffcd;
+  /* color: #a5f4b3; */
+  margin: 50px 25px 0 50px;
+}
+
+@media only screen and (max-width: 780px) {
+  .page-subtitle {
+    font-size: 30px;
+    margin: 40px 20px 0 40px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .page-subtitle {
+    font-size: 24px;
+    margin: 50px 10px 0 25px;
+  }
+}
+
 .projects {
   background-color: #fff;
   /* height: 100vh; */
@@ -179,7 +201,7 @@ body {
 }
 
 .sei-4 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/58918469-494e0b00-8722-11e9-94c8-e0d17fc665c2.png');
+  background-image: url('https://user-images.githubusercontent.com/40900195/60629156-84f4f700-9dec-11e9-96e9-d19984492111.png');
 }
 
 .sei-3 {
@@ -187,11 +209,12 @@ body {
 }
 
 .sei-2 {
-  background-image: url('');
+  background-image: url('https://user-images.githubusercontent.com/40900195/60629114-5c6cfd00-9dec-11e9-9c1e-512d7bc8c874.png');
 }
 
 .sei-1 {
   background-image: url('https://user-images.githubusercontent.com/40900195/55618685-08bc2a80-578f-11e9-9bb2-208cc4c79701.png');
+  /* background-image: url('https://user-images.githubusercontent.com/40900195/55622280-a74c8980-5797-11e9-94c4-268592fe22c6.gif'); */
 }
 
 .skills {
@@ -248,5 +271,67 @@ h5 a {
 }
 
 h5 a:hover {
+  color: #3cb08f;
+}
+
+
+.tech-item {
+  font-size: 30px;
+  font-weight: 600;
+  color: darkSlateGray;
+}
+
+@media only screen and (max-width: 780px) {
+  .tech-item {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .tech-item {
+    font-size: 18px;
+  }
+}
+
+.proj-summary-headline {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+@media only screen and (max-width: 780px) {
+  .proj-summary-headline {
+    font-size: 35px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .proj-summary-headline {
+    font-size: 22px;
+  }
+}
+
+.proj-summary {
+  font-size: 45px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 780px) {
+  .proj-summary {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .proj-summary {
+    font-size: 18px;
+  }
+}
+
+.proj-summary a {
+  color: #000;
+  text-align: right;
+}
+
+.proj-summary a:hover {
   color: #3cb08f;
 }
