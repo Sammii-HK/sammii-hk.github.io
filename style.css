@@ -22,12 +22,22 @@ h5 a:hover, p a:hover {
   color: #3cb08f;
 }
 
+a.home-button {
+  font-weight: 500;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+a.home-button:hover {
+  color: rgba(76,216,191,1);
+}
+
 .navbar {
   height: 50px;
+  font-size: 20px;
 }
 
 .navbar-end div.navbar-item {
-  font-size: 20px;
 }
 
 .navbar-end div.navbar-item a:hover {
