@@ -1,40 +1,9 @@
 console.log('JS loaded 🐛')
 
 
-// const carousel = ('.carousel').flickity({
-//   imagesLoaded: true,
-//   percentPosition: false
-// })
-//
-// const imgs = carousel.find('.carousel-cell img')
-// // get transform property
-// const docStyle = document.documentElement.style
-// const transformProp = typeof docStyle.transform === 'string' ?
-//   'transform' : 'WebkitTransform'
-// // get Flickity instance
-// const flkty = carousel.data('flickity')
-//
-// carousel.on( 'scroll.flickity', function() {
-//   flkty.slides.forEach( function( slide, i ) {
-//     const img = imgs[i]
-//     const x = ( slide.target + flkty.x ) * -1/3
-//     img.style[ transformProp ] = 'translateX(' + x  + 'px)'
-//   })
-// })
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const navbarBurger = document.getElementById('navbar-burger')
   const navbarMenu = document.getElementById('navbar-menu')
-
-
-  // function activeToggle() {
-  //   console.log('Burger Click')
-  //   navbarBurger.classList.toggle('is-active')
-  //   navbarMenu.classList.toggle('is-active')
-  // }
-
-  // navbarBurger.onClick = activeToggle()
 
   navbarBurger.addEventListener('click', () => {
     console.log('navbarBurger Click 🍔')
@@ -42,57 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navbarMenu.classList.toggle('is-active')
   })
 })
-
-
-// function activeToggle() {
-  //   navbarBurger.addEventListener('click', () => {
-    //     navbarBurger.classList.toggle('is-active')
-    //     navbarMenu.classList.toggle('is-active')
-    //   })
-    // }
-
-//
-//
-// document.addEventListener('DOMContentLoaded', () => {
-//
-//   // Get all "navbar-burger" elements
-//   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
-//
-//   // Check if there are any navbar burgers
-//   if ($navbarBurgers.length > 0) {
-//
-//     // Add a click event on each of them
-//     $navbarBurgers.forEach( el => {
-//       el.addEventListener('click', () => {
-//
-//         // Get the target from the "data-target" attribute
-//         const target = el.dataset.target
-//         const $target = document.getElementById(target)
-//
-//         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-//         el.classList.toggle('is-active')
-//         $target.classList.toggle('is-active')
-//
-//       })
-//     })
-//   }
-
-
-//
-// const elem = document.querySelector('.main-carousel')
-//
-// const flkty = new Flickity( elem, {
-//   // options
-//   cellAlign: 'left',
-//   contain: true
-// })
-
-
-// // element argument can be a selector string
-// //   for an individual element
-// flkty = new Flickity( '.main-carousel', {
-//   // options
-// })
 
 
 
