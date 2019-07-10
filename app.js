@@ -15,10 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
   navbarItem.forEach(item => {
     item.addEventListener('click', () => {
       console.log('navbarItem Click 🍭')
-      if (item.className === 'is-active') {
-        navbarBurger.classList.toggle('is-active')
-        navbarMenu.classList.toggle('is-active')
-      }
+      const classCheck = item.classList.contains('is-active')
+
+      console.log('classCheck', classCheck)
+      // if (item.classList.contains('is-active')) {
+      //   navbarBurger.classList.toggle('is-active')
+      //   navbarMenu.classList.toggle('is-active')
+      // }
     })
   })
 
