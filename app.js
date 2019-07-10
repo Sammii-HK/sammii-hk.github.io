@@ -4,12 +4,24 @@ console.log('JS loaded 🐛')
 document.addEventListener('DOMContentLoaded', () => {
   const navbarBurger = document.getElementById('navbar-burger')
   const navbarMenu = document.getElementById('navbar-menu')
+  const navbarItem = document.querySelectorAll('.navbar-item')
 
   navbarBurger.addEventListener('click', () => {
     console.log('navbarBurger Click 🍔')
     navbarBurger.classList.toggle('is-active')
     navbarMenu.classList.toggle('is-active')
   })
+
+  navbarItem.forEach(item => {
+    item.addEventListener('click', () => {
+      console.log('navbarItem Click 🍭')
+      if (item.className === 'is-active') {
+        navbarBurger.classList.toggle('is-active')
+        navbarMenu.classList.toggle('is-active')
+      }
+    })
+  })
+
 })
 
 
