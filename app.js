@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbarBurger = document.getElementById('navbar-burger')
   const navbarMenu = document.getElementById('navbar-menu')
   const navbarItem = document.querySelectorAll('.navbar-item')
+  const iconsToType = document.getElementById('icons-to-type')
+
+  var icons = false
 
   navbarBurger.addEventListener('click', () => {
     console.log('navbarBurger Click 🍔')
@@ -23,6 +26,26 @@ document.addEventListener('DOMContentLoaded', () => {
       //   navbarMenu.classList.toggle('is-active')
       // }
     })
+  })
+
+  // icons ? iconsToType.classList.toggle('is-active') : icons.innerHTML = 'Type'
+
+  function toggleIcons() {
+    if (icons) {
+      iconsToType.innerHTML = 'List'
+      icons = false
+      iconsToType.classList.toggle('is-active')
+    } else {
+      iconsToType.innerHTML = 'Icons'
+      icons = true
+      iconsToType.classList.toggle('is-active')
+    }
+  }
+
+  iconsToType.addEventListener('click', () => {
+    console.log('iconsToType Click 🍕')
+    toggleIcons()
+    console.log('icons', icons)
   })
 
 })

@@ -500,6 +500,11 @@ p.more-aboutMe a:hover {
   }
 }
 
+.level-item.has-text-right {
+  cursor: pointer;
+  margin-right: 50px;
+}
+
 /* FOOTER */
 
 footer.footer {
