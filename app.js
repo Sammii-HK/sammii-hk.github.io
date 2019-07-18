@@ -30,33 +30,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // icons ? iconsToType.classList.toggle('is-active') : icons.innerHTML = 'Type'
 
-  var icons = true
+  let icons = true
   // list.style.display = 'none'
 
-  icon.forEach(iconItem => {
-    iconItem.classList.toggle('type-to-list-is-active')
+  list.forEach(listItem => {
+    listItem.classList.toggle('icon-to-list-is-active')
   })
 
   function toggleIcons() {
     if (icons) {
-      iconsToType.innerHTML = 'List'
+      iconsToType.innerHTML = 'Icons'
       icons = false
-      iconsToType.classList.toggle('is-active')
+      // iconsToType.classList.toggle('is-active')
       icon.forEach(iconItem => {
-        iconItem.classList.toggle('type-to-list-is-active')
+        iconItem.classList.toggle('icon-to-list-is-active')
       })
       list.forEach(listItem => {
-        listItem.classList.toggle('type-to-list-is-active')
+        listItem.classList.toggle('icon-to-list-is-active')
       })
     } else {
-      iconsToType.innerHTML = 'Icons'
+      iconsToType.innerHTML = 'List'
       icons = true
-      iconsToType.classList.toggle('is-active')
+      // iconsToType.classList.toggle('is-active')
       list.forEach(listItem => {
-        listItem.classList.toggle('type-to-list-is-active')
+        listItem.classList.toggle('icon-to-list-is-active')
       })
       icon.forEach(iconItem => {
-        iconItem.classList.toggle('type-to-list-is-active')
+        iconItem.classList.toggle('icon-to-list-is-active')
       })
     }
   }

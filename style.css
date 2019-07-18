@@ -373,12 +373,8 @@ a.home-button:hover {
   width: auto;
   color: grey;
 }
-/*
-.listItem, .iconItem {
-  display: none;
-} */
 
-.type-to-list-is-active {
+.icon-to-list-is-active {
   display: none;
 }
 
