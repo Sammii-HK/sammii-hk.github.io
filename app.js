@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const iconsToType = document.getElementById('icons-to-type')
   const list = document.querySelectorAll('.list-item')
   const icon = document.querySelectorAll('.icon')
+  const projectSlide = document.querySelectorAll('.carousel-cell')
+  const titles = document.querySelectorAll('.title-container')
 
+  // NAVBAR TOGGLE FUNCTION
   navbarBurger.addEventListener('click', () => {
     console.log('navbarBurger Click 🍔')
     navbarBurger.classList.toggle('is-active')
@@ -21,42 +24,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const classCheck = item.classList.contains('is-active')
 
       console.log('classCheck', classCheck)
-      // if (item.classList.contains('is-active')) {
-      //   navbarBurger.classList.toggle('is-active')
-      //   navbarMenu.classList.toggle('is-active')
-      // }
     })
   })
 
-  // icons ? iconsToType.classList.toggle('is-active') : icons.innerHTML = 'Type'
-
+  // ICONS TOGGLE FUNCTION
   let icons = true
-  // list.style.display = 'none'
-
   list.forEach(listItem => {
-    listItem.classList.toggle('icon-to-list-is-active')
+    listItem.classList.toggle('is-hidden')
   })
 
   function toggleIcons() {
     if (icons) {
       iconsToType.innerHTML = 'Icons'
       icons = false
-      // iconsToType.classList.toggle('is-active')
       icon.forEach(iconItem => {
-        iconItem.classList.toggle('icon-to-list-is-active')
+        iconItem.classList.toggle('is-hidden')
       })
       list.forEach(listItem => {
-        listItem.classList.toggle('icon-to-list-is-active')
+        listItem.classList.toggle('is-hidden')
       })
     } else {
       iconsToType.innerHTML = 'List'
       icons = true
-      // iconsToType.classList.toggle('is-active')
       list.forEach(listItem => {
-        listItem.classList.toggle('icon-to-list-is-active')
+        listItem.classList.toggle('is-hidden')
       })
       icon.forEach(iconItem => {
-        iconItem.classList.toggle('icon-to-list-is-active')
+        iconItem.classList.toggle('is-hidden')
       })
     }
   }
@@ -65,6 +59,29 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('iconsToType Click 🍕')
     toggleIcons()
     console.log('icons', icons)
+  })
+
+
+  // CAROUSEL ROLLOVER
+
+  function isHidden() {
+    titles.forEach(title => {
+      console.log('hidden')
+      title.classList.toggle('is-hidden')
+    })
+  }
+  isHidden()
+
+  projectSlide.forEach(project => {
+    project.addEventListener('mouseover', () => {
+      console.log('hovered')
+      isHidden()
+    })
+
+    project.addEventListener('mouseout', () => {
+      console.log('hovered')
+      isHidden()
+    })
   })
 
 })
