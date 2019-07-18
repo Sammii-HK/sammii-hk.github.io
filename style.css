@@ -24,6 +24,18 @@ h5 a:hover, p a:hover {
   color: #3cb08f;
 }
 
+.aboutMe-bio a,
+.more-aboutMe a,
+p.proj-summary a {
+  color: #3cb08f;
+}
+
+.aboutMe-bio a:hover,
+.more-aboutMe a:hover,
+p.proj-summary a:hover {
+  color: #aaa;
+}
+
 /* NAVBAR */
 
 a.home-button {
@@ -405,30 +417,30 @@ a.home-button:hover {
 }
 
 .proj-summary-headline {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 800;
 }
 
 @media only screen and (max-width: 780px) {
   .proj-summary-headline {
-    font-size: 35px;
+    font-size: 30px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .proj-summary-headline {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
 .proj-summary {
-  font-size: 45px;
+  font-size: 35px;
   font-weight: 600;
 }
 
 @media only screen and (max-width: 780px) {
   .proj-summary {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
 
@@ -482,14 +494,6 @@ h5 {
 .more-aboutMe li {
   font-size: 24px;
   font-weight: 500;
-}
-
-.aboutMe-bio a, .more-aboutMe a {
-  color: #aaa;
-}
-
-.aboutMe-bio a:hover, .more-aboutMe a:hover {
-  color: #3cb08f;
 }
 
 @media only screen and (max-width: 780px) {
