@@ -350,28 +350,33 @@ a.home-button:hover {
   justify-content: center;
 }
 
-.skill-item {
+.skill-item p.list-item {
   font-size: 35px;
   font-weight: 600;
   color: darkSlateGray;
 }
 
 @media only screen and (max-width: 780px) {
-  .skill-item {
+  .skill-item p.list-item {
     font-size: 28px;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .skill-item {
+  .skill-item p.list-item {
     font-size: 22px;
   }
 }
 
 .icon {
+  padding: 50px 0;
   height: 50px;
   width: auto;
   color: grey;
+}
+
+.devicon {
+  font-size: 75px;
 }
 
 .icon-to-list-is-active {
@@ -479,11 +484,11 @@ h5 {
   font-weight: 500;
 }
 
-p.more-aboutMe a {
+.aboutMe-bio a, .more-aboutMe a {
   color: #aaa;
 }
 
-p.more-aboutMe a:hover {
+.aboutMe-bio a:hover, .more-aboutMe a:hover {
   color: #3cb08f;
 }
 

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbarMenu = document.getElementById('navbar-menu')
   const navbarItem = document.querySelectorAll('.navbar-item')
   const iconsToType = document.getElementById('icons-to-type')
-  const list = document.querySelectorAll('.list')
+  const list = document.querySelectorAll('.list-item')
   const icon = document.querySelectorAll('.icon')
 
   navbarBurger.addEventListener('click', () => {
