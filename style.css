@@ -37,7 +37,9 @@ p.proj-summary a:hover {
 }
 
 .is-hidden {
-  display: none;
+  /* display: none; */
+  opacity: 0;
+  transition: 0.5s, ease;
 }
 
 /* NAVBAR */
@@ -140,7 +142,7 @@ a.home-button:hover {
 /* PAGES */
 
 .page-title {
-  font-size: 50px;
+  font-size: 45px;
   font-weight: 800;
   color: #000;
   margin: 50px 50px 0 50px;
@@ -241,7 +243,7 @@ a.home-button:hover {
 
 .title-container {
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 
 .carousel-title {
@@ -255,7 +257,6 @@ a.home-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
   align-items: center;
   justify-content: center;
-  transition: .5s ease;
 }
 
 .carousel-cell a:hover {
@@ -379,6 +380,13 @@ a.home-button:hover {
   justify-content: center;
 }
 
+.level-right .button {
+  margin-top: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: rgb(27, 5, 48);
+}
+
 .skill-item p.list-item {
   font-size: 35px;
   font-weight: 600;
@@ -474,7 +482,7 @@ a.home-button:hover {
 } */
 
 h5 {
-  font-size: 52px;
+  font-size: 40px;
   font-weight: 800;
   color: rgb(27, 5, 48);
   /* color: #fdfaff; */
@@ -500,18 +508,18 @@ h5 {
 /* MORE ABOUT ME */
 
 .more-aboutMe {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
 }
 
 .more-aboutMe li {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
 }
 
 @media only screen and (max-width: 780px) {
   .more-aboutMe {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
@@ -523,7 +531,7 @@ h5 {
 
 @media only screen and (max-width: 780px) {
   .more-aboutMe li {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -531,6 +539,10 @@ h5 {
   .more-aboutMe li {
     font-size: 16px;
   }
+}
+
+.more-aboutMe hr {
+  margin: 10px;
 }
 
 .level-item.has-text-right {
