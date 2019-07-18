@@ -368,6 +368,21 @@ a.home-button:hover {
   }
 }
 
+.icon {
+  height: 50px;
+  width: auto;
+  color: grey;
+}
+/*
+.listItem, .iconItem {
+  display: none;
+} */
+
+.type-to-list-is-active {
+  display: none;
+}
+
+
 /* PROJECT PAGES */
 
 .tech-item {

@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbarMenu = document.getElementById('navbar-menu')
   const navbarItem = document.querySelectorAll('.navbar-item')
   const iconsToType = document.getElementById('icons-to-type')
-
-  var icons = false
+  const list = document.querySelectorAll('.list')
+  const icon = document.querySelectorAll('.icon')
 
   navbarBurger.addEventListener('click', () => {
     console.log('navbarBurger Click 🍔')
@@ -30,15 +30,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // icons ? iconsToType.classList.toggle('is-active') : icons.innerHTML = 'Type'
 
+  var icons = true
+  // list.style.display = 'none'
+
+  icon.forEach(iconItem => {
+    iconItem.classList.toggle('type-to-list-is-active')
+  })
+
   function toggleIcons() {
     if (icons) {
       iconsToType.innerHTML = 'List'
       icons = false
       iconsToType.classList.toggle('is-active')
+      icon.forEach(iconItem => {
+        iconItem.classList.toggle('type-to-list-is-active')
+      })
+      list.forEach(listItem => {
+        listItem.classList.toggle('type-to-list-is-active')
+      })
     } else {
       iconsToType.innerHTML = 'Icons'
       icons = true
       iconsToType.classList.toggle('is-active')
+      list.forEach(listItem => {
+        listItem.classList.toggle('type-to-list-is-active')
+      })
+      icon.forEach(iconItem => {
+        iconItem.classList.toggle('type-to-list-is-active')
+      })
     }
   }
 
