@@ -79,4 +79,22 @@ $(function(){
     $(this).text($(this).text() === 'Find out more' ? 'See less' : 'Find out more')
   })
 
+  $('.project-icon').mouseenter(function() {
+    $(this).find('.project-details').fadeOut()
+    console.log('details-hovered')
+  })
+
+  $('.project-icon').mouseleave(function() {
+    $(this).find('.project-details').fadeIn()
+    console.log('details-hovered')
+  })
+
+
+
+
+  // $('.shuffle-me').shuffleImages({
+  //   trigger: 'imageMouseMove',
+  //   target: '> div'
+  // })
+
 })
