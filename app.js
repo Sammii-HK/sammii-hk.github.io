@@ -34,7 +34,7 @@ $(function(){
   $('.project-show').hide()
   $('.project-show:first').show()
   $('.project-icon:first').hide()
-  $('.project:first').find('.more-info').hide()
+  $('.project').find('.more-info').hide()
 
   $('.project').addClass('is-4')
   $('.project:first').removeClass('is-4').addClass('is-11')
@@ -59,9 +59,13 @@ $(function(){
   $('.project').click(function() {
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
+    $('.project.is-4').find('.more-info').hide()
+    $('.project.is-4').find('.more-button').text('Find out more')
 
     $('.project-show').hide()
+    // $('.more-info').hide()
     $('.project-icon').show()
+
     $(this).find('.project-show').show()
     $(this).find('.project-icon').hide()
   })
@@ -69,6 +73,9 @@ $(function(){
 
   $('.more-button').click(function() {
     $('.project.is-11').find('.more-info').toggle()
+    // $('.project.is-11').find('.more-button').innerHTML = 'See Less'
+
+    $(this).text($(this).text() === 'Find out more' ? 'See less' : 'Find out more')
   })
 
 })
