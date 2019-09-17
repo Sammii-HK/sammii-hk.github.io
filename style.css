@@ -7,12 +7,19 @@
   box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+  width: 100vw;
+}
+
 body {
   margin: 0;
+  padding: 0;
   background-color: #fcfcfc;
   /* color: white; */
   color: rgb(27, 5, 48);
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  width: 100vw;
 }
 
 h5 a, p a {
@@ -141,49 +148,43 @@ a.home-button:hover {
 
 /* PROJECTS */
 
-.container.projects {
-  /* display: flex; */
-  /* justify-content: center; */
+.projects {
+  /* display: flex;
+  justify-content: center;
+  margin: 0; */
+
   margin-top: 100px;
+  padding: 2%;
 }
 
-.column {
-  /* height: 350px; */
-  /* overflow: hidden; */
-  /* margin: (56.25% / 2); */
+.project {
+  display: flex;
+  justify-content: center;
 }
 
-.project.is-4 {
-  /* padding-top: 56.25%; */
+/* .icon-container {
+  width: 100%;
+} */
+
+.project-icon {
   position: relative;
-  height: 250px;
+  height: 200px;
   /* display: flex; */
+  /* width: 90%; */
+  width: 100%;
+
+
+  display: flex;
+  justify-content: center;
+
+  margin: .75rem;
+
 }
 
-.project, .project-image {
-  /* width: 100%; */
-  /* height: auto; */
-  /* padding: .75rem; */
-  /* margin: 0; */
-}
-
-.project-image {
-  /* height: 90%; */
-  /* overflow: hidden; */
-  /* width: 100%; */
+.project-image, .project-show {
   height: auto;
-}
 
-.project-show {
-  /* height: auto; */
-  height: auto;
-}
-
-.project-image-show {
-  /* height: 90%; */
-  /* overflow: hidden; */
-  /* width: 100%; */
-  /* height: auto; */
+  display: inline-block;
 }
 
 .project-image-2 {
@@ -192,34 +193,21 @@ a.home-button:hover {
   background-size: cover;
 }
 
-/* .overlay {
-  background-color: rgba(175, 175, 175, 0.5);
-  margin: .75rem;
-} */
-
 .project-details, .project-image-2 {
-  /* position: relative; */
   position: absolute;
-  /* position: sticky; */
   display: flex;
   flex-direction: column;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  /* height: (100% - (.75rem * 2)); */
-  /* height: auto; */
   background-color: rgba(175, 175, 175, 0.5);
   overflow: hidden;
   z-index: 10;
   /* margin: .75rem; */
-  /* padding: .75rem; */
   text-align: center;
   justify-content: center;
-}
-
-.project-details, .project-image-2 {
-  width: 90%;
+  /* width: 90%; */
   height: 200px;
 }
 
