@@ -47,12 +47,21 @@ $(function(){
     console.log('hovered')
   })
 
+  $('.project').mouseover(function() {
+    console.log('over')
+  })
+
+  $('.column').hover(function() {
+    console.log('col-hovered')
+  })
+
+  $(this).hover(function() {
+    console.log('this-hovered')
+  })
+
   $('.project').click(function() {
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').addClass('is-11')
-
-
-    console.log('clicked')
   })
 
 })
