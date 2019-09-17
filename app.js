@@ -5,11 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbarBurger = document.getElementById('navbar-burger')
   const navbarMenu = document.getElementById('navbar-menu')
   const navbarItem = document.querySelectorAll('.navbar-item')
-  // const iconsToType = document.getElementById('icons-to-type')
-  // const list = document.querySelectorAll('.list-item')
-  // const icon = document.querySelectorAll('.icon')
-  // const projectSlide = document.querySelectorAll('.carousel-cell')
-  // const titles = document.querySelectorAll('.title-container')
 
   // NAVBAR TOGGLE FUNCTION
   navbarBurger.addEventListener('click', () => {
@@ -26,9 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('classCheck', classCheck)
     })
   })
-
-
-
 
 })
 
@@ -67,8 +59,10 @@ $(function(){
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').addClass('is-11')
 
-    // $(this).find('.project-show').toggle()
-    // $(this).find('.project-icon').toggle()
+    $('.project-show').hide()
+    $('.project-icon').show()
+    $(this).find('.project-show').show()
+    $(this).find('.project-icon').hide()
 
     // $('.project-show').hide()
     // $('.project-show:first').show()
