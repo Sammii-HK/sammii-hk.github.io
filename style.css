@@ -158,6 +158,17 @@ a.home-button:hover {
   justify-content: center;
 }
 
+.more-button {
+  text-align: right;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.more-button:hover {
+  color: #3cb08f;
+  cursor: pointer;
+}
+
 .project-icon {
   position: relative;
   height: 200px;
