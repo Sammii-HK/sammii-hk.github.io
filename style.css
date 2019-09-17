@@ -149,10 +149,6 @@ a.home-button:hover {
 /* PROJECTS */
 
 .projects {
-  /* display: flex;
-  justify-content: center;
-  margin: 0; */
-
   margin-top: 100px;
   padding: 2%;
 }
@@ -162,15 +158,9 @@ a.home-button:hover {
   justify-content: center;
 }
 
-/* .icon-container {
-  width: 100%;
-} */
-
 .project-icon {
   position: relative;
   height: 200px;
-  /* display: flex; */
-  /* width: 90%; */
   width: 100%;
 
 
@@ -187,13 +177,13 @@ a.home-button:hover {
   display: inline-block;
 }
 
-.project-image-2 {
+.project-image {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.project-details, .project-image-2 {
+.project-details, .project-image {
   position: absolute;
   display: flex;
   flex-direction: column;
