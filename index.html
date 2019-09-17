@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="style.css">
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> -->
 
     <script src="app.js" charset="utf-8"></script>
   </head>
@@ -52,154 +53,34 @@
       </div>
     </nav>
 
-    <div id="home" class="landing-page hero is-fullheight-with-navbar">
-      <div class="landing-page-contents hero-body">
-          <h1 class="landing-title sammii">Sammii</h1>
-          <h4 class="landing-subtitle">Full-Stack Web Developer</h4>
-      </div>
-    </div>
+    <section id="projects" class="section projects">
 
-    <div id="projects" class="projects hero is-fullheight">
-      <h2 class="page-title">Projects</h2>
-      <div class="projects-contents hero-body">
+      <div class="container columns is-multiline is-centered">
 
-        <div class="container">
-          <div class="main-carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "fullscreen": true }'>
-
-            <div class="carousel-cell">
-              <a class="project sei-4-1" href="./sei-4.html">
-                <div class="title-container">
-                  <h3 class="carousel-title">Artistry</h3>
-                </div>
-              </a>
+          <div class="project column">
+            <div class="project-image sei-4-1">
             </div>
-            <div class="carousel-cell">
-              <a class="project sei-3-1" href="./sei-3.html">
-                <div class="title-container">
-                  <h3 class="carousel-title">On Set</h3>
-                </div>
-              </a>
+          </div>
+          <div class="project column">
+            <div class="project-image sei-3-1">
             </div>
-            <div class="carousel-cell">
-              <a class="project sei-2-1" href="./sei-2.html">
-                <div class="title-container">
-                  <h3 class="carousel-title">NASA API</h3>
-                </div>
-              </a>
+          </div>
+          <div class="project column">
+            <div class="project-image sei-2-1">
             </div>
-            <div class="carousel-cell">
-              <a class="project sei-1" href="./sei-1.html">
-                <div class="title-container">
-                  <h3 class="carousel-title">Space Invaders</h3>
-                </div>
-              </a>
+          </div>
+          <div class="project column">
+            <div class="project-image sei-1">
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="skills" class="skills hero">
-      <div class="level">
-      <div class="level-left">
-        <h2 class="page-title level-item">Skills</h2>
-      </div>
-      <div class="level-right">
-        <a id="icons-to-type" class="button is-primary is-rounded level-item has-text-right">List</a>
-      </div>
-      </div>
-      <div class="skills-contents hero-body">
-        <div class="container columns is-mobile is-multiline">
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item react">
-            <p class="list-item">React</p>
-            <div class="icon">
-              <i class="fab fa-react fa-5x"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item javaScript">
-            <p class="list-item">JavaScript</p>
-            <div class="icon">
-              <i class="fab fa-js-square fa-5x"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item node">
-            <p class="list-item">Node.js</p>
-            <div class="icon">
-              <i class="fab fa-node-js fa-5x"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item express">
-            <p class="list-item">Express</p>
-            <div class="icon">
-              <i class="devicon-express-original devicon"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item webpack">
-            <p class="list-item">Webpack</p>
-            <div class="icon">
-              <i class="devicon-webpack-plain devicon"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item npm">
-            <p class="list-item">NPM</p>
-            <div class="icon">
-              <i class="fab fa-npm fa-5x"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item heroku">
-            <p class="list-item">Heroku</p>
-            <div class="icon">
-              <i class="devicon-heroku-plain devicon"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item html5">
-            <p class="list-item">HTML5</p>
-            <div class="icon">
-              <i class="fab fa-html5 fa-5x"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item scss">
-            <p class="list-item">SCSS & CSS</p>
-            <div class="icon">
-              <i class="fab fa-sass fa-5x"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item mongo">
-            <p class="list-item">MongoDB</p>
-            <div class="icon">
-              <i class="devicon-mongodb-plain devicon"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item gitHub">
-            <p class="list-item">GitHub</p>
-            <div class="icon">
-              <i class="fab fa-github fa-5x"></i>
-            </div>
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item python">
-            <p class="list-item">Python</p>
-            <div class="icon">
-              <i class="fab fa-python fa-5x"></i>
-            </div>
-          </div>
-          <!-- <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item flask">
-            <p class="list">Flask</p>
-            <img class="icon" src="http://bit.ly/2Y3OIkt" alt="Flask icon">
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item marshmallow">
-            <p class="list">Marshmallow</p>
-            <img class="icon" src="http://bit.ly/2LnFCZE" alt="Marshmallow icon">
-          </div>
-          <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item pony">
-            <p class="list">Pony</p>
-            <img class="icon" src="http://bit.ly/2JKypzJ" alt="Pony icon">
-          </div> -->
-        </div>
-      </div>
-    </div>
+    </section>
 
 
-    <div id="aboutMe" class="aboutMe hero is-fullheight-with-navbar">
+
+
+    <!-- <div id="aboutMe" class="aboutMe hero is-fullheight-with-navbar">
       <h2 class="page-title">About Me</h2>
       <div class="aboutMe-contents hero-body">
         <div class="container columns is-mobile is-multiline">
@@ -210,7 +91,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <footer id="contact" class="footer has-background-dark">
       <div class="content columns is-mobile">
