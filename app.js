@@ -57,7 +57,7 @@ $(function(){
 
   $('.project').click(function() {
     $('.project').removeClass('is-11').addClass('is-4')
-    $(this).insertBefore('.project:first').addClass('is-11')
+    $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
 
     $('.project-show').hide()
     $('.project-icon').show()
