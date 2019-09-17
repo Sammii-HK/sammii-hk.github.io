@@ -141,10 +141,10 @@ a.home-button:hover {
 
 /* PROJECTS */
 
-.projects {
+.container.projects {
   /* display: flex; */
-  justify-content: center;
-  margin-top: 50px;
+  /* justify-content: center; */
+  margin-top: 100px;
 }
 
 .column {
@@ -156,28 +156,71 @@ a.home-button:hover {
 .project.is-4 {
   /* padding-top: 56.25%; */
   position: relative;
+  height: 250px;
   /* display: flex; */
 }
 
-.project-details {
+.project, .project-image {
+  /* width: 100%; */
+  /* height: auto; */
+  /* padding: .75rem; */
+  /* margin: 0; */
+}
+
+.project-image {
+  /* height: 90%; */
+  /* overflow: hidden; */
+  /* width: 100%; */
+  height: auto;
+}
+
+.project-show {
+  height: auto;
+}
+
+.project-image-show {
+  /* height: 90%; */
+  /* overflow: hidden; */
+  /* width: 100%; */
+  height: auto;
+}
+
+.project-image-2 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* .overlay {
+  background-color: rgba(175, 175, 175, 0.5);
+  margin: .75rem;
+} */
+
+.project-details, .project-image-2 {
   /* position: relative; */
   position: absolute;
+  /* position: sticky; */
   display: flex;
   flex-direction: column;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  height: (100% - (.75rem * 2));
+  /* height: (100% - (.75rem * 2)); */
+  /* height: auto; */
   background-color: rgba(175, 175, 175, 0.5);
   overflow: hidden;
   z-index: 10;
-  margin: .75rem;
+  /* margin: .75rem; */
   /* padding: .75rem; */
   text-align: center;
   justify-content: center;
 }
 
+.project-details, .project-image-2 {
+  width: 90%;
+  height: 200px;
+}
 
 
 
