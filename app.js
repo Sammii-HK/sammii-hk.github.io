@@ -34,6 +34,7 @@ $(function(){
   $('.project-show').hide()
   $('.project-show:first').show()
   $('.project-icon:first').hide()
+  $('.project:first').find('.more-info').hide()
 
   $('.project').addClass('is-4')
   $('.project:first').removeClass('is-4').addClass('is-11')
@@ -63,10 +64,11 @@ $(function(){
     $('.project-icon').show()
     $(this).find('.project-show').show()
     $(this).find('.project-icon').hide()
+  })
 
-    // $('.project-show').hide()
-    // $('.project-show:first').show()
-    // $('.project-icon:first').hide()
+
+  $('.more-button').click(function() {
+    $('.project.is-11').find('.more-info').toggle()
   })
 
 })
