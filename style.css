@@ -236,6 +236,7 @@ a.home-button:hover {
     width: 80vw;
     /* width: 80vw; */
     height: 60vh;
+    position: relative;
   }
 
   .slide-image {
@@ -244,6 +245,34 @@ a.home-button:hover {
     height: 60vh;
     background-position: center;
     background-size: cover;
+  }
+
+  .arrow {
+    width: 5%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  @media (max-device-width: 1024px) {
+    .arrow {
+      width: 20%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .arrow {
+      width: 10%;
+    }
+  }
+
+  #right-arrow {
+    right: 20px;
+  }
+
+  #left-arrow {
+    left: 20px;
   }
 
 

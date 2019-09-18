@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // function lozad('.lozad', {
   //   load: function(el) {
-  //       el.src = el.dataset.src;
+  //       el.src = el.dataset.src
   //       el.onload = function() {
   //           el.classList.add('fade')
   //       }
@@ -111,7 +111,7 @@ $(function(){
   })
 
 
-  const interval = window.setInterval(rotateSlides, 3000)
+  let interval = window.setInterval(rotateSlides, 3000)
 
   function rotateSlides() {
     const $firstSlide = $('.carousel').find('div:first')
@@ -123,6 +123,36 @@ $(function(){
       $lastSlide.after($firstSlide)
       $firstSlide.css({marginLeft: 0})
     })
+
+    $('#left-arrow').click(previousSlide)
+    $('#right-arrow').click(nextSlide)
+    $('.slide-image').click(nextSlide)
+
+
+    function nextSlide(){
+      window.clearInterval(interval)
+      var $currentSlide = $('.carousel').find('div:first')
+      var width = $currentSlide.width()
+      $currentSlide.animate({marginLeft: -width}, 1000, function(){
+        var $lastSlide = $('.carousel').find('div:last')
+        $lastSlide.after($currentSlide)
+        $currentSlide.css({marginLeft: 0})
+        interval = window.setInterval(rotateSlides, 3000)
+      })
+    }
+
+    function previousSlide(){
+      window.clearInterval(interval)
+      var $currentSlide = $('.carousel').find('div:first')
+      var width = $currentSlide.width()
+      var $previousSlide = $('.carousel').find('div:last')
+      $previousSlide.css({marginLeft: -width})
+      $currentSlide.before($previousSlide)
+      $previousSlide.animate({marginLeft: 0}, 1000, function(){
+        interval = window.setInterval(rotateSlides, 3000)
+      })
+    }
+
   }
 
   // $('.shuffle-me').shuffleImages({
