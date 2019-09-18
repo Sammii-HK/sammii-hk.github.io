@@ -16,9 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   navbarItem.forEach(item => {
     item.addEventListener('click', () => {
       console.log('navbarItem Click 🍭')
-      const classCheck = item.classList.contains('is-active')
+      // const classCheck = item.classList.contains('is-active')
+      navbarBurger.classList.toggle('is-active')
+      navbarMenu.classList.toggle('is-active')
 
-      console.log('classCheck', classCheck)
+      // console.log('classCheck', classCheck)
     })
   })
 
@@ -26,14 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // const observer = lozad()
   // observer.observe()
 
-  function lozad('.lozad', {
-    load: function(el) {
-        el.src = el.dataset.src;
-        el.onload = function() {
-            el.classList.add('fade')
-        }
-    }
-  }).observe()
+  // function lozad('.lozad', {
+  //   load: function(el) {
+  //       el.src = el.dataset.src;
+  //       el.onload = function() {
+  //           el.classList.add('fade')
+  //       }
+  //   }
+  // }).observe()
 
   // function lazyLoad(target) {
   //   const obs = new IntersectionObserver((entries) => {
@@ -72,23 +74,6 @@ $(function(){
   $('.project').addClass('is-4')
   $('.project:first').removeClass('is-4').addClass('is-11')
 
-
-  $('.project').hover(function() {
-    console.log('hovered')
-  })
-
-  $('.project').mouseover(function() {
-    console.log('over')
-  })
-
-  $('.column').hover(function() {
-    console.log('col-hovered')
-  })
-
-  $(this).hover(function() {
-    console.log('this-hovered')
-  })
-
   $('.project').click(function() {
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
@@ -113,12 +98,10 @@ $(function(){
 
   $('.project-icon').mouseenter(function() {
     $(this).find('.project-details').fadeOut()
-    console.log('details-hovered')
   })
 
   $('.project-icon').mouseleave(function() {
     $(this).find('.project-details').fadeIn()
-    console.log('details-hovered')
   })
 
   $('#aboutMe-button').click(function() {
