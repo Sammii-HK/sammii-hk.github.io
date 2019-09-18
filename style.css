@@ -27,8 +27,9 @@ h5 a, p a {
   text-align: right;
 }
 
-h5 a:hover, p a:hover {
+h5 a:hover, p a:hover, #aboutMe-button:hover {
   color: #3cb08f;
+  cursor: pointer;
 }
 
 .aboutMe-bio a,
@@ -92,7 +93,7 @@ a.home-button:hover {
 /* PAGES */
 
 .page-title {
-  font-size: 45px;
+  font-size: 35px;
   font-weight: 800;
   color: #000;
   margin: 50px 50px 0 50px;
@@ -344,22 +345,42 @@ a.home-button:hover {
 
 /* ABOUT ME */
 
-/* .aboutMe {
-  background-color: darkSlateGray;
-} */
+.aboutMe-fun {
+  background-color: orange;
+}
 
 /* .about {
   background-color: #222;
 } */
 
 h5 {
-  font-size: 40px;
+  font-size: 25px;
+  /* font-size: 40px; */
   font-weight: 800;
   color: rgb(27, 5, 48);
   /* color: #fdfaff; */
 }
 
-@media only screen and (max-width: 780px) {
+#aboutMe-button {
+  margin-top: 15px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+
+/* @media only screen and (max-width: 780px) {
   h5 {
     font-size: 35px;
   }
@@ -369,12 +390,7 @@ h5 {
   h5 {
     font-size: 24px;
   }
-}
-
-.about h2.page-title {
-  color: rgb(27, 5, 48);
-  /* color: #fff; */
-}
+} */
 
 /* MORE ABOUT ME */
 

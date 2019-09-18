@@ -22,6 +22,38 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+
+  // const observer = lozad()
+  // observer.observe()
+
+  function lozad('.lozad', {
+    load: function(el) {
+        el.src = el.dataset.src;
+        el.onload = function() {
+            el.classList.add('fade')
+        }
+    }
+  }).observe()
+
+  // function lazyLoad(target) {
+  //   const obs = new IntersectionObserver((entries) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         const div = entry.target
+  //         // const src = img.getAttribute('data-lazy')
+  //
+  //         // img.setAttribute('src', src)
+  //         div.classList.add('fadeIn')
+  //
+  //         // observer.disconnect()
+  //       }
+  //     })
+  //   })
+  //   obs.observe(target)
+  // }
+  //
+  // lazyLoad()
+
 })
 
 
@@ -87,6 +119,12 @@ $(function(){
   $('.project-icon').mouseleave(function() {
     $(this).find('.project-details').fadeIn()
     console.log('details-hovered')
+  })
+
+  $('#aboutMe-button').click(function() {
+    $('#aboutMe').toggleClass('aboutMe-fun')
+
+    $(this).text($(this).text() === 'Less business-y? 🤔' ? 'More boring 😬' : 'Less business-y? 🤔')
   })
 
 
