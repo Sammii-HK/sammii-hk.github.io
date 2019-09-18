@@ -230,6 +230,22 @@ a.home-button:hover {
     letter-spacing: .05em;
   }
 
+  .carousel {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 80vw;
+    /* width: 80vw; */
+    height: 60vh;
+  }
+
+  .slide-image {
+    width: 80vw;
+    /* width: 80vw; */
+    height: 60vh;
+    background-position: center;
+    background-size: cover;
+  }
+
 
 
 
