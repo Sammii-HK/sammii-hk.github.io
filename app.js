@@ -111,15 +111,28 @@ $(function(){
   })
 
 
+  // $('.carousel').slick({
+  //   autoplay: true,
+  //   autoplaySpeed: 2000,
+  //   arrows: true,
+  //   dots: true
+  // })
+
+
+
+
+
+  // should only work on the carousel in the column is-11
   let interval = window.setInterval(rotateSlides, 3000)
 
   function rotateSlides() {
-    const $firstSlide = $('.carousel').find('div:first')
+
+    const $firstSlide = $('.column.is-11').find('.carousel').find('div:first')
     const width = $firstSlide.width()
 
 
     $firstSlide.animate({marginLeft: -width}, 1000, function(){
-      var $lastSlide = $('.carousel').find('div:last')
+      var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
       $lastSlide.after($firstSlide)
       $firstSlide.css({marginLeft: 0})
     })
@@ -131,10 +144,10 @@ $(function(){
 
     function nextSlide(){
       window.clearInterval(interval)
-      var $currentSlide = $('.carousel').find('div:first')
+      var $currentSlide = $('.column.is-11').find('.carousel').find('div:first')
       var width = $currentSlide.width()
       $currentSlide.animate({marginLeft: -width}, 1000, function(){
-        var $lastSlide = $('.carousel').find('div:last')
+        var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
         $lastSlide.after($currentSlide)
         $currentSlide.css({marginLeft: 0})
         interval = window.setInterval(rotateSlides, 3000)
@@ -143,9 +156,9 @@ $(function(){
 
     function previousSlide(){
       window.clearInterval(interval)
-      var $currentSlide = $('.carousel').find('div:first')
+      var $currentSlide = $('.column.is-11').find('.carousel').find('div:first')
       var width = $currentSlide.width()
-      var $previousSlide = $('.carousel').find('div:last')
+      var $previousSlide = $('.column.is-11').find('.carousel').find('div:last')
       $previousSlide.css({marginLeft: -width})
       $currentSlide.before($previousSlide)
       $previousSlide.animate({marginLeft: 0}, 1000, function(){
