@@ -287,21 +287,35 @@ a.home-button:hover {
 
 /* SKILLS */
 
-/* .skills {
+.skills {
   background-color: #ddd;
   padding-bottom: 50px;
 }
 
-.skills-contents.hero-body {
+.skills-button {
+  font-size: 25px;
+  font-weight: 800;
+  color: rgb(27, 5, 48);
+  cursor: pointer;
+}
+
+.skills-contents {
   display: flex;
   justify-content: center;
 }
 
-.level-right .button {
+/* .level-right .button {
   margin-top: 50px;
   font-size: 18px;
   font-weight: 600;
   background-color: rgb(27, 5, 48);
+} */
+
+.skill-item {
+  height: auto;
+  align-items: center;
+  border: 1px solid black;
+  margin: 25px 0;
 }
 
 .skill-item p.list-item {
@@ -310,7 +324,7 @@ a.home-button:hover {
   color: darkSlateGray;
 }
 
-@media only screen and (max-width: 780px) {
+/* @media only screen and (max-width: 780px) {
   .skill-item p.list-item {
     font-size: 28px;
   }
@@ -320,7 +334,7 @@ a.home-button:hover {
   .skill-item p.list-item {
     font-size: 22px;
   }
-}
+} */
 
 .icon {
   padding: 50px 0;
@@ -331,7 +345,7 @@ a.home-button:hover {
 
 .devicon {
   font-size: 75px;
-} */
+}
 
 
 /* PROJECT PAGES */
@@ -399,6 +413,10 @@ a.home-button:hover {
 
 /* ABOUT ME */
 
+#aboutMe-button {
+  margin-top: 15px;
+}
+
 .aboutMe-contents {
   padding-bottom: 25px;
   margin-bottom: 50px;
@@ -407,10 +425,6 @@ a.home-button:hover {
 .aboutMe-fun {
   /* background-color: orange; */
 }
-
-/* .about {
-  background-color: #222;
-} */
 
 .aboutMe-text {
   font-size: 25px;
@@ -427,15 +441,14 @@ a.home-button:hover {
   letter-spacing: .01em;
 }
 
-#aboutMe-button {
-  margin-top: 15px;
-}
-
 .book-list-heading {
   font-size: 18px;
   font-weight: 800;
   margin-bottom: 25px;
 }
+
+
+
 
 
 @keyframes fadeIn {
@@ -453,62 +466,6 @@ a.home-button:hover {
   animation-duration: 3s;
 }
 
-/* @media only screen and (max-width: 780px) {
-  h5 {
-    font-size: 35px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  h5 {
-    font-size: 24px;
-  }
-} */
-
-/* MORE ABOUT ME */
-
-/* .more-aboutMe {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.more-aboutMe li {
-  font-size: 18px;
-  font-weight: 500;
-}
-
-@media only screen and (max-width: 780px) {
-  .more-aboutMe {
-    font-size: 20px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .more-aboutMe {
-    font-size: 18px;
-  }
-}
-
-@media only screen and (max-width: 780px) {
-  .more-aboutMe li {
-    font-size: 16px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .more-aboutMe li {
-    font-size: 16px;
-  }
-}
-
-.more-aboutMe hr {
-  margin: 10px;
-}
-
-.level-item.has-text-right {
-  cursor: pointer;
-  margin-right: 50px;
-} */
 
 
 /* FOOTER */

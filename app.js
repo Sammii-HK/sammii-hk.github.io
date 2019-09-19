@@ -96,6 +96,17 @@ $(function(){
     $(this).text($(this).text() === 'Find out more' ? 'See less' : 'Find out more')
   })
 
+  $('.skills-list').slideUp(1)
+
+  $('#skills-button').click(function() {
+    $('.skills-list').slideToggle()
+    // $('.project.is-11').find('.more-button').innerHTML = 'See Less'
+
+    $(this).text($(this).text() === 'View my tech stack' ? 'See less' : 'View my tech stack')
+  })
+
+  $('.list-item').fadeOut()
+
   $('.project-icon').mouseenter(function() {
     $(this).find('.project-details').fadeOut()
   })
@@ -103,6 +114,17 @@ $(function(){
   $('.project-icon').mouseleave(function() {
     $(this).find('.project-details').fadeIn()
   })
+
+  $('.skill-item').mouseenter(function() {
+    $(this).find('.icon').fadeOut()
+    $(this).find('.list-item').delay(500).fadeIn()
+  })
+
+  $('.skill-item').mouseleave(function() {
+    $(this).find('.list-item').fadeOut()
+    $(this).find('.icon').delay(500).fadeIn()
+  })
+
 
   $('.more-aboutMe').hide()
 
