@@ -312,7 +312,8 @@ a.home-button:hover {
 } */
 
 .skill-item {
-  height: auto;
+  height: 125px;
+  /* height: auto; */
   align-items: center;
   border: 1px solid black;
   margin: 25px 0;

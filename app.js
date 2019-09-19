@@ -160,7 +160,7 @@ $(function(){
 
     $firstSlide.animate({marginLeft: -width}, 1000, function(){
       var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
-      $lastSlide.after($firstSlide)
+      $lastSlide.insertBefore($firstSlide)
       $firstSlide.css({marginLeft: 0})
     })
 
@@ -175,7 +175,7 @@ $(function(){
       var width = $currentSlide.width()
       $currentSlide.animate({marginLeft: -width}, 1000, function(){
         var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
-        $lastSlide.after($currentSlide)
+        $lastSlide.insertBefore($currentSlide)
         $currentSlide.css({marginLeft: 0})
         interval = window.setInterval(rotateSlides, 3000)
       })
@@ -187,7 +187,7 @@ $(function(){
       var width = $currentSlide.width()
       var $previousSlide = $('.column.is-11').find('.carousel').find('div:last')
       $previousSlide.css({marginLeft: -width})
-      $currentSlide.before($previousSlide)
+      $currentSlide.insertBefore($previousSlide)
       $previousSlide.animate({marginLeft: 0}, 1000, function(){
         interval = window.setInterval(rotateSlides, 3000)
       })
