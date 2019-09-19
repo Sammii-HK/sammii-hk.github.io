@@ -287,7 +287,7 @@ a.home-button:hover {
 
 /* SKILLS */
 
-.skills {
+/* .skills {
   background-color: #ddd;
   padding-bottom: 50px;
 }
@@ -331,12 +331,12 @@ a.home-button:hover {
 
 .devicon {
   font-size: 75px;
-}
+} */
 
 
 /* PROJECT PAGES */
 
-.tech-item {
+/* .tech-item {
   font-size: 30px;
   font-weight: 600;
   color: darkSlateGray;
@@ -352,14 +352,23 @@ a.home-button:hover {
   .tech-item {
     font-size: 18px;
   }
+} */
+
+.proj-summary-title {
+  color: teal;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  /* margin-bottom: 5px; */
 }
 
 .proj-summary-headline {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 800;
+  margin-bottom: 5px;
 }
 
-@media only screen and (max-width: 780px) {
+/* @media only screen and (max-width: 780px) {
   .proj-summary-headline {
     font-size: 30px;
   }
@@ -369,14 +378,14 @@ a.home-button:hover {
   .proj-summary-headline {
     font-size: 20px;
   }
-}
+} */
 
 .proj-summary {
-  font-size: 35px;
+  font-size: 15px;
   font-weight: 600;
 }
 
-@media only screen and (max-width: 780px) {
+/* @media only screen and (max-width: 780px) {
   .proj-summary {
     font-size: 26px;
   }
@@ -386,7 +395,7 @@ a.home-button:hover {
   .proj-summary {
     font-size: 18px;
   }
-}
+} */
 
 /* ABOUT ME */
 
@@ -439,7 +448,7 @@ h5 {
 
 /* MORE ABOUT ME */
 
-.more-aboutMe {
+/* .more-aboutMe {
   font-size: 24px;
   font-weight: 600;
 }
@@ -480,7 +489,8 @@ h5 {
 .level-item.has-text-right {
   cursor: pointer;
   margin-right: 50px;
-}
+} */
+
 
 /* FOOTER */
 
