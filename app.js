@@ -104,8 +104,13 @@ $(function(){
     $(this).find('.project-details').fadeIn()
   })
 
+  $('.more-aboutMe').hide()
+
   $('#aboutMe-button').click(function() {
     $('#aboutMe').toggleClass('aboutMe-fun')
+
+    $('.aboutMe').toggle()
+    $('.more-aboutMe').toggle()
 
     $(this).text($(this).text() === 'Less business-y? 🤔' ? 'More boring 😬' : 'Less business-y? 🤔')
   })

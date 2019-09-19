@@ -399,15 +399,20 @@ a.home-button:hover {
 
 /* ABOUT ME */
 
+.aboutMe-contents {
+  padding-bottom: 25px;
+  margin-bottom: 50px;
+}
+
 .aboutMe-fun {
-  background-color: orange;
+  /* background-color: orange; */
 }
 
 /* .about {
   background-color: #222;
 } */
 
-h5 {
+.aboutMe-text {
   font-size: 25px;
   /* font-size: 40px; */
   font-weight: 800;
@@ -415,9 +420,23 @@ h5 {
   /* color: #fdfaff; */
 }
 
+.aboutMe-extraText {
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+
 #aboutMe-button {
   margin-top: 15px;
 }
+
+.book-list-heading {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
 
 @keyframes fadeIn {
   from {
