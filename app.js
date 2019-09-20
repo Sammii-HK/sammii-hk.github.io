@@ -62,7 +62,7 @@ $(function(){
   const project2 = ['sei-2-1', 'sei-2-2', 'sei-2-3']
   const project3 = ['sei-3-1', 'sei-3-2', 'sei-3-3', 'sei-3-4', 'sei-3-5', 'sei-3-6', 'sei-3-7']
   const project4 = ['sei-4-1', 'sei-4-2', 'sei-4-3', 'sei-4-4', 'sei-4-5', 'sei-4-6', 'sei-4-7']
-  const carousel = []
+  let carousel = []
 
   $('.project-show').hide()
   $('.project-show:first').show()
@@ -80,11 +80,14 @@ $(function(){
 
   const slide = document.createElement('div')
 
-  carousel.forEach(image => {
-    $('#carousel').append(slide)
-    slide.classList.add(`${image}`)
-    slide.classList.add('slide-image')
-  })
+  $.populateCarousel = function(){
+    $('#carousel').empty()
+    carousel.map(image => {
+      $('#carousel').append(slide)
+      slide.classList.add(`${image}`)
+      slide.classList.add('slide-image')
+    })
+  }
 
   // PROJECT SELECT
   $('.project').click(function() {
@@ -103,7 +106,23 @@ $(function(){
 
     // POPULATE CAROUSEL
     // clear carousel array
+    carousel = []
     // get ID from current project, use to push to carousel array
+    const selectedProject = $(this).attr('id')
+    if (selectedProject === 'project-1') {
+      carousel.push(project1)
+    } else if (selectedProject === 'project-2') {
+      carousel.push(project2)
+    } else if (selectedProject === 'project-3') {
+      carousel.push(project3)
+    } else if (selectedProject === 'project-4') {
+      carousel.push(project4)
+    }
+
+    console.log('carousel', carousel)
+
+    // carousel.push(selectedProject)
+    $.populateCarousel()
 
   })
 

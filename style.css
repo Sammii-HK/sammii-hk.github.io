@@ -149,8 +149,11 @@ a.home-button:hover {
 
 /* PROJECTS */
 
-.projects {
+#carousel-container {
   margin-top: 100px;
+}
+
+.projects {
   padding: 2%;
 }
 
