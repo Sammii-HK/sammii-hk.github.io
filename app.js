@@ -25,36 +25,36 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 
-  // const observer = lozad()
-  // observer.observe()
-
-  // function lozad('.lozad', {
-  //   load: function(el) {
-  //       el.src = el.dataset.src
-  //       el.onload = function() {
-  //           el.classList.add('fade')
-  //       }
-  //   }
-  // }).observe()
-
-  // function lazyLoad(target) {
-  //   const obs = new IntersectionObserver((entries) => {
-  //     entries.forEach(entry => {
-  //       if (entry.isIntersecting) {
-  //         const div = entry.target
-  //         // const src = img.getAttribute('data-lazy')
+  // And instead of inserting the divs for each project, you can just have it take the class names from the appropriate array, that way you're sure it's only gonna be using the images for that project
   //
-  //         // img.setAttribute('src', src)
-  //         div.classList.add('fadeIn')
+  // another thing to consider is for your div.carousel to be empty in the html and to use your initialised arrays of project image class names to map that number of div.slide-image elements into the div.carousel
+
+  const proj4 = document.getElementById('project-4')
+
+  const project1 = ['.sei-1-1', '.sei-1-2', '.sei-1-3', '.sei-1-4']
+  const project2 = ['.sei-2-1', '.sei-2-2', '.sei-2-3']
+  const project3 = ['.sei-3-1', '.sei-3-2', '.sei-3-3', '.sei-3-4', '.sei-3-5', '.sei-3-6', '.sei-3-7']
+  const project4 = ['.sei-4-1', '.sei-4-2', '.sei-4-3', '.sei-4-4', '.sei-4-5', '.sei-4-6', '.sei-4-7']
+
+  project4.map(image => {
+    const slide = document.createElement('div')
+    proj4.appendChild(slide)
+    slide.classList.add(`${image}`)
+    slide.classList.add('slide-image')
+  })
+
+  const carousels = document.querySelectorAll('.carousel')
+
+  // for (i = 0, i < 4, i++) {
+  //   carousels.map(carousel => {
   //
-  //         // observer.disconnect()
-  //       }
-  //     })
   //   })
-  //   obs.observe(target)
   // }
-  //
-  // lazyLoad()
+
+  function carousel() {
+
+  }
+
 
 })
 
@@ -118,11 +118,11 @@ $(function(){
   $('.skill-item').mouseenter(function() {
     $(this).find('.icon').fadeOut()
     $(this).find('.list-item').delay(500).fadeIn()
-  })
 
-  $('.skill-item').mouseleave(function() {
-    $(this).find('.list-item').fadeOut()
-    $(this).find('.icon').delay(500).fadeIn()
+    $('.skill-item').mouseleave(function() {
+      $(this).find('.list-item').fadeOut()
+      $(this).find('.icon').delay(500).fadeIn()
+    })
   })
 
 
@@ -138,62 +138,72 @@ $(function(){
   })
 
 
-  // $('.carousel').slick({
-  //   autoplay: true,
-  //   autoplaySpeed: 2000,
-  //   arrows: true,
-  //   dots: true
-  // })
 
+  // And instead of inserting the divs for each project, you can just have it take the class names from the appropriate array, that way you're sure it's only gonna be using the images for that project
 
+  // another thing to consider is for your div.carousel to be empty in the html and to use your initialised arrays of project image class names to map that number of div.slide-image elements into the div.carousel
 
+  // function carousel() {
+  //   const project1 = ['.sei-1-1', '.sei-1-2', '.sei-1-3', '.sei-1-4']
+  //   const project2 = ['.sei-2-1', '.sei-2-2', '.sei-2-3']
+  //   const project3 = ['.sei-3-1', '.sei-3-2', '.sei-3-3', '.sei-3-4', '.sei-3-5', '.sei-3-6', '.sei-3-7']
+  //   const project4 = ['.sei-4-1', '.sei-4-2', '.sei-4-3', '.sei-4-4', '.sei-4-5', '.sei-4-6', '.sei-4-7']
+  //
+  //   // const $firstSlide = $('')
+  //
+  //   $('.carousel').insertHTML({
+  //     for (i = 0, i < 4, i++) {
+  //
+  //     }
+  //   })
 
+  // }
 
   // should only work on the carousel in the column is-11
-  let interval = window.setInterval(rotateSlides, 3000)
+  // let interval = window.setInterval(rotateSlides, 3000)
+  //
+  // function rotateSlides() {
+  //
+  //   const $firstSlide = $('.column.is-11').find('.carousel').find('div:first')
+  //   const width = $firstSlide.width()
+  //
+  //
+  //   $firstSlide.animate({marginLeft: -width}, 1000, function(){
+  //     var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
+  //     $lastSlide.insertBefore($firstSlide)
+  //     $firstSlide.css({marginLeft: 0})
+  //   })
+  //
+  //   $('#left-arrow').click(previousSlide)
+  //   $('#right-arrow').click(nextSlide)
+  //   $('.slide-image').click(nextSlide)
+  //
+  //
+  //   function nextSlide(){
+  //     window.clearInterval(interval)
+  //     var $currentSlide = $('.column.is-11').find('.carousel').find('div:first')
+  //     var width = $currentSlide.width()
+  //     $currentSlide.animate({marginLeft: -width}, 1000, function(){
+  //       var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
+  //       $lastSlide.insertBefore($currentSlide)
+  //       $currentSlide.css({marginLeft: 0})
+  //       interval = window.setInterval(rotateSlides, 3000)
+  //     })
+  //   }
+  //
+  //   function previousSlide(){
+  //     window.clearInterval(interval)
+  //     var $currentSlide = $('.column.is-11').find('.carousel').find('div:first')
+  //     var width = $currentSlide.width()
+  //     var $previousSlide = $('.column.is-11').find('.carousel').find('div:last')
+  //     $previousSlide.css({marginLeft: -width})
+  //     $currentSlide.insertBefore($previousSlide)
+  //     $previousSlide.animate({marginLeft: 0}, 1000, function(){
+  //       interval = window.setInterval(rotateSlides, 3000)
+  //     })
+  //   }
 
-  function rotateSlides() {
-
-    const $firstSlide = $('.column.is-11').find('.carousel').find('div:first')
-    const width = $firstSlide.width()
-
-
-    $firstSlide.animate({marginLeft: -width}, 1000, function(){
-      var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
-      $lastSlide.insertBefore($firstSlide)
-      $firstSlide.css({marginLeft: 0})
-    })
-
-    $('#left-arrow').click(previousSlide)
-    $('#right-arrow').click(nextSlide)
-    $('.slide-image').click(nextSlide)
-
-
-    function nextSlide(){
-      window.clearInterval(interval)
-      var $currentSlide = $('.column.is-11').find('.carousel').find('div:first')
-      var width = $currentSlide.width()
-      $currentSlide.animate({marginLeft: -width}, 1000, function(){
-        var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
-        $lastSlide.insertBefore($currentSlide)
-        $currentSlide.css({marginLeft: 0})
-        interval = window.setInterval(rotateSlides, 3000)
-      })
-    }
-
-    function previousSlide(){
-      window.clearInterval(interval)
-      var $currentSlide = $('.column.is-11').find('.carousel').find('div:first')
-      var width = $currentSlide.width()
-      var $previousSlide = $('.column.is-11').find('.carousel').find('div:last')
-      $previousSlide.css({marginLeft: -width})
-      $currentSlide.insertBefore($previousSlide)
-      $previousSlide.animate({marginLeft: 0}, 1000, function(){
-        interval = window.setInterval(rotateSlides, 3000)
-      })
-    }
-
-  }
+  // }
 
   // $('.shuffle-me').shuffleImages({
   //   trigger: 'imageMouseMove',
