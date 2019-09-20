@@ -76,21 +76,44 @@ $(function(){
 
   // const selectedProject = $(this).attr('id')
 
+
   carousel.push(project4)
 
-  const slide = document.createElement('div')
+  console.log(carousel)
 
-  $.populateCarousel = function(){
-    $('#carousel').empty()
-    carousel.map(image => {
-      $('#carousel').append(slide)
-      slide.classList.add(`${image}`)
-      slide.classList.add('slide-image')
-    })
+  // for (let i = 0; i < project4.length; i++) {
+  //   carousel.push(project4[i])
+  // }
+
+  // const slide = document.createElement('div')
+  //
+  // $.populateCarousel = function(){
+  //   $('#carousel').empty()
+  //   carousel.map(image => {
+  //     $('#carousel').append(slide)
+  //     slide.classList.add(`${image}`)
+  //     slide.classList.add('slide-image')
+  //   })
+  // }
+
+  let count = 0
+
+  $.animateCarousel = function(){
+    $('#slideImage').removeClass()
+    $('#slideImage').addClass(`${carousel[0][count]}`)
+    $('#slideImage').addClass('slide-image')
+    count = count === carousel[0].length ? 0 : count + 1
+    console.log(count)
   }
+
+
+  const interval = window.setInterval($.animateCarousel, 3000)
+
 
   // PROJECT SELECT
   $('.project').click(function() {
+    count = 0
+    
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
 
@@ -120,9 +143,6 @@ $(function(){
     }
 
     console.log('carousel', carousel)
-
-    // carousel.push(selectedProject)
-    $.populateCarousel()
 
   })
 
