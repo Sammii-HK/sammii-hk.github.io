@@ -16,38 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   navbarItem.forEach(item => {
     item.addEventListener('click', () => {
       console.log('navbarItem Click 🍭')
-      // const classCheck = item.classList.contains('is-active')
       navbarBurger.classList.toggle('is-active')
       navbarMenu.classList.toggle('is-active')
 
-      // console.log('classCheck', classCheck)
     })
   })
-
-
-  // And instead of inserting the divs for each project, you can just have it take the class names from the appropriate array, that way you're sure it's only gonna be using the images for that project
-  //
-  // another thing to consider is for your div.carousel to be empty in the html and to use your initialised arrays of project image class names to map that number of div.slide-image elements into the div.carousel
-
-  // const projectShow = document.querySelectorAll('.project-show')
-  // const projectIcon = document.querySelectorAll('.project-icon')
-  // const moreInfo = document.querySelectorAll('.more-info')
-  //
-  // projectShow.forEach(project => {
-  //   project.classList.add('animated')
-  //   project.classList.add('fadeOut')
-  // })
-  //
-  // moreInfo.forEach(project => {
-  //   project.classList.add('animated')
-  //   project.classList.add('slideOutUp')
-  // })
-  // projectShow[0].classList.add('animated')
-  // projectShow[0].classList.add('fadeIn')
-  // // document.querySelectorAll('.project-show').indexOf(0).classList.add('fadeIn')
-  // projectIcon[0].classList.add('fadeOut')
-  //
-  //
 
 })
 
@@ -74,46 +47,32 @@ $(function(){
   $('.project:first').removeClass('is-4').addClass('is-11')
 
 
-  // const selectedProject = $(this).attr('id')
-
-
   carousel.push(project4)
 
   console.log(carousel)
 
-  // for (let i = 0; i < project4.length; i++) {
-  //   carousel.push(project4[i])
-  // }
-
-  // const slide = document.createElement('div')
-  //
-  // $.populateCarousel = function(){
-  //   $('#carousel').empty()
-  //   carousel.map(image => {
-  //     $('#carousel').append(slide)
-  //     slide.classList.add(`${image}`)
-  //     slide.classList.add('slide-image')
-  //   })
-  // }
-
   let count = 0
+
+  $('#slideImage').addClass(`${carousel[0][0]}`)
+  $('#slideImage').addClass('slide-image')
 
   $.animateCarousel = function(){
     $('#slideImage').removeClass()
     $('#slideImage').addClass(`${carousel[0][count]}`)
     $('#slideImage').addClass('slide-image')
-    count = count === carousel[0].length ? 0 : count + 1
+    count = count === carousel[0].length - 1 ? 0 : count + 1
     console.log(count)
   }
 
 
-  const interval = window.setInterval($.animateCarousel, 3000)
+  let interval = window.setInterval($.animateCarousel, 3000)
 
 
   // PROJECT SELECT
   $('.project').click(function() {
+
     count = 0
-    
+
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
 
@@ -132,15 +91,23 @@ $(function(){
     carousel = []
     // get ID from current project, use to push to carousel array
     const selectedProject = $(this).attr('id')
-    if (selectedProject === 'project-1') {
-      carousel.push(project1)
-    } else if (selectedProject === 'project-2') {
-      carousel.push(project2)
-    } else if (selectedProject === 'project-3') {
-      carousel.push(project3)
-    } else if (selectedProject === 'project-4') {
-      carousel.push(project4)
+
+    switch(selectedProject) {
+      case 'project-1':
+        carousel.push(project1)
+        break
+      case 'project-2':
+        carousel.push(project2)
+        break
+      case 'project-3':
+        carousel.push(project3)
+        break
+      case 'project-4':
+        carousel.push(project4)
+        break
     }
+
+    $.animateCarousel
 
     console.log('carousel', carousel)
 

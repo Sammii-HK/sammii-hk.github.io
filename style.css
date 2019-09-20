@@ -153,6 +153,11 @@ a.home-button:hover {
   margin-top: 100px;
 }
 
+.carousel-col {
+  display: flex;
+  justify-content: center;
+}
+
 .projects {
   padding: 2%;
 }
@@ -162,8 +167,14 @@ a.home-button:hover {
   justify-content: center;
 }
 
+.project-show {
+  width: 100%;
+
+}
+
 .more-button {
   text-align: right;
+  width: auto;
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -307,13 +318,6 @@ a.home-button:hover {
   display: flex;
   justify-content: center;
 }
-
-/* .level-right .button {
-  margin-top: 50px;
-  font-size: 18px;
-  font-weight: 600;
-  background-color: rgb(27, 5, 48);
-} */
 
 .skill-item {
   height: 125px;
