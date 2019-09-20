@@ -78,9 +78,10 @@ $(function(){
 
   carousel.push(project4)
 
-  carousel.map(image => {
-    const slide = document.createElement('div')
-    $('.carousel').append(slide)
+  const slide = document.createElement('div')
+
+  carousel.forEach(image => {
+    $('#carousel').append(slide)
     slide.classList.add(`${image}`)
     slide.classList.add('slide-image')
   })
@@ -101,18 +102,8 @@ $(function(){
 
 
     // POPULATE CAROUSEL
-    // get ID from current project, use to map over array and apply class names to carousel as slide images
-    // const selectedProject = $(this).attr('id')
-    //
-    //
-    //
-    //
-    selectedProject.map(image => {
-      const slide = document.createElement('div')
-      $(this).find('.carousel').append(slide)
-      slide.classList.add(`${image}`)
-      slide.classList.add('slide-image')
-    })
+    // clear carousel array
+    // get ID from current project, use to push to carousel array
 
   })
 
