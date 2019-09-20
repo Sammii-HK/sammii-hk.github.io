@@ -231,6 +231,7 @@ a.home-button:hover {
   }
 
   .carousel {
+    /* display: flex; */
     overflow: hidden;
     white-space: nowrap;
     width: 80vw;

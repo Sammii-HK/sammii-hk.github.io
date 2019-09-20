@@ -29,32 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
   //
   // another thing to consider is for your div.carousel to be empty in the html and to use your initialised arrays of project image class names to map that number of div.slide-image elements into the div.carousel
 
-  const proj4 = document.getElementById('project-4')
-
-  const project1 = ['.sei-1-1', '.sei-1-2', '.sei-1-3', '.sei-1-4']
-  const project2 = ['.sei-2-1', '.sei-2-2', '.sei-2-3']
-  const project3 = ['.sei-3-1', '.sei-3-2', '.sei-3-3', '.sei-3-4', '.sei-3-5', '.sei-3-6', '.sei-3-7']
-  const project4 = ['.sei-4-1', '.sei-4-2', '.sei-4-3', '.sei-4-4', '.sei-4-5', '.sei-4-6', '.sei-4-7']
-
-  project4.map(image => {
-    const slide = document.createElement('div')
-    proj4.appendChild(slide)
-    slide.classList.add(`${image}`)
-    slide.classList.add('slide-image')
-  })
-
-  const carousels = document.querySelectorAll('.carousel')
-
-  // for (i = 0, i < 4, i++) {
-  //   carousels.map(carousel => {
+  // const projectShow = document.querySelectorAll('.project-show')
+  // const projectIcon = document.querySelectorAll('.project-icon')
+  // const moreInfo = document.querySelectorAll('.more-info')
   //
-  //   })
-  // }
-
-  function carousel() {
-
-  }
-
+  // projectShow.forEach(project => {
+  //   project.classList.add('animated')
+  //   project.classList.add('fadeOut')
+  // })
+  //
+  // moreInfo.forEach(project => {
+  //   project.classList.add('animated')
+  //   project.classList.add('slideOutUp')
+  // })
+  // projectShow[0].classList.add('animated')
+  // projectShow[0].classList.add('fadeIn')
+  // // document.querySelectorAll('.project-show').indexOf(0).classList.add('fadeIn')
+  // projectIcon[0].classList.add('fadeOut')
+  //
+  //
 
 })
 
@@ -65,6 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 $(function(){
 
+  const project1 = ['sei-1-1', 'sei-1-2', 'sei-1-3', 'sei-1-4']
+  const project2 = ['sei-2-1', 'sei-2-2', 'sei-2-3']
+  const project3 = ['sei-3-1', 'sei-3-2', 'sei-3-3', 'sei-3-4', 'sei-3-5', 'sei-3-6', 'sei-3-7']
+  const project4 = ['sei-4-1', 'sei-4-2', 'sei-4-3', 'sei-4-4', 'sei-4-5', 'sei-4-6', 'sei-4-7']
+  const carousel = []
+
   $('.project-show').hide()
   $('.project-show:first').show()
   $('.project-icon:first').hide()
@@ -74,6 +73,19 @@ $(function(){
   $('.project').addClass('is-4')
   $('.project:first').removeClass('is-4').addClass('is-11')
 
+
+  // const selectedProject = $(this).attr('id')
+
+  carousel.push(project4)
+
+  carousel.map(image => {
+    const slide = document.createElement('div')
+    $('.carousel').append(slide)
+    slide.classList.add(`${image}`)
+    slide.classList.add('slide-image')
+  })
+
+  // PROJECT SELECT
   $('.project').click(function() {
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
@@ -86,7 +98,33 @@ $(function(){
 
     $(this).find('.project-show').show()
     $(this).find('.project-icon').hide()
+
+
+    // POPULATE CAROUSEL
+    // get ID from current project, use to map over array and apply class names to carousel as slide images
+    // const selectedProject = $(this).attr('id')
+    //
+    //
+    //
+    //
+    selectedProject.map(image => {
+      const slide = document.createElement('div')
+      $(this).find('.carousel').append(slide)
+      slide.classList.add(`${image}`)
+      slide.classList.add('slide-image')
+    })
+
   })
+
+
+
+
+
+
+
+
+
+
 
 
   $('.more-button').click(function() {
@@ -143,21 +181,8 @@ $(function(){
 
   // another thing to consider is for your div.carousel to be empty in the html and to use your initialised arrays of project image class names to map that number of div.slide-image elements into the div.carousel
 
-  // function carousel() {
-  //   const project1 = ['.sei-1-1', '.sei-1-2', '.sei-1-3', '.sei-1-4']
-  //   const project2 = ['.sei-2-1', '.sei-2-2', '.sei-2-3']
-  //   const project3 = ['.sei-3-1', '.sei-3-2', '.sei-3-3', '.sei-3-4', '.sei-3-5', '.sei-3-6', '.sei-3-7']
-  //   const project4 = ['.sei-4-1', '.sei-4-2', '.sei-4-3', '.sei-4-4', '.sei-4-5', '.sei-4-6', '.sei-4-7']
-  //
-  //   // const $firstSlide = $('')
-  //
-  //   $('.carousel').insertHTML({
-  //     for (i = 0, i < 4, i++) {
-  //
-  //     }
-  //   })
 
-  // }
+
 
   // should only work on the carousel in the column is-11
   // let interval = window.setInterval(rotateSlides, 3000)
@@ -204,10 +229,5 @@ $(function(){
   //   }
 
   // }
-
-  // $('.shuffle-me').shuffleImages({
-  //   trigger: 'imageMouseMove',
-  //   target: '> div'
-  // })
 
 })
