@@ -69,6 +69,7 @@ a.home-button:hover {
   /* box-shadow: 0.5px 0.5px 3px 1px #888888; */
   background-color: rgba(27, 5, 48, 0.95);
   /* background-color: rgba(36, 21, 51, 0.9); */
+  width: 100vw;
 }
 
 .navbar-end div.navbar-item {
@@ -260,6 +261,19 @@ a.home-button:hover {
     height: 60vh;
     background-position: center;
     background-size: cover;
+    /* opacity: 0;
+    transition: all 2s linear 0.3s; */
+  }
+
+  .visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+  }
+  .hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
   }
 
   .arrow {
@@ -283,11 +297,11 @@ a.home-button:hover {
   }
 
   #right-arrow {
-    right: 20px;
+    right: 0;
   }
 
   #left-arrow {
-    left: 20px;
+    left: 0;
   }
 
 
@@ -406,6 +420,14 @@ a.home-button:hover {
 .proj-summary {
   font-size: 15px;
   font-weight: 600;
+}
+
+.proj-summary a {
+  cursor: pointer;
+}
+
+.proj-summary a:hover {
+  color: teal;
 }
 
 /* @media only screen and (max-width: 780px) {

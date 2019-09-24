@@ -57,13 +57,24 @@ $(function(){
   $('#slideImage').addClass('slide-image')
 
   $.animateCarousel = function(){
-    $('#slideImage').removeClass()
-    $('#slideImage').addClass(`${carousel[0][count]}`)
-    $('#slideImage').addClass('slide-image')
+    $('#slideImage').fadeOut().queue(function(next){
+      $(this).removeClass().addClass(`${carousel[0][count]}`).addClass('slide-image').delay(150).fadeIn()
+      next()
+    })
+    // $('#slideImage').addClass(`${carousel[0][count]}`)
+    // $('#slideImage').addClass('slide-image').fadeIn()
     count = count === carousel[0].length - 1 ? 0 : count + 1
     console.log(count)
   }
 
+  // $.animateCarousel = function(){
+  //   $('#slideImage').fadeOut().removeClass()
+  //   $('#slideImage').addClass(`${carousel[0][count]}`)
+  //   $('#slideImage').addClass('slide-image').fadeToggle()
+  //   count = count === carousel[0].length - 1 ? 0 : count + 1
+  //   console.log(count)
+  // }
+  //
 
   let interval = window.setInterval($.animateCarousel, 3000)
 
@@ -115,8 +126,24 @@ $(function(){
 
 
 
+  $('#left-arrow').click(function() {
+    console.log('left click')
+    // console.log('left', count)
+    // window.clearInterval()
+    // count = count --
+    // window.setInterval($.animateCarousel, 3000)
+    // interval = window.setInterval($.animateCarousel, 3000)
 
+  })
 
+  $('#right-arrow').click(function() {
+    console.log('right click')
+    // console.log('right', count)
+    // window.clearInterval()
+    // count = count ++
+    // window.setInterval($.animateCarousel, 3000)
+    // interval = window.setInterval($.animateCarousel, 3000)
+  })
 
 
 
@@ -161,27 +188,20 @@ $(function(){
   })
 
 
-  $('.more-aboutMe').hide()
+  $('.more-aboutMe').slideUp().fadeOut( 400 )
 
   $('#aboutMe-button').click(function() {
-    $('#aboutMe').toggleClass('aboutMe-fun')
+    // $('#aboutMe').toggleClass('aboutMe-fun')
 
-    $('.aboutMe').toggle()
-    $('.more-aboutMe').toggle()
+    $('.aboutMe').slideToggle()
+    $('.more-aboutMe').slideToggle()
+    // $('.more-aboutMe').slideToggle().fadeToggle( 400 )
 
     $(this).text($(this).text() === 'Less business-y? 🤔' ? 'More boring 😬' : 'Less business-y? 🤔')
   })
 
 
 
-  // And instead of inserting the divs for each project, you can just have it take the class names from the appropriate array, that way you're sure it's only gonna be using the images for that project
-
-  // another thing to consider is for your div.carousel to be empty in the html and to use your initialised arrays of project image class names to map that number of div.slide-image elements into the div.carousel
-
-
-
-
-  // should only work on the carousel in the column is-11
   // let interval = window.setInterval(rotateSlides, 3000)
   //
   // function rotateSlides() {
