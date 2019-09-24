@@ -166,9 +166,9 @@ $(function(){
 
 
   $('.more-button').click(function() {
-    $('html, body').animate({
-      scrollTop: $('.proj-summary-title')
-    }, 500)
+    // $('html, body').animate({
+    //   scrollTop: $('.proj-summary-title')
+    // }, 500)
 
     // $('html, body').animate({
     //   scrollTop: $('.proj-summary-title')
