@@ -30,31 +30,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 $(function(){
-
   const project1 = ['sei-1-1', 'sei-1-2', 'sei-1-3', 'sei-1-4']
   const project2 = ['sei-2-1', 'sei-2-2', 'sei-2-3']
   const project3 = ['sei-3-1', 'sei-3-2', 'sei-3-3', 'sei-3-4', 'sei-3-5', 'sei-3-6', 'sei-3-7']
   const project4 = ['sei-4-1', 'sei-4-2', 'sei-4-3', 'sei-4-4', 'sei-4-5', 'sei-4-6', 'sei-4-7']
   let carousel = []
+  let count = 0
 
   $('.project-show').hide()
   $('.project-show:first').show()
   $('.project-icon:first').hide()
-  // $('.project').find('.more-info').hide()
   $('.project').find('.more-info').slideUp(.1)
-
   $('.project').addClass('is-4')
   $('.project:first').removeClass('is-4').addClass('is-11')
-
-
   carousel.push(project4)
-
-  console.log(carousel)
-
-  let count = 0
-
   $('#slideImage').addClass(`${carousel[0][0]}`)
   $('#slideImage').addClass('slide-image')
+
+
+  // $('#navbarBurger').toggleClass('is-active')
+  // $('#navbarMenu').toggleClass('is-active')
+
+
+  // NAVBAR TOGGLE FUNCTION
+  // $('#navbarBurger').click(function() {
+  //   console.log('navbarBurger Click 🍔')
+  //   $(this).toggleClass('is-active')
+  //   $('#navbarMenu').toggleClass('is-active')
+  // })
+  //
+  // $('.navbarItem').click(function() {
+  //   console.log('navbarItem Click 🍭')
+  //   $('#navbarBurger').toggleClass('is-active')
+  //   $('#navbarMenu').toggleClass('is-active')
+  // })
+
 
   $.animateCarousel = function(){
     $('#slideImage').fadeOut().queue(function(next){
@@ -67,21 +77,12 @@ $(function(){
     console.log(count)
   }
 
-  // $.animateCarousel = function(){
-  //   $('#slideImage').fadeOut().removeClass()
-  //   $('#slideImage').addClass(`${carousel[0][count]}`)
-  //   $('#slideImage').addClass('slide-image').fadeToggle()
-  //   count = count === carousel[0].length - 1 ? 0 : count + 1
-  //   console.log(count)
-  // }
-  //
+  let interval = window.setInterval($.animateCarousel, 5000)
 
-  let interval = window.setInterval($.animateCarousel, 3000)
 
 
   // PROJECT SELECT
   $('.project').click(function() {
-
     count = 0
 
     $('.project').removeClass('is-11').addClass('is-4')
@@ -98,9 +99,7 @@ $(function(){
 
 
     // POPULATE CAROUSEL
-    // clear carousel array
     carousel = []
-    // get ID from current project, use to push to carousel array
     const selectedProject = $(this).attr('id')
 
     switch(selectedProject) {
@@ -118,9 +117,23 @@ $(function(){
         break
     }
 
-    $.animateCarousel
+
+    // const target = e.target.attr('class')
+    // const target = $(e.target).attr('class')
+    //
+    // if (target === 'more-button') {
+    //   $('html, body').animate({
+    //     scrollTop: $('#projects')
+    //   }, 500)
+    // } else if (target === 'project') {
+    //   $('html, body').animate({
+    //     scrollTop: $('#carousel-container')
+    //   }, 1000)
+    // }
 
     console.log('carousel', carousel)
+    // console.log('target', target)
+    console.log('selectedProject', selectedProject)
 
   })
 
@@ -151,9 +164,17 @@ $(function(){
 
 
 
+
   $('.more-button').click(function() {
+    $('html, body').animate({
+      scrollTop: $('.proj-summary-title')
+    }, 500)
+
+    // $('html, body').animate({
+    //   scrollTop: $('.proj-summary-title')
+    // }, 500)
+
     $('.project.is-11').find('.more-info').slideToggle()
-    // $('.project.is-11').find('.more-button').innerHTML = 'See Less'
 
     $(this).text($(this).text() === 'Find out more' ? 'See less' : 'Find out more')
   })
@@ -162,7 +183,6 @@ $(function(){
 
   $('#skills-button').click(function() {
     $('.skills-list').slideToggle()
-    // $('.project.is-11').find('.more-button').innerHTML = 'See Less'
 
     $(this).text($(this).text() === 'View my tech stack' ? 'See less' : 'View my tech stack')
   })
@@ -191,11 +211,9 @@ $(function(){
   $('.more-aboutMe').slideUp().fadeOut( 400 )
 
   $('#aboutMe-button').click(function() {
-    // $('#aboutMe').toggleClass('aboutMe-fun')
 
     $('.aboutMe').slideToggle()
     $('.more-aboutMe').slideToggle()
-    // $('.more-aboutMe').slideToggle().fadeToggle( 400 )
 
     $(this).text($(this).text() === 'Less business-y? 🤔' ? 'More boring 😬' : 'Less business-y? 🤔')
   })

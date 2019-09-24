@@ -91,6 +91,19 @@ a.home-button:hover {
   }
 }
 
+.navbar-menu, .navbar-item {
+  width: 175px;
+  margin-left: 25px;
+}
+
+.navbar-menu {
+  border-radius: 0 5px 5px 0;
+  /* justify-content: flex-end;
+  display: flex; */
+  position: fixed;
+  right: 226px;
+}
+
 /* PAGES */
 
 .page-title {
