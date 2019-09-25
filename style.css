@@ -470,17 +470,23 @@ a.home-button:hover {
   /* background-color: orange; */
 }
 
-.aboutMe-text {
-  font-size: 25px;
-  /* font-size: 40px; */
+.aboutMe-text, .more-aboutMe-text {
   font-weight: 800;
   color: rgb(27, 5, 48);
-  /* color: #fdfaff; */
+}
+
+.aboutMe-text {
+  font-size: 25px;
+}
+
+.more-aboutMe-text {
+  font-size: 20px;
 }
 
 .aboutMe-extraText {
-  margin-top: 25px;
-  font-size: 18px;
+  margin-top: 50px;
+  padding-right: 15px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: .01em;
 }
@@ -488,7 +494,7 @@ a.home-button:hover {
 .book-list-heading {
   font-size: 18px;
   font-weight: 800;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 

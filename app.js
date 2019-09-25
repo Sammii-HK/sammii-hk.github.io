@@ -48,24 +48,6 @@ $(function(){
   $('#slideImage').addClass('slide-image')
 
 
-  // $('#navbarBurger').toggleClass('is-active')
-  // $('#navbarMenu').toggleClass('is-active')
-
-
-  // NAVBAR TOGGLE FUNCTION
-  // $('#navbarBurger').click(function() {
-  //   console.log('navbarBurger Click 🍔')
-  //   $(this).toggleClass('is-active')
-  //   $('#navbarMenu').toggleClass('is-active')
-  // })
-  //
-  // $('.navbarItem').click(function() {
-  //   console.log('navbarItem Click 🍭')
-  //   $('#navbarBurger').toggleClass('is-active')
-  //   $('#navbarMenu').toggleClass('is-active')
-  // })
-
-
   console.log(count)
 
   $.animateCarousel = function(){
@@ -172,35 +154,35 @@ $(function(){
 
 
 
-
-
-
-  $('.project-icon').focus(function() {
-    // $('html, body').animate({
-    //   scrollTop: $('.proj-summary-title')
-    // }, 500)
-
-    $('html, body').animate({
-      scrollTop: $('#carousel-container').position().top
-    }, 500)
-  })
-
-
-  $('.more-button').focus(function() {
-    // $('html, body').animate({
-    //   scrollTop: $('.proj-summary-title')
-    // }, 500)
-
-    $('html, body').animate({
-      scrollTop: $('#projects').position().top
-    }, 500)
-  })
-
-
   $('.more-button').click(function() {
-    $('html, body').animate({
-      scrollTop: $('#projects').position().top
-    }, 500)
+
+    const height = $(window).scrollTop()
+    const offset = $('#projects').offset().top - 175
+
+    console.log('height', height)
+    console.log('offset', offset)
+
+    if (height > offset) {
+      offset.top -= 100
+      $('html, body').animate({
+        scrollTop: offset
+      }, 500)
+      console.log('scrolled')
+    }
+
+
+    // const offset = $(this).offset()
+    // offset.top -= 100
+    // $('html, body').animate({
+    //   scrollTop: offset.top
+    // }, 500)
+    //
+    //
+
+
+    // $('html, body').animate({
+    //   scrollTop: $('#projects').position().top
+    // }, 500)
 
     // $('html, body').animate({
     //   scrollTop: $('#projects').offset().top
@@ -251,8 +233,10 @@ $(function(){
   $('.more-aboutMe').slideUp().fadeOut( 400 )
 
   $('#aboutMe-button').click(function() {
+    const offset = $('#aboutMe').offset()
+    offset.top -= 20
     $('html, body').animate({
-      scrollTop: $('#aboutMe').position().top
+      scrollTop: offset.top
     }, 500)
 
     $('.aboutMe').slideToggle()
