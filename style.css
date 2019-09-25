@@ -91,17 +91,17 @@ a.home-button:hover {
   }
 }
 
-.navbar-menu, .navbar-item {
-  width: 175px;
+.navbar-item {
   margin-left: 25px;
 }
 
 .navbar-menu {
+  width: 175px;
   border-radius: 0 5px 5px 0;
   /* justify-content: flex-end;
   display: flex; */
   position: fixed;
-  right: 226px;
+  right: 0;
 }
 
 /* PAGES */

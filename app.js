@@ -66,15 +66,17 @@ $(function(){
   // })
 
 
+  console.log(count)
+
   $.animateCarousel = function(){
     $('#slideImage').fadeOut().queue(function(next){
       $(this).removeClass().addClass(`${carousel[0][count]}`).addClass('slide-image').delay(150).fadeIn()
       next()
+      count = count === carousel[0].length - 1 ? 0 : count + 1
+      console.log(count)
     })
     // $('#slideImage').addClass(`${carousel[0][count]}`)
     // $('#slideImage').addClass('slide-image').fadeIn()
-    count = count === carousel[0].length - 1 ? 0 : count + 1
-    console.log(count)
   }
 
   let interval = window.setInterval($.animateCarousel, 5000)
@@ -84,9 +86,17 @@ $(function(){
   // PROJECT SELECT
   $('.project').click(function() {
     count = 0
-
+    console.log('count', count)
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
+
+    // if ($(window).width() > 960) {
+    //   $('.project').removeClass('is-11').addClass('is-4')
+    //   $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
+    // } else {
+    //   $('.project').removeClass('is-11').addClass('is-4')
+    //   $(this).removeClass('is-4').addClass('is-11')
+    // }
 
     $('.project.is-4').find('.more-info').hide()
     $('.project.is-4').find('.more-button').text('Find out more')
@@ -118,9 +128,9 @@ $(function(){
     }
 
 
-    // const target = e.target.attr('class')
+    const target =$(this).attr('id')
     // const target = $(e.target).attr('class')
-    //
+    // //
     // if (target === 'more-button') {
     //   $('html, body').animate({
     //     scrollTop: $('#projects')
@@ -132,7 +142,7 @@ $(function(){
     // }
 
     console.log('carousel', carousel)
-    // console.log('target', target)
+    console.log('target', target)
     console.log('selectedProject', selectedProject)
 
   })
@@ -165,7 +175,37 @@ $(function(){
 
 
 
+  $('.project-icon').focus(function() {
+    // $('html, body').animate({
+    //   scrollTop: $('.proj-summary-title')
+    // }, 500)
+
+    $('html, body').animate({
+      scrollTop: $('#carousel-container').position().top
+    }, 500)
+  })
+
+
+  $('.more-button').focus(function() {
+    // $('html, body').animate({
+    //   scrollTop: $('.proj-summary-title')
+    // }, 500)
+
+    $('html, body').animate({
+      scrollTop: $('#projects').position().top
+    }, 500)
+  })
+
+
   $('.more-button').click(function() {
+    $('html, body').animate({
+      scrollTop: $('#projects').position().top
+    }, 500)
+
+    // $('html, body').animate({
+    //   scrollTop: $('#projects').offset().top
+    // }, 500)
+
     // $('html, body').animate({
     //   scrollTop: $('.proj-summary-title')
     // }, 500)
@@ -211,6 +251,9 @@ $(function(){
   $('.more-aboutMe').slideUp().fadeOut( 400 )
 
   $('#aboutMe-button').click(function() {
+    $('html, body').animate({
+      scrollTop: $('#aboutMe').position().top
+    }, 500)
 
     $('.aboutMe').slideToggle()
     $('.more-aboutMe').slideToggle()
