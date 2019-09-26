@@ -458,6 +458,7 @@ a.home-button:hover {
 
 #aboutMe-button {
   margin-top: 15px;
+  text-align: end;
 }
 
 .aboutMe-contents {
