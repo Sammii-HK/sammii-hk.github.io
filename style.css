@@ -5,6 +5,7 @@
 * {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+  max-width: 100vw;
 }
 
 html {
@@ -14,6 +15,14 @@ body {
   /* padding-top: 100px; */
   background-color: #fcfcfc;
   color: rgb(27, 5, 48);
+}
+
+hr:last {
+  margin-bottom: 5px;
+}
+
+div.columns {
+  margin: 0;
 }
 
 h5 a, p a {
@@ -60,6 +69,7 @@ a.home-button:hover {
 .navbar {
   height: 50px;
   font-size: 20px;
+  /* max-width: 100vw; */
   /* box-shadow: 0.5px 0.5px 3px 1px #888888; */
   background-color: rgba(27, 5, 48, 0.95);
   /* background-color: rgba(36, 21, 51, 0.9); */
@@ -83,6 +93,7 @@ a.home-button:hover {
 
 .navbar-menu {
   border-radius: 0 5px 5px 0;
+  background-color: rgba(254, 254, 254, .95)
 }
 
 @media only screen and (max-width: 1023px) {
@@ -148,19 +159,7 @@ a.home-button:hover {
   }
 }
 
-
-
-
-
-
-
-
 /* CAROUSEL */
-
-/* #carousel-container {
-  margin: 0;
-  padding: 0;
-} */
 
 .carousel {
   padding-top: 100px;
@@ -194,13 +193,14 @@ a.home-button:hover {
 }
 
 .arrow {
-  width: 5%;
+  /* width: 5%;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); */
   cursor: pointer;
+  margin-top: 10px;
 }
-
+/*
 @media (max-device-width: 1024px) {
   .arrow {
     width: 20%;
@@ -219,7 +219,7 @@ a.home-button:hover {
 
 #left-arrow {
   left: 0;
-}
+} */
 
 .carousel-col {
   display: flex;
@@ -484,8 +484,32 @@ a.home-button:hover {
   font-size: 25px;
 }
 
+@media only screen and (max-width: 768px) {
+  .aboutMe-text {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .aboutMe-text {
+    font-size: 16px;
+  }
+}
+
 .more-aboutMe-text {
   font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .more-aboutMe-text {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .more-aboutMe-text, .book-list-heading {
+    font-size: 16px;
+  }
 }
 
 .aboutMe-extraText {
@@ -504,7 +528,7 @@ a.home-button:hover {
 
 
 
-
+/*
 
 @keyframes fadeIn {
   from {
@@ -519,7 +543,7 @@ a.home-button:hover {
 .fadeIn {
   animation-name: fadeIn;
   animation-duration: 3s;
-}
+} */
 
 
 

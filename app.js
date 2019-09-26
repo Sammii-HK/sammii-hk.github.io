@@ -53,6 +53,11 @@ $(function(){
     const selectedItem = $(this).attr('id')
 
     switch(selectedItem) {
+      case 'nav-home':
+        $('html, body').animate({
+          scrollTop: 0
+        }, 500)
+        break
       case 'nav-projects':
         $('html, body').animate({
           scrollTop: $('#carousel-container').offset().top - 100
@@ -70,12 +75,12 @@ $(function(){
         break
     }
   })
-  
+
   count = 1
 
   // ANIMATE CAROUSEL FUNCTION
   $.animateCarousel = function(){
-    console.log('count', count)
+    console.log(count)
     $('#slideImage').fadeOut().queue(function(next){
       $(this).removeClass().addClass(`${carousel[0][count]}`).addClass('slide-image').delay(150).fadeIn()
       next()
@@ -126,21 +131,27 @@ $(function(){
 
   $('#left-arrow').click(function() {
     console.log('left click')
-    // console.log('left', count)
-    // window.clearInterval()
-    // count = count --
-    // window.setInterval($.animateCarousel, 3000)
-    // interval = window.setInterval($.animateCarousel, 3000)
+    // count = count === 0 ? carousel[0].length - 1 : count --
+    count = count --
 
+    // if (count === 0) {
+    //   count = count === 0 ? carousel[0].length - 1 : count + 1
+    // } else if (count > 0) {
+    //   count = count --
+    // }
+
+    $.animateCarousel()
+    clearInterval(interval)
+    interval = setInterval($.animateCarousel, 5000)
   })
 
   $('#right-arrow').click(function() {
     console.log('right click')
-    // console.log('right', count)
-    // window.clearInterval()
-    // count = count ++
-    // window.setInterval($.animateCarousel, 3000)
-    // interval = window.setInterval($.animateCarousel, 3000)
+    count = count ++
+
+    $.animateCarousel()
+    clearInterval(interval)
+    interval = setInterval($.animateCarousel, 5000)
   })
 
 

@@ -23,7 +23,7 @@
 
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item home-button" href="./index.html">Sammii</a>
+        <a id="nav-home" class="navbar-item home-button">Sammii</a>
 
         <a id="navbar-burger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
           <span aria-hidden="true"></span>
@@ -60,10 +60,19 @@
     <div id="carousel-container" class="container column">
       <div class="columns is-multiline is-centered">
         <div class="column carousel-col is-11">
-          <!-- <i class="fas fa-arrow-left fa-3x arrow" id="left-arrow"></i>
-          <i class="fas fa-arrow-right fa-3x arrow" id="right-arrow"></i> -->
           <div id="carousel" class="carousel">
             <div id="slideImage"></div>
+          </div>
+        </div>
+        <div class="level is-mobile">
+          <div id="left-arrow" class="level-item">
+            <i class="fas fa-arrow-left fa-2x arrow"></i>
+          </div>
+          <div class="level-item">
+            <div id="carousel-dots"></div>
+          </div>
+          <div id="right-arrow" class="level-item">
+            <i class="fas fa-arrow-right fa-2x arrow"></i>
           </div>
         </div>
 
