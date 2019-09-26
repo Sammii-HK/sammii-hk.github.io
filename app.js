@@ -69,12 +69,9 @@ $(function(){
         }, 500)
         break
     }
-
-
-    $.animateCarousel()
-    clearInterval(interval)
-    interval = setInterval($.animateCarousel, 5000)
   })
+  
+  count = 1
 
   // ANIMATE CAROUSEL FUNCTION
   $.animateCarousel = function(){
@@ -92,7 +89,6 @@ $(function(){
   // PROJECT SELECT
   $('.project').click(function() {
     count = 0
-    // $.animateCarousel()
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
 
@@ -155,9 +151,6 @@ $(function(){
     $.animateCarousel()
     clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
-
-    console.log('**offset', offset)
-    // console.log('**browser', browser)
 
     $('html, body').animate({
       scrollTop: offset
