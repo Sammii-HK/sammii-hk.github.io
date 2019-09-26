@@ -470,6 +470,10 @@ a.home-button:hover {
   /* background-color: orange; */
 }
 
+.more-aboutMe {
+  padding: 0 25px
+}
+
 .aboutMe-text, .more-aboutMe-text {
   font-weight: 800;
   color: rgb(27, 5, 48);
