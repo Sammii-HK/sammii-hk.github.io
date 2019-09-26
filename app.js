@@ -63,7 +63,7 @@ $(function(){
   // PROJECT SELECT
   $('.project').click(function() {
     count = 0
-
+    $.animateCarousel()
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
 
