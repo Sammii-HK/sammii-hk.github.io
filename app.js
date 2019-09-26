@@ -47,38 +47,25 @@ $(function(){
   $('#slideImage').addClass(`${carousel[0][0]}`)
   $('#slideImage').addClass('slide-image')
 
-
-  console.log(count)
-
+  // ANIMATE CAROUSEL FUNCTION
   $.animateCarousel = function(){
+    console.log('count', count)
     $('#slideImage').fadeOut().queue(function(next){
       $(this).removeClass().addClass(`${carousel[0][count]}`).addClass('slide-image').delay(150).fadeIn()
       next()
       count = count === carousel[0].length - 1 ? 0 : count + 1
-      console.log(count)
     })
-    // $('#slideImage').addClass(`${carousel[0][count]}`)
-    // $('#slideImage').addClass('slide-image').fadeIn()
   }
 
-  let interval = window.setInterval($.animateCarousel, 5000)
-
+  let interval = setInterval($.animateCarousel, 5000)
 
 
   // PROJECT SELECT
   $('.project').click(function() {
     count = 0
-    console.log('count', count)
+
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
-
-    // if ($(window).width() > 960) {
-    //   $('.project').removeClass('is-11').addClass('is-4')
-    //   $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
-    // } else {
-    //   $('.project').removeClass('is-11').addClass('is-4')
-    //   $(this).removeClass('is-4').addClass('is-11')
-    // }
 
     $('.project.is-4').find('.more-info').hide()
     $('.project.is-4').find('.more-button').text('Find out more')
@@ -108,25 +95,6 @@ $(function(){
         carousel.push(project4)
         break
     }
-
-
-    const target =$(this).attr('id')
-    // const target = $(e.target).attr('class')
-    // //
-    // if (target === 'more-button') {
-    //   $('html, body').animate({
-    //     scrollTop: $('#projects')
-    //   }, 500)
-    // } else if (target === 'project') {
-    //   $('html, body').animate({
-    //     scrollTop: $('#carousel-container')
-    //   }, 1000)
-    // }
-
-    console.log('carousel', carousel)
-    console.log('target', target)
-    console.log('selectedProject', selectedProject)
-
   })
 
 
@@ -151,56 +119,49 @@ $(function(){
   })
 
 
+  // PROJECT ICON CLICK
+  $('.project-icon').click(function() {
+    const offset = $('#carousel-container').offset().top - 75
+    const height = $(window).scrollTop()
+    // const browser = $(document).height()
+    clearInterval(interval)
 
+    interval = setInterval($.animateCarousel, 5000)
 
+    console.log('height', height)
+    console.log('**offset', offset)
+    // console.log('**browser', browser)
 
+    $('html, body').animate({
+      scrollTop: offset
+    }, 500)
+  })
+
+  // MORE INFO PROJECT BUTTON
   $('.more-button').click(function() {
-
     const height = $(window).scrollTop()
     const offset = $('#projects').offset().top - 175
 
-    console.log('height', height)
-    console.log('offset', offset)
-
     if (height > offset) {
-      offset.top -= 100
       $('html, body').animate({
         scrollTop: offset
       }, 500)
-      console.log('scrolled')
     }
 
-
-    // const offset = $(this).offset()
-    // offset.top -= 100
-    // $('html, body').animate({
-    //   scrollTop: offset.top
-    // }, 500)
-    //
-    //
-
-
-    // $('html, body').animate({
-    //   scrollTop: $('#projects').position().top
-    // }, 500)
-
-    // $('html, body').animate({
-    //   scrollTop: $('#projects').offset().top
-    // }, 500)
-
-    // $('html, body').animate({
-    //   scrollTop: $('.proj-summary-title')
-    // }, 500)
-
-    // $('html, body').animate({
-    //   scrollTop: $('.proj-summary-title')
-    // }, 500)
-
     $('.project.is-11').find('.more-info').slideToggle()
-
     $(this).text($(this).text() === 'Find out more' ? 'See less' : 'Find out more')
   })
 
+  // PROJECT ICON HOVER EFFECT
+  $('.project-icon').mouseenter(function() {
+    $(this).find('.project-details').fadeOut()
+  })
+
+  $('.project-icon').mouseleave(function() {
+    $(this).find('.project-details').fadeIn()
+  })
+
+  // SKILLS LIST FUNCTION
   $('.skills-list').slideUp(1)
 
   $('#skills-button').click(function() {
@@ -210,14 +171,6 @@ $(function(){
   })
 
   $('.list-item').fadeOut()
-
-  $('.project-icon').mouseenter(function() {
-    $(this).find('.project-details').fadeOut()
-  })
-
-  $('.project-icon').mouseleave(function() {
-    $(this).find('.project-details').fadeIn()
-  })
 
   $('.skill-item').mouseenter(function() {
     $(this).find('.icon').fadeOut()
@@ -229,21 +182,28 @@ $(function(){
     })
   })
 
-
+  // MORE ABOUT ME
   $('.more-aboutMe').slideUp().fadeOut( 400 )
 
   $('#aboutMe-button').click(function() {
-    const offset = $('#aboutMe').offset()
-    offset.top -= 20
-    $('html, body').animate({
-      scrollTop: offset.top
-    }, 500)
+    const height = $(window).scrollTop()
+    const offset = $('#aboutMe').offset().top - 75
+
+    // console.log('height', height)
+    // console.log('offset', offset)
+
+    if (height > offset) {
+      $('html, body').animate({
+        scrollTop: offset
+      }, 500)
+    }
 
     $('.aboutMe').slideToggle()
     $('.more-aboutMe').slideToggle()
-
     $(this).text($(this).text() === 'Less business-y? 🤔' ? 'More boring 😬' : 'Less business-y? 🤔')
   })
+
+
 
 
 
