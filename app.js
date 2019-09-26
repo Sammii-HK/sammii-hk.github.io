@@ -121,11 +121,11 @@ $(function(){
 
   // PROJECT ICON CLICK
   $('.project-icon').click(function() {
-    const offset = $('#carousel-container').offset().top - 75
+    const offset = $('#carousel-container').offset().top - 250
     const height = $(window).scrollTop()
     // const browser = $(document).height()
-    clearInterval(interval)
 
+    clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
 
     console.log('height', height)

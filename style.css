@@ -20,6 +20,7 @@ body {
   color: rgb(27, 5, 48);
   /* min-height: 100vh; */
   width: 100vw;
+  padding-top: 100px;
 }
 
 h5 a, p a {
@@ -161,16 +162,77 @@ a.home-button:hover {
 
 
 
-/* PROJECTS */
+/* CAROUSEL */
 
 #carousel-container {
-  padding-top: 100px;
+  /* padding-top: 100px; */
+}
+
+.carousel {
+  /* display: flex; */
+  overflow: hidden;
+  white-space: nowrap;
+  width: 80vw;
+  /* width: 80vw; */
+  height: 60vh;
+  position: relative;
+}
+
+.slide-image {
+  width: 80vw;
+  /* width: 80vw; */
+  height: 60vh;
+  background-position: center;
+  background-size: cover;
+  /* opacity: 0;
+  transition: all 2s linear 0.3s; */
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+.arrow {
+  width: 5%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+@media (max-device-width: 1024px) {
+  .arrow {
+    width: 20%;
+  }
+}
+
+@media (max-width: 768px) {
+  .arrow {
+    width: 10%;
+  }
+}
+
+#right-arrow {
+  right: 0;
+}
+
+#left-arrow {
+  left: 0;
 }
 
 .carousel-col {
   display: flex;
   justify-content: center;
 }
+
+/* PROJECTS */
 
 .projects {
   padding: 2%;
@@ -258,64 +320,7 @@ a.home-button:hover {
     letter-spacing: .05em;
   }
 
-  .carousel {
-    /* display: flex; */
-    overflow: hidden;
-    white-space: nowrap;
-    width: 80vw;
-    /* width: 80vw; */
-    height: 60vh;
-    position: relative;
-  }
 
-  .slide-image {
-    width: 80vw;
-    /* width: 80vw; */
-    height: 60vh;
-    background-position: center;
-    background-size: cover;
-    /* opacity: 0;
-    transition: all 2s linear 0.3s; */
-  }
-
-  .visible {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 2s linear;
-  }
-  .hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s 2s, opacity 2s linear;
-  }
-
-  .arrow {
-    width: 5%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
-
-  @media (max-device-width: 1024px) {
-    .arrow {
-      width: 20%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .arrow {
-      width: 10%;
-    }
-  }
-
-  #right-arrow {
-    right: 0;
-  }
-
-  #left-arrow {
-    left: 0;
-  }
 
 
 
