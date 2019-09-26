@@ -269,7 +269,7 @@ a.home-button:hover {
   display: flex;
   justify-content: center;
 
-  margin: .75rem;
+  /* margin: .75rem; */
 
 }
 

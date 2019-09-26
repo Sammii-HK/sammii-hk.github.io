@@ -63,7 +63,7 @@ $(function(){
   // PROJECT SELECT
   $('.project').click(function() {
     count = 0
-    $.animateCarousel()
+    // $.animateCarousel()
     $('.project').removeClass('is-11').addClass('is-4')
     $(this).insertBefore('.project:first').removeClass('is-4').addClass('is-11')
 
@@ -125,6 +125,7 @@ $(function(){
     const height = $(window).scrollTop()
     // const browser = $(document).height()
 
+    $.animateCarousel()
     clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
 
