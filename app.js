@@ -47,6 +47,35 @@ $(function(){
   $('#slideImage').addClass(`${carousel[0][0]}`)
   $('#slideImage').addClass('slide-image')
 
+
+  // NAVBAR SCROLL ANIMATE
+  $('.navbar-item').click(function() {
+    const selectedItem = $(this).attr('id')
+
+    switch(selectedItem) {
+      case 'nav-projects':
+        $('html, body').animate({
+          scrollTop: $('#carousel-container').offset().top - 100
+        }, 500)
+        break
+      case 'nav-about':
+        $('html, body').animate({
+          scrollTop: $('#aboutMe').offset().top - 100
+        }, 500)
+        break
+      case 'nav-contact':
+        $('html, body').animate({
+          scrollTop: $('#contact').offset().top - 100
+        }, 500)
+        break
+    }
+
+
+    $.animateCarousel()
+    clearInterval(interval)
+    interval = setInterval($.animateCarousel, 5000)
+  })
+
   // ANIMATE CAROUSEL FUNCTION
   $.animateCarousel = function(){
     console.log('count', count)
@@ -122,14 +151,11 @@ $(function(){
   // PROJECT ICON CLICK
   $('.project-icon').click(function() {
     const offset = $('#carousel-container').offset().top - 250
-    const height = $(window).scrollTop()
-    // const browser = $(document).height()
 
     $.animateCarousel()
     clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
 
-    console.log('height', height)
     console.log('**offset', offset)
     // console.log('**browser', browser)
 
