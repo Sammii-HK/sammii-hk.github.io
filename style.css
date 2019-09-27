@@ -93,11 +93,11 @@ a.home-button:hover {
 
 .navbar-menu {
   border-radius: 0 5px 5px 0;
-  background-color: rgba(254, 254, 254, .95)
 }
 
 @media only screen and (max-width: 1023px) {
   .navbar-menu {
+    background-color: rgba(254, 254, 254, .95)
     margin-left: calc(100vw - 250px);
     text-align: center;
   }
