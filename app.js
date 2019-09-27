@@ -34,6 +34,7 @@ $(function(){
   const project2 = ['sei-2-1', 'sei-2-2', 'sei-2-3']
   const project3 = ['sei-3-1', 'sei-3-2', 'sei-3-3', 'sei-3-4', 'sei-3-5', 'sei-3-6', 'sei-3-7']
   const project4 = ['sei-4-1', 'sei-4-2', 'sei-4-3', 'sei-4-4', 'sei-4-5', 'sei-4-6', 'sei-4-7']
+
   let carousel = []
   let count = 0
 
@@ -74,6 +75,12 @@ $(function(){
         }, 500)
         break
     }
+
+    if (selectedItem === 'nav-home') {
+      $('#navbar-burger').addClass('is-active')
+      $('navbar-menu').removeClass('is-active')
+    }
+
   })
 
   count = 1
@@ -233,54 +240,5 @@ $(function(){
     $('.more-aboutMe').slideToggle()
     $(this).text($(this).text() === 'Less business-y? 🤔' ? 'More boring 😬' : 'Less business-y? 🤔')
   })
-
-
-
-
-
-  // let interval = window.setInterval(rotateSlides, 3000)
-  //
-  // function rotateSlides() {
-  //
-  //   const $firstSlide = $('.column.is-11').find('.carousel').find('div:first')
-  //   const width = $firstSlide.width()
-  //
-  //
-  //   $firstSlide.animate({marginLeft: -width}, 1000, function(){
-  //     var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
-  //     $lastSlide.insertBefore($firstSlide)
-  //     $firstSlide.css({marginLeft: 0})
-  //   })
-  //
-  //   $('#left-arrow').click(previousSlide)
-  //   $('#right-arrow').click(nextSlide)
-  //   $('.slide-image').click(nextSlide)
-  //
-  //
-  //   function nextSlide(){
-  //     window.clearInterval(interval)
-  //     var $currentSlide = $('.column.is-11').find('.carousel').find('div:first')
-  //     var width = $currentSlide.width()
-  //     $currentSlide.animate({marginLeft: -width}, 1000, function(){
-  //       var $lastSlide = $('.column.is-11').find('.carousel').find('div:last')
-  //       $lastSlide.insertBefore($currentSlide)
-  //       $currentSlide.css({marginLeft: 0})
-  //       interval = window.setInterval(rotateSlides, 3000)
-  //     })
-  //   }
-  //
-  //   function previousSlide(){
-  //     window.clearInterval(interval)
-  //     var $currentSlide = $('.column.is-11').find('.carousel').find('div:first')
-  //     var width = $currentSlide.width()
-  //     var $previousSlide = $('.column.is-11').find('.carousel').find('div:last')
-  //     $previousSlide.css({marginLeft: -width})
-  //     $currentSlide.insertBefore($previousSlide)
-  //     $previousSlide.animate({marginLeft: 0}, 1000, function(){
-  //       interval = window.setInterval(rotateSlides, 3000)
-  //     })
-  //   }
-
-  // }
 
 })
