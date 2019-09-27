@@ -87,7 +87,7 @@ $(function(){
 
   // ANIMATE CAROUSEL FUNCTION
   $.animateCarousel = function(){
-    console.log(count)
+    console.log('forward', count)
     $('#slideImage').fadeOut().queue(function(next){
       $(this).removeClass().addClass(`${carousel[0][count]}`).addClass('slide-image').delay(150).fadeIn()
       next()
@@ -96,7 +96,7 @@ $(function(){
   }
 
   $.reverseCarousel = function(){
-    console.log(count)
+    console.log('reverse', count)
     $('#slideImage').fadeOut().queue(function(next){
       $(this).removeClass().addClass(`${carousel[0][count]}`).addClass('slide-image').delay(150).fadeIn()
       next()
