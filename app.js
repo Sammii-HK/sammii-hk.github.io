@@ -95,6 +95,15 @@ $(function(){
     })
   }
 
+  $.reverseCarousel = function(){
+    console.log(count)
+    $('#slideImage').fadeOut().queue(function(next){
+      $(this).removeClass().addClass(`${carousel[0][count]}`).addClass('slide-image').delay(150).fadeIn()
+      next()
+      count = count === 0 ? carousel[0].length - 1 : count - 1
+    })
+  }
+
   let interval = setInterval($.animateCarousel, 5000)
 
 
@@ -138,16 +147,8 @@ $(function(){
 
   $('#left-arrow').click(function() {
     console.log('left click')
-    // count = count === 0 ? carousel[0].length - 1 : count --
-    count = count --
-
-    // if (count === 0) {
-    //   count = count === 0 ? carousel[0].length - 1 : count + 1
-    // } else if (count > 0) {
-    //   count = count --
-    // }
-
-    $.animateCarousel()
+    // count = count --
+    $.reverseCarousel()
     clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
   })
