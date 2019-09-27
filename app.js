@@ -1,34 +1,5 @@
 console.log('JS loaded 🐛')
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  // const navbarBurger = document.getElementById('navbar-burger')
-  // const navbarMenu = document.getElementById('navbar-menu')
-  // const navbarItem = document.querySelectorAll('.navbar-item')
-  //
-  // // NAVBAR TOGGLE FUNCTION
-  // navbarBurger.addEventListener('click', () => {
-  //   console.log('navbarBurger Click 🍔')
-  //   navbarBurger.classList.toggle('is-active')
-  //   navbarMenu.classList.toggle('is-active')
-  // })
-  //
-  // navbarItem.forEach(item => {
-  //   item.addEventListener('click', () => {
-  //     console.log('navbarItem Click 🍭')
-  //     navbarBurger.classList.toggle('is-active')
-  //     navbarMenu.classList.toggle('is-active')
-  //
-  //   })
-  // })
-
-})
-
-
-
-
-
-
 $(function(){
   const project1 = ['sei-1-1', 'sei-1-2', 'sei-1-3', 'sei-1-4']
   const project2 = ['sei-2-1', 'sei-2-2', 'sei-2-3']
@@ -60,9 +31,6 @@ $(function(){
     console.log('navbarItem Click 🍭')
     $('#navbar-burger').toggleClass('is-active')
     $('#navbar-menu').toggleClass('is-active')
-
-    // navbarBurger.classList.toggle('is-active')
-    // navbarMenu.classList.toggle('is-active')
   })
 
 
@@ -92,12 +60,6 @@ $(function(){
         }, 500)
         break
     }
-
-    // if (selectedItem === 'nav-home') {
-    //   $('#navbar-burger').addClass('is-active')
-    //   $('navbar-menu').removeClass('is-active')
-    // }
-
   })
 
   count = 1
