@@ -147,7 +147,7 @@ $(function(){
 
   $('#left-arrow').click(function() {
     console.log('left click')
-    count = count --
+    // count = count --
     $.reverseCarousel()
     clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
@@ -155,8 +155,7 @@ $(function(){
 
   $('#right-arrow').click(function() {
     console.log('right click')
-    count = count ++
-
+    // count = count ++
     $.animateCarousel()
     clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
