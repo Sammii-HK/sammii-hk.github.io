@@ -173,10 +173,9 @@ a.home-button:hover {
 }
 
 .slide-image {
-  width: 80vw;
-  /* width: 80vw; */
-  min-height: 60vh;
-  height: auto;
+  min-height: 80vh;
+  height: 100%;
+  width: auto;
   background-position: center;
   background-size: cover;
 }
@@ -193,10 +192,6 @@ a.home-button:hover {
 }
 
 .arrow {
-  /* width: 5%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%); */
   cursor: pointer;
   margin-top: 10px;
 }
@@ -228,10 +223,6 @@ a.home-button:hover {
 
 /* PROJECTS */
 
-/* .projects {
-  padding: 2%;
-} */
-
 .project {
   display: flex;
   justify-content: center;
@@ -240,7 +231,6 @@ a.home-button:hover {
 .project-show {
   width: 100%;
   padding: 15px;
-
 }
 
 .more-button {

@@ -190,14 +190,13 @@ $(function(){
   $('.list-item').fadeOut()
 
   $('.skill-item').mouseenter(function() {
-    $(this).find('.icon').fadeOut()
-    $(this).find('.list-item').delay(500).fadeIn()
 
-    $('.skill-item').mouseleave(function() {
-      $(this).find('.list-item').fadeOut()
-      $(this).find('.icon').delay(500).fadeIn()
+    $(this).find('.icon').fadeOut().queue(function(next){
+      $(this).parent().find('.list-item').fadeIn().delay(1000).fadeOut().parent().find('.icon').delay(2100).fadeIn()
+      next()
     })
   })
+
 
   // MORE ABOUT ME
   $('.more-aboutMe').slideUp().fadeOut( 400 )
