@@ -163,17 +163,14 @@ a.home-button:hover {
 
 .carousel {
   padding-top: 100px;
-  /* display: flex; */
   overflow: hidden;
   white-space: nowrap;
   width: 80vw;
-  /* width: 80vw; */
   height: 60vh;
   position: relative;
 }
 
 .slide-image {
-  min-height: 80vh;
   height: 100%;
   width: auto;
   background-position: center;
@@ -195,26 +192,6 @@ a.home-button:hover {
   cursor: pointer;
   margin-top: 10px;
 }
-/*
-@media (max-device-width: 1024px) {
-  .arrow {
-    width: 20%;
-  }
-}
-
-@media (max-width: 768px) {
-  .arrow {
-    width: 10%;
-  }
-}
-
-#right-arrow {
-  right: 0;
-}
-
-#left-arrow {
-  left: 0;
-} */
 
 .carousel-col {
   display: flex;
@@ -253,9 +230,6 @@ a.home-button:hover {
 
   display: flex;
   justify-content: center;
-
-  /* margin: .75rem; */
-
 }
 
 .project-image, .project-show {
@@ -299,19 +273,11 @@ a.home-button:hover {
   /* font-weight: 600; */
 }
 
-  .project-text {
-    font-weight: 600;
-    /* font-size: 14px; */
-    letter-spacing: .05em;
-  }
-
-
-
-
-
-
-
-
+.project-text {
+  font-weight: 600;
+  /* font-size: 14px; */
+  letter-spacing: .05em;
+}
 
 
 
@@ -329,6 +295,8 @@ a.home-button:hover {
   font-weight: 800;
   color: rgb(27, 5, 48);
   cursor: pointer;
+  margin-top: 50px;
+
 }
 
 .skills-contents {
@@ -340,7 +308,7 @@ a.home-button:hover {
   height: 125px;
   /* height: auto; */
   align-items: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: 25px 0;
 }
 
@@ -348,6 +316,7 @@ a.home-button:hover {
   font-size: 35px;
   font-weight: 600;
   color: darkSlateGray;
+  /* cursor: arrow; */
 }
 
 /* @media only screen and (max-width: 780px) {
