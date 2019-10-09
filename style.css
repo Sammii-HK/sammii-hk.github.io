@@ -599,29 +599,61 @@ a.column:hover {
 }
 
 .sei-4-1 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60629156-84f4f700-9dec-11e9-96e9-d19984492111.png');
+  background-image: url('./src/sei4/sei4-1.png');
 }
 
 .sei-4-2 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60984774-296ac200-a334-11e9-9a78-864cb3db8748.png');
+  background-image: url('./src/sei4/sei4-2.png');
 }
 
 .sei-4-3 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60629130-70186380-9dec-11e9-9572-f98f13c8e2ba.png');
+  background-image: url('./src/sei4/sei4-3.png');
 }
 
 .sei-4-4 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60900092-88acd180-a263-11e9-9815-904a689efc1c.png');
+  background-image: url('./src/sei4/sei4-4.png');
 }
 
 .sei-4-5 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60900093-88acd180-a263-11e9-8c78-a243c88c18de.png');
+  background-image: url('./src/sei4/sei4-5.png');
 }
 
 .sei-4-6 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60900094-88acd180-a263-11e9-893f-47b2934b580c.png');
+  background-image: url('./src/sei4/sei4-6.png');
 }
 
 .sei-4-7 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60900096-88acd180-a263-11e9-89ec-0ecb644e6e82.png');
+  background-image: url('./src/sei4/sei4-7.png');
+}
+
+.sei-4-8 {
+  background-image: url('./src/sei4/sei4-8.png');
+}
+
+.sei-4-9 {
+  background-image: url('./src/sei4/sei4-9.png');
+}
+
+.sei-4-10 {
+  background-image: url('./src/sei4/sei4-10.png');
+}
+
+.sei-4-11 {
+  background-image: url('./src/sei4/sei4-11.png');
+}
+
+.sei-4-12 {
+  background-image: url('./src/sei4/sei4-12.png');
+}
+
+.sei-4-13 {
+  background-image: url('./src/sei4/sei4-13.png');
+}
+
+.sei-4-14 {
+  background-image: url('./src/sei4/sei4-14.png');
+}
+
+.sei-4-15 {
+  background-image: url('./src/sei4/sei4-15.png');
 }
