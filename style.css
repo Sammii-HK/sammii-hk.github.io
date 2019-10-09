@@ -570,33 +570,73 @@ a.column:hover {
   background-image: url('https://user-images.githubusercontent.com/40900195/60629122-668efb80-9dec-11e9-9d1b-535fd470ef6a.png');
 }
 
+/* PROJECT 3 */
+
 .sei-3-1 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60899495-7bdbae00-a262-11e9-98db-fa0b13d2ff54.png');
+  background-image: url('./src/sei3/sei3-1.png');
 }
 
 .sei-3-2 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60899496-7bdbae00-a262-11e9-9c07-3e93b01b2dff.png');
+  background-image: url('./src/sei3/sei3-2.png');
 }
 
 .sei-3-3 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60899497-7bdbae00-a262-11e9-958a-cac4bc358a5f.png');
+  background-image: url('./src/sei3/sei3-3.png');
 }
 
 .sei-3-4 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60899498-7bdbae00-a262-11e9-9189-ca0af0b2427f.png');
+  background-image: url('./src/sei3/sei3-4.png');
 }
 
 .sei-3-5 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60899499-7bdbae00-a262-11e9-9d71-6b7a536125ad.png');
+  background-image: url('./src/sei3/sei3-5.png');
 }
 
 .sei-3-6 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60899500-7c744480-a262-11e9-8ba9-e2605fdbb06a.png');
+  background-image: url('./src/sei3/sei3-6.png');
 }
 
 .sei-3-7 {
-  background-image: url('https://user-images.githubusercontent.com/40900195/60899501-7c744480-a262-11e9-9dbe-cc37aea75142.png');
+  background-image: url('./src/sei3/sei3-7.png');
 }
+
+.sei-3-8 {
+  background-image: url('./src/sei3/sei3-8.png');
+}
+
+.sei-3-9 {
+  background-image: url('./src/sei3/sei3-9.png');
+}
+
+.sei-3-10 {
+  background-image: url('./src/sei3/sei3-10.png');
+}
+
+.sei-3-11 {
+  background-image: url('./src/sei3/sei3-11.png');
+}
+
+.sei-3-12 {
+  background-image: url('./src/sei3/sei3-12.png');
+}
+
+.sei-3-13 {
+  background-image: url('./src/sei3/sei3-13.png');
+}
+
+.sei-3-14 {
+  background-image: url('./src/sei3/sei3-14.png');
+}
+
+.sei-3-15 {
+  background-image: url('./src/sei3/sei3-15.png');
+}
+
+.sei-3-16 {
+  background-image: url('./src/sei3/sei3-16.png');
+}
+
+/* PROJECT 4 */
 
 .sei-4-1 {
   background-image: url('./src/sei4/sei4-1.png');
