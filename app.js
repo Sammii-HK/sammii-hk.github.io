@@ -2,8 +2,8 @@ console.log('JS loaded 🐛')
 
 $(function(){
   const project1 = ['sei-1-1', 'sei-1-2', 'sei-1-3', 'sei-1-4']
-  const project2 = ['sei-2-1', 'sei-2-2', 'sei-2-3']
-  const project3 = ['sei-3-1', 'sei-3-2', 'sei-3-3', 'sei-3-3', 'sei-3-5', 'sei-3-6', 'sei-3-7', 'sei-3-8', 'sei-3-9', 'sei-3-10', 'sei-3-11', 'sei-3-12', 'sei-3-13', 'sei-3-14', 'sei-3-15', 'sei-3-16']
+  const project2 = ['sei-2-1', 'sei-2-2', 'sei-2-3', 'sei-2-4', 'sei-2-5', 'sei-2-6', 'sei-2-7', 'sei-2-8', 'sei-2-9', 'sei-2-10']
+  const project3 = ['sei-3-1', 'sei-3-2', 'sei-3-3', 'sei-3-4', 'sei-3-5', 'sei-3-6', 'sei-3-7', 'sei-3-8', 'sei-3-9', 'sei-3-10', 'sei-3-11', 'sei-3-12', 'sei-3-13', 'sei-3-14', 'sei-3-15', 'sei-3-16']
   const project4 = ['sei-4-1', 'sei-4-2', 'sei-4-3', 'sei-4-4', 'sei-4-5', 'sei-4-6', 'sei-4-7', 'sei-4-8', 'sei-4-9', 'sei-4-10', 'sei-4-11', 'sei-4-12', 'sei-4-13', 'sei-4-14', 'sei-4-15']
 
   let carousel = []
