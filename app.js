@@ -122,24 +122,18 @@ $(function(){
     }
   })
 
-
-
+  // ARROW FUNCTIONS
   $('#left-arrow').click(function() {
-    console.log('left click')
-    // count = count --
     $.reverseCarousel()
     clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
   })
 
   $('#right-arrow').click(function() {
-    console.log('right click')
-    // count = count ++
     $.animateCarousel()
     clearInterval(interval)
     interval = setInterval($.animateCarousel, 5000)
   })
-
 
   // PROJECT ICON CLICK
   $('.project-icon').click(function() {
@@ -197,16 +191,12 @@ $(function(){
     })
   })
 
-
   // MORE ABOUT ME
   $('.more-aboutMe').slideUp().fadeOut( 400 )
 
   $('#aboutMe-button').click(function() {
     const height = $(window).scrollTop()
     const offset = $('#aboutMe').offset().top - 75
-
-    // console.log('height', height)
-    // console.log('offset', offset)
 
     if (height > offset) {
       $('html, body').animate({
@@ -216,7 +206,7 @@ $(function(){
 
     $('.aboutMe').slideToggle()
     $('.more-aboutMe').slideToggle()
-    $(this).text($(this).text() === 'Less business-y? 🤔' ? 'More boring 😬' : 'Less business-y? 🤔')
+    $(this).text($(this).text() === 'Less business-y? 🤔' ? 'Just less 🙃' : 'Less business-y? 🤔')
   })
 
 })
