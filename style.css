@@ -377,18 +377,6 @@ a.home-button:hover {
   margin-bottom: 5px;
 }
 
-/* @media only screen and (max-width: 780px) {
-  .proj-summary-headline {
-    font-size: 30px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .proj-summary-headline {
-    font-size: 20px;
-  }
-} */
-
 .proj-summary {
   font-size: 15px;
   font-weight: 600;
@@ -402,18 +390,6 @@ a.home-button:hover {
   color: teal;
 }
 
-/* @media only screen and (max-width: 780px) {
-  .proj-summary {
-    font-size: 26px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .proj-summary {
-    font-size: 18px;
-  }
-} */
-
 /* ABOUT ME */
 
 #aboutMe-button {
@@ -424,10 +400,6 @@ a.home-button:hover {
 .aboutMe-contents {
   padding-bottom: 25px;
   margin-bottom: 50px;
-}
-
-.aboutMe-fun {
-  /* background-color: orange; */
 }
 
 .more-aboutMe {
@@ -485,27 +457,6 @@ a.home-button:hover {
   margin-bottom: 20px;
 }
 
-
-
-/*
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fadeIn {
-  animation-name: fadeIn;
-  animation-duration: 3s;
-} */
-
-
-
 /* FOOTER */
 
 footer.footer {
@@ -519,15 +470,6 @@ a.column {
 a.column:hover {
   color:rgba(178,118,225,1);
 }
-
-
-
-
-
-
-
-
-
 
 
 
