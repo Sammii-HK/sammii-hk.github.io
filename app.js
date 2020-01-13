@@ -120,6 +120,9 @@ $(function(){
       case 'project-4':
         carousel.push(project4)
         break
+      case 'project-5':
+        carousel.push(project5)
+        break
     }
   })
 
