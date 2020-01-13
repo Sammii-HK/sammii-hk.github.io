@@ -711,3 +711,22 @@ a.column:hover {
 .sei-4-15 {
   background-image: url('./src/sei4/sei4-15.png');
 }
+
+
+/* PROJECT 5 */
+
+.sei-5-1 {
+  background-image: url('./src/commInfo/commInfo-1.png');
+}
+
+.sei-5-2 {
+  background-image: url('./src/commInfo/commInfo-2.png');
+}
+
+.sei-5-3 {
+  background-image: url('./src/commInfo/commInfo-3.png');
+}
+
+.sei-5-4 {
+  background-image: url('./src/commInfo/commInfo-4.png');
+}
