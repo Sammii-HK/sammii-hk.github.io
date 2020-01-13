@@ -16,7 +16,7 @@ $(function(){
   $('.project').find('.more-info').slideUp(.1)
   $('.project').addClass('is-4')
   $('.project:first').removeClass('is-4').addClass('is-11')
-  carousel.push(project4)
+  carousel.push(project5)
   $('#slideImage').addClass(`${carousel[0][0]}`)
   $('#slideImage').addClass('slide-image')
 
