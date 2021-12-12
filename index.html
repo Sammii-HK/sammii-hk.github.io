@@ -3,333 +3,55 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sammii: Creative Developer</title>
+    <title>Sammii: Fullstack Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-
-
     <link rel="stylesheet" href="style.css">
-
-
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
     <script src="app.js" charset="utf-8"></script>
   </head>
 
   <body>
 
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a id="nav-home" class="navbar-item home-button">Sammii</a>
-
-        <a id="navbar-burger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div id="navbar-menu" class="navbar-menu">
-        <div class="navbar-start">
-        </div>
-
-        <div class="navbar-end">
-          <div id="nav-projects" class="navbar-item">
-            <a>Projects</a>
+    <div class="hero is-fullheight">
+      <div class="hero-body has-text-centered">
+        <h1>Sammii 🌈</h1>
+        <div>
+          <div>
+            <a class="has-text-centered" href="mailto:kellow.sammii@gmail.com">
+              <span class="icon is-medium">
+                <i class="fas fa-envelope fa-lg"></i>
+              </span>
+            </a>
           </div>
-          <div id="nav-about" class="navbar-item">
-            <a>About Me</a>
+          <div>
+            <a class="has-text-centered" href="https://github.com/Sammii-HK/">
+              <span class="icon is-medium">
+                <i class="fab fa-github fa-lg"></i>
+              </span>
+            </a>
           </div>
-          <div id="nav-contact" class="navbar-item">
-            <a>Contact</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- <div id="ident" class="container ident">
-      <h1>Sammii</h1>
-      <p class="slash">/</p>
-      <p>Creative Frontend Developer</p>
-    </div> -->
-
-
-    <div id="carousel-container" class="container column">
-      <div class="columns is-multiline is-centered">
-        <div class="column carousel-col is-11">
-          <div id="carousel" class="carousel">
-            <div id="slideImage"></div>
-          </div>
-        </div>
-        <div class="column is-11 level is-mobile">
-          <div id="left-arrow" class="level-item">
-            <i class="fas fa-arrow-left fa-2x arrow"></i>
-          </div>
-          <div class="level-item">
-            <div id="carousel-dots"></div>
-          </div>
-          <div id="right-arrow" class="level-item">
-            <i class="fas fa-arrow-right fa-2x arrow"></i>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div id="projects" class="container projects">
-
-      <div class="columns is-multiline is-centered">
-
-
-        <div id="project-4" class="project column">
-          <div class="project-show columns is-multiline is-centered">
-            <div class="column is-9 info-container">
-              <h3 class="proj-summary-title">Artistry</h3>
-              <p class="proj-summary-headline">1 week solo project, using React, Python, JavaScript.</p>
-              <p class="more-button">Find out more</p>
-              <div class="more-info">
-                <p class="proj-summary">The brief was to build a full-stack application using React, Python and to create a SQL database with a relationship, I also made use of a third-party API by the Rijksmuseum and npm packages. I decided to make use of the depth of information already available and made my database use and then store the necessary information on the users in the database. <br/> <br/>
-                  <a href="https://artistry-api-app.herokuapp.com/#/">Live Site</a>  /  <a href="https://github.com/Sammii-HK/SEI-Project-4-Artistry">GitHub Repo</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-icon">
-
-            <div class="project-image sei-4-1"></div>
-
-            <div class="project-details">
-              <h3 class="project-title">Artistry</h3>
-              <p>Python & React</p>
-            </div>
-          </div>
-        </div>
-
-        <div id="project-3" class="project column">
-          <div class="project-show columns is-multiline is-centered">
-            <div class="column is-9 info-container">
-              <h3 class="proj-summary-title">On-Set London</h3>
-              <p class="proj-summary-headline">1 week group project, using React, MongoDB, JavaScript.</p>
-              <p class="more-button">Find out more</p>
-              <div class="more-info">
-                <p class="proj-summary">The brief was to build a full-stack app using React and MongoDB and create a NoSQL database, we used third-party APIs including MapBox. I mainly handled the building of the site index sidebar and searching functionality, and the mobile responsive layout, working all very collaboratively throughout the entire project. <br/> <br/>
-                  <a href="http://onsetlondon.herokuapp.com/#/">Live Site</a>  /  <a href="https://github.com/Sammii-HK/SEI-Project-3-On-Set-London">GitHub Repo</a>
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-
-
-          <div class="project-icon">
-
-            <div class="project-image sei-3-1"></div>
-
-            <div class="project-details">
-              <h3 class="project-title">On-Set London</h3>
-              <p class="project-text">MongoDB & React</p>
-            </div>
-          </div>
-        </div>
-
-        <div id="project-2" class="project column">
-          <div class="project-show columns is-multiline is-centered">
-            <div class="column is-9 info-container">
-              <h3 class="proj-summary-title">NASA API</h3>
-              <p class="proj-summary-headline">1.5 day paired project, using React, REST API.</p>
-              <p class="more-button">Find out more</p>
-              <div class="more-info">
-                <p class="proj-summary">The brief was to build a web application using React and third party APIs by NASA. We both worked evenly on the design, implementation and use of the APIs and pair coded together using a single laptop throughout the project. We managed the front end and how the APIs would be handled and logic used for the requests. <br/> <br/>
-                  <a href="https://sammii-hk.github.io/SEI-Project-2-NASA/#/">Live Site</a>  /  <a href="https://github.com/Sammii-HK/SEI-Project-2-NASA/">GitHub Repo</a>
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-
-          <div class="project-icon">
-
-            <div class="project-image sei-2-1"></div>
-
-            <div class="project-details">
-              <h3 class="project-title">NASA API</h3>
-              <p class="project-text">React & API's</p>
-            </div>
-          </div>
-        </div>
-
-        <div id="project-1" class="project column">
-          <div class="project-show columns is-multiline is-centered">
-            <div class="column is-9 info-container">
-              <h3 class="proj-summary-title">Space Invaders</h3>
-              <p class="proj-summary-headline">1 week solo project, using JavaScript.</p>
-              <p class="more-button">Find out more</p>
-              <div class="more-info">
-                <p class="proj-summary">The brief was to recreate a retro arcade game, and built using HTML CSS & JavaScript. I decided to build Space Invaders and as closely resemble the original arcade game as I could. Since it was a solo project, everything was managed and handled by me. <br/> <br/>
-                  <a href="https://sammii-hk.github.io/SEI-Project-1-spaceInvaders/">Live Site</a>  /  <a href="https://github.com/Sammii-HK/SEI-spaceInvaders">GitHub Repo</a>
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-
-          <div class="project-icon">
-
-            <div class="project-image sei-1-1"></div>
-
-            <div class="project-details">
-              <h3 class="project-title">Space Invaders</h3>
-              <p class="project-text">JavaScript</p>
-            </div>
+          <div>
+            <a class="has-text-centered" href="https://www.linkedin.com/in/samantha-kellow/">
+              <span class="icon is-medium">
+                <i class="fab fa-linkedin-in fa-lg"></i>
+              </span>
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-
-  <!-- carousel divider parralax scroll through gradient -->
-
-    <!-- <div id="skills" class="container columns is-multiline">
-      <p id="skills-button" class="skills-button column is-12 is-offset-8">View my tech stack</p>
-      <div class="skills-list columns is-centered is-multiline">
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item react">
-          <p class="list-item">React</p>
-          <div class="icon">
-            <i class="fab fa-react fa-5x"></i>
-          </div>
+    <div class="container projects-container">
+      <div class="columns is-centered">
+        <div id="project-info" class="column is-3"></div>
+        <div class="column is-7">
+          <div id="projects" class="columns is-multiline"></div>
         </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item javaScript">
-          <p class="list-item">JavaScript</p>
-          <div class="icon">
-            <i class="fab fa-js-square fa-5x"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item node">
-          <p class="list-item">Node.js</p>
-          <div class="icon">
-            <i class="fab fa-node-js fa-5x"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item express">
-          <p class="list-item">Express</p>
-          <div class="icon">
-            <i class="devicon-express-original devicon"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item webpack">
-          <p class="list-item">Webpack</p>
-          <div class="icon">
-            <i class="devicon-webpack-plain devicon"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item npm">
-          <p class="list-item">NPM</p>
-          <div class="icon">
-            <i class="fab fa-npm fa-5x"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item heroku">
-          <p class="list-item">Heroku</p>
-          <div class="icon">
-            <i class="devicon-heroku-plain devicon"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item html5">
-          <p class="list-item">HTML5</p>
-          <div class="icon">
-            <i class="fab fa-html5 fa-5x"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item scss">
-          <p class="list-item">SCSS & CSS</p>
-          <div class="icon">
-            <i class="fab fa-sass fa-5x"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item mongo">
-          <p class="list-item">MongoDB</p>
-          <div class="icon">
-            <i class="devicon-mongodb-plain devicon"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item gitHub">
-          <p class="list-item">GitHub</p>
-          <div class="icon">
-            <i class="fab fa-github fa-5x"></i>
-          </div>
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item python">
-          <p class="list-item">Python</p>
-          <div class="icon">
-            <i class="fab fa-python fa-5x"></i>
-          </div>
-        </div>
-        <!-- <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item flask">
-          <p class="list-item">Flask</p>
-          <img class="icon" src="http://bit.ly/2Y3OIkt" alt="Flask icon">
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item marshmallow">
-          <p class="list-item">Marshmallow</p>
-          <img class="icon" src="http://bit.ly/2LnFCZE" alt="Marshmallow icon">
-        </div>
-        <div class="column is-4-desktop is-6-tablet is-6-mobile has-text-centered skill-item pony">
-          <p class="list-item">Pony</p>
-          <img class="icon" src="http://bit.ly/2JKypzJ" alt="Pony icon">
-        </div> -->
-      <!-- </div>
-    </div> -->
-
-    <div id="aboutMe" class="container">
-      <h2 class="page-title">About Me</h2>
-      <div class="aboutMe-contents section">
-        <div class="container columns is-mobile is-multiline">
-            <div class="aboutMe column is-7 is-offset-4">
-              <p class="aboutMe-text">I am Frontend Developer with a professional Graphic Design background, my goal is to harness and utilise both my design and development skills and combine them within my career.
-              </p>
-            </div>
-            <div class="more-aboutMe columns is-centered">
-              <div class="column is-6">
-                <p class="more-aboutMe-text">You might have noticed I am a Web Developer by now but I have a variety of skills & interests. I am a trained Graphic Designer who loves expressing my creativity in many ways. </p>
-                <p class="aboutMe-extraText">I sketch and have also recently started digital painting. While drawing I also keep up to date with many films and TV programs and enjoy many genres from Cult Classics to Modern Box Office Releases. <br/>
-                When I am not coding or drawing you will find me reading a vast variety of fiction and non-fiction books. <br/><br/>
-                My past portfolio showcasing my Graphic Design work is available at: <a href="http://sammiidesign.co.uk">sammiidesign.co.uk</a> </p>
-              </div>
-              <div class="column is-4">
-                <p class="book-list-heading">Some of my favorite books are:</p>
-                <li>Alice in Wonderland – Lewis Caroll</li> <hr>
-                <li>The Hermitica – Freke & Gandy</li> <hr>
-                <li>1984 – George Orwell</li> <hr>
-                <li>Do Androids Dream of Electric Sheep – Phillip K Dick</li> <hr>
-                <li>The Fingerprints of the Gods – Graham Hancock</li> <hr>
-              </div>
-
-            </div>
-            <p id="aboutMe-button" class="aboutMe-text column">Less business-y? 🤔</p>
-          </div>
-        </div>
-    </div>
-
-    <footer id="contact" class="footer has-background-dark">
-      <div class="content columns is-mobile">
-        <a class="column has-text-centered" href="mailto:kellow.sammii@gmail.com">
-          <i class="fas fa-envelope fa-2x"></i>
-        </a>
-        <a class="column has-text-centered" href="https://github.com/Sammii-HK/">
-          <i class="fab fa-github fa-2x"></i>
-        </a>
-        <a class="column has-text-centered" href="https://www.linkedin.com/in/samantha-kellow/">
-          <i class="fab fa-linkedin-in fa-2x"></i>
-        </a>
       </div>
-    </footer>
-
+    </div>
 
   </body>
 </html>
