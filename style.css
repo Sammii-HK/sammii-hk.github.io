@@ -9,12 +9,14 @@
 }
 
 html {
+  background-color: #090909;
 }
 
 body {
+  color: #fcfcfc;
   /* padding-top: 100px; */
-  background-color: #fcfcfc;
-  color: rgb(27, 5, 48);
+  /* background-color: #fcfcfc; */
+  /* color: rgb(27, 5, 48); */
 }
 
 .is-clickable {
