@@ -10,6 +10,8 @@
 
 html {
   background-color: #090909;
+  scroll-snap-type: y mandatory;
+  min-width: 100vw !important;
 }
 
 body {
@@ -25,21 +27,44 @@ body {
 
 /* TYPOGRAPHY */
 h1 {
-  font-size: 5rem;
-  padding: 10rem 4rem 10rem 18rem;
+  font-size: 2rem;
+  /* padding: 10rem 4rem 10rem 18rem; */
 }
 
-.projects-container {
-  margin-bottom: 15rem;
+h3 {
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
 }
 
 #projects-container-mobile {
-  min-height: 100vh !important;
-  max-height: 100vh !important;
+  min-height: 99vh !important;
+  max-height: 99vh !important;
+  padding: 3rem;
+}
+
+#projects-container-desktop {
+  padding: 3rem;
+  margin-bottom: 10rem;
+}
+
+#project-info-container-mobile {
+  padding: 1.5rem;
 }
 
 #mobile-projects {
   overflow: scroll;
   min-height: 90vh !important;
   max-height: 90vh !important;
+  /* padding-bottom: 73vh; */
+  padding-bottom: 80vh;
+  scroll-snap-type: y mandatory;
+  /* padding-top: 3rem !important; */
 }
+
+#crystal-index-mobile {
+  margin-top: 3rem;
+}
+
+.project-image-container-mobile, .landing-section {
+  scroll-snap-align: start;
+};

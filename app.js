@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll(".project-image-container-desktop").forEach(item => {
     item.addEventListener('mouseenter', event => activeProjectInfo(event.target.id, 'desktop') )
   });
+
+  const projectsContainerMobile = document.getElementById("mobile-projects")
+  projectsContainerMobile.addEventListener('scroll', event => mobileActiveProjectScroll(event) );
 });
 
 const projects = [
@@ -130,6 +133,15 @@ function activeProjectInfo(projectId, mediaType) {
   info.innerText = project.info
 };
 
+function mobileActiveProjectScroll() {
+  const projectContainer = document.querySelectorAll(".project-image-container-mobile")
+  const firstVisibleProject = [...projectContainer].find(item => {
+    let viewportOffset = item.getBoundingClientRect();
+    return viewportOffset.y >= 0
+  })
+  activeProjectInfo(firstVisibleProject.id, 'mobile')
+};
+
 function projectsContainerDesktop() {
   // create + style project info container
   const infoContainer = document.createElement("div")
@@ -150,6 +162,7 @@ function projectsContainerDesktop() {
   columns.appendChild(thumbnailsContainer)
   // append columns > container
   const container = document.getElementById("projects-container-desktop")
+  container.classList.add("landing-section")
   container.appendChild(columns)
 };
 
@@ -170,6 +183,7 @@ function projectsContainerMobile() {
   columns.appendChild(thumbnailsContainer)
   // append columns > container
   const container = document.getElementById("projects-container-mobile")
+  container.classList.add("landing-section")
   container.appendChild(columns)
 };
 
