@@ -4,7 +4,8 @@ const projects = [
   {
     id: 'crystal-index',
     title: 'Crystal Index',
-    info: '',
+    techStack: 'vue, sequelize',
+    info: 'A database to index my crystals',
   },
   {
     id: 'communication-infographic',
@@ -111,7 +112,7 @@ function createInfoPanel(mediaType) {
   const title = document.createElement("h3")
   title.setAttribute("id", `project-title-${mediaType}`)
   // create info paragraph
-  const info = document.createElement("p")
+  const info = document.createElement("div")
   info.setAttribute("id", `project-info-${mediaType}`)
   // append title + info > project info container
   const projectInfo = document.getElementById(`project-info-container-${mediaType}`)
@@ -131,8 +132,16 @@ function setActiveProjectInfo(projectId, mediaType) {
   const title = document.getElementById(`project-title-${mediaType}`);
   title.innerText = project.title
   // find info + append `project.info`
-  const info = document.getElementById(`project-info-${mediaType}`);
-  info.innerText = project.info
+  const infoContainer = document.getElementById(`project-info-${mediaType}`);
+  infoContainer.innerHTML = '';
+  // project details
+  const techStack = document.createElement("div");
+  techStack.innerText = project.techStack
+  const projectInfo = document.createElement("div");
+  projectInfo.innerText = project.info
+
+  if (project.techStack) infoContainer.appendChild(techStack)
+  infoContainer.appendChild(projectInfo)
 };
 
 function onMobileProjectsScroll() {
