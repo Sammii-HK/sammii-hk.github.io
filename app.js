@@ -1,15 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log("JS loaded 🐛");
-  
-  initializeInterface()
-  
-  document.querySelectorAll(".project-image-container-desktop").forEach(item => {
-    item.addEventListener('mouseenter', event => activeProjectInfo(event.target.id, 'desktop') )
-  });
-
-  const projectsContainerMobile = document.getElementById("mobile-projects")
-  projectsContainerMobile.addEventListener('scroll', event => mobileActiveProjectScroll(event) );
-});
+document.addEventListener('DOMContentLoaded', initializeInterface);
 
 const projects = [
   {
@@ -60,10 +49,23 @@ const projects = [
 ];
 
 function initializeInterface() {
+  console.log("JS loaded 🐛");
   // create desktop + mobile views
   initializeMediaSpecificInterface('desktop')
   initializeMediaSpecificInterface('mobile')
+  // 
+  createEvents()
 }
+
+function createEvents() {
+  // create desktop mouse enter events
+  document.querySelectorAll(".project-image-container-desktop").forEach(item => {
+    item.addEventListener('mouseenter', event => setActiveProjectInfo(event.target.id, 'desktop') )
+  });
+  // create mobile scroll event
+  const projectsContainerMobile = document.getElementById("mobile-projects")
+  projectsContainerMobile.addEventListener('scroll', event => onMobileProjectsScroll(event) );
+};
 
 function initializeMediaSpecificInterface(mediaType) {
   // create main containers
@@ -76,7 +78,7 @@ function initializeMediaSpecificInterface(mediaType) {
   });
   // set base active project on page load
   const firstProjectId = projects[0].id
-  activeProjectInfo(`${firstProjectId}-${mediaType}`, mediaType);
+  setActiveProjectInfo(`${firstProjectId}-${mediaType}`, mediaType);
 };
 
 function createThumbnail(project, mediaType) {
@@ -117,7 +119,7 @@ function createInfoPanel(mediaType) {
   projectInfo.appendChild(info)
 };
 
-function activeProjectInfo(projectId, mediaType) {
+function setActiveProjectInfo(projectId, mediaType) {
   // find project with matching id
   const project = projects.find(proj => {
     // append mediaType to `const projects: { id }` for reference to work
@@ -133,13 +135,13 @@ function activeProjectInfo(projectId, mediaType) {
   info.innerText = project.info
 };
 
-function mobileActiveProjectScroll() {
-  const projectContainer = document.querySelectorAll(".project-image-container-mobile")
-  const firstVisibleProject = [...projectContainer].find(item => {
-    let viewportOffset = item.getBoundingClientRect();
+function onMobileProjectsScroll() {
+  const projectImageContainers = document.querySelectorAll(".project-image-container-mobile")
+  const firstVisibleProject = [...projectImageContainers].find(projectImageContainer => {
+    let viewportOffset = projectImageContainer.getBoundingClientRect();
     return viewportOffset.y >= 0
   })
-  activeProjectInfo(firstVisibleProject.id, 'mobile')
+  if (firstVisibleProject) setActiveProjectInfo(firstVisibleProject.id, 'mobile')
 };
 
 function projectsContainerDesktop() {
@@ -187,4 +189,3 @@ function projectsContainerMobile() {
   container.appendChild(columns)
 };
 
-// $(function(){})
