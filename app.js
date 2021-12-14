@@ -4,47 +4,55 @@ const projects = [
   {
     id: 'crystal-index',
     title: 'Crystal Index',
-    techStack: 'vue, sequelize',
+    techStack: 'Vue, Sequelize',
     info: 'A database to index my crystals',
   },
   {
     id: 'communication-infographic',
     title: 'Communication Infographic',
+    techStack: 'React, Javascript',
     info: '',
   },
   {
     id: 'artistry',
     title: 'Artistry',
-    info: '',
+    techStack: 'React, Python',
+    info: 'Damn that dog stare at guinea pigs so avoid the new toy and just play with the box it came in have secret plans pushes butt to face for the door is opening! how exciting oh, it\'s you, meh pooping rainbow while flying in a toasted bread costume in space.',
   },
   {
     id: 'on-set-london',
     title: 'On Set',
+    techStack: 'React, MongoDB',
     info: '',
   },
   {
     id: 'space-invaders',
     title: 'Space Invaders',
+    techStack: 'Javascript',
     info: '',
   },
   {
     id: 'volcanoVisualisation',
     title: 'Volcano Visualisation',
+    techStack: 'Javascript, d3.js',
     info: '',
   },
   {
     id: 'p5-interactive-graphics',
     title: 'P5 Interactive Graphics',
+    techStack: 'Javascript, p5.js',
     info: '',
   },
   {
     id: 'three-js-particles',
     title: 'Three.js 3D Model',
+    techStack: 'Javascript, three.js',
     info: '',
   },
   {
     id: 'matter-js-animation',
     title: 'Matter.js',
+    techStack: 'Javascript, matter.js',
     info: 'Info',
   },
 ];
@@ -54,8 +62,8 @@ function initializeInterface() {
   // create desktop + mobile views
   initializeMediaSpecificInterface('desktop')
   initializeMediaSpecificInterface('mobile')
-  // 
-  createEvents()
+  // create mouse over and scroll events for desktop + mobile project views
+  createEvents();
 }
 
 function createEvents() {
@@ -66,6 +74,9 @@ function createEvents() {
   // create mobile scroll event
   const projectsContainerMobile = document.getElementById("mobile-projects")
   projectsContainerMobile.addEventListener('scroll', event => onMobileProjectsScroll(event) );
+  // remove overlay from first project thumbnail on desktop
+  const firstProjectId = projects[0].id
+  document.getElementById(`${firstProjectId}-desktop-overlay`).classList.remove("thumbnail-overlay")
 };
 
 function initializeMediaSpecificInterface(mediaType) {
@@ -98,8 +109,13 @@ function createThumbnail(project, mediaType) {
   column.classList.add("column", `project-image-container-${mediaType}`)
   column.classList.add(mediaType === 'mobile' ? 'is-12' : 'is-4')
   column.setAttribute("id", `${project.id}-${mediaType}`)
-  // append image > figure > link > column
+  // create overlay
+  const overlay = document.createElement("div")
+  overlay.setAttribute("id", `${project.id}-${mediaType}-overlay`)
+  overlay.classList.add("thumbnail-overlay", "overlay")
+  // append image + overlay > figure > link > column
   figure.appendChild(image)
+  figure.appendChild(overlay)
   link.appendChild(figure)
   column.appendChild(link)
   // append column > projects container
@@ -127,20 +143,27 @@ function setActiveProjectInfo(projectId, mediaType) {
     const mediaTypeProjId = `${proj.id}-${mediaType}`
     // then match ids to grab project info
     return mediaTypeProjId === projectId
-  } );
+  });
+
+  document.querySelectorAll(".overlay").forEach(item => item.classList.add("thumbnail-overlay"));
+  document.getElementById(`${projectId}-overlay`).classList.remove("thumbnail-overlay")
+  
   // find title + append `project.title`
   const title = document.getElementById(`project-title-${mediaType}`);
+  title.classList.add("title", "is-7-mobile", "is-4",)
   title.innerText = project.title
   // find info + append `project.info`
   const infoContainer = document.getElementById(`project-info-${mediaType}`);
   infoContainer.innerHTML = '';
   // project details
-  const techStack = document.createElement("div");
+  const techStack = document.createElement("h5");
+  techStack.classList.add("subtitle", "is-5", "is-7-mobile")
   techStack.innerText = project.techStack
-  const projectInfo = document.createElement("div");
+  const projectInfo = document.createElement("p");
+  techStack.classList.add("body")
   projectInfo.innerText = project.info
 
-  if (project.techStack) infoContainer.appendChild(techStack)
+  infoContainer.appendChild(techStack)
   infoContainer.appendChild(projectInfo)
 };
 
@@ -163,7 +186,7 @@ function projectsContainerDesktop() {
   thumbnails.classList.add("columns", "is-multiline")
   thumbnails.setAttribute("id", "desktop-projects")
   const thumbnailsContainer = document.createElement("div")
-  thumbnailsContainer.classList.add("column", "is-7")
+  thumbnailsContainer.classList.add("column", "is-7", "is-offset-1")
   thumbnailsContainer.appendChild(thumbnails)
   // create + style columns container
   const columns = document.createElement("div")
