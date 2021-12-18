@@ -9,7 +9,7 @@
     color: #fcfcfc;
   }
   .thumbnail-overlay {
-    background: #09090950;
+    background: #090909bf;
   }
   .title, .subtitle {
     color: #fcfcfc;
@@ -27,7 +27,7 @@
     color: #090909;
   }
   .thumbnail-overlay {
-    background: #fcfcfc50;
+    background: #fcfcfcbf;
   }
   .title, .subtitle {
     color: #090909;
@@ -134,23 +134,5 @@ h1 {
   width: 8rem;
   display: flex;
   justify-content: space-between;
-}
-
-
-/* PROJECT 5 */
-
-.proj-5-1 {
-  background-image: url('./src/proj5/commInfo-1.png');
-}
-
-.proj-5-2 {
-  background-image: url('./src/proj5/commInfo-2.png');
-}
-
-.proj-5-3 {
-  background-image: url('./src/proj5/commInfo-3.png');
-}
-
-.proj-5-4 {
-  background-image: url('./src/proj5/commInfo-4.png');
+  margin-bottom: 2rem;
 }

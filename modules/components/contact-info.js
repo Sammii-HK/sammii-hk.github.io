@@ -24,7 +24,8 @@ function createContactLink(option) {
   span.appendChild(icon)
   const anchor = document.createElement("a")
   anchor.classList.add("has-text-centered", "icon-link")
-  anchor.hasAttribute("href", option.link)
+  anchor.href = option.link
+  anchor.setAttribute("target", "_blank")
   anchor.appendChild(span)
   const container = document.createElement("div")
   return container.appendChild(anchor)
