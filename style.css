@@ -1,6 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
 
 /* UNIVERSAL STYLES */
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: #090909;
+  }
+  body {
+    color: #fcfcfc;
+  }
+  .thumbnail-overlay {
+    background: #09090950;
+  }
+  .title, .subtitle {
+    color: #fcfcfc;
+  }
+  a {
+    color: #777676;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    background-color: #fcfcfc;
+  }
+  body {
+    color: #090909;
+  }
+  .thumbnail-overlay {
+    background: #fcfcfc50;
+  }
+  .title, .subtitle {
+    color: #090909;
+  }
+  a {
+    color: #454545;
+  }
+}
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -9,13 +44,12 @@
 }
 
 html {
-  background-color: #090909;
   scroll-snap-type: y mandatory;
   min-width: 100vw !important;
 }
 
-body {
-  color: #fcfcfc;
+a:hover {
+  color: #d512cb
 }
 
 .overlay-container {
@@ -26,7 +60,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #09090950;
   top: 0;
   left: 0;
 }
@@ -36,9 +69,6 @@ body {
 }
 
 /* TYPOGRAPHY */
-.title, .subtitle {
-  color: #fcfcfc;
-}
 h1 {
   font-size: 2rem;
   /* padding: 10rem 4rem 10rem 18rem; */
@@ -64,10 +94,16 @@ h1 {
 }
 
 #project-info-container-mobile {
+  position: relative;
   @media screen and (min-width: 480px) {
     padding: 1.5rem;
     /* padding: 0 !important; */
   }
+}
+
+#project-info-container-desktop {
+  min-height: 50vh;
+  position: relative;
 }
 
 #mobile-projects {
@@ -90,4 +126,12 @@ h1 {
 
 .project-image-container-mobile, .landing-section {
   scroll-snap-align: start;
-};
+}
+
+.contact-details-container {
+  position: absolute !important;
+  bottom: 0 !important;
+  width: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
