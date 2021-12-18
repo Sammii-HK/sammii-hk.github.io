@@ -135,3 +135,22 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
+
+
+/* PROJECT 5 */
+
+.proj-5-1 {
+  background-image: url('./src/proj5/commInfo-1.png');
+}
+
+.proj-5-2 {
+  background-image: url('./src/proj5/commInfo-2.png');
+}
+
+.proj-5-3 {
+  background-image: url('./src/proj5/commInfo-3.png');
+}
+
+.proj-5-4 {
+  background-image: url('./src/proj5/commInfo-4.png');
+}
