@@ -5,7 +5,7 @@ const projects = [
     id: 'crystal-index',
     title: 'Crystal Index',
     techStack: 'Vue, Sequelize',
-    info: 'A database to index my crystals',
+    info: 'A full-stack app, which is an index to record my crystals, with a Vue front-end, running an Express server which is serving a Sequelize API. Self hosted on my Raspberry Pi.',
   },
   {
     id: 'communication-infographic',
@@ -35,25 +35,25 @@ const projects = [
     id: 'volcanoVisualisation',
     title: 'Volcano Visualisation',
     techStack: 'Javascript, d3.js',
-    info: 'A full stack app, which plots volcano eruptions on a Orthographic projection map, using d3.js to visualise the data, running an Express server loading data stored as JSON.',
+    info: 'A full-stack app, which plots volcano eruptions on a Orthographic projection map, using d3.js to visualise the data, running an Express server loading data stored as JSON.',
   },
   {
     id: 'p5-interactive-graphics',
     title: 'P5 Interactive Graphics',
     techStack: 'Javascript, p5.js',
-    info: 'A Frontend app, which renders an interactive graphic visualisation which reacts to the users cursor movement and position, created with P5.js and Javascript.',
+    info: 'A front-end app, which renders an interactive graphic visualisation which reacts to the users cursor movement and position, created with P5.js and Javascript.',
   },
   {
     id: 'three-js-particles',
     title: 'Three.js 3D Model',
     techStack: 'Javascript, three.js',
-    info: 'A Frontend app, which renders a 3D model of a butterfly within a 3D scene, with moving snow particles, created with Three.js and Javascript.',
+    info: 'A front-end app, which renders a 3D model of a butterfly within a 3D scene, with moving snow particles, created with Three.js and Javascript.',
   },
   {
     id: 'matter-js-animation',
     title: 'Matter.js',
     techStack: 'Javascript, matter.js',
-    info: 'A Frontend app, which renders an interactive physics based graphic, with gravity applied to rendered shapes, which are interactive to the users cursor, created with Matter.js and Javascript.',
+    info: 'A front-end app, which renders an interactive physics based graphic, with gravity applied to rendered shapes, which are interactive to the users cursor, created with Matter.js and Javascript.',
   },
 ];
 
