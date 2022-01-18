@@ -47,7 +47,7 @@ const projects = [
     id: 'three-js-particles',
     title: 'Three.js 3D Model',
     techStack: 'Javascript, three.js',
-    info: 'A front-end app, which renders a 3D model of a butterfly within a 3D scene, with moving snow particles, created with Three.js and Javascript.',
+    info: 'A Frontend app, which renders a 3D model of a butterfly within a 360 degree scene, with moving geometric particles, created with Three.js and Javascript.',
   },
   {
     id: 'matter-js-animation',
@@ -131,12 +131,22 @@ function createInfoPanel(mediaType) {
   const info = document.createElement("div")
   info.setAttribute("id", `project-info-${mediaType}`)
   // create contactInfo
-  const contact = contactDetails()
+  const contact = contactDetails(mediaType)
   // append title + info > project info container
   const projectInfo = document.getElementById(`project-info-container-${mediaType}`)
   projectInfo.appendChild(title)
   projectInfo.appendChild(info)
-  projectInfo.appendChild(contact)
+
+  // const desktopColumnsContainer = document.getElemmentById("desktop-columns-container")
+  // projectInfo.appendChild(contact)
+  mediaType === "mobile" ? projectInfo.appendChild(contact) : document.getElementById("projects-container-desktop").appendChild(contact);
+};
+
+function createProjectLink(project) {
+  const link = document.createElement("a")
+  link.setAttribute("href", `https://github.com/Sammii-HK/${project.id}`)
+  link.setAttribute("target", "_blank")
+  return link
 };
 
 function setActiveProjectInfo(projectId, mediaType) {
@@ -147,9 +157,10 @@ function setActiveProjectInfo(projectId, mediaType) {
     // then match ids to grab project info
     return mediaTypeProjId === projectId
   });
-
+  
   document.querySelectorAll(".overlay").forEach(item => item.classList.add("thumbnail-overlay"));
   document.getElementById(`${projectId}-overlay`).classList.remove("thumbnail-overlay")
+  
   
   // find title + append `project.title`
   const title = document.getElementById(`project-title-${mediaType}`);
@@ -165,9 +176,21 @@ function setActiveProjectInfo(projectId, mediaType) {
   const projectInfo = document.createElement("p");
   techStack.classList.add("body")
   projectInfo.innerText = project.info
-
+  
   infoContainer.appendChild(techStack)
   infoContainer.appendChild(projectInfo)
+
+  if (mediaType === "mobile") {
+    const projectLink = createProjectLink(project)
+    projectLink.innerText = "Github"
+    const linkContainer = document.createElement("div")
+    linkContainer.classList.add('github-link')
+    
+    linkContainer.appendChild(projectLink)
+    infoContainer.appendChild(linkContainer)
+
+  }
+
 };
 
 function onMobileProjectsScroll() {
@@ -194,6 +217,7 @@ function projectsContainerDesktop() {
   // create + style columns container
   const columns = document.createElement("div")
   columns.classList.add("columns", "is-centered")
+  columns.setAttribute("id", "desktop-columns-container")
   // append info container + thumbnails container > columns
   columns.appendChild(infoContainer)
   columns.appendChild(thumbnailsContainer)

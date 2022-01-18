@@ -68,6 +68,10 @@ a:hover {
   cursor: pointer;
 }
 
+.icon {
+  width: auto !important;
+}
+
 /* TYPOGRAPHY */
 h1 {
   font-size: 2rem;
@@ -128,11 +132,38 @@ h1 {
   scroll-snap-align: start;
 }
 
-.contact-details-container {
-  position: absolute !important;
-  bottom: 0 !important;
+.contact-icons-container {
+  /* position: absolute !important;
+  bottom: 0 !important; */
   width: 8rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
+}
+
+.contact-details-container.mobile {
+  position: absolute !important;
+  bottom: 0 !important;
+}
+
+.contact-details-container.desktop {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+  padding-bottom: 15rem !important;
+  margin-bottom: 15rem !important;
+}
+
+.title-container.desktop {
+  padding-bottom: 0.75rem;
+}
+
+.title-container.mobile {
+  margin: 5rem 0rem 0.5rem 0rem !important;
+  /* position: absolute; */
+  /* bottom: 0px; */
+}
+
+.github-link {
+  margin-top: 2rem;
 }
