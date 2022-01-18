@@ -34,11 +34,12 @@ function createContactLink(option) {
 function createTitle(mediaType) {
   const title = document.createElement("h1");
   title.innerText = "Sammii";
+  title.setAttribute("id", `title-${mediaType}`)
   const subtitle = document.createElement("h3");
+  subtitle.setAttribute("id", `subtitle-${mediaType}`)
   subtitle.innerText = "Software Engineer";
 
   const container = document.createElement("div");
-  container.classList.add("title-container", mediaType)
   container.appendChild(title);
   container.appendChild(subtitle);
   return container

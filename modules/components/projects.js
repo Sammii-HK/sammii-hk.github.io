@@ -1,4 +1,5 @@
 import { contactDetails } from './contact-info.js';
+import '../common/scripts/colour-creator.js';
 
 const projects = [
   {
