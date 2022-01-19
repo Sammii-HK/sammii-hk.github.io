@@ -18,8 +18,8 @@ function degrees(value, total) {
 export function calculateColour(e, mediaType) {
   const width = window.innerWidth;
   const height = window.innerHeight;
-  const posY = e.clientY || e.bottom;
-  const posX = e.clientX || e.top;
+  const posY = e.clientY || (e.bottom + 200);
+  const posX = e.clientX || (e.top + 200);
   let x, y, z
   
   // console.log("e.bottom, e.top", e.bottom, e.top);
@@ -27,7 +27,6 @@ export function calculateColour(e, mediaType) {
 
   // window 375 812
   // console.log("window", window.innerWidth, window.innerHeight);
-  
   
   
   x = degrees(posX, width)
