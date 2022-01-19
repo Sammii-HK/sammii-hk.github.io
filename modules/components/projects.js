@@ -1,5 +1,5 @@
 import { contactDetails } from './contact-info.js';
-import '../common/scripts/colour-creator.js';
+import { calculateColour } from '../common/scripts/colour-creator.js';
 
 const projects = [
   {
@@ -74,7 +74,7 @@ function createEvents() {
   });
   // create mobile scroll event
   const projectsContainerMobile = document.getElementById("mobile-projects")
-  projectsContainerMobile.addEventListener('scroll', event => onMobileProjectsScroll(event) );
+  projectsContainerMobile.addEventListener('scroll', onMobileProjectsScroll);
   // remove overlay from first project thumbnail on desktop
   const firstProjectId = projects[0].id
   document.getElementById(`${firstProjectId}-desktop-overlay`).classList.remove("thumbnail-overlay")
@@ -198,8 +198,10 @@ function onMobileProjectsScroll() {
   const projectImageContainers = document.querySelectorAll(".project-image-container-mobile")
   const firstVisibleProject = [...projectImageContainers].find(projectImageContainer => {
     let viewportOffset = projectImageContainer.getBoundingClientRect();
+    calculateColour(viewportOffset, "mobile")
     return viewportOffset.y >= 0
   })
+  
   if (firstVisibleProject) setActiveProjectInfo(firstVisibleProject.id, 'mobile')
 };
 

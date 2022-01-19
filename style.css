@@ -48,6 +48,13 @@ html {
   min-width: 100vw !important;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+}
+
 a:hover {
   color: #d512cb
 }
@@ -83,6 +90,7 @@ h1 {
   max-height: 99vh !important;
   /* padding: 3rem; */
   padding: 1rem;
+  padding-top: 3rem;
   @media screen and (min-width: 480px) {
     padding: 3rem;
     /* padding: 1rem !important; */
@@ -138,6 +146,7 @@ h1 {
   width: 8rem;
   display: flex;
   justify-content: space-between;
+  margin-top: 0.75rem;
   /* margin-bottom: 2rem; */
 }
 
@@ -147,8 +156,6 @@ h1 {
 }
 
 .contact-details-container.desktop {
-  display: flex;
-  justify-content: flex-end;
   margin-right: 2rem;
   padding-bottom: 15rem !important;
   margin-bottom: 15rem !important;
