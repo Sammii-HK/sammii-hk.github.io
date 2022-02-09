@@ -97,7 +97,7 @@ function initializeMediaSpecificInterface(mediaType) {
 function createThumbnail(project, mediaType) {
   // create image
   const image = document.createElement("img")
-  image.setAttribute("src", `./src/assets/images/${project.id}.png`)
+  image.setAttribute("src", `./src/assets/images/${project.id}.jpeg`)
   // create figure container for image
   const figure = document.createElement("figure")
   figure.classList.add("image", "is-1x1", "is-clickable")
