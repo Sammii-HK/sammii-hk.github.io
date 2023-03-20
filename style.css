@@ -59,6 +59,10 @@ a:hover {
   color: #d512cb
 }
 
+.project-info-container {
+  padding: 1.5rem 0;
+}
+
 .overlay-container {
   position: relative;
 }

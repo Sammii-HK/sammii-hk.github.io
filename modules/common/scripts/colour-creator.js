@@ -1,7 +1,7 @@
 function percentage(value, total) {
   
   const result = Math.floor((value / total) * 100);
-  console.log("value, result", value, result);
+  // console.log("value, result", value, result);
   return (result > 75) ? 75
   : (result < 25) ? 25
   // : Math.abs(result);
@@ -10,7 +10,7 @@ function percentage(value, total) {
 
 function degrees(value, total) {
   const result = Math.floor((value / total) * 360);
-  console.log("value, result", value, result);
+  // console.log("value, result", value, result);
   // return Math.abs(result)
   return result;
 }
@@ -33,7 +33,7 @@ export function calculateColour(e, mediaType) {
   y = percentage(posY, height)
   z = percentage((posX + posY), (width + height))
 
-  console.log("x, y, z", x, y, z);
+  // console.log("x, y, z", x, y, z);
   
   
 

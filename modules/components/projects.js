@@ -76,8 +76,8 @@ function createEvents() {
   const projectsContainerMobile = document.getElementById("mobile-projects")
   projectsContainerMobile.addEventListener('scroll', onMobileProjectsScroll);
   // remove overlay from first project thumbnail on desktop
-  const firstProjectId = projects[0].id
-  document.getElementById(`${firstProjectId}-desktop-overlay`).classList.remove("thumbnail-overlay")
+  // const firstProjectId = projects[0].id
+  // document.getElementById(`${firstProjectId}-desktop-overlay`).classList.remove("thumbnail-overlay")
 };
 
 function initializeMediaSpecificInterface(mediaType) {
@@ -88,13 +88,25 @@ function initializeMediaSpecificInterface(mediaType) {
   // create thumbnails
   projects.map(project => {
     createThumbnail(project, mediaType);
+    setActiveProjectInfo(project, mediaType);
   });
   // set base active project on page load
-  const firstProjectId = projects[0].id
-  setActiveProjectInfo(`${firstProjectId}-${mediaType}`, mediaType);
+  // const firstProjectId = projects[0].id
+  // setActiveProjectInfo(`${firstProjectId}-${mediaType}`, mediaType);
 };
 
-function createThumbnail(project, mediaType) {
+async function createThumbnail(project, mediaType) {
+  // create title
+  const title = document.createElement("h3")
+  title.setAttribute("id", `${project.id}-title`)
+  // create info paragraph
+  const info = document.createElement("div")
+  info.setAttribute("id", `${project.id}-info`)
+  // create info container and append info
+  const infoContainer = document.createElement("div")
+  infoContainer.appendChild(title)
+  infoContainer.appendChild(info)
+  infoContainer.classList.add("project-info-container")
   // create image
   const image = document.createElement("img")
   image.setAttribute("src", `./src/assets/images/${project.id}.jpeg`)
@@ -115,10 +127,12 @@ function createThumbnail(project, mediaType) {
   overlay.setAttribute("id", `${project.id}-${mediaType}-overlay`)
   overlay.classList.add("thumbnail-overlay", "overlay")
   // append image + overlay > figure > link > column
-  figure.appendChild(image)
-  figure.appendChild(overlay)
-  link.appendChild(figure)
-  column.appendChild(link)
+  link.appendChild(image)
+  figure.appendChild(link)
+  figure.appendChild(infoContainer)
+  // figure.appendChild(overlay)
+  // link.appendChild(figure)
+  column.appendChild(figure)
   // append column > projects container
   const projectsContainer = document.getElementById(`${mediaType}-projects`)
   return projectsContainer.appendChild(column)
@@ -126,17 +140,17 @@ function createThumbnail(project, mediaType) {
 
 function createInfoPanel(mediaType) {
   // create title
-  const title = document.createElement("h3")
-  title.setAttribute("id", `project-title-${mediaType}`)
-  // create info paragraph
-  const info = document.createElement("div")
-  info.setAttribute("id", `project-info-${mediaType}`)
+  // const title = document.createElement("h3")
+  // title.setAttribute("id", `project-title-${mediaType}`)
+  // // create info paragraph
+  // const info = document.createElement("div")
+  // info.setAttribute("id", `project-info-${mediaType}`)
   // create contactInfo
   const contact = contactDetails(mediaType)
   // append title + info > project info container
   const projectInfo = document.getElementById(`project-info-container-${mediaType}`)
-  projectInfo.appendChild(title)
-  projectInfo.appendChild(info)
+  // projectInfo.appendChild(title)
+  // projectInfo.appendChild(info)
 
   // const desktopColumnsContainer = document.getElemmentById("desktop-columns-container")
   // projectInfo.appendChild(contact)
@@ -150,25 +164,27 @@ function createProjectLink(project) {
   return link
 };
 
-function setActiveProjectInfo(projectId, mediaType) {
-  // find project with matching id
-  const project = projects.find(proj => {
-    // append mediaType to `const projects: { id }` for reference to work
-    const mediaTypeProjId = `${proj.id}-${mediaType}`
-    // then match ids to grab project info
-    return mediaTypeProjId === projectId
-  });
+function setActiveProjectInfo(project, mediaType) {
+  console.log("project", project);
   
-  document.querySelectorAll(".overlay").forEach(item => item.classList.add("thumbnail-overlay"));
-  document.getElementById(`${projectId}-overlay`).classList.remove("thumbnail-overlay")
+  // find project with matching id
+  // const project = projects.find(proj => {
+  //   // append mediaType to `const projects: { id }` for reference to work
+  //   const mediaTypeProjId = `${proj.id}-${mediaType}`
+  //   // then match ids to grab project info
+  //   return mediaTypeProjId === projectId
+  // });
+  
+  // document.querySelectorAll(".overlay").forEach(item => item.classList.add("thumbnail-overlay"));
+  // document.getElementById(`${projectId}-overlay`).classList.remove("thumbnail-overlay")
   
   
   // find title + append `project.title`
-  const title = document.getElementById(`project-title-${mediaType}`);
+  const title = document.getElementById(`${project.id}-title`);
   title.classList.add("title", "is-7-mobile", "is-4",)
   title.innerText = project.title
   // find info + append `project.info`
-  const infoContainer = document.getElementById(`project-info-${mediaType}`);
+  const infoContainer = document.getElementById(`${project.id}-info`);
   infoContainer.innerHTML = '';
   // project details
   const techStack = document.createElement("h5");
@@ -181,17 +197,13 @@ function setActiveProjectInfo(projectId, mediaType) {
   infoContainer.appendChild(techStack)
   infoContainer.appendChild(projectInfo)
 
-  if (mediaType === "mobile") {
-    const projectLink = createProjectLink(project)
-    projectLink.innerText = "Github"
-    const linkContainer = document.createElement("div")
-    linkContainer.classList.add('github-link')
-    
-    linkContainer.appendChild(projectLink)
-    infoContainer.appendChild(linkContainer)
-
-  }
-
+  const projectLink = createProjectLink(project)
+  projectLink.innerText = "Github"
+  const linkContainer = document.createElement("div")
+  linkContainer.classList.add('github-link')
+  
+  linkContainer.appendChild(projectLink)
+  infoContainer.appendChild(linkContainer)
 };
 
 function onMobileProjectsScroll() {
@@ -202,7 +214,7 @@ function onMobileProjectsScroll() {
     return viewportOffset.y >= 0
   })
   
-  if (firstVisibleProject) setActiveProjectInfo(firstVisibleProject.id, 'mobile')
+  if (firstVisibleProject) setActiveProjectInfo(firstVisibleProject, 'mobile')
 };
 
 function projectsContainerDesktop() {
