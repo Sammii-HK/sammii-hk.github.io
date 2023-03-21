@@ -69,15 +69,12 @@ export function initializeInterface() {
 
 function createEvents() {
   // create desktop mouse enter events
-  document.querySelectorAll(".project-image-container-desktop").forEach(item => {
-    item.addEventListener('mouseenter', event => setActiveProjectInfo(event.target.id, 'desktop') )
-  });
+  // document.querySelectorAll(".project-image-container-desktop").forEach(item => {
+  //   item.addEventListener('mouseenter', event => setActiveProjectInfo(event.target.id, 'desktop') )
+  // });
   // create mobile scroll event
   const projectsContainerMobile = document.getElementById("mobile-projects")
   projectsContainerMobile.addEventListener('scroll', onMobileProjectsScroll);
-  // remove overlay from first project thumbnail on desktop
-  // const firstProjectId = projects[0].id
-  // document.getElementById(`${firstProjectId}-desktop-overlay`).classList.remove("thumbnail-overlay")
 };
 
 function initializeMediaSpecificInterface(mediaType) {
@@ -88,11 +85,8 @@ function initializeMediaSpecificInterface(mediaType) {
   // create thumbnails
   projects.map(project => {
     createThumbnail(project, mediaType);
-    setActiveProjectInfo(project, mediaType);
+    setActiveProjectInfo(project.id, mediaType);
   });
-  // set base active project on page load
-  // const firstProjectId = projects[0].id
-  // setActiveProjectInfo(`${firstProjectId}-${mediaType}`, mediaType);
 };
 
 async function createThumbnail(project, mediaType) {
@@ -120,12 +114,9 @@ async function createThumbnail(project, mediaType) {
   // mediaType dependant column
   const column = document.createElement("div")
   column.classList.add("column", `project-image-container-${mediaType}`)
-  column.classList.add(mediaType === 'mobile' ? 'is-12' : 'is-4')
+  column.classList.add('is-12')
+  // column.classList.add(mediaType === 'mobile' ? 'is-12' : 'is-4')
   column.setAttribute("id", `${project.id}-${mediaType}`)
-  // create overlay
-  const overlay = document.createElement("div")
-  overlay.setAttribute("id", `${project.id}-${mediaType}-overlay`)
-  overlay.classList.add("thumbnail-overlay", "overlay")
   // append image + overlay > figure > link > column
   link.appendChild(image)
   figure.appendChild(link)
@@ -139,22 +130,15 @@ async function createThumbnail(project, mediaType) {
 };
 
 function createInfoPanel(mediaType) {
-  // create title
-  // const title = document.createElement("h3")
-  // title.setAttribute("id", `project-title-${mediaType}`)
-  // // create info paragraph
-  // const info = document.createElement("div")
-  // info.setAttribute("id", `project-info-${mediaType}`)
   // create contactInfo
   const contact = contactDetails(mediaType)
   // append title + info > project info container
   const projectInfo = document.getElementById(`project-info-container-${mediaType}`)
-  // projectInfo.appendChild(title)
-  // projectInfo.appendChild(info)
+  projectInfo.appendChild(contact)
 
   // const desktopColumnsContainer = document.getElemmentById("desktop-columns-container")
   // projectInfo.appendChild(contact)
-  mediaType === "mobile" ? projectInfo.appendChild(contact) : document.getElementById("projects-container-desktop").appendChild(contact);
+  // mediaType === "mobile" ? projectInfo.appendChild(contact) : document.getElementById("projects-container-desktop").appendChild(contact);
 };
 
 function createProjectLink(project) {
@@ -164,21 +148,9 @@ function createProjectLink(project) {
   return link
 };
 
-function setActiveProjectInfo(project, mediaType) {
-  console.log("project", project);
-  
+function setActiveProjectInfo(projectId) {
   // find project with matching id
-  // const project = projects.find(proj => {
-  //   // append mediaType to `const projects: { id }` for reference to work
-  //   const mediaTypeProjId = `${proj.id}-${mediaType}`
-  //   // then match ids to grab project info
-  //   return mediaTypeProjId === projectId
-  // });
-  
-  // document.querySelectorAll(".overlay").forEach(item => item.classList.add("thumbnail-overlay"));
-  // document.getElementById(`${projectId}-overlay`).classList.remove("thumbnail-overlay")
-  
-  
+  const project = projects.find(proj => proj.id === projectId);
   // find title + append `project.title`
   const title = document.getElementById(`${project.id}-title`);
   title.classList.add("title", "is-7-mobile", "is-4",)
@@ -214,13 +186,13 @@ function onMobileProjectsScroll() {
     return viewportOffset.y >= 0
   })
   
-  if (firstVisibleProject) setActiveProjectInfo(firstVisibleProject, 'mobile')
+  // if (firstVisibleProject) setActiveProjectInfo(firstVisibleProject.id, 'mobile')
 };
 
 function projectsContainerDesktop() {
   // create + style project info container
   const infoContainer = document.createElement("div")
-  infoContainer.classList.add("column", "is-3")
+  infoContainer.classList.add("column", "is-3-desktop")
   infoContainer.setAttribute("id", "project-info-container-desktop")
   // create + style project thumbnails
   const thumbnails = document.createElement("div")
@@ -245,15 +217,15 @@ function projectsContainerDesktop() {
 function projectsContainerMobile() {
   // create + style project info container
   const infoContainer = document.createElement("div")
-  infoContainer.classList.add("column", "is-6")
+  infoContainer.classList.add("column", "is-6-desktop", "is-10")
   infoContainer.setAttribute("id", "project-info-container-mobile")
   // create + style project thumbnails
   const thumbnailsContainer = document.createElement("div")
-  thumbnailsContainer.classList.add("column", "is-5")
+  thumbnailsContainer.classList.add("column", "is-5-desktop", "is-10")
   thumbnailsContainer.setAttribute("id", "mobile-projects")
   // create + style columns container
   const columns = document.createElement("div")
-  columns.classList.add("columns", "is-centered", "is-mobile")
+  columns.classList.add("columns", "is-centered", "is-mobile", "is-multiline")
   // append info container + thumbnails container > columns
   columns.appendChild(infoContainer)
   columns.appendChild(thumbnailsContainer)
