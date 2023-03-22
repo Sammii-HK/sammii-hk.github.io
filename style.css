@@ -49,7 +49,7 @@ html {
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-y: hidden;
 }
 body {
   position: relative;
@@ -74,8 +74,8 @@ h1 {
 }
 
 #projects-container-mobile {
-  min-height: 99vh !important;
-  max-height: 99vh !important;
+  min-height: 99dvh !important;
+  max-height: 99dvh !important;
   padding: 1rem;
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
@@ -85,7 +85,8 @@ h1 {
   } */
 }
 
-#projects-container-mobile::-webkit-scrollbar {
+#projects-container-mobile::-webkit-scrollbar, 
+#mobile-projects::-webkit-scrollbar {
   display: none;
 }
 
@@ -106,6 +107,9 @@ h1 {
   max-height: 70vh !important;
   padding-bottom: 70vh;
   scroll-snap-type: y mandatory;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .landing-section {
@@ -126,7 +130,7 @@ h1 {
 }
 
 .contact-details-container {
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
 }
 
 .title-container.mobile {

@@ -54,11 +54,11 @@ function onProjectsScroll() {
 function projectsContainer() {
   // create + style project info container
   const infoContainer = document.createElement("div")
-  infoContainer.classList.add("column", "is-6-tablet", "is-10-mobile")
+  infoContainer.classList.add("column", "is-4-tablet", "is-10-mobile")
   infoContainer.setAttribute("id", "name-title-container")
   // create + style project thumbnails
   const thumbnailsContainer = document.createElement("div")
-  thumbnailsContainer.classList.add("column", "is-5-tablet", "is-10-mobile")
+  thumbnailsContainer.classList.add("column", "is-5-tablet", "is-10-mobile", "is-offset-1-tablet")
   thumbnailsContainer.setAttribute("id", "mobile-projects")
   // create + style columns container
   const columns = document.createElement("div")
