@@ -31,13 +31,14 @@ function createContactLink(option) {
   return container.appendChild(anchor)
 };
 
-function createTitle(mediaType) {
+function createTitle() {
   const title = document.createElement("h1");
   title.innerText = "Sammii";
   title.setAttribute("id", "title")
   const subtitle = document.createElement("h3");
   subtitle.setAttribute("id", "subtitle")
-  subtitle.innerText = "Software Engineer";
+  // subtitle.classList.add("is-hidden-mobile")
+  subtitle.innerText = "Full-Stack Software Engineer";
 
   const container = document.createElement("div");
   container.classList.add("name-title-container")
@@ -46,12 +47,10 @@ function createTitle(mediaType) {
   return container
 };
 
-export function contactDetails(mediaType) {
+export function contactDetails() {
   const contactContainer = document.createElement("div")
   contactContainer.setAttribute("id", "contact-details-container")
   contactContainer.classList.add("contact-details-container")
-
-  // const bioContainer = document.createElement("div")
 
   const title = createTitle()
   contactContainer.appendChild(title)
@@ -63,6 +62,6 @@ export function contactDetails(mediaType) {
     iconsContainer.appendChild(contactLinks)
   });
   contactContainer.appendChild(iconsContainer)
-  // contactContainer.appendChild(bioContainer)
+
   return contactContainer; 
 };

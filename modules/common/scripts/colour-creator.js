@@ -15,7 +15,7 @@ function degrees(value, total) {
   return result;
 }
 
-export function calculateColour(e, mediaType) {
+export function calculateColour(e) {
   const width = window.innerWidth;
   const height = window.innerHeight;
   const posY = e.clientY || (e.bottom + 200);
@@ -49,8 +49,8 @@ export function calculateColour(e, mediaType) {
 };
 
 
-function colourTitle(mediaType) {
-  document.addEventListener("mousemove", (e) => calculateColour(e, mediaType))
+function colourTitle() {
+  document.addEventListener("mousemove", (e) => calculateColour(e))
 }
-colourTitle("desktop")
+colourTitle()
 
