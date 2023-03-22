@@ -54,7 +54,7 @@ function onProjectsScroll() {
 function projectsContainer() {
   // create + style project info container
   const infoContainer = document.createElement("div")
-  infoContainer.classList.add("column", "is-4-tablet", "is-10-mobile")
+  infoContainer.classList.add("column", "is-4-tablet", "is-3-desktop", "is-10-mobile")
   infoContainer.setAttribute("id", "name-title-container")
   // create + style project thumbnails
   const thumbnailsContainer = document.createElement("div")

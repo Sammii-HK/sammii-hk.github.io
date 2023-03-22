@@ -67,6 +67,14 @@ a:hover {
   width: auto !important;
 }
 
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 /* TYPOGRAPHY */
 h1 {
   font-size: 2rem;
@@ -104,7 +112,7 @@ h1 {
 #mobile-projects {
   overflow: scroll;
   min-height: 50vh !important;
-  max-height: 70vh !important;
+  max-height: 75vh !important;
   padding-bottom: 70vh;
   scroll-snap-type: y mandatory;
   /* Hide scrollbar for IE, Edge and Firefox */
