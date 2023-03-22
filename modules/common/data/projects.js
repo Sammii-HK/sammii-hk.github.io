@@ -2,8 +2,8 @@ export const projects = [
   {
     id: 'crystal-index',
     title: 'Crystal Index',
-    techStack: 'Vue, Sequelize',
-    info: 'A full-stack app, which is an index to record crystals, with a Vue front-end, running an Express server which is serving a Sequelize API.',
+    techStack: 'Typescript, Next.js, Prisma',
+    info: 'A full-stack app, which is an index to record crystals, with a Next.js app which is serving a Prisma ORM.',
   },
   {
     id: 'communication-infographic',
@@ -32,13 +32,13 @@ export const projects = [
   {
     id: 'volcanoVisualisation',
     title: 'Volcano Visualisation',
-    techStack: 'Javascript, d3.js',
-    info: 'A full-stack app, which plots volcano eruptions on a Orthographic projection map, using d3.js to visualise the data, running an Express server loading data stored as JSON.',
+    techStack: 'Javascript, D3.js',
+    info: 'A full-stack app, which plots volcano eruptions on a Orthographic projection map, using D3.js to visualise the data, running an Express server loading data stored as JSON.',
   },
   {
     id: 'p5-interactive-graphics',
     title: 'P5 Interactive Graphics',
-    techStack: 'Javascript, p5.js',
+    techStack: 'Javascript, P5.js',
     info: 'A front-end app, which renders an interactive graphic visualisation which reacts to the users cursor movement and position, created with P5.js and Javascript.',
   },
   {
@@ -50,7 +50,7 @@ export const projects = [
   {
     id: 'three-js-particles',
     title: 'Three.js 3D Model',
-    techStack: 'Javascript, three.js',
+    techStack: 'Javascript, Three.js',
     info: 'A front-end app, which renders a 3D model of a butterfly within a 360 degree scene, with moving geometric particles, created with Three.js and Javascript.',
   },
 ];
