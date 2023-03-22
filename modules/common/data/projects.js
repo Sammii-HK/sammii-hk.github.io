@@ -15,7 +15,7 @@ export const projects = [
     id: 'artistry',
     title: 'Artistry',
     techStack: 'React, Python',
-    info: 'A full-stack application, which users can search the Rijksmuseum API, with a React front-end and SQL database. The application includes data schemaa and a RESTful api framework built with Python.',
+    info: 'A full-stack application, which users can search the Rijksmuseum API, with a React front-end and SQL database. The application includes data schema and a RESTful API framework, built with Python.',
   },
   {
     id: 'on-set-london',
@@ -44,7 +44,7 @@ export const projects = [
   {
     id: 'matter-js-animation',
     title: 'Matter.js',
-    techStack: 'Javascript, matter.js',
+    techStack: 'Javascript, Matter.js',
     info: 'A front-end app, which renders an interactive physics based graphic, with gravity applied to rendered shapes, which are interactive to the users cursor, created with Matter.js and Javascript.',
   },
   {
