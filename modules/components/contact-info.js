@@ -34,12 +34,13 @@ function createContactLink(option) {
 function createTitle(mediaType) {
   const title = document.createElement("h1");
   title.innerText = "Sammii";
-  title.setAttribute("id", `title-${mediaType}`)
+  title.setAttribute("id", "title")
   const subtitle = document.createElement("h3");
-  subtitle.setAttribute("id", `subtitle-${mediaType}`)
+  subtitle.setAttribute("id", "subtitle")
   subtitle.innerText = "Software Engineer";
 
   const container = document.createElement("div");
+  container.classList.add("name-title-container")
   container.appendChild(title);
   container.appendChild(subtitle);
   return container
@@ -47,23 +48,21 @@ function createTitle(mediaType) {
 
 export function contactDetails(mediaType) {
   const contactContainer = document.createElement("div")
-  // contactContainer.classList.add("contact-details-container")
-  contactContainer.setAttribute("id", `contact-details-container-${mediaType}`)
-  contactContainer.classList.add("contact-details-container", mediaType)
+  contactContainer.setAttribute("id", "contact-details-container")
+  contactContainer.classList.add("contact-details-container")
 
-  const bioContainer = document.createElement("div")
+  // const bioContainer = document.createElement("div")
 
-  const title = createTitle(mediaType)
-  bioContainer.appendChild(title)
+  const title = createTitle()
+  contactContainer.appendChild(title)
   const iconsContainer = document.createElement("div")
   iconsContainer.classList.add("contact-icons-container")
-  iconsContainer.setAttribute("id", `contact-icons-container-${mediaType}`)
+  iconsContainer.setAttribute("id", "contact-icons-container")
   contactOptions.map(option => {
     const contactLinks = createContactLink(option)
     iconsContainer.appendChild(contactLinks)
   });
-  bioContainer.appendChild(iconsContainer)
-
-  contactContainer.appendChild(bioContainer)
+  contactContainer.appendChild(iconsContainer)
+  // contactContainer.appendChild(bioContainer)
   return contactContainer; 
 };

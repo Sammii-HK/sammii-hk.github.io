@@ -85,7 +85,7 @@ function initializeMediaSpecificInterface(mediaType) {
   // create thumbnails
   projects.map(project => {
     createThumbnail(project, mediaType);
-    setActiveProjectInfo(project.id, mediaType);
+    setProjectInfo(project.id, mediaType);
   });
 };
 
@@ -148,7 +148,7 @@ function createProjectLink(project) {
   return link
 };
 
-function setActiveProjectInfo(projectId) {
+function setProjectInfo(projectId) {
   // find project with matching id
   const project = projects.find(proj => proj.id === projectId);
   // find title + append `project.title`

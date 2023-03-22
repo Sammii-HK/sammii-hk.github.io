@@ -94,7 +94,7 @@ h1 {
   max-height: 99vh !important;
   /* padding: 3rem; */
   padding: 1rem;
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
   @media screen and (min-width: 480px) {
     padding: 3rem;
     /* padding: 1rem !important; */
@@ -154,9 +154,8 @@ h1 {
   /* margin-bottom: 2rem; */
 }
 
-.contact-details-container.mobile {
-  position: absolute !important;
-  bottom: 0 !important;
+.contact-details-container {
+  padding: 1.5rem;
 }
 
 .contact-details-container.desktop {

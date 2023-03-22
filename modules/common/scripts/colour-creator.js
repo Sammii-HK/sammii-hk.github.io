@@ -37,8 +37,8 @@ export function calculateColour(e, mediaType) {
   
   
 
-  const title = document.getElementById(`title-${mediaType}`)
-  const subtitle = document.getElementById(`subtitle-${mediaType}`)
+  const title = document.getElementById("title")
+  const subtitle = document.getElementById("subtitle")
   // const color = `rgb(${x}, ${y}, ${x - y})`
   const titleColor = `hsl(${x}, ${y}%, ${z}%)`
   const subtitleColor = `hsl(${x}, ${z}%, ${y}%)`
