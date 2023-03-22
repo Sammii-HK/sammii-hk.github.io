@@ -63,22 +63,6 @@ a:hover {
   padding: 1.5rem 0;
 }
 
-.overlay-container {
-  position: relative;
-}
-
-.thumbnail-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.is-clickable {
-  cursor: pointer;
-}
-
 .icon {
   width: auto !important;
 }
@@ -92,52 +76,41 @@ h1 {
 #projects-container-mobile {
   min-height: 99vh !important;
   max-height: 99vh !important;
-  /* padding: 3rem; */
   padding: 1rem;
-  /* padding-top: 3rem; */
-  @media screen and (min-width: 480px) {
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /* @media screen and (min-width: 480px) {
     padding: 3rem;
-    /* padding: 1rem !important; */
-  }
+  } */
 }
 
-#projects-container-desktop {
-  padding: 3rem;
-  /* margin-top: 5rem; */
-  padding-top: 25vh;
-  height: 100vh;
-  margin-bottom: 10rem;
+#projects-container-mobile::-webkit-scrollbar {
+  display: none;
 }
 
 #project-info-container-mobile {
   position: relative;
   @media screen and (min-width: 480px) {
     padding: 1.5rem;
-    /* padding: 0 !important; */
-  }
+  };
 }
 
-#project-info-container-desktop {
-  min-height: 50vh;
-  position: relative;
+.project-image-container-mobile {
+  padding-bottom: 7rem;
 }
 
 #mobile-projects {
   overflow: scroll;
-  min-height: 90vh !important;
-  max-height: 90vh !important;
-  /* padding-bottom: 73vh; */
-  padding-bottom: 80vh;
+  min-height: 50vh !important;
+  max-height: 70vh !important;
+  padding-bottom: 70vh;
   scroll-snap-type: y mandatory;
-  /* padding-top: 3rem !important; */
 }
 
-#crystal-index-mobile {
-  margin-top: 3rem;
-}
-
-.project-image-container-mobile {
-  padding-right: 0;
+.landing-section {
+  display: flex;
+  align-items: center;
 }
 
 .project-image-container-mobile, .landing-section {
@@ -145,8 +118,6 @@ h1 {
 }
 
 .contact-icons-container {
-  /* position: absolute !important;
-  bottom: 0 !important; */
   width: 8rem;
   display: flex;
   justify-content: space-between;
@@ -155,23 +126,11 @@ h1 {
 }
 
 .contact-details-container {
-  padding: 1.5rem;
-}
-
-.contact-details-container.desktop {
-  margin-right: 2rem;
-  padding-bottom: 15rem !important;
-  margin-bottom: 15rem !important;
-}
-
-.title-container.desktop {
-  padding-bottom: 0.75rem;
+  padding: 0.5rem 1rem;
 }
 
 .title-container.mobile {
   margin: 5rem 0rem 0.5rem 0rem !important;
-  /* position: absolute; */
-  /* bottom: 0px; */
 }
 
 .github-link {
