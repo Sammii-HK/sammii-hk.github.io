@@ -88,9 +88,6 @@ h1 {
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  /* @media screen and (min-width: 480px) {
-    padding: 3rem;
-  } */
 }
 
 #projects-container-mobile::-webkit-scrollbar, 
@@ -100,13 +97,15 @@ h1 {
 
 #project-info-container-mobile {
   position: relative;
-  @media screen and (min-width: 480px) {
-    padding: 1.5rem;
-  };
 }
 
 .project-image-container-mobile {
   padding-bottom: 7rem;
+}
+@media screen and (min-width: 768px) and (max-width: 1025px) {
+  .project-image-container-mobile {
+    padding-bottom: 15rem;
+  }
 }
 
 #mobile-projects {
