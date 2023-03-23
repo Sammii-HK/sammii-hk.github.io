@@ -1,4 +1,4 @@
-export function createThumbnail(project, mediaType) {
+export function createThumbnail(project) {
   // create title
   const title = document.createElement("h3")
   title.setAttribute("id", `${project.id}-title`)
@@ -20,17 +20,17 @@ export function createThumbnail(project, mediaType) {
   const link = document.createElement("a")
   link.setAttribute("href", `https://github.com/Sammii-HK/${project.id}`)
   link.setAttribute("target", "_blank")
-  // mediaType dependant column
+  // create column
   const column = document.createElement("div")
-  column.classList.add("column", `project-image-container-${mediaType}`)
+  column.classList.add("column", "project-image-container")
   column.classList.add('is-12')
-  column.setAttribute("id", `${project.id}-${mediaType}`)
+  column.setAttribute("id", `${project.id}`)
   // append image + overlay > figure > link > column
   link.appendChild(image)
   figure.appendChild(link)
   figure.appendChild(infoContainer)
   column.appendChild(figure)
   // append column > projects container
-  const projectsContainer = document.getElementById(`${mediaType}-projects`)
+  const projectsContainer = document.getElementById("projects")
   return projectsContainer.appendChild(column)
 };

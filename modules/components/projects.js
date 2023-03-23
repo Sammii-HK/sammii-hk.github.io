@@ -7,28 +7,26 @@ import { projects } from '../common/data/projects.js';
 export function initializeInterface() {
   console.log("JS loaded 🐛");
   // create desktop + mobile views
-  initializeMediaSpecificInterface('mobile')
+  initializeMediaSpecificInterface()
   // create mouse over and scroll events for desktop + mobile project views
   createEvents();
 }
 
 function createEvents() {
-  // create desktop mouse enter events
   // create mobile scroll event
-  const projectsContainerMobile = document.getElementById("mobile-projects")
+  const projectsContainerMobile = document.getElementById("projects")
   projectsContainerMobile.addEventListener('scroll', onProjectsScroll);
 };
 
-function initializeMediaSpecificInterface(mediaType) {
+function initializeMediaSpecificInterface() {
   // create main containers
-  // mediaType === 'mobile' ? projectsContainerMobile() : projectsContainerDesktop();
   projectsContainer()
   // create info panel instance
-  createInfoPanel(mediaType)
+  createInfoPanel()
   // create thumbnails
   projects.map(project => {
-    createThumbnail(project, mediaType);
-    createProjectInfo(project.id, mediaType);
+    createThumbnail(project);
+    createProjectInfo(project.id);
   });
 };
 
@@ -41,14 +39,14 @@ function createInfoPanel() {
 };
 
 function onProjectsScroll() {
-  const projectImageContainers = document.querySelectorAll(".project-image-container-mobile")
-  const firstVisibleProject = [...projectImageContainers].find(projectImageContainer => {
+  const projectImageContainers = document.querySelectorAll(".project-image-container")
+  return [...projectImageContainers].find(projectImageContainer => {
+    // calculate scroll position for nav dots using boundingClientRect s below
+    // createDots = dots x projects.length()
     let viewportOffset = projectImageContainer.getBoundingClientRect();
-    calculateColour(viewportOffset, "mobile")
+    calculateColour(viewportOffset)
     return viewportOffset.y >= 0
   })
-  
-  // if (firstVisibleProject) setActiveProjectInfo(firstVisibleProject.id, 'mobile')
 };
 
 function projectsContainer() {
@@ -59,7 +57,7 @@ function projectsContainer() {
   // create + style project thumbnails
   const thumbnailsContainer = document.createElement("div")
   thumbnailsContainer.classList.add("column", "is-5-tablet", "is-10-mobile", "is-offset-1-tablet")
-  thumbnailsContainer.setAttribute("id", "mobile-projects")
+  thumbnailsContainer.setAttribute("id", "projects")
   // create + style columns container
   const columns = document.createElement("div")
   columns.classList.add("columns", "is-centered", "is-mobile", "is-multiline")
@@ -67,7 +65,7 @@ function projectsContainer() {
   columns.appendChild(infoContainer)
   columns.appendChild(thumbnailsContainer)
   // append columns > container
-  const container = document.getElementById("projects-container-mobile")
+  const container = document.getElementById("projects-container")
   container.classList.add("landing-section")
   container.appendChild(columns)
 };
