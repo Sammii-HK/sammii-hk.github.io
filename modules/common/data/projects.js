@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 'crystal-index',
     title: 'Crystal Index',
-    techStack: 'TypeScript, Next.js, Prisma, SQL, ChatGPT4, React 3 Fiber',
+    techStack: 'TypeScript, Next.js, Prisma, SQL, GPT4, React 3 Fiber',
     info: 'A full-stack Next.js app, which is an index to record crystals, employing a Prisma as an ORM. Crystal information is created with ChatGPT4. Location data is looked up and added using the OpenCage API. Location data is visualised with a 3D globe created with React 3 Fiber.',
   },
   {
@@ -20,7 +20,7 @@ export const projects = [
   {
     id: 'on-set-london',
     title: 'On Set',
-    techStack: 'React, MongoDB',
+    techStack: 'React, JavaScript, MongoDB',
     info: 'A full-stack React application which indexes film set locations. The application includes a NoSQL database (MongoDB) and a RESTful API framework. The app also utilises OpenCage to retrieve location co-ordinates.',
   },
   {
