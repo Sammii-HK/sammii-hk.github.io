@@ -32,25 +32,25 @@ export const projects = [
   {
     id: 'volcanoVisualisation',
     title: 'Volcano Visualisation',
-    techStack: 'Javascript, D3.js',
+    techStack: 'D3.js, Javascript',
     info: 'A full-stack application, which plots volcano eruptions on an Orthographic projection map, using D3.js to visualise the data, running an Express server serving data stored as JSON.',
   },
   {
     id: 'p5-interactive-graphics',
     title: 'P5 Interactive Graphics',
-    techStack: 'Javascript, P5.js',
+    techStack: 'P5.js, Javascript',
     info: 'A front-end application, which renders a dynamic interactive graphic visualisation which reacts to the users cursor movement and position, created with P5.js and Javascript.',
   },
   {
     id: 'matter-js-animation',
     title: 'Matter.js',
-    techStack: 'Javascript, Matter.js',
+    techStack: 'Matter.js, Javascript',
     info: 'An interactive physics based animation created with Matter.js, with objects which may be thrown around the canvas.',
   },
   {
     id: 'three-js-particles',
     title: 'Three.js 3D Model',
-    techStack: 'Javascript, Three.js',
+    techStack: 'Three.js, Javascript',
     info: 'A front-end app, which renders a 3D model of a butterfly within a 360 degree panoramic scene, with moving geometric particles, created with Three.js and Javascript.',
   },
 ];
