@@ -150,7 +150,7 @@ h1 {
 }
 @media screen and (max-width: 768px) {
   .contact-details-container {
-    margin-bottom: 2rem !important;
+    margin-bottom: 1rem !important;
   }
 }
 
