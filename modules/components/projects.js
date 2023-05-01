@@ -1,8 +1,10 @@
-import { contactDetails } from './contact-info.js';
+import { projects } from '../common/data/projects.js';
 import { calculateColour } from '../common/scripts/colour-creator.js';
+import { contactDetails } from './contact-info.js';
 import { createThumbnail } from './thumbnails.js';
 import { createProjectInfo } from './project-info.js';
-import { projects } from '../common/data/projects.js';
+import { createNavigationDots } from './navigation-dots.js';
+import { getActiveNavAnchor } from './navigation-dots.js';
 
 export function initializeInterface() {
   console.log("JS loaded 🐛");
@@ -14,8 +16,8 @@ export function initializeInterface() {
 
 function createEvents() {
   // create mobile scroll event
-  const projectsContainerMobile = document.getElementById("projects")
-  projectsContainerMobile.addEventListener('scroll', onProjectsScroll);
+  const projectsContainer = document.getElementById("projects")
+  projectsContainer.addEventListener('scroll', onProjectsScroll);
 };
 
 function initializeMediaSpecificInterface() {
@@ -28,6 +30,9 @@ function initializeMediaSpecificInterface() {
     createThumbnail(project);
     createProjectInfo(project.id);
   });
+  
+  // create navigation Dots
+  createNavigationDots()
 };
 
 function createInfoPanel() {
@@ -41,9 +46,8 @@ function createInfoPanel() {
 function onProjectsScroll() {
   const projectImageContainers = document.querySelectorAll(".project-image-container")
   return [...projectImageContainers].find(projectImageContainer => {
-    // calculate scroll position for nav dots using boundingClientRect s below
-    // createDots = dots x projects.length()
     let viewportOffset = projectImageContainer.getBoundingClientRect();
+    getActiveNavAnchor(viewportOffset)
     calculateColour(viewportOffset)
     return viewportOffset.y >= 0
   })

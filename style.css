@@ -46,6 +46,7 @@
 html {
   scroll-snap-type: y mandatory;
   min-width: 100vw !important;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -67,12 +68,28 @@ a:hover {
   width: auto !important;
 }
 
-.dot {
-  height: 15px;
-  width: 15px;
+#nav-dots-container {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: space-between;
+  position: fixed;
+  right: 15px;
+}
+
+.navigation-dots {
+  height: 10px;
+  width: 10px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+  cursor: pointer;
+  opacity: 50%;
+}
+
+.navigation-dots.is-active {
+  scale: 1.25;
+  opacity: 100%;
 }
 
 /* TYPOGRAPHY */
@@ -114,6 +131,7 @@ h1 {
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  position: relative;
 }
 
 .landing-section {
