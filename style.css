@@ -100,27 +100,16 @@ h1 {
 }
 
 .project-image-container {
-  padding-bottom: 7rem;
-}
-.project-image-container:last-of-type {
-  padding-bottom: 0;
-}
-@media screen and (min-width: 768px) and (max-width: 1025px) {
-  .project-image-container {
-    padding-bottom: 15rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .project-image-container {
-    padding-bottom: 16rem;
-  }
+  height: 80dvh;
 }
 
 #projects {
   overflow: scroll;
-  min-height: 50vh !important;
-  max-height: 75vh !important;
-  padding-bottom: 70vh;
+  /* min-height: 50vh !important;
+  max-height: 75vh !important; */
+  /* height: 85dvh; */
+  height: 80dvh;
+  /* padding-bottom: 70vh; */
   scroll-snap-type: y mandatory;
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;  /* IE and Edge */
