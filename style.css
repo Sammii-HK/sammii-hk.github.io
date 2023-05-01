@@ -102,9 +102,17 @@ h1 {
 .project-image-container {
   padding-bottom: 7rem;
 }
+.project-image-container:last-of-type {
+  padding-bottom: 0;
+}
 @media screen and (min-width: 768px) and (max-width: 1025px) {
   .project-image-container {
     padding-bottom: 15rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .project-image-container {
+    padding-bottom: 16rem;
   }
 }
 
@@ -129,7 +137,6 @@ h1 {
 }
 
 .contact-icons-container {
-  width: 8rem;
   display: flex;
   justify-content: space-between;
   margin-top: 0.75rem;
@@ -138,6 +145,13 @@ h1 {
 
 .contact-details-container {
   padding: 0 1rem;
+  /* width: fit-content; */
+  height: fit-content;
+}
+@media screen and (max-width: 768px) {
+  .contact-details-container {
+    margin-bottom: 2rem !important;
+  }
 }
 
 .title-container {

@@ -37,11 +37,11 @@ function createTitle() {
   title.setAttribute("id", "title")
   const subtitle = document.createElement("h3");
   subtitle.setAttribute("id", "subtitle")
-  // subtitle.classList.add("is-hidden-mobile")
+  subtitle.classList.add("is-hidden-mobile")
   subtitle.innerText = "Full-Stack Software Engineer";
 
   const container = document.createElement("div");
-  container.classList.add("name-title-container")
+  container.classList.add("name-title-container", "column", "is-6-mobile", "is-12", "py-0")
   container.appendChild(title);
   container.appendChild(subtitle);
   return container
@@ -50,12 +50,12 @@ function createTitle() {
 export function contactDetails() {
   const contactContainer = document.createElement("div")
   contactContainer.setAttribute("id", "contact-details-container")
-  contactContainer.classList.add("contact-details-container")
+  contactContainer.classList.add("contact-details-container", "columns", "is-multiline", "is-flex")
 
   const title = createTitle()
   contactContainer.appendChild(title)
   const iconsContainer = document.createElement("div")
-  iconsContainer.classList.add("contact-icons-container")
+  iconsContainer.classList.add("contact-icons-container", "column", "is-6-mobile", "is-12")
   iconsContainer.setAttribute("id", "contact-icons-container")
   contactOptions.map(option => {
     const contactLinks = createContactLink(option)
