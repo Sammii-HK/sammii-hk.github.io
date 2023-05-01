@@ -3,7 +3,7 @@ export const projects = [
     id: 'crystal-index',
     title: 'Crystal Index',
     techStack: 'TypeScript, Next.js, Prisma, SQL, GPT4, React 3 Fiber',
-    info: 'A full-stack Next.js app, which is an index to record crystals, employing a Prisma as an ORM. Crystal information is created with ChatGPT4. Location data is looked up and added using the OpenCage API. Location data is visualised with a 3D globe created with React 3 Fiber.',
+    info: 'A full-stack Next.js app, which is an index to record crystals, employing a Prisma as an ORM. Crystal information is created with GPT4. Location data is looked up and added using the OpenCage API. Location data is visualised with a 3D globe created with React 3 Fiber.',
   },
   {
     id: 'communication-infographic',
