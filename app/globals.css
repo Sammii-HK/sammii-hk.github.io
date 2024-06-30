@@ -78,10 +78,11 @@ body {
 }
 
 .logo {
-  -webkit-mask-image: url('../public/assets/svgs/sammii.svg');
-  mask-image: url('../public/assets/svgs/sammii.svg');
+  -webkit-mask-image: url('../public/assets/images/sammii.png');
+  mask-image: url('../public/assets/images/sammii.png');
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+  mask-size: 175px;
   width: 175px;
   height: auto;
   min-height: 50px;
