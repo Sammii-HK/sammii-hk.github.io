@@ -1,11 +1,9 @@
-import { Navbar } from "./src/components/Navbar";
-import { ProjectView } from "./src/components/project/ProjectView";
+import { PortfolioContainer } from "./src/components/PortfolioContainer";
 
 export default function Home() {  
   return (
     <main className="flex flex-col items-center relative overflow-hidden">
-      <Navbar />
-      <ProjectView />
+      <PortfolioContainer />
     </main>
   );
 }
