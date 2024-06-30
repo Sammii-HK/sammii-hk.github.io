@@ -1,4 +1,4 @@
-export const Navbar = ({xPc, yPc}) => {
+export const Navbar = ({xPc, yPc}: {xPc: number, yPc: number}) => {
 
   const colourCreator = (number: number) => {
     const colour = Math.floor((255 / 100) * number)
