@@ -15,7 +15,7 @@ export const PortfolioContainer = () => {
   }
 
   return (
-    <div className="h-[100vh]" onPointerMove={handlePointerMove as any}>
+    <div className="h-[100dvh]" onPointerMove={handlePointerMove as any}>
       <Navbar xPc={xPc} yPc={yPc} />
       <ProjectView />
     </div>
