@@ -30,19 +30,8 @@ export const Carousel = <T extends any>({
     snapPointIndexes,
   } = useSnapCarousel({ axis: "y" });
 
-  // const cx = classNames.bind(styles);
-
-  // const cx = classNames.bind(styles);
-
-  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    // console.log("e", e)
-    console.log("e.screenX", e.screenX);
-    console.log("e.screenY", e.screenY);
-    
-  }
-
   return (
-    <div className={styles.root} onPointerMove={handlePointerMove}>
+    <div className={styles.root}>
       <ul className={styles.scroll} ref={scrollRef}>
         {items.map((item, i) =>
           renderItem({
@@ -58,7 +47,6 @@ export const Carousel = <T extends any>({
             className={
               cx(
                 styles.paginationButton,
-                // (activePageIndex === i ? styles.paginationButtonActive : {}),
                 { [`${styles.paginationButtonActive}`]: activePageIndex === i}
               )
             }
@@ -81,7 +69,6 @@ export const CarouselItem = ({ isSnapPoint, children }: CarouselItemProps) => (
   <li
     className={cx(
       styles.item,
-      // (isSnapPoint ? styles.itemSnapPoint : {})
       {[`${styles.itemSnapPoint}`]: isSnapPoint}
     )}
   >
