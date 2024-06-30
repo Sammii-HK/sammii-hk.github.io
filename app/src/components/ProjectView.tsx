@@ -1,6 +1,6 @@
 'use client'
 import { projects } from "../../common/data/projects"
-import { Carousel, CarouselItem } from "./Carousel";
+import { Carousel, CarouselItem } from "./carousel/Carousel";
 import { ProjectItem } from "./ProjectItem";
 
 export const ProjectView = () => {  

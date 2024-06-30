@@ -11,8 +11,6 @@ type ProjectItem = {
 type Project = { project: ProjectItem }
 
 export const ProjectItem = (projectItem: Project) => {
-  // console.log("projectItem", projectItem.project);
-
   const project = projectItem.project
   
   return (
