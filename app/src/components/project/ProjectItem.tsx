@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ColumnsContainer } from "./ColumnsContainer";
+import { ColumnsContainer } from "../ColumnsContainer";
 
 type ProjectItem = {
   id: string,

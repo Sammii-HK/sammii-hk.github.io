@@ -1,5 +1,5 @@
 import { Navbar } from "./src/components/Navbar";
-import { ProjectView } from "./src/components/ProjectView";
+import { ProjectView } from "./src/components/project/ProjectView";
 
 export default function Home() {  
   return (
