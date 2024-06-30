@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  }
+  
+  main {
+  height: 100vh;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.title {
+  @apply text-xl;
+}
+
+.subtitle {
+  @apply text-sm mb-2;
+}
+
+.columns {
+  @apply grid grid-cols-12 gap-y-8 max-w-[100%] mx-2 md:mx-6
+}
+
+.columns > .column.is-12 {
+  @apply col-span-12 
+}
+
+.columns > .column.is-10 {
+  @apply col-span-12 px-8 lg:col-span-10 lg:col-start-3 lg:col-end-11
+}
+
+.columns > .column.is-2 {
+  @apply lg:col-span-2
+}
+
+.columns > .column.is-3 {
+  @apply lg:col-span-3
+}
+
+.columns > .column.is-6 {
+  @apply lg:col-span-6
+}
+
+.columns > .column.is-9 {
+  @apply lg:col-span-9
+}
+
+.columns > .column.is-8 {
+  @apply lg:col-span-8
+}
+
+.logo {
+  -webkit-mask-image: url('../public/assets/svgs/sammii.svg');
+  mask-image: url('../public/assets/svgs/sammii.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  width: 175px;
+  height: auto;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+}
