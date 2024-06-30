@@ -5,7 +5,7 @@ const styles = {
   root: {
     display: 'flex',
     width: '100%',
-    height: '90%',
+    height: '100%',
     overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center'
@@ -26,8 +26,6 @@ const styles = {
     width: '100%',
     height: '100%',
     flexShrink: 0,
-    // margin: "12px",
-    // padding: "12px",
     alignItems: "center",
     display: "flex"
   },
@@ -39,7 +37,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    right: '8px',
+    right: '15px',
     position: 'absolute'
   },
   nextPrevButton: {},
@@ -107,7 +105,7 @@ export const Carousel = <T extends any>({
             key={i}
             style={{
               ...styles.paginationButton,
-              ...(activePageIndex === i ? styles.paginationButtonActive : {})
+              ...(activePageIndex === i ? styles.paginationButtonActive : {}),
             }}
             onClick={() => goTo(i)}
           >

@@ -25,12 +25,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    /* min-height: 100vh; */
-    padding: 20px;
-}
-
-main {
-  height: 95vh;
+  }
+  
+  main {
+  height: 100vh;
 }
 
 @layer utilities {
@@ -48,18 +46,38 @@ main {
 }
 
 .columns {
-  @apply grid grid-cols-12 gap-y-8 max-w-[100%] mx-2
+  @apply grid grid-cols-12 gap-y-8 max-w-[100%] mx-2 md:mx-6
 }
 
-.column {
-  /* @apply mx-6 */
-  max-width: 100%;
-}
+/* .column {
+  @apply md:mx-6
+} */
 
 .columns > .column.is-12 {
-  @apply col-span-12
+  @apply col-span-12 
+}
+
+.columns > .column.is-10 {
+  @apply col-span-12 px-8 lg:col-span-10 lg:col-start-3 lg:col-end-11
+}
+
+.columns > .column.is-2 {
+  @apply lg:col-span-2
+}
+
+.columns > .column.is-3 {
+  @apply lg:col-span-3
 }
 
 .columns > .column.is-6 {
-  @apply col-span-12 md:col-span-6
+  @apply lg:col-span-6
+}
+
+.columns > .column.is-9 {
+  @apply lg:col-span-9
+}
+
+.columns > .column.is-8 {
+  @apply lg:col-span-8
+}
 }
