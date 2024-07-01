@@ -14,8 +14,14 @@ export const PortfolioContainer = () => {
     setXPc(((e.screenX * 2) / e.view.screen.width) * 100);
   }
 
+  const handleTouchMove = (e: TouchEvent) => {
+    if (!e.view) return;
+    setYPc((e.touches[0].clientY / e.view.screen.height) * 100);
+    setXPc(((e.touches[0].clientX * 2) / e.view.screen.width) * 100);
+  }
+
   return (
-    <div className="h-[100dvh]" onPointerMove={handlePointerMove as any}>
+    <div className="h-[100dvh]" onTouchMove={handleTouchMove as any} onPointerMove={handlePointerMove as any}>
       <Navbar xPc={xPc} yPc={yPc} />
       <ProjectView />
     </div>
