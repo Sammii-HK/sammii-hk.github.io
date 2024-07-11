@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { ColumnsContainer } from "../ColumnsContainer";
+import { CodeXml } from "lucide-react";
+import { GITHUB_URL } from "../../../constants";
 
 type ProjectItem = {
   id: string,
@@ -15,7 +17,12 @@ export const ProjectItem = (projectItem: Project) => {
   
   return (
     <ColumnsContainer id={project.id} key={project.id}>
-      <h3 className="column is-10 title">{project.title}</h3>
+      <div className="column is-10 flex justify-between">
+        <h3 className="title">{project.title}</h3>
+        <a target="_blank" href={`${GITHUB_URL}/${project.id}`}>
+          <CodeXml />
+        </a>
+      </div>
       <Image 
         src={`/assets/images/${project.id}.jpeg`} 
         alt={project.title} 
