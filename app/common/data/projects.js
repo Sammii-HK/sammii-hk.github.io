@@ -9,7 +9,7 @@ export const projects = [
     id: 'communication-infographic',
     title: 'Communication Infographic',
     techStack: 'React, Javascript',
-    info: 'A full-stack React application, which is Infographic on Communication, running an Express server rendering JSON data representing my MA Dissertation on the Advancements of Communication after 1440.',
+    info: 'A front-end React application, which is Infographic on the History of Communication, which is my BA Dissertation on the Advancements of Communication after 1440.',
   },
   {
     id: 'artistry',
@@ -33,7 +33,7 @@ export const projects = [
     id: 'volcanoVisualisation',
     title: 'Volcano Visualisation',
     techStack: 'D3.js, Javascript',
-    info: 'A full-stack application, which plots volcano eruptions on an Orthographic projection map, using D3.js to visualise the data, running an Express server serving data stored as JSON.',
+    info: 'A front-end app, using D3.js to visualise volcanic eruptions on an interactive 3D globe',
   },
   {
     id: 'p5-interactive-graphics',
@@ -45,7 +45,7 @@ export const projects = [
     id: 'matter-js-animation',
     title: 'Matter.js',
     techStack: 'Matter.js, Javascript',
-    info: 'An interactive physics based animation created with Matter.js, with objects which may be thrown around the canvas.',
+    info: 'An front-end interactive physics based animation created with Matter.js, with objects which may be thrown around the canvas.',
   },
   {
     id: 'three-js-particles',
