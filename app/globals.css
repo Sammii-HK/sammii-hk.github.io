@@ -89,3 +89,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
+li {
+  justify-content: center !important;
+}
