@@ -24,7 +24,7 @@ export const ProjectItem = (projectItem: Project) => {
         </a>
       </div>
       <Image 
-        src={`/assets/images/${project.id}.jpeg`} 
+        src={`/assets/images/${project.id}.jpg`} 
         alt={project.title} 
         width="1000" 
         height="500"

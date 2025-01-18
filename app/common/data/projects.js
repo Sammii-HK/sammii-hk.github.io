@@ -9,13 +9,37 @@ export const projects = [
     id: 'communication-infographic',
     title: 'Communication Infographic',
     techStack: 'React, Javascript',
-    info: 'A front-end React application, which is Infographic on the History of Communication, which is my BA Dissertation on the Advancements of Communication after 1440.',
+    info: 'A front-end React application, which is infographic on the history of communication, which is a reworking of my BA Dissertation on the Advancements of Communication after 1440.',
+  },
+  {
+    id: 'lunary',
+    title: 'Lunary',
+    techStack: 'Next.js, Typescript, Astronomy Engine',
+    info: 'A front-end React application, which is a lunar calendar, which uses the astronomy engine package to calculate the moon phases & planetary positions.',
+  },
+  // {
+  //   id: 'unicorn-poo/succulent',
+  //   title: 'Succulent',
+  //   techStack: 'Next.js, Typescript, Jazz',
+  //   info: 'A front-end React application, which is a social media planner, using the Jazz API for local first storage.',
+  // },
+  {
+    id: 'day-lite',
+    title: 'Day Lite',
+    techStack: 'React, Javascript, Mapbox',
+    info: 'A front-end React application, which is infographic of day light hours on an interactive 3D globe, created with Mapbox and Javascript.',
   },
   {
     id: 'artistry',
     title: 'Artistry',
     techStack: 'React, Python, SQL',
     info: 'A full-stack React application, where users can search the Rijksmuseum API. The application includes an SQL database, data schema and its own RESTful API supporting additional features, built with Python',
+  },
+  {
+    id: 'scape-squared',
+    title: 'Scape²',
+    techStack: 'Next, Vercel E-commerce, Shopify',
+    info: 'A full-stack Next application which utilises Vercel E-commerce and Shopify to create a custom e-commerce store.',
   },
   {
     id: 'on-set-london',
@@ -32,7 +56,7 @@ export const projects = [
   {
     id: 'volcanoVisualisation',
     title: 'Volcano Visualisation',
-    techStack: 'D3.js, Javascript',
+    techStack: 'D3.js, Javascript, React 3 Fiber',
     info: 'A front-end app, using D3.js to visualise volcanic eruptions on an interactive 3D globe',
   },
   {
@@ -52,5 +76,11 @@ export const projects = [
     title: 'Three.js 3D Model',
     techStack: 'Three.js, Javascript',
     info: 'A front-end app, which renders a 3D model of a butterfly within a 360 degree panoramic scene, with moving geometric particles, created with Three.js and Javascript.',
+  },
+  {
+    id: 'nasa-api',
+    title: 'NASA API',
+    techStack: 'React, Javascript, NASA API',
+    info: 'A front-end app, which utilises the NASA API to render Mars Rover Photos and random previous "Photo of the Day".',
   },
 ];
