@@ -42,12 +42,6 @@ export const projects = [
     info: 'A full-stack Next application which utilises Vercel E-commerce and Shopify to create a custom e-commerce store.',
   },
   {
-    id: 'on-set-london',
-    title: 'On Set',
-    techStack: 'React, JavaScript, MongoDB',
-    info: 'A full-stack React application which indexes film set locations. The application includes a NoSQL database (MongoDB) and a RESTful API framework. The app also utilises OpenCage to retrieve location co-ordinates.',
-  },
-  {
     id: 'space-invaders',
     title: 'Space Invaders',
     techStack: 'Javascript',
@@ -82,5 +76,11 @@ export const projects = [
     title: 'NASA API',
     techStack: 'React, Javascript, NASA API',
     info: 'A front-end app, which utilises the NASA API to render Mars Rover Photos and random previous "Photo of the Day".',
+  },
+  {
+    id: 'on-set-london',
+    title: 'On Set',
+    techStack: 'React, JavaScript, MongoDB',
+    info: 'A full-stack React application which indexes film set locations. The application includes a NoSQL database (MongoDB) and a RESTful API framework. The app also utilises OpenCage to retrieve location co-ordinates.',
   },
 ];
