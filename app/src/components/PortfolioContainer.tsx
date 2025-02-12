@@ -4,6 +4,10 @@ import { Navbar } from "./Navbar";
 
 import { ProjectView } from "./project/ProjectView";
 
+import { enableClickEffects } from '@unicorn-poo/pizzazz';
+
+enableClickEffects(document, { effectType: 'valentines', count: 10, duration: 1200 });
+
 export const PortfolioContainer = () => {
   const [yPc, setYPc] = useState(0);
   const [xPc, setXPc] = useState(0);
