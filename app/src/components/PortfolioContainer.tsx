@@ -1,14 +1,15 @@
 'use client';
-import { useState } from "react";
-import { Navbar } from "./Navbar";
+import { useEffect, useState } from "react";
+import { addPizzazz } from "@unicorn-poo/pizzazz";
 
+import { Navbar } from "./Navbar";
 import { ProjectView } from "./project/ProjectView";
 
-import { enableClickEffects } from '@unicorn-poo/pizzazz';
-
-enableClickEffects(document, { effectType: 'valentines', count: 10, duration: 1200 });
-
 export const PortfolioContainer = () => {
+  useEffect(() => {
+    addPizzazz(document, { effectType: 'valentines', count: 10 });
+  }, []);
+
   const [yPc, setYPc] = useState(0);
   const [xPc, setXPc] = useState(0);
 
