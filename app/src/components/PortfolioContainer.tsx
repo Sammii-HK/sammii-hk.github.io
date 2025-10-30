@@ -1,32 +1,34 @@
 'use client';
-import { useEffect, useState } from "react";
-import { addPizzazz } from "@unicorn-poo/pizzazz";
+import { useState } from "react";
 
 import { Navbar } from "./Navbar";
 import { ProjectView } from "./project/ProjectView";
 
 export const PortfolioContainer = () => {
-  useEffect(() => {
-    addPizzazz(document, { effectType: 'valentines', count: 10 });
-  }, []);
-
   const [yPc, setYPc] = useState(0);
   const [xPc, setXPc] = useState(0);
 
-  const handlePointerMove = (e: PointerEvent) => {
-    if (!e.view) return;
-    setYPc((e.screenY / e.view.screen.height) * 100);
-    setXPc(((e.screenX * 2) / e.view.screen.width) * 100);
+  const handlePointerMove = (e: React.PointerEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const relativeX = e.clientX - rect.left;
+    const relativeY = e.clientY - rect.top;
+    setYPc((relativeY / rect.height) * 100);
+    setXPc(((relativeX * 2) / rect.width) * 100);
   }
 
-  const handleTouchMove = (e: TouchEvent) => {
-    if (!e.view) return;
-    setYPc((e.touches[0].clientY / e.view.screen.height) * 100);
-    setXPc(((e.touches[0].clientX * 2) / e.view.screen.width) * 100);
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    if (e.touches.length > 0) {
+      const touch = e.touches[0];
+      const relativeX = touch.clientX - rect.left;
+      const relativeY = touch.clientY - rect.top;
+      setYPc((relativeY / rect.height) * 100);
+      setXPc(((relativeX * 2) / rect.width) * 100);
+    }
   }
 
   return (
-    <div className="h-[100dvh]" onTouchMove={handleTouchMove as any} onPointerMove={handlePointerMove as any}>
+    <div className="h-[100dvh]" onTouchMove={handleTouchMove} onPointerMove={handlePointerMove}>
       <Navbar xPc={xPc} yPc={yPc} />
       <ProjectView />
     </div>
