@@ -12,7 +12,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@unicorn-poo/pizzazz": "^1.0.10",
     "@vercel/analytics": "^1.4.1",
     "classnames": "^2.5.1",
     "lucide-react": "^0.407.0",
