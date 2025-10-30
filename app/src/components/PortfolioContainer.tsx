@@ -11,6 +11,46 @@ export const PortfolioContainer = () => {
   const scrollHandlerRef = useRef<(() => void) | null>(null);
   const isScrollingRef = useRef(false);
   const lastScrollTimeRef = useRef(0);
+  
+  // Target values for smooth interpolation
+  const targetYPcRef = useRef(0);
+  const targetXPcRef = useRef(0);
+  const currentYPcRef = useRef(0);
+  const currentXPcRef = useRef(0);
+  const animationRef = useRef<number | null>(null);
+
+  // Smooth interpolation function (lerp)
+  const lerp = (current: number, target: number, factor: number): number => {
+    return current + (target - current) * factor;
+  };
+
+  // Animation loop for smooth transitions
+  useEffect(() => {
+    // Initialize current values to match targets
+    currentYPcRef.current = targetYPcRef.current;
+    currentXPcRef.current = targetXPcRef.current;
+    
+    const animate = () => {
+      // Smooth interpolation factor (0.2 = fluid, responsive transition)
+      const factor = 0.2;
+      
+      currentYPcRef.current = lerp(currentYPcRef.current, targetYPcRef.current, factor);
+      currentXPcRef.current = lerp(currentXPcRef.current, targetXPcRef.current, factor);
+      
+      setYPc(currentYPcRef.current);
+      setXPc(currentXPcRef.current);
+      
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    
+    animationRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
 
   const handlePointerMove = (e: React.PointerEvent) => {
     const viewportWidth = window.innerWidth;
@@ -19,13 +59,13 @@ export const PortfolioContainer = () => {
     const timeSinceScroll = Date.now() - lastScrollTimeRef.current;
     if (!isScrollingRef.current && timeSinceScroll > 500) {
       const viewportHeight = window.innerHeight;
-      setYPc((e.clientY / viewportHeight) * 100);
+      targetYPcRef.current = (e.clientY / viewportHeight) * 100;
       // Also update X from cursor when not scrolling
-      setXPc(((e.clientX * 2) / viewportWidth) * 100);
+      targetXPcRef.current = ((e.clientX * 2) / viewportWidth) * 100;
     }
     // Always update X from cursor even when scrolling (for combined effect)
     if (!isScrollingRef.current || timeSinceScroll < 100) {
-      setXPc(((e.clientX * 2) / viewportWidth) * 100);
+      targetXPcRef.current = ((e.clientX * 2) / viewportWidth) * 100;
     }
   }
 
@@ -38,12 +78,12 @@ export const PortfolioContainer = () => {
       const timeSinceScroll = Date.now() - lastScrollTimeRef.current;
       if (!isScrollingRef.current && timeSinceScroll > 500) {
         const viewportHeight = window.innerHeight;
-        setYPc((touch.clientY / viewportHeight) * 100);
-        setXPc(((touch.clientX * 2) / viewportWidth) * 100);
+        targetYPcRef.current = (touch.clientY / viewportHeight) * 100;
+        targetXPcRef.current = ((touch.clientX * 2) / viewportWidth) * 100;
       }
       // Always update X from touch even when scrolling (for combined effect)
       if (!isScrollingRef.current || timeSinceScroll < 100) {
-        setXPc(((touch.clientX * 2) / viewportWidth) * 100);
+        targetXPcRef.current = ((touch.clientX * 2) / viewportWidth) * 100;
       }
     }
   }
@@ -102,14 +142,14 @@ export const PortfolioContainer = () => {
             const wave2 = Math.cos((scrollPercent / 100) * Math.PI * 4) * 30;
             // Combine waves for rich, dramatic color transitions
             const amplified = Math.max(0, Math.min(100, wave1 + wave2));
-            setYPc(amplified);
+            targetYPcRef.current = amplified;
             
             // Also vary X position slightly based on scroll for even more dynamism
             const xWave = Math.sin((scrollPercent / 100) * Math.PI * 2) * 25 + 50;
-            setXPc(xWave);
+            targetXPcRef.current = xWave;
           } else {
             // If no scroll, set to 0
-            setYPc(0);
+            targetYPcRef.current = 0;
           }
         }
         
