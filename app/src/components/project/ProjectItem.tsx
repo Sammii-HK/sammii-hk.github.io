@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 import { ColumnsContainer } from "../ColumnsContainer";
 import { CodeXml } from "lucide-react";
 import { GITHUB_URL_SAMMII, GITHUB_URL } from "../../../constants";
@@ -14,8 +15,8 @@ type Project = { project: ProjectItem }
 
 export const ProjectItem = (projectItem: Project) => {
   const project = projectItem.project
-
   const githubUrl = project.id.includes('unicorn-poo') ? GITHUB_URL : GITHUB_URL_SAMMII;
+  const [imageSrc, setImageSrc] = useState(`/assets/images/${project.id}.jpg`);
   
   return (
     <ColumnsContainer id={project.id} key={project.id}>
@@ -27,13 +28,13 @@ export const ProjectItem = (projectItem: Project) => {
       </div>
       <div className="column is-10">
         <Image 
-          src={`/assets/images/${project.id}.jpg`}
+          src={imageSrc}
           alt={project.title} 
           width="1000" 
           height="500"
           className="w-full h-auto"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = `/assets/images/${project.id}.png`;
+          onError={() => {
+            setImageSrc(`/assets/images/${project.id}.png`);
           }}
         />
       </div>
