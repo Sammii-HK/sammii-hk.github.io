@@ -9,13 +9,13 @@ export const projects = [
     id: 'crystal-index',
     title: 'Crystal Index',
     techStack: 'TypeScript, Next.js, Prisma, SQL, GPT4, React 3 Fiber',
-    info: 'A full-stack Next.js app, which is an index to record crystals, employing a Prisma as an ORM. Crystal information is created with GPT4. Location data is looked up and added using the OpenCage API. Location data is visualised with a 3D globe created with React 3 Fiber.',
+    info: 'A full-stack Next.js app, an index to record crystals, employing a Prisma as an ORM. Crystal information is created with GPT4. Location data is looked up and added using the OpenCage API. Location data is visualised with a 3D globe created with React 3 Fiber.',
   },
   {
     id: 'communication-infographic',
     title: 'Communication Infographic',
     techStack: 'React, Javascript',
-    info: 'A front-end React application, which is infographic on the history of communication, which is a reworking of my BA Dissertation on the Advancements of Communication after 1440.',
+    info: 'A front-end React application, an infographic on the history of communication, a reworking of my BA Dissertation on the Advancements of Communication after 1440.',
   },
   {
     id: 'unicorn-poo/succulent',
@@ -27,13 +27,13 @@ export const projects = [
     id: 'day-lite',
     title: 'Day Lite',
     techStack: 'React, Javascript, Mapbox GL, Vite',
-    info: 'A front-end React application, which is infographic of day light hours on an interactive 3D globe, created with Mapbox and Javascript.',
+    info: 'A front-end React application, an infographic of day light hours on an interactive 3D globe, created with Mapbox and Javascript.',
   },
   {
     id: 'scape-squared',
     title: 'Scape²',
     techStack: 'Next.js, Vercel E-commerce, Shopify',
-    info: 'A full-stack Next.js application which utilises Vercel E-commerce and Shopify to create a custom e-commerce store.',
+    info: 'A full-stack Next.js application utilising Vercel E-commerce and Shopify to create a custom e-commerce store.',
   },
   
   
