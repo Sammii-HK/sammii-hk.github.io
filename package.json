@@ -6,8 +6,9 @@
   "author": "Samantha Kellow <sammii.h@icloud.com>",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "generate-image-map": "node scripts/generate-image-map.mjs",
+    "dev": "npm run generate-image-map && next dev",
+    "build": "npm run generate-image-map && next build",
     "start": "next start",
     "lint": "next lint"
   },
