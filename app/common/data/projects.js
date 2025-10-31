@@ -3,7 +3,7 @@ export const projects = [
     id: 'lunary',
     title: 'Lunary',
     techStack: 'Next.js, Typescript, Astronomy Engine',
-    info: 'A front-end React application, which is a lunar calendar, which uses the astronomy engine package to calculate the moon phases & planetary positions.',
+    info: 'A full-stack application combining real-time astronomical data with personalized guidance, digital products, and automated content generation.',
   },
   {
     id: 'crystal-index',
@@ -32,11 +32,23 @@ export const projects = [
   {
     id: 'scape-squared',
     title: 'Scape²',
-    techStack: 'Next, Vercel E-commerce, Shopify',
-    info: 'A full-stack Next application which utilises Vercel E-commerce and Shopify to create a custom e-commerce store.',
+    techStack: 'Next.js, Vercel E-commerce, Shopify',
+    info: 'A full-stack Next.js application which utilises Vercel E-commerce and Shopify to create a custom e-commerce store.',
   },
-
-
+  
+  
+  {
+    id: 'glint',
+    title: 'Glint',
+    techStack: 'Next.js, Vercel Edge Middleware, PostgreSQL, Recharts',
+    info: 'Custom analytics platform built on Next.js Edge Middleware for zero-latency tracking and PostgreSQL for persistence. Deployed on Vercel with full control over data and infrastructure.',
+  },
+  {
+    id: 'the-colour-game',
+    title: 'The CSS Color Game',
+    techStack: 'Next.js, Vercel Edge Middleware, React Email, Resend',
+    info: 'A daily color platform built with Next.js that combines an interactive color recognition game with automated email delivery and social sharing.',
+  },
   {
     id: 'balloon-bonanza',
     title: 'Balloon Bonanza',
@@ -44,28 +56,10 @@ export const projects = [
     info: 'A real-time physics simulation using Matter.js to render interactive balloons with realistic collision dynamics and constraint-based interactions.',
   },
   {
-    id: 'css-color-game',
-    title: 'Scape²',
-    techStack: 'Next, Vercel E-commerce, Shopify',
-    info: 'A full-stack Next application which utilises Vercel E-commerce and Shopify to create a custom e-commerce store.',
-  },
-  {
-    id: 'glint',
-    title: 'Glint',
-    techStack: 'Next, Vercel Edge Middleware, PostgreSQL, Recharts',
-    info: 'Custom analytics platform built on Next.js Edge Middleware for zero-latency tracking and PostgreSQL for persistence. Deployed on Vercel with full control over data and infrastructure.',
-  },
-  {
     id: 'liquidity',
     title: 'Liquidity',
-    techStack: 'Next, Typescript, GSAP, Rapier2D',
+    techStack: 'Next.js, Typescript, GSAP, Rapier2D',
     info: 'Experimental Next.js project exploring advanced animation techniques for creating liquid text effects through multiple approaches.',
-  },
-  {
-    id: 'scape-squared',
-    title: 'Scape²',
-    techStack: 'Next, Vercel E-commerce, Shopify',
-    info: 'A full-stack Next application which utilises Vercel E-commerce and Shopify to create a custom e-commerce store.',
   },
   {
     id: 'rainbow-laser-pointer',
@@ -73,7 +67,49 @@ export const projects = [
     techStack: 'React, TypeScript, HTML5 Canvas',
     info: 'An interactive canvas-based laser pointer application with smooth trail rendering and color transitions.',
   },
-
+  
+  // {
+  //   id: 'softly-becoming',
+  //   title: 'Softly Becoming',
+  //   techStack: 'Next.js, Vercel Edge Middleware, React Email, Resend, Vercel Blob, Stripe',
+  //   info: 'A modern, full-stack digital wellness platform combining newsletter automation, social media management, and digital product sales.',
+  // },
+  // {
+  //   id: 'notifiy-me',
+  //   title: 'Notify Me',
+  //   techStack: 'Next.js, Prisma, Cloudflare Workers, AI SDK, Pushover',
+  //   info: 'An automated social media content generation and scheduling platform that creates, reviews, and schedules posts across multiple platforms using AI.',
+  // },
+  // {
+  //   id: 'rss-reply',
+  //   title: 'RSS Reply',
+  //   techStack: '',
+  //   info: '',
+  // },
+  // {
+  //   id: 'content-creator',
+  //   title: 'Content Creator',
+  //   techStack: 'Next.js, Prisma, Vercel Blob, AI SDK, Vercel Cron',
+  //   info: 'A self-learning, AI-driven system that generates, analyses, and optimises short-form social videos automatically. It combines LLM-based script generation, ffmpeg video rendering, visual analysis, engagement prediction, and trend awareness to continually improve content performance.',
+  // },
+  // {
+  //   id: 'unicorn-poo/pizzazz',
+  //   title: 'Pizzazz',
+  //   techStack: 'Typescript',
+  //   info: 'A simple and customizable JavaScript library that adds animated effects to mouse clicks.',
+  // },
+  // {
+  //   id: 'unicorn-poo/posti',
+  //   title: 'Posti Email',
+  //   techStack: 'Next.js, Vercel Edge Middleware, React Email',
+  //   info: 'Self-hosted email tracking with open and click tracking. Supports AWS SES and Cloudflare Workers Email. No third-party tracking services required.',
+  // },
+  // {
+  //   id: 'in-the-dark',
+  //   title: 'In the Dark',
+  //   techStack: '',
+  //   info: '',
+  // },
 
 
 
