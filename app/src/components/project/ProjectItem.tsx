@@ -25,13 +25,18 @@ export const ProjectItem = (projectItem: Project) => {
           <CodeXml />
         </a>
       </div>
-      <Image 
-        src={`/assets/images/${project.id}.jpg`} 
-        alt={project.title} 
-        width="1000" 
-        height="500"
-        className="column is-10 justify-self-center w-full"
-      />
+      <div className="column is-10">
+        <Image 
+          src={`/assets/images/${project.id}.jpg`}
+          alt={project.title} 
+          width="1000" 
+          height="500"
+          className="w-full h-auto"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = `/assets/images/${project.id}.png`;
+          }}
+        />
+      </div>
       <div className="column is-10">
         <p className="subtitle break-words">{project.techStack}</p>
         <p className="break-words whitespace-normal">{project.info}</p>
