@@ -12,12 +12,6 @@ export const projects = [
     info: 'A full-stack Next.js app, an index to record crystals, employing a Prisma as an ORM. Crystal information is created with GPT4. Location data is looked up and added using the OpenCage API. Location data is visualised with a 3D globe created with React 3 Fiber.',
   },
   {
-    id: 'communication-infographic',
-    title: 'Communication Infographic',
-    techStack: 'React, Javascript',
-    info: 'A front-end React application, an infographic on the history of communication, a reworking of my BA Dissertation on the Advancements of Communication after 1440.',
-  },
-  {
     id: 'unicorn-poo/succulent',
     title: 'Succulent',
     techStack: 'Next.js, Ayrshare API, AI SDK, Stripe, Shopify API',
@@ -41,7 +35,7 @@ export const projects = [
     id: 'glint',
     title: 'Glint',
     techStack: 'Next.js, Vercel Edge Middleware, PostgreSQL, Recharts',
-    info: 'Custom analytics platform built on Next.js Edge Middleware for zero-latency tracking and PostgreSQL for persistence. Deployed on Vercel with full control over data and infrastructure.',
+    info: 'Custom analytics platform built on Next.js Edge Middleware for zero-latency tracking and PostgreSQL for persistence. Self-populating dashboard via Cloudflare Worker cron job that simulates traffic from global edge locations.',
   },
   {
     id: 'the-colour-game',
@@ -119,6 +113,12 @@ export const projects = [
     title: 'Artistry',
     techStack: 'React, Python, SQL',
     info: 'A full-stack React application, where users can search the Rijksmuseum API. The application includes an SQL database, data schema and its own RESTful API supporting additional features, built with Python',
+  },
+  {
+    id: 'communication-infographic',
+    title: 'Communication Infographic',
+    techStack: 'React, Javascript',
+    info: 'A front-end React application, an infographic on the history of communication, a reworking of my BA Dissertation on the Advancements of Communication after 1440.',
   },
   {
     id: 'space-invaders',
