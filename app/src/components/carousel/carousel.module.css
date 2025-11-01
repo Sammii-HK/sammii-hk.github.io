@@ -39,9 +39,24 @@
     align-items: center;
     flex-direction: column;
     right: 10px;
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 20;
     gap: 8px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: visible;
+    padding: 16px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .controls::-webkit-scrollbar {
+    display: none;
   }
 
   .paginationButton {
@@ -56,6 +71,10 @@
     justify-content: center;
     position: relative;
     transition: all 0.3s ease;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .paginationButtonNumber,
@@ -103,6 +122,7 @@
     .controls {
       right: 8px;
       gap: 6px;
+      max-height: 85vh;
     }
 
     .paginationButton {

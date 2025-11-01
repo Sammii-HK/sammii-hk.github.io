@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactEventHandler } from 'react';
+import React, { useRef } from 'react';
 import { useSnapCarousel } from 'react-snap-carousel';
 import styles from "./carousel.module.css"
 import classNames from 'classnames/bind';
@@ -30,6 +30,64 @@ export const Carousel = <T extends any>({
     snapPointIndexes,
   } = useSnapCarousel({ axis: "y" });
 
+  const controlsRef = useRef<HTMLDivElement>(null);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const isDraggingRef = useRef(false);
+  const lastIndexRef = useRef<number | null>(null);
+
+  const getButtonIndexFromTouch = (clientY: number): number | null => {
+    // Find which button this Y position corresponds to using absolute positions
+    for (let i = 0; i < buttonRefs.current.length; i++) {
+      const button = buttonRefs.current[i];
+      if (button) {
+        const buttonRect = button.getBoundingClientRect();
+        // Add some padding for easier touch targeting (half the gap)
+        const padding = 4;
+        
+        if (clientY >= buttonRect.top - padding && clientY <= buttonRect.bottom + padding) {
+          return i;
+        }
+      }
+    }
+    
+    return null;
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 0) return;
+    
+    isDraggingRef.current = true;
+    const index = getButtonIndexFromTouch(e.touches[0].clientY);
+    if (index !== null && index !== lastIndexRef.current) {
+      lastIndexRef.current = index;
+      goTo(index);
+      e.preventDefault();
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDraggingRef.current || e.touches.length === 0) return;
+    
+    const index = getButtonIndexFromTouch(e.touches[0].clientY);
+    if (index !== null && index !== lastIndexRef.current) {
+      lastIndexRef.current = index;
+      goTo(index);
+    }
+    // Only prevent default if we're actively dragging over the controls
+    if (controlsRef.current) {
+      const touch = e.touches[0];
+      const rect = controlsRef.current.getBoundingClientRect();
+      if (touch.clientX >= rect.left && touch.clientX <= rect.right) {
+        e.preventDefault();
+      }
+    }
+  };
+
+  const handleTouchEnd = () => {
+    isDraggingRef.current = false;
+    lastIndexRef.current = null;
+  };
+
   return (
     <div className={styles.root}>
       <ul className={styles.scroll} ref={scrollRef}>
@@ -40,12 +98,22 @@ export const Carousel = <T extends any>({
           })
         )}
       </ul>
-      <div className={styles.controls} aria-hidden>
+      <div 
+        ref={controlsRef}
+        className={styles.controls} 
+        aria-hidden
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {pages.map((_, i) => {
           const isActive = activePageIndex === i;
           return (
             <button
               key={i}
+              ref={(el) => {
+                if (el) buttonRefs.current[i] = el;
+              }}
               className={cx(styles.paginationButton, {
                 [styles.paginationButtonActive]: isActive
               })}
