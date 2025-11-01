@@ -38,26 +38,84 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    right: 15px;
+    right: 10px;
     position: absolute;
     z-index: 20;
-  }
-
-  /* .nextPrevButton {} */
-
-  /* .nextPrevButtonDisabled { opacity: 0.3 } */
-
-  .pagination {
-    display: flex;
+    gap: 8px;
   }
 
   .paginationButton {
-    margin: 10px 0 10px 0;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
   }
 
-  .paginationButtonActive { opacity: 0.3 }
+  .paginationButtonNumber,
+  .paginationButtonDot {
+    position: absolute;
+    transition: all 0.3s ease;
+  }
 
-  .pageIndicator {
-    display: flex;
-    justify-content: center;
+  .paginationButtonNumber {
+    opacity: 0;
+    transform: scale(0);
+    font-size: 14px;
+    color: white;
+    pointer-events: none;
+  }
+
+  .paginationButtonDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .paginationButtonActive .paginationButtonNumber {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .paginationButtonActive .paginationButtonDot {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .paginationButton:hover {
+    transform: scale(1.1);
+  }
+
+  .paginationButton:hover .paginationButtonDot {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    .controls {
+      right: 8px;
+      gap: 6px;
+    }
+
+    .paginationButton {
+      width: 28px;
+      height: 28px;
+    }
+
+    .paginationButtonNumber {
+      font-size: 12px;
+    }
+
+    .paginationButtonDot {
+      width: 6px;
+      height: 6px;
+    }
   }

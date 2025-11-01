@@ -41,20 +41,22 @@ export const Carousel = <T extends any>({
         )}
       </ul>
       <div className={styles.controls} aria-hidden>
-        {pages.map((_, i) => (
-          <button
-            key={i}
-            className={
-              cx(
-                styles.paginationButton,
-                { [`${styles.paginationButtonActive}`]: activePageIndex === i}
-              )
-            }
-            onClick={() => goTo(i)}
-          >
-            {i + 1}
-          </button>
-        ))}
+        {pages.map((_, i) => {
+          const isActive = activePageIndex === i;
+          return (
+            <button
+              key={i}
+              className={cx(styles.paginationButton, {
+                [styles.paginationButtonActive]: isActive
+              })}
+              onClick={() => goTo(i)}
+              aria-label={`Go to page ${i + 1}`}
+            >
+              <span className={styles.paginationButtonNumber}>{i + 1}</span>
+              <span className={styles.paginationButtonDot}></span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

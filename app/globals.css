@@ -54,7 +54,7 @@ body {
 }
 
 .columns > .column.is-10 {
-  @apply col-span-12 px-8 lg:col-span-10 lg:col-start-3 lg:col-end-11 max-w-full
+  @apply col-span-12 px-8 lg:col-span-10 lg:col-start-3 lg:col-end-11
 }
 
 .columns > .column.is-2 {
