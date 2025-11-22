@@ -13,7 +13,7 @@ export const ProjectGrid = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-black/20 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 hover:border-white/20 transition-all hover:shadow-lg hover:shadow-white/5 group flex flex-col"
+              className="bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-lg overflow-hidden border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-white/5 group flex flex-col"
             >
               <ProjectItem project={project} isGrid={true} />
             </div>
