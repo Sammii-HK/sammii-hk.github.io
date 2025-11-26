@@ -15,7 +15,6 @@ export const ProjectGrid = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
   const selectedCardRef = useRef<HTMLDivElement | null>(null);
 
-  // Handle keyboard activation of cards
   const handleCardKeyDown = useCallback(
     (e: React.KeyboardEvent, project: ProjectType, cardElement: HTMLDivElement | null) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -53,7 +52,7 @@ export const ProjectGrid = () => {
             role="list"
             aria-label="Projects"
           >
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <div
                 key={project.id}
                 role="listitem"
@@ -80,4 +79,3 @@ export const ProjectGrid = () => {
     </>
   );
 };
-

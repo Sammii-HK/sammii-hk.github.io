@@ -20,7 +20,6 @@ export const ViewToggle = ({ currentView, onViewChange }: ViewToggleProps) => {
     }
   };
 
-  // Handle keyboard navigation between tabs
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent, currentTab: ViewMode) => {
       let handled = false;
@@ -99,4 +98,3 @@ export const ViewToggle = ({ currentView, onViewChange }: ViewToggleProps) => {
     </div>
   );
 };
-
