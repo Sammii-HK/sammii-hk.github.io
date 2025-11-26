@@ -1,12 +1,27 @@
-'use client';
+"use client";
 import { useState, useEffect, useRef } from "react";
 
 import { Navbar } from "./Navbar";
 import { ProjectView } from "./project/ProjectView";
+import { ProjectGrid } from "./project/ProjectGrid";
+import { ViewToggle } from "./ViewToggle";
+import { Footer } from "./Footer";
 
 export const PortfolioContainer = () => {
   const [yPc, setYPc] = useState(0);
   const [xPc, setXPc] = useState(0);
+  const [viewMode, setViewMode] = useState<"grid" | "carousel">(() => {
+    if (typeof window !== "undefined") {
+      const savedView = localStorage.getItem("portfolioView") as
+        | "grid"
+        | "carousel"
+        | null;
+      if (savedView === "grid" || savedView === "carousel") {
+        return savedView;
+      }
+    }
+    return "grid";
+  });
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollHandlerRef = useRef<(() => void) | null>(null);
   const isScrollingRef = useRef(false);
@@ -34,8 +49,16 @@ export const PortfolioContainer = () => {
       // Smooth interpolation factor (0.2 = fluid, responsive transition)
       const factor = 0.2;
       
-      currentYPcRef.current = lerp(currentYPcRef.current, targetYPcRef.current, factor);
-      currentXPcRef.current = lerp(currentXPcRef.current, targetXPcRef.current, factor);
+      currentYPcRef.current = lerp(
+        currentYPcRef.current,
+        targetYPcRef.current,
+        factor
+      );
+      currentXPcRef.current = lerp(
+        currentXPcRef.current,
+        targetXPcRef.current,
+        factor
+      );
       
       setYPc(currentYPcRef.current);
       setXPc(currentXPcRef.current);
@@ -67,7 +90,7 @@ export const PortfolioContainer = () => {
     if (!isScrollingRef.current || timeSinceScroll < 100) {
       targetXPcRef.current = ((e.clientX * 2) / viewportWidth) * 100;
     }
-  }
+  };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (e.touches.length > 0) {
@@ -86,7 +109,7 @@ export const PortfolioContainer = () => {
         targetXPcRef.current = ((touch.clientX * 2) / viewportWidth) * 100;
       }
     }
-  }
+  };
 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout | null = null;
@@ -96,15 +119,39 @@ export const PortfolioContainer = () => {
     const findScrollableElement = (): HTMLElement | null => {
       if (!containerRef.current) return null;
       
-      // Find all ul elements and check which one is scrollable
-      const allUls = containerRef.current.querySelectorAll('ul');
-      for (const ul of Array.from(allUls)) {
-        const element = ul as HTMLElement;
-        const style = window.getComputedStyle(element);
-        // Check if element has overflow auto/scroll and is actually scrollable
-        if ((style.overflow === 'auto' || style.overflowY === 'auto' || style.overflow === 'scroll' || style.overflowY === 'scroll') &&
-            element.scrollHeight > element.clientHeight) {
-          return element;
+      if (viewMode === "carousel") {
+        // Find ul element for carousel
+        const allUls = containerRef.current.querySelectorAll("ul");
+        for (const ul of Array.from(allUls)) {
+          const element = ul as HTMLElement;
+          const style = window.getComputedStyle(element);
+          if (
+            (style.overflow === "auto" ||
+              style.overflowY === "auto" ||
+              style.overflow === "scroll" ||
+              style.overflowY === "scroll") &&
+            element.scrollHeight > element.clientHeight
+          ) {
+            return element;
+          }
+        }
+      } else {
+        // Find the grid scroll container
+        const gridScroll = containerRef.current.querySelector(
+          "#project-grid-scroll"
+        );
+        if (gridScroll) {
+          const element = gridScroll as HTMLElement;
+          const style = window.getComputedStyle(element);
+          if (
+            (style.overflow === "auto" ||
+              style.overflowY === "auto" ||
+              style.overflow === "scroll" ||
+              style.overflowY === "scroll") &&
+            element.scrollHeight > element.clientHeight
+          ) {
+            return element;
+          }
         }
       }
       
@@ -137,7 +184,8 @@ export const PortfolioContainer = () => {
             // Create MASSIVE dramatic color changes
             // Use multiple sine waves with different frequencies for rich color transitions
             // This creates 6 full color cycles as you scroll with smooth transitions
-            const wave1 = Math.sin((scrollPercent / 100) * Math.PI * 6) * 50 + 50;
+            const wave1 =
+              Math.sin((scrollPercent / 100) * Math.PI * 6) * 50 + 50;
             // Add a second wave for even more variation
             const wave2 = Math.cos((scrollPercent / 100) * Math.PI * 4) * 30;
             // Combine waves for rich, dramatic color transitions
@@ -145,7 +193,8 @@ export const PortfolioContainer = () => {
             targetYPcRef.current = amplified;
             
             // Also vary X position slightly based on scroll for even more dynamism
-            const xWave = Math.sin((scrollPercent / 100) * Math.PI * 2) * 25 + 50;
+            const xWave =
+              Math.sin((scrollPercent / 100) * Math.PI * 2) * 25 + 50;
             targetXPcRef.current = xWave;
           } else {
             // If no scroll, set to 0
@@ -173,11 +222,16 @@ export const PortfolioContainer = () => {
       if (scrollableElement && scrollableElement !== attachedElement) {
         // Remove from previous element if exists
         if (attachedElement && scrollHandlerRef.current) {
-          attachedElement.removeEventListener('scroll', scrollHandlerRef.current);
+          attachedElement.removeEventListener(
+            "scroll",
+            scrollHandlerRef.current
+          );
         }
         
         attachedElement = scrollableElement;
-        scrollableElement.addEventListener('scroll', handleScroll, { passive: true });
+        scrollableElement.addEventListener("scroll", handleScroll, {
+          passive: true,
+        });
         handleScroll(); // Set initial position
       }
     };
@@ -202,7 +256,10 @@ export const PortfolioContainer = () => {
     });
 
     if (containerRef.current) {
-      observer.observe(containerRef.current, { childList: true, subtree: true });
+      observer.observe(containerRef.current, {
+        childList: true,
+        subtree: true,
+      });
     }
 
     return () => {
@@ -214,15 +271,33 @@ export const PortfolioContainer = () => {
       }
       observer.disconnect();
       if (attachedElement && scrollHandlerRef.current) {
-        attachedElement.removeEventListener('scroll', scrollHandlerRef.current);
+        attachedElement.removeEventListener("scroll", scrollHandlerRef.current);
       }
     };
-  }, []);
+  }, [viewMode]);
 
   return (
-    <div ref={containerRef} className="h-[100dvh]" onTouchMove={handleTouchMove} onPointerMove={handlePointerMove}>
+    <div
+      ref={containerRef}
+      className="h-[100dvh] grid grid-rows-[auto_auto_1fr_auto]"
+      onTouchMove={handleTouchMove}
+      onPointerMove={handlePointerMove}
+    >
+      {/* Row 1: Navbar */}
       <Navbar xPc={xPc} yPc={yPc} />
-      <ProjectView />
+      
+      {/* Row 2: View Toggle */}
+      <div className="flex justify-center py-2 sm:py-3 bg-white/50 dark:bg-black/30 backdrop-blur-sm border-b border-black/5 dark:border-white/5">
+        <ViewToggle currentView={viewMode} onViewChange={setViewMode} />
+      </div>
+      
+      {/* Row 3: Main Content - fills remaining space */}
+      <main className="overflow-hidden min-h-0">
+        {viewMode === "grid" ? <ProjectGrid /> : <ProjectView />}
+      </main>
+      
+      {/* Row 4: Footer */}
+      <Footer />
     </div>
-  )
+  );
 };

@@ -120,22 +120,23 @@
 
   @media (max-width: 768px) {
     .controls {
-      right: 8px;
-      gap: 6px;
-      max-height: 85vh;
+      right: 4px;
+      gap: 4px;
+      max-height: calc(100vh - 160px);
+      top: calc(50% - 20px);
     }
 
     .paginationButton {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
     }
 
     .paginationButtonNumber {
-      font-size: 12px;
+      font-size: 10px;
     }
 
     .paginationButtonDot {
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
     }
   }
