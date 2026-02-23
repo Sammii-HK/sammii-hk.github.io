@@ -102,4 +102,4 @@ Because if you're going to base your self-understanding on planetary positions, 
 
 ---
 
-*I'm Sammii, founder of [Lunary](https://lunary.app) - an astrology app that teaches you to read your own birth chart using real astronomical data. Follow the build on [Hashnode](https://lunary.hashnode.dev).*
+*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

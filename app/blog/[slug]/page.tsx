@@ -2,7 +2,16 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import rehypePrettyCode from 'rehype-pretty-code';
 import { getAllSlugs, getPostBySlug } from '../../lib/blog';
+
+const mdxOptions = {
+  mdxOptions: {
+    rehypePlugins: [
+      [rehypePrettyCode, { theme: 'github-dark' }],
+    ] as never,
+  },
+};
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -58,7 +67,7 @@ export default async function BlogPost({ params }: Props) {
       </header>
 
       <article className="prose prose-invert prose-neutral max-w-none">
-        <MDXRemote source={post.content} />
+        <MDXRemote source={post.content} options={mdxOptions} />
       </article>
     </main>
   );

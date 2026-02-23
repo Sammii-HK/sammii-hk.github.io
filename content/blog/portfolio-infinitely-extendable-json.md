@@ -150,4 +150,4 @@ If you're spending more time wiring new content into your portfolio than buildin
 
 ---
 
-*I'm Sammii, founder of [Lunary](https://lunary.app) - an astrology app that actually teaches you to read your own birth chart. I write about the technical decisions behind building products as a solo developer. Follow along on [Hashnode](https://sammii.hashnode.dev) or check out the code on [GitHub](https://github.com/sammii-hk).*
+*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*
