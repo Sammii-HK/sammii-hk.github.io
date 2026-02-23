@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { GITHUB_URL_SAMMII, EMAIL, LINKEDIN_URL } from "../../constants";
 
@@ -38,8 +39,16 @@ export const Footer = () => {
             <span className="sr-only">Send email to {EMAIL}</span>
           </a>
         </nav>
-        <div className="text-xs sm:text-sm text-black/50 dark:text-white/50 whitespace-nowrap">
-          © {new Date().getFullYear()} Sammii
+        <div className="flex items-center gap-3 sm:gap-4">
+          <Link
+            href="/blog"
+            className="text-xs sm:text-sm text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white transition-colors"
+          >
+            Blog
+          </Link>
+          <span className="text-xs sm:text-sm text-black/50 dark:text-white/50 whitespace-nowrap">
+            © {new Date().getFullYear()} Sammii
+          </span>
         </div>
       </div>
     </footer>
