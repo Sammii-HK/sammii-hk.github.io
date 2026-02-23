@@ -107,7 +107,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
             description: 'Custom slug. Auto-generated from title if omitted.',
           },
         },
-        required: ['title', 'content'],
+        required: ['title'],
       },
     },
     {
@@ -198,7 +198,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           .object({
             title: z.string(),
             description: z.string().optional(),
-            content: z.string(),
+            content: z.string().optional(),
             tags: z.array(z.string()).optional(),
             date: z.string().optional(),
             draft: z.boolean().optional(),
@@ -213,12 +213,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const filePath = path.join(BLOG_DIR, `${slug}.md`);
         if (fs.existsSync(filePath)) {
           return {
-            content: [{ type: 'text', text: `Post "${slug}" already exists. Use update_post.` }],
+            content: [{ type: 'text', text: `Post "${slug}" already exists. Use update_post to add content.` }],
             isError: true,
           };
         }
 
-        const frontmatter = matter.stringify(parsed.content, {
+        const body = parsed.content ?? '';
+        const frontmatter = matter.stringify(body, {
           title: parsed.title,
           description: parsed.description ?? '',
           date,
@@ -230,7 +231,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         fs.writeFileSync(filePath, frontmatter, 'utf-8');
 
         return {
-          content: [{ type: 'text', text: `Created ${draft ? 'draft' : 'post'}: ${slug}` }],
+          content: [{
+            type: 'text',
+            text: `Created ${draft ? 'draft' : 'post'}: ${slug}\nFile: ${filePath}\n\nNow write the content to this file using the filesystem MCP, then call publish_post when ready.`,
+          }],
         };
       }
 
