@@ -62,6 +62,30 @@ export const projects = [
     info: 'An interactive canvas-based laser pointer application with smooth trail rendering and color transitions.',
   },
   
+  {
+    id: 'spellcast',
+    title: 'Spellcast',
+    techStack: 'Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz',
+    info: 'Self-hosted social media scheduling platform managing multiple brands across 8+ platforms. Turborepo monorepo with a Next.js frontend, a Node.js BFF, and a self-hosted Postiz + Temporal stack on Hetzner via Docker Compose.',
+  },
+  {
+    id: 'podify',
+    title: 'Podify',
+    techStack: 'Next.js, Claude (OpenRouter), Kokoro TTS, ffmpeg',
+    info: 'AI podcast generator that turns any text, URL, or content path into a fully produced two-host episode at roughly $0.04 each. Kokoro TTS synthesis, ffmpeg audio assembly, RSS feed output, and a web UI with real-time generation progress.',
+  },
+  {
+    id: 'artify',
+    title: 'Artify',
+    techStack: 'Next.js, Remotion, FLUX, Kling, DeepInfra, fal.ai',
+    info: 'Automated daily content pipeline generating witchcraft and astrology illustrations, carousels, reels, and stories using FLUX image-to-image generation, Kling video synthesis, and Remotion compositions — then scheduling everything via Spellcast.',
+  },
+  {
+    id: 'celestial-map',
+    title: 'Celestial map',
+    techStack: 'D3.js, HTML5 Canvas, Vite',
+    info: 'Interactive star globe rendered on Canvas using D3 orthographic projection. Realistic star colours from B-V colour index, magnitude-scaled sizes with glow effects, constellation lines and labels, Milky Way band, drag-to-rotate with idle spin, and a time slider that shifts the sky in right ascension.',
+  },
   // {
   //   id: 'softly-becoming',
   //   title: 'Softly Becoming',
