@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useCallback, useRef, useId } from "react";
 import Image from "next/image";
-import { X, CodeXml } from "lucide-react";
+import { X, CodeXml, ExternalLink } from "lucide-react";
 import { GITHUB_URL_SAMMII, GITHUB_URL } from "../../../constants";
 import { getImagePath } from "../../../common/utils/image-path";
 
@@ -10,6 +10,8 @@ type ProjectType = {
   title: string;
   techStack: string;
   info: string;
+  type?: "product" | "experiment";
+  liveUrl?: string;
 };
 
 interface ProjectModalProps {
@@ -174,18 +176,49 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
             {project.info}
           </p>
 
-          <a
-            ref={lastFocusableRef}
-            target="_blank"
-            rel="noopener noreferrer"
-            href={`${githubUrl}/${project.id}`}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <CodeXml size={14} aria-hidden="true" />
-            <span>View Code</span>
-            <span className="sr-only">(opens in new tab)</span>
-          </a>
+          <div className="flex items-center gap-3">
+            {project.liveUrl && (
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={project.liveUrl}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <ExternalLink size={14} aria-hidden="true" />
+                <span>{project.type === "experiment" ? "Try it" : "Open"}</span>
+                <span className="sr-only">(opens in new tab)</span>
+              </a>
+            )}
+            {project.type !== "experiment" && (
+              <a
+                ref={lastFocusableRef}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`${githubUrl}/${project.id}`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <CodeXml size={14} aria-hidden="true" />
+                <span>View Code</span>
+                <span className="sr-only">(opens in new tab)</span>
+              </a>
+            )}
+            {project.type === "experiment" && !project.liveUrl && (
+              <a
+                ref={lastFocusableRef}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`${githubUrl}/${project.id}`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <CodeXml size={14} aria-hidden="true" />
+                <span>View Code</span>
+                <span className="sr-only">(opens in new tab)</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -1,164 +1,202 @@
-export const projects = [
+type Project = {
+  id: string;
+  title: string;
+  techStack: string;
+  info: string;
+  type: "product" | "experiment";
+  liveUrl?: string;
+};
+
+export const projects: Project[] = [
   {
     id: 'lunary',
     title: 'Lunary',
     techStack: 'Next.js, Typescript, Astronomy Engine',
     info: 'Progressive Web App calculating planetary and lunar positions in real time using the Astronomy Engine library, with personalised lunar data and subscription features.',
+    type: 'product',
+    liveUrl: 'https://lunary.app',
   },
   {
     id: 'spellcast',
     title: 'Spellcast',
     techStack: 'Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz',
     info: 'Self-hosted social media scheduling platform managing multiple brands across 8+ platforms. Turborepo monorepo with a Next.js frontend, a Node.js BFF, and a self-hosted Postiz + Temporal stack on Hetzner via Docker Compose.',
+    type: 'product',
   },
   {
     id: 'spectra',
     title: 'Spectra',
     techStack: 'Three.js, GLSL, Web Audio API, Next.js',
     info: 'Audio-reactive shader visualiser driven by microphone input. Domain-warped simplex noise fragment shader with bass, mid, and high frequency bands mapped to warp intensity, hue rotation, and shimmer, all running in real time on the GPU.',
+    type: 'experiment',
+    liveUrl: 'https://sammii-hk.github.io/spectra',
   },
   {
     id: 'beyond-light-vr',
     title: 'Beyond Light VR',
     techStack: 'Three.js, WebXR, GLSL, Vite',
     info: 'WebXR reconstruction of my MA dissertation installation. A journey through the visible light spectrum from infrared to ultraviolet: quotes screen-printed on acetate walls remain invisible until the final UV phase, where they blaze to life with a custom GLSL UV-reactive shader before the room dissolves into white.',
+    type: 'experiment',
   },
   {
     id: 'artify',
     title: 'Artify',
     techStack: 'Next.js, Remotion, FLUX, Kling, DeepInfra, fal.ai',
     info: 'Automated daily content pipeline generating witchcraft and astrology illustrations, carousels, reels, and stories using FLUX image-to-image generation, Kling video synthesis, and Remotion compositions, then scheduling everything via Spellcast.',
+    type: 'product',
   },
   {
     id: 'podify',
     title: 'Podify',
     techStack: 'Next.js, Claude (OpenRouter), Kokoro TTS, ffmpeg',
     info: 'AI podcast generator that turns any text, URL, or content path into a fully produced two-host episode at roughly $0.04 each. Kokoro TTS synthesis, ffmpeg audio assembly, RSS feed output, and a web UI with real-time generation progress.',
+    type: 'product',
   },
   {
     id: 'conjure',
     title: 'Conjure',
     techStack: 'Next.js, Turborepo, Groq (Llama 3.3 70B), Prisma, Chrome Extension MV3',
     info: 'AI-powered prompt builder for Midjourney, FLUX, and DALL·E. Describe what you want in plain English and get three variations tuned for safe, creative, and experimental outputs, with iterative refinement, per-platform parameter formatting, and a Chrome extension that injects the builder into any page.',
+    type: 'product',
   },
   {
     id: 'crystal-index',
     title: 'Crystal Index',
     techStack: 'TypeScript, Next.js, Prisma, SQL, GPT4, React 3 Fiber',
     info: 'Custom CMS for cataloguing crystals with structured filters for colour, chakra, and properties, and GPT-4-generated descriptions.',
+    type: 'product',
   },
   {
     id: 'glint',
     title: 'Glint',
     techStack: 'Next.js, Vercel Edge Middleware, PostgreSQL, Recharts',
     info: 'Custom analytics platform built on Next.js Edge Middleware for zero-latency tracking and PostgreSQL for persistence. Self-populating dashboard via Cloudflare Worker cron job that simulates traffic from global edge locations.',
+    type: 'product',
   },
   {
     id: 'day-lite',
     title: 'Day Lite',
     techStack: 'React, Javascript, Mapbox GL, Vite',
     info: 'Interactive globe visualising daylight patterns worldwide in real time using geospatial data from MapBox GL.',
+    type: 'experiment',
   },
   {
     id: 'celestial-map',
     title: 'Celestial map',
     techStack: 'D3.js, HTML5 Canvas, Vite',
     info: 'Interactive star globe rendered on Canvas using D3 orthographic projection. Realistic star colours from B-V colour index, magnitude-scaled sizes with glow effects, constellation lines and labels, Milky Way band, drag-to-rotate with idle spin, and a time slider that shifts the sky in right ascension.',
+    type: 'experiment',
   },
   {
     id: 'unicorn-poo/succulent',
     title: 'Succulent',
     techStack: 'Next.js, Ayrshare API, AI SDK, Stripe, Shopify API',
     info: 'Social media management platform with integrated print-on-demand and e-commerce automation. Unified publishing, scheduling, and product creation across 13+ social platforms with automated store synchronization.',
+    type: 'product',
   },
   {
     id: 'creative-coding',
     title: 'Creative Coding',
     techStack: 'p5.js, Javascript',
     info: '15 browser-based visual experiments treating a single photograph as raw material. Pixel data drives particle systems, edge detection, flow fields, Voronoi partitions, kaleidoscopes, and more; each sketch is unique to the source image.',
+    type: 'experiment',
   },
   {
     id: 'balloon-bonanza',
     title: 'Balloon Bonanza',
     techStack: 'React, Typescript, Matter.js, Vite',
     info: 'A real-time physics simulation using Matter.js to render interactive balloons with realistic collision dynamics and constraint-based interactions.',
+    type: 'experiment',
   },
   {
     id: 'liquidity',
     title: 'Liquidity',
     techStack: 'Next.js, Typescript, GSAP, Rapier2D',
     info: 'Experimental Next.js project exploring advanced animation techniques for creating liquid text effects through multiple approaches.',
+    type: 'experiment',
   },
   {
     id: 'rainbow-laser-pointer',
     title: 'Rainbow Laser Pointer',
     techStack: 'React, TypeScript, HTML5 Canvas',
     info: 'An interactive canvas-based laser pointer application with smooth trail rendering and color transitions.',
+    type: 'experiment',
   },
   {
     id: 'the-colour-game',
     title: 'The CSS Color Game',
     techStack: 'Next.js, Vercel Edge Middleware, React Email, Resend',
     info: 'A daily color platform built with Next.js that combines an interactive color recognition game with automated email delivery and social sharing.',
+    type: 'product',
   },
   {
     id: 'scape-squared',
     title: 'Scape²',
     techStack: 'Next.js, Vercel E-commerce, Shopify',
     info: 'Customised Vercel E-commerce template integrated with Shopify APIs to create and deploy a functional online storefront.',
+    type: 'product',
   },
   {
     id: 'artistry',
     title: 'Artistry',
     techStack: 'React, Python, SQL',
     info: 'Integrates the Rijksmuseum API to retrieve and search artwork data, storing results in a SQL database accessed through a Python REST API.',
+    type: 'experiment',
   },
   {
     id: 'communication-infographic',
     title: 'Communication Infographic',
     techStack: 'React, Javascript',
     info: 'Interactive timeline highlighting key developments in communication technology, built with React and SVG animations.',
+    type: 'experiment',
   },
   {
     id: 'on-set-london',
     title: 'On Set',
     techStack: 'React, MapBox GL, JavaScript, MongoDB',
     info: 'Map-based app indexing film locations across London using MongoDB for storage and MapBox GL for geospatial rendering.',
+    type: 'experiment',
   },
   {
     id: 'volcanoVisualisation',
     title: 'Volcano Visualisation',
     techStack: 'D3.js, Javascript, React 3 Fiber',
     info: '3D globe mapping volcanic eruptions worldwide using GeoJSON datasets with D3.js and React Three Fiber.',
+    type: 'experiment',
   },
   {
     id: 'three-js-particles',
     title: 'Three.js 3D Model',
     techStack: 'Three.js, Javascript',
     info: '3D scene rendered with Three.js displaying a butterfly model surrounded by animated geometric particles in a panoramic environment.',
+    type: 'experiment',
   },
   {
     id: 'nasa-api',
     title: 'NASA API',
     techStack: 'React, Javascript, NASA API',
     info: 'Displays imagery and data from NASA\'s Mars Rover and Astronomy Picture of the Day APIs with efficient image rendering and request handling.',
+    type: 'experiment',
   },
   {
     id: 'p5-interactive-graphics',
     title: 'P5 Interactive Graphics',
     techStack: 'P5.js, Javascript',
     info: 'A front-end application, which renders a dynamic interactive graphic visualisation which reacts to the users cursor movement and position, created with P5.js and Javascript.',
+    type: 'experiment',
   },
   {
     id: 'matter-js-animation',
     title: 'Matter.js',
     techStack: 'Matter.js, Javascript',
     info: 'Interactive physics demo using Matter.js to simulate object motion and collision dynamics in real time.',
+    type: 'experiment',
   },
   {
     id: 'space-invaders',
     title: 'Space Invaders',
     techStack: 'Javascript',
     info: 'Recreation of the classic arcade game built in JavaScript with keyboard controls, scoring, and progressive difficulty.',
+    type: 'experiment',
   },
 ];

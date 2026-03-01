@@ -6,10 +6,13 @@ import { ProjectView } from "./project/ProjectView";
 import { ProjectGrid } from "./project/ProjectGrid";
 import { ViewToggle } from "./ViewToggle";
 import { Footer } from "./Footer";
+import { CursorFollower } from "./CursorFollower";
+import { backgroundGradientCreator } from "../../common/scripts/gradient-creator";
 
 export const PortfolioContainer = () => {
   const [yPc, setYPc] = useState(0);
   const [xPc, setXPc] = useState(0);
+  const [time, setTime] = useState(0);
   const [viewMode, setViewMode] = useState<"grid" | "carousel">(() => {
     if (typeof window !== "undefined") {
       const savedView = localStorage.getItem("portfolioView") as
@@ -49,7 +52,8 @@ export const PortfolioContainer = () => {
       
       setYPc(currentYPcRef.current);
       setXPc(currentXPcRef.current);
-      
+      setTime(performance.now() / 1000);
+
       animationRef.current = requestAnimationFrame(animate);
     };
     
@@ -223,10 +227,12 @@ export const PortfolioContainer = () => {
   return (
     <div
       ref={containerRef}
-      className="h-[100dvh] grid grid-rows-[auto_auto_1fr_auto]"
+      className="h-[100dvh] w-full grid grid-rows-[auto_auto_1fr_auto]"
+      style={backgroundGradientCreator(xPc, yPc, time)}
       onTouchMove={handleTouchMove}
       onPointerMove={handlePointerMove}
     >
+      <CursorFollower />
       <Navbar xPc={xPc} yPc={yPc} />
       
       <div className="flex justify-center py-2 sm:py-3 bg-white/50 dark:bg-black/30 backdrop-blur-sm border-b border-black/5 dark:border-white/5">

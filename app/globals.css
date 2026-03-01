@@ -90,6 +90,11 @@ li {
   justify-content: center !important;
 }
 
+.project-card {
+  position: relative;
+  transition: border-color 0.5s ease;
+}
+
 /* Modal animations */
 @keyframes fadeIn {
   from {
