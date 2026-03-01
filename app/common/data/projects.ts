@@ -22,6 +22,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz',
     info: 'Self-hosted social media scheduling platform managing multiple brands across 8+ platforms. Turborepo monorepo with a Next.js frontend, a Node.js BFF, and a self-hosted Postiz + Temporal stack on Hetzner via Docker Compose.',
     type: 'product',
+    liveUrl: 'https://spellcast.sammii.dev',
   },
   {
     id: 'spectra',
@@ -32,11 +33,20 @@ export const projects: Project[] = [
     liveUrl: 'https://sammii-hk.github.io/spectra',
   },
   {
+    id: 'refract',
+    title: 'Refract',
+    techStack: 'WebGL, GLSL, JavaScript',
+    info: 'Text-to-shader generative art tool. Type any word or phrase and watch it rendered as a unique real-time GLSL shader, with colour, form, and motion derived from the semantic feel of the input.',
+    type: 'experiment',
+    liveUrl: 'https://refract-8mv500w8w-sammiis-projects.vercel.app',
+  },
+  {
     id: 'beyond-light-vr',
     title: 'Beyond Light VR',
     techStack: 'Three.js, WebXR, GLSL, Vite',
     info: 'WebXR reconstruction of my MA dissertation installation. A journey through the visible light spectrum from infrared to ultraviolet: quotes screen-printed on acetate walls remain invisible until the final UV phase, where they blaze to life with a custom GLSL UV-reactive shader before the room dissolves into white.',
     type: 'experiment',
+    liveUrl: 'https://beyond-light-vr.vercel.app',
   },
   {
     id: 'artify',
@@ -44,6 +54,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Remotion, FLUX, Kling, DeepInfra, fal.ai',
     info: 'Automated daily content pipeline generating witchcraft and astrology illustrations, carousels, reels, and stories using FLUX image-to-image generation, Kling video synthesis, and Remotion compositions, then scheduling everything via Spellcast.',
     type: 'product',
+    liveUrl: 'https://artify-roan.vercel.app',
   },
   {
     id: 'podify',
@@ -51,6 +62,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Claude (OpenRouter), Kokoro TTS, ffmpeg',
     info: 'AI podcast generator that turns any text, URL, or content path into a fully produced two-host episode at roughly $0.04 each. Kokoro TTS synthesis, ffmpeg audio assembly, RSS feed output, and a web UI with real-time generation progress.',
     type: 'product',
+    liveUrl: 'https://podify-topaz.vercel.app',
   },
   {
     id: 'conjure',
@@ -58,6 +70,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Turborepo, Groq (Llama 3.3 70B), Prisma, Chrome Extension MV3',
     info: 'AI-powered prompt builder for Midjourney, FLUX, and DALL·E. Describe what you want in plain English and get three variations tuned for safe, creative, and experimental outputs, with iterative refinement, per-platform parameter formatting, and a Chrome extension that injects the builder into any page.',
     type: 'product',
+    liveUrl: 'https://conjure-two.vercel.app',
   },
   {
     id: 'crystal-index',
@@ -65,6 +78,7 @@ export const projects: Project[] = [
     techStack: 'TypeScript, Next.js, Prisma, SQL, GPT4, React 3 Fiber',
     info: 'Custom CMS for cataloguing crystals with structured filters for colour, chakra, and properties, and GPT-4-generated descriptions.',
     type: 'product',
+    liveUrl: 'https://crystalindex.co.uk',
   },
   {
     id: 'glint',
@@ -72,6 +86,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Vercel Edge Middleware, PostgreSQL, Recharts',
     info: 'Custom analytics platform built on Next.js Edge Middleware for zero-latency tracking and PostgreSQL for persistence. Self-populating dashboard via Cloudflare Worker cron job that simulates traffic from global edge locations.',
     type: 'product',
+    liveUrl: 'https://glint-dun.vercel.app',
   },
   {
     id: 'day-lite',
@@ -79,6 +94,7 @@ export const projects: Project[] = [
     techStack: 'React, Javascript, Mapbox GL, Vite',
     info: 'Interactive globe visualising daylight patterns worldwide in real time using geospatial data from MapBox GL.',
     type: 'experiment',
+    liveUrl: 'https://day-lite.vercel.app',
   },
   {
     id: 'celestial-map',
@@ -107,6 +123,7 @@ export const projects: Project[] = [
     techStack: 'React, Typescript, Matter.js, Vite',
     info: 'A real-time physics simulation using Matter.js to render interactive balloons with realistic collision dynamics and constraint-based interactions.',
     type: 'experiment',
+    liveUrl: 'https://balloon-bonanza.vercel.app',
   },
   {
     id: 'liquidity',
@@ -114,6 +131,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Typescript, GSAP, Rapier2D',
     info: 'Experimental Next.js project exploring advanced animation techniques for creating liquid text effects through multiple approaches.',
     type: 'experiment',
+    liveUrl: 'https://liquidity-ten.vercel.app',
   },
   {
     id: 'rainbow-laser-pointer',
@@ -121,6 +139,7 @@ export const projects: Project[] = [
     techStack: 'React, TypeScript, HTML5 Canvas',
     info: 'An interactive canvas-based laser pointer application with smooth trail rendering and color transitions.',
     type: 'experiment',
+    liveUrl: 'https://rainbow-laser-pointer.vercel.app',
   },
   {
     id: 'the-colour-game',
@@ -128,6 +147,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Vercel Edge Middleware, React Email, Resend',
     info: 'A daily color platform built with Next.js that combines an interactive color recognition game with automated email delivery and social sharing.',
     type: 'product',
+    liveUrl: 'https://thecolorgame.uk',
   },
   {
     id: 'scape-squared',
@@ -135,6 +155,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Vercel E-commerce, Shopify',
     info: 'Customised Vercel E-commerce template integrated with Shopify APIs to create and deploy a functional online storefront.',
     type: 'product',
+    liveUrl: 'https://www.scsq.uk',
   },
   {
     id: 'artistry',
@@ -149,6 +170,7 @@ export const projects: Project[] = [
     techStack: 'React, Javascript',
     info: 'Interactive timeline highlighting key developments in communication technology, built with React and SVG animations.',
     type: 'experiment',
+    liveUrl: 'https://communication-infographic.vercel.app',
   },
   {
     id: 'on-set-london',
@@ -163,6 +185,7 @@ export const projects: Project[] = [
     techStack: 'D3.js, Javascript, React 3 Fiber',
     info: '3D globe mapping volcanic eruptions worldwide using GeoJSON datasets with D3.js and React Three Fiber.',
     type: 'experiment',
+    liveUrl: 'https://volcano-visualisation.vercel.app',
   },
   {
     id: 'three-js-particles',
@@ -170,6 +193,7 @@ export const projects: Project[] = [
     techStack: 'Three.js, Javascript',
     info: '3D scene rendered with Three.js displaying a butterfly model surrounded by animated geometric particles in a panoramic environment.',
     type: 'experiment',
+    liveUrl: 'https://three-js-particles-one.vercel.app',
   },
   {
     id: 'nasa-api',
