@@ -1,9 +1,15 @@
 export const projects = [
   {
+    id: 'spectra',
+    title: 'Spectra',
+    techStack: 'Three.js, GLSL, Web Audio API, Next.js',
+    info: 'Audio-reactive shader visualiser driven by microphone input. Domain-warped simplex noise fragment shader with bass, mid, and high frequency bands mapped to warp intensity, hue rotation, and shimmer, all running in real time on the GPU.',
+  },
+  {
     id: 'beyond-light-vr',
     title: 'Beyond Light VR',
     techStack: 'Three.js, WebXR, GLSL, Vite',
-    info: 'WebXR reconstruction of my MA dissertation installation. A journey through the visible light spectrum from infrared to ultraviolet — quotes screen-printed on acetate walls remain invisible until the final UV phase, where they blaze to life with a custom GLSL UV-reactive shader before the room dissolves into white.',
+    info: 'WebXR reconstruction of my MA dissertation installation. A journey through the visible light spectrum from infrared to ultraviolet: quotes screen-printed on acetate walls remain invisible until the final UV phase, where they blaze to life with a custom GLSL UV-reactive shader before the room dissolves into white.',
   },
   {
     id: 'lunary',
@@ -21,7 +27,7 @@ export const projects = [
     id: 'artify',
     title: 'Artify',
     techStack: 'Next.js, Remotion, FLUX, Kling, DeepInfra, fal.ai',
-    info: 'Automated daily content pipeline generating witchcraft and astrology illustrations, carousels, reels, and stories using FLUX image-to-image generation, Kling video synthesis, and Remotion compositions — then scheduling everything via Spellcast.',
+    info: 'Automated daily content pipeline generating witchcraft and astrology illustrations, carousels, reels, and stories using FLUX image-to-image generation, Kling video synthesis, and Remotion compositions, then scheduling everything via Spellcast.',
   },
   {
     id: 'podify',
@@ -33,7 +39,7 @@ export const projects = [
     id: 'conjure',
     title: 'Conjure',
     techStack: 'Next.js, Turborepo, Groq (Llama 3.3 70B), Prisma, Chrome Extension MV3',
-    info: 'AI-powered prompt builder for Midjourney, FLUX, and DALL·E. Describe what you want in plain English and get three variations tuned for safe, creative, and experimental outputs — with iterative refinement, per-platform parameter formatting, and a Chrome extension that injects the builder into any page.',
+    info: 'AI-powered prompt builder for Midjourney, FLUX, and DALL·E. Describe what you want in plain English and get three variations tuned for safe, creative, and experimental outputs, with iterative refinement, per-platform parameter formatting, and a Chrome extension that injects the builder into any page.',
   },
   {
     id: 'crystal-index',
@@ -69,7 +75,7 @@ export const projects = [
     id: 'creative-coding',
     title: 'Creative Coding',
     techStack: 'p5.js, Javascript',
-    info: '15 browser-based visual experiments treating a single photograph as raw material. Pixel data drives particle systems, edge detection, flow fields, Voronoi partitions, kaleidoscopes, and more — each sketch is unique to the source image.',
+    info: '15 browser-based visual experiments treating a single photograph as raw material. Pixel data drives particle systems, edge detection, flow fields, Voronoi partitions, kaleidoscopes, and more; each sketch is unique to the source image.',
   },
   {
     id: 'balloon-bonanza',
