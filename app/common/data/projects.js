@@ -1,5 +1,11 @@
 export const projects = [
   {
+    id: 'beyond-light-vr',
+    title: 'Beyond Light VR',
+    techStack: 'Three.js, WebXR, GLSL, Vite',
+    info: 'WebXR reconstruction of my MA dissertation installation. A journey through the visible light spectrum from infrared to ultraviolet — quotes screen-printed on acetate walls remain invisible until the final UV phase, where they blaze to life with a custom GLSL UV-reactive shader before the room dissolves into white.',
+  },
+  {
     id: 'lunary',
     title: 'Lunary',
     techStack: 'Next.js, Typescript, Astronomy Engine',
