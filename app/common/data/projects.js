@@ -1,17 +1,5 @@
 export const projects = [
   {
-    id: 'spectra',
-    title: 'Spectra',
-    techStack: 'Three.js, GLSL, Web Audio API, Next.js',
-    info: 'Audio-reactive shader visualiser driven by microphone input. Domain-warped simplex noise fragment shader with bass, mid, and high frequency bands mapped to warp intensity, hue rotation, and shimmer, all running in real time on the GPU.',
-  },
-  {
-    id: 'beyond-light-vr',
-    title: 'Beyond Light VR',
-    techStack: 'Three.js, WebXR, GLSL, Vite',
-    info: 'WebXR reconstruction of my MA dissertation installation. A journey through the visible light spectrum from infrared to ultraviolet: quotes screen-printed on acetate walls remain invisible until the final UV phase, where they blaze to life with a custom GLSL UV-reactive shader before the room dissolves into white.',
-  },
-  {
     id: 'lunary',
     title: 'Lunary',
     techStack: 'Next.js, Typescript, Astronomy Engine',
@@ -22,6 +10,18 @@ export const projects = [
     title: 'Spellcast',
     techStack: 'Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz',
     info: 'Self-hosted social media scheduling platform managing multiple brands across 8+ platforms. Turborepo monorepo with a Next.js frontend, a Node.js BFF, and a self-hosted Postiz + Temporal stack on Hetzner via Docker Compose.',
+  },
+  {
+    id: 'spectra',
+    title: 'Spectra',
+    techStack: 'Three.js, GLSL, Web Audio API, Next.js',
+    info: 'Audio-reactive shader visualiser driven by microphone input. Domain-warped simplex noise fragment shader with bass, mid, and high frequency bands mapped to warp intensity, hue rotation, and shimmer, all running in real time on the GPU.',
+  },
+  {
+    id: 'beyond-light-vr',
+    title: 'Beyond Light VR',
+    techStack: 'Three.js, WebXR, GLSL, Vite',
+    info: 'WebXR reconstruction of my MA dissertation installation. A journey through the visible light spectrum from infrared to ultraviolet: quotes screen-printed on acetate walls remain invisible until the final UV phase, where they blaze to life with a custom GLSL UV-reactive shader before the room dissolves into white.',
   },
   {
     id: 'artify',
