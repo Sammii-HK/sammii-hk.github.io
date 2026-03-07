@@ -30,7 +30,7 @@ export const projects: Project[] = [
     techStack: 'Three.js, GLSL, Web Audio API, Next.js',
     info: 'Audio-reactive shader visualiser driven by microphone input. Domain-warped simplex noise fragment shader with bass, mid, and high frequency bands mapped to warp intensity, hue rotation, and shimmer, all running in real time on the GPU.',
     type: 'experiment',
-    liveUrl: 'https://sammii-hk.github.io/spectra',
+    liveUrl: 'https://spectra.sammii.dev',
   },
   {
     id: 'refract',
@@ -63,6 +63,20 @@ export const projects: Project[] = [
     info: 'AI podcast generator that turns any text, URL, or content path into a fully produced two-host episode at roughly $0.04 each. Kokoro TTS synthesis, ffmpeg audio assembly, RSS feed output, and a web UI with real-time generation progress.',
     type: 'product',
     liveUrl: 'https://podify-topaz.vercel.app',
+  },
+  {
+    id: 'iprep',
+    title: 'iPrep',
+    techStack: 'Next.js, OpenAI Whisper, GPT-4, Prisma, PostgreSQL, Web Audio API',
+    info: 'AI-powered spoken interview practice platform. Record answers, get automatic transcription via Whisper, and receive multi-dimensional scoring on delivery (WPM, fillers, confidence, intonation) and content quality (STAR methodology, impact, clarity). Includes question banks, analytics, and a quiz system.',
+    type: 'product',
+  },
+  {
+    id: 'orbit',
+    title: 'Orbit',
+    techStack: 'Node.js, Shell, Claude Code SDK, Windmill',
+    info: 'Autonomous content command centre orchestrating 14 specialised AI agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO, and performance analysis. Real-time dashboard with agent status, social metrics, and pipeline visualisation.',
+    type: 'product',
   },
   {
     id: 'conjure',
@@ -109,6 +123,27 @@ export const projects: Project[] = [
     techStack: 'Next.js, Ayrshare API, AI SDK, Stripe, Shopify API',
     info: 'Social media management platform with integrated print-on-demand and e-commerce automation. Unified publishing, scheduling, and product creation across 13+ social platforms with automated store synchronization.',
     type: 'product',
+  },
+  {
+    id: 'isle',
+    title: 'Isle',
+    techStack: 'TypeScript, Canvas API, VS Code Extension API, Astronomy Engine',
+    info: 'VS Code extension that visualises active Claude Code agent sessions as pixel-art characters in an Animal Crossing-style village. Agents sit at desks in an office, wander outdoors, and display real-time status. Dynamic time-of-day, seasonal changes, a pond, trees, and flowers.',
+    type: 'experiment',
+  },
+  {
+    id: 'prism',
+    title: 'Prism',
+    techStack: 'Next.js, Framer Motion, Spring Physics, GLSL, TypeScript',
+    info: 'Design engineering component library with an autonomous daily build pipeline. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
+    type: 'experiment',
+  },
+  {
+    id: 'grove',
+    title: 'Grove',
+    techStack: 'Next.js, Canvas API, TypeScript, Sprite Engine',
+    info: 'Pixel-art forest simulation with dynamic time-of-day lighting, seasonal changes, fireflies, particle effects, and sprite-based characters. Custom 2D rendering engine with scene graph, sprite sheets, and a clearing system.',
+    type: 'experiment',
   },
   {
     id: 'creative-coding',
