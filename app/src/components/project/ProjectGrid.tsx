@@ -121,14 +121,14 @@ export const ProjectGrid = () => {
   return (
     <>
       <div
-        className="w-full h-full px-2 sm:px-4 md:px-6 py-4 sm:py-6 overflow-y-auto scroll-smooth snap-y snap-mandatory custom-scrollbar"
+        className="w-full h-full px-2 sm:px-4 md:px-6 py-4 sm:py-6 overflow-y-auto scroll-smooth custom-scrollbar"
         id="project-grid-scroll"
         role="region"
         aria-label="Project gallery"
       >
-        <div className="max-w-7xl mx-auto pb-4 flex flex-col gap-8">
+        <div className="max-w-7xl mx-auto pb-12 flex flex-col gap-8">
           {products.length > 0 && (
-            <div className="snap-start">
+            <div>
               <SectionLabel>Products</SectionLabel>
               <CardGrid
                 items={products}
@@ -139,7 +139,7 @@ export const ProjectGrid = () => {
           )}
 
           {experiments.length > 0 && (
-            <div className="snap-start">
+            <div>
               <SectionLabel>Experiments</SectionLabel>
               <CardGrid
                 items={experiments}
