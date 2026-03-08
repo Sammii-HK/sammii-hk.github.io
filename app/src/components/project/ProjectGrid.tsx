@@ -81,7 +81,7 @@ const CardGrid = ({
             e.currentTarget.style.borderColor = "";
           }}
         >
-          <ProjectItem project={project} isGrid={true} index={index} />
+          <ProjectItem project={project} index={index} />
         </div>
       ))}
     </div>
@@ -91,6 +91,24 @@ const CardGrid = ({
 export const ProjectGrid = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
   const selectedCardRef = useRef<HTMLDivElement | null>(null);
+
+  // Open modal from URL hash on mount
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const match = projects.find((p) => p.id === hash);
+      if (match) setSelectedProject(match);
+    }
+  }, []);
+
+  // Sync hash when modal opens/closes
+  useEffect(() => {
+    if (selectedProject) {
+      window.history.replaceState(null, "", `#${selectedProject.id}`);
+    } else {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, [selectedProject]);
 
   const handleCardKeyDown = useCallback(
     (e: React.KeyboardEvent, project: ProjectType, cardElement: HTMLDivElement | null) => {
