@@ -145,6 +145,22 @@ export const ProjectGrid = () => {
         aria-label="Project gallery"
       >
         <div className="max-w-7xl mx-auto pb-12 flex flex-col gap-8">
+          {/* About */}
+          <section className="px-1 pt-2 sm:pt-4 pb-2">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-black dark:text-white mb-2">
+              Design engineer. Full-stack builder.
+            </h1>
+            <p className="text-sm sm:text-base text-black/60 dark:text-white/60 leading-relaxed max-w-2xl">
+              I make things that sit between design and engineering. Background in graphic design and visual communication,
+              now building products, autonomous AI pipelines, and creative tools. Everything below is something I built.
+            </p>
+            <div className="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-xs sm:text-sm text-black/40 dark:text-white/35">
+              <span>{products.length} products</span>
+              <span>{experiments.length} experiments</span>
+              <span>21 case studies</span>
+            </div>
+          </section>
+
           {products.length > 0 && (
             <div>
               <SectionLabel>Products</SectionLabel>
