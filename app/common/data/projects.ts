@@ -9,24 +9,41 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    id: 'flip',
+    title: 'Flip',
+    techStack: 'Next.js, Prisma, PostgreSQL, TypeScript, Zod',
+    info: 'Feature flag and A/B testing service with a dashboard, drop-in JS SDK, and real statistical significance engine. Deterministic variant assignment via MurmurHash3, two-proportion z-tests with Wilson confidence intervals, and a sub-2KB SDK using sendBeacon for reliable conversion tracking.',
+    type: 'product',
+  },
+  {
+    id: 'kern',
+    title: 'Kern',
+    techStack: 'Next.js, Tailwind CSS, Framer Motion, TypeScript',
+    info: 'Interactive typography explorer for variable fonts, optical sizing, and fluid type scales. Features real-time axis manipulation with spring animations, side-by-side font comparison, clamp() CSS generation, URL state persistence for shareable configs, and a classic specimen sheet. Includes Inter, Fraunces, Recursive, Roboto Flex, Playfair Display, and Source Serif 4.',
+    type: 'product',
+    liveUrl: 'https://kern-9u5vawme5-sammiis-projects.vercel.app',
+  },
+  {
     id: 'lattiq',
     title: 'Lattiq',
     techStack: 'Next.js, Lexical, Yjs, WebSockets, TypeScript',
     info: 'Local-first collaborative rich text editor. Content saves to IndexedDB instantly and syncs between clients in real time via WebSocket and Yjs CRDTs. Includes a formatting toolbar, Gutenberg book seeding for performance testing, and a custom collaboration server with room management.',
     type: 'product',
+    liveUrl: 'https://lattiq-ed0hcekw6-sammiis-projects.vercel.app/',
   },
   {
     id: 'gamut',
     title: 'Gamut',
     techStack: 'Next.js, TypeScript, OKLCH, Tailwind CSS',
-    info: 'Real-time theme builder powered by OKLCH colour science. 11-step palette generation with perceptual lightness curves, sRGB gamut clamping, WCAG contrast checking, live UI preview with light/dark toggle, and export to CSS variables, Tailwind config, or JSON tokens.',
+    info: 'Real-time theme builder powered by OKLCH colour science. Multiple colour scales with semantic token mapping, 11-step palette generation with perceptual lightness curves, sRGB gamut clamping, WCAG contrast checking, live UI preview with light/dark toggle, and export to CSS variables, Tailwind config, JSON, or Style Dictionary tokens.',
     type: 'product',
+    liveUrl: 'https://gamut-1wsnkygq0-sammiis-projects.vercel.app',
   },
   {
     id: 'sammii-cli',
     title: 'sammii-cli',
     techStack: 'Node.js, Ink, React, chalk',
-    info: 'Terminal portfolio rendered in the command line. Browse projects, links, and bio with arrow key navigation and gradient text — run npx sammii from any terminal.',
+    info: 'Terminal portfolio rendered entirely in the command line using Ink and React. Browse projects, links, and bio with arrow key navigation, gradient ASCII header via ink-gradient, and colour-coded sections for products and experiments. Published to npm as a global package. Run npx sammii from any terminal.',
     type: 'product',
     liveUrl: 'https://www.npmjs.com/package/sammii',
   },
@@ -67,6 +84,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, OpenAI Whisper, GPT-4, Prisma, PostgreSQL, Web Audio API',
     info: 'AI-powered spoken interview practice platform. Record answers, get automatic transcription via Whisper, and receive multi-dimensional scoring on delivery (WPM, fillers, confidence, intonation) and content quality (STAR methodology, impact, clarity). Includes question banks, analytics, and a quiz system.',
     type: 'product',
+    liveUrl: 'https://iprep-five.vercel.app/',
   },
   {
     id: 'artify',
@@ -114,6 +132,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Ayrshare API, AI SDK, Stripe, Shopify API',
     info: 'Social media management platform with integrated print-on-demand and e-commerce automation. Unified publishing, scheduling, and product creation across 13+ social platforms with automated store synchronization.',
     type: 'product',
+    liveUrl: 'https://succulent.sammii.dev',
   },
   {
     id: 'scape-squared',
@@ -144,6 +163,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Framer Motion, Spring Physics, GLSL, TypeScript',
     info: 'Design engineering component library with an autonomous daily build pipeline. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
     type: 'product',
+    liveUrl: 'https://prism-9r1bu6mmn-sammiis-projects.vercel.app',
   },
   {
     id: 'grove',
@@ -151,6 +171,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Canvas API, TypeScript, Sprite Engine',
     info: 'Pixel-art forest simulation with dynamic time-of-day lighting, seasonal changes, fireflies, particle effects, and sprite-based characters. Custom 2D rendering engine with scene graph, sprite sheets, and a clearing system.',
     type: 'experiment',
+    liveUrl: 'https://grove-bnzmufpnf-sammiis-projects.vercel.app',
   },
   {
     id: 'refract',
@@ -189,6 +210,7 @@ export const projects: Project[] = [
     techStack: 'p5.js, Javascript',
     info: '15 browser-based visual experiments treating a single photograph as raw material. Pixel data drives particle systems, edge detection, flow fields, Voronoi partitions, kaleidoscopes, and more; each sketch is unique to the source image.',
     type: 'experiment',
+    liveUrl: 'https://creative-coding-csu90bcmk-sammiis-projects.vercel.app',
   },
   {
     id: 'balloon-bonanza',
@@ -235,7 +257,7 @@ export const projects: Project[] = [
     techStack: 'JavaScript, Rollup, Jest, npm',
     info: 'Published npm package adding customisable click and hover effects to any website. 13 built-in effects with gravity, rotation, spread radius, and spring-based easing curves. Zero dependencies, ~1KB, framework-agnostic with TypeScript declarations.',
     type: 'product',
-    liveUrl: 'https://pizzazz-sable.vercel.app',
+    liveUrl: 'https://www.npmjs.com/package/pizzazz',
   },
   {
     id: 'communication-infographic',
@@ -244,6 +266,22 @@ export const projects: Project[] = [
     info: 'Interactive timeline highlighting key developments in communication technology, built with React and SVG animations.',
     type: 'experiment',
     liveUrl: 'https://communication-infographic.vercel.app',
+  },
+  {
+    id: 'scapestudio',
+    title: 'ScapeStudio',
+    techStack: 'Next.js, TypeScript, Web Workers, Canvas 2D, Zustand, JSZip',
+    info: 'Browser-based photo editor for fine art print and t-shirt preparation. Non-destructive grayscale pipeline with interactive curves, threshold knockout with feather control, dual split preview, and batch multi-size export at 300 DPI. All processing runs off-thread via Web Workers with OffscreenCanvas.',
+    type: 'product',
+    liveUrl: 'https://scapestudio.vercel.app',
+  },
+  {
+    id: 'create-mcp-server',
+    title: 'create-mcp-server',
+    techStack: 'Node.js, TypeScript, tsup, Prompts',
+    info: 'CLI scaffolder for Model Context Protocol servers. Interactive prompts for project name, description, and example tool selection, then generates a TypeScript project with the MCP SDK, Zod validation, stdio transport, and dev mode with auto-reload. Published on npm.',
+    type: 'product',
+    liveUrl: 'https://www.npmjs.com/package/create-mcp-server',
   },
   {
     id: 'tailwind-colour-creator',
