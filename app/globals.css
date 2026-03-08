@@ -86,9 +86,6 @@ body {
   justify-content: center;
 }
 
-li {
-  justify-content: center !important;
-}
 
 .project-card {
   position: relative;
