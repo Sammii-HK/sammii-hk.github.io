@@ -141,6 +141,9 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
             width={1000}
             height={500}
             className="w-full h-auto rounded-t-xl object-cover"
+            sizes="(max-width: 640px) 95vw, 60vw"
+            quality={85}
+            priority
           />
         </div>
 

@@ -39,6 +39,9 @@ const projects = [
   { id: 'balloon-bonanza', url: 'https://sammii-hk.github.io/balloon-bonanza' },
   { id: 'liquidity',       url: 'https://liquidity.sammii.dev' },
   { id: 'scape-squared',   url: 'https://scape-squared.vercel.app' },
+  { id: 'kern',                     url: 'http://localhost:3187' },
+  { id: 'scapestudio',             url: 'http://localhost:3099' },
+  { id: 'tailwind-colour-creator', url: 'http://localhost:5201' },
 ];
 
 // ---------------------------------------------------------------------------

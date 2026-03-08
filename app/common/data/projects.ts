@@ -242,6 +242,7 @@ export const projects: Project[] = [
     techStack: 'React, Python, SQL',
     info: 'Integrates the Rijksmuseum API to retrieve and search artwork data, storing results in a SQL database accessed through a Python REST API.',
     type: 'experiment',
+    liveUrl: 'https://artistry-hq2r.onrender.com',
   },
   {
     id: 'volcanoVisualisation',

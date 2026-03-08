@@ -59,7 +59,7 @@ const CardGrid = ({
       role="list"
       aria-label="Projects"
     >
-      {items.map((project) => (
+      {items.map((project, index) => (
         <div
           key={project.id}
           role="listitem"
@@ -81,7 +81,7 @@ const CardGrid = ({
             e.currentTarget.style.borderColor = "";
           }}
         >
-          <ProjectItem project={project} isGrid={true} />
+          <ProjectItem project={project} isGrid={true} index={index} />
         </div>
       ))}
     </div>

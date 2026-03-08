@@ -16,11 +16,13 @@ type ProjectItem = {
 type Project = {
   project: ProjectItem;
   isGrid?: boolean;
+  index?: number;
 };
 
 export const ProjectItem = (projectItem: Project) => {
   const project = projectItem.project;
   const isGrid = projectItem.isGrid || false;
+  const index = projectItem.index ?? 99;
   const githubUrl = project.id.includes("unicorn-poo")
     ? GITHUB_URL
     : GITHUB_URL_SAMMII;
@@ -38,9 +40,12 @@ export const ProjectItem = (projectItem: Project) => {
           <Image
             src={imagePath}
             alt={project.title}
-            width="1000"
-            height="500"
+            width={1000}
+            height={500}
             className="w-full h-auto rounded object-cover"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+            quality={80}
+            {...(index < 6 ? { priority: true } : { loading: "lazy" as const })}
           />
         </div>
         <div className="flex-1 flex flex-col min-h-0">
@@ -144,9 +149,12 @@ export const ProjectItem = (projectItem: Project) => {
         <Image
           src={imagePath}
           alt={project.title}
-          width="1000"
-          height="500"
+          width={1000}
+          height={500}
           className="w-full h-auto"
+          sizes="80vw"
+          quality={80}
+          loading="lazy"
         />
       </div>
       <div className="column is-10">
