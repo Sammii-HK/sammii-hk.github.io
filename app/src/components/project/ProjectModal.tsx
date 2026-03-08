@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useCallback, useRef, useId } from "react";
 import Image from "next/image";
-import { X, CodeXml, ExternalLink } from "lucide-react";
+import { X, CodeXml, ExternalLink, BookOpen } from "lucide-react";
 import { GITHUB_URL_SAMMII, GITHUB_URL } from "../../../constants";
 import { getImagePath } from "../../../common/utils/image-path";
+import { GlowButton } from "../GlowButton";
 
 type ProjectType = {
   id: string;
@@ -12,6 +13,8 @@ type ProjectType = {
   info: string;
   type?: "product" | "experiment";
   liveUrl?: string;
+  highlights?: string[];
+  caseStudy?: string;
 };
 
 interface ProjectModalProps {
@@ -33,8 +36,6 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
   // Refs for focus management
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const firstFocusableRef = useRef<HTMLButtonElement>(null);
-  const lastFocusableRef = useRef<HTMLAnchorElement>(null);
 
   // Handle keyboard navigation
   const handleKeyDown = useCallback(
@@ -148,7 +149,7 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
         </div>
 
         {/* Project Content */}
-        <div className="p-4 sm:p-6">
+        <div className="p-4 sm:p-6 text-left">
           {/* Header with title and close button */}
           <div className="flex items-start justify-between gap-4 mb-2">
             <h2 
@@ -172,54 +173,65 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
             {project.techStack}
           </p>
 
-          <p 
+          <p
             id={descriptionId}
             className="text-sm sm:text-base text-black/80 dark:text-white/80 mb-6 leading-relaxed"
           >
             {project.info}
           </p>
 
-          <div className="flex items-center gap-3">
+          {project.highlights && project.highlights.length > 0 && (
+            <div className="mb-6 pt-4 border-t border-black/10 dark:border-white/10 text-left">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-black/40 dark:text-white/40 mb-3">
+                How it works
+              </h3>
+              <ul className="space-y-2">
+                {project.highlights.map((h, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-2 text-sm text-black/70 dark:text-white/70 leading-relaxed"
+                  >
+                    <span className="text-black/25 dark:text-white/25 flex-shrink-0 select-none" aria-hidden="true">—</span>
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="flex items-center gap-3 flex-wrap">
+            {project.caseStudy && (
+              <GlowButton
+                href={`/projects/${project.caseStudy}`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <BookOpen size={14} aria-hidden="true" />
+                <span>Read case study</span>
+              </GlowButton>
+            )}
             {project.liveUrl && (
-              <a
+              <GlowButton
                 target="_blank"
                 rel="noopener noreferrer"
                 href={project.liveUrl}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2"
                 onClick={(e) => e.stopPropagation()}
               >
                 <ExternalLink size={14} aria-hidden="true" />
                 <span>{project.type === "experiment" ? "Try it" : "Open"}</span>
                 <span className="sr-only">(opens in new tab)</span>
-              </a>
+              </GlowButton>
             )}
-            {project.type !== "experiment" && (
-              <a
-                ref={lastFocusableRef}
+            {(project.type !== "experiment" || !project.liveUrl) && (
+              <GlowButton
                 target="_blank"
                 rel="noopener noreferrer"
                 href={`${githubUrl}/${project.id}`}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2"
                 onClick={(e) => e.stopPropagation()}
               >
                 <CodeXml size={14} aria-hidden="true" />
                 <span>View Code</span>
                 <span className="sr-only">(opens in new tab)</span>
-              </a>
-            )}
-            {project.type === "experiment" && !project.liveUrl && (
-              <a
-                ref={lastFocusableRef}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`${githubUrl}/${project.id}`}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all font-medium text-black dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <CodeXml size={14} aria-hidden="true" />
-                <span>View Code</span>
-                <span className="sr-only">(opens in new tab)</span>
-              </a>
+              </GlowButton>
             )}
           </div>
         </div>
