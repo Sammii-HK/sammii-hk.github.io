@@ -9,6 +9,14 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    id: 'kinetic',
+    title: 'Kinetic',
+    techStack: 'Next.js, Framer Motion, TypeScript, Tailwind CSS',
+    info: '25 interactive demos showcasing spring physics, layout animations, gesture-driven interactions, SVG morphing, scroll-linked parallax, and more. Each demo is self-contained with adjustable parameters and real-time feedback.',
+    type: 'experiment',
+    liveUrl: 'https://kinetic-f1boklnik-sammiis-projects.vercel.app',
+  },
+  {
     id: 'flip',
     title: 'Flip',
     techStack: 'Next.js, Prisma, PostgreSQL, TypeScript, Zod',
