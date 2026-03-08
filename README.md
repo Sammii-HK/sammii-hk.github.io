@@ -82,9 +82,48 @@ This runs continuously via `requestAnimationFrame`, ensuring 60fps smooth transi
 - **Performance:** Passive event listeners, `requestAnimationFrame` for updates, CSS gradients (no canvas overhead)
 - **Responsive:** Works seamlessly on desktop, tablet, and mobile with proper touch event handling
 
+## Interactive Card Border Glow
+
+Project cards feature a cursor-reactive border glow that complements the header gradient.
+
+### How It Works
+
+**1. Cursor Position Tracking**
+
+Each card tracks the cursor position within its bounds as a percentage (0-100% on each axis):
+
+```typescript
+const rect = e.currentTarget.getBoundingClientRect();
+cardXPcRef.current = ((e.clientX - rect.left) / rect.width) * 100;
+cardYPcRef.current = ((e.clientY - rect.top) / rect.height) * 100;
+```
+
+**2. Animated Pastel Border**
+
+A `requestAnimationFrame` loop layers sinusoidal waves on top of the cursor position to create a continuously shifting pastel border colour:
+
+```typescript
+const cv = (n: number) => 140 + Math.floor((115 / 100) * Math.max(0, Math.min(100, n)));
+const t = performance.now() / 1000;
+const rPc = Math.max(0, Math.min(100, cardXPcRef.current + Math.sin(t * 1.1) * 28));
+const gPc = Math.max(0, Math.min(100, cardYPcRef.current + Math.cos(t * 0.7) * 22));
+const bPc = 100 - rPc;
+hoveredCardRef.current.style.borderColor = `rgb(${cv(rPc)} ${cv(gPc)} ${cv(bPc)} / 70%)`;
+```
+
+The `cv` function floors each RGB channel at 140, keeping the palette pastel and harmonious with the header gradient. Two sine waves at different frequencies (1.1 and 0.7) create organic, non-repeating colour drift that responds to where you hover on the card.
+
+**3. Clean Exit**
+
+On mouse leave the border colour resets to the default, and the animation loop only computes colours when a card is actively hovered.
+
+## Image Optimisation
+
+Project screenshots are served at 2800x1400 (2:1 ratio at 2x density). On Vercel, Next.js image optimisation automatically serves WebP at the correct size for each viewport via the `sizes` prop. The first six cards use `priority` for faster LCP.
+
 ## Design Philosophy
 
-Clean, minimal, and gallery-focused—the design puts projects front and center while the gradient effect adds a subtle, engaging element that showcases technical capability.
+Clean, minimal, and gallery-focused. The design puts projects front and centre while the gradient and glow effects add subtle, engaging elements that showcase technical capability without overwhelming the content.
 
 ---
 
