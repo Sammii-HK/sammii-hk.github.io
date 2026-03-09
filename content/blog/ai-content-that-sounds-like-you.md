@@ -140,5 +140,3 @@ Brand voices aren't set once. If generated content consistently misses the mark 
 The fastest fix is usually adding a concrete negative example: "This is off-brand: [example]." Negative examples are often more useful than positive rules because they show the boundary precisely.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

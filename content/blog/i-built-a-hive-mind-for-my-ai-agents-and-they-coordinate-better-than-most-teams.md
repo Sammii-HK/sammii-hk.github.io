@@ -263,5 +263,3 @@ One command. Eight platforms. Boost engagement. Metrics tracked. All coordinated
 - **Part 5: The autonomous pipeline** - Prism's daily scout, curator, builder, publisher cycle
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

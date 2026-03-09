@@ -48,6 +48,7 @@ export function getAllPosts(includeDrafts = false): BlogPostMeta[] {
       return meta;
     })
     .filter((p) => includeDrafts || !p.draft)
+    .filter((p) => new Date(p.date) <= new Date())
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
@@ -62,5 +63,9 @@ export function getAllSlugs(): string[] {
   return fs
     .readdirSync(CONTENT_DIR)
     .filter((f) => f.endsWith('.md'))
-    .map((f) => f.replace(/\.md$/, ''));
+    .map((f) => f.replace(/\.md$/, ''))
+    .filter((slug) => {
+      const post = parsePost(slug);
+      return !post.draft && new Date(post.date) <= new Date();
+    });
 }

@@ -118,5 +118,3 @@ None of these are currently problems. When they are, the answer is probably a se
 The principle: run on the smallest infrastructure that actually works, and move up only when you have a real reason. Premature scaling is one of the more expensive ways to spend money before you have revenue.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

@@ -147,5 +147,3 @@ The power isn't just convenience. Claude can operate across your entire product 
 I estimate MCP saves me 5-8 hours a week in dashboard time and manual data-pulling. More importantly, it removes the friction that stops small tasks from getting done. If checking metrics requires three tabs and a copy-paste, you do it less. If it's one sentence, you do it constantly and catch things early.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

@@ -149,5 +149,3 @@ The principle is always the same: separate data from presentation. Make the data
 If you're spending more time wiring new content into your portfolio than building the projects themselves, you've got the architecture backwards. Make your portfolio work for you, not the other way around.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

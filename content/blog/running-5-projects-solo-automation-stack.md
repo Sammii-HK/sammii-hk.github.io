@@ -112,5 +112,3 @@ Content output: 20+ posts per day across all accounts, weekly podcast episode, r
 The ratio is the point. I didn't automate to be lazy. I automated to redirect time toward the work that actually requires me.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

@@ -161,5 +161,3 @@ The Circle feature in Lunary presents synastry as a grid: chart A's planets acro
 It's the same analysis a professional astrologer uses, built on the same precision data, accessible without needing to understand the underlying maths.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

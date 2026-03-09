@@ -148,5 +148,3 @@ Short, stateless jobs (generating a daily report, sending a single notification)
 The rule: use the simplest tool that handles failure correctly. For many jobs, a cron job with a try/catch and a Slack alert is enough. Temporal is for the jobs where "crash halfway through" has meaningful consequences.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

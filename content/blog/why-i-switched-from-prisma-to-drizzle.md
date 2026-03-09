@@ -133,5 +133,3 @@ The query replacement is the time-consuming part. Straightforward CRUD is fast t
 If you're starting a new project today and you're deploying to serverless: start with Drizzle. The bundle size alone is worth it before you get to the ergonomics.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

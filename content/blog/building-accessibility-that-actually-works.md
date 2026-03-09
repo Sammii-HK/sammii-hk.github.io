@@ -180,5 +180,3 @@ Accessibility isn't a feature you add at the end. It's the same category as "but
 The code samples here aren't theoretical. They're running in production. And they took about the same effort as building the visual design — because when you build accessibility in from the start, it's just part of the component architecture.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

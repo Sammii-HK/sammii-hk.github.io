@@ -63,5 +63,3 @@ Yes, for this specific market. Astrology is a low-trust category: users have bee
 The conversion problem is a product problem I can solve. The trust problem would be much harder to solve if I'd launched with a paywall.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

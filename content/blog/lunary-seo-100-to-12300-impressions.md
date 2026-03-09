@@ -85,5 +85,3 @@ The investment: engineering time to build the pipeline, AI API costs for generat
 At 12,300 impressions/day and a 3-4% average CTR, that's roughly 400 organic visits per day. For a 229 MAU product, that's meaningful top-of-funnel that compounds every month the content stays indexed.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

@@ -151,5 +151,3 @@ Photos MCP is the most unusual because it bridges Claude to a native macOS app. 
 More importantly, it removes friction. When checking metrics requires opening three tabs, you do it once a day. When it's one sentence, you do it ten times. The frequency changes the decisions.
 
 ---
-
-*I'm Sammii, building [Lunary](https://lunary.app) and a growing stack of tools to run a one-person business. I write about shipping solo, the automation that makes it possible, and the technical decisions along the way.*

@@ -147,5 +147,3 @@ No animation library. No canvas. No WebGL. Just the browser's native CSS gradien
 The best part: because `gradientCreator` is a pure function (two numbers in, CSS string out), you could drive it with anything. Microphone volume. Accelerometer data. API response times. The abstraction doesn't care where the numbers come from.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

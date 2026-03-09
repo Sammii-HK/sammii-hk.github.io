@@ -101,5 +101,3 @@ Want a birth chart you can actually trust? [Generate yours at lunary.app](https:
 Because if you're going to base your self-understanding on planetary positions, those positions should at least be correct.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

@@ -181,5 +181,3 @@ The files are just markdown. You can read them yourself, edit them, or use them 
 The best part: the context layer I built today will be the first thing tomorrow's Claude session reads. It already knows what it is, how it works, and why I built it.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

@@ -169,5 +169,3 @@ The grimoire is now effectively ambient. I don't navigate away to look things up
 2,000+ articles stopped being a library I visit and became a knowledge layer I work inside.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

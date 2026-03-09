@@ -124,5 +124,3 @@ If you want to experiment with a similar setup, the two things you need are:
 The rest is just plumbing.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*

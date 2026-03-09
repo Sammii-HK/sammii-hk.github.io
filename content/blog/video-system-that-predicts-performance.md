@@ -157,5 +157,3 @@ The model predicts category-level performance, not individual video performance.
 The generation layer (Claude for script, Remotion for visuals) is still the variable that determines individual video quality. The prediction layer just means that layer is being pointed at the right targets.
 
 ---
-
-*I'm Sammii, founder of [Lunary](https://lunary.app) and indie developer building tools I actually want to use. I write about shipping products solo, the technical decisions behind them, and figuring it all out in public.*
