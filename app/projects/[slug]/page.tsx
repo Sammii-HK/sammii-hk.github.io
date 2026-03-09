@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { getAllCaseStudySlugs, getCaseStudyBySlug } from '../../lib/case-studies';
+import { Breadcrumbs } from '../../src/components/Breadcrumbs';
+import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';
 
 const mdxOptions = {
   mdxOptions: {
@@ -24,9 +26,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const study = getCaseStudyBySlug(slug);
   if (!study) return {};
 
+  const url = `https://sammii.dev/projects/${slug}`;
+
   return {
     title: `${study.title} — sammii.dev`,
     description: study.description,
+    openGraph: {
+      title: `${study.title} — sammii.dev`,
+      description: study.description,
+      type: 'article',
+      url,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${study.title} — sammii.dev`,
+      description: study.description,
+    },
   };
 }
 
@@ -35,11 +50,23 @@ export default async function CaseStudyPage({ params }: Props) {
   const study = getCaseStudyBySlug(slug);
   if (!study) notFound();
 
+  const url = `https://sammii.dev/projects/${slug}`;
+
   return (
     <main className="max-w-2xl mx-auto px-6 py-16">
-      <Link href="/" className="text-sm text-neutral-400 hover:text-white mb-8 inline-block">
-        ← Back to projects
-      </Link>
+      <ArticleJsonLd
+        title={study.title}
+        description={study.description}
+        date={new Date().toISOString()}
+        url={url}
+      />
+      <Breadcrumbs
+        crumbs={[
+          { label: 'sammii.dev', href: '/' },
+          { label: 'Projects', href: '/' },
+          { label: study.title },
+        ]}
+      />
 
       <header className="mb-10">
         <h1 className="text-3xl font-bold mt-2">{study.title}</h1>

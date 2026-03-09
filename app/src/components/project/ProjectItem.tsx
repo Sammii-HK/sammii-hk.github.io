@@ -49,10 +49,10 @@ export const ProjectItem = (projectItem: Project) => {
         <h3 className="text-sm sm:text-base md:text-xl font-semibold break-words mb-1 sm:mb-2 flex-shrink-0 line-clamp-2">
           {project.title}
         </h3>
-        <p className="text-[10px] sm:text-xs md:text-sm text-black/60 dark:text-white/60 break-words mb-1 sm:mb-2 flex-shrink-0 line-clamp-2">
+        <p className="font-inter text-[10px] sm:text-xs md:text-sm text-black/60 dark:text-white/60 break-words mb-1 sm:mb-2 flex-shrink-0 line-clamp-2">
           {project.techStack}
         </p>
-        <p className="hidden sm:block break-words whitespace-normal text-xs sm:text-sm text-black/80 dark:text-white/80 mb-2 sm:mb-4 flex-1 overflow-hidden line-clamp-3">
+        <p className="font-inter hidden sm:block break-words whitespace-normal text-xs sm:text-sm text-black/80 dark:text-white/80 mb-2 sm:mb-4 flex-1 overflow-hidden line-clamp-3">
           {project.info}
         </p>
         <div className="flex items-center gap-2 mt-auto flex-shrink-0">

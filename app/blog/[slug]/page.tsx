@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { getAllSlugs, getPostBySlug } from '../../lib/blog';
+import { Breadcrumbs } from '../../src/components/Breadcrumbs';
+import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';
 
 const mdxOptions = {
   mdxOptions: {
@@ -24,9 +25,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return {};
 
+  const url = `https://sammii.dev/blog/${slug}`;
+
   return {
     title: `${post.title} — sammii.dev`,
     description: post.description,
+    openGraph: {
+      title: `${post.title} — sammii.dev`,
+      description: post.description,
+      type: 'article',
+      publishedTime: post.date,
+      authors: ['Sammii'],
+      url,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} — sammii.dev`,
+      description: post.description,
+      images: [`/blog/${slug}/opengraph-image`],
+    },
   };
 }
 
@@ -35,11 +52,25 @@ export default async function BlogPost({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post || post.draft) notFound();
 
+  const url = `https://sammii.dev/blog/${slug}`;
+
   return (
-    <main className="max-w-2xl mx-auto px-6 py-16">
-      <Link href="/blog" className="text-sm text-neutral-400 hover:text-white mb-8 inline-block">
-        ← All posts
-      </Link>
+    <main className="max-w-2xl mx-auto px-6 py-12">
+      <ArticleJsonLd
+        title={post.title}
+        description={post.description}
+        date={post.date}
+        url={url}
+        tags={post.tags}
+      />
+
+      <Breadcrumbs
+        crumbs={[
+          { label: 'sammii.dev', href: '/' },
+          { label: 'Blog', href: '/blog' },
+          { label: post.title },
+        ]}
+      />
 
       <header className="mb-10">
         <time className="text-sm text-neutral-500">

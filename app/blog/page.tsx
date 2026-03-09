@@ -1,17 +1,30 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAllPosts } from '../lib/blog';
+import { Breadcrumbs } from '../src/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Blog — sammii.dev',
   description: 'Thoughts on engineering, design, and building things.',
+  openGraph: {
+    title: 'Blog — sammii.dev',
+    description: 'Thoughts on engineering, design, and building things.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog — sammii.dev',
+    description: 'Thoughts on engineering, design, and building things.',
+  },
 };
 
 export default function BlogIndex() {
   const posts = getAllPosts();
 
   return (
-    <main className="max-w-2xl mx-auto px-6 py-16">
+    <main className="max-w-2xl mx-auto px-6 py-12">
+      <Breadcrumbs crumbs={[{ label: 'sammii.dev', href: '/' }, { label: 'Blog' }]} />
+
       <h1 className="text-3xl font-bold mb-2">Blog</h1>
       <p className="text-neutral-400 mb-12">Thoughts on engineering, design, and building things.</p>
 

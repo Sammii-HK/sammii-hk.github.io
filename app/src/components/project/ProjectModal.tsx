@@ -168,14 +168,14 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
             </button>
           </div>
 
-          <p className="text-sm sm:text-base text-black/60 dark:text-white/60 mb-4">
+          <p className="font-inter text-sm sm:text-base text-black/60 dark:text-white/60 mb-4">
             <span className="sr-only">Technologies used: </span>
             {project.techStack}
           </p>
 
           <p
             id={descriptionId}
-            className="text-sm sm:text-base text-black/80 dark:text-white/80 mb-6 leading-relaxed"
+            className="font-inter text-sm sm:text-base text-black/80 dark:text-white/80 mb-6 leading-relaxed"
           >
             {project.info}
           </p>
@@ -189,7 +189,7 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
                 {project.highlights.map((h, i) => (
                   <li
                     key={i}
-                    className="flex gap-2 text-sm text-black/70 dark:text-white/70 leading-relaxed"
+                    className="font-inter flex gap-2 text-sm text-black/70 dark:text-white/70 leading-relaxed"
                   >
                     <span className="text-black/25 dark:text-white/25 flex-shrink-0 select-none" aria-hidden="true">—</span>
                     {h}

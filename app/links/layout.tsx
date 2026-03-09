@@ -1,25 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Connect with Sammii",
-  description: "Find me on LinkedIn, GitHub, and more",
+  title: 'Links — sammii.dev',
+  description: 'Find Sammii on GitHub, LinkedIn, X, Bluesky, Instagram and TikTok.',
   openGraph: {
-    title: "Connect with Sammii",
-    description: "Find me on LinkedIn, GitHub, and more",
-    type: "profile",
+    title: 'Links — sammii.dev',
+    description: 'Find Sammii on GitHub, LinkedIn, X, Bluesky, Instagram and TikTok.',
+    type: 'website',
+    url: 'https://sammii.dev/links',
   },
   twitter: {
-    card: "summary",
-    title: "Connect with Sammii",
-    description: "Find me on LinkedIn, GitHub, and more",
+    card: 'summary',
+    title: 'Links — sammii.dev',
+    description: 'Find Sammii on GitHub, LinkedIn, X, Bluesky, Instagram and TikTok.',
+    creator: '@sammiihk',
   },
 };
 
-export default function LinksLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function LinksLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
-
