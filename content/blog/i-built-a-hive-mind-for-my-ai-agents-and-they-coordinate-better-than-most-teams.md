@@ -5,14 +5,14 @@ title: >-
 description: >-
   How 7 MCP servers, a local brand API, and 16 files of shared memory let my
   Claude agents work across 10 projects without stepping on each other
-date: '2026-03-06'
+date: '2026-03-10'
 tags:
   - ai
   - productivity
   - claude-code
   - developer-tools
   - series-ai-hive-mind
-draft: true
+draft: false
 ---
 I run 4-5 Claude Code agents simultaneously. One is refactoring my astrology platform's transit engine. Another is publishing articles across four blog platforms. A third is generating TikTok videos with ML-scored engagement predictions. A fourth is autonomously building UI components, recording them, and posting to X.
 
