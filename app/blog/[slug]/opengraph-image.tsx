@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { getPostBySlug, getAllSlugs } from '../../lib/blog';
 import { getJostFont } from '../../lib/og-font';
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 

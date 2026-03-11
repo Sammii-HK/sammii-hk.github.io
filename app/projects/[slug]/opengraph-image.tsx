@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { getCaseStudyBySlug, getAllCaseStudySlugs } from '../../lib/case-studies';
 import { getJostFont } from '../../lib/og-font';
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return getAllCaseStudySlugs().map((slug) => ({ slug }));
 }
 
