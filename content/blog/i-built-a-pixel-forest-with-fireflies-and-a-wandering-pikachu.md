@@ -1,21 +1,21 @@
 ---
-title: I built a pixel forest with fireflies and a wandering Pikachu
+title: I built a pixel forest with fireflies and a wandering Pikka
 description: >-
   A look at Grove, a pixel-art forest simulation built with Canvas API and
   TypeScript, featuring dynamic lighting, particle-driven fireflies, and a
-  sprite-based Pikachu agent.
-date: '2026-03-07'
+  sprite-based Pikka agent.
+date: '2026-03-20'
 tags:
   - creative-coding
   - canvas
   - typescript
   - gamedev
   - webdev
-draft: true
+draft: false
 ---
 Sometimes you just want to build something for the joy of it. No product roadmap, no user stories, no sprint planning. Just vibes. Grove is exactly that: a pixel-art forest simulation that lives in the browser, rendered entirely with the Canvas API.
 
-It started as a question: what would it take to build a simple 2D scene engine from scratch? Not a game engine, not a framework, just enough structure to render a nighttime forest with trees, flowers, fireflies, and a little Pikachu wandering around.
+It started as a question: what would it take to build a simple 2D scene engine from scratch? Not a game engine, not a framework, just enough structure to render a nighttime forest with trees, flowers, fireflies, and a little Pikka wandering around.
 
 ## The rendering engine
 
@@ -26,11 +26,11 @@ Grove runs on a custom 2D rendering engine built with TypeScript and the Canvas 
 - **sprite.ts** deals with sprite sheets and animation frames
 - **clearing.ts** carves out open spaces in the forest
 - **particles.ts** drives the firefly particle system
-- **pika-agent.ts** controls Pikachu's wandering behaviour
+- **pika-agent.ts** controls Pikka's wandering behaviour
 
 The canvas is responsive, filling the entire viewport and redrawing on resize. Everything renders at a pixel-art scale, so the actual resolution is kept low and then scaled up with `imageSmoothingEnabled: false` to preserve those crisp edges.
 
-The scene graph is deliberately simple. Each object has a position, a layer index, and a draw method. The renderer sorts by layer, then calls draw in order. No physics, no collision detection, no input handling beyond what Pikachu needs. It is the bare minimum to get pixels on screen, and that is the point.
+The scene graph is deliberately simple. Each object has a position, a layer index, and a draw method. The renderer sorts by layer, then calls draw in order. No physics, no collision detection, no input handling beyond what Pikka needs. It is the bare minimum to get pixels on screen, and that is the point.
 
 ## Trees, moon, and the night sky
 
@@ -48,11 +48,11 @@ The glow effect is a radial gradient drawn at each particle's position, transiti
 
 Spawn rate and drift speed are tuned to keep things gentle. Too many fireflies and it looks like a rave. Too few and the forest feels dead. The sweet spot is somewhere around 20 to 30 active particles at any given time.
 
-## The Pikachu agent
+## The Pikka agent
 
-Because why not? `pika-agent.ts` implements a simple autonomous agent that wanders through the forest. Pikachu is drawn from a sprite sheet, with idle and walking animation frames.
+Because why not? `pika-agent.ts` implements a simple autonomous agent that wanders through the forest. Pikka is drawn from a sprite sheet, with idle and walking animation frames.
 
-The behaviour is basic: pick a random target position within the clearing, walk towards it, pause for a bit, then pick another. Direction changes flip the sprite horizontally. There is no pathfinding, no obstacle avoidance. Pikachu just vibes in the forest, and honestly, that is all it needs to do.
+The behaviour is basic: pick a random target position within the clearing, walk towards it, pause for a bit, then pick another. Direction changes flip the sprite horizontally. There is no pathfinding, no obstacle avoidance. Pikka just vibes in the forest, and honestly, that is all it needs to do.
 
 ## Tech choices
 
@@ -64,7 +64,7 @@ TypeScript helps here more than you might expect for a creative project. Having 
 
 Building a renderer from scratch, even a simple one, gives you a real appreciation for what engines like Phaser or PixiJS handle for you. Scene ordering, sprite animation timing, particle lifecycle management: each one is straightforward in isolation, but they compound quickly.
 
-The biggest takeaway is that creative coding does not need to be complex to be satisfying. Grove is maybe 500 lines of actual engine code. It does not do much. But watching those fireflies drift through the trees while Pikachu wanders around the clearing is genuinely calming.
+The biggest takeaway is that creative coding does not need to be complex to be satisfying. Grove is maybe 500 lines of actual engine code. It does not do much. But watching those fireflies drift through the trees while Pikka wanders around the clearing is genuinely calming.
 
 Sometimes the best projects are the ones with no purpose at all.
 

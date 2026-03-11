@@ -3,14 +3,14 @@ title: A component library that builds itself every day
 description: >-
   Prism is a design engineering component library with an autonomous daily
   pipeline. Scout, curate, build, publish, repeat.
-date: '2026-03-07'
+date: '2026-03-17'
 tags:
   - design
   - react
   - creative-coding
   - automation
   - webdev
-draft: true
+draft: false
 ---
 What if a component library didn't wait for you to have a free weekend? What if it woke up every morning, found something interesting on the internet, and built a new interactive component before you'd finished your coffee?
 

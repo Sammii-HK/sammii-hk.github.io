@@ -4,7 +4,7 @@ description: >-
   I built 4 custom MCP servers exposing 259 tools across social scheduling,
   product analytics, photo management, and blog publishing. Here's how they work
   together and what changed.
-date: '2026-03-07'
+date: '2026-03-14'
 tags:
   - mcp
   - claude
@@ -12,7 +12,7 @@ tags:
   - indie-hacking
   - developer-tools
   - automation
-draft: true
+draft: false
 ---
 Back in March I wrote about building my first two MCP servers for Spellcast and Lunary. Two servers, maybe a dozen tools, enough to check metrics and schedule posts from a Claude conversation.
 

@@ -6,14 +6,14 @@ description: >-
   Isle is a VS Code extension that visualises Claude Code agent sessions as
   pixel-art characters in an Animal Crossing-style village, complete with
   dynamic lighting, seasons, and real-time status tracking.
-date: '2026-03-07'
+date: '2026-03-26'
 tags:
   - vscode
   - creative-coding
   - ai
   - pixel-art
   - developer-tools
-draft: true
+draft: false
 ---
 I run a lot of Claude Code agents. Sometimes five or six at once, each working on different parts of a codebase. The problem is that terminal sessions are boring. They scroll text, they sit there silently while the model thinks, and there is no ambient sense of "what is everyone up to right now?" So I built Isle, a VS Code extension that renders all my active agents as pixel-art characters living in a tiny village.
 

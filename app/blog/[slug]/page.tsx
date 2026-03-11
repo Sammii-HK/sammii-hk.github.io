@@ -50,7 +50,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post || post.draft) notFound();
+  const isFuture = new Date(post.date) > new Date();
+  if (!post || post.draft || isFuture) notFound();
 
   const url = `https://sammii.dev/blog/${slug}`;
 

@@ -4,14 +4,14 @@ description: >-
   How I built iPrep, an AI-powered spoken interview practice platform with
   Whisper transcription, multi-dimensional scoring, and STAR methodology
   analysis.
-date: '2026-03-07'
+date: '2026-03-22'
 tags:
   - ai
   - nextjs
   - indie-hacking
   - developer-tools
   - webdev
-draft: true
+draft: false
 ---
 Most interview prep tools focus on what you say. They ignore how you say it. That distinction matters more than people realise.
 

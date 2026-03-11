@@ -4,14 +4,14 @@ description: >-
   How I built Orbit, an autonomous content command centre with 14 specialised AI
   agents that plan, create, score, and schedule content across multiple
   platforms without manual intervention.
-date: '2026-03-07'
+date: '2026-03-12'
 tags:
   - ai
   - automation
   - indie-hacking
   - claude
   - content
-draft: true
+draft: false
 ---
 Every morning I wake up to a dashboard showing me what my AI agents did overnight. Content scored and scheduled. Competitors analysed. Reply opportunities surfaced. SEO decay flagged. All without me touching a keyboard.
 
