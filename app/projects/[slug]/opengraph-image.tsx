@@ -1,6 +1,10 @@
 import { ImageResponse } from 'next/og';
-import { getCaseStudyBySlug } from '../../lib/case-studies';
+import { getCaseStudyBySlug, getAllCaseStudySlugs } from '../../lib/case-studies';
 import { getJostFont } from '../../lib/og-font';
+
+export async function generateStaticParams() {
+  return getAllCaseStudySlugs().map((slug) => ({ slug }));
+}
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
