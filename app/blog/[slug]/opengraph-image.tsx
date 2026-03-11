@@ -1,6 +1,10 @@
 import { ImageResponse } from 'next/og';
-import { getPostBySlug } from '../../lib/blog';
+import { getPostBySlug, getAllSlugs } from '../../lib/blog';
 import { getJostFont } from '../../lib/og-font';
+
+export async function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }));
+}
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
