@@ -1,72 +1,102 @@
 ---
 title: I built a pixel forest with fireflies and a wandering Pikka
 description: >-
-  A look at Grove, a pixel-art forest simulation built with Canvas API and
-  TypeScript, featuring dynamic lighting, particle-driven fireflies, and a
-  sprite-based Pikka agent.
+  Grove is a live AI agent dashboard disguised as a pixel-art forest. Each Claude
+  session spawns a Pikka that moves to its project clearing, carrying a flower
+  coloured by what it is doing. Built with Canvas API and TypeScript.
 date: '2026-03-20'
 tags:
   - creative-coding
   - canvas
   - typescript
-  - gamedev
+  - ai
   - webdev
 draft: false
 ---
-Sometimes you just want to build something for the joy of it. No product roadmap, no user stories, no sprint planning. Just vibes. Grove is exactly that: a pixel-art forest simulation that lives in the browser, rendered entirely with the Canvas API.
+Most agent dashboards are tables and status badges. I wanted mine to be a forest.
 
-It started as a question: what would it take to build a simple 2D scene engine from scratch? Not a game engine, not a framework, just enough structure to render a nighttime forest with trees, flowers, fireflies, and a little Pikka wandering around.
+Grove is a pixel-art scene that runs in the browser, rendered entirely with the Canvas API. It monitors my Claude AI sessions in real time. Each active session spawns a Pikka sprite that moves to the project clearing it belongs to, carrying a small flower coloured by its current state. At a glance I can see which projects are busy, what each agent is doing, and how active things are, without reading a single log line.
+
+## Five clearings, five projects
+
+The forest has five project clearings, each with its own familiar creature and animated workstation:
+
+- **Lunary** has a moon moth and a celestial orrery, glowing purple
+- **Spellcast** has a raven and a messenger web, glowing orange
+- **Content Creator** has a lantern wisp and a moonlit pool, glowing cyan
+- **Dev** (the homebase for Grove itself and general work) has a Pikka familiar and a runic forge, glowing yellow
+- **Orbit** has a crystal guardian and a summoning circle, glowing blue
+
+When a Claude session starts, the API parses its project path and maps it to the matching clearing. A Lunary session spawns its Pikka at the Lunary clearing. A Spellcast session heads to the raven's web. If the project does not match any clearing, the Pikka wanders the general Dev area.
+
+## How sessions become Pikkas
+
+The data flow starts with Claude's session files. Each active session writes to a `.jsonl` file in `~/.claude/projects/`. Grove's API route reads the last entry in each file, extracts the most recent tool used, and maps it to one of six agent states:
+
+- **Idle** (white): no recent activity
+- **Working** (yellow): editing files
+- **Running** (green): executing commands
+- **Searching** (blue): reading, grepping, fetching
+- **Thinking** (purple): internal reasoning
+- **Summoning** (orange): spawning sub-agents
+
+The frontend polls this API every five seconds. New sessions get a Pikka. Existing Pikkas update their state and colour. Sessions inactive for more than 30 minutes fade out.
+
+Each Pikka carries a four-petal flower at its mouth, coloured by its current state. It is a small detail but it makes the forest immediately readable. A cluster of yellow flowers means lots of editing. A purple flower drifting alone means something is thinking.
 
 ## The rendering engine
 
-Grove runs on a custom 2D rendering engine built with TypeScript and the Canvas API. The core lives in an `engine/` directory with a handful of focused modules:
+The core lives in an `engine/` directory with a handful of focused modules:
 
-- **renderer.ts** handles the draw loop and canvas sizing
-- **scene.ts** manages the scene graph, layering objects back-to-front
-- **sprite.ts** deals with sprite sheets and animation frames
-- **clearing.ts** carves out open spaces in the forest
-- **particles.ts** drives the firefly particle system
-- **pika-agent.ts** controls Pikka's wandering behaviour
+- **renderer.ts** handles the draw loop, canvas sizing, and the full layer stack
+- **scene.ts** defines the five clearings with their sprites, colours, and path matching rules
+- **sprite.ts** deals with pixel-art sprite rendering using character-to-colour lookup maps
+- **clearing.ts** defines the type interfaces for agent states, sessions, and clearing configs
+- **particles.ts** drives fireflies, workstation sparks, and summoning magic dust
+- **pika-agent.ts** controls each Pikka's wandering behaviour and animation
 
-The canvas is responsive, filling the entire viewport and redrawing on resize. Everything renders at a pixel-art scale, so the actual resolution is kept low and then scaled up with `imageSmoothingEnabled: false` to preserve those crisp edges.
-
-The scene graph is deliberately simple. Each object has a position, a layer index, and a draw method. The renderer sorts by layer, then calls draw in order. No physics, no collision detection, no input handling beyond what Pikka needs. It is the bare minimum to get pixels on screen, and that is the point.
-
-## Trees, moon, and the night sky
-
-The forest is built from pine tree silhouettes, dark shapes against a deep blue-purple sky. The moon sits high in the scene, casting a soft glow that is just a radial gradient on a separate layer. Stars are scattered randomly, with a subtle twinkle achieved by oscillating their alpha over time.
-
-Flowers dot the forest floor, adding small splashes of colour to the otherwise dark palette. The clearing system (`clearing.ts`) creates open spaces between the trees, giving the scene depth and preventing it from looking like a solid wall of pine.
+The canvas renders at a low pixel-art resolution and scales up with `imageSmoothingEnabled: false` for crisp edges. The scene graph sorts everything by layer: sky and aurora at the back, foreground tree silhouettes at the front, with clearings, workstations, familiars, Pikkas, and particles layered in between.
 
 ## Fireflies and the particle engine
 
-The fireflies are the part I am most pleased with. They use a lightweight particle engine that manages spawn rates, lifetimes, velocity, and glow effects.
+The fireflies use a lightweight particle engine that manages spawn rates, lifetimes, velocity, and glow effects. 65 persistent fireflies drift across the forest with damped physics and gentle random movement.
 
-Each firefly particle has a position, a drift vector, an age, and a maximum lifetime. On each frame, particles drift slowly with a bit of randomness applied to their movement, giving them that organic, meandering feel. When a particle reaches its lifetime, it fades out and gets recycled.
+The glow effect is a radial gradient drawn at each particle's position, transitioning from a warm yellow centre to transparent. The key to making it look good is using `globalCompositeOperation: 'lighter'` on the canvas context, so overlapping glows add together rather than painting over each other.
 
-The glow effect is a radial gradient drawn at each particle's position, transitioning from a warm yellow centre to transparent. The key to making it look good is using `globalCompositeOperation: 'lighter'` on the canvas context, so overlapping glows add together rather than painting over each other. This creates those soft, luminous spots that make the scene feel alive.
+Beyond fireflies, the particle system handles two more types:
 
-Spawn rate and drift speed are tuned to keep things gentle. Too many fireflies and it looks like a rave. Too few and the forest feels dead. The sweet spot is somewhere around 20 to 30 active particles at any given time.
+- **Sparks** erupt from workstations when agents in that clearing are working or running. They follow projectile motion with gravity, fading as they fall.
+- **Magic dust** appears during summoning events (when an agent spawns sub-agents). Slow upward float with pulsing colour.
 
-## The Pikka agent
+## Workstations and familiars
 
-Because why not? `pika-agent.ts` implements a simple autonomous agent that wanders through the forest. Pikka is drawn from a sprite sheet, with idle and walking animation frames.
+Each clearing has a stationary familiar creature and an animated workstation. The familiar reflects the project's personality. The workstation reflects its nature:
 
-The behaviour is basic: pick a random target position within the clearing, walk towards it, pause for a bit, then pick another. Direction changes flip the sprite horizontally. There is no pathfinding, no obstacle avoidance. Pikka just vibes in the forest, and honestly, that is all it needs to do.
+- The **runic forge** glows and throws sparks when Dev agents are editing
+- The **celestial orrery** spins when Lunary sessions are active
+- The **messenger web** pulses when Spellcast is scheduling posts
+- The **moonlit pool** shimmers when Content Creator is generating
+- The **summoning circle** lights up when Orbit is orchestrating agents
+
+Workstations have two animation frames (dim and active) and throw 3 sparks every 0.25 seconds when any session in their clearing is busy.
+
+## Interaction
+
+Click on any Pikka to see its session details: which project it belongs to, what it is currently doing, the last tool it used, and when it was last active. It turns an abstract `.jsonl` log into something you can point at and say "that one is editing the synastry engine right now."
 
 ## Tech choices
 
-The whole thing is built with Next.js and TypeScript, mostly because that is what I already had set up. The canvas rendering is entirely client-side, wrapped in a React component with a `useEffect` that kicks off the render loop. No external rendering libraries, no WebGL, just the 2D canvas context.
+The whole thing is built with Next.js and TypeScript. The canvas rendering is entirely client-side, wrapped in a React component with a `useEffect` that kicks off the render loop. No external rendering libraries, no WebGL, just the 2D canvas context. All sprites are defined as character arrays with colour lookup maps, hand-drawn at pixel scale.
 
-TypeScript helps here more than you might expect for a creative project. Having typed interfaces for particles, sprites, and scene objects catches mistakes early, especially when tweaking the particle system where a wrong property name can silently break the glow effect.
+TypeScript helps here more than you might expect for a creative project. Having typed interfaces for particles, sprites, agent states, and clearing configs catches mistakes early, especially when tweaking the particle system where a wrong property name can silently break the glow effect.
 
 ## What I learned
 
 Building a renderer from scratch, even a simple one, gives you a real appreciation for what engines like Phaser or PixiJS handle for you. Scene ordering, sprite animation timing, particle lifecycle management: each one is straightforward in isolation, but they compound quickly.
 
-The biggest takeaway is that creative coding does not need to be complex to be satisfying. Grove is maybe 500 lines of actual engine code. It does not do much. But watching those fireflies drift through the trees while Pikka wanders around the clearing is genuinely calming.
+The bigger lesson is about making the invisible visible. I run multiple Claude sessions across five projects simultaneously. Before Grove, knowing what was happening meant checking terminal tabs. Now I glance at the forest. If the Lunary clearing is full of yellow-flowered Pikkas, I know a lot of editing is happening. If Orbit's summoning circle is lit up, agents are being orchestrated.
 
-Sometimes the best projects are the ones with no purpose at all.
+It is about 500 lines of engine code. It is also my favourite thing I have built this year.
 
 Until next time, stay curious.
 
