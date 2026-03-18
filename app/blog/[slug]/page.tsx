@@ -86,7 +86,7 @@ export default async function BlogPost({ params }: Props) {
         {post.description && (
           <p className="text-neutral-400 mt-2">{post.description}</p>
         )}
-        <div className="flex items-center gap-4 mt-3">
+        <div className="flex flex-wrap items-center gap-2 mt-3">
           <span className="text-xs text-neutral-500">{post.readingTime}</span>
           {post.tags.map((tag) => (
             <span
