@@ -26,7 +26,7 @@ export default function BlogIndex() {
       <Breadcrumbs crumbs={[{ label: 'sammii.dev', href: '/' }, { label: 'Blog' }]} />
 
       <h1 className="text-3xl font-bold mb-2">Blog</h1>
-      <p className="text-neutral-400 mb-12">Thoughts on engineering, design, and building things.</p>
+      <p className="text-neutral-600 dark:text-neutral-400 mb-12">Thoughts on engineering, design, and building things.</p>
 
       {posts.length === 0 ? (
         <p className="text-neutral-500">No posts yet.</p>
@@ -46,14 +46,14 @@ export default function BlogIndex() {
                   {post.title}
                 </h2>
                 {post.description && (
-                  <p className="text-neutral-400 mt-1 text-sm">{post.description}</p>
+                  <p className="text-neutral-600 dark:text-neutral-400 mt-1 text-sm">{post.description}</p>
                 )}
                 <div className="flex items-center gap-4 mt-2">
                   <span className="text-xs text-neutral-500">{post.readingTime}</span>
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2 py-0.5 rounded-full bg-neutral-800 text-neutral-300"
+                      className="text-xs px-2 py-0.5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
                     >
                       {tag}
                     </span>

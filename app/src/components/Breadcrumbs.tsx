@@ -38,7 +38,7 @@ export const Breadcrumbs = ({ crumbs }: Props) => {
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-neutral-500 mb-6">
         {crumbs.map((crumb, i) => (
           <span key={crumb.href ?? crumb.label} className="flex items-center gap-2">
-            {i > 0 && <span aria-hidden="true" className="text-neutral-700">/</span>}
+            {i > 0 && <span aria-hidden="true" className="text-neutral-400 dark:text-neutral-700">/</span>}
             {crumb.href ? (
               <Link
                 href={crumb.href}
@@ -47,7 +47,7 @@ export const Breadcrumbs = ({ crumbs }: Props) => {
                 {crumb.label}
               </Link>
             ) : (
-              <span className="text-neutral-400 truncate max-w-[220px] sm:max-w-xs" title={crumb.label}>
+              <span className="text-neutral-600 dark:text-neutral-400 truncate max-w-[220px] sm:max-w-xs" title={crumb.label}>
                 {crumb.label.length > 45 ? crumb.label.slice(0, 45) + '…' : crumb.label}
               </span>
             )}

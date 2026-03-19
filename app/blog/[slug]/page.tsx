@@ -84,14 +84,14 @@ export default async function BlogPost({ params }: Props) {
         </time>
         <h1 className="text-3xl font-bold mt-2">{post.title}</h1>
         {post.description && (
-          <p className="text-neutral-400 mt-2">{post.description}</p>
+          <p className="text-neutral-600 dark:text-neutral-400 mt-2">{post.description}</p>
         )}
         <div className="flex flex-wrap items-center gap-2 mt-3">
           <span className="text-xs text-neutral-500">{post.readingTime}</span>
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2 py-0.5 rounded-full bg-neutral-800 text-neutral-300"
+              className="text-xs px-2 py-0.5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
             >
               {tag}
             </span>
@@ -99,7 +99,7 @@ export default async function BlogPost({ params }: Props) {
         </div>
       </header>
 
-      <article className="prose prose-invert prose-neutral max-w-none">
+      <article className="prose dark:prose-invert prose-neutral max-w-none">
         <MDXRemote source={post.content} options={mdxOptions} />
       </article>
     </main>
