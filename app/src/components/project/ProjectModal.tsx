@@ -191,7 +191,7 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
                     key={i}
                     className="font-inter flex gap-2 text-sm text-black/70 dark:text-white/70 leading-relaxed"
                   >
-                    <span className="text-black/25 dark:text-white/25 flex-shrink-0 select-none" aria-hidden="true">—</span>
+                    <span className="text-black/25 dark:text-white/25 flex-shrink-0 select-none" aria-hidden="true">·</span>
                     {h}
                   </li>
                 ))}
