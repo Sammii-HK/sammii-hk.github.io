@@ -17,7 +17,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, TypeScript, OKLCH, Tailwind CSS',
     info: 'Real-time theme builder powered by OKLCH colour science. Multiple colour scales with semantic token mapping, 11-step palette generation with perceptual lightness curves, sRGB gamut clamping, WCAG contrast checking, live UI preview with light/dark toggle, and export to CSS variables, Tailwind config, JSON, or Style Dictionary tokens.',
     type: 'product',
-    liveUrl: 'https://gamut-1wsnkygq0-sammiis-projects.vercel.app',
+    liveUrl: 'https://gamut.sammii.dev',
     caseStudy: 'gamut',
     highlights: [
       'OKLCH colour space for perceptually uniform palette generation',
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Tailwind CSS, Framer Motion, TypeScript',
     info: 'Interactive typography explorer for variable fonts, optical sizing, and fluid type scales. Features real-time axis manipulation with spring animations, side-by-side font comparison, clamp() CSS generation, URL state persistence for shareable configs, and a classic specimen sheet. Includes Inter, Fraunces, Recursive, Roboto Flex, Playfair Display, and Source Serif 4.',
     type: 'product',
-    liveUrl: 'https://kern-9u5vawme5-sammiis-projects.vercel.app',
+    liveUrl: 'https://kern.sammii.dev',
     caseStudy: 'kern',
     highlights: [
       'Variable font axis manipulation with spring-animated real-time preview',
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Framer Motion, Spring Physics, GLSL, TypeScript',
     info: 'Design engineering component library with an autonomous daily build pipeline. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
     type: 'product',
-    liveUrl: 'https://prism-9r1bu6mmn-sammiis-projects.vercel.app',
+    liveUrl: 'https://prism.sammii.dev',
     caseStudy: 'prism',
     highlights: [
       'Autonomous daily pipeline: scout, curate, build, record, and publish a new component',
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Lexical, Yjs, WebSockets, TypeScript',
     info: 'Local-first collaborative rich text editor. Content saves to IndexedDB instantly and syncs between clients in real time via WebSocket and Yjs CRDTs. Includes a formatting toolbar, Gutenberg book seeding for performance testing, and a custom collaboration server with room management.',
     type: 'product',
-    liveUrl: 'https://lattiq-ed0hcekw6-sammiis-projects.vercel.app/',
+    liveUrl: 'https://lattiq.sammii.dev',
     caseStudy: 'lattiq',
     highlights: [
       'Yjs CRDTs for conflict-free real-time collaboration between multiple clients',
@@ -338,7 +338,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Framer Motion, TypeScript, Tailwind CSS',
     info: '25 interactive demos showcasing spring physics, layout animations, gesture-driven interactions, SVG morphing, scroll-linked parallax, and more. Each demo is self-contained with adjustable parameters and real-time feedback.',
     type: 'experiment',
-    liveUrl: 'https://kinetic-f1boklnik-sammiis-projects.vercel.app',
+    liveUrl: 'https://kinetic.sammii.dev',
     highlights: [
       '25 self-contained demos with adjustable spring and physics parameters',
       'Gesture-driven interactions: drag, pinch, swipe with inertia',
@@ -366,7 +366,7 @@ export const projects: Project[] = [
     techStack: 'WebGL, GLSL, JavaScript',
     info: 'Text-to-shader generative art tool. Type any word or phrase and watch it rendered as a unique real-time GLSL shader, with colour, form, and motion derived from the semantic feel of the input.',
     type: 'experiment',
-    liveUrl: 'https://refract-8mv500w8w-sammiis-projects.vercel.app',
+    liveUrl: 'https://refract.sammii.dev',
     highlights: [
       'Text input hashed into shader parameters: colour palette, waveform, speed',
       'Real-time GLSL rendering on the GPU via WebGL',
@@ -379,7 +379,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Canvas API, TypeScript, Sprite Engine',
     info: 'Pixel-art forest simulation with dynamic time-of-day lighting, seasonal changes, fireflies, particle effects, and sprite-based characters. Custom 2D rendering engine with scene graph, sprite sheets, and a clearing system.',
     type: 'experiment',
-    liveUrl: 'https://grove-bnzmufpnf-sammiis-projects.vercel.app',
+    liveUrl: 'https://grove.sammii.dev',
     highlights: [
       'Custom 2D rendering engine with scene graph and sprite sheet system',
       'Dynamic time-of-day lighting and seasonal colour palette shifts',
@@ -433,7 +433,7 @@ export const projects: Project[] = [
     techStack: 'p5.js, Javascript',
     info: '15 browser-based visual experiments treating a single photograph as raw material. Pixel data drives particle systems, edge detection, flow fields, Voronoi partitions, kaleidoscopes, and more; each sketch is unique to the source image.',
     type: 'experiment',
-    liveUrl: 'https://creative-coding-csu90bcmk-sammiis-projects.vercel.app',
+    liveUrl: 'https://creative-coding.sammii.dev',
     highlights: [
       '15 distinct sketches each using the same source image differently',
       'Pixel data driving particle systems, flow fields, and Voronoi partitions',
