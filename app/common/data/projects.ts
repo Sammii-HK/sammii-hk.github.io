@@ -7,6 +7,7 @@ type Project = {
   liveUrl?: string;
   highlights?: string[];
   caseStudy?: string;
+  featured?: boolean;
 };
 
 export const projects: Project[] = [
@@ -17,6 +18,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, TypeScript, OKLCH, Tailwind CSS',
     info: 'Real-time theme builder powered by OKLCH colour science. Multiple colour scales with semantic token mapping, 11-step palette generation with perceptual lightness curves, sRGB gamut clamping, WCAG contrast checking, live UI preview with light/dark toggle, and export to CSS variables, Tailwind config, JSON, or Style Dictionary tokens.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://gamut.sammii.dev',
     caseStudy: 'gamut',
     highlights: [
@@ -33,6 +35,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Tailwind CSS, Framer Motion, TypeScript',
     info: 'Interactive typography explorer for variable fonts, optical sizing, and fluid type scales. Features real-time axis manipulation with spring animations, side-by-side font comparison, clamp() CSS generation, URL state persistence for shareable configs, and a classic specimen sheet. Includes Inter, Fraunces, Recursive, Roboto Flex, Playfair Display, and Source Serif 4.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://kern.sammii.dev',
     caseStudy: 'kern',
     highlights: [
@@ -48,6 +51,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Framer Motion, Spring Physics, GLSL, TypeScript',
     info: 'Design engineering component library with an autonomous daily build pipeline. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://prism.sammii.dev',
     caseStudy: 'prism',
     highlights: [
@@ -79,6 +83,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Lexical, Yjs, WebSockets, TypeScript',
     info: 'Local-first collaborative rich text editor. Content saves to IndexedDB instantly and syncs between clients in real time via WebSocket and Yjs CRDTs. Includes a formatting toolbar, Gutenberg book seeding for performance testing, and a custom collaboration server with room management.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://lattiq.sammii.dev',
     caseStudy: 'lattiq',
     highlights: [
@@ -110,6 +115,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Typescript, Astronomy Engine',
     info: 'Progressive Web App calculating planetary and lunar positions in real time using the Astronomy Engine library, with personalised lunar data and subscription features.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://lunary.app',
     caseStudy: 'lunary',
     highlights: [
@@ -172,6 +178,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz',
     info: 'Self-hosted social media scheduling platform managing multiple brands across 8+ platforms. Turborepo monorepo with a Next.js frontend, a Node.js BFF, and a self-hosted Postiz + Temporal stack on Hetzner via Docker Compose.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://spellcast.sammii.dev',
     caseStudy: 'spellcast',
     highlights: [

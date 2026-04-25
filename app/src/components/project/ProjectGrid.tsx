@@ -11,6 +11,7 @@ type ProjectType = {
   info: string;
   type?: "product" | "experiment";
   liveUrl?: string;
+  featured?: boolean;
 };
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
@@ -133,7 +134,8 @@ export const ProjectGrid = () => {
     setSelectedProject(null);
   }, []);
 
-  const products = projects.filter((p) => p.type === "product");
+  const featured = projects.filter((p) => p.featured);
+  const products = projects.filter((p) => p.type === "product" && !p.featured);
   const experiments = projects.filter((p) => p.type === "experiment");
 
   return (
@@ -154,16 +156,33 @@ export const ProjectGrid = () => {
               I make things that sit between design and engineering. Background in graphic design and visual communication,
               now building products, autonomous AI pipelines, and creative tools. Everything below is something I built.
             </p>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-3 text-xs sm:text-sm">
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-black/15 dark:border-white/15 text-black/70 dark:text-white/70">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Founding Design Engineer · open to roles · UK / remote
+              </span>
+            </div>
             <div className="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-xs sm:text-sm text-black/40 dark:text-white/35">
-              <span>{products.length} products</span>
+              <span>{featured.length + products.length} products</span>
               <span>{experiments.length} experiments</span>
               <span>21 case studies</span>
             </div>
           </section>
 
+          {featured.length > 0 && (
+            <div>
+              <SectionLabel>Featured work</SectionLabel>
+              <CardGrid
+                items={featured}
+                onCardClick={handleCardClick}
+                onCardKeyDown={handleCardKeyDown}
+              />
+            </div>
+          )}
+
           {products.length > 0 && (
             <div>
-              <SectionLabel>Products</SectionLabel>
+              <SectionLabel>More products</SectionLabel>
               <CardGrid
                 items={products}
                 onCardClick={handleCardClick}
