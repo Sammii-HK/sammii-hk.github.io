@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { GITHUB_URL_SAMMII, EMAIL, LINKEDIN_URL } from "../../constants";
 
 export const Footer = () => {
@@ -40,6 +40,15 @@ export const Footer = () => {
           </a>
         </nav>
         <div className="flex items-center gap-3 sm:gap-4">
+          <a
+            href="/sammii-kellow-cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-xs sm:text-sm text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2 rounded"
+          >
+            <FileText size={14} aria-hidden="true" />
+            <span>CV</span>
+          </a>
           <Link
             href="/blog"
             className="text-xs sm:text-sm text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white transition-colors"

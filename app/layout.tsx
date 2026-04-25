@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sammii.dev'),
-  title: "sammii.dev",
-  description: "Full-stack engineer portfolio",
+  title: "Sammii Kellow: Founding Design Engineer",
+  description: "Founding Design Engineer in London. Open to senior or staff roles. Design systems, full-stack product engineering, autonomous AI pipelines, creative tools.",
   openGraph: {
     siteName: 'sammii.dev',
     type: 'website',

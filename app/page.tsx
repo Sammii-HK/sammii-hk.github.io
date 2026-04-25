@@ -11,10 +11,10 @@ function safeJsonLd(obj: unknown): string {
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Sammii',
+  name: 'Sammii Kellow',
   url: 'https://sammii.dev',
-  jobTitle: 'Design Engineer',
-  description: 'Design engineer and full-stack builder. Building products, autonomous AI pipelines, and creative tools.',
+  jobTitle: 'Founding Design Engineer',
+  description: 'Founding Design Engineer in London. Building products, design systems, autonomous AI pipelines, and creative tools.',
   sameAs: [
     'https://github.com/sammii-hk',
     'https://x.com/sammiihk',
