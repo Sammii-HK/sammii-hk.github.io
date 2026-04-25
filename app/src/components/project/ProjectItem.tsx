@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CodeXml, ExternalLink } from "lucide-react";
+import { CodeXml, ExternalLink, BookOpen } from "lucide-react";
 import { GITHUB_URL_SAMMII, GITHUB_URL } from "../../../constants";
 import { getImagePath } from "../../../common/utils/image-path";
 
@@ -11,6 +11,8 @@ type ProjectItem = {
   type?: "product" | "experiment";
   liveUrl?: string;
   highlights?: string[];
+  caseStudy?: string;
+  featured?: boolean;
 };
 
 type Project = {
@@ -46,9 +48,20 @@ export const ProjectItem = (projectItem: Project) => {
         />
       </div>
       <div className="flex-1 flex flex-col min-h-0">
-        <h3 className="text-sm sm:text-base md:text-xl font-semibold break-words mb-1 sm:mb-2 flex-shrink-0 line-clamp-2">
-          {project.title}
-        </h3>
+        <div className="flex items-center gap-2 mb-1 sm:mb-2 flex-shrink-0">
+          <h3 className="text-sm sm:text-base md:text-xl font-semibold break-words line-clamp-2 flex-1 min-w-0">
+            {project.title}
+          </h3>
+          {project.caseStudy && (
+            <span
+              className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] uppercase tracking-wider text-black/50 dark:text-white/50 border border-black/15 dark:border-white/15 flex-shrink-0"
+              aria-label="Case study available"
+            >
+              <BookOpen size={10} aria-hidden="true" />
+              <span>Case study</span>
+            </span>
+          )}
+        </div>
         <p className="font-inter text-[10px] sm:text-xs md:text-sm text-black/60 dark:text-white/60 break-words mb-1 sm:mb-2 flex-shrink-0 line-clamp-2">
           {project.techStack}
         </p>

@@ -12,6 +12,7 @@ type ProjectType = {
   type?: "product" | "experiment";
   liveUrl?: string;
   featured?: boolean;
+  caseStudy?: string;
 };
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
