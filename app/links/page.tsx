@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import { ArrowUpRight } from "lucide-react";
+import { personaHubs } from "../common/data/persona-hubs";
 import { gradientCreator } from "../common/scripts/gradient-creator";
 
 // SVG Icons for each platform
@@ -151,6 +153,7 @@ function LinksContent() {
   const filteredLinks = links.filter(
     (link) => !link.personalOnly || isPersonalMode
   );
+  const hubLinks = personaHubs;
 
   return (
     <main
@@ -173,8 +176,43 @@ function LinksContent() {
         />
       </div>
 
+      {/* Persona hubs */}
+      <div className="w-full max-w-md mb-8">
+        <div className="mb-3 flex items-center justify-between text-xs uppercase tracking-[0.12em] text-black/45 dark:text-white/45">
+          <span>Persona hubs</span>
+          <span>{hubLinks.length} hubs</span>
+        </div>
+        <div className="grid gap-2">
+          {hubLinks.map((hub, index) => (
+            <a
+              key={hub.slug}
+              href={`/${hub.slug}`}
+              className="group flex min-h-16 min-w-0 w-full items-center justify-between gap-4 rounded-lg border border-black/10 bg-white/60 px-4 py-3 text-left backdrop-blur-sm transition-all duration-300 ease-out hover:scale-[1.01] hover:border-black/25 hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-white/5 dark:hover:border-white/30 dark:hover:bg-white dark:hover:text-black dark:focus-visible:ring-white dark:focus-visible:ring-offset-black"
+              style={{
+                animationDelay: `${index * 40}ms`,
+              }}
+            >
+              <span className="flex min-w-0 items-center gap-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-black/10 text-sm font-semibold dark:border-white/10">
+                  {hub.label.slice(0, 2)}
+                </span>
+                <span className="min-w-0">
+                  <span className="block truncate text-sm font-medium">
+                    {hub.label}
+                  </span>
+                  <span className="block truncate text-xs text-black/50 group-hover:text-white/70 dark:text-white/45 dark:group-hover:text-black/55">
+                    {hub.products.length} products
+                  </span>
+                </span>
+              </span>
+              <ArrowUpRight className="h-4 w-4 shrink-0 opacity-55 transition group-hover:opacity-100" />
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* Links Section */}
-      <div className="w-full max-w-sm flex flex-col gap-3">
+      <div className="w-full max-w-md flex flex-col gap-3">
         {filteredLinks.map((link, index) => {
           const Icon = link.icon;
           return (
