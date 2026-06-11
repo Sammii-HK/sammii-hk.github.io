@@ -276,10 +276,25 @@ function LinksContent() {
         )}
       </div>
 
+      {/* Portfolio Link */}
+      <div className="w-full max-w-md mt-8 pt-8 border-t border-black/10 dark:border-white/10">
+        <a
+          href="https://sammii.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl border border-black/10 dark:border-white/10 bg-white/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-medium w-full"
+        >
+          View Portfolio
+          <ArrowUpRight className="w-4 h-4" />
+        </a>
+      </div>
+
       {/* Footer */}
       <footer className="mt-12 text-xs text-black/40 dark:text-white/40">
         <a
-          href="/"
+          href="https://sammii.dev"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hover:text-black dark:hover:text-white transition-colors"
         >
           sammii.dev
