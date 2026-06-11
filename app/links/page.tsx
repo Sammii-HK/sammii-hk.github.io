@@ -274,17 +274,18 @@ function LinksContent() {
             </svg>
           </a>
         )}
-      </div>
 
-      {/* Portfolio Link */}
-      <div className="w-full max-w-md mt-8 pt-8 border-t border-black/10 dark:border-white/10">
+        {/* Portfolio - appears last */}
         <a
           href="https://sammii.dev"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl border border-black/10 dark:border-white/10 bg-white/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-medium w-full"
+          className="group relative flex items-center justify-center gap-3 w-full py-3.5 px-6 rounded-xl border border-black/10 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:scale-[1.02] hover:shadow-lg font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-white dark:focus-visible:ring-offset-black transition-all duration-300 ease-out"
+          style={{
+            animationDelay: `${150}ms`,
+          }}
         >
-          View Portfolio
+          Portfolio
           <ArrowUpRight className="w-4 h-4" />
         </a>
       </div>
