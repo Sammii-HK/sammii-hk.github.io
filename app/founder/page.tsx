@@ -116,7 +116,7 @@ export default function FounderPage() {
       <div className="w-full max-w-2xl mb-16">
         <div className="p-6 rounded-xl border-l-2 border-black/30 dark:border-white/30 bg-black/5 dark:bg-white/5">
           <p className="text-lg md:text-xl font-medium text-black/90 dark:text-white/90 italic">
-            "My vision is to create the world's most trusted symbolic intelligence platform."
+            {`"My vision is to create the world's most trusted symbolic intelligence platform."`}
           </p>
         </div>
       </div>
@@ -126,7 +126,7 @@ export default function FounderPage() {
         {/* What I'm Building */}
         <section>
           <h3 className="text-sm uppercase tracking-[0.12em] text-black/45 dark:text-white/45 mb-4 font-semibold">
-            What I'm Building
+            {`What I'm Building`}
           </h3>
           <div className="space-y-4">
             <p className="text-base leading-relaxed text-black/80 dark:text-white/80">
@@ -139,7 +139,7 @@ export default function FounderPage() {
               Today, Lunary includes astrology tools, birth charts, transits, tarot experiences, rituals, AI-powered guidance, content systems, subscriptions, and a growing knowledge base.
             </p>
             <p className="text-base font-medium text-black/80 dark:text-white/80 pt-2">
-              My vision is to create the world's most trusted symbolic intelligence platform.
+              {`My vision is to create the world's most trusted symbolic intelligence platform.`}
             </p>
           </div>
         </section>
@@ -147,20 +147,20 @@ export default function FounderPage() {
         {/* Why I'm Building It */}
         <section>
           <h3 className="text-sm uppercase tracking-[0.12em] text-black/45 dark:text-white/45 mb-4 font-semibold">
-            Why I'm Building It
+            {`Why I'm Building It`}
           </h3>
           <div className="space-y-4">
             <p className="text-base leading-relaxed text-black/80 dark:text-white/80">
-              I've always been fascinated by the intersection of technology, creativity, meaning, and personal growth.
+              {`I've always been fascinated by the intersection of technology, creativity, meaning, and personal growth.`}
             </p>
             <p className="text-base leading-relaxed text-black/80 dark:text-white/80">
-              My background spans both design and engineering, but I've also spent years exploring astrology, tarot, psychology, symbolism, and self-development.
+              {`My background spans both design and engineering, but I've also spent years exploring astrology, tarot, psychology, symbolism, and self-development.`}
             </p>
             <p className="text-base leading-relaxed text-black/80 dark:text-white/80">
-              Lunary brings those worlds together. What started as a side project became something much bigger: a mission to build tools that help people feel more connected to themselves and more intentional about their lives.
+              {`Lunary brings those worlds together. What started as a side project became something much bigger: a mission to build tools that help people feel more connected to themselves and more intentional about their lives.`}
             </p>
             <p className="text-base leading-relaxed text-black/60 dark:text-white/70">
-              Building a company has also become part of my own story of rebuilding, resilience, and creating something meaningful from the ground up.
+              {`Building a company has also become part of my own story of rebuilding, resilience, and creating something meaningful from the ground up.`}
             </p>
           </div>
         </section>
@@ -203,13 +203,13 @@ export default function FounderPage() {
           </h3>
           <div className="space-y-4">
             <p className="text-base leading-relaxed text-black/80 dark:text-white/80">
-              I'm a senior frontend and design engineer with over a decade of experience spanning design, user experience, accessibility, frontend engineering, design systems, and developer experience.
+              {`I'm a senior frontend and design engineer with over a decade of experience spanning design, user experience, accessibility, frontend engineering, design systems, and developer experience.`}
             </p>
             <p className="text-base leading-relaxed text-black/80 dark:text-white/80">
-              I've worked across both design and software engineering, helping teams build products that are beautiful, accessible, scalable, and user-focused.
+              {`I've worked across both design and software engineering, helping teams build products that are beautiful, accessible, scalable, and user-focused.`}
             </p>
             <p className="text-base leading-relaxed text-black/80 dark:text-white/80">
-              My technical background includes React, Next.js, TypeScript, modern web architecture, design systems, and product development. Today I bring those skills into building Lunary.
+              {`My technical background includes React, Next.js, TypeScript, modern web architecture, design systems, and product development. Today I bring those skills into building Lunary.`}
             </p>
           </div>
         </section>
@@ -230,7 +230,7 @@ export default function FounderPage() {
               "Building sustainable founder runway",
             ].map((item) => (
               <p key={item} className="text-base text-black/70 dark:text-white/70">
-                • {item}
+                &bull; {item}
               </p>
             ))}
           </div>
@@ -239,10 +239,10 @@ export default function FounderPage() {
         {/* What I'm Looking For */}
         <section>
           <h3 className="text-sm uppercase tracking-[0.12em] text-black/45 dark:text-white/45 mb-4 font-semibold">
-            What I'm Looking For
+            {`What I'm Looking For`}
           </h3>
           <p className="text-base leading-relaxed text-black/80 dark:text-white/80 mb-4">
-            I'm always happy to connect with:
+            {`I'm always happy to connect with:`}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
             {[
@@ -256,12 +256,12 @@ export default function FounderPage() {
               "People interested in symbolic intelligence",
             ].map((item) => (
               <p key={item} className="text-base text-black/70 dark:text-white/70">
-                • {item}
+                &bull; {item}
               </p>
             ))}
           </div>
           <p className="text-base text-black/60 dark:text-white/60">
-            If any of those sound like you, I'd love to chat.
+            {`If any of those sound like you, I'd love to chat.`}
           </p>
         </section>
 
