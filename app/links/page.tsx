@@ -47,11 +47,25 @@ const TikTokIcon = () => (
 interface LinkItem {
   name: string;
   url: string;
-  icon: React.FC;
+  icon?: React.FC;
   personalOnly?: boolean;
+  businessOnly?: boolean;
 }
 
+const LunaryIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path d="M12 2a10 10 0 0 1 0 20" stroke="currentColor" strokeWidth="2" fill="none" />
+  </svg>
+);
+
 const links: LinkItem[] = [
+  {
+    name: "Lunary",
+    url: "https://lunary.app",
+    icon: LunaryIcon,
+    businessOnly: true,
+  },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/sammii",
@@ -150,10 +164,12 @@ function LinksContent() {
     }
   };
 
-  const filteredLinks = links.filter(
-    (link) => !link.personalOnly || isPersonalMode
-  );
-  const hubLinks = personaHubs;
+  const filteredLinks = links.filter((link) => {
+    if (link.businessOnly && isPersonalMode) return false;
+    if (link.personalOnly && !isPersonalMode) return false;
+    return true;
+  });
+  const hubLinks = isPersonalMode ? personaHubs : [];
 
   return (
     <main
@@ -177,6 +193,7 @@ function LinksContent() {
       </div>
 
       {/* Persona hubs */}
+      {hubLinks.length > 0 && (
       <div className="w-full max-w-md mb-8">
         <div className="mb-3 flex items-center justify-between text-xs uppercase tracking-[0.12em] text-black/45 dark:text-white/45">
           <span>Persona hubs</span>
@@ -187,6 +204,8 @@ function LinksContent() {
             <a
               key={hub.slug}
               href={`/${hub.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex min-h-16 min-w-0 w-full items-center justify-between gap-4 rounded-lg border border-black/10 bg-white/60 px-4 py-3 text-left backdrop-blur-sm transition-all duration-300 ease-out hover:scale-[1.01] hover:border-black/25 hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-white/5 dark:hover:border-white/30 dark:hover:bg-white dark:hover:text-black dark:focus-visible:ring-white dark:focus-visible:ring-offset-black"
               style={{
                 animationDelay: `${index * 40}ms`,
@@ -210,24 +229,45 @@ function LinksContent() {
           ))}
         </div>
       </div>
+      )}
+
+      {/* Founder Page */}
+      <div className="w-full max-w-md mb-6">
+        <a
+          href="/founder"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl border border-emerald-400/30 dark:border-emerald-500/30 bg-gradient-to-r from-emerald-50/80 to-emerald-100/50 dark:from-emerald-950/40 dark:to-emerald-900/40 backdrop-blur-sm hover:from-emerald-900 hover:to-emerald-800 hover:text-white dark:hover:from-emerald-100 dark:hover:to-emerald-200 dark:hover:text-black transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black font-semibold"
+        >
+          <span>Founder Story & Fundraising</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+      </div>
 
       {/* Links Section */}
       <div className="w-full max-w-md flex flex-col gap-3">
         {filteredLinks.map((link, index) => {
           const Icon = link.icon;
+          const isLunary = link.name === "Lunary";
           return (
             <a
               key={link.name}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center justify-center gap-3 w-full py-3.5 px-6 rounded-xl border border-black/10 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black"
+              className={`group relative flex items-center justify-center gap-3 w-full rounded-xl transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                isLunary
+                  ? "py-4 px-6 border border-purple-400/30 dark:border-purple-500/30 bg-gradient-to-r from-purple-50/80 to-purple-100/50 dark:from-purple-950/40 dark:to-purple-900/40 backdrop-blur-sm hover:from-purple-900 hover:to-purple-800 hover:text-white dark:hover:from-purple-100 dark:hover:to-purple-200 dark:hover:text-black hover:scale-[1.03] hover:shadow-lg font-semibold focus-visible:ring-purple-600 dark:focus-visible:ring-purple-400 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black"
+                  : "py-3.5 px-6 border border-black/10 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:scale-[1.02] hover:shadow-lg font-medium focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-white dark:focus-visible:ring-offset-black"
+              }`}
               style={{
                 animationDelay: `${index * 50}ms`,
               }}
             >
-              <Icon />
-              <span className="font-medium">{link.name}</span>
+              {Icon && <Icon />}
+              <span>{link.name}</span>
             </a>
           );
         })}
