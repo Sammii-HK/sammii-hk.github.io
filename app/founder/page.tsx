@@ -305,7 +305,9 @@ export default function FounderPage() {
               <ArrowUpRight className="w-4 h-4" />
             </a>
             <a
-              href="/"
+              href="https://sammii.dev"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl border border-black/10 dark:border-white/10 bg-white/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors font-medium"
             >
               View Portfolio
