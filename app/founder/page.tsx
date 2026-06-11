@@ -103,7 +103,7 @@ export default function FounderPage() {
           >
             Sammii Kellow
           </h1>
-          <h2 className="text-lg md:text-xl font-medium text-black/70 dark:text-white/70 mb-6">
+          <h2 className="text-lg md:text-xl font-medium text-black/80 dark:text-white/85 mb-6">
             {`Founder of Lunary • Building symbolic intelligence tools`}
           </h2>
           <p className="text-lg text-black/60 dark:text-white/60 leading-relaxed">
