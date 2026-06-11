@@ -107,7 +107,7 @@ export default function FounderPage() {
             {`Founder of Lunary • Building symbolic intelligence tools`}
           </h2>
           <p className="text-lg text-black/60 dark:text-white/60 leading-relaxed">
-            Building symbolic intelligence tools that help people understand themselves through astrology, tarot, and AI.
+            Building the world's most trusted symbolic intelligence platform through astrology, tarot, and AI.
           </p>
         </div>
       </div>
@@ -136,10 +136,7 @@ export default function FounderPage() {
               The platform helps people better understand themselves through meaningful patterns, personal insight, and self-reflection.
             </p>
             <p className="text-base leading-relaxed text-black/60 dark:text-white/70">
-              Today, Lunary includes astrology tools, birth charts, transits, tarot experiences, rituals, AI-powered guidance, content systems, subscriptions, and a growing knowledge base.
-            </p>
-            <p className="text-base font-medium text-black/80 dark:text-white/80 pt-2">
-              {`My vision is to create the world's most trusted symbolic intelligence platform.`}
+              Today, Lunary includes astrology tools, birth charts, transits, tarot experiences, rituals, AI-powered guidance, subscriptions, content systems, and a growing knowledge base.
             </p>
           </div>
         </section>
@@ -160,7 +157,7 @@ export default function FounderPage() {
               {`Lunary brings those worlds together. What started as a side project became something much bigger: a mission to build tools that help people feel more connected to themselves and more intentional about their lives.`}
             </p>
             <p className="text-base leading-relaxed text-black/60 dark:text-white/70">
-              {`Building a company has also become part of my own story of rebuilding, resilience, and creating something meaningful from the ground up.`}
+              {`Building Lunary has become part of my own story of rebuilding, resilience, and creating something meaningful from the ground up.`}
             </p>
           </div>
         </section>
@@ -179,11 +176,10 @@ export default function FounderPage() {
               "AI-powered experiences",
               "Astrology and tarot platform",
               "Thousands of search-indexed pages",
-              "Growing organic traffic",
+              "Growing organic search presence and content distribution",
               "Automated content engine",
               "Built using Next.js and Vercel",
               "Growing creator ecosystem",
-              "Meaningful progress over vanity metrics",
             ].map((item) => (
               <div
                 key={item}
@@ -254,6 +250,7 @@ export default function FounderPage() {
               "Creators",
               "Media opportunities",
               "People interested in symbolic intelligence",
+              "People building the future of AI, developer tools, creativity, wellness, and personal growth",
             ].map((item) => (
               <p key={item} className="text-base text-black/70 dark:text-white/70">
                 &bull; {item}
@@ -277,7 +274,7 @@ export default function FounderPage() {
               { icon: "💻", label: "Senior Frontend & Design Engineer" },
               { icon: "🚀", label: "Building a Delaware C-Corp" },
               { icon: "🎨", label: "Background in design and engineering" },
-              { icon: "🌴", label: "Exploring Thailand to extend runway" },
+              { icon: "🌴", label: "Exploring location-independent founder living" },
               { icon: "🤖", label: "Building with AI and automation" },
               { icon: "🐕", label: "Managed by two dogs" },
             ].map((fact) => (
@@ -289,6 +286,21 @@ export default function FounderPage() {
                 <p className="text-sm text-black/70 dark:text-white/70">{fact.label}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Building in Public */}
+        <section>
+          <h3 className="text-sm uppercase tracking-[0.12em] text-black/45 dark:text-white/45 mb-4 font-semibold">
+            Building in Public
+          </h3>
+          <div className="space-y-4">
+            <p className="text-base leading-relaxed text-black/80 dark:text-white/80">
+              {`I share the journey of building Lunary across engineering, product development, design, growth, fundraising, and founder life.`}
+            </p>
+            <p className="text-base leading-relaxed text-black/60 dark:text-white/70">
+              {`Building a company is rarely a straight line, and I believe some of the most valuable lessons come from sharing the process honestly.`}
+            </p>
           </div>
         </section>
 
