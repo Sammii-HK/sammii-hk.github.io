@@ -107,7 +107,7 @@ export default function FounderPage() {
             {`Founder of Lunary • Building symbolic intelligence tools`}
           </h2>
           <p className="text-lg text-black/60 dark:text-white/60 leading-relaxed">
-            Building the world's most trusted symbolic intelligence platform through astrology, tarot, and AI.
+            {`Building the world's most trusted symbolic intelligence platform through astrology, tarot, and AI.`}
           </p>
         </div>
       </div>
