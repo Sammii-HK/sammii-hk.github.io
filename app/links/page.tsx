@@ -231,22 +231,7 @@ function LinksContent() {
       </div>
       )}
 
-      {/* Founder Page */}
-      <div className="w-full max-w-md mb-6">
-        <a
-          href="/founder"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl border border-emerald-400/30 dark:border-emerald-500/30 bg-gradient-to-r from-emerald-50/80 to-emerald-100/50 dark:from-emerald-950/40 dark:to-emerald-900/40 backdrop-blur-sm hover:from-emerald-900 hover:to-emerald-800 hover:text-white dark:hover:from-emerald-100 dark:hover:to-emerald-200 dark:hover:text-black transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black font-semibold"
-        >
-          <span>Founder Story & Fundraising</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-            <path d="M7 17L17 7M17 7H7M17 7V17" />
-          </svg>
-        </a>
-      </div>
-
-      {/* Links Section */}
+      {/* Links Section - Lunary + Founder + Socials */}
       <div className="w-full max-w-md flex flex-col gap-3">
         {filteredLinks.map((link, index) => {
           const Icon = link.icon;
@@ -263,7 +248,7 @@ function LinksContent() {
                   : "py-3.5 px-6 border border-black/10 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:scale-[1.02] hover:shadow-lg font-medium focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-white dark:focus-visible:ring-offset-black"
               }`}
               style={{
-                animationDelay: `${index * 50}ms`,
+                animationDelay: `${isLunary ? "0ms" : index * 50}ms`,
               }}
             >
               {Icon && <Icon />}
@@ -271,6 +256,24 @@ function LinksContent() {
             </a>
           );
         })}
+
+        {/* Founder Page - appears after Lunary */}
+        {filteredLinks.some(link => link.name === "Lunary") && (
+          <a
+            href="/founder"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl border border-emerald-400/30 dark:border-emerald-500/30 bg-gradient-to-r from-emerald-50/80 to-emerald-100/50 dark:from-emerald-950/40 dark:to-emerald-900/40 backdrop-blur-sm hover:from-emerald-900 hover:to-emerald-800 hover:text-white dark:hover:from-emerald-100 dark:hover:to-emerald-200 dark:hover:text-black transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 dark:focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black font-semibold"
+            style={{
+              animationDelay: `${50}ms`,
+            }}
+          >
+            <span>Founder Story & Fundraising</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
+        )}
       </div>
 
       {/* Footer */}

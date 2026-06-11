@@ -90,7 +90,7 @@ export default function FounderPage() {
         {/* Wordmark with gradient */}
         <div className="mb-8">
           <h1
-            className="text-5xl md:text-6xl font-bold mb-2"
+            className="text-5xl md:text-6xl font-bold mb-3"
             style={{
               backgroundImage: `linear-gradient(135deg, ${
                 `hsl(${(xPc + yPc) % 360}, 40%, 65%)`
@@ -103,8 +103,8 @@ export default function FounderPage() {
           >
             Sammii Kellow
           </h1>
-          <h2 className="text-2xl md:text-3xl font-light text-black/70 dark:text-white/70 mb-6">
-            Founder of Lunary
+          <h2 className="text-lg md:text-xl font-medium text-black/70 dark:text-white/70 mb-6">
+            {`Founder of Lunary • Building symbolic intelligence tools`}
           </h2>
           <p className="text-lg text-black/60 dark:text-white/60 leading-relaxed">
             Building symbolic intelligence tools that help people understand themselves through astrology, tarot, and AI.
