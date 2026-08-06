@@ -195,6 +195,7 @@ export const projects: Project[] = [
     techStack: 'Node.js, Shell, Claude Code SDK, Windmill',
     info: 'Autonomous content command centre orchestrating 14 specialised AI agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO, and performance analysis. Real-time dashboard with agent status, social metrics, and pipeline visualisation.',
     type: 'product',
+    featured: true,
     caseStudy: 'orbit',
     highlights: [
       '14 specialised AI agents with distinct roles in a multi-stage content pipeline',
@@ -255,6 +256,7 @@ export const projects: Project[] = [
     techStack: 'Node.js, TypeScript, tsup, Prompts',
     info: 'CLI scaffolder for Model Context Protocol servers. Interactive prompts for project name, description, and example tool selection, then generates a TypeScript project with the MCP SDK, Zod validation, stdio transport, and dev mode with auto-reload. Published on npm.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://www.npmjs.com/package/init-mcp-server',
     caseStudy: 'create-mcp-server',
     highlights: [

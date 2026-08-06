@@ -135,7 +135,15 @@ export const ProjectGrid = () => {
     setSelectedProject(null);
   }, []);
 
-  const featured = projects.filter((p) => p.featured);
+  // Lead the featured grid with the AI / product-engineering work, then design craft.
+  const FEATURED_ORDER = ["orbit", "create-mcp-server", "lunary", "lattiq", "spellcast", "prism", "gamut", "kern"];
+  const featuredRank = (id: string) => {
+    const i = FEATURED_ORDER.indexOf(id);
+    return i === -1 ? 99 : i;
+  };
+  const featured = projects
+    .filter((p) => p.featured)
+    .sort((a, b) => featuredRank(a.id) - featuredRank(b.id));
   const products = projects.filter((p) => p.type === "product" && !p.featured);
   const experiments = projects.filter((p) => p.type === "experiment");
 
@@ -151,16 +159,17 @@ export const ProjectGrid = () => {
           {/* About */}
           <section className="px-1 pt-2 sm:pt-4 pb-2">
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-black dark:text-white mb-2">
-              Design engineer. Full-stack builder.
+              AI product engineer and design engineer.
             </h1>
             <p className="text-sm sm:text-base text-black/60 dark:text-white/60 leading-relaxed max-w-2xl">
-              I make things that sit between design and engineering. Background in graphic design and visual communication,
-              now building products, autonomous AI pipelines, and creative tools. Everything below is something I built.
+              I build AI-native products end to end: the agent systems and MCP tooling, and the interface that makes them usable.
+              Background in design and visual communication, now shipping autonomous multi-agent pipelines, published developer
+              tools, and full-stack products. Everything below is something I built.
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-3 text-xs sm:text-sm">
               <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-black/15 dark:border-white/15 text-black/70 dark:text-white/70">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                Founding Design Engineer · open to roles · UK / remote
+                Open to roles and contract · remote or London
               </span>
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-xs sm:text-sm text-black/40 dark:text-white/35">
