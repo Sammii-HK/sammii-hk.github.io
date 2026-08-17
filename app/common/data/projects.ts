@@ -226,6 +226,22 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'homebase',
+    title: 'Homebase',
+    techStack: 'Next.js, WebAuthn, Push API, Service Workers',
+    info: 'A COO-in-a-browser-tab for running several products from one screen. Live PWA polling health, revenue, social, and deploy status across every product, with a human-approval queue for AI-proposed actions below an autonomy threshold and a custom pixel-art canvas representing each business as a room.',
+    type: 'product',
+    caseStudy: 'homebase',
+    privateRepo: true,
+    highlights: [
+      'PWA with WebAuthn passkey login, push notifications, and offline support',
+      'Tiered polling across health, revenue, social, SEO, and deploy status per product',
+      'Human-approval queue for AI-proposed actions below a configurable autonomy threshold',
+      'Structured audit-trail "receipts" for every automated action, human-reviewed or not',
+      'Custom pixel-art canvas rendering each business as a spatial room',
+    ],
+  },
+  {
     id: 'iprep',
     title: 'iPrep',
     techStack: 'Next.js, SwiftUI, Llama 3.3 70B, Whisper Large V3 Turbo, RevenueCat, Prisma, PostgreSQL',
