@@ -6,40 +6,44 @@ techStack: "Next.js 15, Prisma, Neon PostgreSQL, Stripe, Vercel"
 
 ## The problem
 
-Existing astrology apps either oversimplify (daily horoscope and nothing else) or overwhelm with jargon and no explanation. There was no product that combined accurate astronomical data with accessible, well-written astrology content, all in a fast, modern interface.
+Astrology apps tend to fail in one of two directions. Some flatten the whole subject down to a single daily horoscope card: no depth, nothing to explore twice. Others go the opposite way, all dense charts and unglossed jargon. Neither leaves much room for someone who wants accurate data and a way to actually understand it.
 
-I wanted to build something that could calculate real planetary positions in real time, generate personalised birth charts, and wrap it all in a content-rich grimoire covering astrology, tarot, crystals, and more.
+Lunary is a Next.js 15 PWA built to sit between those two failure modes: real planetary positions calculated in real time, personalised birth charts, and a content library big enough to answer the questions a chart raises rather than just present it.
 
 ## Architecture
 
-The app is a Next.js 15 PWA deployed on Vercel with a Neon PostgreSQL database via Prisma.
+The app runs as a Next.js 15 PWA on Vercel, backed by a Neon PostgreSQL database via Prisma.
 
 ### Astronomical engine
 
-All planetary and lunar calculations use the astronomy-engine library, which implements VSOP87 and NOVAS C 3.1. This gives positions accurate to within one arcminute, which is more than sufficient for astrological use. The key decision here was choosing a JavaScript-native library over a server-side ephemeris service. Running calculations client-side means zero latency for position lookups and no backend dependency for the core feature.
+Planetary and lunar positions come from astronomy-engine, a library implementing VSOP87 and NOVAS C 3.1, accurate to within one arcminute, more precision than astrology strictly needs. The real decision was where to run it. astronomy-engine is JavaScript-native, so calculations happen client-side rather than through a server-side ephemeris service. That removes network latency from every position lookup and means the core feature carries no backend dependency at all.
 
 ### Birth chart system
 
-Birth charts use the Placidus house system with 36 planetary aspects calculated per synastry comparison. The initial version supported 10 aspects; I iterated to 36 after user testing showed that the limited set missed commonly referenced configurations. The Cosmic Score system evaluates 12 pattern types across a chart, giving users a single digestible number that represents the overall energy of a given day.
+Birth charts use the Placidus house system. Synastry comparisons calculate 36 aspects per chart pairing now; the first version shipped with 10, and user testing showed how often the smaller set was missing configurations people were actually looking for. The Cosmic Score sits on top of this: it evaluates 12 pattern types across a chart and compresses them into one number, giving a legible answer to "how's today" without anyone having to read the underlying data themselves.
 
 ### Content system
 
-The grimoire contains over 2,000 articles covering astrology, tarot, crystals, spells, and divination. All content is structured in the database with metadata for search, filtering, and cross-linking. Horoscopes exist for all 12 zodiac signs through 2030, both monthly and yearly, generated programmatically and reviewed for quality.
-
-Transit pages (e.g. Saturn in Gemini 2030) and placement pages (e.g. Saturn in Gemini) are also pre-built, creating a deep SEO footprint of programmatic pages that rank for long-tail queries.
+The grimoire holds over 2,000 articles across astrology, tarot, crystals, spells, and divination, all structured in the database with metadata for search, filtering, and cross-linking. Horoscopes run for all 12 signs through 2030, monthly and yearly, generated programmatically and then reviewed rather than published raw. Transit pages (Saturn in Gemini 2030) and placement pages (Saturn in Gemini) are pre-built on the same content model, which is what turns the grimoire into a programmatic SEO footprint rather than just a reference library.
 
 ### Subscription model
 
-The app uses a freemium model with Stripe billing. The free tier includes universal astrology features, the full grimoire, and no ads. Pro unlocks personalised features at £8.49/month. The subscription lifecycle is entirely webhook-driven: Stripe events trigger database updates, so there are no polling loops or manual state management.
+Billing runs on Stripe under a freemium structure. Free includes the universal astrology features, the full grimoire, and no ads; Pro adds personalised features at £8.49 a month. The subscription lifecycle is entirely webhook-driven, Stripe events write straight to the database, so there's no polling loop and no manual state to reconcile.
 
 ## Challenges
 
-**Push notifications on iOS**: Getting reliable push notifications working across iOS Safari (via PWA) and native (via Capacitor) required careful handling of service worker registration timing and notification permission flows. Firebase Cloud Messaging handles the delivery, but the permission UX had to be built from scratch to avoid the aggressive prompt patterns that users ignore.
+### Push notifications across iOS Safari and native
 
-**Widget rendering**: The app supports three native widget types (Cosmic Dashboard, Moon Tracker, Daily Card). Widgets run in a constrained environment with no access to the main app's state, so each widget makes its own lightweight API call and renders independently.
+Getting push notifications working reliably across both iOS Safari (through the PWA) and the native Capacitor build meant handling service worker registration timing and permission flows separately for each. Firebase Cloud Messaging does the actual delivery, but the permission prompt itself had to be built from scratch, since the default ask-immediately pattern is exactly the kind of prompt users dismiss on reflex.
 
-**Content at scale**: Managing 2,000+ articles with structured metadata, cross-references, and search required building a custom admin interface. Each article has tags for zodiac signs, planets, elements, and topics, enabling faceted filtering across the grimoire.
+### Widgets with no access to app state
+
+The native widgets (Cosmic Dashboard, Moon Tracker, Daily Card) run in an environment that's cut off from the main app's state entirely. Each one makes its own lightweight API call and renders independently.
+
+### Keeping 2,000+ articles navigable
+
+At grimoire scale, structured metadata and cross-references stop being optional. Every article carries tags for zodiac sign, planet, element, and topic, which is what makes faceted filtering across the whole grimoire possible, but maintaining that tagging at 2,000+ articles needed a custom admin interface.
 
 ## Outcome
 
-Lunary is a Delaware C-Corp incorporated via Stripe Atlas with Mercury banking. The app has active users on both web and mobile (via Capacitor), with the grimoire driving significant organic search traffic. The MCP server exposes 60+ tools for AI-assisted content management and analytics, which powers the automated content pipeline via Orbit.
+Lunary is incorporated as a Delaware C-Corp via Stripe Atlas, with Mercury for banking. It has active users on both web and mobile through Capacitor, and the grimoire drives significant organic search traffic. The MCP server, 60+ tools for AI-assisted content management and analytics, now powers the automated content pipeline that runs through Orbit.

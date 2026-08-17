@@ -6,34 +6,32 @@ techStack: "Next.js, TypeScript, OKLCH, Tailwind CSS"
 
 ## The problem
 
-Design systems need colour palettes that look perceptually uniform across lightness steps, work in both light and dark modes, and export cleanly to CSS variables, Tailwind configs, or design tokens. Most palette generators use HSL, which produces uneven lightness distributions. A "50% lightness" green looks nothing like a "50% lightness" yellow in HSL. I wanted a tool that generates palettes in OKLCH, where lightness is actually perceptually uniform, and handles the hard parts: gamut clamping, contrast checking, and multi-format export.
+Ask an HSL-based palette generator for a green and a yellow both set to "50% lightness" and you'll get two colours that don't read as equally bright at all. That's a real problem for design systems, which need colour scales that are perceptually uniform across lightness steps, that hold up in both light and dark mode, and that export cleanly to CSS variables, Tailwind configs, or design tokens. OKLCH fixes the underlying maths: it separates perceptual lightness from chroma and hue, so a "50" step actually is a "50" step regardless of what colour it started from. Gamut is built entirely on that colour space, and handles the parts that make it usable in practice: gamut clamping, contrast checking, and export to the formats teams actually use.
 
 ## Architecture
 
-### OKLCH colour space
+### Working in OKLCH
 
-All palette generation runs in OKLCH (Oklab Lightness, Chroma, Hue). Unlike HSL or HSV, OKLCH separates perceptual lightness from chroma and hue, meaning two colours at the same L value genuinely appear equally bright. The generator takes a base colour, extracts its hue and chroma, then distributes 11 steps along a lightness curve from near-white to near-black.
+All palette generation runs in OKLCH (Oklab Lightness, Chroma, Hue) rather than HSL or HSV. The generator takes a base colour, extracts its hue and chroma, then distributes 11 steps along a lightness curve running from near-white to near-black. Because OKLCH keeps lightness genuinely independent of hue and chroma, two colours at the same L value are actually equally bright, which is the property HSL fails to guarantee.
 
-### Lightness curve tuning
+### Lightness curve
 
-The 11-step scale (50 through 950) follows a custom bezier curve rather than linear interpolation. The curve is tuned to match the conventions of existing design systems like Tailwind and Radix, where the middle steps have tighter spacing and the extremes are more compressed. Users can adjust the curve shape interactively and see the palette update in real time.
+The 11-step scale (50 through 950) follows a custom bezier curve rather than linear interpolation, tuned to match the conventions of existing design systems like Tailwind and Radix, where the middle steps are more tightly spaced and the extremes compress faster. The curve shape is adjustable in the UI, with the palette updating in real time as it changes.
 
-### sRGB gamut clamping
+### Gamut clamping
 
-OKLCH can describe colours outside the sRGB gamut (the range displays can actually show). When a generated step falls outside sRGB, the clamper reduces chroma while preserving lightness and hue until the colour fits. This avoids the jarring hue shifts that happen when naively clipping RGB channels.
+OKLCH can describe colours that fall outside sRGB, the range a display can actually show. When a step lands outside the gamut, naively clipping the RGB channels causes a visible hue shift. Instead, the clamper reduces chroma while holding lightness and hue fixed, using a binary search along the chroma axis to find the maximum in-gamut chroma at each step. That keeps colours as saturated as the display allows without introducing the hue drift that naive clipping causes.
 
-### WCAG contrast checking
+### Contrast checking
 
-Every palette step is checked against both white and black backgrounds for WCAG AA (4.5:1) and AAA (7:1) contrast ratios. The UI marks which steps pass each threshold, making it easy to pick accessible foreground/background combinations without manual calculation.
+Every step in a palette is checked against both white and black backgrounds for WCAG AA (4.5:1) and AAA (7:1) contrast ratios, with the UI marking which steps clear each threshold. That turns picking an accessible foreground/background pairing into a lookup rather than a manual calculation.
 
-## Challenges
+## What made this hard
 
-**Curve matching**: Getting the lightness curve to produce palettes that "feel" like Tailwind's hand-tuned scales required comparing dozens of existing palettes and reverse-engineering their lightness distributions. The final curve uses a piecewise bezier with different tensions above and below the midpoint.
+Matching an existing visual language meant reverse-engineering it. "Looking like Tailwind" isn't a formula, it's dozens of hand-tuned palettes with their own implicit lightness distribution, and turning that into a single piecewise bezier, with different tension above and below the midpoint, took a lot of side-by-side comparison before it stopped looking almost right and started looking right.
 
-**Chroma preservation**: Clamping to sRGB while preserving perceived vibrancy is tricky. Reducing chroma too aggressively makes colours look washed out. The clamper uses binary search along the chroma axis to find the maximum in-gamut chroma for each step, preserving as much saturation as the display allows.
-
-**Multi-format export**: Each export format has different conventions. CSS custom properties use raw OKLCH values, Tailwind configs need hex or RGB, and Style Dictionary tokens need structured JSON with metadata. The export system renders each format from the same internal palette representation.
+Export needed its own handling, too. Every downstream format has its own conventions: CSS custom properties want raw OKLCH values, Tailwind configs want hex or RGB, Style Dictionary tokens want structured JSON with metadata attached. The export system renders all of them from the same internal palette representation.
 
 ## Outcome
 
-Gamut generates production-ready colour scales from any base colour in under a second. The OKLCH foundation means palettes look consistent across hues, something impossible with HSL generators. The tool exports directly to the formats design systems actually use, eliminating the manual step of converting between tools.
+Gamut generates production-ready colour scales from any base colour in under a second. Because the whole pipeline runs in OKLCH, palettes stay consistent across hues in a way HSL-based generators can't manage, and the multi-format export removes the manual step of converting between tools that design systems otherwise require.

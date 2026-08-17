@@ -6,34 +6,26 @@ techStack: "Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz"
 
 ## The problem
 
-Managing social media for multiple brands across multiple platforms is painful. Commercial tools like Buffer and Hootsuite are expensive, limited in customisation, and give you no control over the underlying infrastructure. I needed a platform that could schedule content across Instagram, X, LinkedIn, TikTok, Threads, Bluesky, and more, while also supporting AI-driven content generation, A/B testing, and cross-brand boosting.
+Buffer and Hootsuite are expensive and limited in customisation. What they won't do is hand over the infrastructure underneath it: you're paying per seat, working inside someone else's feature set, and waiting on someone else's roadmap if you need something they haven't built. Running social for multiple brands across Instagram, X, LinkedIn, TikTok, Threads, Bluesky and more, with AI-driven content generation, A/B testing and cross-brand boosting layered on top, meant either accepting those limits or building the scheduling layer myself.
 
-## Architecture
+## How it's built
 
-### Monorepo structure
+Spellcast runs entirely on a Hetzner VPS via Docker Compose: the Next.js app, a Node.js backend-for-frontend, PostgreSQL, and a self-hosted Postiz instance with Temporal handling job scheduling. Self-hosting was a deliberate choice: it removes per-seat pricing, keeps the data under my control, and means the scheduling engine can be extended whenever a new brand need shows up rather than filed as a feature request.
 
-Spellcast is a Turborepo monorepo with three main packages: a Next.js frontend, a Node.js backend-for-frontend (BFF), and shared type definitions. The BFF acts as a gateway between the frontend and the underlying Postiz scheduling engine, adding custom logic for brand management, boost rules, and analytics aggregation.
+The codebase is a Turborepo monorepo split into three packages: the Next.js frontend, the BFF, and a shared types package. The BFF sits between the frontend and Postiz's scheduling engine and carries the logic Postiz doesn't: brand management, boost rules, analytics aggregation.
 
-### Self-hosted infrastructure
+The core abstraction for managing several brands from one system is the "account set", which groups a brand's social accounts across platforms and gives them their own posting cadence, content queue, and analytics. Six account sets run through the system today, each publishing to multiple platforms at once.
 
-The entire stack runs on a Hetzner VPS via Docker Compose. This includes the Next.js app, the BFF, PostgreSQL, and a self-hosted Postiz instance with Temporal for reliable job scheduling. Self-hosting was a deliberate choice: it eliminates per-seat pricing, gives full control over data, and allows me to extend the scheduling engine without waiting on a third-party roadmap.
+On top of that sits the Spellcast MCP server, exposing over 100 tools for AI-driven scheduling and analytics. It's what the Orbit content pipeline talks to: AI agents create posts, schedule them at optimal times, check analytics, and adjust strategy, all through structured tool calls instead of clicking through a UI.
 
-### Multi-brand management
+## What was hard
 
-The core abstraction is the "account set", which groups social accounts across platforms under a single brand. Each account set has its own posting cadence, content queue, and analytics. The system manages six account sets, each publishing to multiple platforms simultaneously.
+Postiz covers the actual platform API connections, but its surface stopped short of what I needed, so the BFF grew an adapter layer on top: thread posting, carousel building, article cross-publishing to Dev.to and Hashnode, and platform-specific formatting that Postiz doesn't handle natively.
 
-### MCP server
+Cadence was a harder problem than it looked. Every platform has different optimal posting times and frequency limits, and the first data model I wrote was flat, which meant it couldn't express something as basic as "post to X four times a day but LinkedIn only once." Getting the cadence config to represent per-platform schedules with their own preferred days and time slots took a few passes at the model before it held up.
 
-The Spellcast MCP server exposes over 100 tools for AI-driven scheduling and analytics. This powers the Orbit content pipeline, where AI agents can create posts, schedule them at optimal times, check analytics, and adjust strategy, all through structured tool calls rather than UI interaction.
+Boost rules reshare content between brands after a configurable delay, so when Lunary publishes, Sammii's accounts can pick it up 30 minutes later. That delay has to survive a server restart mid-wait, so the timing logic runs as Temporal workflows to keep execution reliable.
 
-## Challenges
+## Where it landed
 
-**Postiz integration**: Postiz handles the actual platform API connections, but its API surface didn't cover everything I needed. I built a custom adapter layer in the BFF that extends Postiz's capabilities with thread posting, carousel building, article cross-publishing (to Dev.to, Hashnode), and platform-specific formatting.
-
-**Cadence scheduling**: Each platform has different optimal posting times and frequency limits. The cadence system lets each account set define per-platform schedules with preferred days and time slots. Getting this right required iterating on the data model several times; the initial flat config couldn't express "post to X four times a day but LinkedIn only once".
-
-**Cross-brand boosting**: Boost rules automatically reshare content between brands with configurable delays. For example, when Lunary publishes a post, Sammii's accounts can automatically share it 30 minutes later. The timing logic runs as Temporal workflows to ensure reliable execution even if the server restarts mid-delay.
-
-## Outcome
-
-Spellcast manages all social presence across six brands and eight platforms. It processes hundreds of scheduled posts per week, handles article cross-publishing, and serves as the execution layer for the Orbit AI content pipeline. The self-hosted approach keeps monthly costs under £10 for the VPS, compared to hundreds on commercial alternatives.
+Spellcast now runs all social presence across six brands and eight platforms, processing hundreds of scheduled posts a week and handling article cross-publishing alongside it. It's also the execution layer under the Orbit AI content pipeline. Running it self-hosted keeps the whole thing under £10 a month in VPS costs, against the hundreds a commercial equivalent would charge.

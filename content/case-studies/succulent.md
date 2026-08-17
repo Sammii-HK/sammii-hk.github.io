@@ -6,34 +6,34 @@ techStack: "Next.js, Ayrshare API, AI SDK, Stripe, Shopify API"
 
 ## The problem
 
-Running a creative brand involves two parallel workflows: social media publishing and e-commerce product management. These are usually separate tools with separate logins, separate content libraries, and no connection between them. I wanted a unified platform where creating a design automatically generates both social posts and print-on-demand products, managed from a single dashboard.
+A finished design normally has to go to two different places: out as a social post, and onto a product listing. Most tools treat those as separate jobs, run through separate logins, with separate content libraries and no shared context between them. Succulent starts from the design itself instead: upload it once, and both the social posts and the print-on-demand products it should generate come from that same asset, managed from a single dashboard.
 
 ## Architecture
 
-### Unified publishing via Ayrshare
+### Publishing through Ayrshare
 
-Social media publishing uses the Ayrshare API, which provides a single endpoint for posting to 13+ platforms simultaneously. The platform manages connected accounts, handles platform-specific formatting (character limits, image dimensions, hashtag rules), and schedules posts with timezone-aware delivery.
+Ayrshare gives a single endpoint for posting to 13+ platforms at once. Succulent uses it to manage connected accounts, handle the details that differ per platform (character limits, image dimensions, hashtag conventions) and schedule delivery with timezone-aware posting.
 
-### Shopify product automation
+### Shopify handles the product side
 
-When a design is uploaded, the system automatically creates a Shopify product with the design applied to configured product templates (t-shirts, prints, mugs). The Shopify Storefront API handles product creation, variant generation (sizes, colours), and inventory management. Product listings go live automatically with generated titles, descriptions, and pricing.
+When a design is uploaded, Succulent creates the Shopify product automatically, applying the design to whichever product templates are configured: t-shirts, prints, mugs. The Shopify Storefront API does the actual work here, generating variants for size and colour, managing inventory, and bringing the listing live with a generated title, description and price already attached.
 
-### AI content generation
+### Content generation via the AI SDK
 
-The AI SDK generates platform-specific captions, product descriptions, and hashtag sets from the uploaded design and its metadata. Each platform gets a tailored version: longer form for LinkedIn, punchy for X, hashtag-heavy for Instagram. Generated content is editable before publishing.
+The AI SDK generates platform-specific copy and product descriptions from the design and its metadata: longer-form for LinkedIn, punchy for X, hashtag-heavy for Instagram. Everything it produces is editable before it goes out, rather than posted blind.
 
-### Stripe billing
+### Billing through Stripe
 
-The platform uses Stripe for subscription management. Different tiers unlock more connected social accounts, higher posting frequency, and more product templates. Webhook handlers manage subscription lifecycle events (creation, upgrade, cancellation, payment failure).
+Subscriptions run through Stripe. Tier determines how many social accounts can be connected, how often posts can go out, and how many product templates are available, and webhook handlers keep the app in step with the subscription lifecycle: upgrades, cancellations, failed payments.
 
 ## Challenges
 
-**Platform API rate limits**: Ayrshare aggregates multiple platform APIs, each with different rate limits. The scheduling system respects per-platform rate limits by queuing posts with appropriate delays. Burst publishing (e.g. posting to all 13 platforms simultaneously) needed to be staggered to avoid API rejections.
+Ayrshare sits in front of several platform APIs, and each carries its own rate limit. Publishing to all 13 platforms in one burst would simply get rejected, so the scheduling system queues posts per platform and staggers them with appropriate delays rather than firing everything at once.
 
-**Product template mapping**: Different print-on-demand products have different printable areas, DPI requirements, and colour profiles. The template system defines printable regions per product type, validates uploaded designs against these constraints, and shows a preview of the design on each product before creation.
+Print-on-demand adds its own complication at the upload step: a t-shirt, a print and a mug each have a different printable area, DPI requirement and colour profile. The template system encodes those constraints per product type, validates an uploaded design against them, and shows a preview of how the design sits on each product before anything gets created.
 
-**Content synchronisation**: When a design is updated, both the social posts and Shopify products need to reflect the change. The system tracks the relationship between source designs, published posts, and created products, propagating updates without creating duplicate content.
+Content also needed to stay in sync after the fact. Once a design changes, both the social posts and the Shopify products built from it need to reflect that change, without the system quietly spinning up duplicates. The fix was to track the relationship between a source design, the posts published from it and the products created from it, so an edit propagates across all three instead of forking them apart.
 
 ## Outcome
 
-Succulent unifies social media and e-commerce into a single workflow. Uploading a design triggers both social publishing and product creation, with AI-generated content for each. This eliminates the context-switching and manual duplication that comes from managing these workflows separately.
+Succulent unifies social media and e-commerce into one workflow. Uploading a design triggers both social publishing and product creation, with AI-generated content already drafted for each. That is the context-switching and manual duplication it was built to remove.

@@ -6,38 +6,38 @@ techStack: "Next.js, Framer Motion, Spring Physics, GLSL, TypeScript"
 
 ## The problem
 
-I wanted a living component library that grows autonomously: every day, a new cursor-reactive component is researched, built, screen-recorded, and published to social media without manual intervention. The components themselves needed to feel distinctly handcrafted, with spring physics, GPU shaders, and cursor-mapped colour, not the generic aesthetic of typical component libraries.
+Prism is a living component library that grows autonomously. It publishes a new component every day, researched, built, screen-recorded and posted to social media, with no human reviewing the code before it goes out. The bar for each component was also higher than "it works": spring physics instead of CSS transitions, a GPU shader here and there, and colour that actually tracks the cursor, aiming for something distinctly handcrafted rather than the generic aesthetic of typical component libraries.
 
-## Architecture
+## How it's built
 
 ### Component system
 
-Each component lives in a single file under `app/lib/components/`. Every component exports a named React component with a typed props interface. Demos live separately under `app/demos/`, and a central registry maps slugs to metadata. Dynamic routes render any component by slug, and a gallery page lists everything.
+Each component lives in a single file under `app/lib/components/`, exported as a named React component with a typed props interface. Demos live separately, under `app/demos/`, and a central registry maps slugs to metadata. Dynamic routes render any component by slug, and a gallery page lists everything the pipeline has produced.
 
 ### Visual primitives
 
-The library shares a set of visual primitives that give all components a cohesive feel. `pastelColour` maps cursor position to soft RGB values (floor at 140 so colours stay light). `colourField` generates a 4-blob CSS gradient that follows the pointer. `usePointer` provides lerp-smoothed cursor coordinates. Components compose these primitives rather than reimplementing cursor tracking.
+A small set of shared primitives is what keeps components built on different days feeling like one system rather than a pile of unrelated ideas. `pastelColour` maps cursor position to soft RGB values, floored at 140 so nothing drifts too dark. `colourField` generates a four-blob CSS gradient that follows the pointer. `usePointer` supplies lerp-smoothed cursor coordinates. New components compose these rather than reimplementing cursor tracking from scratch.
 
 ### Spring physics
 
-All motion uses requestAnimationFrame with spring equations, never CSS transitions. Springs have configurable stiffness, damping, and mass. This means components overshoot, settle, and respond to interruption naturally. A button mid-animation can be redirected without snapping.
+Nothing in the library animates on a CSS transition. All motion runs on requestAnimationFrame driving spring equations, with configurable stiffness, damping and mass. That's what lets a component overshoot and settle instead of just easing to a stop. A button mid-animation can also be redirected without snapping to a new position.
 
-### Autonomous pipeline
+### The autonomous pipeline
 
-The pipeline runs four agents in sequence. A scout agent browses design inspiration via Chrome automation. A curator agent picks the day's component and writes a detailed build brief. A builder agent implements the component, demo, registry entry, and verifies the build compiles. A publisher agent records a 12-second screen capture and schedules it to X via Spellcast.
+Four agents run in sequence each day. A scout browses design inspiration via Chrome automation. A curator picks the day's component and writes a build brief. A builder implements the component, its demo, and its registry entry, then verifies the build actually compiles. A publisher records a 12-second screen capture and schedules it to X via Spellcast.
 
 ### Screen recording
 
-A Playwright script opens the component demo in a headless browser at 1080x1080 (square for social), simulates organic cursor movement using bezier curves, and captures frames. ffmpeg converts the frame sequence to an mp4.
+A Playwright script opens the component demo in a headless browser at 1080x1080, square for social, and simulates cursor movement along bezier curves while capturing frames. ffmpeg converts the frame sequence to an mp4.
 
-## Challenges
+## Where the autonomy got hard
 
-**Autonomous build reliability**: The builder agent needs to produce components that compile and look good without human review. The build verification step runs `tsc --noEmit` and checks for runtime errors. If the build fails, the agent retries with error context. Getting the success rate above 90% required careful prompt engineering in the build brief.
+Getting a builder agent to ship code that nobody checks is the crux of the whole thing. Build verification runs `tsc --noEmit` and checks for runtime errors, and a failed build sends the agent back in with the error attached for another attempt. Pushing the success rate above 90% required careful prompt engineering in the build brief.
 
-**Cursor colour consistency**: With multiple components on screen, each tracking the cursor independently, colours could conflict. The shared `pastelColour` primitive ensures all components derive colour from the same function, so a card border and a button glow in the same viewport always use harmonious colours.
+A second problem only showed up once several components landed on the same page: each one tracks the cursor independently, so left alone their colours could clash. Routing every component through the same `pastelColour` function fixed that at the source, a card border and a button glow in the same viewport now always land on harmonious colours.
 
-**Recording organic motion**: Robotic cursor paths make screen recordings look artificial. The recorder uses cubic bezier curves with randomised control points, variable speed (slower near interaction targets), and small pauses to simulate a human exploring the component.
+The screen recordings had their own tell. A cursor moving in straight lines at constant speed reads as obviously scripted, so the recorder is built around cubic bezier curves with randomised control points, variable speed that slows down near interaction targets, and small pauses, enough to resemble someone actually exploring the component rather than a script clicking through it.
 
 ## Outcome
 
-Prism ships a new component every day without manual work. The library has grown to include magnetic buttons, spotlight cards, ripple effects, gradient text, and shader-driven experiments. Each component is a single file with no external UI dependencies, making them easy to copy into any project.
+Prism ships a new component every day without manual work. The library now includes magnetic buttons, spotlight cards, ripple effects, gradient text, and shader-driven experiments. Every component is a single file with no external UI dependencies, so any of them can be copied straight into another project.

@@ -6,34 +6,36 @@ techStack: "Next.js, Vercel E-commerce, Shopify"
 
 ## The problem
 
-Setting up an online store usually means choosing between Shopify's hosted themes (limited customisation) or building from scratch (months of work). Vercel's Commerce template provides a middle ground: a Next.js storefront connected to Shopify's backend. But the template needed significant customisation to match the brand and deliver the shopping experience I wanted.
+Vercel's Commerce template is a reference implementation, not a finished shop. Out of the box it gives you a working Next.js app wired to Shopify's Storefront API: cart logic, checkout redirect, inventory syncing, all solved. What it doesn't give you is a look. That's both the appeal and the catch of it, set against the two more obvious routes into e-commerce. Shopify's own hosted themes keep the customisation ceiling low. Building from scratch removes that ceiling but turns a shop into a months-long build. Scape Squared needed the template's plumbing without the template's face: a fully custom storefront sitting on an entirely standard Shopify backend.
 
 ## Architecture
 
-### Vercel Commerce foundation
+### The template underneath
 
-The storefront is built on Vercel's Commerce template, which provides the Next.js App Router structure, Shopify Storefront API integration, cart management, and checkout flow out of the box. This foundation handles the complex e-commerce plumbing: inventory syncing, price formatting, variant selection, and Shopify's checkout redirect.
+The storefront's foundation is Vercel's Commerce template, which supplies the Next.js App Router structure, the Shopify Storefront API integration, cart management, and the checkout flow. It's the part of e-commerce that's genuinely just plumbing, and it stays largely untouched: inventory syncing, price formatting, variant selection, and Shopify's own checkout redirect all come from the template as-is.
 
-### Shopify Storefront API
+### Where the data comes from
 
-All product data comes from Shopify's Storefront API via GraphQL queries. Products, collections, and inventory are managed in Shopify's admin interface and pulled into the storefront at build time (ISR) and on demand. This separation means product management happens in Shopify's familiar UI while the customer-facing experience is fully custom.
+Every product, collection, and stock level is managed in Shopify's admin, then pulled into the storefront through GraphQL queries against the Storefront API, partly at build time via ISR and partly on demand. Keeping that split meant product management stayed in Shopify's familiar admin interface, while the customer-facing side could be rebuilt completely.
 
-### ISR for performance
+### Static by default, fresh on demand
 
-Product pages use Incremental Static Regeneration. Pages are statically generated at build time for fast initial loads, then revalidated in the background when product data changes. This means customers see near-instant page loads while product information stays fresh without full rebuilds.
+Product pages use Incremental Static Regeneration: generated statically at build time so the first load is fast, then revalidated in the background whenever the underlying product data changes. Customers get near-instant pages, with product data kept fresh without full rebuilds.
 
-### Brand customisation
+### Making it not look like a template
 
-The template's default styling was replaced with custom brand design: typography, colour palette, layout structure, product card design, and collection pages. The cart drawer, search, and navigation were restyled to match. All customisation lives in the Next.js layer; the Shopify backend remains standard.
+Everything visual came out: typography, colour palette, layout, product cards, collection pages, cart drawer, search, navigation. All of that customisation lives entirely in the Next.js layer, so none of it touches the Shopify backend underneath.
 
-## Challenges
+## Where the template pushed back
 
-**Shopify API versioning**: Shopify's Storefront API versions quarterly, sometimes with breaking changes to GraphQL schema fields. The integration pins to a specific API version and includes type generation from the schema, so breaking changes surface as TypeScript errors rather than runtime failures.
+Three parts of this didn't come for free.
 
-**Cart state management**: The Commerce template manages cart state through Shopify's cart API, which returns a new cart object on every mutation. Optimistic updates in the UI (showing the item added immediately) needed to reconcile with the server response, handling edge cases like out-of-stock items that the server rejects.
+Shopify versions its Storefront API quarterly, and the GraphQL schema doesn't always change safely. Pinning the integration to a specific API version and generating types straight from that schema turns a breaking change on Shopify's side into a TypeScript error rather than a runtime failure.
 
-**Image optimisation**: Product images from Shopify come in various sizes and aspect ratios. The storefront uses Next.js Image with Shopify's image transform API to request exactly the dimensions needed for each viewport, avoiding over-fetching large images on mobile.
+The template drives the cart through Shopify's own cart API, which hands back a whole new cart object after every mutation. Showing an item as added the moment someone clicks, before Shopify's response comes back, meant reconciling that optimistic guess against what the server actually returned, including the case where the server rejects the add because the item sold out in the meantime.
+
+Product photography from Shopify arrives in a spread of sizes and aspect ratios rather than one consistent format. Pairing Next.js Image with Shopify's own image transform API let the storefront request each image sized to the exact viewport rendering it, so a phone is never pulling down a desktop-sized product photo just to shrink it on screen.
 
 ## Outcome
 
-Scape Squared delivers a custom-branded shopping experience with the reliability of Shopify's backend. Pages load in under a second thanks to ISR, product management stays in Shopify's familiar admin, and the customer experience is fully tailored to the brand. The Vercel Commerce foundation meant the store was live in days rather than months.
+Scape Squared runs a custom-branded storefront on top of Shopify's backend reliability. ISR keeps pages loading in under a second, product management never left Shopify's admin, and the customer-facing experience is built entirely to the brand rather than skinned over a theme. Starting from Vercel's Commerce template rather than a blank Next.js app was the difference between a store live in days and one that would have taken months.

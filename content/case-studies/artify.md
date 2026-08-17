@@ -6,34 +6,36 @@ techStack: "Next.js, Remotion, FLUX, Kling, DeepInfra, fal.ai"
 
 ## The problem
 
-Lunary's social media presence needs daily visual content: astrology illustrations, carousel posts, reels, and stories. Producing this manually is unsustainable. Each piece needs to match the brand aesthetic, include relevant astrological data, and be formatted correctly for each platform. I wanted a pipeline that generates all of this automatically, every day, from data alone.
+Lunary's social presence needed a steady supply of illustrations, carousels, reels, and stories, each one tied to that day's actual astrological data, each one on-brand, and each one correctly sized for wherever it was going out. Producing that by hand, every day, across every platform, was never going to hold up.
 
 ## Architecture
 
-### FLUX image generation
+Four stages, one pipeline, run each morning without anyone touching it.
 
-Base illustrations are generated using FLUX image-to-image on fal.ai. A set of brand-consistent source images serves as the style reference. The pipeline feeds astrological context (today's moon phase, planetary aspects, zodiac season) into the prompt along with the source image, producing illustrations that match the brand while varying with the daily content.
+### FLUX generates the base illustrations
 
-### Kling video synthesis
+Base illustrations come from FLUX image-to-image on fal.ai. A set of brand-consistent source images acts as the style anchor for every generation. The pipeline feeds today's astrological context, moon phase, planetary aspects, zodiac season, into the prompt alongside the source image, so the output stays visually consistent while the content itself changes daily.
 
-Static illustrations are animated into short videos using Kling's image-to-video API via DeepInfra. The pipeline sends a generated illustration with a motion prompt (e.g. "gentle shimmer on crystals, flowing hair, subtle particle effects") and receives a 3-5 second video clip suitable for reels and stories.
+### Kling turns stills into motion
 
-### Remotion compositions
+Static illustrations get animated with Kling's image-to-video model, called via DeepInfra. The pipeline pairs a generated illustration with a motion prompt, gentle shimmer on crystals, flowing hair, subtle particle effects, and gets back a 3-5 second clip sized for reels and stories.
 
-Carousels and formatted posts are composed using Remotion, React's video framework. Templates define layouts for different content types: zodiac carousel (12 slides, one per sign), daily forecast card, moon phase graphic. The pipeline renders each composition to image sequences or video, depending on the target format.
+### Remotion assembles the composed formats
 
-### Spellcast scheduling
+Carousels and formatted posts are built in Remotion, React's video framework. Templates cover the recurring layouts: a 12-slide zodiac carousel (one slide per sign), a daily forecast card, a moon phase graphic. Depending on the target format, the pipeline renders each composition out as an image sequence or a video.
 
-Generated assets are uploaded to Spellcast and scheduled at optimal times for each platform. The pipeline creates posts with platform-specific captions, hashtags, and formatting, then queues them according to the brand's cadence configuration.
+### Spellcast handles scheduling
+
+Finished assets go to Spellcast, which schedules them at the right time for each platform. The pipeline writes platform-specific captions and hashtags for each post and queues them against the brand's existing cadence configuration.
 
 ## Challenges
 
-**Brand consistency**: AI-generated images vary in style between generations. Using image-to-image with consistent source images and detailed style prompts keeps output within the brand range, but occasional outliers still occur. The pipeline includes a basic quality check (resolution, aspect ratio, dominant colour analysis) and rejects generations that fall outside bounds.
+AI image generation doesn't hold a style perfectly across runs, even with the same source images and prompt structure feeding it every time. Most outputs land within the brand's visual range, but outliers still happen, so the pipeline runs a basic quality check on every generation (resolution, aspect ratio, dominant colour) and rejects anything that falls outside bounds.
 
-**Remotion rendering performance**: Rendering 12-slide carousels with custom fonts, gradients, and overlays takes time. The pipeline renders compositions in parallel using Remotion's server-side rendering, with each slide as an independent frame extraction. Total carousel render time is under 30 seconds.
+Rendering 12-slide carousels with custom fonts, gradients, and overlays takes time. Remotion's server-side rendering lets each slide extract as an independent frame, so the pipeline renders the whole carousel in parallel, keeping total render time under 30 seconds.
 
-**Platform format matrix**: Instagram wants 1080x1080 for feed, 1080x1920 for stories, and 1080x1350 for carousels. X wants 1200x675. TikTok wants 1080x1920 video. The asset pipeline maintains a format matrix and renders each piece at all required sizes, deduplicating where formats overlap.
+Then there's the format problem, which is really a multiplication problem. Instagram alone wants three different aspect ratios: 1080x1080 for feed, 1080x1920 for stories, 1080x1350 for carousels. X wants 1200x675. TikTok wants 1080x1920 video. The pipeline maintains a format matrix and renders each piece at every size it needs, deduplicating renders where two platforms happen to share a format.
 
 ## Outcome
 
-Artify generates and schedules all daily visual content for Lunary's social media presence without manual intervention. The pipeline runs each morning, producing illustrations, carousels, reels, and stories tailored to the day's astrological events. Monthly content output went from a handful of manually created posts to consistent daily publishing across all platforms.
+Artify now produces and schedules the full spread of daily visual content for Lunary's social presence with no manual step in between. It runs every morning, generating illustrations, carousels, reels, and stories tied to that day's actual astrological events. Monthly output went from a handful of manually made posts to consistent daily publishing across every platform.
