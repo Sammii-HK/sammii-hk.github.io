@@ -1,7 +1,7 @@
 ---
 title: "Podify"
 description: "AI podcast generator turning any content into a two-host episode for $0.04"
-techStack: "Next.js, Claude (OpenRouter), Kokoro TTS, ffmpeg"
+techStack: "Next.js, Ollama (local LLM), Kokoro-82M, Orpheus 3B, ffmpeg"
 ---
 
 ## The problem
@@ -12,11 +12,11 @@ Podcasts are one of the most engaging content formats, but producing one is expe
 
 ### Script generation
 
-Claude (via OpenRouter) converts the input content into a two-host dialogue script. The system prompt establishes two distinct host personas with different communication styles. One host drives the narrative, the other asks clarifying questions and adds commentary. The output is structured JSON with speaker labels, timing hints, and segment markers.
+A local Ollama model (qwen3:14b, running on my own hardware) converts the input content into a two-host dialogue script, keeping the LLM cost at zero. The system prompt establishes two distinct host personas with different communication styles. One host drives the narrative, the other asks clarifying questions and adds commentary. The output is structured JSON with speaker labels, timing hints, and segment markers. OpenRouter and a hosted Claude path exist as configurable alternatives for higher-quality scripts when the extra cost is worth it.
 
-### Kokoro TTS synthesis
+### TTS synthesis
 
-Each line of dialogue is synthesised individually using Kokoro TTS with distinct voice configurations per host. Kokoro was chosen for its natural prosody and low cost. Voice parameters (speed, pitch, emphasis) are tuned per host to create audible distinction between speakers.
+Each line of dialogue is synthesised individually. Kokoro-82M (self-hosted) is the default for the web app, chosen for its natural prosody and near-zero cost; the CLI defaults to Orpheus 3B via DeepInfra for more expressive delivery. Voice parameters (speed, pitch, emphasis) are tuned per host to create audible distinction between speakers.
 
 ### Audio assembly
 
@@ -36,7 +36,7 @@ The Next.js frontend provides a generation interface with real-time progress. Us
 
 **Audio timing**: Concatenating speech clips with fixed gaps sounds robotic. The assembly step analyses the end of each clip for trailing silence and adjusts the gap dynamically. Quick exchanges get shorter gaps; topic transitions get longer pauses with a subtle music bed.
 
-**Cost optimisation**: The target was under $0.05 per episode. Claude API costs are the main expense. Prompt engineering to generate complete scripts in a single call (rather than turn-by-turn) reduced costs to approximately $0.03-0.04 per episode at current pricing.
+**Cost optimisation**: The target was under $0.05 per episode. Running the script-writing model locally on my own hardware keeps that cost at zero for the default path; the remaining spend is DeepInfra's per-minute TTS pricing when Orpheus is used instead of self-hosted Kokoro. Prompt engineering to generate complete scripts in a single call (rather than turn-by-turn) keeps generation fast even on a smaller local model.
 
 ## Outcome
 

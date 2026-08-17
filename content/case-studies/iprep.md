@@ -1,7 +1,7 @@
 ---
 title: "iPrep"
 description: "AI-powered spoken interview practice with multi-dimensional scoring"
-techStack: "Next.js, OpenAI Whisper, GPT-4, Prisma, PostgreSQL, Web Audio API"
+techStack: "Next.js, SwiftUI, Llama 3.3 70B, Whisper Large V3 Turbo, RevenueCat, Prisma, PostgreSQL"
 ---
 
 ## The problem
@@ -16,11 +16,15 @@ The recording interface uses the Web Audio API with MediaRecorder to capture spe
 
 ### Whisper transcription
 
-Recorded audio is sent to OpenAI's Whisper API for speech-to-text transcription. Whisper returns timestamped segments, which are used both for the transcript display and for delivery analysis (calculating words per minute from segment timing, identifying pauses).
+Recorded audio is sent to DeepInfra's hosted Whisper Large V3 Turbo for speech-to-text transcription, with OpenAI's Whisper API as an automatic fallback if the DeepInfra key isn't configured. Whisper returns timestamped segments, which are used both for the transcript display and for delivery analysis (calculating words per minute from segment timing, identifying pauses).
 
-### Multi-dimensional GPT-4 scoring
+### Multi-dimensional Llama scoring
 
-The transcript is scored across two axes. Delivery metrics are calculated deterministically: words per minute, filler word count ("um", "uh", "like", "you know"), pause frequency, and estimated confidence based on speech patterns. Content quality is assessed by GPT-4 against the STAR methodology (Situation, Task, Action, Result), checking for specificity, measurable impact, clarity, and relevance to the question.
+The transcript is scored across two axes. Delivery metrics are calculated deterministically: words per minute, filler word count ("um", "uh", "like", "you know"), pause frequency, and estimated confidence based on speech patterns. Content quality is assessed by Llama 3.3 70B (via DeepInfra, with GPT-4o mini as fallback) against the STAR methodology (Situation, Task, Action, Result), checking for specificity, measurable impact, clarity, and relevance to the question.
+
+### Native iOS app
+
+iPrep also ships as a native SwiftUI app with home-screen widgets, a watchOS companion, and Mac Catalyst support. Transcription runs on-device via Apple's Speech framework rather than calling out to Whisper. Scoring is tiered: a local rule-based engine and on-device Apple Intelligence handle the free path, while a RevenueCat-gated Pro tier calls the same Llama 3.3 70B backend as the web app for higher-quality feedback.
 
 ### Question banks and analytics
 
