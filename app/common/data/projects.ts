@@ -350,21 +350,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 'unicorn-poo/succulent',
-    title: 'Succulent',
-    techStack: 'Next.js, Ayrshare API, AI SDK, Stripe, Shopify API',
-    info: 'Social media management platform with integrated print-on-demand and e-commerce automation. Unified publishing, scheduling, and product creation across 13+ social platforms with automated store synchronization.',
-    type: 'product',
-    liveUrl: 'https://app.succulent.social',
-    caseStudy: 'succulent',
-    highlights: [
-      'Unified publishing across 13+ social platforms via Ayrshare API',
-      'Shopify API integration for automated product creation and sync',
-      'Stripe billing with subscription management',
-      'AI SDK for content generation and caption suggestions',
-    ],
-  },
-  {
     id: 'scape-squared',
     title: 'Scape²',
     techStack: 'Next.js, Vercel E-commerce, Shopify',
