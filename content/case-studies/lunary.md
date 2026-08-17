@@ -1,7 +1,7 @@
 ---
 title: "Lunary"
-description: "A full-stack PWA for real-time planetary tracking, personalised astrology, and a 2,000+ page grimoire"
-techStack: "Next.js 15, Prisma, Neon PostgreSQL, Stripe, Vercel"
+description: "A full-stack PWA for real-time planetary tracking, personalised astrology, and a 1,300+ page grimoire"
+techStack: "Next.js 15, TypeScript, Astronomy Engine, Prisma, PostgreSQL, Stripe"
 ---
 
 ## The problem
@@ -24,7 +24,7 @@ Birth charts use the Placidus house system. Synastry comparisons calculate 36 as
 
 ### Content system
 
-The grimoire holds over 2,000 articles across astrology, tarot, crystals, spells, and divination, all structured in the database with metadata for search, filtering, and cross-linking. Horoscopes run for all 12 signs through 2030, monthly and yearly, generated programmatically and then reviewed rather than published raw. Transit pages (Saturn in Gemini 2030) and placement pages (Saturn in Gemini) are pre-built on the same content model, which is what turns the grimoire into a programmatic SEO footprint rather than just a reference library.
+The grimoire holds over 1,300 articles across astrology, tarot, crystals, spells, and divination, all structured in the database with metadata for search, filtering, and cross-linking. Horoscopes run for all 12 signs through 2030, monthly and yearly, generated programmatically and then reviewed rather than published raw. Transit pages (Saturn in Gemini 2030) and placement pages (Saturn in Gemini) are pre-built on the same content model, which is what turns the grimoire into a programmatic SEO footprint rather than just a reference library.
 
 ### Subscription model
 
@@ -40,10 +40,10 @@ Getting push notifications working reliably across both iOS Safari (through the 
 
 The native widgets (Cosmic Dashboard, Moon Tracker, Daily Card) run in an environment that's cut off from the main app's state entirely. Each one makes its own lightweight API call and renders independently.
 
-### Keeping 2,000+ articles navigable
+### Keeping 1,300+ articles navigable
 
-At grimoire scale, structured metadata and cross-references stop being optional. Every article carries tags for zodiac sign, planet, element, and topic, which is what makes faceted filtering across the whole grimoire possible, but maintaining that tagging at 2,000+ articles needed a custom admin interface.
+At grimoire scale, structured metadata and cross-references stop being optional. Every article carries tags for zodiac sign, planet, element, and topic, which is what makes faceted filtering across the whole grimoire possible, but maintaining that tagging at 1,300+ articles needed a custom admin interface.
 
 ## Outcome
 
-Lunary is incorporated as a Delaware C-Corp via Stripe Atlas, with Mercury for banking. It has active users on both web and mobile through Capacitor, and the grimoire drives significant organic search traffic. The MCP server, 60+ tools for AI-assisted content management and analytics, now powers the automated content pipeline that runs through Orbit.
+Lunary has active users on both web and mobile through Capacitor, and the grimoire drives significant organic search traffic. The MCP server, 60+ tools for AI-assisted content management and analytics, now powers the automated content pipeline that runs through Orbit.

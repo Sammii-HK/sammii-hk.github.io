@@ -34,4 +34,4 @@ The automation loops feeding Homebase (scheduling content, adjusting spend, runn
 
 ## Outcome
 
-Homebase is the thing I actually open first every day — not a portfolio piece built to be shown, but working infrastructure that happens to be worth showing. (For that reason it isn't linked live here: it surfaces real business and job-search data live, so this is deliberately a description rather than a demo.)
+Homebase is the thing I actually open first every day — not a portfolio piece built to be shown, but working infrastructure that happens to be worth showing. (For that reason it isn't linked live here: it surfaces real, live business data, so this is deliberately a description rather than a demo.)

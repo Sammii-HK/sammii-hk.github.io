@@ -68,6 +68,7 @@ export const projects: Project[] = [
     techStack: 'Next.js, TypeScript, Web Workers, Canvas 2D, Zustand, JSZip',
     info: 'Browser-based photo editor for fine art print and t-shirt preparation. Non-destructive grayscale pipeline with interactive curves, threshold knockout with feather control, dual split preview, and batch multi-size export at 300 DPI. All processing runs off-thread via Web Workers with OffscreenCanvas.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://scapestudio.vercel.app',
     caseStudy: 'scapestudio',
     highlights: [
@@ -84,6 +85,7 @@ export const projects: Project[] = [
     techStack: 'React Native, Expo, React Native Skia, RevenueCat',
     info: 'One zoom gesture, every scale. A single Skia-rendered timeline engine powers two lenses: Cosmos zooms from the ISS overhead to the edge of the observable universe, History walks roughly 900 curated events across recorded history. Free Cosmos hook, RevenueCat-gated paid History pack.',
     type: 'product',
+    featured: true,
     liveUrl: 'https://strata-jam1xzj8w-sammiis-projects.vercel.app',
     caseStudy: 'strata',
     highlights: [
@@ -129,8 +131,8 @@ export const projects: Project[] = [
   {
     id: 'lunary',
     title: 'Lunary',
-    techStack: 'Next.js, Typescript, Astronomy Engine',
-    info: 'Progressive Web App calculating planetary and lunar positions in real time using the Astronomy Engine library, with personalised lunar data and subscription features.',
+    techStack: 'Next.js 15, TypeScript, Astronomy Engine, Prisma, PostgreSQL, Stripe',
+    info: 'Progressive Web App calculating planetary and lunar positions in real time using the Astronomy Engine library. A 1,300+ page programmatically-generated grimoire, Stripe-billed subscriptions, and a custom MCP server exposing 60+ tools for AI-assisted content and analytics.',
     type: 'product',
     featured: true,
     liveUrl: 'https://lunary.app',
@@ -138,7 +140,7 @@ export const projects: Project[] = [
     privateRepo: true,
     highlights: [
       'Real-time planetary and lunar ephemeris via astronomy-engine (VSOP87)',
-      'Full grimoire CMS with 500+ pages of structured astrology content',
+      'Full grimoire CMS with 1,300+ pages of structured astrology content',
       'Push notifications, PWA install, and offline-first architecture',
       'Stripe subscription billing with webhook-driven lifecycle management',
       'SEO pipeline generating programmatic pages for transits, placements, and horoscopes through 2030',
@@ -196,7 +198,6 @@ export const projects: Project[] = [
     techStack: 'Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz',
     info: 'Self-hosted social media scheduling platform managing multiple brands across 8+ platforms. Turborepo monorepo with a Next.js frontend, a Node.js BFF, and a self-hosted Postiz + Temporal stack on Hetzner via Docker Compose.',
     type: 'product',
-    featured: true,
     liveUrl: 'https://spellcast.sammii.dev',
     caseStudy: 'spellcast',
     privateRepo: true,
@@ -293,7 +294,6 @@ export const projects: Project[] = [
     techStack: 'Node.js, TypeScript, tsup, Prompts',
     info: 'CLI scaffolder for Model Context Protocol servers. Interactive prompts for project name, description, and example tool selection, then generates a TypeScript project with the MCP SDK, Zod validation, stdio transport, and dev mode with auto-reload. Published on npm.',
     type: 'product',
-    featured: true,
     liveUrl: 'https://www.npmjs.com/package/init-mcp-server',
     caseStudy: 'create-mcp-server',
     highlights: [
