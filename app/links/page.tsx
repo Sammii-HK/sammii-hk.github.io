@@ -78,7 +78,7 @@ const links: LinkItem[] = [
   },
   {
     name: "X / Twitter",
-    url: "https://x.com/sammiihaylock",
+    url: "https://x.com/technicalyblond",
     icon: XIcon,
   },
   {
