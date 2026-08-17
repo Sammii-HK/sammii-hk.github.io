@@ -146,6 +146,7 @@ export const ProjectGrid = () => {
     .sort((a, b) => featuredRank(a.id) - featuredRank(b.id));
   const products = projects.filter((p) => p.type === "product" && !p.featured);
   const experiments = projects.filter((p) => p.type === "experiment");
+  const caseStudyCount = projects.filter((p) => !!p.caseStudy).length;
 
   return (
     <>
@@ -175,7 +176,7 @@ export const ProjectGrid = () => {
             <div className="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-xs sm:text-sm text-black/40 dark:text-white/35">
               <span>{featured.length + products.length} products</span>
               <span>{experiments.length} experiments</span>
-              <span>21 case studies</span>
+              <span>{caseStudyCount} case studies</span>
             </div>
           </section>
 
