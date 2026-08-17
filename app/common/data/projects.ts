@@ -8,6 +8,7 @@ type Project = {
   highlights?: string[];
   caseStudy?: string;
   featured?: boolean;
+  privateRepo?: boolean;
 };
 
 export const projects: Project[] = [
@@ -78,6 +79,22 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'strata',
+    title: 'Strata',
+    techStack: 'React Native, Expo, React Native Skia, RevenueCat',
+    info: 'One zoom gesture, every scale. A single Skia-rendered timeline engine powers two lenses: Cosmos zooms from the ISS overhead to the edge of the observable universe, History walks roughly 900 curated events across recorded history. Free Cosmos hook, RevenueCat-gated paid History pack.',
+    type: 'product',
+    liveUrl: 'https://strata-jam1xzj8w-sammiis-projects.vercel.app',
+    caseStudy: 'strata',
+    highlights: [
+      'Single React Native Skia canvas driving two log-scaled zoom/pan/drag lenses',
+      'Cosmos: distance-scaled zoom from low orbit to the edge of the observable universe',
+      'History: time-scaled zoom across ~900 curated events, same interaction model as Cosmos',
+      'Tap-to-identify and tap-twice-to-measure-the-gap across either axis',
+      'RevenueCat-gated paid content pack alongside a free viral hook',
+    ],
+  },
+  {
     id: 'lattiq',
     title: 'Lattiq',
     techStack: 'Next.js, Lexical, Yjs, WebSockets, TypeScript',
@@ -118,6 +135,7 @@ export const projects: Project[] = [
     featured: true,
     liveUrl: 'https://lunary.app',
     caseStudy: 'lunary',
+    privateRepo: true,
     highlights: [
       'Real-time planetary and lunar ephemeris via astronomy-engine (VSOP87)',
       'Full grimoire CMS with 500+ pages of structured astrology content',
@@ -160,14 +178,14 @@ export const projects: Project[] = [
   {
     id: 'podify',
     title: 'Podify',
-    techStack: 'Next.js, Kokoro-82M, Orpheus 3B, ffmpeg',
-    info: 'AI podcast generator that turns any text, URL, or content path into a fully produced two-host episode at roughly $0.04 each. Kokoro-82M and Orpheus 3B TTS synthesis, ffmpeg audio assembly, RSS feed output, and a web UI with real-time generation progress.',
+    techStack: 'Next.js, Ollama (local LLM), Kokoro-82M, Orpheus 3B, ffmpeg',
+    info: 'AI podcast generator that turns any text, URL, or content path into a fully produced two-host episode at roughly $0.04 each. Local Ollama LLM for script generation, Kokoro-82M and Orpheus 3B TTS synthesis, ffmpeg audio assembly, RSS feed output, and a web UI with real-time generation progress.',
     type: 'product',
     liveUrl: 'https://podify-topaz.vercel.app',
     caseStudy: 'podify',
     highlights: [
+      'Local Ollama model for zero-cost two-host script generation',
       'Kokoro-82M and Orpheus 3B TTS with distinct voices per host',
-      'Orpheus 3B expressive TTS with emotion tags for natural conversation',
       'ffmpeg audio assembly with intro/outro, crossfades, and normalisation',
       'RSS feed output compatible with Apple Podcasts and Spotify',
     ],
@@ -181,6 +199,7 @@ export const projects: Project[] = [
     featured: true,
     liveUrl: 'https://spellcast.sammii.dev',
     caseStudy: 'spellcast',
+    privateRepo: true,
     highlights: [
       'Turborepo monorepo with shared packages, Next.js frontend, and Node.js BFF',
       'Self-hosted on Hetzner via Docker Compose with Postiz and Temporal',
@@ -197,6 +216,7 @@ export const projects: Project[] = [
     type: 'product',
     featured: true,
     caseStudy: 'orbit',
+    privateRepo: true,
     highlights: [
       '14 specialised AI agents with distinct roles in a multi-stage content pipeline',
       'Windmill workflow orchestration with cron-triggered and event-driven flows',
@@ -208,8 +228,8 @@ export const projects: Project[] = [
   {
     id: 'iprep',
     title: 'iPrep',
-    techStack: 'Next.js, Llama 3.3 70B, Whisper Large V3 Turbo, Prisma, PostgreSQL, Web Audio API',
-    info: 'AI-powered spoken interview practice platform. Record answers, get automatic transcription via DeepInfra Whisper, and receive multi-dimensional scoring on delivery (WPM, fillers, confidence, intonation) and content quality (STAR methodology, impact, clarity). Includes question banks, analytics, and a quiz system.',
+    techStack: 'Next.js, SwiftUI, Llama 3.3 70B, Whisper Large V3 Turbo, RevenueCat, Prisma, PostgreSQL',
+    info: 'AI-powered spoken interview practice platform. Record answers, get automatic transcription via DeepInfra Whisper, and receive multi-dimensional scoring on delivery (WPM, fillers, confidence, intonation) and content quality (STAR methodology, impact, clarity). Also built as a native iOS app with on-device Apple Speech transcription, a watchOS companion, and home-screen widgets.',
     type: 'product',
     liveUrl: 'https://iprep-five.vercel.app/',
     caseStudy: 'iprep',
@@ -218,6 +238,7 @@ export const projects: Project[] = [
       'Whisper Large V3 Turbo for automatic speech-to-text transcription',
       'Llama 3.3 70B multi-dimensional scoring: delivery metrics (WPM, fillers, confidence) and content quality (STAR, clarity, impact)',
       'Prisma + PostgreSQL for persistent question banks, attempt history, and analytics',
+      'Native SwiftUI app with WidgetKit widgets, a watchOS companion, and on-device Apple Intelligence scoring',
     ],
   },
   {
@@ -269,8 +290,8 @@ export const projects: Project[] = [
   {
     id: 'crystal-index',
     title: 'Crystal Index',
-    techStack: 'TypeScript, Next.js, Prisma, SQL, GPT4, React 3 Fiber',
-    info: 'Custom CMS for cataloguing crystals with structured filters for colour, chakra, and properties, and GPT-4-generated descriptions.',
+    techStack: 'TypeScript, Next.js, Prisma, SQL, GPT-4, React Three Fiber, SwiftUI',
+    info: 'Custom CMS for cataloguing crystals with structured filters for colour, chakra, and properties, and GPT-4-generated descriptions. Also built as a native iOS companion app with camera-based AI crystal identification against the same API.',
     type: 'product',
     liveUrl: 'https://crystalindex.co.uk',
     caseStudy: 'crystal-index',
@@ -279,6 +300,7 @@ export const projects: Project[] = [
       'GPT-4-generated descriptions for each crystal entry',
       'React Three Fiber for interactive 3D crystal visualisation',
       'Full CRUD CMS with image upload and search',
+      'Native iOS app with camera-based AI identification and RevenueCat subscriptions',
     ],
   },
   {
@@ -439,7 +461,7 @@ export const projects: Project[] = [
   {
     id: 'creative-coding',
     title: 'Creative Coding',
-    techStack: 'p5.js, Javascript',
+    techStack: 'p5.js, JavaScript',
     info: '15 browser-based visual experiments treating a single photograph as raw material. Pixel data drives particle systems, edge detection, flow fields, Voronoi partitions, kaleidoscopes, and more; each sketch is unique to the source image.',
     type: 'experiment',
     liveUrl: 'https://creative-coding.sammii.dev',
@@ -466,7 +488,7 @@ export const projects: Project[] = [
   {
     id: 'day-lite',
     title: 'Day Lite',
-    techStack: 'React, Javascript, Mapbox GL, Vite',
+    techStack: 'React, JavaScript, Mapbox GL, Vite',
     info: 'Interactive globe visualising daylight patterns worldwide in real time using geospatial data from MapBox GL.',
     type: 'experiment',
     liveUrl: 'https://day-lite.vercel.app',
@@ -518,7 +540,7 @@ export const projects: Project[] = [
   {
     id: 'volcanoVisualisation',
     title: 'Volcano Visualisation',
-    techStack: 'D3.js, Javascript, React 3 Fiber',
+    techStack: 'D3.js, JavaScript, React Three Fiber',
     info: '3D globe mapping volcanic eruptions worldwide using GeoJSON datasets with D3.js and React Three Fiber.',
     type: 'experiment',
     liveUrl: 'https://volcano-visualisation.vercel.app',
@@ -544,7 +566,7 @@ export const projects: Project[] = [
   {
     id: 'communication-infographic',
     title: 'Communication Infographic',
-    techStack: 'React, Javascript',
+    techStack: 'React, JavaScript',
     info: 'Interactive timeline highlighting key developments in communication technology, built with React and SVG animations.',
     type: 'experiment',
     liveUrl: 'https://communication-infographic.vercel.app',

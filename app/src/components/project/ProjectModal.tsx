@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useCallback, useRef, useId } from "react";
 import Image from "next/image";
-import { X, CodeXml, ExternalLink, BookOpen } from "lucide-react";
-import { GITHUB_URL_SAMMII, GITHUB_URL } from "../../../constants";
+import { X, CodeXml, ExternalLink, BookOpen, Lock } from "lucide-react";
 import { getImagePath } from "../../../common/utils/image-path";
+import { getGithubRepoUrl } from "../../../common/utils/github-repo-url";
+import { getPrivateRepoMailto } from "../../../common/utils/private-repo-mailto";
 import { GlowButton } from "../GlowButton";
 
 type ProjectType = {
@@ -15,6 +16,7 @@ type ProjectType = {
   liveUrl?: string;
   highlights?: string[];
   caseStudy?: string;
+  privateRepo?: boolean;
 };
 
 interface ProjectModalProps {
@@ -24,9 +26,8 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps) => {
-  const githubUrl = project.id.includes("unicorn-poo")
-    ? GITHUB_URL
-    : GITHUB_URL_SAMMII;
+  const githubRepoUrl = getGithubRepoUrl(project.id);
+  const privateRepoMailto = getPrivateRepoMailto(project.title);
   const imagePath = getImagePath(project.id);
   
   // Generate unique IDs for ARIA attributes
@@ -221,18 +222,29 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
                 <span className="sr-only">(opens in new tab)</span>
               </GlowButton>
             )}
-            {(project.type !== "experiment" || !project.liveUrl) && (
-              <GlowButton
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`${githubUrl}/${project.id}`}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <CodeXml size={14} aria-hidden="true" />
-                <span>View Code</span>
-                <span className="sr-only">(opens in new tab)</span>
-              </GlowButton>
-            )}
+            {(project.type !== "experiment" || !project.liveUrl) &&
+              project.privateRepo && (
+                <GlowButton
+                  href={privateRepoMailto}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Lock size={14} aria-hidden="true" />
+                  <span>Request access</span>
+                </GlowButton>
+              )}
+            {(project.type !== "experiment" || !project.liveUrl) &&
+              !project.privateRepo && (
+                <GlowButton
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={githubRepoUrl}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <CodeXml size={14} aria-hidden="true" />
+                  <span>View Code</span>
+                  <span className="sr-only">(opens in new tab)</span>
+                </GlowButton>
+              )}
           </div>
         </div>
       </div>

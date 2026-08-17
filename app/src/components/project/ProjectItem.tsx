@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { CodeXml, ExternalLink, BookOpen } from "lucide-react";
-import { GITHUB_URL_SAMMII, GITHUB_URL } from "../../../constants";
+import { CodeXml, ExternalLink, BookOpen, Lock } from "lucide-react";
 import { getImagePath } from "../../../common/utils/image-path";
+import { getGithubRepoUrl } from "../../../common/utils/github-repo-url";
+import { getPrivateRepoMailto } from "../../../common/utils/private-repo-mailto";
 
 type ProjectItem = {
   id: string;
@@ -13,6 +14,7 @@ type ProjectItem = {
   highlights?: string[];
   caseStudy?: string;
   featured?: boolean;
+  privateRepo?: boolean;
 };
 
 type Project = {
@@ -23,9 +25,8 @@ type Project = {
 export const ProjectItem = (projectItem: Project) => {
   const project = projectItem.project;
   const index = projectItem.index ?? 99;
-  const githubUrl = project.id.includes("unicorn-poo")
-    ? GITHUB_URL
-    : GITHUB_URL_SAMMII;
+  const githubRepoUrl = getGithubRepoUrl(project.id);
+  const privateRepoMailto = getPrivateRepoMailto(project.title);
   const imagePath = getImagePath(project.id);
 
   const isExperiment = project.type === "experiment";
@@ -81,11 +82,22 @@ export const ProjectItem = (projectItem: Project) => {
               <span className="hidden sm:inline">{liveLabel}</span>
             </a>
           )}
-          {!isExperiment && (
+          {!isExperiment && project.privateRepo && (
+            <a
+              href={privateRepoMailto}
+              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Lock size={12} className="sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Request access</span>
+              <span className="sm:hidden">Private</span>
+            </a>
+          )}
+          {!isExperiment && !project.privateRepo && (
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href={`${githubUrl}/${project.id}`}
+              href={githubRepoUrl}
               className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
               onClick={(e) => e.stopPropagation()}
             >
@@ -98,7 +110,7 @@ export const ProjectItem = (projectItem: Project) => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href={`${githubUrl}/${project.id}`}
+              href={githubRepoUrl}
               className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
               onClick={(e) => e.stopPropagation()}
             >
