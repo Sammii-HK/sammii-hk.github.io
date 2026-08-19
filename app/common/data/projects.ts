@@ -502,14 +502,16 @@ export const projects: Project[] = [
   {
     id: 'balloon-bonanza',
     title: 'Balloon Bonanza',
-    techStack: 'React, Typescript, Matter.js, Vite',
-    info: 'A real-time physics simulation using Matter.js to render interactive balloons with realistic collision dynamics and constraint-based interactions.',
+    techStack: 'React, TypeScript, Matter.js, Vite',
+    info: 'A physics playground of 100 balloons that float, bounce, and can be grabbed and flung across the screen. Matter.js has no buoyancy, so the float is faked from tuned gravity, density, and air friction; each balloon is a two-body compound with a wobbling knot. Holds 60fps across 200+ bodies and 300+ constraints.',
     type: 'experiment',
     liveUrl: 'https://balloon-bonanza.vercel.app',
+    caseStudy: 'balloon-bonanza',
     highlights: [
-      'Matter.js physics engine for realistic collision and buoyancy',
-      'Constraint-based string attachments with tension and elasticity',
-      'Click and drag interaction with force application',
+      'Faked buoyancy via tuned world gravity, low body density, and air friction, since Matter.js has no native concept of "up"',
+      'Two-body balloons (circle plus triangle knot) joined by a firm pin and two loose side springs so the knot wobbles',
+      'Grab-and-fling interaction with a low-stiffness mouse constraint that transfers real momentum',
+      '60fps across 200+ rigid bodies and 300+ constraints, with light/dark sky matching system preference',
     ],
   },
   {
@@ -523,19 +525,6 @@ export const projects: Project[] = [
       'Lightness, saturation, and hue curves derived from official Tailwind palettes',
       '11-step scale generation matching Tailwind 50-950 convention',
       'Click-to-copy swatches with CSS variable and Tailwind config export',
-    ],
-  },
-  {
-    id: 'rainbow-laser-pointer',
-    title: 'Rainbow Laser Pointer',
-    techStack: 'React, TypeScript, HTML5 Canvas',
-    info: 'An interactive canvas-based laser pointer application with smooth trail rendering and color transitions.',
-    type: 'experiment',
-    liveUrl: 'https://rainbow-laser-pointer.vercel.app',
-    highlights: [
-      'Canvas 2D trail rendering with HSL hue cycling along the path',
-      'Smooth interpolation between pointer samples for fluid lines',
-      'Glow effect via layered strokes with decreasing opacity',
     ],
   },
   {
