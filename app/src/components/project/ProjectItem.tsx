@@ -15,6 +15,7 @@ type ProjectItem = {
   caseStudy?: string;
   featured?: boolean;
   privateRepo?: boolean;
+  noRepo?: boolean;
 };
 
 type Project = {
@@ -82,7 +83,7 @@ export const ProjectItem = (projectItem: Project) => {
               <span className="hidden sm:inline">{liveLabel}</span>
             </a>
           )}
-          {!isExperiment && project.privateRepo && (
+          {project.privateRepo && (
             <a
               href={privateRepoMailto}
               className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
@@ -93,20 +94,7 @@ export const ProjectItem = (projectItem: Project) => {
               <span className="sm:hidden">Private</span>
             </a>
           )}
-          {!isExperiment && !project.privateRepo && (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={githubRepoUrl}
-              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <CodeXml size={12} className="sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">View Code</span>
-              <span className="sm:hidden">Code</span>
-            </a>
-          )}
-          {isExperiment && !hasLiveUrl && (
+          {!project.privateRepo && !project.noRepo && (
             <a
               target="_blank"
               rel="noopener noreferrer"

@@ -17,6 +17,7 @@ type ProjectType = {
   highlights?: string[];
   caseStudy?: string;
   privateRepo?: boolean;
+  noRepo?: boolean;
 };
 
 interface ProjectModalProps {
@@ -222,29 +223,27 @@ export const ProjectModal = ({ project, onClose, triggerRef }: ProjectModalProps
                 <span className="sr-only">(opens in new tab)</span>
               </GlowButton>
             )}
-            {(project.type !== "experiment" || !project.liveUrl) &&
-              project.privateRepo && (
-                <GlowButton
-                  href={privateRepoMailto}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Lock size={14} aria-hidden="true" />
-                  <span>Request access</span>
-                </GlowButton>
-              )}
-            {(project.type !== "experiment" || !project.liveUrl) &&
-              !project.privateRepo && (
-                <GlowButton
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={githubRepoUrl}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <CodeXml size={14} aria-hidden="true" />
-                  <span>View Code</span>
-                  <span className="sr-only">(opens in new tab)</span>
-                </GlowButton>
-              )}
+            {project.privateRepo && (
+              <GlowButton
+                href={privateRepoMailto}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Lock size={14} aria-hidden="true" />
+                <span>Request access</span>
+              </GlowButton>
+            )}
+            {!project.privateRepo && !project.noRepo && (
+              <GlowButton
+                target="_blank"
+                rel="noopener noreferrer"
+                href={githubRepoUrl}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <CodeXml size={14} aria-hidden="true" />
+                <span>View Code</span>
+                <span className="sr-only">(opens in new tab)</span>
+              </GlowButton>
+            )}
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ type Project = {
   caseStudy?: string;
   featured?: boolean;
   privateRepo?: boolean;
+  noRepo?: boolean;
 };
 
 export const projects: Project[] = [
@@ -398,6 +399,7 @@ export const projects: Project[] = [
     info: 'Pixel-art forest simulation with dynamic time-of-day lighting, seasonal changes, fireflies, particle effects, and sprite-based characters. Custom 2D rendering engine with scene graph, sprite sheets, and a clearing system.',
     type: 'experiment',
     liveUrl: 'https://grove.sammii.dev',
+    noRepo: true,
     highlights: [
       'Custom 2D rendering engine with scene graph and sprite sheet system',
       'Dynamic time-of-day lighting and seasonal colour palette shifts',
@@ -411,6 +413,7 @@ export const projects: Project[] = [
     techStack: 'TypeScript, Canvas API, VS Code Extension API, Astronomy Engine',
     info: 'VS Code extension that visualises active Claude Code agent sessions as pixel-art characters in an Animal Crossing-style village. Agents sit at desks in an office, wander outdoors, and display real-time status. Dynamic time-of-day, seasonal changes, a pond, trees, and flowers.',
     type: 'experiment',
+    noRepo: true,
     highlights: [
       'VS Code extension rendering a live pixel-art village in a webview panel',
       'Claude Code agent sessions mapped to characters with real-time status',
@@ -438,6 +441,7 @@ export const projects: Project[] = [
     techStack: 'D3.js, HTML5 Canvas, Vite',
     info: 'Interactive star globe rendered on Canvas using D3 orthographic projection. Realistic star colours from B-V colour index, magnitude-scaled sizes with glow effects, constellation lines and labels, Milky Way band, drag-to-rotate with idle spin, and a time slider that shifts the sky in right ascension.',
     type: 'experiment',
+    liveUrl: 'https://celestial-map.sammii.dev',
     highlights: [
       'D3 orthographic projection rendering 9,000+ stars on Canvas',
       'Realistic star colours derived from B-V colour index',
