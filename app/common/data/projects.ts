@@ -214,9 +214,10 @@ export const projects: Project[] = [
     id: 'orbit',
     title: 'Orbit',
     techStack: 'Node.js, Shell, Claude Code SDK, Windmill',
-    info: 'Autonomous content command centre orchestrating 14 specialised AI agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO, and performance analysis. Real-time dashboard with agent status, social metrics, and pipeline visualisation.',
+    info: 'Autonomous content command centre orchestrating 14 specialised AI agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO, and performance analysis. Open the live control room to watch the fleet plan, write, edit, schedule, and publish in real time.',
     type: 'product',
     featured: true,
+    liveUrl: 'https://orbit-live.sammii.dev',
     caseStudy: 'orbit',
     privateRepo: true,
     highlights: [
