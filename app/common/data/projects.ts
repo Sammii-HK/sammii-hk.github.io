@@ -349,20 +349,6 @@ export const projects: Project[] = [
       'Dashboard with real-time conversion rates, lift calculations, and significance badges',
     ],
   },
-  {
-    id: 'scape-squared',
-    title: 'Scape²',
-    techStack: 'Next.js, Vercel E-commerce, Shopify',
-    info: 'Customised Vercel E-commerce template integrated with Shopify APIs to create and deploy a functional online storefront.',
-    type: 'product',
-    liveUrl: 'https://www.scsq.uk',
-    caseStudy: 'scape-squared',
-    highlights: [
-      'Vercel Commerce template customised with brand styling and layout',
-      'Shopify Storefront API for product catalogue, cart, and checkout',
-      'ISR for near-instant page loads with fresh product data',
-    ],
-  },
   // ── Experiments ───────────────────────────────────────────────────
   {
     id: 'kinetic',
@@ -525,32 +511,6 @@ export const projects: Project[] = [
       'Lightness, saturation, and hue curves derived from official Tailwind palettes',
       '11-step scale generation matching Tailwind 50-950 convention',
       'Click-to-copy swatches with CSS variable and Tailwind config export',
-    ],
-  },
-  {
-    id: 'volcanoVisualisation',
-    title: 'Volcano Visualisation',
-    techStack: 'D3.js, JavaScript, React Three Fiber',
-    info: '3D globe mapping volcanic eruptions worldwide using GeoJSON datasets with D3.js and React Three Fiber.',
-    type: 'experiment',
-    liveUrl: 'https://volcano-visualisation.vercel.app',
-    highlights: [
-      'React Three Fiber 3D globe with GeoJSON country boundaries',
-      'D3.js geo projection mapping eruption coordinates to globe surface',
-      'Interactive markers with eruption details on hover',
-    ],
-  },
-  {
-    id: 'artistry',
-    title: 'Artistry',
-    techStack: 'React, Python, SQL',
-    info: 'Integrates the Rijksmuseum API to retrieve and search artwork data, storing results in a SQL database accessed through a Python REST API.',
-    type: 'experiment',
-    liveUrl: 'https://artistry-hq2r.onrender.com',
-    highlights: [
-      'Rijksmuseum API integration for searching and browsing artwork collections',
-      'Python REST API with SQL database for caching and filtering results',
-      'React frontend with search, filtering, and detail views',
     ],
   },
   {

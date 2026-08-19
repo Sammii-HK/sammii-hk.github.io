@@ -2,8 +2,6 @@
   ".DS_Store": "jpg",
   "artify": "png",
   "artify.webp": "jpg",
-  "artistry": "jpg",
-  "artistry.webp": "jpg",
   "balloon-bonanza": "png",
   "balloon-bonanza.webp": "jpg",
   "beyond-light-vr": "png",
@@ -59,7 +57,6 @@
   "prism": "png",
   "refract": "png",
   "sammii-cli": "png",
-  "scape-squared": "jpg",
   "scapestudio": "png",
   "space-invaders": "jpg",
   "spectra": "png",
@@ -67,6 +64,5 @@
   "strata": "png",
   "tailwind-colour-creator": "png",
   "the-colour-game": "png",
-  "three-js-particles": "jpg",
-  "volcanoVisualisation": "jpg"
+  "three-js-particles": "jpg"
 }
