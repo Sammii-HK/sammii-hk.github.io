@@ -89,7 +89,44 @@ body {
   @apply lg:col-span-8
 }
 
+
+/* ── Environment ──────────────────────────────────────────────────────────
+   Continuous environmental values are written to these custom properties by
+   EnvironmentProvider every frame (pointer, scroll wave, time drift). The
+   defaults below are the exact values the old React state produced on its
+   first render (x = y = 0, t = 0), so server HTML and the first paint match.
+   Discrete editorial state lives on data-lens, not here. */
+[data-env] {
+  --env-x: 0.00;
+  --env-y: 0.00;
+  --env-t: 0.000;
+  --env-c1: 0 45 255;
+  --env-c2: 210 0 0;
+  --env-c3: 0 40 255;
+  --env-c4: 254 254 0;
+  --env-p1: 50.0% 0.0%;
+  --env-p2: 20.0% 75.0%;
+  --env-p3: 92.0% 85.0%;
+  --env-p4: 82.0% 50.0%;
+  --env-logo-a: 0 255 0;
+  --env-logo-b: 255 0 0;
+  --env-logo-c: 0 0 255;
+
+  /* Ambient background: four drifting radial blobs (was backgroundGradientCreator). */
+  background:
+    radial-gradient(ellipse at var(--env-p1), rgb(var(--env-c1) / 15%), transparent 65%),
+    radial-gradient(ellipse at var(--env-p2), rgb(var(--env-c2) / 15%), transparent 65%),
+    radial-gradient(ellipse at var(--env-p3), rgb(var(--env-c3) / 15%), transparent 65%),
+    radial-gradient(ellipse at var(--env-p4), rgb(var(--env-c4) / 11%), transparent 55%);
+}
+
 .logo {
+  /* Logo fill from the environment (was gradientCreator on the Navbar). */
+  background:
+    radial-gradient(circle at 50% 0, rgb(var(--env-logo-a) / 70%), rgb(var(--env-logo-a) / 0%) 70.71%),
+    radial-gradient(circle at 6.7% 75%, rgb(var(--env-logo-b) / 70%), rgb(var(--env-logo-b) / 0%) 70.71%),
+    radial-gradient(circle at 93.3% 75%, rgb(var(--env-logo-c) / 70%), rgb(var(--env-logo-c) / 0%) 70.71%)
+    lavender;
   -webkit-mask-image: url('../public/assets/images/sammii.png');
   mask-image: url('../public/assets/images/sammii.png');
   -webkit-mask-repeat: no-repeat;
