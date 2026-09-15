@@ -25,15 +25,19 @@ export type Fragment =
   | "kern-type"
   | "lattiq-editor";
 
-export type LensFocus = {
-  /** 1 = first. Only meaningful within a tier. */
-  rank: number;
-  tier: Tier;
-  /** One-line, lens-specific. Falls back to `info` when absent. Must stay true. */
-  summary?: string;
-  /** Short metadata tokens the lens should foreground. */
-  emphasis?: string[];
-};
+// `lens + tier + rank` fully determines editorial position. `rank` is the order
+// WITHIN a tier (featured 1..3, supporting 1..n); the work tier is unranked.
+export type LensFocus =
+  | { tier: "work" }
+  | {
+      tier: "featured" | "supporting";
+      /** 1 = first within this tier. */
+      rank: number;
+      /** One-line, lens-specific. Falls back to `info` when absent. Must stay true. */
+      summary?: string;
+      /** Short metadata tokens the lens should foreground. */
+      emphasis?: string[];
+    };
 
 export type Project = {
   id: string;
@@ -52,7 +56,11 @@ export type Project = {
   group: WorkGroup;
   labs?: { kind: LabsKind; superseded?: boolean };
   fragment?: Fragment;
-  /** Missing lens = `work` tier for that lens. Homepage projects define all three. */
+  /**
+   * Missing lens = `work` tier for that lens. Homepage projects define all three.
+   * A `home: "work"` project may still define a supporting tier for one lens
+   * (iPrep under AI) without becoming a homepage project elsewhere.
+   */
   focus?: Partial<Record<Lens, LensFocus>>;
 };
 
@@ -69,8 +77,8 @@ export const projects: Project[] = [
     fragment: 'gamut-palette',
     focus: {
       design: { rank: 3, tier: 'featured', summary: 'OKLCH as a working tool: 11-step scales on perceptual lightness curves, sRGB gamut clamping and WCAG checks, previewed live in light and dark.', emphasis: ['OKLCH', 'perceptual scales', 'WCAG contrast'] },
-      ai: { rank: 10, tier: 'work' },
-      product: { rank: 4, tier: 'supporting', summary: 'A theme builder whose output drops straight into a codebase: CSS variables, Tailwind config, JSON or Style Dictionary tokens.', emphasis: ['token export', 'Style Dictionary'] },
+      ai: { tier: 'work' },
+      product: { rank: 1, tier: 'supporting', summary: 'A theme builder whose output drops straight into a codebase: CSS variables, Tailwind config, JSON or Style Dictionary tokens.', emphasis: ['token export', 'Style Dictionary'] },
     },
     featured: true,
     liveUrl: 'https://gamut.sammii.dev',
@@ -94,8 +102,8 @@ export const projects: Project[] = [
     fragment: 'kern-type',
     focus: {
       design: { rank: 2, tier: 'featured', summary: 'Variable-font axes you drag, spring-animated, with side-by-side comparison and a proper specimen sheet. Holding the Type Lab slot until Type Lab exists.', emphasis: ['variable fonts', 'optical sizing', 'spring motion'] },
-      ai: { rank: 9, tier: 'work' },
-      product: { rank: 7, tier: 'supporting', summary: 'Typography tooling that outputs the CSS you would ship: fluid clamp() scales, with the whole configuration held in the URL.', emphasis: ['clamp() output', 'URL state'] },
+      ai: { tier: 'work' },
+      product: { rank: 4, tier: 'supporting', summary: 'Typography tooling that outputs the CSS you would ship: fluid clamp() scales, with the whole configuration held in the URL.', emphasis: ['clamp() output', 'URL state'] },
     },
     featured: true,
     liveUrl: 'https://kern.sammii.dev',
@@ -111,20 +119,19 @@ export const projects: Project[] = [
     id: 'prism',
     title: 'Prism',
     techStack: 'Next.js, Framer Motion, Spring Physics, GLSL, TypeScript',
-    info: 'Design engineering component library with an autonomous daily build pipeline. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
+    info: 'Design engineering component library. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
     type: 'product',
     home: 'home',
     group: 'tools',
     focus: {
-      design: { rank: 4, tier: 'supporting', summary: 'A component library built on spring physics: cursor-reactive buttons, spotlight cards, ripple effects and a shader playground.', emphasis: ['spring physics', 'GLSL', 'component API'] },
-      ai: { rank: 11, tier: 'work' },
-      product: { rank: 9, tier: 'work' },
+      design: { rank: 1, tier: 'supporting', summary: 'A component library built on spring physics: cursor-reactive buttons, spotlight cards, ripple effects and a shader playground.', emphasis: ['spring physics', 'GLSL', 'component API'] },
+      ai: { tier: 'work' },
+      product: { tier: 'work' },
     },
     featured: true,
     liveUrl: 'https://prism.sammii.dev',
     caseStudy: 'prism',
     highlights: [
-      'Autonomous daily pipeline: scout, curate, build, record, and publish a new component',
       'Spring physics and requestAnimationFrame for all animations, no CSS transitions',
       'Cursor-reactive colour system mapping pointer position to pastel RGB channels',
       'GLSL fragment shaders for GPU-accelerated playground experiments',
@@ -160,7 +167,7 @@ export const projects: Project[] = [
     fragment: 'strata-scale',
     focus: {
       design: { rank: 1, tier: 'featured', summary: 'One zoom gesture on one log-scaled axis: the ISS overhead to the edge of the observable universe on a single Skia canvas, and nothing collapses into a pixel.', emphasis: ['Skia canvas', 'log-scale zoom', 'gesture design'] },
-      ai: { rank: 8, tier: 'work' },
+      ai: { tier: 'work' },
       product: { rank: 3, tier: 'featured', summary: 'One timeline engine sold two ways: Cosmos free, History as a paid pack through RevenueCat, shipped as a React Native app.', emphasis: ['React Native', 'RevenueCat', 'one engine, two products'] },
     },
     featured: true,
@@ -184,8 +191,8 @@ export const projects: Project[] = [
     group: 'products',
     fragment: 'lattiq-editor',
     focus: {
-      design: { rank: 6, tier: 'supporting', summary: 'A collaborative editor where the design problem is what happens when two people type at once.', emphasis: ['Lexical', 'realtime UI'] },
-      ai: { rank: 5, tier: 'supporting', summary: 'Yjs CRDTs, WebSockets and a custom room server: the realtime layer under any multi-client product.', emphasis: ['Yjs CRDTs', 'WebSockets'] },
+      design: { rank: 3, tier: 'supporting', summary: 'A collaborative editor where the design problem is what happens when two people type at once.', emphasis: ['Lexical', 'realtime UI'] },
+      ai: { rank: 2, tier: 'supporting', summary: 'Yjs CRDTs, WebSockets and a custom room server: the realtime layer under any multi-client product.', emphasis: ['Yjs CRDTs', 'WebSockets'] },
       product: { rank: 2, tier: 'featured', summary: 'Local-first: writes land in IndexedDB instantly and sync between clients over WebSockets with Yjs CRDTs, on a custom collaboration server with room management.', emphasis: ['local-first', 'IndexedDB', 'CRDT sync'] },
     },
     featured: true,
@@ -225,7 +232,7 @@ export const projects: Project[] = [
     home: 'home',
     group: 'products',
     focus: {
-      design: { rank: 5, tier: 'supporting', summary: 'Turning live planetary and lunar positions into an interface people read daily: information design for a system that never stops moving.', emphasis: ['information design', 'PWA', 'visual system'] },
+      design: { rank: 2, tier: 'supporting', summary: 'Turning live planetary and lunar positions into an interface people read daily: information design for a system that never stops moving.', emphasis: ['information design', 'PWA', 'visual system'] },
       ai: { rank: 2, tier: 'featured', summary: 'Deterministic astronomy from the Astronomy Engine, a 1,300+ page programmatically generated grimoire, and an MCP server exposing 60+ tools for AI-assisted content and analytics.', emphasis: ['Astronomy Engine', 'MCP server, 60+ tools', 'generated grimoire'] },
       product: { rank: 1, tier: 'featured', summary: 'A founder-built subscription PWA: real-time astronomical computation, Stripe billing, a generated content library and the infrastructure to run it solo.', emphasis: ['Next.js 15', 'Stripe', 'Prisma + PostgreSQL'] },
     },
@@ -302,9 +309,9 @@ export const projects: Project[] = [
     home: 'home',
     group: 'products',
     focus: {
-      design: { rank: 9, tier: 'work' },
+      design: { tier: 'work' },
       ai: { rank: 3, tier: 'featured', summary: 'Self-hosted scheduling for multiple brands across 8+ platforms, with a Postiz and Temporal workflow stack doing the publishing.', emphasis: ['Temporal workflows', '8+ platforms', 'self-hosted'] },
-      product: { rank: 6, tier: 'supporting', summary: 'Turborepo monorepo, Next.js front end, Node BFF, Postiz + Temporal on Hetzner via Docker Compose: a platform, self-hosted and run.', emphasis: ['Turborepo', 'Drizzle', 'Docker Compose'] },
+      product: { rank: 3, tier: 'supporting', summary: 'Turborepo monorepo, Next.js front end, Node BFF, Postiz + Temporal on Hetzner via Docker Compose: a platform, self-hosted and run.', emphasis: ['Turborepo', 'Drizzle', 'Docker Compose'] },
     },
     liveUrl: 'https://spellcast.sammii.dev',
     caseStudy: 'spellcast',
@@ -321,14 +328,14 @@ export const projects: Project[] = [
     id: 'orbit',
     title: 'Orbit',
     techStack: 'Node.js, Shell, Claude Code SDK, Windmill',
-    info: 'Autonomous content command centre orchestrating 14 specialised AI agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO, and performance analysis. Open the live control room to watch the fleet plan, write, edit, schedule, and publish in real time.',
+    info: 'Autonomous content command centre orchestrating 14 specialised AI agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO, and performance analysis. The live control room is a visualisation of that pipeline: each agent, its role, and the order they run in.',
     type: 'product',
     home: 'home',
     group: 'ai',
     focus: {
-      design: { rank: 8, tier: 'work' },
+      design: { tier: 'work' },
       ai: { rank: 1, tier: 'featured', summary: 'Fourteen specialised agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO and performance analysis, with a live control room.', emphasis: ['14 agents', 'multi-stage pipeline', 'Claude Code SDK'] },
-      product: { rank: 5, tier: 'supporting', summary: 'A content operation built as software: staged pipeline, scheduling, analysis and a control room to watch it run.', emphasis: ['Windmill', 'orchestration'] },
+      product: { rank: 2, tier: 'supporting', summary: 'A content operation built as software: staged pipeline, scheduling, analysis and a control room to watch it run.', emphasis: ['Windmill', 'orchestration'] },
     },
     featured: true,
     liveUrl: 'https://orbit-live.sammii.dev',
@@ -338,7 +345,7 @@ export const projects: Project[] = [
       '14 specialised AI agents with distinct roles in a multi-stage content pipeline',
       'Windmill workflow orchestration with cron-triggered and event-driven flows',
       'Claude Code SDK for agent execution with structured tool use',
-      'Real-time dashboard showing agent status, pipeline progress, and social metrics',
+      'Control-room visualisation of the agents, their roles and the pipeline order',
       'End-to-end automation from content ideation through publishing and engagement',
     ],
   },
@@ -368,6 +375,9 @@ export const projects: Project[] = [
     type: 'product',
     home: 'work',
     group: 'ai',
+    focus: {
+      ai: { rank: 3, tier: 'supporting', summary: 'Spoken interview practice: record an answer, get a Whisper transcript, then scoring on delivery (pace, fillers, confidence) and on content (STAR, clarity, impact).', emphasis: ['Whisper transcription', 'Llama 3.3 70B scoring', 'SwiftUI + watchOS'] },
+    },
     liveUrl: 'https://iprep-five.vercel.app/',
     caseStudy: 'iprep',
     highlights: [
@@ -421,9 +431,9 @@ export const projects: Project[] = [
     home: 'home',
     group: 'ai',
     focus: {
-      design: { rank: 10, tier: 'work' },
-      ai: { rank: 4, tier: 'supporting', summary: 'An npm CLI that scaffolds a typed MCP server with Zod validation and stdio transport in seconds.', emphasis: ['npm', 'MCP SDK', 'Zod'] },
-      product: { rank: 8, tier: 'work' },
+      design: { tier: 'work' },
+      ai: { rank: 1, tier: 'supporting', summary: 'An npm CLI that scaffolds a typed MCP server with Zod validation and stdio transport in seconds.', emphasis: ['npm', 'MCP SDK', 'Zod'] },
+      product: { tier: 'work' },
     },
     liveUrl: 'https://www.npmjs.com/package/init-mcp-server',
     caseStudy: 'create-mcp-server',

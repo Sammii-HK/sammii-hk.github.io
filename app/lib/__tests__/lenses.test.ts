@@ -8,6 +8,7 @@ import {
   getLabsProjects,
   summaryFor,
   tierFor,
+  rankFor,
   resolveHashTarget,
   LENS_IDS,
 } from "../lenses";
@@ -50,7 +51,7 @@ describe("getLensOrder", () => {
     });
     expect(ids("ai")).toEqual({
       featured: ["orbit", "lunary", "spellcast"],
-      supporting: ["create-mcp-server", "lattiq"],
+      supporting: ["create-mcp-server", "lattiq", "iprep"],
     });
     expect(ids("product")).toEqual({
       featured: ["lunary", "lattiq", "strata"],
@@ -58,31 +59,40 @@ describe("getLensOrder", () => {
     });
   });
 
-  it("always has exactly three featured and 2 to 5 supporting", () => {
+  it("always has exactly three featured and 3 to 5 supporting", () => {
     for (const lens of LENSES) {
       const o = getLensOrder(lens);
       expect(o.featured).toHaveLength(3);
-      expect(o.supporting.length).toBeGreaterThanOrEqual(2);
+      expect(o.supporting.length).toBeGreaterThanOrEqual(3);
       expect(o.supporting.length).toBeLessThanOrEqual(5);
     }
   });
 
-  it("never lists a project twice and only lists homepage projects", () => {
+  it("never lists a project twice, never a labs or archive project, and only home projects as featured", () => {
     for (const lens of LENSES) {
       const o = getLensOrder(lens);
       const ids = o.all.map((p) => p.id);
       expect(new Set(ids).size).toBe(ids.length);
-      for (const p of o.all) expect(p.home).toBe("home");
+      for (const p of o.all) expect(["home", "work"]).toContain(p.home);
+      for (const p of o.featured) expect(p.home, p.id).toBe("home");
     }
   });
 
-  it("is deterministic and rank-ordered within a tier", () => {
+  it("ranks are 1..n within each tier, contiguous, and position is fully determined by lens + tier + rank", () => {
     for (const lens of LENSES) {
-      const a = getLensOrder(lens).all.map((p) => p.id);
-      const b = getLensOrder(lens).all.map((p) => p.id);
-      expect(a).toEqual(b);
-      const ranks = getLensOrder(lens).featured.map((p) => p.focus![lens]!.rank);
-      expect(ranks).toEqual([...ranks].sort((x, y) => x - y));
+      const o = getLensOrder(lens);
+      for (const tier of [o.featured, o.supporting]) {
+        const ranks = tier.map((p) => rankFor(p, lens));
+        expect(ranks).toEqual(ranks.map((_, i) => i + 1));
+      }
+      expect(getLensOrder(lens).all.map((p) => p.id)).toEqual(o.all.map((p) => p.id));
+    }
+  });
+
+  it("work-tier entries carry no rank", () => {
+    for (const p of projects) for (const lens of LENS_IDS) {
+      const f = p.focus?.[lens];
+      if (f?.tier === "work") expect("rank" in f).toBe(false);
     }
   });
 });
@@ -94,27 +104,32 @@ describe("project data invariants", () => {
     for (const p of home) for (const lens of LENS_IDS) expect(p.focus?.[lens], `${p.id}.${lens}`).toBeDefined();
   });
 
-  it("no /work, labs or archive project claims a homepage tier", () => {
-    for (const p of projects.filter((x) => x.home !== "home")) {
+  it("labs and archive projects claim no tier; /work projects may only be supporting, never featured", () => {
+    for (const p of projects.filter((x) => x.home === "labs" || x.home === "archive")) {
       expect(p.focus, p.id).toBeUndefined();
       for (const lens of LENS_IDS) expect(tierFor(p, lens)).toBe("work");
     }
+    for (const p of projects.filter((x) => x.home === "work")) {
+      for (const lens of LENS_IDS) expect(tierFor(p, lens), `${p.id}.${lens}`).not.toBe("featured");
+    }
+    expect(tierFor(projects.find((p) => p.id === "iprep")!, "ai")).toBe("supporting");
   });
 
   it("every featured project has a case study and a lens summary", () => {
     for (const lens of LENSES) {
       for (const p of getLensOrder(lens).featured) {
         expect(p.caseStudy, `${p.id} case study`).toBeTruthy();
-        expect(p.focus![lens]!.summary, `${p.id}.${lens} summary`).toBeTruthy();
+        expect(summaryFor(p, lens), `${p.id}.${lens} summary`).not.toBe(p.info);
       }
     }
   });
 
-  it("lens summaries contain no em or en dashes", () => {
-    for (const p of home) for (const lens of LENS_IDS) {
-      const s = p.focus?.[lens]?.summary ?? "";
-      expect(s, `${p.id}.${lens}`).not.toMatch(/[–—]/);
+  it("lens summaries and base copy contain no em or en dashes and no retired claims", () => {
+    for (const p of projects) {
+      expect(p.info, p.id).not.toMatch(/autonomous daily|in real time to watch|publish in real time/i);
+      for (const lens of LENS_IDS) expect(summaryFor(p, lens), `${p.id}.${lens}`).not.toMatch(/[–—]/);
     }
+    expect(projects.find((p) => p.id === "prism")!.info).not.toMatch(/autonom|daily/i);
   });
 
   it("labs and archive projects carry a labs kind; grove is archived, not promoted", () => {

@@ -24,17 +24,21 @@ export function tierFor(p: Project, lens: Lens): Tier {
   return p.focus?.[lens]?.tier ?? "work";
 }
 
+/** Order within the project's tier for this lens. Work tier is unranked. */
 export function rankFor(p: Project, lens: Lens): number {
-  return p.focus?.[lens]?.rank ?? Number.MAX_SAFE_INTEGER;
+  const f = p.focus?.[lens];
+  return f && f.tier !== "work" ? f.rank : Number.MAX_SAFE_INTEGER;
 }
 
 /** Lens-specific one-liner, falling back to the project's base copy. */
 export function summaryFor(p: Project, lens: Lens): string {
-  return p.focus?.[lens]?.summary ?? p.info;
+  const f = p.focus?.[lens];
+  return (f && f.tier !== "work" && f.summary) || p.info;
 }
 
 export function emphasisFor(p: Project, lens: Lens): string[] {
-  return p.focus?.[lens]?.emphasis ?? [];
+  const f = p.focus?.[lens];
+  return (f && f.tier !== "work" && f.emphasis) || [];
 }
 
 export type LensOrder = {
@@ -46,14 +50,16 @@ export type LensOrder = {
 };
 
 /**
- * The homepage for one lens. Deterministic: sorted by rank, then id, so two
- * projects can never swap places between renders.
+ * The homepage for one lens. A project appears if its focus for this lens is
+ * featured or supporting; `home: "home"` projects define every lens, while a
+ * `home: "work"` project may opt into one lens's supporting tier (iPrep, AI).
+ * Deterministic: sorted by rank within tier, then id.
  */
 export function getLensOrder(lens: Lens, source: readonly Project[] = projects): LensOrder {
   const byRank = (a: Project, b: Project) => rankFor(a, lens) - rankFor(b, lens) || a.id.localeCompare(b.id);
-  const home = source.filter(isHomepageProject);
-  const featured = home.filter((p) => tierFor(p, lens) === "featured").sort(byRank);
-  const supporting = home.filter((p) => tierFor(p, lens) === "supporting").sort(byRank);
+  const eligible = source.filter((p) => p.home === "home" || p.home === "work");
+  const featured = eligible.filter((p) => tierFor(p, lens) === "featured").sort(byRank);
+  const supporting = eligible.filter((p) => tierFor(p, lens) === "supporting").sort(byRank);
   return { lens, featured, supporting, all: [...featured, ...supporting] };
 }
 
