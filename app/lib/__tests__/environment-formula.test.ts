@@ -45,3 +45,43 @@ describe("environment formula parity", () => {
     expect(r1).toBe(Math.floor((255 / 100) * 40));
   });
 });
+
+// ── Phase 2F: lens behaviour parameters around the preserved formula ────────
+import { environmentVars, IDENTITY_PARAMS } from "../../src/components/env/environment-formula";
+import { LENS_ENVIRONMENT } from "../../src/components/env/lens-environment";
+
+describe("lens environment parameters", () => {
+  const still = { px: 50, py: 50, energy: 0 };
+  it("identity params reproduce Phase 2B output exactly", () => {
+    for (const [x, y, t] of samples.slice(0, 60)) {
+      expect(ambientVars(x, y, t, IDENTITY_PARAMS, still)).toEqual(ambientVars(x, y, t));
+    }
+  });
+  it("never touches the colour channels for any lens", () => {
+    for (const lens of ["design", "ai", "product"] as const) {
+      const base = ambientVars(40, 70, 12, IDENTITY_PARAMS, still);
+      const withLens = ambientVars(40, 70, 12, { ...LENS_ENVIRONMENT[lens].params, rate: 1 }, { px: 10, py: 90, energy: 1 });
+      for (const k of ["--env-c1", "--env-c2", "--env-c3", "--env-c4"] as const) expect(withLens[k]).toBe(base[k]);
+    }
+  });
+  it("product eases rest positions toward a lattice and damps the drift", () => {
+    const p = LENS_ENVIRONMENT.product.params;
+    const v = ambientVars(0, 0, 0, { ...p, rate: 1 }, still);
+    // blob 2 rests at x=8 originally; lattice 25 pulls it to 8 + (25-8)*0.7 = 19.9, plus the t=0 drift term cos(0)*12*0.6
+    expect(v["--env-p2"].split(" ")[0]).toBe((8 + (25 - 8) * 0.7 + 12 * 0.6).toFixed(1) + "%");
+    expect(p.drift).toBeLessThan(1);
+  });
+  it("ai leans blobs toward the pointer only while it moves", () => {
+    const p = LENS_ENVIRONMENT.ai.params;
+    const stillV = ambientVars(0, 0, 0, { ...p, rate: 1 }, { px: 0, py: 0, energy: 0 });
+    const movingV = ambientVars(0, 0, 0, { ...p, rate: 1 }, { px: 0, py: 0, energy: 1 });
+    const x = (k: string, v: Record<string, string>) => parseFloat(v[k]);
+    expect(x("--env-p3", stillV)).toBe(92 + 0); // sin(0) = 0 drift
+    expect(x("--env-p3", movingV)).toBeCloseTo(92 * (1 - p.converge), 1);
+    expect(stillV).toEqual(ambientVars(0, 0, 0, IDENTITY_PARAMS, still)); // at rest ai equals parity
+  });
+  it("exposes pointer energy as a single custom property", () => {
+    const v = environmentVars(0, 0, 0, IDENTITY_PARAMS, { px: 50, py: 50, energy: 0.42 });
+    expect(v["--env-energy"]).toBe("0.420");
+  });
+});

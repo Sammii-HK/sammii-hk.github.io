@@ -1,7 +1,6 @@
 "use client";
 import type { ReactNode } from "react";
 import { Footer } from "../Footer";
-import { CursorFollower } from "../env/CursorFollower";
 import { EnvironmentProvider } from "../env/EnvironmentProvider";
 import { LensProvider, useLens } from "../lens/LensProvider";
 import { LensNav } from "../lens/LensNav";
@@ -27,7 +26,6 @@ const Chrome = ({ children }: { children: ReactNode }) => {
       <a href="#main" className="skip-link">
         Skip to content
       </a>
-      <CursorFollower />
       <LensNav />
       <main id="main" className="flex-1">
         {children}

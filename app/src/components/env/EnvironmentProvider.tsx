@@ -2,6 +2,7 @@
 import { createContext, useContext, useEffect, useRef, type ReactNode, type RefObject } from "react";
 import type { Lens } from "../../../common/data/projects";
 import { environmentVars } from "./environment-formula";
+import { LENS_ENVIRONMENT } from "./lens-environment";
 
 /**
  * The environmental system: pointer, scroll and time, lerped and written to
@@ -14,8 +15,15 @@ import { environmentVars } from "./environment-formula";
  *   continuous environment → CSS custom properties (--env-x, --env-c1 …)
  *   discrete editorial state → data attributes (data-lens), React state
  *
- * `lens` is inert in Phase 2B: it is stamped as `data-lens` for later
- * lens-specific styling and nothing reads it yet.
+ * `lens` (the COMMITTED lens, never the preview) is stamped as `data-lens`
+ * and, since Phase 2F, selects the behaviour parameters in lens-environment.ts:
+ * how the pointer is followed, how the blobs wander, whether they lean toward
+ * the pointer, whether they rest on a lattice. The colour formula is the same
+ * for every lens.
+ *
+ * Reduced motion (Phase 2F): the time drift is frozen, the scroll wave is off,
+ * and the pointer response is immediate rather than eased, so colour still
+ * answers the pointer without choreography.
  */
 
 type EnvironmentContextValue = {
@@ -30,8 +38,6 @@ export function useEnvironment(): EnvironmentContextValue {
   return ctx;
 }
 
-// Same smoothing as before: 0.2 per frame toward the target.
-const LERP = 0.2;
 const lerp = (current: number, target: number, factor: number) => current + (target - current) * factor;
 
 export function EnvironmentProvider({
@@ -58,21 +64,59 @@ export function EnvironmentProvider({
   const currentY = useRef(0);
   const isScrolling = useRef(false);
   const lastScrollTime = useRef(0);
+  const velX = useRef(0);
+  const velY = useRef(0);
+  const energy = useRef(0);
+  const lastPointer = useRef({ x: 0, y: 0 });
+  const lensRef = useRef<Lens>(lens);
+  lensRef.current = lens;
+  const reduced = useRef(false);
+  const frozenT = useRef(0);
 
-  // ── frame loop: lerp, compute, write ──────────────────────────────────
+  // ── frame loop: follow, compute, write ────────────────────────────────
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncReduced = () => { reduced.current = mq.matches; frozenT.current = performance.now() / 1000; };
+    syncReduced();
+    mq.addEventListener("change", syncReduced);
+
     let raf = 0;
     const tick = () => {
-      currentX.current = lerp(currentX.current, targetX.current, LERP);
-      currentY.current = lerp(currentY.current, targetY.current, LERP);
-      const vars = environmentVars(currentX.current, currentY.current, performance.now() / 1000);
+      const env = LENS_ENVIRONMENT[lensRef.current];
+      if (reduced.current) {
+        // immediate, no easing, no drift, no energy
+        currentX.current = targetX.current;
+        currentY.current = targetY.current;
+        energy.current = 0;
+      } else if (env.lerp === null && env.spring) {
+        // design: a light spring, so the follow has weight and a hint of overshoot
+        const { stiffness, damping } = env.spring;
+        velX.current = (velX.current + (targetX.current - currentX.current) * stiffness) * damping;
+        velY.current = (velY.current + (targetY.current - currentY.current) * stiffness) * damping;
+        currentX.current += velX.current;
+        currentY.current += velY.current;
+      } else {
+        currentX.current = lerp(currentX.current, targetX.current, env.lerp ?? 0.2);
+        currentY.current = lerp(currentY.current, targetY.current, env.lerp ?? 0.2);
+      }
+      // pointer energy: how fast the pointer is moving, smoothed, 0..1
+      if (!reduced.current) {
+        const dx = targetX.current - lastPointer.current.x;
+        const dy = targetY.current - lastPointer.current.y;
+        lastPointer.current = { x: targetX.current, y: targetY.current };
+        const speed = Math.min(1, Math.hypot(dx, dy) / 6);
+        energy.current = lerp(energy.current, speed, speed > energy.current ? 0.35 : 0.06);
+      }
+      const t = reduced.current ? frozenT.current : performance.now() / 1000;
+      const pointer = { px: Math.max(0, Math.min(100, currentX.current / 2)), py: Math.max(0, Math.min(100, currentY.current)), energy: energy.current };
+      const vars = environmentVars(currentX.current, currentY.current, t, env.params, pointer);
       for (const k in vars) root.style.setProperty(k, vars[k as keyof typeof vars]);
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => { cancelAnimationFrame(raf); mq.removeEventListener("change", syncReduced); };
   }, []);
 
   // ── pointer / touch → targets (unchanged rules, incl. the scroll guard) ──
@@ -116,6 +160,7 @@ export function EnvironmentProvider({
     // The wave itself is unchanged: Y and X follow sine waves of scroll %.
     // Only the source of the scroll position moved from the grid to the document.
     const handleScroll = () => {
+      if (reduced.current) return; // no scroll-driven wave under reduced motion
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         isScrolling.current = true;

@@ -402,6 +402,21 @@ body {
     color: black;
   }
 }
+/* ── Lens personality on the environment (Phase 2F) ───────────────────────
+   Behaviour, not colour. The blob formula is identical for every lens; what
+   differs is how the pointer is followed, how the blobs wander and rest
+   (lens-environment.ts), plus this one CSS response: under Design the ambient
+   layer breathes fractionally with pointer energy. Nothing reads the preview
+   lens; data-lens is the committed one. */
+.env-ambient { will-change: transform; transform-origin: 50% 50%; }
+[data-lens="design"] .env-ambient {
+  transform: scale(calc(1 + var(--env-energy, 0) * 0.03));
+  filter: saturate(calc(1 + var(--env-energy, 0) * 0.12));
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-lens="design"] .env-ambient { transform: none; filter: none; }
+}
+
 /* ── Hero + lens (Phase 2D) ──────────────────────────────────────────────
    Promoted from /hero-lab Composition A with the environmental-accent
    committed state. Continuous environment values come in as --env-*;
@@ -734,3 +749,20 @@ body {
   .orbit-stage:not(:last-child)::after, .lattiq-link::after { animation: none; }
   .reference-arrow { transition: none; }
 }
+
+/* ── Labs portal (Phase 2F) ───────────────────────────────────────────────
+   The boundary between the curated site and Labs: a rule that behaves like a
+   string. Everything else is typography. */
+.labs { max-width: 1120px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
+@media (max-width: 640px) { .labs { padding: 0.5rem 1.25rem 2.5rem; } }
+.labs-heading { font-weight: 500; font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.45; margin: 0 0 1.25rem; }
+.labs-line { margin: 0; font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 2.1rem); line-height: 1.15; letter-spacing: -0.015em; max-width: 24ch; text-wrap: balance; }
+.labs-boundary { height: 5rem; margin: 0.5rem 0 0; touch-action: pan-y; cursor: crosshair; }
+.labs-boundary svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.labs-boundary path { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; opacity: 0.6; }
+.labs-route { margin: 0.25rem 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.25rem; }
+.labs-link { color: inherit; text-decoration: none; font-weight: 500; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.labs-link:hover { text-decoration: underline; text-underline-offset: 0.35em; }
+.labs-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+.labs-status { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; }
+@media (prefers-reduced-motion: reduce) { .labs-boundary { cursor: default; } }

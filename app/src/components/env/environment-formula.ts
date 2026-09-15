@@ -23,9 +23,34 @@ export const logoChannel = (n: number) => {
 
 export type EnvironmentVars = Record<`--env-${string}`, string>;
 
+/**
+ * Lens personality (Phase 2F). These shape BEHAVIOUR around the preserved
+ * colour formula; the channel relationships above are untouched.
+ *   drift     multiplier on the blobs' autonomous wander amplitude
+ *   rate      multiplier on the wander speed (t is scaled by it)
+ *   converge  0..1: how far each blob is pulled toward the pointer while it moves
+ *             (ai: relationships briefly form, then relax)
+ *   lattice   0..1: how far the blob rest positions move toward a regular 25/75 grid
+ *             (product: composed, not rigid)
+ * The defaults are the identity: with them the output is byte-equal to Phase 2B.
+ */
+export type EnvParams = { drift: number; rate: number; converge: number; lattice: number };
+export const IDENTITY_PARAMS: EnvParams = { drift: 1, rate: 1, converge: 0, lattice: 0 };
+
+/** Pointer position in the ambient layer's percentage space, plus the smoothed pointer energy (0..1). */
+export type PointerState = { px: number; py: number; energy: number };
+const STILL: PointerState = { px: 50, py: 50, energy: 0 };
+
 /** Ambient background: four drifting radial blobs. Mirrors backgroundGradientCreator. */
-export function ambientVars(xPc: number, yPc: number, t: number): EnvironmentVars {
+export function ambientVars(xPc: number, yPc: number, tRaw: number, params: EnvParams = IDENTITY_PARAMS, pointer: PointerState = STILL): EnvironmentVars {
   const c = channel;
+  const t = tRaw * params.rate;
+  const A = params.drift;
+  // rest positions: the original bases, optionally eased toward a regular lattice
+  const rest = (base: number, grid: number) => base + (grid - base) * params.lattice;
+  // convergence: while the pointer moves (energy), blobs lean toward it and relax back when still
+  const pull = params.converge * pointer.energy;
+  const toward = (v: number, target: number) => v + (target - v) * pull;
   const r1 = c(xPc + Math.sin(t * 0.41) * 20);
   const g1 = c(yPc + Math.cos(t * 0.33) * 18);
   const b1 = 255 - c(xPc);
@@ -42,14 +67,14 @@ export function ambientVars(xPc: number, yPc: number, t: number): EnvironmentVar
   const g4 = c(100 - yPc + Math.cos(t * 0.18) * 20);
   const b4 = c(xPc + Math.sin(t * 0.27) * 20);
 
-  const x1 = (50 + Math.sin(t * 0.31) * 16).toFixed(1);
-  const y1 = (0 + Math.abs(Math.sin(t * 0.23)) * 22).toFixed(1);
-  const x2 = (8 + Math.cos(t * 0.41) * 12).toFixed(1);
-  const y2 = (75 + Math.sin(t * 0.29) * 10).toFixed(1);
-  const x3 = (92 + Math.sin(t * 0.37) * 12).toFixed(1);
-  const y3 = (75 + Math.cos(t * 0.43) * 10).toFixed(1);
-  const x4 = (50 + Math.cos(t * 0.19) * 32).toFixed(1);
-  const y4 = (50 + Math.sin(t * 0.27) * 28).toFixed(1);
+  const x1 = toward(rest(50, 50) + Math.sin(t * 0.31) * 16 * A, pointer.px).toFixed(1);
+  const y1 = toward(rest(0, 25) + Math.abs(Math.sin(t * 0.23)) * 22 * A, pointer.py).toFixed(1);
+  const x2 = toward(rest(8, 25) + Math.cos(t * 0.41) * 12 * A, pointer.px).toFixed(1);
+  const y2 = toward(rest(75, 75) + Math.sin(t * 0.29) * 10 * A, pointer.py).toFixed(1);
+  const x3 = toward(rest(92, 75) + Math.sin(t * 0.37) * 12 * A, pointer.px).toFixed(1);
+  const y3 = toward(rest(75, 75) + Math.cos(t * 0.43) * 10 * A, pointer.py).toFixed(1);
+  const x4 = toward(rest(50, 50) + Math.cos(t * 0.19) * 32 * A, pointer.px).toFixed(1);
+  const y4 = toward(rest(50, 50) + Math.sin(t * 0.27) * 28 * A, pointer.py).toFixed(1);
 
   return {
     "--env-c1": `${r1} ${g1} ${b1}`,
@@ -76,12 +101,13 @@ export function logoVars(xPc: number, yPc: number): EnvironmentVars {
 }
 
 /** Everything the environment writes each frame. */
-export function environmentVars(xPc: number, yPc: number, t: number): EnvironmentVars {
+export function environmentVars(xPc: number, yPc: number, t: number, params: EnvParams = IDENTITY_PARAMS, pointer: PointerState = STILL): EnvironmentVars {
   return {
     "--env-x": xPc.toFixed(2),
     "--env-y": yPc.toFixed(2),
     "--env-t": t.toFixed(3),
-    ...ambientVars(xPc, yPc, t),
+    "--env-energy": pointer.energy.toFixed(3),
+    ...ambientVars(xPc, yPc, t, params, pointer),
     ...logoVars(xPc, yPc),
   };
 }
