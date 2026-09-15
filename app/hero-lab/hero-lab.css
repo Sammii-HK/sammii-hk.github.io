@@ -1,0 +1,290 @@
+/* ───────────────────────────────────────────────────────────────────────────
+   /hero-lab  ·  hero typography, lens interaction and motion exploration
+   Dev-only. Nothing here is imported by production routes.
+   Fonts: the site's own Jost (--font-jost) and Inter (--font-inter).
+   Colour: currentColor + opacity, so light/dark come from the existing body.
+   Motion: three languages keyed by [data-motion=design|ai|product].
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.lab-root {
+  --ink: rgb(var(--foreground-rgb));
+  --hair: 1px;
+  /* motion tokens (design is the default language) */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-form: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-slot: linear;
+  color: var(--ink);
+  font-family: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+}
+
+.lab-page { position: relative; }
+
+/* ── shared hero frame ─────────────────────────────────────────────────── */
+.lab-hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 12vh, 9rem) 1.5rem clamp(3rem, 8vh, 6rem);
+}
+@media (max-width: 640px) {
+  .lab-hero { padding: 2.75rem 1.25rem 2.5rem; }
+}
+
+.lab-eyebrow {
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin: 0 0 1.25rem;
+}
+
+.lab-headline {
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4.2vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  max-width: 20ch;
+  margin: 0;
+  text-wrap: balance;
+}
+.lab-word { display: inline-block; white-space: pre; }
+
+.lab-support {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+  line-height: 1.55;
+  max-width: 44ch;
+  margin: 1.5rem 0 0;
+  color: color-mix(in oklab, var(--ink) 62%, transparent);
+}
+
+.lab-route {
+  display: inline-block;
+  margin-top: 2.5rem;
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  text-decoration: none;
+  color: inherit;
+}
+.lab-route:hover, .lab-route:focus-visible { opacity: 0.9; }
+
+/* ── the phrase: one interactive discipline inside prose ───────────────── */
+/* Two underlines painted as backgrounds so they survive line wraps
+   (box-decoration-break: clone): a constant hairline (the idle "this is live"
+   cue) and a solid rule whose width --u (0..1) is the interaction state. The
+   rule's origin is the motion language: left for design and product, centre
+   for ai. */
+.lab-phrase {
+  --u: 0;               /* solid rule extent, 0..1 */
+  --u-state: 0;
+  --uh: 1.5px;          /* solid rule height */
+  --near: 0;
+  --hair-alpha: 0%;      /* idle hairline: off in A and C, faint in B */
+  --rule: currentColor;
+  --origin: 0%;
+  position: relative;
+  display: inline;
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 2px;
+  padding-bottom: 0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image:
+    linear-gradient(var(--rule), var(--rule)),
+    linear-gradient(color-mix(in oklab, currentColor var(--hair-alpha), transparent), color-mix(in oklab, currentColor var(--hair-alpha), transparent));
+  background-repeat: no-repeat;
+  background-position: var(--origin) 100%, 0 100%;
+  background-size: calc(var(--u) * 100%) var(--uh), 100% var(--hair);
+  transition:
+    background-size 320ms var(--ease-form),
+    letter-spacing 220ms var(--ease-form),
+    transform 420ms var(--ease-spring);
+}
+.lab-phrase:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+/* preview: the rule draws in full */
+.lab-phrase[data-state="preview"] { --u: 1; --uh: 2px; }
+
+/* committed: unmistakable but calm — four treatments to compare */
+.lab-phrase[data-state="committed"] { --u: 1; --uh: 2px; font-weight: 600; }
+
+.lab-phrase[data-commit="weight"][data-state="committed"] { --u: 0; }
+
+.lab-phrase[data-commit="marker"][data-state="committed"] { --u: 0; font-weight: 500; }
+.lab-phrase[data-commit="marker"]::before {
+  content: attr(data-index);
+  font-family: var(--font-jost), sans-serif;
+  font-size: 0.55em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  vertical-align: 0.55em;
+  margin-right: 0.35em;
+  opacity: 0;
+  width: 0; display: inline-block; overflow: hidden;
+  transition: opacity 240ms var(--ease-form), width 240ms var(--ease-form);
+}
+.lab-phrase[data-commit="marker"][data-state="committed"]::before,
+.lab-phrase[data-commit="marker"][data-state="preview"]::before { opacity: 0.7; width: 1.4em; }
+
+.lab-phrase[data-commit="env"][data-state="committed"] { font-weight: 500; --rule: color-mix(in oklab, currentColor 45%, rgb(var(--env-c1, 0 45 255))); }
+.lab-phrase[data-commit="env"][data-state="preview"] { --rule: color-mix(in oklab, currentColor 70%, rgb(var(--env-c1, 0 45 255))); }
+
+/* ── motion language: design · things react ────────────────────────────── */
+/* the rule springs out from the left and the phrase lifts a pixel */
+.lab-phrase[data-motion="design"] { transition: background-size 420ms var(--ease-spring), letter-spacing 220ms var(--ease-form), transform 420ms var(--ease-spring); }
+.lab-phrase[data-motion="design"][data-state="preview"] { transform: translateY(-1px); }
+
+/* ── motion language: ai · things form ─────────────────────────────────── */
+/* the rule resolves from the centre outward; tracking settles inward */
+.lab-phrase[data-motion="ai"] { --origin: 50%; transition: background-size 360ms var(--ease-form), letter-spacing 360ms var(--ease-form); }
+.lab-phrase[data-motion="ai"][data-state="preview"] { letter-spacing: 0.006em; }
+
+/* ── motion language: product · things find their place ────────────────── */
+/* hard rule, linear draw from the left, a small structural tick at the origin */
+.lab-phrase[data-motion="product"] { transition: background-size 140ms var(--ease-slot), letter-spacing 0ms; }
+.lab-phrase[data-motion="product"][data-state="preview"]::before,
+.lab-phrase[data-motion="product"][data-state="committed"]::before {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -0.02em;
+  width: 1px; height: 0.55em;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+/* ── headline choreography (on remount, per word) ──────────────────────── */
+.lab-headline[data-motion="design"] .lab-word { animation: lab-rise 480ms var(--ease-spring) both; animation-delay: calc(var(--i) * 28ms); }
+.lab-headline[data-motion="ai"] .lab-word { animation: lab-form 380ms var(--ease-form) both; animation-delay: calc(var(--i) * 34ms); }
+.lab-headline[data-motion="product"] .lab-word { animation: lab-slot 220ms var(--ease-slot) both; animation-delay: calc(var(--i) * 22ms); }
+@keyframes lab-rise { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+@keyframes lab-form { from { opacity: 0; transform: translate(-0.18em, 0.08em); } 60% { opacity: 1; } to { opacity: 1; transform: none; } }
+@keyframes lab-slot { from { opacity: 0; transform: translateX(-0.25em); } to { opacity: 1; transform: none; } }
+
+/* partial treatment: the H1 stays; an interpretive line forms beneath the sentence */
+.lab-annotation-slot { min-height: 3.4em; margin-top: 1rem; }
+.lab-hero .lab-headline.lab-annotation {
+  font-weight: 500;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.4;
+  letter-spacing: 0;
+  max-width: 40ch;
+  min-height: 0;
+  margin: 0;
+  opacity: 0.75;
+}
+
+/* full-H1 treatment reserves three lines so a preview never moves the sentence;
+   the cost is the empty third line in the resting state, visible on purpose */
+.lab-hero[data-preview="full"] .lab-headline { min-height: 3.3lh; }
+
+/* ── composition A · quiet editorial ───────────────────────────────────── */
+.lab-hero-a .lab-headline { max-width: 20ch; font-size: clamp(1.9rem, 4.4vw, 3.75rem); }
+
+/* ── composition B · graphic editorial ─────────────────────────────────── */
+.lab-hero-b { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 900px) {
+  .lab-hero-b { grid-template-columns: 200px 1fr; column-gap: 3.5rem; align-items: start; }
+  .lab-b-aside { padding-top: 0.9rem; position: sticky; top: 2rem; }
+}
+.lab-hero-b .lab-headline { font-size: clamp(2.1rem, 4.8vw, 4rem); max-width: 18ch; letter-spacing: -0.02em; }
+.lab-hero-b .lab-support { max-width: 52ch; }
+.lab-hero-b .lab-phrase { --hair-alpha: 18%; }
+.lab-rule { border: 0; border-top: var(--hair) solid currentColor; opacity: 0.18; margin: 1rem 0; }
+.lab-rule-main { margin: 1.75rem 0 1.5rem; max-width: 52ch; }
+.lab-index { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
+@media (max-width: 899px) { .lab-index { display: none; } }
+.lab-index-item {
+  display: grid; grid-template-columns: 2ch 1fr; column-gap: 0.75rem; align-items: baseline;
+  font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+  opacity: 0.38; position: relative; padding-left: 0;
+  transition: opacity 240ms var(--ease-form), padding-left 320ms var(--ease-form);
+}
+.lab-index-num { font-variant-numeric: tabular-nums; }
+.lab-index-item::before { content: ""; position: absolute; left: -1.25rem; top: 0.55em; height: var(--hair); width: 0; background: currentColor; transition: width 320ms var(--ease-form); }
+.lab-index-item[data-state="preview"] { opacity: 0.8; }
+.lab-index-item[data-state="preview"]::before { width: 0.75rem; }
+.lab-index-item[data-state="committed"] { opacity: 1; }
+.lab-index-item[data-state="committed"]::before { width: 1rem; }
+.lab-index-item[data-motion="design"] { transition-timing-function: var(--ease-spring); }
+.lab-index-item[data-motion="product"] { transition-duration: 120ms; transition-timing-function: linear; }
+
+/* ── composition C · responsive editorial ──────────────────────────────── */
+/* the block drifts against the environment's pointer variables (pure CSS off the
+   provider), each phrase opens its tracking and draws its rule as the pointer nears */
+.lab-c-drift {
+  transform: translate3d(calc((var(--env-x, 50) - 50) * 0.05px), calc((var(--env-y, 50) - 50) * 0.05px), 0);
+  will-change: transform;
+}
+.lab-hero-c .lab-phrase { letter-spacing: calc(var(--near, 0) * 0.025em); --u: max(var(--u-state), calc(var(--near, 0) * 0.75)); --rule: color-mix(in oklab, currentColor calc(100% - var(--near, 0) * 45%), rgb(var(--env-c1, 0 45 255))); }
+.lab-hero-c .lab-phrase[data-state="preview"], .lab-hero-c .lab-phrase[data-state="committed"] { --u-state: 1; }
+@media (hover: none) { .lab-c-drift { transform: none; } }
+
+/* ── condensed navigation prototype ────────────────────────────────────── */
+.lab-nav {
+  display: flex; align-items: baseline; gap: 1.75rem; flex-wrap: wrap;
+  padding: 0.8rem 1.5rem;
+  border-bottom: var(--hair) solid color-mix(in oklab, var(--ink) 12%, transparent);
+  background: color-mix(in oklab, rgb(var(--background-end-rgb)) 80%, transparent);
+  backdrop-filter: blur(6px);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.lab-nav a { color: inherit; text-decoration: none; }
+.lab-nav-wordmark { font-weight: 600; letter-spacing: 0.14em; }
+.lab-nav-lenses { display: flex; gap: 1.5rem; align-items: baseline; }
+.lab-nav-phrase { font-weight: 500; opacity: 0.55; --u: 0; --hair-alpha: 0%; padding-bottom: 0.3em; }
+.lab-nav-phrase[data-state="preview"] { opacity: 0.9; --u: 1; }
+.lab-nav-phrase[data-state="committed"] { opacity: 1; font-weight: 600; --u: 1; }
+.lab-nav-labs { margin-left: auto; opacity: 0.55; }
+.lab-nav-labs:hover, .lab-nav-labs:focus-visible { opacity: 1; }
+.lab-short { display: none; }
+@media (max-width: 640px) {
+  .lab-nav { gap: 0.75rem 1rem; padding: 0.7rem 1.25rem 0; }
+  .lab-nav-lenses {
+    order: 3; flex-basis: 100%; gap: 1.25rem; overflow-x: auto; scrollbar-width: none;
+    padding: 0.35rem 0 0.7rem; white-space: nowrap;
+    mask-image: linear-gradient(90deg, #000 88%, transparent);
+  }
+  .lab-nav-lenses::-webkit-scrollbar { display: none; }
+  .lab-long { display: none; }
+  .lab-short { display: inline; }
+}
+
+/* ── the rest of the page, as a placeholder so hero height can be judged ── */
+.lab-below { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem 30vh; }
+.lab-below-label {
+  border-top: var(--hair) solid currentColor; opacity: 0.25; padding-top: 0.75rem;
+  font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase;
+}
+
+/* ── playground controls (dev chrome, not part of the design) ──────────── */
+.lab-controls {
+  position: fixed; right: 12px; bottom: 12px; z-index: 50;
+  display: grid; gap: 6px; padding: 10px 12px; width: 260px;
+  font-family: var(--font-inter), system-ui, sans-serif; font-size: 12px;
+  background: color-mix(in oklab, rgb(var(--background-end-rgb)) 92%, transparent);
+  border: 1px solid color-mix(in oklab, var(--ink) 15%, transparent);
+  border-radius: 8px; backdrop-filter: blur(8px);
+}
+.lab-controls label { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.lab-controls select { font: inherit; max-width: 160px; background: transparent; color: inherit; border: 1px solid color-mix(in oklab, var(--ink) 20%, transparent); border-radius: 4px; padding: 2px 4px; }
+.lab-state { opacity: 0.6; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) { .lab-controls { width: calc(100% - 24px); } }
+
+/* ── reduced motion: state stays legible, choreography goes immediate ───── */
+@media (prefers-reduced-motion: reduce) {
+  .lab-phrase, .lab-phrase::after, .lab-phrase::before, .lab-index-item, .lab-index-item::before { transition-duration: 120ms !important; transition-timing-function: linear !important; transform: none !important; }
+  .lab-headline .lab-word { animation: lab-fade 120ms linear both !important; animation-delay: 0ms !important; }
+  .lab-c-drift { transform: none !important; }
+}
+.lab-page[data-reduced="1"] .lab-phrase, .lab-page[data-reduced="1"] .lab-phrase::after, .lab-page[data-reduced="1"] .lab-phrase::before,
+.lab-page[data-reduced="1"] .lab-index-item, .lab-page[data-reduced="1"] .lab-index-item::before { transition-duration: 120ms !important; transition-timing-function: linear !important; transform: none !important; }
+.lab-page[data-reduced="1"] .lab-headline .lab-word { animation: lab-fade 120ms linear both !important; animation-delay: 0ms !important; }
+.lab-page[data-reduced="1"] .lab-c-drift { transform: none !important; }
+@keyframes lab-fade { from { opacity: 0; } to { opacity: 1; } }
