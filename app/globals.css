@@ -112,7 +112,21 @@ body {
   --env-logo-b: 255 0 0;
   --env-logo-c: 0 0 255;
 
-  /* Ambient background: four drifting radial blobs (was backgroundGradientCreator). */
+  /* The ambient layer below is a negative-z child; isolate so it paints above
+     this element's (transparent) ground and below the content, not below the page. */
+  position: relative;
+  isolation: isolate;
+}
+
+/* Ambient background: four drifting radial blobs (was backgroundGradientCreator).
+   Since the document scrolls (Phase 2C) this lives on a fixed, viewport-sized
+   layer so the blobs stay viewport-relative, as they were when the container
+   was viewport-high. It inherits the --env-* variables from [data-env]. */
+.env-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(ellipse at var(--env-p1), rgb(var(--env-c1) / 15%), transparent 65%),
     radial-gradient(ellipse at var(--env-p2), rgb(var(--env-c2) / 15%), transparent 65%),

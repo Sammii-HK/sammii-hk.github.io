@@ -63,3 +63,25 @@ No-JS first paint (JavaScript disabled): computed background and logo strings id
 2. Project screenshots render as broken images when the static export is served locally in both versions (next/image default loader on `output: 'export'`). Not introduced here; worth checking on the live GitHub Pages build before Phase 2E relies on media.
 3. `out/` is tracked in git and is rewritten by every build. Left out of the redesign commits.
 4. The blog keeps its own, simpler pointer system through `Navbar`'s legacy props; consolidating it onto the provider is optional later work.
+
+## Phase 2C addendum: document scrolling
+
+The homepage now scrolls as a normal document (`docs/redesign-plan-2026-09.md` §2). Two environment adaptations, both minimal:
+
+- **Scroll source.** `EnvironmentProvider` gained `scrollSelector="document"` (now the default): it listens to `window` scroll and reads `document.scrollingElement`. The wave formula is untouched; at 100% scroll `--env-y` is 80.00 exactly as the formula predicts (sin(6π)·50+50 + cos(4π)·30). The selector mode for an internal scroller is kept for parity runs against the old build.
+- **Ambient layer.** The four blobs were positioned in percentages of a viewport-high container. On an 8,000 px document they would have stretched across the whole page, so the `background` moved from `[data-env]` to `.env-ambient`, a `position: fixed; inset: 0; z-index: -1` layer inside the provider (which is `isolation: isolate` so the layer paints above the provider's ground and below content, not below the page). Same variables, same formula, same opacities; the blobs are viewport-relative again. Verified at scroll 0 and 4,000 px.
+
+Not identical, by design: the pointer's Y input used to be measured against a viewport-high container that never scrolled; it is still viewport-relative (clientY / innerHeight), so nothing changed there. The old scroll wave responded to scrolling the grid; it now responds to scrolling the page. Same curve, different scroller.
+
+| Metric (same harness) | 2B | 2C |
+|---|---|---|
+| Homepage JS transferred | 399.6 kB | 398.6 kB |
+| Route `/` first-load JS | 121 kB | 120 kB |
+| LCP | 224 ms | 188 ms |
+| CLS | 0 | 0 |
+| React commits during pointer movement | 0 | 0 |
+| rAF interval p50 / p95 / max | 34.4 / 66.8 / 83.3 ms | 16.7 / 33.4 / 49.4 ms |
+
+Single headless runs; directionally no regression from the document structure.
+
+Deploy-target correction: sammii.dev is served by Vercel (image URLs carry a `dpl_` id and `/_next/image` is live), not by the GitHub Pages workflow in the repo. `next.config.mjs` now sets `images.unoptimized` only off-Vercel so local dev and static previews render; production output is unchanged.

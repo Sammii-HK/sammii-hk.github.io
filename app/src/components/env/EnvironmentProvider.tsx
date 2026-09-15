@@ -38,13 +38,17 @@ export function EnvironmentProvider({
   children,
   className,
   lens = "design",
-  scrollSelector = "#project-grid-scroll",
+  scrollSelector = "document",
 }: {
   children: ReactNode;
   className?: string;
   lens?: Lens;
-  /** The element whose scroll drives the wave. Falls back to the document scroller once the page scrolls normally (Phase 2C). */
-  scrollSelector?: string;
+  /**
+   * What drives the scroll wave. "document" (default since Phase 2C) listens to
+   * window scroll and reads the document scroller; a CSS selector targets an
+   * internal scroll container (the pre-2C layout).
+   */
+  scrollSelector?: "document" | string;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -98,7 +102,10 @@ export function EnvironmentProvider({
     let raf: number | null = null;
     let retry: ReturnType<typeof setTimeout> | null = null;
 
+    const isDocument = scrollSelector === "document";
+
     const findScrollable = (): HTMLElement | null => {
+      if (isDocument) return (document.scrollingElement as HTMLElement | null) ?? document.documentElement;
       const el = root.querySelector(scrollSelector) as HTMLElement | null;
       if (!el) return null;
       const style = getComputedStyle(el);
@@ -106,6 +113,8 @@ export function EnvironmentProvider({
       return scrolls && el.scrollHeight > el.clientHeight ? el : null;
     };
 
+    // The wave itself is unchanged: Y and X follow sine waves of scroll %.
+    // Only the source of the scroll position moved from the grid to the document.
     const handleScroll = () => {
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
@@ -128,6 +137,18 @@ export function EnvironmentProvider({
         scrollTimeout = setTimeout(() => { isScrolling.current = false; }, 500);
       });
     };
+
+    if (isDocument) {
+      // Scroll events for the document scroller fire on window, not the element.
+      attached = findScrollable();
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      handleScroll();
+      return () => {
+        if (raf) cancelAnimationFrame(raf);
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
 
     const attach = () => {
       const el = findScrollable();

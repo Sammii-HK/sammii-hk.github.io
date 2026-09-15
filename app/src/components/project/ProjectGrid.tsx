@@ -146,40 +146,12 @@ export const ProjectGrid = () => {
     .sort((a, b) => featuredRank(a.id) - featuredRank(b.id));
   const products = projects.filter((p) => p.type === "product" && !p.featured);
   const experiments = projects.filter((p) => p.type === "experiment");
-  const caseStudyCount = projects.filter((p) => !!p.caseStudy).length;
 
   return (
     <>
-      <div
-        className="w-full h-full px-2 sm:px-4 md:px-6 py-4 sm:py-6 overflow-y-auto scroll-smooth custom-scrollbar"
-        id="project-grid-scroll"
-        role="region"
-        aria-label="Project gallery"
-      >
-        <div className="max-w-7xl mx-auto pb-12 flex flex-col gap-8">
-          {/* About */}
-          <section className="px-1 pt-2 sm:pt-4 pb-2">
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-black dark:text-white mb-2">
-              AI product engineer and design engineer.
-            </h1>
-            <p className="text-sm sm:text-base text-black/60 dark:text-white/60 leading-relaxed max-w-2xl">
-              I build AI-native products end to end: the agent systems and MCP tooling, and the interface that makes them usable.
-              Background in design and visual communication, now shipping autonomous multi-agent pipelines, published developer
-              tools, and full-stack products. Everything below is something I built.
-            </p>
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-3 text-xs sm:text-sm">
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-black/15 dark:border-white/15 text-black/70 dark:text-white/70">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                Open to roles and contract · remote or London
-              </span>
-            </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-1 mt-4 text-xs sm:text-sm text-black/40 dark:text-white/35">
-              <span>{featured.length + products.length} products</span>
-              <span>{experiments.length} experiments</span>
-              <span>{caseStudyCount} case studies</span>
-            </div>
-          </section>
-
+      {/* Since Phase 2C the document scrolls; this is a plain block, not a scroller. */}
+      <div className="w-full" role="region" aria-label="Project gallery">
+        <div className="pb-4 flex flex-col gap-8">
           {featured.length > 0 && (
             <div>
               <SectionLabel>Featured work</SectionLabel>

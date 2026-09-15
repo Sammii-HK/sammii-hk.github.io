@@ -50,7 +50,7 @@ async function shot(name, { width = 1440, height = 900, colorScheme = "light", r
   const metrics = await page.evaluate(() => {
     const scroller = document.querySelector("#project-grid-scroll") || document.scrollingElement;
     const cs = (el) => (el ? getComputedStyle(el) : null);
-    const bg = document.querySelector("#project-grid-scroll")?.closest("div[style]") ?? document.querySelector("main main")?.parentElement;
+    const bg = document.querySelector(".env-ambient") ?? document.querySelector("[data-env]") ?? document.querySelector("#project-grid-scroll")?.closest("div[style]");
     return {
       containerBg: cs(bg)?.backgroundImage?.slice(0, 160),
       logoBg: cs(document.querySelector(".logo"))?.backgroundImage?.slice(0, 120),
@@ -70,7 +70,11 @@ await shot("03-cursor-right-bottom", { act: move(1432, 892) });
 await shot("04-cursor-moving", { act: async (page) => { await page.mouse.move(100, 100); await page.mouse.move(1300, 800, { steps: 40 }); await page.waitForTimeout(80); } });
 await shot("05-grid-scrolled", { act: async (page) => {
   await page.mouse.move(720, 450);
-  await page.evaluate(() => { const s = document.querySelector("#project-grid-scroll") || document.scrollingElement; s.scrollTop = 900; s.dispatchEvent(new Event("scroll")); });
+  await page.evaluate(() => {
+    const inner = document.querySelector("#project-grid-scroll");
+    if (inner) { inner.scrollTop = 900; inner.dispatchEvent(new Event("scroll")); }
+    else window.scrollTo(0, 900); // document scroll (Phase 2C+): the scroll event fires on window
+  });
   await page.waitForTimeout(700);
 } });
 await shot("06-card-hover", { act: async (page) => {
