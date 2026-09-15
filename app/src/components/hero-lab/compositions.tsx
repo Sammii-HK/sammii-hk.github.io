@@ -10,11 +10,16 @@ export type PreviewTreatment = "full" | "partial";
 type CompositionProps = LensProps & {
   headline: string;
   previewTreatment: PreviewTreatment;
+  /** Once a lens has been clicked, the H1 stays locked to its statement. */
+  locked: boolean;
 };
 
-/** H1 text for the current state: preview statement (full) or the base headline. */
-function h1For(headline: string, preview: Lens | null, treatment: PreviewTreatment) {
-  return treatment === "full" && preview ? PREVIEW[preview] : headline;
+/** H1 text: hover/focus previews a statement; a click locks the committed one in; otherwise the base headline. */
+function h1For(headline: string, lens: LensProps & { locked: boolean }, treatment: PreviewTreatment) {
+  if (treatment !== "full") return headline;
+  if (lens.preview) return PREVIEW[lens.preview];
+  if (lens.locked) return PREVIEW[lens.committed];
+  return headline;
 }
 
 /** Partial treatment: the H1 stays, an interpretive line forms beneath the sentence. */
@@ -27,11 +32,11 @@ function Annotation({ preview, motion }: { preview: Lens | null; motion: Lens })
 }
 
 // ── A · Quiet editorial ──────────────────────────────────────────────────
-export function CompositionA({ headline, previewTreatment, ...lens }: CompositionProps) {
+export function CompositionA({ headline, previewTreatment, locked, ...lens }: CompositionProps) {
   return (
     <section className="lab-hero lab-hero-a" data-composition="a" data-preview={previewTreatment}>
       <p className="lab-eyebrow">Sammii Kellow</p>
-      <Headline text={h1For(headline, lens.preview, previewTreatment)} motion={lens.motion} />
+      <Headline text={h1For(headline, { ...lens, locked }, previewTreatment)} motion={lens.motion} />
       <Support {...lens} />
       {previewTreatment === "partial" && <Annotation preview={lens.preview} motion={lens.motion} />}
       <a href="#work" className="lab-route">
@@ -47,7 +52,7 @@ export function CompositionA({ headline, previewTreatment, ...lens }: Compositio
 // right, off the same baseline. The index mirrors the sentence's phrases and
 // lights up with them, so structure reflects the prose rather than duplicating
 // it as controls.
-export function CompositionB({ headline, previewTreatment, ...lens }: CompositionProps) {
+export function CompositionB({ headline, previewTreatment, locked, ...lens }: CompositionProps) {
   return (
     <section className="lab-hero lab-hero-b" data-composition="b" data-preview={previewTreatment}>
       <div className="lab-b-aside">
@@ -68,7 +73,7 @@ export function CompositionB({ headline, previewTreatment, ...lens }: Compositio
         </ol>
       </div>
       <div className="lab-b-main">
-        <Headline text={h1For(headline, lens.preview, previewTreatment)} motion={lens.motion} />
+        <Headline text={h1For(headline, { ...lens, locked }, previewTreatment)} motion={lens.motion} />
         <hr className="lab-rule lab-rule-main" />
         <Support {...lens} />
         {previewTreatment === "partial" && <Annotation preview={lens.preview} motion={lens.motion} />}
@@ -86,7 +91,7 @@ export function CompositionB({ headline, previewTreatment, ...lens }: Compositio
 // each phrase carries --near (0..1), written from pointer distance without
 // React state, which opens its tracking and draws its underline as the
 // pointer approaches. Stationary, it is Composition A.
-export function CompositionC({ headline, previewTreatment, ...lens }: CompositionProps) {
+export function CompositionC({ headline, previewTreatment, locked, ...lens }: CompositionProps) {
   const root = useRef<HTMLElement>(null);
   useEffect(() => {
     const el = root.current;
@@ -115,7 +120,7 @@ export function CompositionC({ headline, previewTreatment, ...lens }: Compositio
     <section ref={root} className="lab-hero lab-hero-c" data-composition="c" data-preview={previewTreatment}>
       <div className="lab-c-drift">
         <p className="lab-eyebrow">Sammii Kellow</p>
-        <Headline text={h1For(headline, lens.preview, previewTreatment)} motion={lens.motion} />
+        <Headline text={h1For(headline, { ...lens, locked }, previewTreatment)} motion={lens.motion} />
         <Support {...lens} />
         {previewTreatment === "partial" && <Annotation preview={lens.preview} motion={lens.motion} />}
         <a href="#work" className="lab-route">

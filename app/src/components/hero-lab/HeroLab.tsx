@@ -19,17 +19,18 @@ function pick<T extends string>(v: string | null, allowed: readonly T[], fallbac
  * /hero-lab controller. Every control is also a query parameter so states
  * can be screenshotted: ?comp=a|b|c &h1=candidate|alt1|alt2 &preview=full|partial
  * &commit=underline|weight|marker|env &lens=design|ai|product &hover=design|ai|product
- * &reduced=1 &nav=1 (show the condensed nav prototype at the top).
+ * &reduced=1 &nav=1 (show the condensed nav prototype at the top) &locked=1 (H1 already locked to the lens).
+ * Current defaults are Sammii's picks from the first review: A, "ambiguous → polished", full H1, env accent.
  */
 export function HeroLab() {
   const q = useSearchParams();
   const [comp, setComp] = useState<Comp>(pick<Comp>(q.get("comp"), ["a", "b", "c"], "a"));
-  const [h1, setH1] = useState<HeadlineKey>(pick<HeadlineKey>(q.get("h1"), ["candidate", "alt1", "alt2"], "candidate"));
+  const [h1, setH1] = useState<HeadlineKey>(pick<HeadlineKey>(q.get("h1"), ["candidate", "alt1", "alt2"], "alt2"));
   const [previewTreatment, setPreviewTreatment] = useState<PreviewTreatment>(pick<PreviewTreatment>(q.get("preview"), ["full", "partial"], "full"));
-  const [commitTreatment, setCommitTreatment] = useState<CommitTreatment>(pick<CommitTreatment>(q.get("commit"), ["underline", "weight", "marker", "env"], "underline"));
+  const [commitTreatment, setCommitTreatment] = useState<CommitTreatment>(pick<CommitTreatment>(q.get("commit"), ["underline", "weight", "marker", "env"], "env"));
   const [reduced, setReduced] = useState(q.get("reduced") === "1");
   const [showNav, setShowNav] = useState(q.get("nav") === "1");
-  const lab = useLensLab(pick<Lens>(q.get("lens"), ["design", "ai", "product"], "design"));
+  const lab = useLensLab(pick<Lens>(q.get("lens"), ["design", "ai", "product"], "design"), q.get("locked") === "1");
 
   // Scripted hover state for screenshots (?hover=ai). Pointer/focus still override.
   const forcedHover = pick<Lens | "">(q.get("hover"), ["design", "ai", "product", ""], "");
@@ -44,7 +45,7 @@ export function HeroLab() {
     onPreview: lab.previewOn,
     onPreviewEnd: () => (forcedHover ? lab.previewOn(forcedHover) : lab.previewOff()),
   };
-  const compProps = { ...lensProps, headline: HEADLINES[h1], previewTreatment };
+  const compProps = { ...lensProps, headline: HEADLINES[h1], previewTreatment, locked: lab.locked };
   const Composition = comp === "a" ? CompositionA : comp === "b" ? CompositionB : CompositionC;
 
   return (
@@ -90,7 +91,7 @@ export function HeroLab() {
         </label>
         <label><input type="checkbox" checked={reduced} onChange={(e) => setReduced(e.target.checked)} /> Emulate reduced motion</label>
         <label><input type="checkbox" checked={showNav} onChange={(e) => setShowNav(e.target.checked)} /> Condensed nav</label>
-        <span className="lab-state">lens: {lab.committed}{lab.preview ? ` · preview: ${lab.preview}` : ""}</span>
+        <span className="lab-state">lens: {lab.committed}{lab.locked ? " (locked)" : ""}{lab.preview ? ` · preview: ${lab.preview}` : ""}</span>
       </form>
     </EnvironmentProvider>
   );
