@@ -38,6 +38,9 @@ export const SelectedWork = () => {
           ))}
         </ol>
       </div>
+      <p className="work-more">
+        <a href="/work/">More work, by kind <span aria-hidden="true">→</span></a>
+      </p>
     </section>
   );
 };

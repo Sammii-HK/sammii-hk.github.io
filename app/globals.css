@@ -792,3 +792,22 @@ body {
 .contact-links a:hover { text-decoration-color: currentColor; }
 .contact-links a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 
+/* ── /work temporary index (Phase 2H) ────────────────────────────────────── */
+.work-index { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; width: 100%; }
+.work-index-head { margin-bottom: 2.5rem; }
+.work-index-title { margin: 0 0 0.75rem; font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.1; letter-spacing: -0.015em; max-width: 22ch; text-wrap: balance; }
+.work-index-lead { margin: 0; font-family: var(--font-inter), system-ui, sans-serif; font-size: 1rem; line-height: 1.55; max-width: 56ch; color: color-mix(in oklab, currentColor 65%, transparent); }
+.work-index-lead a { color: inherit; text-decoration: underline; text-underline-offset: 0.3em; }
+.work-index-group { margin-top: 2.5rem; }
+.work-index-count { font-variant-numeric: tabular-nums; margin-left: 0.5rem; opacity: 0.6; }
+.work-index-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.work-index-card { background: color-mix(in oklab, currentColor 3%, transparent); border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.work-more { max-width: 1120px; margin: 2rem auto 0; padding: 0 1.5rem; }
+.work-more a { color: inherit; text-decoration: none; font-weight: 500; font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; }
+.work-more a:hover, .work-more a:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 0.35em; }
+.work-more a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+.work-index-card--linked { cursor: pointer; transition: border-color 160ms ease; }
+.work-index-card--linked:hover { border-color: color-mix(in oklab, currentColor 28%, transparent); }
+.work-index-case { display: block; margin-top: auto; padding: 0.75rem 1rem; border-top: 1px solid color-mix(in oklab, currentColor 8%, transparent); font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.8125rem; color: inherit; text-decoration: none; opacity: 0.7; }
+.work-index-case:hover, .work-index-case:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 0.3em; }
+.work-index-case:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; }

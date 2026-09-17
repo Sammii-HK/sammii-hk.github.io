@@ -2,6 +2,7 @@
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import type { Lens } from "../../../common/data/projects";
 import { DEFAULT_LENS, displayLens, lensFromSearch, urlForLens } from "../../../lib/lens-state";
+import { resolveHashTarget } from "../../../lib/lenses";
 
 /**
  * One source of truth for the committed lens.
@@ -51,6 +52,12 @@ export function LensProvider({ children }: { children: ReactNode }) {
     instantTimer.current = requestAnimationFrame(() => {
       instantTimer.current = requestAnimationFrame(() => setInstant(false));
     });
+  }, []);
+
+  // Legacy "#gamut" deep links (old modal) → the case study, or /work.
+  useEffect(() => {
+    const target = window.location.hash ? resolveHashTarget(window.location.hash) : null;
+    if (target) window.location.replace(target);
   }, []);
 
   // Initial URL → state, before paint, so no entrance animation fires.
