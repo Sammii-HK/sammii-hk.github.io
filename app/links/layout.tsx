@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Links — sammii.dev',
     description: 'Find Sammii on GitHub, LinkedIn, X, Bluesky, Instagram and TikTok.',
-    creator: '@sammiihk',
+    creator: '@technicalyblond',
   },
 };
 
