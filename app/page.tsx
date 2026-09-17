@@ -17,7 +17,7 @@ const personSchema = {
   description: 'Founding Design Engineer in London. Building products, design systems, autonomous AI pipelines, and creative tools.',
   sameAs: [
     'https://github.com/sammii-hk',
-    'https://x.com/sammiihk',
+    'https://x.com/technicalyblond',
     'https://www.linkedin.com/in/sammii',
   ],
 };
