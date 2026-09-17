@@ -762,3 +762,33 @@ body {
 .labs-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 .labs-status { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; }
 @media (prefers-reduced-motion: reduce) { .labs-boundary { cursor: default; } }
+
+/* ── About · Experience · Contact (Phase 2G) ──────────────────────────────
+   Same grammar as the rest of the page: eyebrow heading, editorial measure,
+   tabular numerals, currentColor + opacity. */
+.section-eyebrow { font-weight: 500; font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.45; margin: 0 0 1.5rem; }
+.about, .experience, .contact { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+@media (max-width: 640px) { .about, .experience, .contact { padding: 2rem 1.25rem; } }
+
+.about-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2rem 4rem; align-items: start; }
+@media (max-width: 899px) { .about-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+.about-lead { margin: 0; font-weight: 600; font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.3; letter-spacing: -0.01em; text-wrap: balance; max-width: 26ch; }
+.about-body { display: grid; gap: 1rem; font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif; font-size: 1rem; line-height: 1.6; max-width: 58ch; color: color-mix(in oklab, currentColor 72%, transparent); }
+.about-body p { margin: 0; }
+
+.experience-list { list-style: none; margin: 0; padding: 0; max-width: 840px; }
+.experience-row { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 0.25rem 1.5rem; padding: 1rem 0; border-top: 1px solid color-mix(in oklab, currentColor 12%, transparent); }
+.experience-row:last-child { border-bottom: 1px solid color-mix(in oklab, currentColor 12%, transparent); }
+.experience-when { display: flex; gap: 0.35rem; font-variant-numeric: tabular-nums; font-size: 0.8125rem; opacity: 0.5; padding-top: 0.15rem; }
+.experience-main { display: grid; gap: 0.2rem; }
+.experience-role { font-weight: 600; font-size: 1.0625rem; }
+.experience-org { font-size: 0.875rem; opacity: 0.6; }
+.experience-note { font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.9375rem; line-height: 1.5; color: color-mix(in oklab, currentColor 62%, transparent); max-width: 60ch; margin-top: 0.2rem; }
+@media (max-width: 640px) { .experience-row { grid-template-columns: 1fr; gap: 0.1rem; } .experience-when { padding-top: 0; } }
+
+.contact-line { margin: 0 0 1.25rem; font-family: var(--font-inter), system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.55; max-width: 48ch; color: color-mix(in oklab, currentColor 72%, transparent); }
+.contact-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 2rem; }
+.contact-links a { color: inherit; text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: color-mix(in oklab, currentColor 35%, transparent); font-weight: 500; }
+.contact-links a:hover { text-decoration-color: currentColor; }
+.contact-links a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+
