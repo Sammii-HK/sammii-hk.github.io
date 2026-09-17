@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { Reference as ReferenceModel } from "../../../lib/selected-work";
 
 /**
@@ -5,7 +6,7 @@ import type { Reference as ReferenceModel } from "../../../lib/selected-work";
  * framing and the emphasis tokens. Deliberately a different system from the
  * chapters: no media, no card, dense enough to scan on a phone.
  */
-export function Reference({ reference }: { reference: ReferenceModel }) {
+function ReferenceInner({ reference }: { reference: ReferenceModel }) {
   const { project, index, summary, emphasis, href } = reference;
   return (
     <a href={href} className="reference" aria-labelledby={`reference-${project.id}`}>
@@ -25,3 +26,5 @@ export function Reference({ reference }: { reference: ReferenceModel }) {
     </a>
   );
 }
+
+export const Reference = memo(ReferenceInner, (a, b) => a.reference.project.id === b.reference.project.id && a.reference.index === b.reference.index && a.reference.summary === b.reference.summary);

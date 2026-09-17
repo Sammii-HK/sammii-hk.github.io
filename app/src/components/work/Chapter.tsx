@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Image from "next/image";
 import type { Lens } from "../../../common/data/projects";
 import type { Chapter as ChapterModel } from "../../../lib/selected-work";
@@ -45,7 +46,7 @@ function kicker(chapter: ChapterModel): string {
   return `${kind} · ${stack}`;
 }
 
-export function Chapter({ chapter, lens }: { chapter: ChapterModel; lens: Lens }) {
+function ChapterInner({ chapter, lens }: { chapter: ChapterModel; lens: Lens }) {
   const { project, index, layout, summary, emphasis, href, liveUrl } = chapter;
   const Visual = VISUALS[project.id] ?? (({ image, title, priority }: VisualProps) => <Screenshot image={image} title={title} priority={priority} />);
   const image = getImagePath(project.id);
@@ -86,3 +87,7 @@ export function Chapter({ chapter, lens }: { chapter: ChapterModel; lens: Lens }
     </article>
   );
 }
+
+// Memoised: hover previews change the lens context every enter/leave; the
+// chapters only change when the committed lens does.
+export const Chapter = memo(ChapterInner, (a, b) => a.lens === b.lens && a.chapter.project.id === b.chapter.project.id && a.chapter.index === b.chapter.index);
