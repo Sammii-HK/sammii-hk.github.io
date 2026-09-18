@@ -78,7 +78,7 @@ describe("Selected Work editorial contract", () => {
       }
     }
     expect(projectHref(projects.find((p) => p.id === "gamut")!)).toBe("/projects/gamut/");
-    // Strata: case study is the destination, its preview-deployment live link is not surfaced
-    expect(selectedWorkModel("design").chapters[0].liveUrl).toBeUndefined();
+    // Strata has a production domain now, so its chapter carries the live link
+    expect(selectedWorkModel("design").chapters[0].liveUrl).toBe("https://strata.sammii.dev");
   });
 });

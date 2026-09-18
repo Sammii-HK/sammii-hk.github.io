@@ -48,9 +48,8 @@ export function projectHref(p: Project): string {
   return p.liveUrl ?? "#";
 }
 
-/** Strata's live link is a preview deployment; the case study is the destination (brief amendment 4). */
+/** Strata now has a production domain (strata.sammii.dev), so every chapter may show its live link. */
 function liveUrlFor(p: Project): string | undefined {
-  if (p.id === "strata") return undefined;
   return p.liveUrl;
 }
 

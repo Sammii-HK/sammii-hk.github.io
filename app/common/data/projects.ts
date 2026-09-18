@@ -171,7 +171,7 @@ export const projects: Project[] = [
       product: { rank: 3, tier: 'featured', summary: 'One timeline engine sold two ways: Cosmos free, History as a paid pack through RevenueCat, shipped as a React Native app.', emphasis: ['React Native', 'RevenueCat', 'one engine, two products'] },
     },
     featured: true,
-    liveUrl: 'https://strata-jam1xzj8w-sammiis-projects.vercel.app',
+    liveUrl: 'https://strata.sammii.dev',
     caseStudy: 'strata',
     highlights: [
       'Single React Native Skia canvas driving two log-scaled zoom/pan/drag lenses',
