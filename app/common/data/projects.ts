@@ -1,4 +1,45 @@
-type Project = {
+// ── Lenses ───────────────────────────────────────────────────────────────
+// One body of work, read through three editorial lenses. Design engineering is
+// the default. See docs/redesign-plan-2026-09.md §6 and app/lib/lenses.ts.
+export type Lens = "design" | "ai" | "product";
+
+// Where a project sits within a lens. `work` = only on /work for that lens.
+export type Tier = "featured" | "supporting" | "work";
+
+// Where a project lives at all.
+//   home    — homepage candidate (still appears on /work)
+//   work    — /work only
+//   labs    — belongs to labs.sammii.dev; listed under Labs until that exists
+//   archive — kept, never promoted
+export type Home = "home" | "work" | "labs" | "archive";
+
+// /work grouping (temporary index, see plan §10)
+export type WorkGroup = "products" | "tools" | "ai" | "earlier";
+
+export type LabsKind = "experiment" | "study" | "lab-project";
+
+// Live homepage fragments the architecture can host. V1 ships only "gamut-palette".
+export type Fragment =
+  | "gamut-palette"
+  | "strata-scale"
+  | "kern-type"
+  | "lattiq-editor";
+
+// `lens + tier + rank` fully determines editorial position. `rank` is the order
+// WITHIN a tier (featured 1..3, supporting 1..n); the work tier is unranked.
+export type LensFocus =
+  | { tier: "work" }
+  | {
+      tier: "featured" | "supporting";
+      /** 1 = first within this tier. */
+      rank: number;
+      /** One-line, lens-specific. Falls back to `info` when absent. Must stay true. */
+      summary?: string;
+      /** Short metadata tokens the lens should foreground. */
+      emphasis?: string[];
+    };
+
+export type Project = {
   id: string;
   title: string;
   techStack: string;
@@ -7,9 +48,18 @@ type Project = {
   liveUrl?: string;
   highlights?: string[];
   caseStudy?: string;
-  featured?: boolean;
   privateRepo?: boolean;
   noRepo?: boolean;
+  home: Home;
+  group: WorkGroup;
+  labs?: { kind: LabsKind; superseded?: boolean };
+  fragment?: Fragment;
+  /**
+   * Missing lens = `work` tier for that lens. Homepage projects define all three.
+   * A `home: "work"` project may still define a supporting tier for one lens
+   * (iPrep under AI) without becoming a homepage project elsewhere.
+   */
+  focus?: Partial<Record<Lens, LensFocus>>;
 };
 
 export const projects: Project[] = [
@@ -20,7 +70,14 @@ export const projects: Project[] = [
     techStack: 'Next.js, TypeScript, OKLCH, Tailwind CSS',
     info: 'Real-time theme builder powered by OKLCH colour science. Multiple colour scales with semantic token mapping, 11-step palette generation with perceptual lightness curves, sRGB gamut clamping, WCAG contrast checking, live UI preview with light/dark toggle, and export to CSS variables, Tailwind config, JSON, or Style Dictionary tokens.',
     type: 'product',
-    featured: true,
+    home: 'home',
+    group: 'tools',
+    fragment: 'gamut-palette',
+    focus: {
+      design: { rank: 3, tier: 'featured', summary: 'OKLCH as a working tool: 11-step scales on perceptual lightness curves, sRGB gamut clamping and WCAG checks, previewed live in light and dark.', emphasis: ['OKLCH', 'perceptual scales', 'WCAG contrast'] },
+      ai: { tier: 'work' },
+      product: { rank: 1, tier: 'supporting', summary: 'A theme builder whose output drops straight into a codebase: CSS variables, Tailwind config, JSON or Style Dictionary tokens.', emphasis: ['token export', 'Style Dictionary'] },
+    },
     liveUrl: 'https://gamut.sammii.dev',
     caseStudy: 'gamut',
     highlights: [
@@ -37,7 +94,14 @@ export const projects: Project[] = [
     techStack: 'Next.js, Tailwind CSS, Framer Motion, TypeScript',
     info: 'Interactive typography explorer for variable fonts, optical sizing, and fluid type scales. Features real-time axis manipulation with spring animations, side-by-side font comparison, clamp() CSS generation, URL state persistence for shareable configs, and a classic specimen sheet. Includes Inter, Fraunces, Recursive, Roboto Flex, Playfair Display, and Source Serif 4.',
     type: 'product',
-    featured: true,
+    home: 'home',
+    group: 'tools',
+    fragment: 'kern-type',
+    focus: {
+      design: { rank: 2, tier: 'featured', summary: 'Variable-font axes you drag, spring-animated, with side-by-side comparison and a proper specimen sheet. Holding the Type Lab slot until Type Lab exists.', emphasis: ['variable fonts', 'optical sizing', 'spring motion'] },
+      ai: { tier: 'work' },
+      product: { rank: 4, tier: 'supporting', summary: 'Typography tooling that outputs the CSS you would ship: fluid clamp() scales, with the whole configuration held in the URL.', emphasis: ['clamp() output', 'URL state'] },
+    },
     liveUrl: 'https://kern.sammii.dev',
     caseStudy: 'kern',
     highlights: [
@@ -51,13 +115,18 @@ export const projects: Project[] = [
     id: 'prism',
     title: 'Prism',
     techStack: 'Next.js, Framer Motion, Spring Physics, GLSL, TypeScript',
-    info: 'Design engineering component library with an autonomous daily build pipeline. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
+    info: 'Design engineering component library. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
     type: 'product',
-    featured: true,
+    home: 'home',
+    group: 'tools',
+    focus: {
+      design: { rank: 1, tier: 'supporting', summary: 'A component library built on spring physics: cursor-reactive buttons, spotlight cards, ripple effects and a shader playground.', emphasis: ['spring physics', 'GLSL', 'component API'] },
+      ai: { tier: 'work' },
+      product: { tier: 'work' },
+    },
     liveUrl: 'https://prism.sammii.dev',
     caseStudy: 'prism',
     highlights: [
-      'Autonomous daily pipeline: scout, curate, build, record, and publish a new component',
       'Spring physics and requestAnimationFrame for all animations, no CSS transitions',
       'Cursor-reactive colour system mapping pointer position to pastel RGB channels',
       'GLSL fragment shaders for GPU-accelerated playground experiments',
@@ -69,7 +138,8 @@ export const projects: Project[] = [
     techStack: 'Next.js, TypeScript, Web Workers, Canvas 2D, Zustand, JSZip',
     info: 'Browser-based photo editor for fine art print and t-shirt preparation. Non-destructive grayscale pipeline with interactive curves, threshold knockout with feather control, dual split preview, and batch multi-size export at 300 DPI. All processing runs off-thread via Web Workers with OffscreenCanvas.',
     type: 'product',
-    featured: true,
+    home: 'work',
+    group: 'products',
     liveUrl: 'https://scapestudio.vercel.app',
     caseStudy: 'scapestudio',
     highlights: [
@@ -86,8 +156,15 @@ export const projects: Project[] = [
     techStack: 'React Native, Expo, React Native Skia, RevenueCat',
     info: 'One zoom gesture, every scale. A single Skia-rendered timeline engine powers two lenses: Cosmos zooms from the ISS overhead to the edge of the observable universe, History walks roughly 900 curated events across recorded history. Free Cosmos hook, RevenueCat-gated paid History pack.',
     type: 'product',
-    featured: true,
-    liveUrl: 'https://strata-jam1xzj8w-sammiis-projects.vercel.app',
+    home: 'home',
+    group: 'products',
+    fragment: 'strata-scale',
+    focus: {
+      design: { rank: 1, tier: 'featured', summary: 'One zoom gesture on one log-scaled axis: the ISS overhead to the edge of the observable universe on a single Skia canvas, and nothing collapses into a pixel.', emphasis: ['Skia canvas', 'log-scale zoom', 'gesture design'] },
+      ai: { tier: 'work' },
+      product: { rank: 3, tier: 'featured', summary: 'One timeline engine sold two ways: Cosmos free, History as a paid pack through RevenueCat, shipped as a React Native app.', emphasis: ['React Native', 'RevenueCat', 'one engine, two products'] },
+    },
+    liveUrl: 'https://strata.sammii.dev',
     caseStudy: 'strata',
     highlights: [
       'Single React Native Skia canvas driving two log-scaled zoom/pan/drag lenses',
@@ -103,7 +180,14 @@ export const projects: Project[] = [
     techStack: 'Next.js, Lexical, Yjs, WebSockets, TypeScript',
     info: 'Local-first collaborative rich text editor. Content saves to IndexedDB instantly and syncs between clients in real time via WebSocket and Yjs CRDTs. Includes a formatting toolbar, Gutenberg book seeding for performance testing, and a custom collaboration server with room management.',
     type: 'product',
-    featured: true,
+    home: 'home',
+    group: 'products',
+    fragment: 'lattiq-editor',
+    focus: {
+      design: { rank: 3, tier: 'supporting', summary: 'A collaborative editor where the design problem is what happens when two people type at once.', emphasis: ['Lexical', 'realtime UI'] },
+      ai: { rank: 2, tier: 'supporting', summary: 'Yjs CRDTs, WebSockets and a custom room server: the realtime layer under any multi-client product.', emphasis: ['Yjs CRDTs', 'WebSockets'] },
+      product: { rank: 2, tier: 'featured', summary: 'Local-first: writes land in IndexedDB instantly and sync between clients over WebSockets with Yjs CRDTs, on a custom collaboration server with room management.', emphasis: ['local-first', 'IndexedDB', 'CRDT sync'] },
+    },
     liveUrl: 'https://lattiq.sammii.dev',
     caseStudy: 'lattiq',
     highlights: [
@@ -120,6 +204,8 @@ export const projects: Project[] = [
     techStack: 'JavaScript, Rollup, Jest, npm',
     info: 'Published npm package adding customisable click and hover effects to any website. 13 built-in effects with gravity, rotation, spread radius, and spring-based easing curves. Zero dependencies, ~1KB, framework-agnostic with TypeScript declarations.',
     type: 'product',
+    home: 'work',
+    group: 'tools',
     liveUrl: 'https://www.npmjs.com/package/@unicorn-poo/pizzazz',
     caseStudy: 'pizzazz',
     highlights: [
@@ -135,7 +221,13 @@ export const projects: Project[] = [
     techStack: 'Next.js 15, TypeScript, Astronomy Engine, Prisma, PostgreSQL, Stripe',
     info: 'Progressive Web App calculating planetary and lunar positions in real time using the Astronomy Engine library. A 1,300+ page programmatically-generated grimoire, Stripe-billed subscriptions, and a custom MCP server exposing 60+ tools for AI-assisted content and analytics.',
     type: 'product',
-    featured: true,
+    home: 'home',
+    group: 'products',
+    focus: {
+      design: { rank: 2, tier: 'supporting', summary: 'Turning live planetary and lunar positions into an interface people read daily: information design for a system that never stops moving.', emphasis: ['information design', 'PWA', 'visual system'] },
+      ai: { rank: 2, tier: 'featured', summary: 'Deterministic astronomy from the Astronomy Engine, a 1,300+ page programmatically generated grimoire, and an MCP server exposing 60+ tools for AI-assisted content and analytics.', emphasis: ['Astronomy Engine', 'MCP server, 60+ tools', 'generated grimoire'] },
+      product: { rank: 1, tier: 'featured', summary: 'A founder-built subscription PWA: real-time astronomical computation, Stripe billing, a generated content library and the infrastructure to run it solo.', emphasis: ['Next.js 15', 'Stripe', 'Prisma + PostgreSQL'] },
+    },
     liveUrl: 'https://lunary.app',
     caseStudy: 'lunary',
     privateRepo: true,
@@ -154,6 +246,8 @@ export const projects: Project[] = [
     techStack: 'Next.js, Turborepo, Groq (Llama 3.3 70B), Prisma, Chrome Extension MV3',
     info: 'AI-powered prompt builder for Midjourney, FLUX, and DALL·E. Describe what you want in plain English and get three variations tuned for safe, creative, and experimental outputs, with iterative refinement, per-platform parameter formatting, and a Chrome extension that injects the builder into any page.',
     type: 'product',
+    home: 'work',
+    group: 'ai',
     liveUrl: 'https://conjure-two.vercel.app',
     caseStudy: 'conjure',
     highlights: [
@@ -169,6 +263,8 @@ export const projects: Project[] = [
     techStack: 'Node.js, Ink, React, chalk',
     info: 'Terminal portfolio rendered entirely in the command line using Ink and React. Browse projects, links, and bio with arrow key navigation, gradient ASCII header via ink-gradient, and colour-coded sections for products and experiments. Published to npm as a global package. Run npx sammii from any terminal.',
     type: 'product',
+    home: 'work',
+    group: 'tools',
     liveUrl: 'https://www.npmjs.com/package/sammii',
     caseStudy: 'sammii-cli',
     highlights: [
@@ -184,6 +280,8 @@ export const projects: Project[] = [
     techStack: 'Next.js, Ollama (local LLM), Kokoro-82M, Orpheus 3B, ffmpeg',
     info: 'AI podcast generator that turns any text, URL, or content path into a fully produced two-host episode at roughly $0.04 each. Local Ollama LLM for script generation, Kokoro-82M and Orpheus 3B TTS synthesis, ffmpeg audio assembly, RSS feed output, and a web UI with real-time generation progress.',
     type: 'product',
+    home: 'work',
+    group: 'ai',
     liveUrl: 'https://podify-topaz.vercel.app',
     caseStudy: 'podify',
     highlights: [
@@ -199,6 +297,13 @@ export const projects: Project[] = [
     techStack: 'Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz',
     info: 'Self-hosted social media scheduling platform managing multiple brands across 8+ platforms. Turborepo monorepo with a Next.js frontend, a Node.js BFF, and a self-hosted Postiz + Temporal stack on Hetzner via Docker Compose.',
     type: 'product',
+    home: 'home',
+    group: 'products',
+    focus: {
+      design: { tier: 'work' },
+      ai: { rank: 3, tier: 'featured', summary: 'Self-hosted scheduling for multiple brands across 8+ platforms, with a Postiz and Temporal workflow stack doing the publishing.', emphasis: ['Temporal workflows', '8+ platforms', 'self-hosted'] },
+      product: { rank: 3, tier: 'supporting', summary: 'Turborepo monorepo, Next.js front end, Node BFF, Postiz + Temporal on Hetzner via Docker Compose: a platform, self-hosted and run.', emphasis: ['Turborepo', 'Drizzle', 'Docker Compose'] },
+    },
     liveUrl: 'https://spellcast.sammii.dev',
     caseStudy: 'spellcast',
     privateRepo: true,
@@ -214,9 +319,15 @@ export const projects: Project[] = [
     id: 'orbit',
     title: 'Orbit',
     techStack: 'Node.js, Shell, Claude Code SDK, Windmill',
-    info: 'Autonomous content command centre orchestrating 14 specialised AI agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO, and performance analysis. Open the live control room to watch the fleet plan, write, edit, schedule, and publish in real time.',
+    info: 'Autonomous content command centre orchestrating 14 specialised AI agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO, and performance analysis. The live control room is a visualisation of that pipeline: each agent, its role, and the order they run in.',
     type: 'product',
-    featured: true,
+    home: 'home',
+    group: 'ai',
+    focus: {
+      design: { tier: 'work' },
+      ai: { rank: 1, tier: 'featured', summary: 'Fourteen specialised agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO and performance analysis, with a live control room.', emphasis: ['14 agents', 'multi-stage pipeline', 'Claude Code SDK'] },
+      product: { rank: 2, tier: 'supporting', summary: 'A content operation built as software: staged pipeline, scheduling, analysis and a control room to watch it run.', emphasis: ['Windmill', 'orchestration'] },
+    },
     liveUrl: 'https://orbit-live.sammii.dev',
     caseStudy: 'orbit',
     privateRepo: true,
@@ -224,7 +335,7 @@ export const projects: Project[] = [
       '14 specialised AI agents with distinct roles in a multi-stage content pipeline',
       'Windmill workflow orchestration with cron-triggered and event-driven flows',
       'Claude Code SDK for agent execution with structured tool use',
-      'Real-time dashboard showing agent status, pipeline progress, and social metrics',
+      'Control-room visualisation of the agents, their roles and the pipeline order',
       'End-to-end automation from content ideation through publishing and engagement',
     ],
   },
@@ -234,6 +345,8 @@ export const projects: Project[] = [
     techStack: 'Next.js, WebAuthn, Push API, Service Workers',
     info: 'A COO-in-a-browser-tab for running several products from one screen. Live PWA polling health, revenue, social, and deploy status across every product, with a human-approval queue for AI-proposed actions below an autonomy threshold and a custom pixel-art canvas representing each business as a room.',
     type: 'product',
+    home: 'work',
+    group: 'products',
     caseStudy: 'homebase',
     privateRepo: true,
     highlights: [
@@ -250,6 +363,11 @@ export const projects: Project[] = [
     techStack: 'Next.js, SwiftUI, Llama 3.3 70B, Whisper Large V3 Turbo, RevenueCat, Prisma, PostgreSQL',
     info: 'AI-powered spoken interview practice platform. Record answers, get automatic transcription via DeepInfra Whisper, and receive multi-dimensional scoring on delivery (WPM, fillers, confidence, intonation) and content quality (STAR methodology, impact, clarity). Also built as a native iOS app with on-device Apple Speech transcription, a watchOS companion, and home-screen widgets.',
     type: 'product',
+    home: 'work',
+    group: 'ai',
+    focus: {
+      ai: { rank: 3, tier: 'supporting', summary: 'Spoken interview practice: record an answer, get a Whisper transcript, then scoring on delivery (pace, fillers, confidence) and on content (STAR, clarity, impact).', emphasis: ['Whisper transcription', 'Llama 3.3 70B scoring', 'SwiftUI + watchOS'] },
+    },
     liveUrl: 'https://iprep-five.vercel.app/',
     caseStudy: 'iprep',
     highlights: [
@@ -266,6 +384,8 @@ export const projects: Project[] = [
     techStack: 'Next.js, Remotion, FLUX, Kling, DeepInfra, fal.ai',
     info: 'Automated daily content pipeline generating witchcraft and astrology illustrations, carousels, reels, and stories using FLUX image-to-image generation, Kling video synthesis, and Remotion compositions, then scheduling everything via Spellcast.',
     type: 'product',
+    home: 'work',
+    group: 'ai',
     liveUrl: 'https://artify-roan.vercel.app',
     caseStudy: 'artify',
     highlights: [
@@ -281,6 +401,8 @@ export const projects: Project[] = [
     techStack: 'Next.js, Vercel Edge Middleware, PostgreSQL, Recharts',
     info: 'Custom analytics platform built on Next.js Edge Middleware for zero-latency tracking and PostgreSQL for persistence. Self-populating dashboard via Cloudflare Worker cron job that simulates traffic from global edge locations.',
     type: 'product',
+    home: 'work',
+    group: 'tools',
     liveUrl: 'https://glint-dun.vercel.app',
     caseStudy: 'glint',
     highlights: [
@@ -296,6 +418,13 @@ export const projects: Project[] = [
     techStack: 'Node.js, TypeScript, tsup, Prompts',
     info: 'CLI scaffolder for Model Context Protocol servers. Interactive prompts for project name, description, and example tool selection, then generates a TypeScript project with the MCP SDK, Zod validation, stdio transport, and dev mode with auto-reload. Published on npm.',
     type: 'product',
+    home: 'home',
+    group: 'ai',
+    focus: {
+      design: { tier: 'work' },
+      ai: { rank: 1, tier: 'supporting', summary: 'An npm CLI that scaffolds a typed MCP server with Zod validation and stdio transport in seconds.', emphasis: ['npm', 'MCP SDK', 'Zod'] },
+      product: { tier: 'work' },
+    },
     liveUrl: 'https://www.npmjs.com/package/init-mcp-server',
     caseStudy: 'create-mcp-server',
     highlights: [
@@ -311,6 +440,8 @@ export const projects: Project[] = [
     techStack: 'TypeScript, Next.js, Prisma, SQL, GPT-4, React Three Fiber, SwiftUI',
     info: 'Custom CMS for cataloguing crystals with structured filters for colour, chakra, and properties, and GPT-4-generated descriptions. Also built as a native iOS companion app with camera-based AI crystal identification against the same API.',
     type: 'product',
+    home: 'work',
+    group: 'products',
     liveUrl: 'https://crystalindex.co.uk',
     caseStudy: 'crystal-index',
     highlights: [
@@ -327,6 +458,8 @@ export const projects: Project[] = [
     techStack: 'Next.js, Vercel Edge Middleware, React Email, Resend',
     info: 'A daily color platform built with Next.js that combines an interactive color recognition game with automated email delivery and social sharing.',
     type: 'product',
+    home: 'work',
+    group: 'earlier',
     liveUrl: 'https://thecolorgame.uk',
     caseStudy: 'the-colour-game',
     highlights: [
@@ -342,6 +475,8 @@ export const projects: Project[] = [
     techStack: 'Next.js, Prisma, PostgreSQL, TypeScript, Zod',
     info: 'Feature flag and A/B testing service with a dashboard, drop-in JS SDK, and real statistical significance engine. Deterministic variant assignment via MurmurHash3, two-proportion z-tests with Wilson confidence intervals, and a sub-2KB SDK using sendBeacon for reliable conversion tracking.',
     type: 'product',
+    home: 'work',
+    group: 'tools',
     caseStudy: 'flip',
     highlights: [
       'MurmurHash3 for deterministic, cookie-free variant assignment',
@@ -358,6 +493,9 @@ export const projects: Project[] = [
     techStack: 'Next.js, Framer Motion, TypeScript, Tailwind CSS',
     info: '25 interactive demos showcasing spring physics, layout animations, gesture-driven interactions, SVG morphing, scroll-linked parallax, and more. Each demo is self-contained with adjustable parameters and real-time feedback.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'experiment' },
     liveUrl: 'https://kinetic.sammii.dev',
     highlights: [
       '25 self-contained demos with adjustable spring and physics parameters',
@@ -372,6 +510,9 @@ export const projects: Project[] = [
     techStack: 'Three.js, GLSL, Web Audio API, Next.js',
     info: 'Audio-reactive shader visualiser driven by microphone input. Domain-warped simplex noise fragment shader with bass, mid, and high frequency bands mapped to warp intensity, hue rotation, and shimmer, all running in real time on the GPU.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'experiment' },
     liveUrl: 'https://spectra.sammii.dev',
     highlights: [
       'Web Audio API FFT analysis splitting mic input into bass, mid, and high bands',
@@ -386,6 +527,9 @@ export const projects: Project[] = [
     techStack: 'WebGL, GLSL, JavaScript',
     info: 'Text-to-shader generative art tool. Type any word or phrase and watch it rendered as a unique real-time GLSL shader, with colour, form, and motion derived from the semantic feel of the input.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'experiment' },
     liveUrl: 'https://refract.sammii.dev',
     highlights: [
       'Text input hashed into shader parameters: colour palette, waveform, speed',
@@ -399,6 +543,9 @@ export const projects: Project[] = [
     techStack: 'Next.js, Canvas API, TypeScript, Sprite Engine',
     info: 'Pixel-art forest simulation with dynamic time-of-day lighting, seasonal changes, fireflies, particle effects, and sprite-based characters. Custom 2D rendering engine with scene graph, sprite sheets, and a clearing system.',
     type: 'experiment',
+    home: 'archive',
+    group: 'earlier',
+    labs: { kind: 'experiment' },
     liveUrl: 'https://grove.sammii.dev',
     noRepo: true,
     highlights: [
@@ -414,6 +561,9 @@ export const projects: Project[] = [
     techStack: 'TypeScript, Canvas API, VS Code Extension API, Astronomy Engine',
     info: 'VS Code extension that visualises active Claude Code agent sessions as pixel-art characters in an Animal Crossing-style village. Agents sit at desks in an office, wander outdoors, and display real-time status. Dynamic time-of-day, seasonal changes, a pond, trees, and flowers.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'lab-project' },
     noRepo: true,
     highlights: [
       'VS Code extension rendering a live pixel-art village in a webview panel',
@@ -428,6 +578,9 @@ export const projects: Project[] = [
     techStack: 'Three.js, WebXR, GLSL, Vite',
     info: 'WebXR reconstruction of my MA dissertation installation. A journey through the visible light spectrum from infrared to ultraviolet: quotes screen-printed on acetate walls remain invisible until the final UV phase, where they blaze to life with a custom GLSL UV-reactive shader before the room dissolves into white.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'lab-project' },
     liveUrl: 'https://beyond-light-vr.vercel.app',
     highlights: [
       'WebXR immersive experience navigable in VR headsets or on desktop',
@@ -442,6 +595,9 @@ export const projects: Project[] = [
     techStack: 'D3.js, HTML5 Canvas, Vite',
     info: 'Interactive star globe rendered on Canvas using D3 orthographic projection. Realistic star colours from B-V colour index, magnitude-scaled sizes with glow effects, constellation lines and labels, Milky Way band, drag-to-rotate with idle spin, and a time slider that shifts the sky in right ascension.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'lab-project' },
     liveUrl: 'https://celestial-map.sammii.dev',
     highlights: [
       'D3 orthographic projection rendering 9,000+ stars on Canvas',
@@ -456,6 +612,9 @@ export const projects: Project[] = [
     techStack: 'p5.js, JavaScript',
     info: '15 browser-based visual experiments treating a single photograph as raw material. Pixel data drives particle systems, edge detection, flow fields, Voronoi partitions, kaleidoscopes, and more; each sketch is unique to the source image.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'study' },
     liveUrl: 'https://creative-coding.sammii.dev',
     highlights: [
       '15 distinct sketches each using the same source image differently',
@@ -470,6 +629,9 @@ export const projects: Project[] = [
     techStack: 'Next.js, Typescript, GSAP, Rapier2D',
     info: 'Experimental Next.js project exploring advanced animation techniques for creating liquid text effects through multiple approaches.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'experiment' },
     liveUrl: 'https://liquidity-ten.vercel.app',
     highlights: [
       'GSAP timeline animations for fluid text morphing and drip effects',
@@ -483,6 +645,9 @@ export const projects: Project[] = [
     techStack: 'React, JavaScript, Mapbox GL, Vite',
     info: 'Interactive globe visualising daylight patterns worldwide in real time using geospatial data from MapBox GL.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'experiment' },
     liveUrl: 'https://day-lite.vercel.app',
     highlights: [
       'Mapbox GL globe with real-time solar terminator overlay',
@@ -496,6 +661,9 @@ export const projects: Project[] = [
     techStack: 'React, TypeScript, Matter.js, Vite',
     info: 'A physics playground of 100 balloons that float, bounce, and can be grabbed and flung across the screen. Matter.js has no buoyancy, so the float is faked from tuned gravity, density, and air friction; each balloon is a two-body compound with a wobbling knot. Holds 60fps across 200+ bodies and 300+ constraints.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'experiment' },
     liveUrl: 'https://balloon-bonanza.vercel.app',
     caseStudy: 'balloon-bonanza',
     highlights: [
@@ -511,6 +679,9 @@ export const projects: Project[] = [
     techStack: 'React, TypeScript, Vite, Tailwind CSS',
     info: 'Colour palette generator that produces Tailwind-accurate 11-step scales from any base colour. Derives lightness, saturation, and hue curves from official Tailwind palettes, with click-to-copy swatches and CSS variable or config output.',
     type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'experiment', superseded: true },
     liveUrl: 'https://tailwind-colour-creator.vercel.app',
     highlights: [
       'Lightness, saturation, and hue curves derived from official Tailwind palettes',
@@ -524,6 +695,8 @@ export const projects: Project[] = [
     techStack: 'React, JavaScript',
     info: 'Interactive timeline highlighting key developments in communication technology, built with React and SVG animations.',
     type: 'experiment',
+    home: 'archive',
+    group: 'earlier',
     liveUrl: 'https://communication-infographic.vercel.app',
     highlights: [
       'Scroll-driven SVG animations revealing timeline milestones',

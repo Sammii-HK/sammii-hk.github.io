@@ -1,3 +1,7 @@
+// NOTE: the homepage no longer calls these. The same formulas now live in
+// app/src/components/env/environment-formula.ts and are written to CSS custom
+// properties by EnvironmentProvider. `gradientCreator` is still used by
+// app/founder/page.tsx.
 // Muted ambient background — radials drift with sin waves, colours respond to cursor
 export const backgroundGradientCreator = (xPc: number, yPc: number, t: number = 0) => {
   const c = (n: number) => Math.min(255, Math.floor((255 / 100) * Math.max(0, Math.min(100, n))));

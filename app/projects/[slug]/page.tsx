@@ -1,11 +1,15 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { getAllCaseStudySlugs, getCaseStudyBySlug } from '../../lib/case-studies';
+import { projects } from '../../common/data/projects';
 import { Breadcrumbs } from '../../src/components/Breadcrumbs';
 import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';
+import { Navbar } from '../../src/components/Navbar';
+import { Footer } from '../../src/components/Footer';
+import { CaseStudyHero } from '../../src/components/case-study/CaseStudyHero';
+import { caseStudyComponents } from '../../src/components/case-study/mdx-components';
 
 const mdxOptions = {
   mdxOptions: {
@@ -26,11 +30,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const study = getCaseStudyBySlug(slug);
   if (!study) return {};
 
-  const url = `https://sammii.dev/projects/${slug}`;
+  const url = `https://sammii.dev/projects/${slug}/`;
 
   return {
     title: `${study.title} — sammii.dev`,
     description: study.description,
+    alternates: { canonical: url },
     openGraph: {
       title: `${study.title} — sammii.dev`,
       description: study.description,
@@ -50,38 +55,42 @@ export default async function CaseStudyPage({ params }: Props) {
   const study = getCaseStudyBySlug(slug);
   if (!study) notFound();
 
-  const url = `https://sammii.dev/projects/${slug}`;
+  const url = `https://sammii.dev/projects/${slug}/`;
+  const project = projects.find((p) => p.caseStudy === slug) ?? null;
 
   return (
-    <main className="max-w-2xl mx-auto px-6 py-16">
-      <ArticleJsonLd
-        title={study.title}
-        description={study.description}
-        date={new Date().toISOString()}
-        url={url}
-      />
-      <Breadcrumbs
-        crumbs={[
-          { label: 'sammii.dev', href: '/' },
-          { label: 'Projects', href: '/' },
-          { label: study.title },
-        ]}
-      />
-
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold mt-2">{study.title}</h1>
-        {study.description && (
-          <p className="text-neutral-400 mt-2">{study.description}</p>
-        )}
-        <div className="flex items-center gap-4 mt-3">
-          <span className="text-xs text-neutral-500">{study.readingTime}</span>
-          <span className="text-xs text-neutral-500">{study.techStack}</span>
-        </div>
-      </header>
-
-      <article className="prose prose-invert prose-neutral max-w-none">
-        <MDXRemote source={study.content} options={mdxOptions} />
-      </article>
-    </main>
+    <div className="relative bg-white dark:bg-black text-black dark:text-white min-h-[100dvh] flex flex-col">
+      <Navbar />
+      <main id="main" className="flex-1 case-study">
+        <ArticleJsonLd
+          title={study.title}
+          description={study.description}
+          date={new Date().toISOString()}
+          url={url}
+        />
+        <Breadcrumbs
+          crumbs={[
+            { label: 'sammii.dev', href: '/' },
+            { label: 'Work', href: '/work/' },
+            { label: study.title },
+          ]}
+        />
+        <CaseStudyHero
+          title={study.title}
+          description={study.description}
+          techStack={study.techStack}
+          readingTime={study.readingTime}
+          project={project}
+        />
+        <article className="prose prose-neutral dark:prose-invert max-w-none case-body">
+          <MDXRemote source={study.content} options={mdxOptions} components={caseStudyComponents} />
+        </article>
+        <nav className="case-foot" aria-label="More">
+          <a href="/work/">All work <span aria-hidden="true">→</span></a>
+          <a href="/">Front page</a>
+        </nav>
+      </main>
+      <Footer />
+    </div>
   );
 }
