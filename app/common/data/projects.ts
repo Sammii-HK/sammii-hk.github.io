@@ -52,7 +52,8 @@ export type Project = {
   noRepo?: boolean;
   home: Home;
   group: WorkGroup;
-  labs?: { kind: LabsKind; superseded?: boolean };
+  /** supersededBy: the project that replaced it (shown on labs.sammii.dev). */
+  labs?: { kind: LabsKind; superseded?: boolean; supersededBy?: string };
   fragment?: Fragment;
   /**
    * Missing lens = `work` tier for that lens. Homepage projects define all three.
@@ -681,7 +682,7 @@ export const projects: Project[] = [
     type: 'experiment',
     home: 'labs',
     group: 'earlier',
-    labs: { kind: 'experiment', superseded: true },
+    labs: { kind: 'experiment', superseded: true, supersededBy: 'gamut' },
     liveUrl: 'https://tailwind-colour-creator.vercel.app',
     highlights: [
       'Lightness, saturation, and hue curves derived from official Tailwind palettes',
