@@ -48,8 +48,6 @@ export type Project = {
   liveUrl?: string;
   highlights?: string[];
   caseStudy?: string;
-  /** @deprecated Read `home` and `focus` instead. Kept only until ProjectGrid is replaced (Phase 2E). */
-  featured?: boolean;
   privateRepo?: boolean;
   noRepo?: boolean;
   home: Home;
@@ -80,7 +78,6 @@ export const projects: Project[] = [
       ai: { tier: 'work' },
       product: { rank: 1, tier: 'supporting', summary: 'A theme builder whose output drops straight into a codebase: CSS variables, Tailwind config, JSON or Style Dictionary tokens.', emphasis: ['token export', 'Style Dictionary'] },
     },
-    featured: true,
     liveUrl: 'https://gamut.sammii.dev',
     caseStudy: 'gamut',
     highlights: [
@@ -105,7 +102,6 @@ export const projects: Project[] = [
       ai: { tier: 'work' },
       product: { rank: 4, tier: 'supporting', summary: 'Typography tooling that outputs the CSS you would ship: fluid clamp() scales, with the whole configuration held in the URL.', emphasis: ['clamp() output', 'URL state'] },
     },
-    featured: true,
     liveUrl: 'https://kern.sammii.dev',
     caseStudy: 'kern',
     highlights: [
@@ -128,7 +124,6 @@ export const projects: Project[] = [
       ai: { tier: 'work' },
       product: { tier: 'work' },
     },
-    featured: true,
     liveUrl: 'https://prism.sammii.dev',
     caseStudy: 'prism',
     highlights: [
@@ -145,7 +140,6 @@ export const projects: Project[] = [
     type: 'product',
     home: 'work',
     group: 'products',
-    featured: true,
     liveUrl: 'https://scapestudio.vercel.app',
     caseStudy: 'scapestudio',
     highlights: [
@@ -170,7 +164,6 @@ export const projects: Project[] = [
       ai: { tier: 'work' },
       product: { rank: 3, tier: 'featured', summary: 'One timeline engine sold two ways: Cosmos free, History as a paid pack through RevenueCat, shipped as a React Native app.', emphasis: ['React Native', 'RevenueCat', 'one engine, two products'] },
     },
-    featured: true,
     liveUrl: 'https://strata.sammii.dev',
     caseStudy: 'strata',
     highlights: [
@@ -195,7 +188,6 @@ export const projects: Project[] = [
       ai: { rank: 2, tier: 'supporting', summary: 'Yjs CRDTs, WebSockets and a custom room server: the realtime layer under any multi-client product.', emphasis: ['Yjs CRDTs', 'WebSockets'] },
       product: { rank: 2, tier: 'featured', summary: 'Local-first: writes land in IndexedDB instantly and sync between clients over WebSockets with Yjs CRDTs, on a custom collaboration server with room management.', emphasis: ['local-first', 'IndexedDB', 'CRDT sync'] },
     },
-    featured: true,
     liveUrl: 'https://lattiq.sammii.dev',
     caseStudy: 'lattiq',
     highlights: [
@@ -236,7 +228,6 @@ export const projects: Project[] = [
       ai: { rank: 2, tier: 'featured', summary: 'Deterministic astronomy from the Astronomy Engine, a 1,300+ page programmatically generated grimoire, and an MCP server exposing 60+ tools for AI-assisted content and analytics.', emphasis: ['Astronomy Engine', 'MCP server, 60+ tools', 'generated grimoire'] },
       product: { rank: 1, tier: 'featured', summary: 'A founder-built subscription PWA: real-time astronomical computation, Stripe billing, a generated content library and the infrastructure to run it solo.', emphasis: ['Next.js 15', 'Stripe', 'Prisma + PostgreSQL'] },
     },
-    featured: true,
     liveUrl: 'https://lunary.app',
     caseStudy: 'lunary',
     privateRepo: true,
@@ -337,7 +328,6 @@ export const projects: Project[] = [
       ai: { rank: 1, tier: 'featured', summary: 'Fourteen specialised agents across a multi-stage pipeline: scriptwriting, editing, optimisation, scheduling, engagement, SEO and performance analysis, with a live control room.', emphasis: ['14 agents', 'multi-stage pipeline', 'Claude Code SDK'] },
       product: { rank: 2, tier: 'supporting', summary: 'A content operation built as software: staged pipeline, scheduling, analysis and a control room to watch it run.', emphasis: ['Windmill', 'orchestration'] },
     },
-    featured: true,
     liveUrl: 'https://orbit-live.sammii.dev',
     caseStudy: 'orbit',
     privateRepo: true,

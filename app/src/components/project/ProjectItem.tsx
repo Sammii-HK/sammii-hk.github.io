@@ -13,7 +13,6 @@ type ProjectItem = {
   liveUrl?: string;
   highlights?: string[];
   caseStudy?: string;
-  featured?: boolean;
   privateRepo?: boolean;
   noRepo?: boolean;
 };
