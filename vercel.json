@@ -1,5 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/", "has": [{ "type": "host", "value": "labs.sammii.dev" }], "destination": "/labs/" }
+  "routes": [
+    { "src": "^/$", "has": [{ "type": "host", "value": "labs.sammii.dev" }], "dest": "/labs/index.html" },
+    { "src": "^/labs/?$", "has": [{ "type": "host", "value": "labs.sammii.dev" }], "status": 308, "headers": { "Location": "https://labs.sammii.dev/" } },
+    { "handle": "filesystem" }
   ]
 }
