@@ -62,8 +62,19 @@ export function EnvironmentProvider({
   const targetY = useRef(0);
   const currentX = useRef(0);
   const currentY = useRef(0);
-  const isScrolling = useRef(false);
-  const lastScrollTime = useRef(0);
+  // The target is pointer + scroll, composed, never one replacing the other.
+  // The pointer base is where the pointer sits in the viewport; the scroll
+  // offset is a pure function of scroll position. While the page scrolls the
+  // offset moves and the base stays; when it stops nothing snaps back,
+  // because neither term depends on whether a scroll is in progress.
+  // Base starts where the old load state was (Y 80, X 50) so the resting look
+  // is unchanged until the pointer moves.
+  const pointerBase = useRef({ x: 50, y: 80 });
+  const scrollOffset = useRef({ x: 0, y: 0 });
+  const composeTargets = () => {
+    targetX.current = Math.max(0, Math.min(200, pointerBase.current.x + scrollOffset.current.x));
+    targetY.current = Math.max(0, Math.min(100, pointerBase.current.y + scrollOffset.current.y));
+  };
   const velX = useRef(0);
   const velY = useRef(0);
   const energy = useRef(0);
@@ -119,17 +130,10 @@ export function EnvironmentProvider({
     return () => { cancelAnimationFrame(raf); mq.removeEventListener("change", syncReduced); };
   }, []);
 
-  // ── pointer / touch → targets (unchanged rules, incl. the scroll guard) ──
+  // ── pointer / touch → the pointer base (viewport-relative, same ranges as before) ──
   const updateTargets = (clientX: number, clientY: number) => {
-    const viewportWidth = window.innerWidth;
-    const timeSinceScroll = Date.now() - lastScrollTime.current;
-    if (!isScrolling.current && timeSinceScroll > 500) {
-      targetY.current = (clientY / window.innerHeight) * 100;
-      targetX.current = ((clientX * 2) / viewportWidth) * 100;
-    }
-    if (!isScrolling.current || timeSinceScroll < 100) {
-      targetX.current = ((clientX * 2) / viewportWidth) * 100;
-    }
+    pointerBase.current = { x: ((clientX * 2) / window.innerWidth) * 100, y: (clientY / window.innerHeight) * 100 };
+    composeTargets();
   };
 
   const handlePointerMove = (e: React.PointerEvent) => updateTargets(e.clientX, e.clientY);
@@ -137,11 +141,10 @@ export function EnvironmentProvider({
     if (e.touches.length > 0) updateTargets(e.touches[0].clientX, e.touches[0].clientY);
   };
 
-  // ── scroll wave: while the grid scrolls, Y and X follow sine waves of scroll % ──
+  // ── scroll wave: Y and X carry sine waves of scroll %, added to the pointer ──
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-    let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
     let attached: HTMLElement | null = null;
     let raf: number | null = null;
     let retry: ReturnType<typeof setTimeout> | null = null;
@@ -157,14 +160,14 @@ export function EnvironmentProvider({
       return scrolls && el.scrollHeight > el.clientHeight ? el : null;
     };
 
-    // The wave itself is unchanged: Y and X follow sine waves of scroll %.
-    // Only the source of the scroll position moved from the grid to the document.
+    // The same sine waves as before, expressed as an offset from their value at
+    // the top of the page (Y 80, X 50), so the top of the page looks as it did
+    // and scrolling moves the colour continuously, every frame, on top of
+    // wherever the pointer is.
     const handleScroll = () => {
       if (reduced.current) return; // no scroll-driven wave under reduced motion
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        isScrolling.current = true;
-        lastScrollTime.current = Date.now();
         const el = attached || findScrollable();
         if (el) {
           const maxScroll = el.scrollHeight - el.clientHeight;
@@ -172,14 +175,15 @@ export function EnvironmentProvider({
             const scrollPercent = (el.scrollTop / maxScroll) * 100;
             const wave1 = Math.sin((scrollPercent / 100) * Math.PI * 6) * 50 + 50;
             const wave2 = Math.cos((scrollPercent / 100) * Math.PI * 4) * 30;
-            targetY.current = Math.max(0, Math.min(100, wave1 + wave2));
-            targetX.current = Math.sin((scrollPercent / 100) * Math.PI * 2) * 25 + 50;
+            scrollOffset.current = {
+              y: wave1 + wave2 - 80,
+              x: Math.sin((scrollPercent / 100) * Math.PI * 2) * 25,
+            };
           } else {
-            targetY.current = 0;
+            scrollOffset.current = { x: 0, y: 0 };
           }
         }
-        if (scrollTimeout) clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => { isScrolling.current = false; }, 500);
+        composeTargets();
       });
     };
 
@@ -190,7 +194,6 @@ export function EnvironmentProvider({
       handleScroll();
       return () => {
         if (raf) cancelAnimationFrame(raf);
-        if (scrollTimeout) clearTimeout(scrollTimeout);
         window.removeEventListener("scroll", handleScroll);
       };
     }
@@ -214,7 +217,6 @@ export function EnvironmentProvider({
 
     return () => {
       if (raf) cancelAnimationFrame(raf);
-      if (scrollTimeout) clearTimeout(scrollTimeout);
       if (retry) clearTimeout(retry);
       observer.disconnect();
       attached?.removeEventListener("scroll", handleScroll);
