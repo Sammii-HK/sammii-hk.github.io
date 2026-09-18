@@ -10,7 +10,7 @@ import { useLayoutEffect, useRef, type RefObject } from "react";
  * Skipped entirely under prefers-reduced-motion.
  */
 export function useFlipOrder(container: RefObject<HTMLElement | null>, orderKey: string) {
-  const prevRects = useRef<Map<string, { left: number; top: number }> | null>(null);
+  const prevRects = useRef<Map<string, { left: number; top: number; tier: string }> | null>(null);
   const prevKey = useRef(orderKey);
 
   useLayoutEffect(() => {
@@ -21,7 +21,7 @@ export function useFlipOrder(container: RefObject<HTMLElement | null>, orderKey:
     const els = Array.from(root.querySelectorAll<HTMLElement>("[data-flip]"));
     // Document coordinates, not viewport: the resting positions are measured at
     // load and the user may have scrolled a long way before switching lens.
-    const measure = (el: HTMLElement) => { const r = el.getBoundingClientRect(); return { left: r.left + window.scrollX, top: r.top + window.scrollY }; };
+    const measure = (el: HTMLElement) => { const r = el.getBoundingClientRect(); return { left: r.left + window.scrollX, top: r.top + window.scrollY, tier: el.dataset.tier ?? "" }; };
     const now = new Map(els.map((el) => [el.dataset.flip!, measure(el)]));
     const changed = prevKey.current !== orderKey;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -31,13 +31,17 @@ export function useFlipOrder(container: RefObject<HTMLElement | null>, orderKey:
         const id = el.dataset.flip!;
         const before = prevRects.current.get(id);
         const after = now.get(id)!;
-        // content swapped (chapter ↔ reference): fade the new content in
-        el.setAttribute("data-swap", "");
-        el.addEventListener("animationend", () => el.removeAttribute("data-swap"), { once: true });
         if (!before) {
           el.setAttribute("data-enter", "");
           el.addEventListener("animationend", () => el.removeAttribute("data-enter"), { once: true });
           continue;
+        }
+        // Only content that actually swapped (chapter ↔ reference) fades in.
+        // A project that keeps its tier just travels; re-running the fade on
+        // every item made the whole section look like it was loading again.
+        if (before.tier !== after.tier) {
+          el.setAttribute("data-swap", "");
+          el.addEventListener("animationend", () => el.removeAttribute("data-swap"), { once: true });
         }
         const dx = before.left - after.left;
         const dy = before.top - after.top;
@@ -71,7 +75,7 @@ export function useFlipOrder(container: RefObject<HTMLElement | null>, orderKey:
       if (t) window.clearTimeout(t);
       t = window.setTimeout(() => {
         const els = Array.from(root.querySelectorAll<HTMLElement>("[data-flip]"));
-        prevRects.current = new Map(els.map((el) => { const r = el.getBoundingClientRect(); return [el.dataset.flip!, { left: r.left + window.scrollX, top: r.top + window.scrollY }]; }));
+        prevRects.current = new Map(els.map((el) => { const r = el.getBoundingClientRect(); return [el.dataset.flip!, { left: r.left + window.scrollX, top: r.top + window.scrollY, tier: el.dataset.tier ?? "" }]; }));
       }, 150);
     };
     window.addEventListener("resize", remeasure);
