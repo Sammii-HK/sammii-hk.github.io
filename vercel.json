@@ -1,7 +1,6 @@
 {
   "routes": [
-    { "src": "^/$", "has": [{ "type": "host", "value": "labs.sammii.dev" }], "dest": "/labs/index.html" },
-    { "src": "^/labs/?$", "has": [{ "type": "host", "value": "labs.sammii.dev" }], "status": 308, "headers": { "Location": "https://labs.sammii.dev/" } },
+    { "src": "^/$", "has": [{ "type": "host", "value": "labs.sammii.dev" }], "dest": "/labs/" },
     { "handle": "filesystem" }
   ]
 }
