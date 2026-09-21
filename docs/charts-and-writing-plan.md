@@ -5,19 +5,20 @@ Information-design pieces in the Useful Charts / McCandless register, about the 
 Rules: every fact sourced (author, year) in the page footer; UK English; no em dashes; no invented numbers; charts render with real data, never illustrative values.
 
 ## Series A: colour and perception
-1. **The family tree of colour spaces** (built, `app/labs/charts/colour-spaces`). Munsell to CSS Color 4, six lanes, derivation and influence edges, live ramps in each space.
-2. **Why HSL lies**: one row per hue, the same nominal lightness in HSL, LCH and OKLCH, with the measured luminance beside it. The chart Gamut's README always wanted.
+1. **The family tree of colour spaces** (built). Munsell to CSS Color 4, six lanes, derivation and influence edges, live ramps in each space.
+2. **Why HSL lies** (built): one row per hue, the same nominal lightness in HSL, LCH and OKLCH, with the measured luminance beside it. The chart Gamut's README always wanted.
 3. **The gamuts**: sRGB, Display P3, Adobe RGB, Rec. 2020 and the spectral locus drawn on the CIE 1931 diagram, with a toggle for what your own screen can show (read from `matchMedia('(color-gamut: p3)')`).
 4. **Contrast, three ways**: WCAG 2 ratio, APCA and plain luminance difference for the same pairs, so people see where they disagree.
 
 ## Series B: typography (builds on the eleven Love Letters and Kern)
-5. **The typography genome**: blackletter to variable fonts as a family tree; humanist, grotesque, geometric, neo-grotesque, transitional, didone, slab, with a real specimen at every node via Kern's font set. Video: the year scrub, then a hover down the humanist branch.
+0. **Six centuries of communication and type** (built): the student communication infographic rebuilt as a scroll spine, inventions left, type right, 65 entries.
+5. **The typography genome** (built): blackletter to variable fonts as a family tree; humanist, grotesque, geometric, neo-grotesque, transitional, didone, slab, with a real specimen at every node via Kern's font set. Video: the year scrub, then a hover down the humanist branch.
 6. **The anatomy of a letter**: one interactive glyph with every term (x-height, aperture, terminal, spur, ear) labelled on hover, switchable between four faces so the differences are visible.
 7. **The London letter**: Johnston, Gill, Transport, Rail Alphabet and their descendants, the faces you read on the way to work. Draws on the Johnston and Transport letters.
 8. **How a font file becomes pixels**: glyph outlines to hinting to rasterisation to subpixel rendering, as a flow.
 
 ## Series C: the browser and the machine (the CS pieces)
-9. **How a keypress becomes a pixel**: keyboard to OS to browser to compositor to GPU, as a McCandless flow with the latency budget at each hop.
+9. **How a keypress becomes a pixel** (built): keyboard to OS to browser to compositor to GPU, as a McCandless flow with the latency budget at each hop.
 10. **The evolution of CSS layout**: tables, floats, flexbox, grid, container queries, anchor positioning; a timeline with the browser-support tide behind it.
 11. **The JavaScript framework family tree**: Prototype and jQuery to React Server Components, with forks, influences and deaths.
 12. **The rendering pipeline**: style, layout, paint, composite, and which CSS properties trigger which, colour-coded. The chart every performance talk redraws by hand.
@@ -41,4 +42,4 @@ Each post follows the case-study voice: the problem, the hard part, one true num
 Already covered (do not duplicate): Gamut (OKLCH not HSL), Kern (kerning pair), Prism (self-building library), Lattiq (local-first), Isle (Animal Crossing villagers), Orbit (14 agents), Flip (Wilson intervals), Glint (edge middleware), ScapeStudio (Web Workers), iPrep (interview coach), Podify, Spellcast and Lunary (many), the MA series parts 1 to 7 (complete).
 
 ## Order of work
-Colour spaces (done) → Why HSL lies → The typography genome → How a keypress becomes a pixel → The symbolism of seven → then alternate one from each series. Blogs for the gap list run in parallel through the content pipeline, two a week, oldest project first.
+Built: colour spaces, why HSL lies, communication and type, the typography genome, keypress to pixel. Next: the symbolism of seven (MA) → the gamuts → the evolution of CSS layout → the anatomy of a letter → then alternate one from each series. Every built chart has a scene in the project video lane. Blogs for the gap list run in parallel through the content pipeline, two a week, oldest project first.
