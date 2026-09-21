@@ -66,4 +66,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "n32", focus: "2n", text: "At n = 32, O(n log n) is 160 nanoseconds and O(2^n) is 4.3 seconds on a machine doing a billion operations a second. O(n!) at 32 is 8.4 × 10^18 years. Adding one item to an exponential problem doubles the work." },
     { id: "log-axis", focus: "nlogn", text: "The textbook Big O chart uses a linear axis, which hides everything below quadratic in a flat line. On a log axis the classes separate, and you can see that n log n is barely above linear until n is enormous." },
   ],
+  springs: [
+    { id: "interrupt", text: "The difference between a transition and a spring is invisible on one clean move and obvious the moment you interrupt it. The transition starts a fresh curve from where it was, at zero velocity: the hitch you feel in most interfaces. The spring carries its momentum into the new journey." },
+    { id: "zeta", text: "One number describes a spring's character: the damping ratio ζ = c / (2√(km)). Under 1 it overshoots, over 1 it creeps in without crossing, exactly 1 is the fastest arrival with no bounce. react-spring's default (170, 26) is ζ ≈ 1.0." },
+    { id: "no-duration", text: "A spring has no duration. It has a settle time, the moment it is within 0.1% of the target and nearly still, and that changes with how far it has to go and how fast it was already moving. Which is exactly what makes it feel physical." },
+  ],
 };

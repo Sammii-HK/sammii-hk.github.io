@@ -1,0 +1,33 @@
+.sp { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.sp-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media (max-width: 760px) { .sp-controls { grid-template-columns: 1fr; } }
+.sp-col { display: grid; gap: 0.6rem; align-content: start; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 10px; padding: 0.9rem 1rem; }
+.sp-col > .cst-year-label { margin: 0; }
+.sp-col .cst-year { flex: none; }
+.sp-read { margin: 0; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 70%, transparent); font-variant-numeric: tabular-nums; }
+.sp-read code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.sp-stage { display: grid; gap: 0.75rem; }
+.sp-hint { margin: 0; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 70%, transparent); }
+.sp-lane { display: grid; grid-template-columns: 200px 1fr; align-items: center; gap: 0.75rem; }
+@media (max-width: 720px) { .sp-lane { grid-template-columns: 1fr; } }
+.sp-lane-label { font-size: 0.75rem; opacity: 0.7; }
+.sp-track { position: relative; height: 56px; border-radius: 10px; background: color-mix(in oklab, currentColor 6%, transparent); }
+.sp-card { position: absolute; top: 6px; left: 6px; width: 44px; height: 44px; border-radius: 8px; background: var(--chart-ink); will-change: transform; }
+.sp-card--css { background: color-mix(in oklab, var(--chart-ink) 55%, transparent); }
+.sp-svg { display: block; width: 100%; height: auto; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; background: color-mix(in oklab, currentColor 3%, transparent); }
+.sp-svg text { font-family: var(--font-inter), system-ui, sans-serif; fill: currentColor; font-size: 11px; opacity: 0.5; }
+.sp-line { fill: none; stroke-width: 2; stroke-linejoin: round; }
+.sp-line--css { stroke: var(--chart-ink); stroke-opacity: 0.5; }
+.sp-line--spr { stroke: var(--chart-ink); }
+.sp-line--target { stroke: currentColor; stroke-opacity: 0.25; stroke-dasharray: 3 4; stroke-width: 1; }
+.sp-key { display: inline-block; width: 18px; height: 3px; vertical-align: middle; background: var(--chart-ink); border-radius: 2px; }
+.sp-key--css { opacity: 0.5; }
+.sp-key--target { background: repeating-linear-gradient(90deg, currentColor 0 3px, transparent 3px 7px); opacity: 0.4; }
+.jd-btn { font: inherit; font-weight: 600; color: var(--chart-bg); background: var(--chart-ink); border: 0; border-radius: 8px; padding: 0.6rem 1.1rem; cursor: pointer; width: max-content; }
+.jd-btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }
+.bo-toggle { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.bo-toggle button { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.bo-toggle button[aria-pressed="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.bo-tick { fill: currentColor; opacity: 0.5; }
+.bo-tick line { stroke: currentColor; stroke-opacity: 0.12; }
