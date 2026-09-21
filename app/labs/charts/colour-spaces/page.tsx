@@ -25,8 +25,8 @@ export default function ColourSpacesChart() {
         <ColourSpacesTree />
         <footer className="chart-foot">
           <h2 className="section-eyebrow">Notes</h2>
-          <p>Dates are the year of the defining paper or standard. CIE RGB and XYZ share 1931 because XYZ is a linear transform of the matching experiments published that year. HSL and HSV are dated to Alvy Ray Smith's and Joblove and Greenberg's 1978 papers. Display P3 is dated to DCI-P3 (2007); Apple shipped the Display variant in 2015. CSS Color Level 4 is dated to the year all three engines shipped lab(), lch(), oklab() and oklch().</p>
-          <p>Sources: CIE publications 15:2004 and 159:2004; Ottosson, "A perceptual color space for image processing" (2020); Ebner and Fairchild, "Development and testing of a color space (IPT)" (1998); Li et al., "Comprehensive color solutions: CAM16, CAT16 and CAM16-UCS" (2017); ITU-R BT.709, BT.2020, BT.2100; IEC 61966-2-1 (sRGB); W3C CSS Color Module Level 4.</p>
+          <p>Dates are the year of the defining paper or standard. CIE RGB and XYZ share 1931 because XYZ is a linear transform of the matching experiments published that year. HSL and HSV are dated to the 1978 papers by Alvy Ray Smith and by Joblove and Greenberg. Display P3 is dated to DCI-P3 (2007); Apple shipped the Display variant in 2015. CSS Color Level 4 is dated to the year all three engines shipped lab(), lch(), oklab() and oklch().</p>
+          <p>Sources: CIE publications 15:2004 and 159:2004; Ottosson, A perceptual color space for image processing (2020); Ebner and Fairchild, Development and testing of a color space (IPT) (1998); Li et al., Comprehensive color solutions: CAM16, CAT16 and CAM16-UCS (2017); ITU-R BT.709, BT.2020, BT.2100; IEC 61966-2-1 (sRGB); W3C CSS Color Module Level 4.</p>
           <p>Part of a series of information-design pieces on the things design engineers work with. Built with SVG, React and CSS Color 4. <a href="https://gamut.sammii.dev">Gamut</a> is the tool that made me want to draw this.</p>
         </footer>
       </article>

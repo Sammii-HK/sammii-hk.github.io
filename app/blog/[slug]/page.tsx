@@ -2,7 +2,10 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
-import { getAllSlugs, getPostBySlug } from '../../lib/blog';
+import { getAllSlugs, getPostBySlug, REVALIDATE } from '../../lib/blog';
+
+export const revalidate = REVALIDATE;
+export const dynamicParams = true;
 import { Breadcrumbs } from '../../src/components/Breadcrumbs';
 import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';
 
@@ -17,12 +20,12 @@ const mdxOptions = {
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return (await getAllSlugs()).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
 
   const url = `https://sammii.dev/blog/${slug}`;
@@ -49,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post || post.draft) notFound();
   const isFuture = new Date(post.date) > new Date();
   if (isFuture) notFound();
