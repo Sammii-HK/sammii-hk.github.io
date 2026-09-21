@@ -53,6 +53,11 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "lime", focus: "lime", text: "Pure #00ff00 is called lime, not green. When CSS adopted the X11 names, HTML's green (#008000) kept its name and X11's brighter green had to become lime. Every named colour on the chart is resolved by your own browser." },
     { id: "rebeccapurple", focus: "rebeccapurple", text: "rebeccapurple (#663399) was added to CSS in 2014 in memory of Rebecca Meyer, Eric Meyer's daughter, who died at six. It is the only named colour with a story written into the standard." },
   ],
+  url: [
+    { id: "tls13", focus: "tls", text: "TLS 1.2 needs two round trips to agree keys; TLS 1.3 needs one, and HTTP/3 over QUIC folds the transport handshake into that same round trip. On a 200 ms 3G link that is 400 ms saved before a single byte of HTML arrives." },
+    { id: "js-phone", focus: "exec", text: "400 KB of JavaScript costs about 100 ms to parse, compile and run on a laptop and about a second on a cheap phone. On the waterfall it is the one bar that stretches when you change the device rather than the network." },
+    { id: "waiting", focus: "ttfb", text: "On a 3G connection, more than a second passes before the first byte of HTML arrives, and none of it is work: it is DNS, the handshakes and one request, each a round trip. Latency, not bandwidth, is what a slow page is made of." },
+  ],
   "big-o": [
     { id: "n32", focus: "2n", text: "At n = 32, O(n log n) is 160 nanoseconds and O(2^n) is 4.3 seconds on a machine doing a billion operations a second. O(n!) at 32 is 8.4 × 10^18 years. Adding one item to an exponential problem doubles the work." },
     { id: "log-axis", focus: "nlogn", text: "The textbook Big O chart uses a linear axis, which hides everything below quadratic in a flat line. On a log axis the classes separate, and you can see that n log n is barely above linear until n is enormous." },
