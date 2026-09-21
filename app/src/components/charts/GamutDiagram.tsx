@@ -86,8 +86,10 @@ export function GamutDiagram() {
           {LOCUS.filter(([nm]) => nm % 20 === 0 && nm >= 460 && nm <= 620).map(([nm, x, y]) => (
             <text key={nm} x={X(x) + (x > 0.4 ? 8 : -8)} y={Y(y) + (y > 0.6 ? -6 : 12)} textAnchor={x > 0.4 ? "start" : "end"} className="gm-nm">{nm} nm</text>
           ))}
-          {GAMUTS.filter((g) => shown.has(g.id)).map((g) => (
-            <g key={g.id} className={`gm-gamut${hover === g.id ? " is-hover" : ""}${hover && hover !== g.id ? " is-dim" : ""}`}>
+          {/* largest first, so the smaller triangles sit on top and take the hover */}
+          {GAMUTS.filter((g) => shown.has(g.id)).sort((a, b) => area(b) - area(a)).map((g) => (
+            <g key={g.id} className={`gm-gamut${hover === g.id ? " is-hover" : ""}${hover && hover !== g.id ? " is-dim" : ""}`} tabIndex={0} role="button" aria-label={`${g.name}, ${g.year}`}
+              onMouseEnter={() => setHover(g.id)} onMouseLeave={() => setHover(null)} onFocus={() => setHover(g.id)} onBlur={() => setHover(null)}>
               <polygon points={`${X(g.r[0])},${Y(g.r[1])} ${X(g.g[0])},${Y(g.g[1])} ${X(g.b[0])},${Y(g.b[1])}`} />
               <text x={X(g.g[0])} y={Y(g.g[1]) - 10} textAnchor="middle" className="gm-label">{g.name}</text>
             </g>
