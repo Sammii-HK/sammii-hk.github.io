@@ -4,7 +4,7 @@
 .ct-centuries, .ct-filter { display: flex; flex-wrap: wrap; gap: 0.25rem; }
 .ct-centuries button, .ct-filter button { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 18%, transparent); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; opacity: 0.8; }
 .ct-centuries button:hover, .ct-filter button:hover { opacity: 1; border-color: color-mix(in oklab, currentColor 40%, transparent); }
-.ct-filter button[aria-pressed="true"] { background: currentColor; color: var(--chart-bg, Canvas); opacity: 1; }
+.ct-filter button[aria-pressed="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); opacity: 1; }
 .ct-filter { margin-left: auto; }
 .ct-spine { position: relative; list-style: none; margin: 0; padding: 1rem 0 3rem; }
 .ct-spine::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: color-mix(in oklab, currentColor 20%, transparent); }
