@@ -1,0 +1,29 @@
+.spc { font-family: var(--font-inter), system-ui, sans-serif; }
+.spc-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { .spc-grid { grid-template-columns: 1fr; } }
+.spc-rules { display: grid; gap: 0.9rem; min-width: 0; }
+.spc-form { display: flex; gap: 0.5rem; }
+.aq-input { font: inherit; color: inherit; background: color-mix(in oklab, currentColor 5%, transparent); border: 1px solid color-mix(in oklab, currentColor 20%, transparent); border-radius: 8px; padding: 0.55rem 0.75rem; flex: 1; min-width: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; }
+.spc-starters { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.spc-starter { font: inherit; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 18%, transparent); border-radius: 999px; padding: 0.25rem 0.6rem; cursor: pointer; }
+.spc-starter code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.6875rem; }
+.spc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+.spc-list li { display: grid; grid-template-columns: minmax(8rem, 1fr) minmax(10rem, 2fr) 4.5rem 1.5rem; align-items: center; gap: 0.75rem; padding: 0.45rem 0.6rem; border-radius: 8px; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); }
+.spc-list li.is-win { border-color: color-mix(in oklab, currentColor 50%, transparent); background: color-mix(in oklab, currentColor 6%, transparent); }
+.spc-sel { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; overflow-wrap: anywhere; }
+.spc-bars { display: grid; gap: 2px; }
+.spc-bar { position: relative; height: 8px; background: color-mix(in oklab, currentColor 6%, transparent); border-radius: 2px; }
+.spc-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 2px; background: var(--chart-ink); }
+.spc-bar--1 i { opacity: 0.6; } .spc-bar--2 i { opacity: 0.32; }
+.spc-bar b { position: absolute; right: -1.4rem; top: -3px; font-size: 0.5625rem; opacity: 0.6; font-weight: 500; font-variant-numeric: tabular-nums; }
+.spc-tuple { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; opacity: 0.7; text-align: right; }
+.spc-x { font: inherit; color: inherit; opacity: 0.5; background: transparent; border: 0; cursor: pointer; font-size: 1rem; line-height: 1; }
+.spc-x:hover { opacity: 1; }
+.spc-key { display: inline-block; width: 14px; height: 8px; border-radius: 2px; background: var(--chart-ink); vertical-align: middle; }
+.spc-key--1 { opacity: 0.6; } .spc-key--2 { opacity: 0.32; }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }
+.spc-panel { min-height: 0; }
+.spc-panel .cst-panel-title code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.1rem; overflow-wrap: anywhere; }
+.spc-ladder { margin: 0; padding-left: 1.2rem; font-size: 0.8125rem; line-height: 1.5; display: grid; gap: 0.3rem; }
+.spc-ladder li::marker { opacity: 0.5; }
+.cst-btn { font: inherit; font-size: 0.8125rem; font-weight: 500; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 25%, transparent); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; white-space: nowrap; }

@@ -81,4 +81,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "dark-mode", text: "On black, WCAG 2 passes #8a8a8a text at 6.1:1. APCA rates it Lc 40, below even the headline threshold. That gap is why so many dark-mode interfaces with 'passing' secondary text are hard to read." },
     { id: "size", text: "APCA does not give a pass or fail. It gives a size: Lc 90 for comfortable body text, 75 minimum body, 60 for large or bold, 45 for headings. Contrast and type size were always the same decision; one method admits it." },
   ],
+  specificity: [
+    { id: "columns", text: "Specificity is not a score, it is three counts compared left to right: ids, then classes (with attributes and pseudo-classes), then types. One id beats a hundred classes. The doubling hack .btn.btn works because the same class counts twice." },
+    { id: "where", text: ":where() always contributes zero specificity, and that is the whole reason it exists: a design system wraps its defaults in :where() so any plain selector in the product wins, without an id, an !important or a doubled class. Cascade layers do the same job with a name." },
+    { id: "ladder", text: "Seven things get a say before specificity: running transitions, !important (with origins reversed), origin, cascade layers, the style attribute, and only then the three columns, then source order. Most 'my override doesn't apply' bugs are on that ladder, not in the columns." },
+  ],
 };
