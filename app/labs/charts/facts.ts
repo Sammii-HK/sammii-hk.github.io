@@ -91,4 +91,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "newton", text: "The rainbow has seven colours because Newton wanted it to. He saw a continuum, first divided it into five, then added orange and indigo so the spectrum would share a number with the musical scale. Opticks, 1704." },
     { id: "bellos", text: "Ask 44,000 people their favourite number and one in ten says seven, the most popular answer. Bellos's reason: of the first ten numbers it is the only one you can neither multiply nor divide within the group. It feels unique, so it feels complete." },
   ],
+  layout: [
+    { id: "floats", text: "Floats were made for wrapping text round an image. For a decade they were how every page was laid out, which is why every codebase had a clearfix hack and why columns were never equal height. Flexbox in 2013 was the first layout tool that was actually for layout." },
+    { id: "flex-vs-grid", text: "Flexbox is one dimension at a time: a wrapped row of cards does not know about the row below it, so nothing lines up. Grid is two: rows and columns know each other, and repeat(auto-fill, minmax()) adds and removes columns as the width changes with no media query." },
+    { id: "cq", text: "For 25 years 'responsive' meant the viewport. Container queries (2022) let a card ask how wide its own container is, so the same component is horizontal in the main column and stacked in the sidebar. Subgrid (2023) then lines its title and price up with the card next door." },
+  ],
 };
