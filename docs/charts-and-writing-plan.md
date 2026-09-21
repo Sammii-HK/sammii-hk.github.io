@@ -56,3 +56,13 @@ Already covered (do not duplicate): Gamut (OKLCH not HSL), Kern (kerning pair), 
 
 ## Order of work
 Built: colour spaces, why HSL lies, communication and type, the typography genome, keypress to pixel, the gamuts, what a CSS property costs, the event loop, Big O. Next: the symbolism of seven (MA) → the gamuts → the evolution of CSS layout → the anatomy of a letter → then alternate one from each series. Every built chart has a scene in the project video lane. Blogs for the gap list run in parallel through the content pipeline, two a week, oldest project first.
+
+## Content cadence per chart (agreed 2026-09-21)
+Every chart is a campaign, not a post. The site's `/api/charts/` carries each chart's intro blurb and its follow-up **facts** (one true, specific thing each, with a `?focus=` the page opens on). The charts lane on the mini (`visual-lane/chart-content-render.mjs`, 07:40 and 13:40) reads it and queues, in order:
+
+1. **Intro post** on X: the blurb, with a clip of the chart animating in present mode. Same day, the intro **blog post** (the series intro is written; per-chart posts come from the facts plus the chart's notes, published through the GPT or the publish door).
+2. **Follow-up posts**, one per fact, each with a clip of the chart opened on that fact's focus (Rec. 2020's corners, the `top` versus `transform` chips, the 1, 4, 3, 2 snippet). Spaced by the slot tracker like everything else.
+3. **LinkedIn**: one piece per chart, the engineering lesson behind it, from the same facts.
+
+## Long form (YouTube, Studio Sammii)
+Each chart is a 6 to 10 minute episode: Sammii on camera explaining the idea, with the chart as B-roll. The lane's `--broll` mode records a 20 second clip per fact in present mode into `state/fleet/broll/<slug>/`, plus `beats.md`: the intro and each fact as a beat, with its clip named. That is the edit plan: talking head, cut to the clip for the beat, back. PostReady can place the B-roll on the beat timestamps once the recording app marks them (a beat marker while recording, one tap per fact). Chart pages also take `?present=1` for live screen capture in the recording app if she wants to drive them by hand on camera.
