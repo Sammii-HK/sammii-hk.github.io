@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://sammii.dev
 paths:
-  /api/projects:
+  /api/projects/:
     get:
       operationId: getProjects
       summary: Every project with its case study text, the charts, and the blog index, as JSON.
