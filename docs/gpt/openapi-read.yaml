@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: sammii.dev, read
+  version: "1.0"
+  description: Read-only facts about Sammii Kellow's projects, charts and blog. Use before writing anything.
+servers:
+  - url: https://sammii.dev
+paths:
+  /api/projects:
+    get:
+      operationId: getProjects
+      summary: Every project with its case study text, the charts, and the blog index, as JSON.
+      responses:
+        "200":
+          description: The facts.
+          content:
+            application/json:
+              schema:
+                type: object
+  /rss.xml:
+    get:
+      operationId: getBlogFeed
+      summary: The blog as an RSS 2.0 feed (title, link, date, description, tags per post).
+      responses:
+        "200":
+          description: RSS XML.
+          content:
+            application/rss+xml:
+              schema:
+                type: string
