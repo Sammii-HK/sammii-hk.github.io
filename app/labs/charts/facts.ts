@@ -76,4 +76,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "accidental", text: "Six ways a card becomes a stacking context without anyone meaning it: any transform, any opacity below 1, any filter, will-change: transform, isolation: isolate, and position with z-index: 0. Zero is not auto." },
     { id: "portal", text: "Raising the card's z-index works and starts the next war: now it sits above the toolbar. The real fix is to leave the context: portal the menu to body, or use the top layer (popover, dialog.showModal), which sits above every context by definition." },
   ],
+  contrast: [
+    { id: "symmetric", text: "WCAG 2 contrast is symmetric: white on orange scores exactly what orange on white scores, 2.6:1. Your eyes disagree, and so does APCA, which gives 50 one way and 55 the other, because it knows which colour is the text." },
+    { id: "dark-mode", text: "On black, WCAG 2 passes #8a8a8a text at 6.1:1. APCA rates it Lc 40, below even the headline threshold. That gap is why so many dark-mode interfaces with 'passing' secondary text are hard to read." },
+    { id: "size", text: "APCA does not give a pass or fail. It gives a size: Lc 90 for comfortable body text, 75 minimum body, 60 for large or bold, 45 for headings. Contrast and type size were always the same decision; one method admits it." },
+  ],
 };
