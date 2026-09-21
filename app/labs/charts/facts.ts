@@ -71,4 +71,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "zeta", text: "One number describes a spring's character: the damping ratio ζ = c / (2√(km)). Under 1 it overshoots, over 1 it creeps in without crossing, exactly 1 is the fastest arrival with no bounce. react-spring's default (170, 26) is ζ ≈ 1.0." },
     { id: "no-duration", text: "A spring has no duration. It has a settle time, the moment it is within 0.1% of the target and nearly still, and that changes with how far it has to go and how fast it was already moving. Which is exactly what makes it feel physical." },
   ],
+  stacking: [
+    { id: "scope", text: "z-index only competes with siblings inside the same stacking context. The menu at 9999 loses to a section at 1 because the card between them, with a transform on it, became a context: the whole card paints as one unit at z 0." },
+    { id: "accidental", text: "Six ways a card becomes a stacking context without anyone meaning it: any transform, any opacity below 1, any filter, will-change: transform, isolation: isolate, and position with z-index: 0. Zero is not auto." },
+    { id: "portal", text: "Raising the card's z-index works and starts the next war: now it sits above the toolbar. The real fix is to leave the context: portal the menu to body, or use the top layer (popover, dialog.showModal), which sits above every context by definition." },
+  ],
 };
