@@ -77,6 +77,24 @@ export default function LabsPage() {
             <a href="https://sammii.dev/">sammii.dev</a>.
           </p>
         </header>
+        <section aria-labelledby="labs-charts" className="labs-index-group">
+          <h2 id="labs-charts" className="section-eyebrow">
+            Charts <span className="work-index-count" aria-hidden="true">1</span>
+          </h2>
+          <p className="labs-index-group-lead">Information design about the things design engineers work with. Interactive, and a poster you can download.</p>
+          <ul className="lab-grid" aria-label="Charts">
+            <li className="lab-card">
+              <div className="lab-card-body">
+                <h3 className="lab-card-title">The family tree of colour spaces</h3>
+                <p className="lab-card-stack">SVG, React, CSS Color 4</p>
+                <p className="lab-card-info">25 colour spaces from Munsell and CIE XYZ to OKLCH and CSS Color 4, on a timeline in six lanes, with the derivations drawn in and live ramps in each space.</p>
+                <div className="lab-card-links">
+                  <a href="/charts/colour-spaces/">Open the chart</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
         {KINDS.map(({ kind, label, lead }) => {
           const items = labs.filter((p) => p.labs?.kind === kind);
           if (items.length === 0) return null;
