@@ -547,8 +547,9 @@ body {
 .lens-nav-phrase { opacity: 0.55; --u: 0; padding-bottom: 0.3em; }
 .lens-nav-phrase[data-state="preview"] { opacity: 0.9; --u: 1; }
 .lens-nav-phrase[data-state="committed"] { opacity: 1; font-weight: 600; --u: 1; }
-.lens-nav-labs { margin-left: auto; opacity: 0.55; display: inline-flex; align-items: center; gap: 0.2em; white-space: nowrap; }
-.lens-nav-labs:hover, .lens-nav-labs:focus-visible { opacity: 1; }
+/* Labs is a nav link like the lenses: same weight, same underline on hover, pushed to the end */
+.lens-nav-labs { margin-left: auto; white-space: nowrap; }
+.lens-nav-labs:hover, .lens-nav-labs:focus-visible { opacity: 1; --u: 1; }
 .lens-short { display: none; }
 @media (max-width: 640px) {
   .lens-nav { gap: 1rem; padding: 0.7rem 1.25rem; }
