@@ -86,4 +86,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "where", text: ":where() always contributes zero specificity, and that is the whole reason it exists: a design system wraps its defaults in :where() so any plain selector in the product wins, without an id, an !important or a doubled class. Cascade layers do the same job with a name." },
     { id: "ladder", text: "Seven things get a say before specificity: running transitions, !important (with origins reversed), origin, cascade layers, the style attribute, and only then the three columns, then source order. Most 'my override doesn't apply' bugs are on that ladder, not in the columns." },
   ],
+  seven: [
+    { id: "mod", text: "The days of the week are named for the seven classical planets, but not in the planets' order. The ancients gave each hour to the next planet, slowest to fastest: Saturn, Jupiter, Mars, Sun, Venus, Mercury, Moon. 24 hours, 24 mod 7 = 3, so each day's first hour is three planets on. Saturn, Sun, Moon, Mars, Mercury, Jupiter, Venus. The week is a heptagram." },
+    { id: "newton", text: "The rainbow has seven colours because Newton wanted it to. He saw a continuum, first divided it into five, then added orange and indigo so the spectrum would share a number with the musical scale. Opticks, 1704." },
+    { id: "bellos", text: "Ask 44,000 people their favourite number and one in ten says seven, the most popular answer. Bellos's reason: of the first ten numbers it is the only one you can neither multiply nor divide within the group. It feels unique, so it feels complete." },
+  ],
 };
