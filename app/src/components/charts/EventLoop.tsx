@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 /**
  * The event loop as a stepper. Three real snippets, each run through a
@@ -92,6 +92,7 @@ function simulate(s: Snippet): Step[] {
 
 export function EventLoop() {
   const [sid, setSid] = useState(SNIPPETS[0].id);
+  useEffect(() => { const f = new URLSearchParams(window.location.search).get("focus"); if (f && SNIPPETS.some((s) => s.id === f)) setSid(f); }, []);
   const [i, setI] = useState(0);
   const snippet = SNIPPETS.find((s) => s.id === sid)!;
   const steps = useMemo(() => simulate(snippet), [snippet]);

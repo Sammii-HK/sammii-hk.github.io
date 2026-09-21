@@ -40,6 +40,7 @@ export function GamutDiagram() {
   const canvas = useRef<HTMLCanvasElement>(null);
   const [shown, setShown] = useState<Set<string>>(new Set(["srgb", "p3", "rec2020"]));
   const [hover, setHover] = useState<string | null>(null);
+  useEffect(() => { const f = new URLSearchParams(window.location.search).get("focus"); if (f && GAMUTS.some((g) => g.id === f)) { setHover(f); setShown((s) => new Set(s).add(f)); } }, []);
   const [screen, setScreen] = useState<string>("unknown");
   const locus = useMemo(() => LOCUS.map(([, x, y]) => [x, y] as [number, number]), []);
 

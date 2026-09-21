@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 /**
  * Growth curves on one chart, drawn for the n you choose, with the time
@@ -38,6 +38,7 @@ export function BigO() {
   const [n, setN] = useState(32);
   const [logY, setLogY] = useState(true);
   const [hover, setHover] = useState<string | null>(null);
+  useEffect(() => { const f = new URLSearchParams(window.location.search).get("focus"); if (f && CLASSES.some((c) => c.id === f)) setHover(f); }, []);
   const xs = useMemo(() => Array.from({ length: 121 }, (_, i) => 1 + ((n - 1) * i) / 120), [n]);
   const maxY = useMemo(() => Math.max(...CLASSES.map((c) => Math.min(c.f(n), 1e300))), [n]);
   const yOf = (v: number) => {

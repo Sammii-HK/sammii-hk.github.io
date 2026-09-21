@@ -81,6 +81,7 @@ export function LineageTree({ nodes, lanes, years, scale, ticks, title, desc, po
       return () => window.clearInterval(t);
     }
     const y = Number(q.get("year")); if (y) setYear(Math.min(Y1, Math.max(Y0, y)));
+    const f = q.get("focus"); if (f) setPinned(f);
   }, [Y0, Y1]);
 
   const visible = (n: TreeNode) => n.year <= year;

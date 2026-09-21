@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { HOPS, STAGES, type Knobs } from "../../../labs/charts/keypress/data";
 
 /**
@@ -11,6 +11,7 @@ import { HOPS, STAGES, type Knobs } from "../../../labs/charts/keypress/data";
 export function KeypressFlow() {
   const [k, setK] = useState<Knobs>({ pollHz: 125, refreshHz: 60, work: "typical", panel: "typical" });
   const [open, setOpen] = useState<string | null>(null);
+  useEffect(() => { const f = new URLSearchParams(window.location.search).get("focus"); if (f && HOPS.some((h) => h.id === f)) setOpen(f); }, []);
   const rows = useMemo(() => HOPS.map((h) => ({ ...h, value: h.ms(k) })), [k]);
   const total = rows.reduce((a, r) => a + r.value, 0);
   const set = <K extends keyof Knobs>(key: K, v: Knobs[K]) => setK((s) => ({ ...s, [key]: v }));

@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { COSTS, PROPS, type Cost } from "../../../labs/charts/repaint/data";
 
 /**
@@ -14,6 +14,7 @@ const triggers = (c: Cost) => (c === "layout" ? ["Style", "Layout", "Paint", "Co
 
 export function RepaintMap() {
   const [pick, setPick] = useState<string | null>("top");
+  useEffect(() => { const f = new URLSearchParams(window.location.search).get("focus"); if (f && PROPS.some((p) => p.name === f)) setPick(f); }, []);
   const [q, setQ] = useState("");
   const sel = PROPS.find((p) => p.name === pick) ?? null;
   const lit = sel ? new Set(triggers(sel.cost)) : new Set<string>();

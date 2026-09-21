@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { hslToRgb, lchToRgb, luminance, oklchToRgb, inGamut, clamp, toCss, type RGB } from "../../../lib/colour";
 
 /**
@@ -34,6 +34,7 @@ function rows(l: number): Row[] {
 
 export function WhyHslLies() {
   const [l, setL] = useState(0.5);
+  useEffect(() => { const f = Number(new URLSearchParams(window.location.search).get("focus")); if (f >= 20 && f <= 80) setL(f / 100); }, []);
   const data = useMemo(() => rows(l), [l]);
   const maxY = Math.max(...data.flatMap((r) => r.colours.map((c) => c.Y)));
   return (
