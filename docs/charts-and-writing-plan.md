@@ -43,19 +43,19 @@ Each post follows the case-study voice: the problem, the hard part, one true num
 Already covered (do not duplicate): Gamut (OKLCH not HSL), Kern (kerning pair), Prism (self-building library), Lattiq (local-first), Isle (Animal Crossing villagers), Orbit (14 agents), Flip (Wilson intervals), Glint (edge middleware), ScapeStudio (Web Workers), iPrep (interview coach), Podify, Spellcast and Lunary (many), the MA series parts 1 to 7 (complete).
 
 ## More to build (added 2026-09-21)
-- **Every named CSS colour in OKLCH**: the 148 named colours on a hue and chroma wheel, resolved in the browser, with the oddities (darkgray lighter than gray) called out.
+- **Every named CSS colour in OKLCH** (built): the 148 named colours on a hue and chroma wheel, resolved in the browser, with the oddities (darkgray lighter than gray) called out.
 - **The em, the point and the pixel**: how type units relate, drawn to scale at 96 dpi.
 - **Easing, drawn**: cubic-bezier presets against spring curves, with the velocity plotted.
 - **The stacking context**: what creates one, as a decision tree you can walk.
 - **Specificity, to scale**: selectors as (a, b, c) triples on a sorted axis.
-- **How a URL becomes a page**: DNS, TCP, TLS, HTTP, parse, render, as a latency waterfall (the network sibling of the keypress chart).
+- **How a URL becomes a page** (built): DNS, TCP, TLS, HTTP, parse, render, as a latency waterfall (the network sibling of the keypress chart).
 - **What a byte of JavaScript costs**: download, parse, compile, execute, per KB, on a phone versus a laptop.
 - **Git, as a graph**: commits, branches, merges, rebase, drawn and stepped like the event loop.
 - **Floating point**: why 0.1 + 0.2 is not 0.3, the bits laid out.
 - **Unicode**: code point, code unit, grapheme, for one emoji family.
 
 ## Order of work
-Built: colour spaces, why HSL lies, communication and type, the typography genome, keypress to pixel, the gamuts, what a CSS property costs, the event loop, Big O. Next: the symbolism of seven (MA) → the gamuts → the evolution of CSS layout → the anatomy of a letter → then alternate one from each series. Every built chart has a scene in the project video lane. Blogs for the gap list run in parallel through the content pipeline, two a week, oldest project first.
+Built (11): colour spaces, why HSL lies, communication and type, the typography genome, keypress to pixel, the gamuts, what a CSS property costs, the event loop, Big O, every named CSS colour, how a URL becomes a page. Next: the symbolism of seven (MA) → the gamuts → the evolution of CSS layout → the anatomy of a letter → then alternate one from each series. Every built chart has a scene in the project video lane. Blogs for the gap list run in parallel through the content pipeline, two a week, oldest project first.
 
 ## Content cadence per chart (agreed 2026-09-21)
 Every chart is a campaign, not a post. The site's `/api/charts/` carries each chart's intro blurb and its follow-up **facts** (one true, specific thing each, with a `?focus=` the page opens on). The charts lane on the mini (`visual-lane/chart-content-render.mjs`, 07:40 and 13:40) reads it and queues, in order:
