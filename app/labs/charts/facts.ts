@@ -61,6 +61,8 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "waiting", focus: "ttfb", text: "On a 3G connection, more than a second passes before the first byte of HTML arrives, and none of it is work: it is DNS, the handshakes and one request, each a round trip. Latency, not bandwidth, is what a slow page is made of." },
   ],
   "big-o": [
+    { id: "includes", text: "The most common accidental quadratic in interface code is one line: array.includes (or indexOf, or find) inside a loop over another array. 40,000 items, half selected, is 800 million comparisons on the first keystroke. A Set built once makes it 40,000." },
+    { id: "budgets", text: "Two budgets decide whether typing feels right: 16.7 ms per keystroke keeps 60 frames a second, 100 ms is the threshold for feeling instantaneous. The measured demo crosses both as the list grows, on your machine, in the keystroke handler." },
     { id: "n32", focus: "2n", text: "At n = 32, O(n log n) is 160 nanoseconds and O(2^n) is 4.3 seconds on a machine doing a billion operations a second. O(n!) at 32 is 8.4 × 10^18 years. Adding one item to an exponential problem doubles the work." },
     { id: "log-axis", focus: "nlogn", text: "The textbook Big O chart uses a linear axis, which hides everything below quadratic in a flat line. On a log axis the classes separate, and you can see that n log n is barely above linear until n is enormous." },
   ],
