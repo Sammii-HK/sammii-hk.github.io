@@ -26,3 +26,24 @@
 .el-kind { width: 8px; height: 8px; border-radius: 50%; background: currentColor; display: inline-block; }
 .el-kind.is-micro { opacity: 0.7; } .el-kind.is-raf { opacity: 0.45; } .el-kind.is-render { border-radius: 2px; }
 .el-lesson { margin: 0; font-size: 0.9rem; line-height: 1.55; max-width: 70ch; color: color-mix(in oklab, currentColor 78%, transparent); }
+
+.jd { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; margin-top: 1rem; }
+.jd-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 2rem; }
+.jd-head .cst-year { flex: 1 1 320px; }
+.jd-meter { font-size: 0.8125rem; opacity: 0.8; font-variant-numeric: tabular-nums; }
+.jd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 720px) { .jd-grid { grid-template-columns: 1fr; } }
+.jd-cell { border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 10px; padding: 0.9rem 1rem; display: grid; gap: 0.6rem; align-content: start; }
+.jd-cell--wide { grid-column: 1 / -1; }
+.jd-btn { font: inherit; font-weight: 600; color: var(--chart-bg); background: var(--chart-ink); border: 0; border-radius: 8px; padding: 0.6rem 1.1rem; cursor: pointer; width: max-content; min-width: 7.5rem; }
+.jd-btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }
+.jd-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.jd-lane { display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 0.75rem; }
+@media (max-width: 720px) { .jd-lane { grid-template-columns: 1fr; } }
+.jd-lane-label { font-size: 0.75rem; opacity: 0.7; }
+.jd-track { position: relative; display: block; height: 14px; border-radius: 7px; background: color-mix(in oklab, currentColor 8%, transparent); overflow: hidden; }
+.jd-ball { position: absolute; top: 0; left: 0; width: 25%; height: 100%; border-radius: 7px; background: var(--chart-ink); will-change: transform; }
+.jd-ball--css { animation: jd-slide 1.6s linear infinite; }
+@keyframes jd-slide { from { transform: translateX(0); } to { transform: translateX(300%); } }
+@media (prefers-reduced-motion: reduce) { .jd-ball--css { animation-duration: 6s; } }

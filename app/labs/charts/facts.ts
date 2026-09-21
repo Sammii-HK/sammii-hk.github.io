@@ -44,6 +44,8 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "font-weight", focus: "font-weight", text: "Changing font-weight changes glyph widths, so every line re-wraps: a layout. A variable font animates weight beautifully, but it still costs a layout each frame." },
   ],
   "event-loop": [
+    { id: "label", focus: "classic", text: "The most common loading-state bug: set the button to 'Saving…' then do the work in the same task. The label never appears, because the browser paints after the task ends, by which time it says 'Saved'. Give the loop a turn first (a frame, then a task) and it shows." },
+    { id: "css-survives", focus: "classic", text: "Block the main thread for 400 ms and watch two animations: the CSS transform keeps moving, because the compositor runs it off the main thread; the JavaScript one stops dead. That is why transform and opacity animations survive a busy page." },
     { id: "1432", focus: "classic", text: "console.log('1'), a setTimeout of 0 that logs 2, a resolved promise that logs 3, console.log('4'). The console reads 1, 4, 3, 2, because microtasks drain the instant the script's stack empties, before any task can run." },
     { id: "raf", focus: "raf", text: "requestAnimationFrame is not a task. A rAF callback registered during a frame waits for the next one, a whole refresh later, while a 0 ms timeout runs in between." },
     { id: "starve", focus: "starve", text: "Every microtask queued while the queue is draining joins the same drain. Chain enough promises and the page never gets to render: that is how microtasks starve the loop." },
