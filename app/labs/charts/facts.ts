@@ -48,6 +48,11 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "raf", focus: "raf", text: "requestAnimationFrame is not a task. A rAF callback registered during a frame waits for the next one, a whole refresh later, while a 0 ms timeout runs in between." },
     { id: "starve", focus: "starve", text: "Every microtask queued while the queue is draining joins the same drain. Chain enough promises and the page never gets to render: that is how microtasks starve the loop." },
   ],
+  "named-colours": [
+    { id: "darkgray", focus: "darkgray", text: "darkgray is lighter than gray. CSS took gray (#808080) from HTML's sixteen VGA colours and darkgray (#a9a9a9) from X11, whose own gray was #bebebe. Two lineages, one name, and the dark one ended up brighter." },
+    { id: "lime", focus: "lime", text: "Pure #00ff00 is called lime, not green. When CSS adopted the X11 names, HTML's green (#008000) kept its name and X11's brighter green had to become lime. Every named colour on the chart is resolved by your own browser." },
+    { id: "rebeccapurple", focus: "rebeccapurple", text: "rebeccapurple (#663399) was added to CSS in 2014 in memory of Rebecca Meyer, Eric Meyer's daughter, who died at six. It is the only named colour with a story written into the standard." },
+  ],
   "big-o": [
     { id: "n32", focus: "2n", text: "At n = 32, O(n log n) is 160 nanoseconds and O(2^n) is 4.3 seconds on a machine doing a billion operations a second. O(n!) at 32 is 8.4 × 10^18 years. Adding one item to an exponential problem doubles the work." },
     { id: "log-axis", focus: "nlogn", text: "The textbook Big O chart uses a linear axis, which hides everything below quadratic in a flat line. On a log axis the classes separate, and you can see that n log n is barely above linear until n is enormous." },

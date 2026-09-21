@@ -56,3 +56,18 @@ export const inGamut = (rgb: RGB) => rgb.every((c) => c >= -0.0005 && c <= 1.000
 export const clamp = (rgb: RGB) => rgb.map((c) => Math.min(1, Math.max(0, c))) as RGB;
 export const toCss = (rgb: RGB) => `rgb(${clamp(rgb).map((c) => Math.round(c * 255)).join(" ")})`;
 export const toHex = (rgb: RGB) => "#" + clamp(rgb).map((c) => Math.round(c * 255).toString(16).padStart(2, "0")).join("");
+
+/** sRGB (0..1) to Oklab, the inverse of oklabToLinearRgb (Ottosson 2020). */
+export function rgbToOklab([r, g, b]: RGB): [number, number, number] {
+  const lr = srgbToLinear(r), lg = srgbToLinear(g), lb = srgbToLinear(b);
+  const l = Math.cbrt(0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb);
+  const m = Math.cbrt(0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb);
+  const s = Math.cbrt(0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb);
+  return [0.2104542553 * l + 0.793617785 * m - 0.0040720468 * s, 1.9779984951 * l - 2.428592205 * m + 0.4505937099 * s, 0.0259040371 * l + 0.7827717662 * m - 0.808675766 * s];
+}
+export function rgbToOklch(rgb: RGB): [number, number, number] {
+  const [L, a, b] = rgbToOklab(rgb);
+  const C = Math.hypot(a, b);
+  let h = (Math.atan2(b, a) * 180) / Math.PI; if (h < 0) h += 360;
+  return [L, C, C < 1e-4 ? 0 : h];
+}
