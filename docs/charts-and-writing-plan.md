@@ -55,7 +55,9 @@ Already covered (do not duplicate): Gamut (OKLCH not HSL), Kern (kerning pair), 
 - **Unicode**: code point, code unit, grapheme, for one emoji family.
 
 ## Order of work
-Built (11): colour spaces, why HSL lies, communication and type, the typography genome, keypress to pixel, the gamuts, what a CSS property costs, the event loop, Big O, every named CSS colour, how a URL becomes a page. Next: the symbolism of seven (MA) → the gamuts → the evolution of CSS layout → the anatomy of a letter → then alternate one from each series. Every built chart has a scene in the project video lane. Blogs for the gap list run in parallel through the content pipeline, two a week, oldest project first.
+Built (15): colour spaces, why HSL lies, communication and type, the typography genome, keypress to pixel, the gamuts, what a CSS property costs, the event loop (for interfaces), Big O (in the keystroke), every named CSS colour, how a URL becomes a page, easing versus springs, why z-index 9999 does nothing, contrast two ways (WCAG 2 vs APCA), specificity three columns. Next: the symbolism of seven (MA) → the evolution of CSS layout → the anatomy of a letter → what a byte of JS costs → floating point in layout → then alternate one from each series.
+
+**House rule since 2026-09-21 (the event loop reframe):** every CS piece opens with what the user sees or feels (the freeze, the lag, the vanished menu, the unreadable grey), done with real work or real DOM and measured where possible, and only then the mechanism. The "what it feels like" section is the hook; the stepper or the curves are the follow-up facts. Every built chart has a scene in the project video lane. Blogs for the gap list run in parallel through the content pipeline, two a week, oldest project first.
 
 ## Content cadence per chart (agreed 2026-09-21)
 Every chart is a campaign, not a post. The site's `/api/charts/` carries each chart's intro blurb and its follow-up **facts** (one true, specific thing each, with a `?focus=` the page opens on). The charts lane on the mini (`visual-lane/chart-content-render.mjs`, 07:40 and 13:40) reads it and queues, in order:
