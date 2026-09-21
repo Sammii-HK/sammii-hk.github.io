@@ -1,0 +1,34 @@
+.xh { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.xh-loading { margin: 0; opacity: 0.6; font-size: 0.875rem; }
+.xh-overlay-wrap .cst-panel-kicker { margin: 0 0 0.5rem; }
+.xh-overlay { position: relative; display: block; line-height: 1.3; word-spacing: 0.2em; white-space: nowrap; overflow-x: auto; padding: 0.15em 0.4em 0.1em; border-radius: 12px; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); background: color-mix(in oklab, currentColor 3%, transparent); overflow: hidden; }
+.xh-overlay > span { position: relative; z-index: 1; display: inline; }
+.xh-strut { display: inline-block; width: 0; height: 0; vertical-align: baseline; }
+.xh-overlay > span:nth-child(odd) { opacity: 0.85; }
+.xh-line { position: absolute; left: 0; right: 0; height: 0; border-top: 1px dashed color-mix(in oklab, currentColor 45%, transparent); pointer-events: none; }
+.xh-line b { position: absolute; right: 0.5rem; bottom: 2px; font-size: 0.625rem; font-style: normal; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; font-family: var(--font-inter), system-ui, sans-serif; font-weight: 500; }
+.xh-line--base { border-top-style: solid; }
+.xh-legend { margin: 0.5rem 0 0; font-size: 0.75rem; color: color-mix(in oklab, currentColor 60%, transparent); }
+.xh-controls { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+.xh-select { font: inherit; color: inherit; background: var(--chart-bg); border: 1px solid color-mix(in oklab, currentColor 25%, transparent); border-radius: 6px; padding: 0.35rem 0.5rem; }
+.xh-table-wrap { overflow-x: auto; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 10px; }
+.xh-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 0.8125rem; }
+.xh-table th, .xh-table td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); vertical-align: middle; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.xh-table thead th { font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; font-weight: 500; white-space: normal; }
+.xh-table tbody tr { cursor: pointer; }
+.xh-table tbody tr:hover { background: color-mix(in oklab, currentColor 5%, transparent); }
+.xh-table tr.is-ref { background: color-mix(in oklab, currentColor 9%, transparent); }
+.xh-table tbody th { font-weight: 500; font-size: 1rem; }
+.xh-bar { display: inline-block; width: 90px; height: 8px; border-radius: 2px; background: color-mix(in oklab, currentColor 8%, transparent); margin-right: 0.5rem; vertical-align: middle; }
+.xh-bar i { display: block; height: 100%; border-radius: 2px; background: var(--chart-ink); }
+.xh-eq { font-weight: 600; }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }
+.jd-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.ct-h { font-family: var(--font-jost), system-ui, sans-serif; font-weight: 600; font-size: 1.1rem; margin: 0.5rem 0 0; }
+.xh-adjust { display: grid; gap: 0.8rem; }
+.sc-toggle { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; cursor: pointer; padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); width: max-content; }
+.sc-toggle input { accent-color: currentColor; }
+.sc-toggle code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; }
+.xh-adjust-row { display: grid; gap: 0.4rem; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 10px; padding: 0.8rem 1rem; }
+.xh-adjust-row p { margin: 0; line-height: 1.4; }
+.xh-fam { display: inline-block; width: 8em; font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.55; vertical-align: middle; }

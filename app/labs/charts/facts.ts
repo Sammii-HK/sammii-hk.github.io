@@ -96,4 +96,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "flex-vs-grid", text: "Flexbox is one dimension at a time: a wrapped row of cards does not know about the row below it, so nothing lines up. Grid is two: rows and columns know each other, and repeat(auto-fill, minmax()) adds and removes columns as the width changes with no media query." },
     { id: "cq", text: "For 25 years 'responsive' meant the viewport. Container queries (2022) let a card ask how wide its own container is, so the same component is horizontal in the main column and stacked in the sidebar. Subgrid (2023) then lines its title and price up with the card next door." },
   ],
+  "x-height": [
+    { id: "box", text: "font-size does not set the size of the letters. It sets the em box, and nothing inside is required to be any size. Verdana's lowercase fills over half the box, Garamond's about two fifths. Measured on your machine, in the chart." },
+    { id: "adjust", text: "font-size-adjust takes one number, the x-height as a fraction of the em, and scales any fallback family so its lowercase matches. It has been in every engine since 2024 and almost nobody uses it. It is the fix for the fallback font looking the wrong size while the web font loads." },
+    { id: "line-box", text: "line-height: normal is not a number. It is the font's own ascent plus descent, which is different in every family, which is why the same line-height looks tight in one and loose in another, and why an icon next to text never quite centres." },
+  ],
 };
