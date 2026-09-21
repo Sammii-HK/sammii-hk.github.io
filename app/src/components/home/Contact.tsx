@@ -32,6 +32,12 @@ export const Contact = () => {
         <li><a href={GITHUB_URL_SAMMII} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></li>
         <li><a href={cv.href} download>CV for {cv.label}, PDF</a></li>
       </ul>
+      <p className="contact-colophon">
+        <span>© {new Date().getFullYear()} Sammii Kellow</span>
+        <a href="/blog/">Blog</a>
+        <a href="/rss.xml">RSS</a>
+        <a href="https://labs.sammii.dev/">Labs</a>
+      </p>
     </section>
   );
 };
