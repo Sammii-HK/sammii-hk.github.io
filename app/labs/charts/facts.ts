@@ -101,4 +101,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "adjust", text: "font-size-adjust takes one number, the x-height as a fraction of the em, and scales any fallback family so its lowercase matches. It has been in every engine since 2024 and almost nobody uses it. It is the fix for the fallback font looking the wrong size while the web font loads." },
     { id: "line-box", text: "line-height: normal is not a number. It is the font's own ascent plus descent, which is different in every family, which is why the same line-height looks tight in one and loose in another, and why an icon next to text never quite centres." },
   ],
+  unicode: [
+    { id: "four", text: "A string has four lengths. One family emoji is 1 grapheme, 7 code points, 11 UTF-16 units and 25 UTF-8 bytes. JavaScript's .length gives you the third one, which is the one nobody means." },
+    { id: "limit", text: "A '20 characters max' field written with .slice(0, 20) rejects a 20-letter Vietnamese name and can leave half an emoji at the end of a preview. Cut by grapheme with Intl.Segmenter, in every engine since 2024, and it cuts where a person would." },
+    { id: "cafe", text: "There are two cafés that look identical, compare unequal and sort apart: one é is a single code point, the other is e plus a combining accent. Normalise before you compare, and let Intl.Collator sort." },
+  ],
 };
