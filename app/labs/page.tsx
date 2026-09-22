@@ -6,6 +6,7 @@ import { getLabsProjects } from "../lib/lenses";
 import { getImagePath } from "../common/utils/image-path";
 import { getGithubRepoUrl } from "../common/utils/github-repo-url";
 import { LabsShell } from "../src/components/labs/LabsShell";
+import { CHARTS, chartHref } from "./charts/registry";
 
 /**
  * labs.sammii.dev (served from this route by a host rewrite in vercel.json).
@@ -77,6 +78,26 @@ export default function LabsPage() {
             <a href="https://sammii.dev/">sammii.dev</a>.
           </p>
         </header>
+        <section aria-labelledby="labs-charts" className="labs-index-group">
+          <h2 id="labs-charts" className="section-eyebrow">
+            Charts <span className="work-index-count" aria-hidden="true">{CHARTS.length}</span>
+          </h2>
+          <p className="labs-index-group-lead">Information design about the things design engineers work with. Interactive, sourced, and a poster you can download. <a href="https://labs.sammii.dev/charts/">All charts</a>.</p>
+          <ul className="lab-grid" aria-label="Charts">
+            {CHARTS.map((c) => (
+              <li key={c.slug} className="lab-card">
+                <div className="lab-card-body">
+                  <p className="lab-card-stack">{c.n} · {c.stack}</p>
+                  <h3 className="lab-card-title">{c.title}</h3>
+                  <p className="lab-card-info">{c.blurb}</p>
+                  <div className="lab-card-links">
+                    <a href={chartHref(c.slug)}>Open the chart</a>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
         {KINDS.map(({ kind, label, lead }) => {
           const items = labs.filter((p) => p.labs?.kind === kind);
           if (items.length === 0) return null;

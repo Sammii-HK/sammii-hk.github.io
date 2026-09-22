@@ -2,8 +2,8 @@ import { ImageResponse } from 'next/og';
 import { getPostBySlug, getAllSlugs } from '../../lib/blog';
 import { getJostFont } from '../../lib/og-font';
 
-export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  return (await getAllSlugs()).map((slug) => ({ slug }));
 }
 
 export const size = { width: 1200, height: 630 };
@@ -13,13 +13,13 @@ type Props = { params: Promise<{ slug: string }> };
 
 export async function generateAlt({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   return post?.title ?? 'Blog post — sammii.dev';
 }
 
 export default async function Image({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   const title = post?.title ?? 'Blog post';
   const date = post

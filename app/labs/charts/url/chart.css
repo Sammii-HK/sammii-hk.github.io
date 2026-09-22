@@ -1,0 +1,14 @@
+.uw-rows { position: relative; list-style: none; margin: 0; padding: 0 0 1.4rem; display: grid; gap: 4px; font-family: var(--font-inter), system-ui, sans-serif; }
+.uw-row { display: grid; grid-template-columns: 220px 1fr 48px; align-items: center; gap: 0.6rem; font-size: 0.8125rem; }
+@media (max-width: 720px) { .uw-row { grid-template-columns: 130px 1fr 40px; font-size: 0.75rem; } }
+.uw-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0.85; }
+.uw-track { position: relative; height: 18px; background: color-mix(in oklab, currentColor 5%, transparent); border: 0; border-radius: 4px; padding: 0; cursor: pointer; width: 100%; }
+.uw-track:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.uw-bar { position: absolute; top: 0; bottom: 0; border-radius: 4px; background: color-mix(in oklab, currentColor 40%, transparent); transition: left 200ms ease, width 200ms ease; }
+.uw-row.is-connect .uw-bar { background: color-mix(in oklab, currentColor 22%, transparent); }
+.uw-row.is-render .uw-bar { background: color-mix(in oklab, currentColor 62%, transparent); }
+.uw-row.is-open .uw-bar { background: var(--chart-ink); }
+.uw-ms { text-align: right; font-variant-numeric: tabular-nums; opacity: 0.6; }
+.uw-marker { position: absolute; top: 0; bottom: 0; margin-left: calc(220px + 0.6rem); width: 0; border-left: 1px dashed color-mix(in oklab, currentColor 45%, transparent); pointer-events: none; }
+.uw-marker span { position: absolute; bottom: 0; left: 4px; font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; white-space: nowrap; }
+@media (max-width: 720px) { .uw-marker { margin-left: calc(130px + 0.6rem); } }

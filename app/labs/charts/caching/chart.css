@@ -1,0 +1,25 @@
+.ca { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; }
+.ca-presets { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.3rem; }
+.gg-cmd { font: inherit; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 8px; padding: 0.4rem 0.55rem; cursor: pointer; display: grid; gap: 0.15rem; text-align: left; min-width: 0; }
+.gg-cmd span { font-size: 0.625rem; letter-spacing: 0.12em; opacity: 0.5; font-variant-numeric: tabular-nums; }
+.gg-cmd code { font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.8125rem; font-weight: 600; }
+.gg-cmd.is-on { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.ca-headers { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.ca-h { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; padding: 0.35rem 0.6rem; border-radius: 6px; background: color-mix(in oklab, currentColor 8%, transparent); }
+.ca-h b { font-weight: 600; opacity: 0.6; }
+.gg-what { margin: 0; font-size: 0.875rem; line-height: 1.6; color: color-mix(in oklab, currentColor 82%, transparent); }
+.ca-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+.ca-table th, .ca-table td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); vertical-align: top; }
+.ca-table thead th { font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; font-weight: 500; }
+.ca-table tbody th { font-weight: 600; width: 13rem; }
+.ca-table tbody th em { display: block; font-style: normal; font-weight: 400; font-size: 0.6875rem; opacity: 0.6; margin-top: 0.15rem; }
+.ca-table tr.is-deploy { background: color-mix(in oklab, currentColor 5%, transparent); }
+.ca-why { line-height: 1.5; color: color-mix(in oklab, currentColor 78%, transparent); }
+.ca-why b { display: block; margin-top: 0.25rem; font-weight: 600; }
+.ca-yes { color: oklch(0.62 0.16 150); }
+.ca-no { color: oklch(0.62 0.2 25); }
+.ca-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; white-space: nowrap; }
+.ca-bar { display: block; height: 6px; border-radius: 3px; background: color-mix(in oklab, currentColor 8%, transparent); margin-bottom: 0.25rem; min-width: 60px; }
+.ca-bar i { display: block; height: 100%; border-radius: 3px; background: var(--chart-ink); }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 70%, transparent); }
+@media (max-width: 760px) { .ca-table thead { display: none; } .ca-table tbody th, .ca-table td { display: block; width: auto; border: 0; padding: 0.2rem 0; } .ca-table tbody tr { display: block; padding: 0.6rem 0; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); } }

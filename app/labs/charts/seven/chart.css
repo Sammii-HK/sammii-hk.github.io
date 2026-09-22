@@ -1,0 +1,39 @@
+.sv { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.sv-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: center; }
+@media (max-width: 800px) { .sv-top { grid-template-columns: 1fr; } }
+.sv-svg { display: block; width: 100%; height: auto; max-width: 480px; margin: 0 auto; }
+.sv-svg text { font-family: var(--font-inter), system-ui, sans-serif; fill: currentColor; }
+.sv-ring { fill: none; stroke: currentColor; stroke-opacity: 0.15; }
+.sv-star { fill: none; stroke: var(--chart-ink); stroke-width: 1.6; stroke-opacity: 0.8; stroke-linejoin: round; }
+.sv-node circle { fill: var(--chart-bg); stroke: currentColor; stroke-opacity: 0.35; stroke-width: 1.5; transition: r 120ms ease; }
+.sv-node.is-day circle { stroke-opacity: 1; }
+.sv-node.is-lit circle { fill: var(--chart-ink); stroke: var(--chart-ink); }
+.sv-sym { font-size: 14px; text-anchor: middle; }
+.sv-node.is-lit .sv-sym { fill: var(--chart-bg); }
+.sv-name { font-size: 11px; opacity: 0.7; }
+.sv-node.is-day .sv-name { opacity: 1; font-weight: 600; }
+.sv-centre-day { font-family: var(--font-jost), system-ui, sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+.sv-centre-hour { font-size: 11px; opacity: 0.6; font-variant-numeric: tabular-nums; }
+.sv-side { display: grid; gap: 0.8rem; }
+.sv-side .cst-panel-kicker { margin: 0; }
+.sv-p { margin: 0; font-size: 0.9rem; line-height: 1.55; }
+.sv-p--small { font-size: 0.8125rem; color: color-mix(in oklab, currentColor 65%, transparent); }
+.sv-controls { display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; align-items: center; }
+.sv-controls .cst-year { flex: 1 1 100%; }
+.cst-btn { font: inherit; font-size: 0.8125rem; font-weight: 500; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 25%, transparent); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; }
+.ct-h { font-family: var(--font-jost), system-ui, sans-serif; font-weight: 600; font-size: 1.1rem; margin: 0.5rem 0 0; }
+.sv-table-wrap { overflow-x: auto; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 10px; }
+.sv-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 0.8125rem; }
+.sv-table th, .sv-table td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); vertical-align: top; }
+.sv-table thead th { font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; font-weight: 500; text-align: center; }
+.sv-table thead th:first-child { text-align: left; }
+.sv-table tbody th { font-weight: 600; width: 16rem; }
+.sv-table tbody th span { display: block; font-weight: 400; font-size: 0.6875rem; line-height: 1.45; color: color-mix(in oklab, currentColor 55%, transparent); margin-top: 0.2rem; }
+.sv-table td { text-align: center; }
+.sv-table td span { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 999px; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); }
+.sv-c0 span { border-color: oklch(0.62 0.22 27); } .sv-c1 span { border-color: oklch(0.72 0.18 55); } .sv-c2 span { border-color: oklch(0.85 0.17 95); } .sv-c3 span { border-color: oklch(0.68 0.18 145); } .sv-c4 span { border-color: oklch(0.6 0.18 255); } .sv-c5 span { border-color: oklch(0.45 0.16 285); } .sv-c6 span { border-color: oklch(0.6 0.2 315); }
+.sv-counts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.sv-counts li { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; align-items: baseline; padding: 0.6rem 0; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); font-size: 0.875rem; line-height: 1.5; }
+.sv-counts b { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.sv-counts em { font-style: normal; opacity: 0.55; font-size: 0.75rem; }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }

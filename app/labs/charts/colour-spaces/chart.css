@@ -1,0 +1,41 @@
+
+.cst { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { .cst { grid-template-columns: 1fr; } }
+.cst-controls { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; margin-bottom: 0.5rem; font-family: var(--font-inter), system-ui, sans-serif; }
+.cst-year { display: flex; align-items: center; gap: 0.75rem; flex: 1 1 320px; }
+.cst-year-label { font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; }
+.cst-year input { flex: 1; accent-color: currentColor; }
+.cst-year-value { font-variant-numeric: tabular-nums; font-weight: 600; min-width: 3.5ch; }
+.cst-btn { font: inherit; font-size: 0.8125rem; font-weight: 500; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 25%, transparent); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; }
+.cst-btn:hover { border-color: color-mix(in oklab, currentColor 50%, transparent); }
+.cst-btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.cst-stage { overflow-x: auto; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; background: color-mix(in oklab, currentColor 3%, transparent); }
+.cst-svg { display: block; width: 100%; min-width: 900px; height: auto; }
+.cst-svg text { font-family: var(--font-inter), system-ui, sans-serif; fill: currentColor; }
+.cst-decade line { stroke: currentColor; stroke-opacity: 0.12; }
+.cst-decade text { font-size: 12px; opacity: 0.5; }
+.cst-lane line { stroke: currentColor; stroke-opacity: 0.16; }
+.cst-lane-label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.6; }
+.cst-edge { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-opacity: 0.4; transition: stroke-opacity 200ms ease, stroke-width 200ms ease; }
+.cst-edge.is-influence { stroke-dasharray: 4 5; stroke-opacity: 0.28; }
+.cst-edge.is-lit { stroke-opacity: 0.95; stroke-width: 2.2; }
+.cst-edge.is-dim { stroke-opacity: 0.08; }
+.cst-node { cursor: pointer; outline: none; }
+.cst-node circle { fill: currentColor; stroke: var(--chart-bg, Canvas); stroke-width: 2; transition: r 160ms ease; }
+.cst-node:hover circle, .cst-node:focus-visible circle, .cst-node.is-self circle { r: 9; }
+.cst-node:focus-visible circle { stroke: currentColor; stroke-width: 3; }
+.cst-node-name { font-size: 13px; font-weight: 600; }
+.cst-node-year { font-size: 11px; opacity: 0.55; }
+.cst[data-focus] .cst-node.is-dim { opacity: 0.22 !important; }
+.cst-node.is-up .cst-node-name, .cst-node.is-down .cst-node-name, .cst-node.is-self .cst-node-name { text-decoration: underline; text-underline-offset: 3px; }
+/* sticky, so it rides over the lists below: glass, not paint, so what is under it stays readable and it stays legible */
+.cst-panel { position: sticky; top: 4.5rem; z-index: 3; font-family: var(--font-inter), system-ui, sans-serif; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 10px; padding: 1.1rem 1.2rem; background: color-mix(in oklab, var(--chart-bg) 72%, transparent); backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2); box-shadow: 0 8px 30px color-mix(in oklab, var(--chart-bg) 40%, transparent); min-height: 18rem; max-height: min(70vh, 34rem); overflow: auto; }
+.cst-panel-kicker { margin: 0 0 0.35rem; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.55; }
+.cst-panel-title { margin: 0 0 0.6rem; font-family: var(--font-jost), system-ui, sans-serif; font-weight: 600; font-size: 1.4rem; letter-spacing: -0.01em; }
+.cst-panel-what, .cst-panel-why, .cst-panel-fam { margin: 0 0 0.6rem; font-size: 0.875rem; line-height: 1.55; }
+.cst-panel-why { color: color-mix(in oklab, currentColor 72%, transparent); }
+.cst-panel-fam { font-size: 0.8125rem; color: color-mix(in oklab, currentColor 55%, transparent); }
+.cst-ramp { display: grid; grid-template-columns: repeat(9, 1fr); gap: 2px; margin: 0.8rem 0; }
+.cst-ramp > span:not(.cst-ramp-note) { aspect-ratio: 1; border-radius: 3px; }
+.cst-ramp-note { grid-column: 1 / -1; font-size: 0.75rem; line-height: 1.5; color: color-mix(in oklab, currentColor 55%, transparent); margin-top: 0.3rem; }
+@media (prefers-reduced-motion: reduce) { .cst-node, .cst-edge, .cst-node circle { transition: none !important; } }

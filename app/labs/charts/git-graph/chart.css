@@ -1,0 +1,39 @@
+.gg { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; }
+.gg-cmds { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.3rem; }
+.gg-cmd { font: inherit; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 8px; padding: 0.4rem 0.5rem; cursor: pointer; display: grid; gap: 0.15rem; text-align: left; min-width: 0; }
+.gg-cmd span { font-size: 0.625rem; letter-spacing: 0.12em; opacity: 0.5; font-variant-numeric: tabular-nums; }
+.gg-cmd code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.6875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gg-cmd.is-done { opacity: 0.55; }
+.gg-cmd.is-on { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); opacity: 1; }
+.gg-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+.gg-full { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; padding: 0.35rem 0.6rem; border-radius: 6px; background: color-mix(in oklab, currentColor 8%, transparent); flex: 1 1 auto; }
+.gg-nav { display: flex; gap: 0.35rem; }
+.cst-btn { font: inherit; font-size: 0.8125rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 25%, transparent); border-radius: 6px; padding: 0.4rem 0.8rem; cursor: pointer; }
+.cst-btn:disabled { opacity: 0.4; cursor: default; }
+.sc-toggle { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; cursor: pointer; }
+.sc-toggle input { accent-color: currentColor; }
+.gg-stage { overflow-x: auto; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; background: color-mix(in oklab, currentColor 3%, transparent); }
+.gg-svg { display: block; width: 100%; height: auto; }
+.gg-svg text { font-family: var(--font-inter), system-ui, sans-serif; fill: currentColor; }
+.gg-edge { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-opacity: 0.45; }
+.gg-edge.is-lost { stroke-dasharray: 3 4; stroke-opacity: 0.18; }
+.gg-node circle { fill: var(--chart-ink); stroke: var(--chart-bg); stroke-width: 2; }
+.gg-merge-dot { fill: var(--chart-bg) !important; stroke: none !important; }
+.gg-node.is-lost circle { fill: transparent; stroke: currentColor; stroke-opacity: 0.35; stroke-dasharray: 2 3; }
+.gg-node.is-lost text { opacity: 0.4; }
+.gg-node.is-just-lost circle { stroke: oklch(0.62 0.2 25); stroke-opacity: 0.9; }
+.gg-id { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; opacity: 0.55; text-anchor: middle; }
+.gg-msg { font-size: 11px; text-anchor: middle; }
+.gg-ref rect { fill: color-mix(in oklab, currentColor 14%, transparent); }
+.gg-ref text { font-size: 10.5px; font-weight: 600; }
+.gg-ref.is-head rect { fill: var(--chart-ink); }
+.gg-ref.is-head text { fill: var(--chart-bg); }
+.gg-info { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+@media (max-width: 800px) { .gg-info { grid-template-columns: 1fr; } }
+.gg-feels { margin: 0 0 0.5rem; font-size: 0.9375rem; line-height: 1.55; font-weight: 600; }
+.gg-what { margin: 0; font-size: 0.875rem; line-height: 1.6; color: color-mix(in oklab, currentColor 82%, transparent); }
+.gg-reflog pre { margin: 0; padding: 0.7rem 0.8rem; border-radius: 8px; background: color-mix(in oklab, currentColor 6%, transparent); overflow-x: auto; }
+.gg-reflog code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.6875rem; line-height: 1.7; white-space: pre; }
+.gg-reflog .cst-panel-kicker { margin: 0 0 0.4rem; }
+.gg-lost-note { margin: 0.5rem 0 0; font-size: 0.75rem; line-height: 1.5; color: color-mix(in oklab, currentColor 65%, transparent); }
+.gg-lost-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }

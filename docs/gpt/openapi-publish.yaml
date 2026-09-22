@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: sammii.dev, publish
+  version: "1.0"
+  description: Publish or update a blog post on sammii.dev. Needs the bearer token. A published post is live within seconds, no deploy.
+servers:
+  - url: https://homebase.sammii.dev
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+  - bearer: []
+paths:
+  /api/blog/publish:
+    get:
+      operationId: listPosts
+      summary: List the posts currently published (slug, title, date, url).
+      responses:
+        "200":
+          description: The list.
+    post:
+      operationId: publishPost
+      summary: Publish a new post, or update one with overwrite true. Always show the user the full draft and get an explicit yes before calling this.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [slug, title, description, content]
+              properties:
+                slug:
+                  type: string
+                  description: lowercase words joined by hyphens, e.g. why-your-design-system-needs-oklch
+                title:
+                  type: string
+                description:
+                  type: string
+                  description: one or two sentences, used as the excerpt and meta description
+                content:
+                  type: string
+                  description: the post body in Markdown, no front matter, at least 200 characters
+                tags:
+                  type: array
+                  items: { type: string }
+                date:
+                  type: string
+                  description: YYYY-MM-DD, defaults to today
+                draft:
+                  type: boolean
+                overwrite:
+                  type: boolean
+                  description: replace an existing post with the same slug
+      responses:
+        "200":
+          description: Published. Returns the url.
+        "400":
+          description: Validation failed (dashes, years of experience, bad slug, too short).
+        "409":
+          description: Slug exists and overwrite was not set.

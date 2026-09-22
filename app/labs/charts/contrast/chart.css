@@ -1,0 +1,33 @@
+.ct { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.ct-pairs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.ct-pair { font: inherit; font-size: 0.8125rem; font-weight: 600; border: 2px solid transparent; border-radius: 8px; padding: 0.4rem 0.7rem; cursor: pointer; }
+.ct-pair.is-on { border-color: currentColor; }
+.ct-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { .ct-grid { grid-template-columns: 1fr; } }
+.ct-sample { border-radius: 12px; padding: 1.5rem; display: grid; gap: 0.8rem; border: 1px solid color-mix(in oklab, currentColor 15%, transparent); }
+.ct-sample p { margin: 0; }
+.ct-sample-body { font-size: 16px; line-height: 1.5; max-width: 40ch; }
+.ct-sample-small { font-size: 12px; }
+.ct-sample-large { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+.ct-inputs { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 0.5rem; font-size: 0.8125rem; }
+.ct-inputs label { display: inline-flex; align-items: center; gap: 0.4rem; }
+.ct-inputs input[type="color"] { width: 28px; height: 28px; padding: 0; border: 1px solid currentColor; border-radius: 6px; background: transparent; cursor: pointer; }
+.ct-inputs code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; }
+.ct-swap { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: 999px; padding: 0.25rem 0.7rem; cursor: pointer; }
+.ct-scores { display: grid; gap: 0.9rem; }
+.ct-score { border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 10px; padding: 0.9rem 1rem; }
+.ct-score p { margin: 0; }
+.ct-big { font-family: var(--font-jost), system-ui, sans-serif; font-size: 2.4rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; margin: 0.2rem 0 0.3rem !important; }
+.ct-big span { font-size: 1rem; font-weight: 500; opacity: 0.6; margin-left: 0.2rem; }
+.ct-level { font-size: 0.875rem; font-weight: 600; }
+.ct-why { font-size: 0.75rem; line-height: 1.5; color: color-mix(in oklab, currentColor 65%, transparent); margin-top: 0.4rem !important; }
+.ct-note { font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 80%, transparent); }
+.ct-h { font-family: var(--font-jost), system-ui, sans-serif; font-weight: 600; font-size: 1.1rem; margin: 0.5rem 0 0; }
+.ct-ramps { display: grid; gap: 1rem; }
+.ct-ramp-row { display: grid; grid-template-columns: repeat(21, 1fr); border-radius: 8px; overflow: hidden; border: 1px solid color-mix(in oklab, currentColor 15%, transparent); }
+.ct-cell { display: grid; justify-items: center; padding: 0.4rem 0 0.3rem; gap: 0.15rem; min-width: 0; }
+.ct-cell-a { font-weight: 600; font-size: 0.9rem; }
+.ct-cell-w, .ct-cell-l { font-size: 0.5625rem; opacity: 0.45; font-variant-numeric: tabular-nums; }
+.ct-cell-w.is-pass, .ct-cell-l.is-pass { opacity: 1; font-weight: 700; }
+.ct-ramp-key { margin: 0.4rem 0 0; font-size: 0.75rem; color: color-mix(in oklab, currentColor 60%, transparent); }
+@media (max-width: 640px) { .ct-cell-w, .ct-cell-l { display: none; } }

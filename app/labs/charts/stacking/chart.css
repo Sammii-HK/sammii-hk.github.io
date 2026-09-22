@@ -1,0 +1,36 @@
+.sc { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.sc-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media (max-width: 760px) { .sc-controls { grid-template-columns: 1fr; } }
+.sc-controls .cst-year-label { display: block; margin: 0 0 0.5rem; }
+.sc-toggles { display: grid; gap: 0.35rem; }
+.sc-toggle { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; cursor: pointer; padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); }
+.sc-toggle.is-on { background: color-mix(in oklab, currentColor 8%, transparent); border-color: color-mix(in oklab, currentColor 35%, transparent); }
+.sc-toggle input { accent-color: currentColor; }
+.sc-toggle code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; }
+.sc-read { margin: 0.6rem 0 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); min-height: 3.2em; }
+.sc-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { .sc-grid { grid-template-columns: 1fr; } }
+.sc-scene { position: relative; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 12px; padding: 1rem; display: grid; gap: 0.75rem; background: color-mix(in oklab, currentColor 3%, transparent); min-height: 22rem; }
+.sc-scene span { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.6875rem; opacity: 0.6; margin-left: 0.5rem; }
+.sc-scene em { font-style: normal; }
+.sc-toolbar { position: relative; z-index: 2; padding: 0.6rem 0.8rem; border-radius: 8px; background: color-mix(in oklab, currentColor 12%, var(--chart-bg)); font-weight: 600; font-size: 0.875rem; }
+.sc-card { position: relative; padding: 0.8rem; border-radius: 10px; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); background: color-mix(in oklab, currentColor 6%, var(--chart-bg)); font-size: 0.875rem; }
+.sc-card-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.sc-btn { font: inherit; font-size: 0.8125rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 30%, transparent); border-radius: 6px; padding: 0.35rem 0.7rem; cursor: pointer; }
+.sc-menu { position: absolute; right: 0.8rem; top: 2.9rem; z-index: 9999; list-style: none; margin: 0; padding: 0.35rem; min-width: 11rem; border-radius: 8px; background: var(--chart-bg); border: 1px solid color-mix(in oklab, currentColor 25%, transparent); box-shadow: 0 12px 32px color-mix(in oklab, black 35%, transparent); font-size: 0.8125rem; }
+.sc-menu li { padding: 0.35rem 0.6rem; border-radius: 5px; }
+.sc-menu li:hover { background: color-mix(in oklab, currentColor 8%, transparent); }
+.sc-menu li.is-danger { color: oklch(0.65 0.2 25); }
+.sc-menu-z { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.6875rem; opacity: 0.55; border-top: 1px solid color-mix(in oklab, currentColor 12%, transparent); margin-top: 0.25rem; }
+.sc-menu--portal { right: 1.8rem; top: calc(1rem + 3.5rem + 0.75rem + 2.9rem); }
+.sc-next { position: relative; z-index: 1; padding: 0.8rem; border-radius: 10px; background: color-mix(in oklab, currentColor 10%, var(--chart-bg)); font-size: 0.875rem; font-weight: 600; min-height: 7rem; }
+.sc-next p { margin: 0.5rem 0 0; font-weight: 400; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 70%, transparent); }
+.sc-panel { min-height: 0; }
+.sc-tree { list-style: none; margin: 0; padding: 0; font-size: 0.8125rem; display: grid; gap: 0.25rem; }
+.sc-tree li { display: flex; justify-content: space-between; gap: 0.5rem; padding: 0.25rem 0.4rem; border-radius: 5px; }
+.sc-tree li.is-hot { background: color-mix(in oklab, currentColor 9%, transparent); font-weight: 600; }
+.sc-tree code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.6875rem; opacity: 0.6; white-space: nowrap; font-weight: 400; }
+.sc-panel .cst-panel-why code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; }
+.bo-toggle { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.bo-toggle button { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.bo-toggle button[aria-pressed="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }

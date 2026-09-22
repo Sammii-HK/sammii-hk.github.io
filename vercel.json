@@ -1,6 +1,28 @@
 {
   "routes": [
-    { "src": "^/$", "has": [{ "type": "host", "value": "labs.sammii.dev" }], "dest": "/labs/" },
-    { "handle": "filesystem" }
-  ]
+    {
+      "src": "^/$",
+      "has": [
+        {
+          "type": "host",
+          "value": "labs.sammii.dev"
+        }
+      ],
+      "dest": "/labs/"
+    },
+    {
+      "src": "^/charts/(.*)$",
+      "has": [
+        {
+          "type": "host",
+          "value": "labs.sammii.dev"
+        }
+      ],
+      "dest": "/labs/charts/$1"
+    },
+    {
+      "handle": "filesystem"
+    }
+  ],
+  "ignoreCommand": "bash scripts/vercel-ignore-build.sh"
 }

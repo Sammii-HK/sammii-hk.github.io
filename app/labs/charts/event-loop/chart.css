@@ -1,0 +1,49 @@
+.el { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; }
+.el-snips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.el-snips button { font: inherit; font-size: 0.8125rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); border-radius: 999px; padding: 0.35rem 0.8rem; cursor: pointer; }
+.el-snips button[aria-selected="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.el-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 0.7fr); gap: 1rem; align-items: start; }
+@media (max-width: 900px) { .el-grid { grid-template-columns: 1fr; } }
+.el-code { margin: 0; padding: 1rem; border-radius: 10px; background: color-mix(in oklab, currentColor 6%, transparent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; line-height: 1.55; overflow-x: auto; }
+.el-loop { display: grid; gap: 0.6rem; }
+.el-box { border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 8px; padding: 0.6rem 0.8rem; }
+.el-box-title { margin: 0 0 0.35rem; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
+.el-box-hint { text-transform: none; letter-spacing: 0; opacity: 0.7; }
+.el-box-items { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.3rem; min-height: 1.6rem; }
+.el-box-items li { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 5px; background: var(--chart-ink); color: var(--chart-bg); }
+.el-box-items li.is-empty { background: transparent; color: inherit; opacity: 0.4; }
+.el-box.is-micro .el-box-items li { background: color-mix(in oklab, var(--chart-ink) 70%, transparent); }
+.el-box.is-raf .el-box-items li { background: color-mix(in oklab, var(--chart-ink) 45%, transparent); }
+.el-render { padding: 0.55rem 0.8rem; border-radius: 8px; border: 1px dashed color-mix(in oklab, currentColor 25%, transparent); font-size: 0.75rem; opacity: 0.5; }
+.el-render.is-on { opacity: 1; background: var(--chart-ink); color: var(--chart-bg); border-style: solid; }
+.el-log { border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 8px; padding: 0.6rem 0.8rem; min-height: 10rem; }
+.el-log-title { margin: 0 0 0.35rem; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
+.el-log ol { margin: 0; padding-left: 1.4rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; line-height: 1.6; }
+.el-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+.el-controls .is-primary { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.el-controls button:disabled { opacity: 0.35; cursor: default; }
+.el-step { font-size: 0.8125rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+.el-kind { width: 8px; height: 8px; border-radius: 50%; background: currentColor; display: inline-block; }
+.el-kind.is-micro { opacity: 0.7; } .el-kind.is-raf { opacity: 0.45; } .el-kind.is-render { border-radius: 2px; }
+.el-lesson { margin: 0; font-size: 0.9rem; line-height: 1.55; max-width: 70ch; color: color-mix(in oklab, currentColor 78%, transparent); }
+
+.jd { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; margin-top: 1rem; }
+.jd-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 2rem; }
+.jd-head .cst-year { flex: 1 1 320px; }
+.jd-meter { font-size: 0.8125rem; opacity: 0.8; font-variant-numeric: tabular-nums; }
+.jd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 720px) { .jd-grid { grid-template-columns: 1fr; } }
+.jd-cell { border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 10px; padding: 0.9rem 1rem; display: grid; gap: 0.6rem; align-content: start; }
+.jd-cell--wide { grid-column: 1 / -1; }
+.jd-btn { font: inherit; font-weight: 600; color: var(--chart-bg); background: var(--chart-ink); border: 0; border-radius: 8px; padding: 0.6rem 1.1rem; cursor: pointer; width: max-content; min-width: 7.5rem; }
+.jd-btn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }
+.jd-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.jd-lane { display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 0.75rem; }
+@media (max-width: 720px) { .jd-lane { grid-template-columns: 1fr; } }
+.jd-lane-label { font-size: 0.75rem; opacity: 0.7; }
+.jd-track { position: relative; display: block; height: 14px; border-radius: 7px; background: color-mix(in oklab, currentColor 8%, transparent); overflow: hidden; }
+.jd-ball { position: absolute; top: 0; left: 0; width: 25%; height: 100%; border-radius: 7px; background: var(--chart-ink); will-change: transform; }
+.jd-ball--css { animation: jd-slide 1.6s linear infinite; }
+@keyframes jd-slide { from { transform: translateX(0); } to { transform: translateX(300%); } }
+@media (prefers-reduced-motion: reduce) { .jd-ball--css { animation-duration: 6s; } }

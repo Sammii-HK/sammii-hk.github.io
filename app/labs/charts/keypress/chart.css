@@ -1,0 +1,29 @@
+.kp { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.kp-knobs { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+.kp-knob-label { display: block; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.6; margin-bottom: 0.35rem; }
+.kp-knob-opts { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.kp-knob-opts button { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 18%, transparent); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.kp-knob-opts button[aria-pressed="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.kp-total { margin: 0; font-size: 1.05rem; }
+.kp-total strong { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; }
+.kp-flow { display: flex; gap: 4px; align-items: stretch; min-height: 96px; }
+.kp-stage { display: flex; flex-direction: column; min-width: 0; }
+.kp-stage-label { font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.55; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0.3rem; }
+.kp-hops { display: flex; gap: 2px; flex: 1; }
+.kp-hop { position: relative; min-width: 6px; border: 0; border-radius: 4px; padding: 0; cursor: pointer; background: color-mix(in oklab, currentColor 18%, transparent); color: inherit; transition: background 150ms ease; }
+.kp-stage:nth-child(1) .kp-hop { background: color-mix(in oklab, currentColor 14%, transparent); }
+.kp-stage:nth-child(3) .kp-hop, .kp-stage:nth-child(4) .kp-hop { background: color-mix(in oklab, currentColor 30%, transparent); }
+.kp-stage:nth-child(5) .kp-hop { background: color-mix(in oklab, currentColor 55%, transparent); }
+.kp-hop:hover, .kp-hop.is-open { background: var(--chart-ink); color: var(--chart-bg); }
+.kp-hop:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+/* the number sits on bars of every tint, so it takes the difference of whatever is under it: legible in light and dark, on the 14% bar and the 55% bar and the inverted hover */
+.kp-hop-ms { position: absolute; inset: 0; display: grid; place-items: center; font-size: 0.6875rem; font-variant-numeric: tabular-nums; overflow: hidden; color: #fff; mix-blend-mode: difference; }
+/* fixed height so the list below never jumps when the text changes; scrolls inside if a note is long */
+.kp-panel { border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; padding: 1rem 1.2rem; background: color-mix(in oklab, currentColor 3%, transparent); height: 11.5rem; overflow: auto; }
+@media (max-width: 720px) { .kp-panel { height: 15rem; } }
+.kp-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 2rem; font-size: 0.8125rem; }
+@media (max-width: 720px) { .kp-list { columns: 1; } }
+.kp-list li { display: flex; gap: 0.6rem; padding: 0.25rem 0; border-bottom: 1px solid color-mix(in oklab, currentColor 8%, transparent); break-inside: avoid; }
+.kp-list-n { opacity: 0.45; min-width: 1.5ch; font-variant-numeric: tabular-nums; }
+.kp-list-name { flex: 1; }
+.kp-list-ms { font-variant-numeric: tabular-nums; opacity: 0.7; }

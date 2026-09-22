@@ -1,0 +1,24 @@
+.jc { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.1rem; }
+.jc-controls { display: grid; gap: 0.75rem; }
+.bo-toggle { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.bo-toggle button { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.bo-toggle button[aria-pressed="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.jd-btn { font: inherit; font-weight: 600; color: var(--chart-bg); background: var(--chart-ink); border: 0; border-radius: 8px; padding: 0.6rem 1.1rem; cursor: pointer; width: max-content; }
+.jd-btn:disabled { opacity: 0.6; cursor: wait; }
+.jc-bars { display: grid; gap: 0.6rem; }
+.jc-lane { display: grid; grid-template-columns: 11rem 1fr 5rem; align-items: center; gap: 0.75rem; }
+@media (max-width: 640px) { .jc-lane { grid-template-columns: 1fr; } }
+.jc-lane-label { font-size: 0.8125rem; font-weight: 600; }
+.jc-track { display: flex; height: 26px; border-radius: 6px; overflow: hidden; background: color-mix(in oklab, currentColor 6%, transparent); }
+.jc-seg { display: block; height: 100%; transition: width 250ms ease; }
+.jc-seg--dl { background: color-mix(in oklab, var(--chart-ink) 35%, transparent); }
+.jc-seg--compile { background: color-mix(in oklab, var(--chart-ink) 70%, transparent); }
+.jc-seg--run { background: var(--chart-ink); }
+.jc-total { font-variant-numeric: tabular-nums; text-align: right; }
+.jc-key { display: inline-block; width: 14px; height: 10px; border-radius: 2px; vertical-align: middle; background: var(--chart-ink); }
+.jc-key--dl { opacity: 0.35; } .jc-key--compile { opacity: 0.7; }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }
+.jc-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+.jc-table th, .jc-table td { text-align: left; padding: 0.45rem 0.6rem; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); vertical-align: top; }
+.jc-table thead th { font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; font-weight: 500; }
+.jc-table td:nth-child(2), .jc-table td:nth-child(3) { font-variant-numeric: tabular-nums; white-space: nowrap; }

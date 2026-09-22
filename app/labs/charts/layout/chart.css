@@ -1,0 +1,79 @@
+.ly { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; }
+.ly-eras { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.35rem; }
+@media (max-width: 760px) { .ly-eras { grid-template-columns: repeat(4, 1fr); } }
+.ly-era { font: inherit; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 16%, transparent); border-radius: 8px; padding: 0.5rem 0.4rem; cursor: pointer; display: grid; gap: 0.15rem; text-align: left; }
+.ly-era.is-on { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.ly-era-year { font-size: 0.6875rem; letter-spacing: 0.1em; opacity: 0.6; font-variant-numeric: tabular-nums; }
+.ly-era-name { font-size: 0.8125rem; font-weight: 600; }
+.ly-frame { border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 12px; padding: 1rem; background: color-mix(in oklab, currentColor 3%, transparent); overflow: hidden; }
+.ly-page { font-size: 0.75rem; min-height: 16rem; transition: width 200ms ease; }
+.ly-head, .ly-foot { padding: 0.5rem 0.7rem; border-radius: 6px; background: color-mix(in oklab, currentColor 14%, transparent); font-weight: 600; }
+.ly-side, .ly-main { padding: 0.5rem 0.6rem; border-radius: 6px; background: color-mix(in oklab, currentColor 6%, transparent); font-weight: 600; min-height: 4rem; }
+.ly-side { background: color-mix(in oklab, currentColor 9%, transparent); }
+.ly-grid { margin-top: 0.4rem; font-weight: 400; }
+.ly-card { padding: 0.45rem; border-radius: 6px; background: var(--chart-bg); border: 1px solid color-mix(in oklab, currentColor 18%, transparent); }
+.ly-thumb { display: block; width: 100%; height: 22px; border-radius: 4px; background: color-mix(in oklab, currentColor 20%, transparent); margin-bottom: 0.3rem; }
+.ly-t { display: block; font-weight: 600; }
+.ly-b { margin: 0.15rem 0; opacity: 0.75; line-height: 1.35; }
+.ly-p { font-style: normal; font-weight: 600; opacity: 0.7; }
+.ly-cell { min-width: 0; }
+/* tables */
+.ly-table { width: 100%; border-collapse: separate; border-spacing: 6px; }
+.ly-table td { vertical-align: top; }
+.ly-table .ly-side { width: 30%; }
+.ly-table--grid { border-spacing: 4px; margin-top: 0.4rem; font-weight: 400; }
+.ly-table--grid td { width: 33%; }
+/* floats */
+.ly-page--floats .ly-row::after { content: ""; display: table; clear: both; }
+.ly-page--floats .ly-side { float: left; width: 30%; box-sizing: border-box; }
+.ly-page--floats .ly-main { float: left; width: 70%; box-sizing: border-box; }
+.ly-page--floats .ly-head, .ly-page--floats .ly-foot { margin: 0 0 6px; }
+.ly-page--floats .ly-foot { margin-top: 6px; }
+.ly-page--floats .ly-grid::after { content: ""; display: table; clear: both; }
+.ly-page--floats .ly-cell { float: left; width: 31%; margin: 0 1% 6px; box-sizing: border-box; }
+/* inline-block */
+.ly-page--inline .ly-row { font-size: 0; }
+.ly-page--inline .ly-side, .ly-page--inline .ly-main { display: inline-block; vertical-align: top; font-size: 0.75rem; box-sizing: border-box; }
+.ly-page--inline .ly-side { width: 30%; } .ly-page--inline .ly-main { width: 70%; }
+.ly-page--inline .ly-head, .ly-page--inline .ly-foot { margin: 0 0 6px; }
+.ly-page--inline .ly-foot { margin-top: 6px; }
+.ly-page--inline .ly-cell { display: inline-block; width: 31%; margin: 0 1% 6px; vertical-align: top; box-sizing: border-box; }
+/* flex */
+.ly-page--flex { display: flex; flex-direction: column; gap: 6px; }
+.ly-page--flex .ly-row { display: flex; gap: 6px; }
+.ly-page--flex .ly-side { flex: 0 0 30%; } .ly-page--flex .ly-main { flex: 1; }
+.ly-page--flex .ly-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.ly-page--flex .ly-cell { flex: 1 1 30%; display: flex; }
+.ly-page--flex .ly-card { flex: 1; }
+/* grid, cq, subgrid share the page grid */
+.ly-page--grid, .ly-page--cq, .ly-page--subgrid { display: grid; gap: 6px; grid-template-areas: "head head" "side main" "foot foot"; grid-template-columns: 30% 1fr; }
+.ly-page--grid .ly-row, .ly-page--cq .ly-row, .ly-page--subgrid .ly-row { display: contents; }
+.ly-page--grid .ly-head, .ly-page--cq .ly-head, .ly-page--subgrid .ly-head { grid-area: head; }
+.ly-page--grid .ly-side, .ly-page--cq .ly-side, .ly-page--subgrid .ly-side { grid-area: side; }
+.ly-page--grid .ly-main, .ly-page--cq .ly-main, .ly-page--subgrid .ly-main { grid-area: main; }
+.ly-page--grid .ly-foot, .ly-page--cq .ly-foot, .ly-page--subgrid .ly-foot { grid-area: foot; }
+.ly-page--grid .ly-grid, .ly-page--cq .ly-grid, .ly-page--subgrid .ly-grid { display: grid; gap: 6px; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+.ly-page--cq .ly-main .ly-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.ly-page--cq .ly-side .ly-grid { grid-template-columns: 1fr 1fr; }
+.ly-page--grid .ly-cell, .ly-page--cq .ly-cell, .ly-page--subgrid .ly-cell { display: grid; }
+.ly-page--grid .ly-card { height: 100%; box-sizing: border-box; }
+/* container queries: the cell is the container, so the card lays itself out by the width of its own cell */
+.ly-page--cq .ly-cell { container-type: inline-size; }
+.ly-page--cq .ly-card { display: grid; grid-template-columns: 1fr; gap: 0.15rem 0.4rem; align-content: start; }
+@container (min-width: 150px) {
+  .ly-page--cq .ly-card { grid-template-columns: 34px 1fr auto; grid-template-areas: "thumb title price" "thumb body body"; align-items: start; }
+  .ly-page--cq .ly-thumb { grid-area: thumb; height: 34px; margin: 0; }
+  .ly-page--cq .ly-t { grid-area: title; }
+  .ly-page--cq .ly-b { grid-area: body; margin: 0; }
+  .ly-page--cq .ly-p { grid-area: price; }
+}
+/* subgrid: each cell's four rows join the parent's rows so thumbs, titles, bodies and prices align across the row */
+.ly-page--subgrid .ly-grid { grid-auto-rows: auto; }
+.ly-page--subgrid .ly-cell { grid-row: span 4; grid-template-rows: subgrid; row-gap: 0.15rem; padding: 0.45rem; border-radius: 6px; background: var(--chart-bg); border: 1px solid color-mix(in oklab, currentColor 18%, transparent); }
+.ly-page--subgrid .ly-card { display: contents; }
+.ly-page--subgrid .ly-b { margin: 0; }
+.ly-info { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+@media (max-width: 760px) { .ly-info { grid-template-columns: 1fr; } }
+.ly-info .cst-panel-kicker { margin: 0 0 0.3rem; }
+.ly-p-text { margin: 0; font-size: 0.875rem; line-height: 1.55; }
+.ly-code { margin: 0; padding: 0.9rem 1rem; border-radius: 10px; background: color-mix(in oklab, currentColor 6%, transparent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; line-height: 1.55; overflow-x: auto; white-space: pre; }
