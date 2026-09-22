@@ -1,0 +1,27 @@
+.fp { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.fp-block { border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 10px; padding: 0.9rem 1rem; display: grid; gap: 0.7rem; }
+.el-box-title { margin: 0; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; font-weight: 500; }
+.fp-controls { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; }
+.fp-controls .cst-year { flex: 1 1 280px; }
+.fp-seam-wrap { overflow-x: auto; background: oklch(0.62 0.2 25); border-radius: 6px; padding: 0; }
+.fp-row { display: flex; height: 56px; }
+.fp-tile { height: 100%; background: var(--chart-bg); box-shadow: inset 0 0 0 1px color-mix(in oklab, currentColor 10%, transparent); flex: none; }
+.fp-read { margin: 0; font-size: 0.8125rem; line-height: 1.55; color: color-mix(in oklab, currentColor 78%, transparent); font-variant-numeric: tabular-nums; }
+.fp-read code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.fp-fuzz { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.fp-box { width: 200px; height: 90px; border: 1px solid currentColor; border-radius: 0; display: grid; place-items: center; font-size: 0.75rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.fp-sums { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; }
+.fp-sum { display: grid; gap: 0.2rem; padding: 0.5rem 0.7rem; border-radius: 8px; background: color-mix(in oklab, currentColor 5%, transparent); }
+.fp-sum code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; opacity: 0.7; }
+.fp-sum b { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9rem; font-weight: 600; overflow-wrap: anywhere; }
+.fp-sum.is-bad b { color: oklch(0.62 0.2 25); }
+.aq-input { font: inherit; color: inherit; background: color-mix(in oklab, currentColor 5%, transparent); border: 1px solid color-mix(in oklab, currentColor 20%, transparent); border-radius: 8px; padding: 0.55rem 0.75rem; }
+.fp-input { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.1rem; max-width: 20rem; }
+.fp-bits { display: grid; gap: 0.5rem; }
+.fp-bitrow { display: grid; grid-template-columns: 6rem 1fr; gap: 0.5rem 1rem; align-items: center; }
+.fp-bitlabel { font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; }
+.fp-bin { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; letter-spacing: 0.08em; overflow-wrap: anywhere; padding: 0.2rem 0.4rem; border-radius: 4px; }
+.fp-bin--sign { background: color-mix(in oklab, currentColor 18%, transparent); }
+.fp-bin--exp { background: color-mix(in oklab, currentColor 10%, transparent); }
+.fp-bin--mant { background: color-mix(in oklab, currentColor 5%, transparent); }
+.fp-bitnote { grid-column: 2; font-size: 0.75rem; opacity: 0.6; }

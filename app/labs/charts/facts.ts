@@ -106,4 +106,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "limit", text: "A '20 characters max' field written with .slice(0, 20) rejects a 20-letter Vietnamese name and can leave half an emoji at the end of a preview. Cut by grapheme with Intl.Segmenter, in every engine since 2024, and it cuts where a person would." },
     { id: "cafe", text: "There are two cafés that look identical, compare unequal and sort apart: one é is a single code point, the other is e plus a combining accent. Normalise before you compare, and let Intl.Collator sort." },
   ],
+  "floating-point": [
+    { id: "seam", text: "Three columns at 33.333% of 1001px are 333.667px each. The browser lays out in fractions and paints in whole device pixels, so the edges get snapped and a hairline of background shows through. The chart measures it with getBoundingClientRect, live." },
+    { id: "fuzzy", text: "A 1px border on an element with transform: translateX(0.5px) looks out of focus; the same border with margin-left: 0.5px is crisp. Layout positions are snapped to the pixel grid before painting, transforms are rasterised between pixels. That is the whole blurry-animation bug." },
+    { id: "price", text: "1.005.toFixed(2) is '1.00' and the browser is right: 1.005 cannot be stored, the nearest double is 1.00499999999999989. Money goes in integer pence or a decimal type, never a float." },
+  ],
 };
