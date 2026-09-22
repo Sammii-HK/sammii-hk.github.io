@@ -131,4 +131,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "ear", text: "The single most identifying mark in the Latin alphabet is the ear of a double-storey g: the little stroke off the top right of the bowl. It is also the first thing a geometric sans throws away, which is why those faces all look like each other." },
     { id: "crossbar", text: "One angle classifies a serif: a slanted crossbar on the e is Venetian, a level one is Garalde or later. That is the difference between Jenson and Garamond, and it is the first branch of the typography family tree." },
   ],
+  caching: [
+    { id: "bug", text: "The most common caching bug in production: HTML served with max-age=3600. You deploy the fix, and for an hour their browser does not ask, because a fresh stored response is reused without contacting the server at all. A hard reload fixes it for you and never for them." },
+    { id: "no-cache", text: "no-cache does not mean do not store. It means store it and always revalidate before using it, which is exactly what you want on HTML: every visit asks, and almost every answer is an empty 304 costing one round trip. no-store is the one that means do not keep it." },
+    { id: "immutable", text: "immutable plus a build hash is the only honest way to cache something for a year: a new build is a new URL, so the old one never needs invalidating. That is the whole reason bundlers put hashes in filenames." },
+  ],
 };
