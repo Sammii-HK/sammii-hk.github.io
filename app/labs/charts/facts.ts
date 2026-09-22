@@ -111,4 +111,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "fuzzy", text: "A 1px border on an element with transform: translateX(0.5px) looks out of focus; the same border with margin-left: 0.5px is crisp. Layout positions are snapped to the pixel grid before painting, transforms are rasterised between pixels. That is the whole blurry-animation bug." },
     { id: "price", text: "1.005.toFixed(2) is '1.00' and the browser is right: 1.005 cannot be stored, the nearest double is 1.00499999999999989. Money goes in integer pence or a decimal type, never a float." },
   ],
+  "js-cost": [
+    { id: "image", text: "The same bytes as a JPEG and as a bundle arrive in the same time and only one of them stops the page. The image is decoded off the main thread. The JavaScript is parsed, compiled and run on the thread that also handles your tap. The byte is not the cost; the thread is." },
+    { id: "measured", text: "The chart generates a bundle of the size you pick and times parse, compile and first run on your own machine with new Function and performance.now(), then scales it ×4 for a mid-range phone. Press measure; the numbers are yours." },
+    { id: "gzip", text: "Gzip helps the download and does nothing for parse and compile, which scale with the source you shipped, not the bytes on the wire. 1 MB of JavaScript is still 1 MB to the parser after it arrives as 280 KB." },
+  ],
 };

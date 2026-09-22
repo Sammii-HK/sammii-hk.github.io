@@ -36,7 +36,10 @@ export function FloatingPoint() {
     const go = () => { if (!row.current) return; setMeasured(Array.from(row.current.children).map((el) => { const r = el.getBoundingClientRect(); const base = row.current!.getBoundingClientRect().left; return { w: r.width, left: r.left - base, right: r.right - base }; })); };
     go(); const id = requestAnimationFrame(go); return () => cancelAnimationFrame(id);
   }, [cols, width]);
-  const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
+  // read after mount: devicePixelRatio does not exist on the server, and
+  // rendering it during hydration is a text mismatch
+  const [dpr, setDpr] = useState(1);
+  useEffect(() => { setDpr(window.devicePixelRatio || 1); }, []);
   const x = Number(num); const b = useMemo(() => (Number.isFinite(x) ? bits(x) : null), [x]);
   const totalMeasured = measured.reduce((a, m) => a + m.w, 0);
 
