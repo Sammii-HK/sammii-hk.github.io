@@ -116,4 +116,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "measured", text: "The chart generates a bundle of the size you pick and times parse, compile and first run on your own machine with new Function and performance.now(), then scales it ×4 for a mid-range phone. Press measure; the numbers are yours." },
     { id: "gzip", text: "Gzip helps the download and does nothing for parse and compile, which scale with the source you shipped, not the bytes on the wire. 1 MB of JavaScript is still 1 MB to the parser after it arrives as 280 KB." },
   ],
+  "git-graph": [
+    { id: "reset", text: "git reset --hard rewrites one 40-byte file. The commits you 'lost' are still in .git/objects, byte for byte, with nothing pointing at them, and the reflog still has their ids. Unreachable is not deleted: gc keeps them 90 days by default." },
+    { id: "rebase", text: "A rebase does not move commits. It replays each diff onto a new base and writes NEW objects with new ids, leaving the originals unreferenced. That is the entire reason a force-push after a rebase conflicts with everyone else's copy: they are not the same commits." },
+    { id: "names", text: "A branch is a file containing one commit id. That is why switching branches, resetting, and a fast-forward merge are all instant whatever the size of the history: each one rewrites a name, not a history." },
+  ],
 };
