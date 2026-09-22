@@ -25,3 +25,6 @@
 .rp-chip { font: inherit; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; color: inherit; background: color-mix(in oklab, currentColor 6%, transparent); border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 5px; padding: 0.25rem 0.5rem; cursor: pointer; }
 .rp-chip:hover, .rp-chip.is-on { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
 .rp-chip:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+.rp-col-what span { white-space: nowrap; }
+.rp-chev { opacity: 0.6; margin: 0 0.15em; }

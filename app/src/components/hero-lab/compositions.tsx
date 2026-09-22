@@ -4,6 +4,7 @@ import type { Lens } from "../../../common/data/projects";
 import { Headline } from "./Headline";
 import { Support, type LensProps } from "./Support";
 import { LENSES, LENS_LABEL, PREVIEW } from "./copy";
+import { ArrowDown } from "lucide-react";
 
 export type PreviewTreatment = "full" | "partial";
 
@@ -40,7 +41,7 @@ export function CompositionA({ headline, previewTreatment, locked, ...lens }: Co
       <Support {...lens} />
       {previewTreatment === "partial" && <Annotation preview={lens.preview} motion={lens.motion} />}
       <a href="#work" className="lab-route">
-        Selected work <span aria-hidden="true">↓</span>
+        Selected work <ArrowDown size={13} className="icon-inline" aria-hidden="true" />
       </a>
     </section>
   );
@@ -78,7 +79,7 @@ export function CompositionB({ headline, previewTreatment, locked, ...lens }: Co
         <Support {...lens} />
         {previewTreatment === "partial" && <Annotation preview={lens.preview} motion={lens.motion} />}
         <a href="#work" className="lab-route">
-          Selected work <span aria-hidden="true">↓</span>
+          Selected work <ArrowDown size={13} className="icon-inline" aria-hidden="true" />
         </a>
       </div>
     </section>
@@ -124,7 +125,7 @@ export function CompositionC({ headline, previewTreatment, locked, ...lens }: Co
         <Support {...lens} />
         {previewTreatment === "partial" && <Annotation preview={lens.preview} motion={lens.motion} />}
         <a href="#work" className="lab-route">
-          Selected work <span aria-hidden="true">↓</span>
+          Selected work <ArrowDown size={13} className="icon-inline" aria-hidden="true" />
         </a>
       </div>
     </section>

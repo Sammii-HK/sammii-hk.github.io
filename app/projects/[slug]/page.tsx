@@ -10,6 +10,7 @@ import { Navbar } from '../../src/components/Navbar';
 import { Footer } from '../../src/components/Footer';
 import { CaseStudyHero } from '../../src/components/case-study/CaseStudyHero';
 import { caseStudyComponents } from '../../src/components/case-study/mdx-components';
+import { ArrowRight } from "lucide-react";
 
 const mdxOptions = {
   mdxOptions: {
@@ -86,7 +87,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <MDXRemote source={study.content} options={mdxOptions} components={caseStudyComponents} />
         </article>
         <nav className="case-foot" aria-label="More">
-          <a href="/work/">All work <span aria-hidden="true">→</span></a>
+          <a href="/work/">All work <ArrowRight size={14} className="icon-inline" aria-hidden="true" /></a>
           <a href="/">Front page</a>
         </nav>
       </main>

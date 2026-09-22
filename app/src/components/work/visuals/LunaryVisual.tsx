@@ -7,7 +7,7 @@ import { Screenshot } from "../Chapter";
 // Prisma + PostgreSQL, a PWA.
 const FRAMES = {
   ai: {
-    label: "context → interpretation → personalisation",
+    label: "context, interpretation, personalisation",
     cols: [
       { head: "Context", body: "Planetary and lunar positions computed deterministically with the Astronomy Engine. Nothing is guessed." },
       { head: "Interpretation", body: "A 1,300+ page grimoire, programmatically generated, gives every position its meaning." },

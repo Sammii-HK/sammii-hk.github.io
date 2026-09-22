@@ -20,7 +20,7 @@ function pick<T extends string>(v: string | null, allowed: readonly T[], fallbac
  * can be screenshotted: ?comp=a|b|c &h1=candidate|alt1|alt2 &preview=full|partial
  * &commit=underline|weight|marker|env &lens=design|ai|product &hover=design|ai|product
  * &reduced=1 &nav=1 (show the condensed nav prototype at the top) &locked=1 (H1 already locked to the lens).
- * Current defaults are Sammii's picks from the first review: A, "ambiguous → polished", full H1, env accent.
+ * Current defaults are Sammii's picks from the first review: A, "ambiguous to polished", full H1, env accent.
  */
 export function HeroLab() {
   const q = useSearchParams();
@@ -70,9 +70,9 @@ export function HeroLab() {
         </label>
         <label>Headline
           <select value={h1} onChange={(e) => setH1(e.target.value as HeadlineKey)}>
-            <option value="candidate">ambitious → polished</option>
+            <option value="candidate">ambitious to polished</option>
             <option value="alt1">design and build</option>
-            <option value="alt2">ambiguous → polished</option>
+            <option value="alt2">ambiguous to polished</option>
           </select>
         </label>
         <label>Preview

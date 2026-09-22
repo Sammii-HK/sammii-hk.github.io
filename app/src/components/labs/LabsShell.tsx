@@ -12,7 +12,13 @@ export const LabsShell = ({ children }: { children: ReactNode }) => {
   // ?present=1: no bar, no footer, the chart alone on the ambient ground,
   // for recording clips (the project video lane and long-form B-roll).
   const [present, setPresent] = useState(false);
-  useEffect(() => { setPresent(new URLSearchParams(window.location.search).get("present") === "1"); }, []);
+  // Labs is a real nav link: to / on labs.sammii.dev, to /labs/ on the main
+  // site, so it never sends you across hosts unasked.
+  const [labsHref, setLabsHref] = useState("/labs/");
+  useEffect(() => {
+    setPresent(new URLSearchParams(window.location.search).get("present") === "1");
+    setLabsHref(window.location.host.startsWith("labs.") ? "/" : "/labs/");
+  }, []);
   return (
     <EnvironmentProvider className="min-h-[100dvh] w-full flex flex-col" lens="design">
       <div aria-hidden="true" className="env-ambient" />
@@ -25,9 +31,9 @@ export const LabsShell = ({ children }: { children: ReactNode }) => {
             <a className="labs-bar-mark" href="https://sammii.dev/">
               SAMMII
             </a>
-            <span className="labs-bar-here" aria-current="page">
+            <a className="labs-bar-link" href={labsHref}>
               Labs
-            </span>
+            </a>
           </header>
         </>
       )}

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { COSTS, PROPS, type Cost } from "../../../labs/charts/repaint/data";
+import { ChevronRight } from "lucide-react";
 
 /**
  * The pipeline as four boxes and every property as a chip in the column of
@@ -54,7 +55,9 @@ export function RepaintMap() {
         {COSTS.map((c, i) => (
           <section key={c.id} className={`rp-col is-${c.id}`} aria-labelledby={`rp-${c.id}`}>
             <h3 id={`rp-${c.id}`} className="rp-col-title">{c.label} <span className="rp-col-count">{counts[i]}</span></h3>
-            <p className="rp-col-what">{triggers(c.id).join(" → ")}</p>
+            <p className="rp-col-what">{triggers(c.id).map((t, n) => (
+              <span key={t}>{n > 0 && <ChevronRight size={11} className="icon-inline rp-chev" aria-hidden="true" />}{t}</span>
+            ))}</p>
             <ul className="rp-chips">
               {filtered.filter((p) => p.cost === c.id).map((p) => (
                 <li key={p.name}>

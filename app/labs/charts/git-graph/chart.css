@@ -37,3 +37,8 @@
 .gg-reflog .cst-panel-kicker { margin: 0 0 0.4rem; }
 .gg-lost-note { margin: 0.5rem 0 0; font-size: 0.75rem; line-height: 1.5; color: color-mix(in oklab, currentColor 65%, transparent); }
 .gg-lost-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.gg-head rect { fill: color-mix(in oklab, currentColor 30%, transparent); }
+.gg-head text { font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; }
+.gg-ref.is-head .gg-head rect { fill: var(--chart-bg); }
+.gg-ref.is-head .gg-head text { fill: var(--chart-ink); }

@@ -59,8 +59,14 @@ export function GitGraph() {
               <title>{c.msg}</title><text className="gg-msg" y={R + 16}>{short(c.msg)}</text>
               {rs.map((name, n) => (
                 <g key={name} transform={`translate(${R + 10} ${-R - 2 + n * 18})`} className={`gg-ref ${step.head === name ? "is-head" : ""}`}>
-                  <rect x={0} y={-11} width={name.length * 6.6 + (step.head === name ? 44 : 12)} height={18} rx={9} />
-                  <text x={6} y={2}>{name}{step.head === name ? " ← HEAD" : ""}</text>
+                  <rect x={0} y={-11} width={name.length * 6.6 + 12} height={18} rx={9} />
+                  <text x={6} y={2}>{name}</text>
+                  {step.head === name && (
+                    <g transform={`translate(${name.length * 6.6 + 16} 0)`} className="gg-head">
+                      <rect x={0} y={-11} width={38} height={18} rx={9} />
+                      <text x={6} y={2}>HEAD</text>
+                    </g>
+                  )}
                 </g>
               ))}
             </g>

@@ -2,6 +2,7 @@
 import type { Lens } from "../../../common/data/projects";
 import { EMAIL, GITHUB_URL_SAMMII, LINKEDIN_URL } from "../../../constants";
 import { useLens } from "../lens/LensProvider";
+import { ArrowUpRight } from "lucide-react";
 
 /**
  * One CV per lens, built from the same master profile (cast/scripts/build-lens-cvs.py),
@@ -28,8 +29,8 @@ export const Contact = () => {
       </p>
       <ul className="contact-links">
         <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
-        <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
-        <li><a href={GITHUB_URL_SAMMII} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></li>
+        <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={14} className="icon-inline" aria-hidden="true" /></a></li>
+        <li><a href={GITHUB_URL_SAMMII} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={14} className="icon-inline" aria-hidden="true" /></a></li>
         <li><a href={cv.href} download>CV for {cv.label}, PDF</a></li>
       </ul>
       <p className="contact-colophon">

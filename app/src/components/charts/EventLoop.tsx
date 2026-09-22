@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import { ChevronRight } from "lucide-react";
 
 /**
  * The event loop as a stepper. Three real snippets, each run through a
@@ -110,7 +111,9 @@ export function EventLoop() {
           <Box title="Microtask queue" items={step.micro} kind="micro" hint="drains completely before the next task" />
           <Box title="Task queue" items={step.tasks} kind="task" hint="setTimeout, events, I/O" />
           <Box title="rAF callbacks" items={step.rafs} kind="raf" hint="run in the render step" />
-          <div className={`el-render${step.kind === "render" ? " is-on" : ""}`}>Render: style → layout → paint → composite</div>
+          <div className={`el-render${step.kind === "render" ? " is-on" : ""}`}>Render: {["style", "layout", "paint", "composite"].map((t, n) => (
+            <span key={t}>{n > 0 && <ChevronRight size={11} className="icon-inline" aria-hidden="true" />}{t}</span>
+          ))}</div>
         </div>
         <div className="el-log">
           <h3 className="el-log-title">Console</h3>

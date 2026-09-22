@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import type { Project } from "../common/data/projects";
 import { projectHref } from "../lib/selected-work";
 import { ProjectItem } from "../src/components/project/ProjectItem";
+import { ArrowRight } from "lucide-react";
 
 /**
  * Client island for the temporary /work index: the existing ProjectItem card
@@ -28,7 +29,7 @@ export function WorkIndexGrid({ label, projects }: { label: string; projects: Pr
             <ProjectItem project={p} index={i + 6} />
             {href && (
               <a className="work-index-case" href={href} onClick={(e) => e.stopPropagation()}>
-                Read the case study <span aria-hidden="true">→</span>
+                Read the case study <ArrowRight size={14} className="icon-inline" aria-hidden="true" />
               </a>
             )}
           </li>

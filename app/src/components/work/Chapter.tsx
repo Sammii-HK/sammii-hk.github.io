@@ -10,6 +10,7 @@ import { OrbitVisual } from "./visuals/OrbitVisual";
 import { LunaryVisual } from "./visuals/LunaryVisual";
 import { SpellcastVisual } from "./visuals/SpellcastVisual";
 import { LattiqVisual } from "./visuals/LattiqVisual";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export type VisualProps = { lens: Lens; image: string; title: string; priority: boolean; fragment?: boolean };
 
@@ -75,11 +76,11 @@ function ChapterInner({ chapter, lens }: { chapter: ChapterModel; lens: Lens }) 
         )}
         <p className="chapter-links">
           <a href={href} className="chapter-link">
-            Case study <span aria-hidden="true">→</span>
+            Case study <ArrowRight size={13} className="icon-inline" aria-hidden="true" />
           </a>
           {liveUrl && (
             <a href={liveUrl} className="chapter-link chapter-link-quiet" target="_blank" rel="noopener noreferrer">
-              Open {project.title} <span aria-hidden="true">↗</span>
+              Open {project.title} <ArrowUpRight size={13} className="icon-inline" aria-hidden="true" />
             </a>
           )}
         </p>

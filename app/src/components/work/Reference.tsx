@@ -1,5 +1,6 @@
 import { memo } from "react";
 import type { Reference as ReferenceModel } from "../../../lib/selected-work";
+import { ArrowRight } from "lucide-react";
 
 /**
  * A supporting reference: indexed, typographic, one line of lens-specific
@@ -21,7 +22,7 @@ function ReferenceInner({ reference }: { reference: ReferenceModel }) {
         {emphasis.length > 0 && <span className="reference-meta">{emphasis.join(" · ")}</span>}
       </span>
       <span className="reference-arrow" aria-hidden="true">
-        →
+        <ArrowRight size={16} />
       </span>
     </a>
   );

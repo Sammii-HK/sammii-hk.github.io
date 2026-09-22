@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useId, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 /**
  * The fix for the z-index chart: three ways to attach a menu to a button
@@ -67,7 +68,7 @@ export function AnchorPositioning() {
             <div className="ap-task">Make the empty state legible</div>
             <div className="ap-task ap-task--target">
               <span>Fix the filter pills</span>
-              <button ref={btn} type="button" className="sc-btn" style={mode === "anchor" ? ({ anchorName } as React.CSSProperties) : undefined} onClick={() => setOpen((o) => !o)} aria-expanded={open}>Assign ▾</button>
+              <button ref={btn} type="button" className="sc-btn" style={mode === "anchor" ? ({ anchorName } as React.CSSProperties) : undefined} onClick={() => setOpen((o) => !o)} aria-expanded={open}>Assign <ChevronDown size={12} className="icon-inline" aria-hidden="true" /></button>
               {mode === "absolute" && open && <div className="ap-menu ap-menu--abs">{menu}</div>}
             </div>
             <div className="ap-task">Ship the chart index</div>

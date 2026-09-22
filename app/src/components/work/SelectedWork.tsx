@@ -5,6 +5,7 @@ import { useLens } from "../lens/LensProvider";
 import { Chapter } from "./Chapter";
 import { Reference } from "./Reference";
 import { useFlipOrder } from "./useFlipOrder";
+import { ArrowRight } from "lucide-react";
 
 /**
  * Selected Work: three chapters and a list of references, recomposed by the
@@ -39,7 +40,7 @@ export const SelectedWork = () => {
         </ol>
       </div>
       <p className="work-more">
-        <a href="/work/">More work, by kind <span aria-hidden="true">→</span></a>
+        <a href="/work/">More work, by kind <ArrowRight size={13} className="icon-inline" aria-hidden="true" /></a>
       </p>
     </section>
   );

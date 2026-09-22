@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 const LABS_URL = "https://labs.sammii.dev";
 
@@ -84,9 +85,8 @@ export const LabsPortal = () => {
       </div>
       <p className="labs-route">
         <a className="labs-link" href={LABS_URL} rel="noopener">
-          labs.sammii.dev <span aria-hidden="true">↗</span>
+          labs.sammii.dev <ArrowUpRight size={14} className="icon-inline" aria-hidden="true" />
         </a>
-        <span className="labs-status">Opening soon</span>
       </p>
     </section>
   );

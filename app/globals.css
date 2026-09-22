@@ -632,9 +632,9 @@ body {
   .chapter-head, .chapter-visual, .chapter-body { grid-column: 1 / -1 !important; grid-row: auto !important; }
 }
 
-/* Strata · scale, space, continuity: the field bleeds past the column, the axis reads beneath it */
-.strata-field { margin-right: min(0px, calc(50% - 50vw + 1.5rem)); }
-@media (min-width: 1200px) { .strata-field { margin-right: calc(50% - 50vw); } .strata-field .chapter-shot { border-radius: 6px 0 0 6px; border-right: 0; } }
+/* Strata · scale, space, continuity: contained like every other chapter (the
+   old right-edge bleed read as a mistake), the axis reads beneath it */
+.strata-field { margin-right: 0; }
 .strata-scale { margin: 1.25rem 0 0; }
 .strata-axis { position: relative; height: 5.6rem; border-top: 1px solid color-mix(in oklab, currentColor 35%, transparent); }
 .strata-tick { position: absolute; top: 0; transform: translateX(-50%); display: grid; justify-items: center; padding-top: calc(0.5rem + var(--row, 0) * 1.55rem); }
@@ -757,11 +757,12 @@ body {
 .labs-boundary { height: 5rem; margin: 0.5rem 0 0; touch-action: pan-y; cursor: crosshair; }
 .labs-boundary svg { display: block; width: 100%; height: 100%; overflow: visible; }
 .labs-boundary path { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; opacity: 0.6; }
+/* lucide icons sitting in a line of text: no unicode arrows anywhere in the UI */
+.icon-inline { display: inline-block; vertical-align: -0.14em; }
 .labs-route { margin: 0.25rem 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.25rem; }
 .labs-link { color: inherit; text-decoration: none; font-weight: 500; font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; }
 .labs-link:hover { text-decoration: underline; text-underline-offset: 0.35em; }
 .labs-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
-.labs-status { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.4; }
 @media (prefers-reduced-motion: reduce) { .labs-boundary { cursor: default; } }
 
 /* ── About · Experience · Contact (Phase 2G) ──────────────────────────────
@@ -844,7 +845,9 @@ body {
 .labs-bar-mark { color: inherit; text-decoration: none; font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.18em; }
 .labs-bar-mark:hover, .labs-bar-mark:focus-visible { text-decoration: underline; text-underline-offset: 0.35em; }
 .labs-bar-mark:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
-.labs-bar-here { font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.5; }
+.labs-bar-link { color: inherit; text-decoration: none; font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; }
+.labs-bar-link:hover, .labs-bar-link:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 0.35em; }
+.labs-bar-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 .labs-index { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; width: 100%; }
 .labs-index-head { margin-bottom: 3rem; }
 .labs-index-title { margin: 0 0 0.75rem; font-weight: 600; font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.08; letter-spacing: -0.02em; max-width: 18ch; text-wrap: balance; }

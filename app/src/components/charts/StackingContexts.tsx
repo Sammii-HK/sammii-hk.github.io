@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 /**
  * Why z-index: 9999 does nothing. A real DOM, painted by the real browser:
@@ -73,7 +74,7 @@ export function StackingContexts() {
           <div className="sc-card" style={cardStyle}>
             <div className="sc-card-row">
               <span>Card {isContext ? <em>stacking context · z {cardZ}</em> : <em>no stacking context</em>}</span>
-              <button type="button" className="sc-btn" onClick={() => setOpen((o) => !o)} aria-expanded={open}>Options ▾</button>
+              <button type="button" className="sc-btn" onClick={() => setOpen((o) => !o)} aria-expanded={open}>Options <ChevronDown size={12} className="icon-inline" aria-hidden="true" /></button>
             </div>
             {open && fix !== "portal" && <ul className="sc-menu"><li>Rename</li><li>Duplicate</li><li>Move to…</li><li className="is-danger">Delete</li><li className="sc-menu-z">z-index: 9999</li></ul>}
           </div>

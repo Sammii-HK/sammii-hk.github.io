@@ -3,6 +3,7 @@ import type { Lens } from "../../../common/data/projects";
 import { lensHref } from "../../../lib/lenses";
 import { LENSES, LENS_LABEL, LENS_SHORT } from "./copy";
 import type { CommitTreatment } from "./LensPhrase";
+import { ArrowUpRight } from "lucide-react";
 
 /**
  * How the lens system compresses once the hero has scrolled away. Same links,
@@ -59,7 +60,7 @@ export function CondensedNav({
         })}
       </div>
       <a href="https://labs.sammii.dev" className="lab-nav-labs" onClick={(e) => e.preventDefault()}>
-        Labs <span aria-hidden="true">↗</span>
+        Labs <ArrowUpRight size={13} className="icon-inline" aria-hidden="true" />
       </a>
     </nav>
   );
