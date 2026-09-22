@@ -121,4 +121,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "rebase", text: "A rebase does not move commits. It replays each diff onto a new base and writes NEW objects with new ids, leaving the originals unreferenced. That is the entire reason a force-push after a rebase conflicts with everyone else's copy: they are not the same commits." },
     { id: "names", text: "A branch is a file containing one commit id. That is why switching branches, resetting, and a fast-forward merge are all instant whatever the size of the history: each one rewrites a name, not a history." },
   ],
+  anchor: [
+    { id: "top-layer", text: "The top layer is a real layer above the whole document, outside every stacking context and every overflow. Three things can put an element there: dialog.showModal(), fullscreen, and the popover attribute. That is the only actual escape from a clipping ancestor." },
+    { id: "cost", text: "A popover escapes the card and loses its anchor: the browser no longer knows where the button is, so you measure it with getBoundingClientRect on every scroll and resize, one frame behind. That listener is what Floating UI is for." },
+    { id: "anchor-css", text: "Anchor positioning is the missing half: anchor-name on the button, position-anchor and position-area on the popover, and the browser keeps them together itself with no JavaScript and a flip fallback. Chromium since 2024, still catching on elsewhere." },
+  ],
 };

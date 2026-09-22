@@ -1,0 +1,30 @@
+.ap { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; }
+.ap-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
+.bo-toggle { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.bo-toggle button { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.bo-toggle button[aria-pressed="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.sc-toggle { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; cursor: pointer; }
+.sc-toggle input { accent-color: currentColor; }
+.ap-scene { display: grid; gap: 0.75rem; }
+.ap-card { position: relative; z-index: 0; transform: translateZ(0); border: 1px solid color-mix(in oklab, currentColor 20%, transparent); border-radius: 12px; background: color-mix(in oklab, currentColor 5%, var(--chart-bg)); overflow: hidden; }
+.ap-card-head { padding: 0.6rem 0.9rem; font-weight: 600; font-size: 0.875rem; border-bottom: 1px solid color-mix(in oklab, currentColor 12%, transparent); }
+.ap-card-head span, .ap-next span { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.6875rem; opacity: 0.55; margin-left: 0.6rem; font-weight: 400; }
+.ap-scroller { max-height: 168px; overflow: auto; padding: 0.6rem; display: grid; gap: 0.4rem; }
+.ap-task { position: relative; padding: 0.55rem 0.7rem; border-radius: 8px; background: var(--chart-bg); border: 1px solid color-mix(in oklab, currentColor 12%, transparent); font-size: 0.8125rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.sc-btn { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 30%, transparent); border-radius: 6px; padding: 0.3rem 0.6rem; cursor: pointer; white-space: nowrap; }
+.ap-next { position: relative; z-index: 1; padding: 0.8rem 0.9rem; border-radius: 10px; background: color-mix(in oklab, currentColor 11%, var(--chart-bg)); font-size: 0.875rem; font-weight: 600; }
+.ap-menu { width: 11.5rem; padding: 0.45rem; border-radius: 10px; background: var(--chart-bg); border: 1px solid color-mix(in oklab, currentColor 25%, transparent); box-shadow: 0 14px 34px color-mix(in oklab, black 34%, transparent); font-size: 0.8125rem; }
+.ap-menu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+.ap-menu li { padding: 0.3rem 0.5rem; border-radius: 5px; }
+.ap-menu li:hover { background: color-mix(in oklab, currentColor 9%, transparent); }
+.ap-menu-title { margin: 0 0 0.3rem; font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55; padding: 0 0.5rem; }
+.ap-menu-tag { display: block; margin-top: 0.3rem; padding: 0.25rem 0.5rem 0; border-top: 1px solid color-mix(in oklab, currentColor 12%, transparent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.625rem; opacity: 0.55; }
+.ap-menu--abs { position: absolute; z-index: 9999; top: calc(100% + 4px); right: 0; }
+/* the top-layer copy: a real popover, so no ancestor can clip or cover it */
+.ap-menu--top { position: fixed; margin: 0; inset: auto; }
+.ap-menu--top:not(:popover-open) { display: none; }
+.ap-menu--top.is-anchored { position-area: bottom span-left; margin-top: 6px; position-try-fallbacks: flip-block, flip-inline; }
+.ap-read { min-height: 5.2rem; }
+.ap-read p { margin: 0; font-size: 0.875rem; line-height: 1.6; }
+.ap-read code, .jd-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 70%, transparent); }
