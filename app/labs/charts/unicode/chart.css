@@ -6,12 +6,14 @@
 .un-input { font-size: 1.5rem; }
 .jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }
 .un-counts { display: grid; gap: 0.4rem; }
-.un-row { display: grid; grid-template-columns: 7.5rem minmax(120px, 1fr) minmax(12rem, 1.2fr) minmax(10rem, 1.4fr); align-items: center; gap: 0.75rem; font-size: 0.8125rem; }
+/* the count gets its own column: absolutely positioning it off the end of the
+   bar put it on top of the next column */
+.un-row { display: grid; grid-template-columns: 7.5rem minmax(120px, 1fr) 2.5rem minmax(12rem, 1.2fr) minmax(10rem, 1.4fr); align-items: center; gap: 0.75rem; font-size: 0.8125rem; }
 @media (max-width: 820px) { .un-row { grid-template-columns: 7rem 1fr; } .un-how, .un-note { grid-column: 2; } }
 .un-k { font-weight: 600; }
 .un-bar { position: relative; display: block; height: 14px; background: color-mix(in oklab, currentColor 7%, transparent); border-radius: 3px; }
 .un-bar i { position: absolute; inset: 0 auto 0 0; background: var(--chart-ink); border-radius: 3px; transition: width 200ms ease; }
-.un-bar b { position: absolute; left: calc(100% + 0.5rem); top: -2px; font-variant-numeric: tabular-nums; }
+.un-count { font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
 .un-how { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; opacity: 0.8; }
 .un-note { font-size: 0.75rem; color: color-mix(in oklab, currentColor 60%, transparent); }
 .un-segs { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.8rem; border-radius: 10px; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); background: color-mix(in oklab, currentColor 3%, transparent); min-height: 4.5rem; }

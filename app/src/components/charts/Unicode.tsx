@@ -61,7 +61,8 @@ export function Unicode() {
         {rows.map((r) => (
           <div key={r.k} className="un-row">
             <span className="un-k">{r.k}</span>
-            <span className="un-bar"><i style={{ width: `${(r.n / max) * 100}%` }} /><b>{r.n}</b></span>
+            <span className="un-bar"><i style={{ width: `${(r.n / max) * 100}%` }} /></span>
+            <b className="un-count">{r.n}</b>
             <code className="un-how">{r.how}</code>
             <span className="un-note">{r.note}</span>
           </div>
