@@ -25,7 +25,7 @@ export default function KeypressChart() {
         <KeypressFlow />
         <footer className="chart-foot">
           <h2 className="section-eyebrow">Notes</h2>
-          <p>Values are typical figures for a modern laptop, not measurements of any one machine: a mechanical switch and its firmware debounce at about 5 ms; USB HID polling at 125 Hz by default (an 8 ms interval, so a 4 ms average wait) or 1000 Hz on gaming hardware; the compositor waiting on average half a refresh interval for vsync and the panel taking another half to scan the frame out; liquid crystal response between 1 ms (OLED, near zero) and 12 ms or more (older LCDs). Browser stages follow the pipeline in Chromium's rendering documentation: input dispatch, script, style, layout, paint, composite.</p>
+          <p>Values are typical figures for a modern laptop, not measurements of any one machine: a mechanical switch and its firmware debounce at about 5 ms; USB HID polling at 125 Hz by default (an 8 ms interval, so a 4 ms average wait) or 1000 Hz on gaming hardware; the compositor waiting on average half a refresh interval for vsync and the panel taking another half to scan the frame out; liquid crystal response between 1 ms (OLED, near zero) and 12 ms or more (older LCDs). Browser stages follow the pipeline in Chromium&rsquo;s rendering documentation: input dispatch, script, style, layout, paint, composite.</p>
           <p>Sources: Dan Luu, Computer latency 1977 to 2017 (measured end-to-end keyboard-to-screen latencies of 30 ms on an Apple IIe and 60 to 170 ms on modern machines); Chromium, Life of a Pixel and RenderingNG; the USB HID specification; Microsoft, Keyboard latency; RTINGS input lag methodology.</p>
         </footer>
       </article>

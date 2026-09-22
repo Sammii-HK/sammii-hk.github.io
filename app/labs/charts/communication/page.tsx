@@ -24,7 +24,7 @@ export default function CommunicationChart() {
         <CommunicationTimeline />
         <footer className="chart-foot">
           <h2 className="section-eyebrow">Notes</h2>
-          <p>A rebuild of an infographic I made as a student, with the original writing kept and only typos corrected. Dates are the conventional ones: Gutenberg's press to 1440, the first sans serif to Caslon's 1816 specimen, the web to 1989. The gaps on the spine are to scale in years where they are long enough to matter.</p>
+          <p>A rebuild of an infographic I made as a student, with the original writing kept and only typos corrected. Dates are the conventional ones: Gutenberg&rsquo;s press to 1440, the first sans serif to Caslon&rsquo;s 1816 specimen, the web to 1989. The gaps on the spine are to scale in years where they are long enough to matter.</p>
           <p>Part of a series of information-design pieces on the things design engineers work with. Companion to the eleven Love Letters to typefaces on the blog.</p>
         </footer>
       </article>

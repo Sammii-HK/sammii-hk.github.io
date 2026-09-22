@@ -106,7 +106,7 @@ export function GamutDiagram() {
         {hover ? (
           (() => { const g = GAMUTS.find((x) => x.id === hover)!; return (
             <>
-              <p className="cst-panel-kicker">{g.year} · {(area(g) / srgbArea * 100).toFixed(0)}% of sRGB's area</p>
+              <p className="cst-panel-kicker">{g.year} · {(area(g) / srgbArea * 100).toFixed(0)}% of sRGB&rsquo;s area</p>
               <h2 className="cst-panel-title">{g.name}</h2>
               <p className="cst-panel-what">{g.note}</p>
               <p className="cst-panel-why">Primaries: red ({g.r.join(", ")}), green ({g.g.join(", ")}), blue ({g.b.join(", ")}). White D65 ({g.white.join(", ")}).</p>
