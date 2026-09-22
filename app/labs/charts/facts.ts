@@ -126,4 +126,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "cost", text: "A popover escapes the card and loses its anchor: the browser no longer knows where the button is, so you measure it with getBoundingClientRect on every scroll and resize, one frame behind. That listener is what Floating UI is for." },
     { id: "anchor-css", text: "Anchor positioning is the missing half: anchor-name on the button, position-anchor and position-area on the popover, and the browser keeps them together itself with no JavaScript and a flip fallback. Chromium since 2024, still catching on elsewhere." },
   ],
+  letter: [
+    { id: "overshoot", text: "A circle that stops exactly at the x-height line looks too short, so type designers draw round letters a few thousandths of an em taller than flat ones. The chart measures each font's actual overshoot in your browser. Nobody tells you this and you see it everywhere once you know." },
+    { id: "ear", text: "The single most identifying mark in the Latin alphabet is the ear of a double-storey g: the little stroke off the top right of the bowl. It is also the first thing a geometric sans throws away, which is why those faces all look like each other." },
+    { id: "crossbar", text: "One angle classifies a serif: a slanted crossbar on the e is Venetian, a level one is Garalde or later. That is the difference between Jenson and Garamond, and it is the first branch of the typography family tree." },
+  ],
 };
