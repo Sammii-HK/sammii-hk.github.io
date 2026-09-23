@@ -97,13 +97,17 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   return raw ? parse(slug, raw) : null;
 }
 
-export async function getAllPosts(includeDrafts = false): Promise<BlogPostMeta[]> {
+/** Every published post WITH its body, newest first: the feed, the API and llms-full.txt read this. */
+export async function getAllPostsFull(includeDrafts = false): Promise<BlogPost[]> {
   const slugs = await getAllSlugs();
   const posts = await Promise.all(slugs.map((s) => getPostBySlug(s)));
   return posts
     .filter((p): p is BlogPost => !!p)
-    .map(({ content: _content, ...meta }) => meta)
     .filter((p) => includeDrafts || !p.draft)
     .filter((p) => new Date(p.date) <= new Date())
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export async function getAllPosts(includeDrafts = false): Promise<BlogPostMeta[]> {
+  return (await getAllPostsFull(includeDrafts)).map(({ content: _content, ...meta }) => meta);
 }

@@ -1,5 +1,5 @@
-import { BlogPageWrapper } from '../src/components/BlogPageWrapper';
+import { SiteShell } from '../src/components/site/SiteShell';
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
-  return <BlogPageWrapper>{children}</BlogPageWrapper>;
+  return <SiteShell current="blog">{children}</SiteShell>;
 }

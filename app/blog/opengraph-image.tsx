@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getJostFont } from '../lib/og-font';
 
-export const alt = 'Blog — sammii.dev';
+export const alt = 'Blog · sammii.dev';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 

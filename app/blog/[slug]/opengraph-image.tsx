@@ -14,7 +14,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateAlt({ params }: Props) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  return post?.title ?? 'Blog post — sammii.dev';
+  return post?.title ?? 'Blog post · sammii.dev';
 }
 
 export default async function Image({ params }: Props) {

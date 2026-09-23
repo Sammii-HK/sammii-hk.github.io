@@ -550,6 +550,12 @@ body {
 /* Labs is a nav link like the lenses: same weight, same underline on hover, pushed to the end */
 .lens-nav-labs { margin-left: auto; white-space: nowrap; }
 .lens-nav-labs:hover, .lens-nav-labs:focus-visible { opacity: 1; --u: 1; }
+/* The one bar below the homepage (blog, work, case studies, Labs): the lens
+   nav's look, but in the flow and always shown, since there is no hero to
+   scroll past. */
+.site-bar { position: sticky; transform: none; visibility: visible; transition: none; }
+.site-bar .site-bar-links { margin-left: auto; }
+.site-bar .lens-nav-phrase:hover, .site-bar .lens-nav-phrase:focus-visible { opacity: 1; --u: 1; }
 .lens-short { display: none; }
 @media (max-width: 640px) {
   .lens-nav { gap: 1rem; padding: 0.7rem 1.25rem; }
@@ -841,13 +847,6 @@ body {
 .case-foot a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 
 /* ── labs.sammii.dev ─────────────────────────────────────────────────────── */
-.labs-bar { position: sticky; top: 0; z-index: 20; display: flex; align-items: baseline; gap: 1rem; padding: 1rem 1.5rem; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-.labs-bar-mark { color: inherit; text-decoration: none; font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.18em; }
-.labs-bar-mark:hover, .labs-bar-mark:focus-visible { text-decoration: underline; text-underline-offset: 0.35em; }
-.labs-bar-mark:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
-.labs-bar-link { color: inherit; text-decoration: none; font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; }
-.labs-bar-link:hover, .labs-bar-link:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 0.35em; }
-.labs-bar-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 .labs-index { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; width: 100%; }
 .labs-index-head { margin-bottom: 3rem; }
 .labs-index-title { margin: 0 0 0.75rem; font-weight: 600; font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1.08; letter-spacing: -0.02em; max-width: 18ch; text-wrap: balance; }

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { getWorkIndex } from "../lib/lenses";
 import { WorkIndexGrid } from "./WorkIndexGrid";
-import { Navbar } from "../src/components/Navbar";
-import { Footer } from "../src/components/Footer";
+import { SiteShell } from "../src/components/site/SiteShell";
 
 /**
  * /work (Phase 2H, TEMPORARY index). The homepage is the argument; this is
@@ -20,9 +19,8 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   const groups = getWorkIndex();
   return (
-    <div className="relative bg-white dark:bg-black text-black dark:text-white min-h-[100dvh] flex flex-col">
-      <Navbar />
-      <main id="main" className="flex-1 work-index">
+    <SiteShell current="work">
+      <main id="main" className="work-index">
         <header className="work-index-head">
           <p className="section-eyebrow">Work</p>
           <h1 className="work-index-title">Everything I have shipped, by kind.</h1>
@@ -40,7 +38,6 @@ export default function WorkPage() {
           </section>
         ))}
       </main>
-      <Footer />
-    </div>
+    </SiteShell>
   );
 }

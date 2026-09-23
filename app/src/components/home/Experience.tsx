@@ -23,7 +23,7 @@ export const Experience = () => (
         <li key={`${r.org}-${r.from}`} className="experience-row">
           <span className="experience-when">
             <span>{r.from}</span>
-            <span aria-hidden="true">–</span>
+            <span>to</span>
             <span>{r.to}</span>
           </span>
           <span className="experience-main">

@@ -6,8 +6,7 @@ import { getAllCaseStudySlugs, getCaseStudyBySlug } from '../../lib/case-studies
 import { projects } from '../../common/data/projects';
 import { Breadcrumbs } from '../../src/components/Breadcrumbs';
 import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';
-import { Navbar } from '../../src/components/Navbar';
-import { Footer } from '../../src/components/Footer';
+import { SiteShell } from '../../src/components/site/SiteShell';
 import { CaseStudyHero } from '../../src/components/case-study/CaseStudyHero';
 import { caseStudyComponents } from '../../src/components/case-study/mdx-components';
 import { ArrowRight } from "lucide-react";
@@ -34,18 +33,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `https://sammii.dev/projects/${slug}/`;
 
   return {
-    title: `${study.title} — sammii.dev`,
+    title: `${study.title} · sammii.dev`,
     description: study.description,
     alternates: { canonical: url },
     openGraph: {
-      title: `${study.title} — sammii.dev`,
+      title: `${study.title} · sammii.dev`,
       description: study.description,
       type: 'article',
       url,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${study.title} — sammii.dev`,
+      title: `${study.title} · sammii.dev`,
       description: study.description,
     },
   };
@@ -60,9 +59,8 @@ export default async function CaseStudyPage({ params }: Props) {
   const project = projects.find((p) => p.caseStudy === slug) ?? null;
 
   return (
-    <div className="relative bg-white dark:bg-black text-black dark:text-white min-h-[100dvh] flex flex-col">
-      <Navbar />
-      <main id="main" className="flex-1 case-study">
+    <SiteShell current="work">
+      <main id="main" className="case-study">
         <ArticleJsonLd
           title={study.title}
           description={study.description}
@@ -91,7 +89,6 @@ export default async function CaseStudyPage({ params }: Props) {
           <a href="/">Front page</a>
         </nav>
       </main>
-      <Footer />
-    </div>
+    </SiteShell>
   );
 }

@@ -1,11 +1,79 @@
 openapi: 3.1.0
 info:
   title: sammii.dev, read
-  version: "1.0"
-  description: Read-only facts about Sammii Kellow's projects, charts and blog. Use before writing anything.
+  version: "2.0"
+  description: >-
+    Read-only access to everything Sammii Kellow has built and written: every
+    project with its case study, every blog post in full, and the charts with
+    their sourced facts. Call these before writing or answering anything about
+    her work, instead of asking her to paste it.
 servers:
   - url: https://sammii.dev
 paths:
+  /llms-full.txt:
+    get:
+      operationId: getEverything
+      summary: >-
+        Everything in one plain-text document: who she is, every project and
+        case study, every blog post in full, every chart and its facts. The
+        best single call for a broad question.
+      responses:
+        "200":
+          description: Plain text (markdown).
+          content:
+            text/plain:
+              schema:
+                type: string
+  /api/blog/:
+    get:
+      operationId: listBlogPosts
+      summary: Every published post, newest first, with title, description, date, tags and URL (no bodies).
+      responses:
+        "200":
+          description: The post index.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count: { type: integer }
+                  posts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        slug: { type: string }
+                        title: { type: string }
+                        description: { type: string }
+                        date: { type: string }
+                        tags: { type: array, items: { type: string } }
+                        url: { type: string }
+  /api/blog/{slug}/:
+    get:
+      operationId: getBlogPost
+      summary: One post with its complete markdown body. Get the slug from listBlogPosts.
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: The post.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  slug: { type: string }
+                  title: { type: string }
+                  description: { type: string }
+                  date: { type: string }
+                  tags: { type: array, items: { type: string } }
+                  url: { type: string }
+                  markdown: { type: string }
+        "404":
+          description: No published post with that slug.
   /api/projects/:
     get:
       operationId: getProjects
@@ -17,14 +85,3 @@ paths:
             application/json:
               schema:
                 type: object
-  /rss.xml:
-    get:
-      operationId: getBlogFeed
-      summary: The blog as an RSS 2.0 feed (title, link, date, description, tags per post).
-      responses:
-        "200":
-          description: RSS XML.
-          content:
-            application/rss+xml:
-              schema:
-                type: string

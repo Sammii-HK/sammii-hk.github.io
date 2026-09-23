@@ -6,16 +6,16 @@ export const revalidate = REVALIDATE;
 import { Breadcrumbs } from '../src/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Blog — sammii.dev',
+  title: 'Blog · sammii.dev',
   description: 'Thoughts on engineering, design, and building things.',
   openGraph: {
-    title: 'Blog — sammii.dev',
+    title: 'Blog · sammii.dev',
     description: 'Thoughts on engineering, design, and building things.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog — sammii.dev',
+    title: 'Blog · sammii.dev',
     description: 'Thoughts on engineering, design, and building things.',
   },
 };
