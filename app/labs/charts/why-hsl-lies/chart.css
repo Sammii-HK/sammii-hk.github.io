@@ -17,3 +17,31 @@
 .whl-y { font-size: 0.5625rem; text-align: center; opacity: 0.55; font-variant-numeric: tabular-nums; margin-top: 2px; }
 .whl-legend { margin: 0; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 55%, transparent); }
 @media (prefers-reduced-motion: reduce) { .whl-bar { transition: none; } }
+
+/* Axis cue: the bars are data, not bases */
+.whl-plot { display: grid; gap: 0.5rem; min-width: 0; }
+.whl-axis { margin: 0; font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in oklab, currentColor 55%, transparent); }
+
+/* One hue, inspected across all three models */
+.whl-swatch { cursor: crosshair; border-radius: 4px; outline: none; transition: opacity 150ms ease; }
+.whl-swatch.is-active .whl-chip { outline: 2px solid currentColor; outline-offset: 2px; }
+.whl-swatch.is-active .whl-bar { opacity: 0.8; }
+.whl-swatch.is-active .whl-y { opacity: 1; font-weight: 600; }
+.whl.is-inspecting .whl-swatch:not(.is-active) { opacity: 0.45; }
+.whl-swatch:focus-visible .whl-chip { outline-width: 3px; outline-offset: 3px; }
+
+.whl-inspect { display: grid; gap: 0.75rem; padding: 1rem 1.25rem; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 8px; }
+.whl-inspect-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1rem; }
+.whl-inspect-title { margin: 0; font-family: var(--font-jost), system-ui, sans-serif; font-weight: 600; font-size: 1.125rem; font-variant-numeric: tabular-nums; }
+.whl-inspect-hint { margin: 0; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 55%, transparent); }
+.whl-inspect-scroll { overflow-x: auto; }
+.whl-inspect-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.whl-inspect-table th, .whl-inspect-table td { text-align: left; padding: 0.35rem 1rem 0.35rem 0; }
+.whl-inspect-table thead th { font-size: 0.625rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in oklab, currentColor 55%, transparent); }
+.whl-inspect-table tbody th { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+.whl-inspect-table tbody tr + tr > * { border-top: 1px solid color-mix(in oklab, currentColor 8%, transparent); }
+.whl-inspect-table code { font-size: 0.75rem; }
+.whl-inspect-chip { display: inline-block; width: 14px; height: 14px; border-radius: 3px; flex: none; }
+.whl-inspect-chip.is-out { background-image: repeating-linear-gradient(45deg, transparent 0 2px, rgba(0,0,0,0.35) 2px 3px) !important; }
+.whl-inspect-flag { color: color-mix(in oklab, currentColor 55%, transparent); }
+@media (prefers-reduced-motion: reduce) { .whl-swatch { transition: none; } }
