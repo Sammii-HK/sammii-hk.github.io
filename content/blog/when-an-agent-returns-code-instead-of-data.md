@@ -9,7 +9,7 @@ tags:
 draft: false
 ---
 
-Orbit is my multi-agent content system. A planner directs each run, and a Bash orchestrator runs the agents in sequence or in parallel, each scoped to its own MCP config. Most of the interesting problems in it are about what the agents write. This one was about what an agent returned.
+Orbit is my multi-agent content system. A planner directs each run, and a Bash orchestrator runs the agents in sequence or in parallel. Most of the interesting problems in it are about what the agents write. This one was about what an agent returned.
 
 ## The failure
 
