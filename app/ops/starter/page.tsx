@@ -113,10 +113,10 @@ export default function LocalAiOpsStarterPage() {
             </p>
             <p className="mt-2 text-4xl font-semibold">GBP 29</p>
             <p className="mt-3 text-sm leading-6 text-neutral-700 dark:text-neutral-300">
-              Stripe checkout is live. The customer ZIP, marketplace draft packets, and listing images are prepared; fulfilment goes to the checkout email while instant delivery is being wired.
+              After Stripe confirms payment, we automatically email the Starter ZIP to the address used at checkout.
             </p>
             <div className="mt-5 rounded-lg border border-emerald-400/40 bg-emerald-500/10 p-4 text-sm leading-6 text-emerald-900 dark:text-emerald-100">
-              Money path: quick check to starter page to Stripe checkout. Gumroad or Lemon Squeezy can replace this later when file delivery credentials are available.
+              Money path: quick check to starter page to Stripe checkout, followed by automatic email fulfilment.
             </div>
           </aside>
         </section>
