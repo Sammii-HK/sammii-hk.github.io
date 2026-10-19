@@ -142,6 +142,12 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "mantis", focus: "mantis", text: "Mantis shrimp have twelve kinds of photoreceptor from 300 to 720 nm, and tested, they are worse than us at telling close colours apart (Thoen et al. 2014). More receptors is not more seeing." },
     { id: "bees", focus: "bee", text: "Bees see from about 300 to 650 nm: into the ultraviolet, where many flowers carry patterns we cannot see, and short of the reds we can. Their three receptors peak near 344, 436 and 544 nm." },
   ],
+  now: [
+    { id: "postdiction", focus: "postdiction", text: "In the flash-lag illusion, what you see at the moment of a flash depends on what the moving object does in roughly the next 80 ms (Eagleman and Sejnowski 2000). The brain settles what happened at a moment after the moment." },
+    { id: "frame-vs-now", focus: "frame", text: "A frame at 60 Hz is 16.7 ms and a typical keypress reaches the glass in about 44 ms. The brain's own present runs at least 80 ms behind the world, by Eagleman's estimate. The screen is quicker than the now it is drawn for." },
+    { id: "six-ms", focus: "touch", text: "Your sense of now lags by tens of milliseconds, yet on a touchscreen people can feel as little as 2 to 11 ms of lag between a dragging finger and the object under it (Ng et al. 2012). One reading: delay you share with the world goes unnoticed; delay between you and your tool does not." },
+    { id: "benchmark", focus: "online", text: "In a lab, simple reaction time to a light averages 213 ms once the hardware's delay is removed (Woods et al. 2015). Online, through people's own computers, the median is 273 ms. The 60 ms between them is about the size of a keypress-to-screen pipeline." },
+  ],
   retina: [
     { id: "blind-spot", focus: "blindspot", text: "Every eye has a hole about six degrees wide, 15.5 degrees out from wherever you are looking, where the optic nerve leaves and there are no rods or cones at all. You have never seen it, because the brain fills it with whatever surrounds it. The chart has a card for finding yours." },
     { id: "tenfold", focus: "fovea", text: "Cone density at the centre of the fovea averages about 199,000 per square millimetre and is ten times lower one millimetre away (Curcio et al. 1990). The sharp, coloured world you see is built from a pit a few degrees across and a great deal of eye movement." },

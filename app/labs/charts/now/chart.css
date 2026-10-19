@@ -1,0 +1,56 @@
+.nw { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; min-width: 0; }
+.nw-h { margin: 1.5rem 0 0; }
+.nw-demo, .nw-timeline, .nw-react { display: grid; gap: 1rem; min-width: 0; }
+.nw-knobs { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem 2rem; }
+.nw-steps { margin: 0; max-width: 70ch; font-size: 0.875rem; line-height: 1.55; color: color-mix(in oklab, currentColor 78%, transparent); }
+
+/* flash-lag: the canvas reads its ink from color, so it follows light and dark */
+.nw-stage { position: relative; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; background: var(--chart-bg); overflow: hidden; }
+.nw-canvas { display: block; width: 100%; height: 150px; color: var(--chart-ink); }
+.nw-frozen { position: absolute; left: 0.75rem; right: 0.75rem; bottom: 0.5rem; margin: 0; font-size: 0.75rem; color: color-mix(in oklab, var(--chart-ink) 70%, transparent); }
+
+/* timeline: html bars on one axis, so the labels stay real text at any width */
+.nw-total { margin: 0; font-size: 1rem; line-height: 1.5; max-width: 70ch; }
+.nw-total strong { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.nw-total a { color: inherit; text-decoration: underline; text-underline-offset: 0.25em; }
+.nw-key { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0; font-size: 0.75rem; color: color-mix(in oklab, currentColor 70%, transparent); }
+.nw-sw { display: inline-block; width: 18px; height: 10px; border-radius: 2px; margin-left: 0.6rem; }
+.nw-sw:first-child { margin-left: 0; }
+.nw-sw.is-machine, .nw-row.is-machine .nw-bar { background: var(--chart-ink); }
+.nw-sw.is-brain, .nw-row.is-brain .nw-bar { background: repeating-linear-gradient(135deg, var(--chart-ink) 0 2px, transparent 2px 5px); box-shadow: inset 0 0 0 1px var(--chart-ink); }
+.nw-sw.is-behaviour, .nw-row.is-behaviour .nw-bar { background: color-mix(in oklab, var(--chart-ink) 35%, transparent); box-shadow: inset 0 0 0 1px var(--chart-ink); }
+
+.nw-axis { position: relative; height: 1.1rem; margin-left: calc(38% + 1rem); font-size: 0.625rem; color: color-mix(in oklab, currentColor 55%, transparent); font-variant-numeric: tabular-nums; }
+.nw-axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.nw-axis span:first-child { transform: none; }
+.nw-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.nw-row { display: grid; grid-template-columns: 38% 1fr; gap: 1rem; align-items: center; padding: 0.15rem 0; border-radius: 6px; }
+.nw-row.is-open { background: color-mix(in oklab, currentColor 6%, transparent); }
+.nw-row-head { display: grid; grid-template-columns: 4.2rem 1fr auto; gap: 0.5rem; align-items: baseline; font: inherit; color: inherit; text-align: left; background: transparent; border: 0; padding: 0.35rem 0.4rem; cursor: pointer; border-radius: 6px; min-width: 0; }
+.nw-row-head:focus-visible { outline: 2px solid currentColor; outline-offset: 1px; }
+.nw-row-kind { font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in oklab, currentColor 55%, transparent); }
+.nw-row-name { font-size: 0.8125rem; line-height: 1.35; }
+.nw-row-ms { font-size: 0.8125rem; font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 600; }
+.nw-track { position: relative; height: 18px; }
+.nw-track i { position: absolute; top: -3px; bottom: -3px; width: 1px; background: color-mix(in oklab, currentColor 8%, transparent); }
+.nw-bar { position: absolute; left: 0; top: 2px; bottom: 2px; border-radius: 3px; min-width: 2px; transition: width 200ms ease; }
+.nw-span { position: absolute; top: 2px; bottom: 2px; border-radius: 3px; background: color-mix(in oklab, var(--chart-ink) 22%, transparent); box-shadow: inset 0 0 0 1.5px var(--chart-ink); }
+.nw-range { position: absolute; top: 50%; height: 0; border-top: 1.5px solid var(--chart-ink); }
+.nw-range::before, .nw-range::after { content: ""; position: absolute; top: -6px; height: 11px; width: 1.5px; background: var(--chart-ink); }
+.nw-range::before { left: 0; } .nw-range::after { right: 0; }
+@media (max-width: 720px) {
+  .nw-row { grid-template-columns: 1fr; gap: 0.2rem; padding: 0.3rem 0; }
+  .nw-axis { margin-left: 0; }
+}
+.nw-panel { border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; padding: 1rem 1.2rem; background: color-mix(in oklab, currentColor 3%, transparent); min-height: 10rem; }
+@media (max-width: 720px) { .nw-panel { min-height: 14rem; } }
+.nw-panel .cst-panel-title { font-size: 1.2rem; }
+
+/* reaction pad */
+.nw-pad { display: grid; place-items: center; min-height: 150px; padding: 1rem; border: 1px solid color-mix(in oklab, currentColor 18%, transparent); border-radius: 10px; background: var(--chart-bg); color: var(--chart-ink); font-size: 1rem; font-weight: 500; text-align: center; cursor: pointer; user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+.nw-pad:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.nw-pad.is-waiting { color: color-mix(in oklab, var(--chart-ink) 60%, transparent); }
+.nw-pad.is-go { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.nw-pad.is-early { border-style: dashed; }
+.nw-result { margin: 0; font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { .nw-bar { transition: none; } }
