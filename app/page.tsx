@@ -12,9 +12,10 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Sammii Kellow',
+  alternateName: 'Samantha Kellow',
   url: 'https://sammii.dev',
-  jobTitle: 'Founding Design Engineer',
-  description: 'Founding Design Engineer in London. Building products, design systems, autonomous AI pipelines, and creative tools.',
+  jobTitle: 'AI Product Engineer & Design Engineer',
+  description: 'AI product engineer and design engineer in London. Building AI-native products, design systems, autonomous AI pipelines and creative tools, and writing about design engineering, agents and consciousness.',
   sameAs: [
     'https://github.com/sammii-hk',
     'https://x.com/technicalyblond',

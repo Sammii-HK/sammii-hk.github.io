@@ -19,6 +19,7 @@ function safeJsonLd(obj: unknown): string {
 const AUTHOR = {
   '@type': 'Person',
   name: 'Sammii Kellow',
+  alternateName: 'Samantha Kellow',
   url: 'https://sammii.dev',
 } as const;
 
