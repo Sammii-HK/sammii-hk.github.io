@@ -136,6 +136,12 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "no-cache", text: "no-cache does not mean do not store. It means store it and always revalidate before using it, which is exactly what you want on HTML: every visit asks, and almost every answer is an empty 304 costing one round trip. no-store is the one that means do not keep it." },
     { id: "immutable", text: "immutable plus a build hash is the only honest way to cache something for a year: a new build is a new URL, so the old one never needs invalidating. That is the whole reason bundlers put hashes in filenames." },
   ],
+  spectrum: [
+    { id: "sliver", text: "Draw the electromagnetic spectrum from gamma rays to 100 km radio waves on a log axis and the light you can see, 380 to 760 nm, is about 1.6% of the width. Draw it on a linear frequency scale and it is less than one ten-trillionth. Both are honest; the spectrum has no top, so the fraction is a choice." },
+    { id: "lens", focus: "aphakic", text: "Your retina can detect ultraviolet; your lens stops it, passing less than 5% of light shorter than 400 nm. People whose lens has been removed detect light down to about 315 nm (Griswold and Stark 1992)." },
+    { id: "mantis", focus: "mantis", text: "Mantis shrimp have twelve kinds of photoreceptor from 300 to 720 nm, and tested, they are worse than us at telling close colours apart (Thoen et al. 2014). More receptors is not more seeing." },
+    { id: "bees", focus: "bee", text: "Bees see from about 300 to 650 nm: into the ultraviolet, where many flowers carry patterns we cannot see, and short of the reds we can. Their three receptors peak near 344, 436 and 544 nm." },
+  ],
   retina: [
     { id: "blind-spot", focus: "blindspot", text: "Every eye has a hole about six degrees wide, 15.5 degrees out from wherever you are looking, where the optic nerve leaves and there are no rods or cones at all. You have never seen it, because the brain fills it with whatever surrounds it. The chart has a card for finding yours." },
     { id: "tenfold", focus: "fovea", text: "Cone density at the centre of the fovea averages about 199,000 per square millimetre and is ten times lower one millimetre away (Curcio et al. 1990). The sharp, coloured world you see is built from a pit a few degrees across and a great deal of eye movement." },

@@ -1,0 +1,78 @@
+.sp { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 2rem; min-width: 0; }
+.sp-full, .sp-zoom, .sp-frac { display: grid; gap: 0.9rem; min-width: 0; }
+.sp-h { margin: 0; }
+.sp-total { margin: 0; font-size: 1rem; line-height: 1.5; max-width: 70ch; }
+.sp-total strong, .sp-frac-out strong { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.sp-note { margin: 0; max-width: 72ch; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 65%, transparent); }
+.sp-p { margin: 0; max-width: 70ch; font-size: 0.9375rem; line-height: 1.6; }
+
+/* the full strip: bands as segments on one log axis, the visible sliver in colour with a callout above it */
+.sp-strip { position: relative; height: 64px; margin-top: 2.2rem; border-radius: 6px; background: color-mix(in oklab, currentColor 4%, transparent); }
+.sp-band { position: absolute; top: 0; bottom: 0; display: grid; place-items: center; overflow: hidden; border-right: 1px solid var(--chart-bg); }
+.sp-band.is-gamma { background: color-mix(in oklab, currentColor 34%, transparent); border-radius: 6px 0 0 6px; }
+.sp-band.is-xray { background: color-mix(in oklab, currentColor 26%, transparent); }
+.sp-band.is-uv { background: color-mix(in oklab, currentColor 18%, transparent); }
+.sp-band.is-ir { background: color-mix(in oklab, currentColor 14%, transparent); }
+.sp-band.is-micro { background: color-mix(in oklab, currentColor 9%, transparent); }
+.sp-band.is-radio { background: color-mix(in oklab, currentColor 5%, transparent); border-radius: 0 6px 6px 0; border-right: 0; }
+.sp-band.is-visible { z-index: 1; border: 0; min-width: 3px; box-shadow: 0 0 0 1px var(--chart-ink); }
+.sp-band-name { font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; color: color-mix(in oklab, currentColor 80%, transparent); }
+.sp-callout { position: absolute; bottom: 100%; width: 0; height: 2rem; border-left: 1.5px solid var(--chart-ink); transform: translateX(-0.75px); }
+.sp-callout span { position: absolute; bottom: 100%; left: 0; transform: translateX(-50%); font-size: 0.75rem; font-weight: 600; white-space: nowrap; padding-bottom: 0.15rem; }
+@media (max-width: 720px) { .sp-band-name { display: none; } .sp-strip { height: 44px; } }
+
+.sp-axis { position: relative; height: 1.6rem; margin-top: 0.15rem; }
+.sp-tick { position: absolute; top: 0; width: 1px; height: 6px; background: color-mix(in oklab, currentColor 35%, transparent); }
+.sp-tick em { position: absolute; top: 8px; left: 0; transform: translateX(-50%); font-style: normal; font-size: 0.6875rem; white-space: nowrap; color: color-mix(in oklab, currentColor 65%, transparent); font-variant-numeric: tabular-nums; }
+.sp-tick:not(.is-label):not(.is-minor) em { display: none; }
+.sp-tick.is-minor { height: 4px; background: color-mix(in oklab, currentColor 20%, transparent); }
+.sp-tick.is-minor em { opacity: 0.75; font-size: 0.625rem; }
+@media (max-width: 720px) { .sp-axis:not(.is-short) .sp-tick.is-minor em { display: none; } }
+.sp-bands { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 78%, transparent); }
+.sp-bands b { font-weight: 600; color: var(--chart-ink); }
+.sp-bands .is-visible b { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* closer view: html rows on one log axis, labels as real text */
+.sp-zoom-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { .sp-zoom-grid { grid-template-columns: 1fr; } }
+.sp-zoom-plot { display: grid; gap: 2px; min-width: 0; }
+.sp-row { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 0.75rem; align-items: center; }
+.sp-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.sp-row-label { display: grid; gap: 0.05rem; font: inherit; color: inherit; text-align: left; background: transparent; border: 0; padding: 0.35rem 0.4rem; border-radius: 6px; cursor: pointer; min-width: 0; }
+span.sp-row-label { cursor: default; }
+button.sp-row-label:focus-visible { outline: 2px solid currentColor; outline-offset: 1px; }
+.sp-row.is-open { background: color-mix(in oklab, currentColor 6%, transparent); border-radius: 6px; }
+.sp-row-name { font-size: 0.875rem; font-weight: 600; }
+.sp-row-range { font-size: 0.75rem; color: color-mix(in oklab, currentColor 60%, transparent); font-variant-numeric: tabular-nums; }
+.sp-track { position: relative; height: 22px; min-width: 0; }
+.sp-bar { position: absolute; top: 4px; bottom: 4px; border-radius: 3px; background: var(--chart-ink); }
+.sp-bar.is-approx { -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.sp-row.is-heat .sp-bar { background: repeating-linear-gradient(135deg, var(--chart-ink) 0 2px, transparent 2px 5px); box-shadow: inset 0 0 0 1px var(--chart-ink); }
+.sp-peak { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--chart-bg); box-shadow: 0 0 0 1px var(--chart-ink); }
+.sp-row-bands .sp-track, .sp-row-marks .sp-track { height: 26px; }
+.sp-zband { position: absolute; top: 0; bottom: 0; display: grid; place-items: center; overflow: hidden; border-right: 1px solid var(--chart-bg); background: color-mix(in oklab, currentColor 10%, transparent); }
+.sp-zband span { font-size: 0.625rem; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.sp-zband.is-visible span { color: #fff; mix-blend-mode: difference; font-weight: 600; }
+.sp-zband.is-uvb, .sp-zband.is-irb { background: color-mix(in oklab, currentColor 16%, transparent); }
+.sp-mark { position: absolute; bottom: 0; height: 100%; border-left: 1.5px dashed var(--chart-ink); }
+.sp-mark span { position: absolute; bottom: 0.2rem; left: 0.3rem; font-size: 0.6875rem; font-weight: 600; white-space: nowrap; }
+.sp-mark.is-body span { left: auto; right: 0.3rem; }
+@media (max-width: 720px) {
+  .sp-row { grid-template-columns: 1fr; gap: 0; }
+  .sp-row-label { grid-template-columns: auto 1fr; gap: 0.5rem; align-items: baseline; padding: 0.3rem 0 0.1rem; }
+  .sp-row-bands > .sp-row-label, .sp-row-marks > .sp-row-label, .sp-row > span.sp-row-label { display: none; }
+  .sp-zband span { font-size: 0.5625rem; letter-spacing: 0.02em; }
+  .sp-zband.is-uvc span, .sp-zband.is-uvb span, .sp-zband.is-irb span { display: none; }
+}
+.sp-panel { position: sticky; top: 4.5rem; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 10px; padding: 1.1rem 1.2rem; background: color-mix(in oklab, var(--chart-bg) 72%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+@media (max-width: 900px) { .sp-panel { position: static; } }
+.sp-panel .cst-panel-title { font-size: 1.25rem; }
+
+.sp-frac .kp-knob-opts button { text-align: left; }
+.sp-frac-out { margin: 0; max-width: 70ch; font-size: 1rem; line-height: 1.6; }
+.sp-plot { display: grid; gap: 2px; margin-bottom: 1.25rem; }
+.sp-plot-title { margin: 0 0 0.25rem; font-size: 0.8125rem; font-weight: 600; }
+.sp-guide { position: absolute; top: -2px; bottom: -2px; width: 0; border-left: 1px dashed color-mix(in oklab, currentColor 30%, transparent); }
+.sp-panel-range { margin: -0.3rem 0 0.6rem; font-size: 0.8125rem; font-variant-numeric: tabular-nums; color: color-mix(in oklab, currentColor 70%, transparent); }
+.sp-zband.is-uvc span, .sp-zband.is-uvb span { display: none; }
+.sp-row-bands .sp-mark { border-left-style: dashed; }
