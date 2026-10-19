@@ -1,0 +1,71 @@
+.rt { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; min-width: 0; }
+.rt-h { margin: 1.5rem 0 0; }
+.rt-demo-wrap, .rt-chart { display: grid; gap: 1rem; min-width: 0; }
+.rt-knobs { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem 2rem; }
+.rt-note, .rt-demo-steps { margin: 0; font-size: 0.8125rem; line-height: 1.55; color: color-mix(in oklab, currentColor 75%, transparent); max-width: 70ch; }
+.rt-demo-steps { font-size: 0.9rem; color: inherit; }
+
+/* the card: plain ground, a cross on one side and the target on the other, 80% of the width apart */
+.rt-demo-figure { margin: 0; display: grid; gap: 0.75rem; }
+.rt-demo { position: relative; width: 100%; max-width: 34rem; height: 170px; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 10px; background: var(--chart-bg); color: var(--chart-ink); overflow: hidden; }
+.rt-cross, .rt-target { position: absolute; top: 50%; transform: translate(-50%, -50%); }
+.rt-cross { left: 10%; font-size: 32px; font-weight: 300; line-height: 1; padding: 0 0.15em; background: var(--chart-bg); z-index: 1; }
+.rt-target { left: 90%; width: 26px; height: 26px; border-radius: 50%; background: var(--chart-ink); }
+.rt-demo.is-left .rt-cross { left: 90%; }
+.rt-demo.is-left .rt-target { left: 10%; }
+/* line and stripes need room on both sides of the target for the fill-in to show, so the target moves in from the edge */
+.rt-demo.is-line .rt-cross, .rt-demo.is-stripes .rt-cross { left: 7%; }
+.rt-demo.is-line .rt-target, .rt-demo.is-stripes .rt-target { left: 70%; }
+.rt-demo.is-left.is-line .rt-cross, .rt-demo.is-left.is-stripes .rt-cross { left: 93%; }
+.rt-demo.is-left.is-line .rt-target, .rt-demo.is-left.is-stripes .rt-target { left: 30%; }
+.rt-demo.is-line .rt-line { position: absolute; top: 50%; left: 13%; right: 2%; height: 3px; transform: translateY(-50%); background: var(--chart-ink); }
+.rt-demo.is-left.is-line .rt-line { left: 2%; right: 13%; }
+/* the gap in the line: a slot of page ground over the line, where the dot would be */
+.rt-demo.is-line .rt-target { width: 22px; height: 15px; border-radius: 0; background: var(--chart-bg); }
+.rt-demo.is-stripes { background-image: repeating-linear-gradient(90deg, var(--chart-ink) 0 3px, transparent 3px 9px); }
+.rt-demo.is-stripes .rt-target { width: 40px; height: 40px; background: var(--chart-bg); }
+.rt-demo.is-stripes .rt-cross { padding: 0.1em 0.25em; border-radius: 4px; }
+
+.rt-key { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin: 0; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 75%, transparent); }
+.rt-key span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.rt-stage { border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; background: color-mix(in oklab, currentColor 3%, transparent); overflow: hidden; min-width: 0; }
+.rt-svg { display: block; width: 100%; height: auto; touch-action: pan-y; cursor: crosshair; }
+.rt-svg text { font-family: var(--font-inter), system-ui, sans-serif; fill: currentColor; font-size: 11px; }
+.rt-tick line { stroke: currentColor; stroke-opacity: 0.1; }
+.rt-tick text { opacity: 0.55; font-variant-numeric: tabular-nums; }
+.rt-tick-x line { stroke-opacity: 0.06; }
+.rt-axis { opacity: 0.6; }
+.rt-line-cones, .rt-line-rods { fill: none; stroke: var(--chart-ink); stroke-linejoin: round; stroke-linecap: round; }
+.rt-line-cones { stroke-width: 2.2; }
+.rt-line-rods { stroke-width: 2; stroke-dasharray: 5 4; stroke-opacity: 0.7; }
+.rt-dot-cones { fill: var(--chart-ink); }
+.rt-dot-rods { fill: var(--chart-bg); stroke: var(--chart-ink); stroke-opacity: 0.7; stroke-width: 1; }
+.rt-hatch-line { stroke: currentColor; stroke-opacity: 0.22; stroke-width: 1.5; }
+.rt-disc text { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+.rt-rodfree { fill: currentColor; fill-opacity: 0.07; }
+.rt-cursor line { stroke: currentColor; stroke-opacity: 0.45; stroke-dasharray: 2 3; }
+.rt-cursor-cones { fill: var(--chart-ink); stroke: var(--chart-bg); stroke-width: 2; }
+.rt-cursor-rods { fill: var(--chart-bg); stroke: var(--chart-ink); stroke-width: 2; }
+.rt-slider { max-width: 640px; }
+.rt-out { min-width: 9ch; }
+.rt-readout { border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; padding: 1rem 1.2rem; background: color-mix(in oklab, currentColor 3%, transparent); min-height: 9.5rem; }
+@media (max-width: 720px) { .rt-readout { min-height: 12rem; } }
+.rt-readout .cst-panel-what { margin: 0; }
+.rt-unit { white-space: nowrap; font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.8125rem; font-weight: 400; opacity: 0.6; letter-spacing: 0; }
+
+.rt-data summary { cursor: pointer; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 75%, transparent); }
+.rt-data summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }
+.rt-data-scroll { overflow-x: auto; max-height: 24rem; overflow-y: auto; margin-top: 0.75rem; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 8px; }
+.rt-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
+.rt-table th, .rt-table td { text-align: right; padding: 0.35rem 0.75rem; border-bottom: 1px solid color-mix(in oklab, currentColor 8%, transparent); white-space: nowrap; }
+.rt-table th:first-child { text-align: left; }
+.rt-table thead th { position: sticky; top: 0; background: var(--chart-bg); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in oklab, currentColor 60%, transparent); }
+.rt-table tbody th { font-weight: 500; }
+
+.rt-counts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.rt-counts li { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; align-items: baseline; padding: 0.6rem 0; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); font-size: 0.875rem; line-height: 1.5; }
+@media (max-width: 560px) { .rt-counts li { grid-template-columns: 1fr; gap: 0.2rem; } }
+.rt-counts b { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.rt-counts em { font-style: normal; opacity: 0.55; font-size: 0.75rem; }
+.rt-prose { max-width: 70ch; display: grid; gap: 0.75rem; }
+.rt-prose p { margin: 0; font-size: 0.9375rem; line-height: 1.6; }

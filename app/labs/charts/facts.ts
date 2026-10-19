@@ -136,4 +136,10 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "no-cache", text: "no-cache does not mean do not store. It means store it and always revalidate before using it, which is exactly what you want on HTML: every visit asks, and almost every answer is an empty 304 costing one round trip. no-store is the one that means do not keep it." },
     { id: "immutable", text: "immutable plus a build hash is the only honest way to cache something for a year: a new build is a new URL, so the old one never needs invalidating. That is the whole reason bundlers put hashes in filenames." },
   ],
+  retina: [
+    { id: "blind-spot", focus: "blindspot", text: "Every eye has a hole about six degrees wide, 15.5 degrees out from wherever you are looking, where the optic nerve leaves and there are no rods or cones at all. You have never seen it, because the brain fills it with whatever surrounds it. The chart has a card for finding yours." },
+    { id: "tenfold", focus: "fovea", text: "Cone density at the centre of the fovea averages about 199,000 per square millimetre and is ten times lower one millimetre away (Curcio et al. 1990). The sharp, coloured world you see is built from a pit a few degrees across and a great deal of eye movement." },
+    { id: "no-rods", focus: "fovea", text: "The centre of your gaze has no rods at all: a zone 0.35 mm across, about 1.25 degrees. That is why a faint star can vanish when you look straight at it and come back when you look slightly to one side." },
+    { id: "counts", focus: "rods", text: "An average retina holds about 92 million rods and 4.6 million cones, twenty to one, and almost none of the rods are where you are looking. Peak cone density varies threefold between people: 100,000 to 324,000 per square millimetre." },
+  ],
 };
