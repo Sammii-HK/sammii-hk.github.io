@@ -1,0 +1,45 @@
+.tt { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.1rem; }
+.tt-label { display: block; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.6; margin-bottom: 0.35rem; }
+.tt-opts { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.tt-opts button, .tt-cal-btn { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 18%, transparent); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.tt-opts button[aria-pressed="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.tt-opts button:focus-visible, .tt-cal-btn:focus-visible, .tt-tile:focus-visible, .tt-finger:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.tt-cal { margin: 0; font-size: 0.875rem; line-height: 1.6; color: color-mix(in oklab, currentColor 80%, transparent); }
+.tt-cal-btn { border-style: dashed; margin-left: 0.2rem; }
+.tt-calibrate { display: grid; gap: 0.6rem; padding: 0.9rem 1rem; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 10px; }
+.tt-card-wrap { overflow-x: auto; }
+.tt-card { position: relative; border: 2px solid currentColor; border-radius: 3.18mm; display: grid; place-items: center; box-sizing: border-box; }
+.tt-card span { font-size: 0.6875rem; opacity: 0.6; }
+.tt-note { margin: 0; font-size: 0.8125rem; line-height: 1.55; color: color-mix(in oklab, currentColor 72%, transparent); max-width: 80ch; }
+.tt-total { margin: 0; font-size: 1.05rem; line-height: 1.5; }
+.tt-total strong { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; }
+.tt-stage { display: grid; gap: 1.2rem; padding: 1.1rem 1rem 1rem; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; background: color-mix(in oklab, currentColor 3%, transparent); overflow-x: auto; }
+.tt-ruler { position: relative; height: 26px; border-bottom: 1px solid currentColor; max-width: 100%; }
+.tt-ruler i { position: absolute; bottom: 0; width: 0; height: 6px; border-left: 1px solid currentColor; }
+.tt-ruler i.is-major { height: 11px; }
+.tt-ruler b { position: absolute; bottom: 13px; left: -4px; font-size: 0.625rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.tt-ruler em { position: absolute; right: -1.8rem; bottom: 0; font-style: normal; font-size: 0.625rem; opacity: 0.6; }
+.tt-targets, .tt-fingers { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem 1.4rem; }
+.tt-targets li, .tt-fingers li { display: grid; justify-items: center; gap: 0.4rem; }
+.tt-targets p, .tt-fingers p { margin: 0; display: grid; justify-items: center; text-align: center; font-size: 0.75rem; line-height: 1.35; }
+.tt-targets p span, .tt-fingers p span { opacity: 0.65; }
+.tt-targets p .tt-mm, .tt-fingers p .tt-mm { opacity: 1; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tt-tile { position: relative; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.tt-square { position: absolute; border-radius: 2px; background: var(--chart-ink); opacity: 0.85; }
+.tt-contact { position: absolute; border-radius: 50%; border: 1.5px dashed currentColor; background: color-mix(in oklab, currentColor 8%, transparent); }
+.tt-tile.is-on .tt-contact, .tt-finger.is-on { border-style: solid; }
+.tt-finger { position: relative; display: grid; place-items: center; padding: 0; border-radius: 50%; border: 1.5px solid color-mix(in oklab, currentColor 55%, transparent); background: color-mix(in oklab, currentColor 7%, transparent); color: inherit; cursor: pointer; }
+.tt-finger span { border-radius: 50%; border: 1px dashed color-mix(in oklab, currentColor 55%, transparent); }
+.tt-finger.is-on { border-color: currentColor; }
+.tt-panel { margin: 0; font-size: 0.875rem; line-height: 1.55; min-height: 4.5em; max-width: 80ch; }
+.tt-src { color: color-mix(in oklab, currentColor 60%, transparent); }
+.tt-table-wrap { overflow-x: auto; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 10px; }
+.tt-table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 0.8125rem; }
+.tt-caption { caption-side: top; text-align: left; padding: 0.6rem 0.6rem 0.2rem; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; }
+.tt-table th, .tt-table td { text-align: left; padding: 0.45rem 0.6rem; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); font-variant-numeric: tabular-nums; vertical-align: top; }
+.tt-table thead th { font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; font-weight: 500; }
+.tt-table tbody th { font-weight: 500; min-width: 9rem; }
+.tt-table tbody th span { display: block; font-size: 0.6875rem; font-weight: 400; opacity: 0.6; }
+.tt-table .is-col { background: color-mix(in oklab, currentColor 8%, transparent); }
+.tt-table thead .is-col { opacity: 1; }
+.tt-zoom { margin-bottom: -0.3rem; }

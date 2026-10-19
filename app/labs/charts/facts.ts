@@ -154,4 +154,10 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "subtitles", focus: "3", text: "Subtitles run slower than page reading because the words compete with the picture: the BBC recommends 160 to 180 words a minute, Netflix at most 20 characters a second for adults and 17 for children. A 12-word line is 4 to 4.5 seconds at the BBC's rate." },
     { id: "moving", focus: "4", text: "Text that moves is read more slowly than text that sits still. In a study of dynamically presented Japanese text, the optimum rate was about 6 letters a second, against 11.3 for silent reading: roughly half." },
   ],
+  "touch-targets": [
+    { id: "four-mm", focus: "iphone", text: "On an iPhone 16, WCAG 2.2's 24 by 24 pixel minimum is 4.0 mm square. The patch of fingertip that meets the glass on a tap is about 8 to 10 mm across." },
+    { id: "same-rule", focus: "monitor", text: "44 CSS pixels is 7.3 mm on an iPhone 16 and 12.2 mm on a 24-inch 1080p monitor. The same guideline is at its most generous on the screen where the pointer is a one-pixel arrow." },
+    { id: "nine-mm", focus: "android", text: "Google says a 48 dp touch target is about 9 mm whatever the screen. At Android's own baseline of 160 dp to the inch it is 7.6 mm, and on a Pixel 8, 7.5 mm." },
+    { id: "thumb", focus: "iphone", text: "Measured one-handed thumb use needs targets of about 9.2 mm for single taps and 9.6 mm for runs of taps (Parhi, Karlson and Bederson, 2006). On an iPhone 16 that is 56 and 58 CSS pixels: more than Apple's 44." },
+  ],
 };
