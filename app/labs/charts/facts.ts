@@ -159,6 +159,7 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "tenfold", focus: "fovea", text: "Cone density at the centre of the fovea averages about 199,000 per square millimetre and is ten times lower one millimetre away (Curcio et al. 1990). The sharp, coloured world you see is built from a pit a few degrees across and a great deal of eye movement." },
     { id: "no-rods", focus: "fovea", text: "The centre of your gaze has no rods at all: a zone 0.35 mm across, about 1.25 degrees. That is why a faint star can vanish when you look straight at it and come back when you look slightly to one side." },
     { id: "counts", focus: "rods", text: "An average retina holds about 92 million rods and 4.6 million cones, twenty to one, and almost none of the rods are where you are looking. Peak cone density varies threefold between people: 100,000 to 324,000 per square millimetre." },
+  ],
   "context-window": [
     { id: "lunary-twelve", focus: "1m", text: "Lunary is 11.4 million tokens of code, content and data, counted with GPT-4o's tokeniser. The biggest context windows hold a million. Showing a model the whole codebase once would take twelve of them, end to end." },
     { id: "blog-128k", focus: "128k", text: "Everything I have published on my blog, 66 posts, is 112,552 tokens. It fits in a 128k window with 15,448 tokens to spare, and in nothing smaller." },
@@ -179,6 +180,7 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "space", focus: "strawberry", text: "' strawberry' with a space in front is one token in all four tokenisers on the chart. Without the space it is three in three of them. The same word is different input depending on what comes before it." },
     { id: "japanese", focus: "japanese", text: "月が綺麗ですね is 11 tokens to GPT-4's tokeniser, 6 to GPT-4o's and 4 to Gemma 3's. GPT-4's cuts 綺 and 麗 into three raw bytes each: tokens that are not characters at all." },
     { id: "digits", focus: "numbers", text: "The GPT and Llama tokenisers cut numbers into groups of up to three digits from the left, so 2026 arrives as 202 and 6. Gemma 3 gives every digit a token of its own." },
+  ],
   videos: [
     { id: "ten-to-one", focus: "sparkle", text: "On my personal TikTok, videos of eight seconds or less have a median engagement rate of 13.6% (69 videos). From 21 to 45 seconds it is 1.9%; over 45 seconds, 1.3%. Same account, about ten to one." },
     { id: "cover", focus: "scripted", text: "Text was found on 89 of my personal account's 154 TikTok covers, and on 1 of the 28 scripted talking heads my own pipeline made in June and July 2026. Those 28 sit at a median engagement of 1.4%. The line on the first frame was the part the generated videos left out." },
