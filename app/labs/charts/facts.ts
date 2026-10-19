@@ -179,5 +179,28 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "space", focus: "strawberry", text: "' strawberry' with a space in front is one token in all four tokenisers on the chart. Without the space it is three in three of them. The same word is different input depending on what comes before it." },
     { id: "japanese", focus: "japanese", text: "月が綺麗ですね is 11 tokens to GPT-4's tokeniser, 6 to GPT-4o's and 4 to Gemma 3's. GPT-4's cuts 綺 and 麗 into three raw bytes each: tokens that are not characters at all." },
     { id: "digits", focus: "numbers", text: "The GPT and Llama tokenisers cut numbers into groups of up to three digits from the left, so 2026 arrives as 202 and 6. Gemma 3 gives every digit a token of its own." },
+  videos: [
+    { id: "ten-to-one", focus: "sparkle", text: "On my personal TikTok, videos of eight seconds or less have a median engagement rate of 13.6% (69 videos). From 21 to 45 seconds it is 1.9%; over 45 seconds, 1.3%. Same account, about ten to one." },
+    { id: "cover", focus: "scripted", text: "Text was found on 89 of my personal account's 154 TikTok covers, and on 1 of the 28 scripted talking heads my own pipeline made in June and July 2026. Those 28 sit at a median engagement of 1.4%. The line on the first frame was the part the generated videos left out." },
+    { id: "confound", focus: "sparkle", text: "Short beat long by ten to one on my account, but format, length and era all moved together, so most of that is October 2025 beating July 2026. Held inside one era, short still wins, by less: 11.8% against 7.7% in Aug to Sep 2025." },
+    { id: "reach", focus: "sparkle", text: "The 31 videos with the most views and the 31 with the highest engagement on my personal account share none. Reach and engagement are different questions, and ranking by total likes just echoes reach." },
+  ],
+  "frame-budget": [
+    { id: "ten-of-sixteen", focus: "typing", text: "A 60 Hz frame lasts 16.7 ms, but it is not all yours. web.dev's RAIL guidance says the browser needs about 6 ms of it to render, so keep your own work to 10. At 120 Hz the whole frame is 8.3 ms." },
+    { id: "halved", focus: "typing", text: "The same 11 ms keystroke fits a 60 Hz frame with 5.7 ms to spare and misses a 120 Hz frame by 2.7 ms. A faster screen does not make the page faster; it halves the deadline, and code that was smooth starts dropping every other frame." },
+    { id: "thrash", focus: "thrash", text: "web.dev's layout-thrashing example spends more than 28 ms in layout per frame on a page of 1,618 elements. That is a whole 60 Hz frame and more than three 120 Hz frames, before a single pixel is painted." },
+    { id: "transform", focus: "transform", text: "A transform or opacity animation costs the main thread nothing per frame: the compositor moves the layer it already has. Animate top instead and every frame restyles, lays out and repaints." },
+  ],
+  "text-on-screen": [
+    { id: "twelve", focus: "3", text: "A fixed 2-second card asks for 360 words a minute from a 12-word line. The average adult reads English non-fiction silently at 238 (Brysbaert, 190 studies), and most adults fall between 175 and 300. Two seconds is plenty for six words and not enough for twelve." },
+    { id: "rule", focus: "3", text: "My video app holds each line of a silent text note for at least a quarter of a second a word plus 0.3 seconds: 240 words a minute with a beat to find the line. A 12-word line gets 3.3 seconds. The floors exist because one test render gave a 12-word line 1.5." },
+    { id: "subtitles", focus: "3", text: "Subtitles run slower than page reading because the words compete with the picture: the BBC recommends 160 to 180 words a minute, Netflix at most 20 characters a second for adults and 17 for children. A 12-word line is 4 to 4.5 seconds at the BBC's rate." },
+    { id: "moving", focus: "4", text: "Text that moves is read more slowly than text that sits still. In a study of dynamically presented Japanese text, the optimum rate was about 6 letters a second, against 11.3 for silent reading: roughly half." },
+  ],
+  "touch-targets": [
+    { id: "four-mm", focus: "iphone", text: "On an iPhone 16, WCAG 2.2's 24 by 24 pixel minimum is 4.0 mm square. The patch of fingertip that meets the glass on a tap is about 8 to 10 mm across." },
+    { id: "same-rule", focus: "monitor", text: "44 CSS pixels is 7.3 mm on an iPhone 16 and 12.2 mm on a 24-inch 1080p monitor. The same guideline is at its most generous on the screen where the pointer is a one-pixel arrow." },
+    { id: "nine-mm", focus: "android", text: "Google says a 48 dp touch target is about 9 mm whatever the screen. At Android's own baseline of 160 dp to the inch it is 7.6 mm, and on a Pixel 8, 7.5 mm." },
+    { id: "thumb", focus: "iphone", text: "Measured one-handed thumb use needs targets of about 9.2 mm for single taps and 9.6 mm for runs of taps (Parhi, Karlson and Bederson, 2006). On an iPhone 16 that is 56 and 58 CSS pixels: more than Apple's 44." },
   ],
 };
