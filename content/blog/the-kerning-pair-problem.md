@@ -2,7 +2,7 @@
 title: "The kerning pair problem: why I built Kern"
 description: >-
   Variable fonts, type scales, and the specific pain of tuning typography in a
-  browser. Kern is a typography explorer at type.sammii.dev with real-time
+  browser. Kern is a typography explorer at kern.sammii.dev with real-time
   axis manipulation, side-by-side comparison, and shareable URL state. Here is
   how it works.
 date: '2026-06-17'
@@ -15,7 +15,7 @@ draft: false
 ---
 The last time I tuned body type for a project, I had seven Chrome tabs open. One was a Google Fonts specimen page, one was a Figma frame I kept ignoring, one was DevTools with `font-variation-settings` typed into a style attribute so I could nudge `wght` and watch the paragraph reflow, one was a clamp() calculator, one was Stack Overflow because the clamp() calculator had stopped working, and the remaining two were just noise. Three hours in, I had a paragraph I quite liked and absolutely no way to show it to anyone else without screenshotting.
 
-Kern is the tool I wanted those three hours back for. It lives at [type.sammii.dev](https://type.sammii.dev). Pick a variable font, drag the axes, generate a fluid type scale, copy the CSS, share the URL. The designer on the other end opens the link and sees your exact setup.
+Kern is the tool I wanted those three hours back for. It lives at [kern.sammii.dev](https://kern.sammii.dev). Pick a variable font, drag the axes, generate a fluid type scale, copy the CSS, share the URL. The designer on the other end opens the link and sees your exact setup.
 
 ---
 
@@ -140,6 +140,6 @@ It also turned into a useful calibration exercise for me. Fraunces' `SOFT` axis 
 
 ## What's next
 
-There is a Pro tier planned with the things that turn Kern from a toy into a design system input: Style Dictionary token export, direct snippet generation for Tailwind config, saved presets with named versions. The free tier stays free forever. If you tune typography in a browser for a living and you want the Pro tier shape to match your actual workflow, the URL to tell me on is type.sammii.dev.
+There is a Pro tier planned with the things that turn Kern from a toy into a design system input: Style Dictionary token export, direct snippet generation for Tailwind config, saved presets with named versions. The free tier stays free forever. If you tune typography in a browser for a living and you want the Pro tier shape to match your actual workflow, the URL to tell me on is kern.sammii.dev.
 
 Until then, the playground is open. Pick a font, drag a slider, copy the URL.
