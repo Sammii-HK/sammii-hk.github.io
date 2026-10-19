@@ -1,0 +1,101 @@
+{
+ "counted": "2026-10-19",
+ "tokenizer": "tiktoken 0.12.0 (o200k_base; cl100k_base for comparison)",
+ "blog": {
+  "posts": 66,
+  "o200k_base": 112552,
+  "cl100k_base": 113260,
+  "medianPost": 1617,
+  "proseWords": 70112,
+  "proseTokens": 92473,
+  "tokensPerWord": 1.319
+ },
+ "estimates": {
+  "page": {
+   "words": 250,
+   "tokens": 330
+  },
+  "short_story": {
+   "words": 7500,
+   "tokens": 9892
+  },
+  "novel": {
+   "words": 40000,
+   "tokens": 52760
+  }
+ },
+ "repos": [
+  {
+   "id": "postready",
+   "name": "PostReady",
+   "what": "An iOS video app and its Mac companion, in Swift",
+   "files": 330,
+   "codeFiles": 270,
+   "bytes": 4113244,
+   "o200k_base": {
+    "total": 933723,
+    "code": 843855,
+    "other": 89868
+   },
+   "cl100k_base": {
+    "total": 930315,
+    "code": 840068,
+    "other": 90247
+   }
+  },
+  {
+   "id": "sammii-dev",
+   "name": "sammii.dev",
+   "what": "This site: Next.js, the blog and Labs",
+   "files": 325,
+   "codeFiles": 215,
+   "bytes": 1683738,
+   "o200k_base": {
+    "total": 430231,
+    "code": 261250,
+    "other": 168981
+   },
+   "cl100k_base": {
+    "total": 428296,
+    "code": 258302,
+    "other": 169994
+   }
+  },
+  {
+   "id": "spellcast",
+   "name": "Spellcast",
+   "what": "My content pipeline: a Next.js app, workers and MCP servers",
+   "files": 824,
+   "codeFiles": 768,
+   "bytes": 4531830,
+   "o200k_base": {
+    "total": 1123935,
+    "code": 1014451,
+    "other": 109484
+   },
+   "cl100k_base": {
+    "total": 1114546,
+    "code": 1003557,
+    "other": 110989
+   }
+  },
+  {
+   "id": "lunary",
+   "name": "Lunary",
+   "what": "My astrology app: Next.js, the grimoire, the iOS app",
+   "files": 5337,
+   "codeFiles": 4881,
+   "bytes": 46226129,
+   "o200k_base": {
+    "total": 11377436,
+    "code": 9171667,
+    "other": 2205769
+   },
+   "cl100k_base": {
+    "total": 11343051,
+    "code": 9110600,
+    "other": 2232451
+   }
+  }
+ ]
+}

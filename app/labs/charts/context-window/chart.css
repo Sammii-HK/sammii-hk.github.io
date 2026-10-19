@@ -1,0 +1,46 @@
+.cw-chart { display: grid; gap: 4px; font-family: var(--font-inter), system-ui, sans-serif; }
+/* name | bar | value; the axis row uses the same columns so ticks sit over the bars */
+.cw-row, .cw-axis { display: grid; grid-template-columns: 11rem minmax(0, 1fr) 6.5rem; align-items: center; gap: 0.75rem; }
+.cw-axis::before { content: ""; }
+.cw-axis-track { grid-column: 2; position: relative; height: 2.4rem; }
+.cw-tick { position: absolute; bottom: 0.15rem; transform: translateX(-50%); font-size: 0.625rem; font-variant-numeric: tabular-nums; opacity: 0.5; white-space: nowrap; }
+.cw-tick:first-child { transform: none; }
+.cw-win-label { position: absolute; left: var(--win); top: 0; transform: translateX(-100%); padding-right: 0.3rem; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; transition: left 250ms ease; }
+.cw-win-label.is-right { transform: none; padding: 0 0 0 0.3rem; }
+.cw-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.cw-name { display: grid; line-height: 1.25; min-width: 0; }
+.cw-name b { font-size: 0.8125rem; font-weight: 600; }
+.cw-name small, .cw-val small { font-size: 0.6875rem; color: color-mix(in oklab, currentColor 58%, transparent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cw-val { display: grid; text-align: right; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.cw-val b { font-size: 0.8125rem; }
+.cw-track { position: relative; height: 22px; width: 100%; padding: 0; border: 0; border-radius: 4px; cursor: pointer; color: inherit; background: color-mix(in oklab, currentColor 5%, transparent); }
+.cw-track:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+/* the window, drawn through every track so it reads as one line down the chart */
+.cw-track::after { content: ""; position: absolute; top: -3px; bottom: -3px; left: var(--win); border-left: 1.5px dashed currentColor; opacity: 0.7; pointer-events: none; transition: left 250ms ease; }
+.cw-bar { position: absolute; inset: 0 auto 0 0; display: block; overflow: hidden; border-radius: 4px; background: color-mix(in oklab, currentColor 32%, transparent); transition: width 250ms ease; }
+.cw-code { position: absolute; inset: 0 auto 0 0; display: block; background: color-mix(in oklab, currentColor 70%, transparent); }
+.cw-row.is-estimate .cw-bar { background: repeating-linear-gradient(135deg, color-mix(in oklab, currentColor 45%, transparent) 0 3px, color-mix(in oklab, currentColor 15%, transparent) 3px 6px); }
+.cw-row.is-measured .cw-bar { background: color-mix(in oklab, currentColor 55%, transparent); }
+.cw-row.is-open .cw-bar, .cw-row.is-open .cw-code { background: var(--chart-ink); }
+.cw-row.is-over .cw-val small { color: inherit; font-weight: 600; }
+.cw-key { display: inline-block; width: 14px; height: 10px; border-radius: 2px; vertical-align: middle; background: color-mix(in oklab, currentColor 32%, transparent); }
+.cw-key--code { background: color-mix(in oklab, currentColor 70%, transparent); }
+.cw-key--est { background: repeating-linear-gradient(135deg, color-mix(in oklab, currentColor 45%, transparent) 0 3px, color-mix(in oklab, currentColor 15%, transparent) 3px 6px); }
+.cw-table td:nth-child(n + 2), .cw-table th:nth-child(n + 2) { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cw-caption { caption-side: top; text-align: left; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; padding-bottom: 0.4rem; }
+.cw .kp-panel { height: 9.5rem; }
+.cw-table-wrap { overflow-x: auto; max-width: 860px; }
+@media (max-width: 720px) {
+  .cw-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name val" "track track"; row-gap: 0.25rem; margin-bottom: 0.4rem; }
+  .cw-name { grid-area: name; }
+  .cw-val { grid-area: val; }
+  .cw-track { grid-area: track; }
+  .cw-axis { grid-template-columns: minmax(0, 1fr); }
+  .cw-axis::before { display: none; }
+  .cw-axis-track { grid-column: 1; }
+  .cw .kp-panel { height: 14rem; }
+  .cw-table { font-size: 0.75rem; }
+  .cw-table th, .cw-table td { padding: 0.4rem 0.35rem; }
+  .cw-table th:nth-child(2), .cw-table td:nth-child(2) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .cw-bar, .cw-track::after, .cw-win-label { transition: none; } }

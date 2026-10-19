@@ -136,4 +136,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "no-cache", text: "no-cache does not mean do not store. It means store it and always revalidate before using it, which is exactly what you want on HTML: every visit asks, and almost every answer is an empty 304 costing one round trip. no-store is the one that means do not keep it." },
     { id: "immutable", text: "immutable plus a build hash is the only honest way to cache something for a year: a new build is a new URL, so the old one never needs invalidating. That is the whole reason bundlers put hashes in filenames." },
   ],
+  "context-window": [
+    { id: "lunary-twelve", focus: "1m", text: "Lunary is 11.4 million tokens of code, content and data, counted with GPT-4o's tokeniser. The biggest context windows hold a million. Showing a model the whole codebase once would take twelve of them, end to end." },
+    { id: "blog-128k", focus: "128k", text: "Everything I have published on my blog, 66 posts, is 112,552 tokens. It fits in a 128k window with 15,448 tokens to spare, and in nothing smaller." },
+    { id: "eight-k", focus: "8k", text: "GPT-4 launched in March 2023 with 8,192 tokens of context: about 25 manuscript pages, at the 1.32 tokens per word measured on my own writing. Less than a year later, Gemini 1.5 Pro offered a million." },
+  ],
 };
