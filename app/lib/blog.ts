@@ -31,8 +31,28 @@ export interface BlogPost {
 
 export interface BlogPostMeta extends Omit<BlogPost, 'content'> {}
 
+const words = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+/**
+ * Some posts open with their title as a markdown H1. Everything that reads a
+ * post already shows the title on its own (the page renders it as the one
+ * H1; the feed, the API and llms-full.txt carry it as a field or heading), so
+ * a leading `# Title` that matches the frontmatter title is dropped, with a
+ * thematic break (`---`) straight after it. Any other opening is left exactly
+ * as written.
+ */
+export function stripTitleHeading(content: string, title: string): string {
+  const h1 = content.match(/^(?:[ \t]*\r?\n)*#[ \t]+([^\r\n]+?)[ \t#]*(?:\r?\n|$)/);
+  if (!h1 || !words(title) || words(h1[1]) !== words(title)) return content;
+  return content
+    .slice(h1[0].length)
+    .replace(/^(?:[ \t]*\r?\n)*[ \t]*(?:(?:-[ \t]*){3,}|(?:\*[ \t]*){3,}|(?:_[ \t]*){3,})(?:\r?\n|$)/, '')
+    .replace(/^(?:[ \t]*\r?\n)+/, '');
+}
+
 function parse(slug: string, raw: string): BlogPost {
-  const { data, content } = matter(raw);
+  const { data, content: body } = matter(raw);
+  const content = stripTitleHeading(body, String(data.title ?? ''));
   const stats = readingTime(content);
   return {
     slug,
