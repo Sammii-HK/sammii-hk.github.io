@@ -20,7 +20,7 @@ const BY_FORMAT = DATA.byFormat as Record<string, ({ format: string } & Summary)
 const SCOPES = [...ACCOUNTS.map((a) => ({ id: a.id, label: a.label })), { id: "all", label: `All ${VIDEOS.length}` }];
 const fmtLabel = (id: string) => FORMATS.find((f) => f.id === id)?.label ?? id;
 const eraLabel = (id: string | null) => DATA.eras.find((e) => e.id === id)?.label;
-const pct = (x: number | null) => (x == null ? "–" : `${x.toFixed(1)}%`);
+const pct = (x: number | null) => (x == null ? "none" : `${x.toFixed(1)}%`);
 const month = (ym: string) => new Date(`${ym}-01T00:00:00Z`).toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
 
 const X_MIN = 1, X_MAX = 300, Y_MAX = 0.4;
@@ -148,7 +148,7 @@ export function VideoEngagement() {
                 <th scope="row">{BUCKETS.find((x) => x.id === b.bucket)?.label}</th>
                 <td>{b.n}</td>
                 <td><span className="ve-bar"><i style={{ width: `${Math.min(100, ((b.medianEr ?? 0) / 16) * 100)}%` }} /></span><b>{pct(b.medianEr)}</b></td>
-                <td>{b.n ? `${b.pushed} of ${b.n}` : "–"}</td>
+                <td>{b.n ? `${b.pushed} of ${b.n}` : "none"}</td>
               </tr>
             ))}
           </tbody>

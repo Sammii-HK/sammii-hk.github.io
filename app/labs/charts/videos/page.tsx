@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: { title: "What 900 videos taught me", description: "Eight seconds or less: 13.6% median engagement. Over 45 seconds: 1.3%. And why that is not the whole story.", url: "https://labs.sammii.dev/charts/videos/", type: "article" },
 };
 
-const pct = (x: number | null) => (x == null ? "–" : `${x.toFixed(1)}%`);
+const pct = (x: number | null) => (x == null ? "none" : `${x.toFixed(1)}%`);
 const sp = DATA.byBucket.sparkle;
 const short = sp.find((b) => b.bucket === "le8")!, mid = sp.find((b) => b.bucket === "21-45")!, long = sp.find((b) => b.bucket === "gt45")!;
 const pipeline = DATA.eras.find((e) => e.id === "pipeline")!;
