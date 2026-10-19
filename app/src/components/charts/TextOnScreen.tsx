@@ -123,7 +123,7 @@ function ReadingRules({ text, setText }: { text: string; setText: (t: string) =>
                 <tr key={r.id} className={r.id === "fixed" ? "is-ref" : ""} onMouseEnter={() => setHover(r.id)} onMouseLeave={() => setHover(null)} title={r.who}>
                   <th scope="row">{r.name}</th>
                   <td><b>{r.s.toFixed(1)}</b>{r.band && r.band[1] - r.band[0] > 0.05 && <span className="ts-range"> {r.band[0].toFixed(1)} to {r.band[1].toFixed(1)}</span>}</td>
-                  <td>{r.id === "fixed" ? "–" : `${Math.min(100, Math.round((FIXED_CARD / (r.band ? r.band[0] : r.s)) * 100))}%`}</td>
+                  <td>{r.id === "fixed" ? "n/a" : `${Math.min(100, Math.round((FIXED_CARD / (r.band ? r.band[0] : r.s)) * 100))}%`}</td>
                 </tr>
               ))}
             </tbody>
