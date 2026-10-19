@@ -91,7 +91,7 @@ Cost-wise, it's essentially free to run. The only variable cost is OpenAI API us
 
 I've sat on both sides of the interview table. The gap between what candidates know and how they communicate it is often the difference between getting the job and getting ghosted. iPrep exists to close that gap, not by giving you scripts to memorise, but by making you a better communicator under pressure.
 
-If you want to try it or have questions about the technical implementation, find me on X [@sammiihk](https://x.com/sammiihk) or check out more of my work at [sammii.dev](https://sammii.dev).
+If you want to try it or have questions about the technical implementation, find me on X [@technicalyblond](https://x.com/technicalyblond) or check out more of my work at [sammii.dev](https://sammii.dev).
 
 Until next time.
 

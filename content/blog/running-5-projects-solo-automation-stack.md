@@ -33,7 +33,7 @@ Spellcast is the hub. It manages multiple "account sets", which are groups of so
 Each one has:
 
 - **Brand voice profiles:** injected into every AI generation so content sounds like the account, not a generic AI
-- **Boost rules:** when Lunary posts, @sammiihk auto-likes and comments on a random delay. When @sammiihk posts, @LunaryApp does the same. Cross-promotion without manual effort
+- **Boost rules:** when Lunary posts, @technicalyblond auto-likes and comments on a random delay. When @technicalyblond posts, @LunaryApp does the same. Cross-promotion without manual effort
 - **Campaign mode:** batch-generate posts around a theme or product update
 - **MCP server:** I can schedule posts by talking to Claude
 

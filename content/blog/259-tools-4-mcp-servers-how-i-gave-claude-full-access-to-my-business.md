@@ -30,7 +30,7 @@ Spellcast is my self-hosted social scheduling platform. The MCP started small (l
 
 **Analytics** (engagement, followers, hashtags, best times, velocity): pull performance data for any account, any date range. Engagement trends, follower growth, hashtag analysis, post velocity, category breakdowns. Weekly digest generation.
 
-**Brand voices**: each social account has a distinct AI persona. The MCP exposes CRUD for brand voices plus content generation that uses them. When Claude writes a tweet for @sammiihk, it pulls the voice profile first.
+**Brand voices**: each social account has a distinct AI persona. The MCP exposes CRUD for brand voices plus content generation that uses them. When Claude writes a tweet for @technicalyblond, it pulls the voice profile first.
 
 **Campaigns and A/B testing**: create campaigns, generate campaign posts from URLs, run A/B tests, evaluate results, apply winners. The test evaluation checks statistical significance before promoting.
 

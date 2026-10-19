@@ -187,7 +187,7 @@ Free, local, brand-aware, and grimoire-grounded.
 
 ## Layer 4: cross-account boost rules
 
-When my personal account (@sammiihk) posts, my brand account (@LunaryApp) automatically likes and comments within 3-15 minutes. And vice versa. The comments are generated with the brand voice of the commenting account:
+When my personal account (@technicalyblond) posts, my brand account (@LunaryApp) automatically likes and comments within 3-15 minutes. And vice versa. The comments are generated with the brand voice of the commenting account:
 
 ```typescript
 // spellcast/apps/api/src/lib/boost-queue.ts
