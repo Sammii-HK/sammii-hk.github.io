@@ -76,7 +76,7 @@ export function Spectrum() {
             <p className="sp-plot-title">Heat, 1 to 30 µm: a different sense</p>
             <Plot ax={HEAT} kind="heat" open={open} setOpen={setOpen} />
           </div>
-          <div className="sp-panel" aria-live="polite">
+          <div id="sp-panel" className="sp-panel" aria-live="polite">
             {sel ? (
               <>
                 <p className="cst-panel-kicker">{sel.how}</p>
@@ -137,7 +137,7 @@ function Plot({ ax, kind, open, setOpen }: { ax: Ax; kind: Seer["kind"]; open: s
         </span>
       </div>
       <ol className="sp-rows">
-        {SEERS.filter((s) => s.kind === kind).map((s) => <SeerRow key={s.id} s={s} ax={ax} marks={marks.map((m) => pos(m.at * nm, ax))} open={open === s.id} onOpen={() => setOpen(open === s.id ? null : s.id)} />)}
+        {SEERS.filter((s) => s.kind === kind).map((s) => <SeerRow key={s.id} s={s} ax={ax} marks={marks.map((m) => pos(m.at * nm, ax))} open={open === s.id} onOpen={() => setOpen(s.id)} />)}
       </ol>
       {marks.length > 0 && (
         <div className="sp-row sp-row-marks" aria-hidden="true">
@@ -154,7 +154,7 @@ function SeerRow({ s, ax, marks, open, onOpen }: { s: Seer; ax: Ax; marks: numbe
   const l = pos(s.lo * nm, ax), r = pos(s.hi * nm, ax);
   return (
     <li className={`sp-row is-${s.kind}${open ? " is-open" : ""}`}>
-      <button type="button" className="sp-row-label" aria-expanded={open} onClick={onOpen} onMouseEnter={onOpen}>
+      <button type="button" className="sp-row-label" aria-pressed={open} aria-controls="sp-panel" onClick={onOpen} onMouseEnter={onOpen} onFocus={onOpen}>
         <span className="sp-row-name">{s.name}</span>
         <span className="sp-row-range">{s.approx ? "about " : ""}{length(s.lo * nm)} to {length(s.hi * nm)}</span>
       </button>

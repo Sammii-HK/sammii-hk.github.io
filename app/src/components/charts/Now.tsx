@@ -152,7 +152,7 @@ function Timeline({ refresh, setRefresh, yours }: { refresh: Refresh; setRefresh
       <ol className="nw-rows">
         {rows.map((r) => (
           <li key={r.id} className={`nw-row is-${r.kind}${open === r.id ? " is-open" : ""}`}>
-            <button type="button" className="nw-row-head" aria-expanded={open === r.id} aria-controls="nw-detail" onClick={() => setOpen(open === r.id ? null : r.id)} onMouseEnter={() => setOpen(r.id)} onFocus={() => setOpen(r.id)}>
+            <button type="button" className="nw-row-head" aria-pressed={open === r.id} aria-controls="nw-detail" onClick={() => setOpen(r.id)} onMouseEnter={() => setOpen(r.id)} onFocus={() => setOpen(r.id)}>
               <span className="nw-row-kind">{KIND_LABEL[r.kind]}</span>
               <span className="nw-row-name">{r.name}</span>
               <span className="nw-row-ms">{r.lo !== undefined && r.hi !== undefined ? `${r.lo} to ${r.hi} ms` : `${r.id === "keypress" ? "about " : ""}${r.value < 10 || r.id === "frame" ? r.value.toFixed(1) : r.value.toFixed(0)} ms`}</span>
