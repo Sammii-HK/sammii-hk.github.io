@@ -57,3 +57,26 @@ everything else, per repo. No file names, paths or code leave the script.
 
 The page, short story and novel are word counts by definition times the
 tokens per word measured on the prose of the blog (code blocks removed).
+
+## Where an LLM call spends its time (`llm_latency.py`)
+
+```sh
+scp scripts/labs/llm_latency.py content/blog/31-vercel-crons-solo-product.md mini:/tmp/
+ssh mini 'python3 /tmp/llm_latency.py measure --article /tmp/31-vercel-crons-solo-product.md' > runs.jsonl
+python3 scripts/labs/llm_latency.py summarise runs.jsonl
+```
+
+The measure step uses only the standard library, so it runs on the Mac mini as
+is. It streams chat calls to the local Ollama and timestamps the connection,
+the request and every streamed chunk on the client; Ollama's final message adds
+model load, prompt evaluation and generation. Each call is written as one JSON
+line when it finishes. The model is `qwen3.5:2b` at the 4,096-token context it
+is already served with, so the run never evicts another job's model on the
+shared machine (a first attempt with `gemma3:4b-it-qat` did, and was stopped).
+`--codex N` (at most 2) adds the same short prompt through the local Codex
+proxy; on 19 October 2026 the proxy refused both calls with its usage hold, so
+no hosted figures are in the chart.
+
+`llm-runs-2026-10-19.jsonl` is the raw run behind the published chart (28
+Ollama calls plus the two refused proxy calls), kept so the summary can be
+re-derived. It contains timings and the model's own output, nothing else.

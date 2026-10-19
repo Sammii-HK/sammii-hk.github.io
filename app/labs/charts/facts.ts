@@ -141,4 +141,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "blog-128k", focus: "128k", text: "Everything I have published on my blog, 66 posts, is 112,552 tokens. It fits in a 128k window with 15,448 tokens to spare, and in nothing smaller." },
     { id: "eight-k", focus: "8k", text: "GPT-4 launched in March 2023 with 8,192 tokens of context: about 25 manuscript pages, at the 1.32 tokens per word measured on my own writing. Less than a year later, Gemini 1.5 Pro offered a million." },
   ],
+  "llm-latency": [
+    { id: "spinner", focus: "short", text: "A short question to a small model on my Mac mini: first token after 165 ms, last token after 4.6 seconds (medians of 11 calls). Behind a spinner the user stares at nothing for 4.6 seconds. Streamed, they are reading within a fifth of a second." },
+    { id: "prefill", focus: "long", text: "Give the same model a 3,300-token document and the first token takes 3.5 seconds, nearly all of it prefill: the model reads every prompt token before it can write one. Send the identical prompt again and prefill drops to 50 ms, because the server reuses the work." },
+    { id: "cold", focus: "cold", text: "On a shared machine, two of 28 calls found the model pushed out of memory by another job and waited about 40 seconds for it to load back before producing anything. That is the call a spinner makes look broken." },
+  ],
 };
