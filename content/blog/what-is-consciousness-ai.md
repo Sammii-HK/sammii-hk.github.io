@@ -14,8 +14,6 @@ draft: false
 ---
 # What is consciousness? A question AI just made urgent
 
-*[DRAFT — expand personal sections, add Anthropic model welfare links, tie Hermetica research into AI section, add more on the pineal gland connection, closing on the full circle]*
-
 ---
 
 My MA research question was: what lies outside of visible light?
@@ -39,8 +37,6 @@ The Hermetica Corpus is a collection of ancient texts attributed to Hermes Trism
 Its central concern is consciousness. What it is, where it comes from, what survives physical death.
 
 The Hermetic view is that consciousness is not produced by the body. The body is a vehicle. Consciousness is something that enters the body, inhabits it, and persists beyond it. The soul in Hermetic thought descends through the planetary spheres on its way into physical form, picking up the qualities of each planet as it passes, and returns through those same spheres on its way back out.
-
-*[Expand this section with specific Hermetic texts and quotes. Reference the actual Corpus passages on consciousness, the creation of the soul, the planetary ascent.]*
 
 What I find striking is how much this framework maps onto what astrology actually calculates. The planets at the moment of birth are not random. In the Hermetic view, they are the signature of the descent. The natal chart is a record of the conditions under which a consciousness arrived.
 
@@ -67,8 +63,6 @@ Visible light, the range of wavelengths the human eye can detect, is a narrow ba
 The question I kept asking: what does it mean to draw conclusions about reality based only on what we can perceive? Our instruments extend our range significantly, but only into forms of energy we already know to look for.
 
 If consciousness is non-local, if it is not produced by the brain but rather something the brain receives or tunes into, it would by definition be the kind of thing we cannot measure with the instruments we currently have. Not because it does not exist, but because we have not yet built the detector.
-
-*[Expand: Amit Goswami, Bernardo Kastrup, non-local consciousness theories. Connect to Hermetic idea of consciousness preceding physical form.]*
 
 ---
 
@@ -105,5 +99,3 @@ We built something and now we are not sure what we built. That is the most hones
 It is also, more or less, the sentence I started with in my MA.
 
 ---
-
-*[Sources to add: Hermetica Corpus (Copenhaver translation), Chalmers hard problem paper, Anthropic model welfare/wellbeing documentation, Bernardo Kastrup analytical idealism, Giulio Tononi IIT, specific Hermetic texts referenced in original MA]*

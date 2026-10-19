@@ -16,8 +16,6 @@ draft: false
 ---
 # Saturn takes two and a half years to cross one zodiac sign. That changes everything.
 
-*[DRAFT — add personal Lunary angle, expand each planet section, tie to transit badges feature, add screenshots]*
-
 ---
 
 Most people's first introduction to astrology is the daily horoscope. A paragraph. A prediction. Something about Mercury being in Gemini today.
@@ -63,15 +61,11 @@ A Uranus transit lasts seven years. That is not a season. That is a chapter. Nep
 
 ## Transit duration on Lunary
 
-*[Personal section to expand — why I built this, what it changed, screenshots]*
-
 When I built transit duration tracking into Lunary, the goal was to give context rather than just a list of active transits. Not just "Saturn is in Pisces" but "Saturn has been in Pisces for eight months and has fourteen months remaining."
 
 The effect was more significant than I expected. Knowing that a particular outer planet transit has been active for two years and will be active for another two completely reframes how you relate to whatever it is touching. It stops being a passing influence. It becomes the weather for that entire period of life.
 
 The calculation system underneath this is more involved than it looks. Each planet has a different orbital speed, and the apparent speed from Earth varies based on the planet's position relative to the Sun and Earth. Retrograde periods change not just direction but pace. The duration a planet spends in a sign in any given pass is not identical every time it returns.
-
-*[Expand with technical detail about the Lunary calculation system]*
 
 ---
 
@@ -92,5 +86,3 @@ A useful frame: the personal planets, Mercury through Mars, create the texture o
 The outer planets, Uranus through Pluto, are working on something longer than any single year can contain. They are structural. They are the reason certain periods of your life feel fundamentally different from what came before, even if you cannot point to a single event that changed things.
 
 Duration is not incidental to how astrology works. It is the core of it.
-
-*[Closing — tie to Lunary, explore your active transits, see what is actually working on your chart right now and how long it has been there]*
