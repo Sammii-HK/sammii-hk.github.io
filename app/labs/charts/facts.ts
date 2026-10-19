@@ -151,4 +151,10 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "continent", text: "962 of the 1,958 articles in Lunary's grimoire are horoscopes, and mapped by meaning they form a continent of their own. They are generated from the sign and the month, so to an embedding model they mostly resemble each other." },
     { id: "local", text: "Every grimoire article was embedded on my Mac mini with qwen3-embedding, a 0.6-billion-parameter model: 1,958 articles in about two minutes, with no API and no database." },
   ],
+  tokens: [
+    { id: "strawberry", focus: "strawberry", text: "To GPT-4o, 'strawberry' is three tokens: st, raw and berry, ids 302, 1618 and 19772. Not one of them is an r. Asking a model to count the r's is asking it to remember how three numbers are spelt." },
+    { id: "space", focus: "strawberry", text: "' strawberry' with a space in front is one token in all four tokenisers on the chart. Without the space it is three in three of them. The same word is different input depending on what comes before it." },
+    { id: "japanese", focus: "japanese", text: "月が綺麗ですね is 11 tokens to GPT-4's tokeniser, 6 to GPT-4o's and 4 to Gemma 3's. GPT-4's cuts 綺 and 麗 into three raw bytes each: tokens that are not characters at all." },
+    { id: "digits", focus: "numbers", text: "The GPT and Llama tokenisers cut numbers into groups of up to three digits from the left, so 2026 arrives as 202 and 6. Gemma 3 gives every digit a token of its own." },
+  ],
 };

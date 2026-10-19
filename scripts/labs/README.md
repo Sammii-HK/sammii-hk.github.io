@@ -101,3 +101,17 @@ dimensions: ten for obsidian, five for every other article.
 
 The JSON holds title, slug, category, x, y, whether the article had a body,
 and neighbour indices. Article text and vectors are not committed.
+
+## How text becomes tokens (`tokens.py`)
+
+```sh
+python3 scripts/labs/tokens.py --llama hermes3-head.gguf --gemma gemma3-head.gguf [--verify http://127.0.0.1:11435]
+```
+
+Runs the chart's sentences through cl100k_base, o200k_base, Llama 3 and
+Gemma 3 (see `tok.py`) and writes every token's id and exact text, or its
+bytes in hex when a token is only part of a character. The script asserts
+that each tokeniser's pieces join back into the input byte for byte.
+`--verify` compares our Llama 3 and Gemma 3 counts with the prompt token
+counts Ollama reports for `hermes3:8b` and `gemma3:4b-it-qat`; it loads both
+models, so on the shared Mac mini run it when nothing else needs the memory.

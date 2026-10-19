@@ -1,0 +1,30 @@
+.tk { gap: 1rem; }
+.tk-text { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.8rem; }
+.tk-q { font-size: 1.35rem; line-height: 1.35; white-space: pre-wrap; overflow-wrap: anywhere; }
+.tk-text small { font-size: 0.75rem; color: color-mix(in oklab, currentColor 58%, transparent); font-variant-numeric: tabular-nums; }
+.tk-rows { display: grid; gap: 0.9rem; }
+.tk-row { display: grid; gap: 0.4rem; padding-top: 0.75rem; border-top: 1px solid color-mix(in oklab, currentColor 10%, transparent); }
+.tk-row-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.75rem; }
+.tk-row-head b { font-size: 0.875rem; }
+.tk-row-head small { font-size: 0.75rem; color: color-mix(in oklab, currentColor 58%, transparent); }
+.tk-count { margin-left: auto; font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
+.tk-count strong { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.25rem; font-weight: 600; }
+.tk-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+/* five rotating hues so neighbours always differ; the gap and the border mark the boundary as well, so colour is never the only cue */
+.tk-chip { --h: 250; display: inline-flex; align-items: center; min-height: 1.9rem; padding: 0.15rem 0.45rem; border-radius: 5px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9375rem; line-height: 1.3; white-space: pre; background: oklch(0.82 0.09 var(--h) / 0.38); border: 1px solid oklch(0.62 0.11 var(--h) / 0.55); cursor: default; outline: none; }
+.tk-chip.h1 { --h: 30; } .tk-chip.h2 { --h: 150; } .tk-chip.h3 { --h: 320; } .tk-chip.h4 { --h: 85; }
+.tk-chip.is-bytes { background: repeating-linear-gradient(135deg, oklch(0.82 0.09 var(--h) / 0.38) 0 4px, transparent 4px 7px); border-style: dashed; }
+.tk-chip.is-on, .tk-chip:focus-visible { outline: 2px solid currentColor; outline-offset: 1px; }
+.tk-hex { font-size: 0.6875rem; letter-spacing: 0.04em; opacity: 0.85; }
+.tk-ws { opacity: 0.45; }
+.tk-readout { margin: 0; font-size: 0.8125rem; line-height: 1.5; min-height: 3em; color: color-mix(in oklab, currentColor 80%, transparent); }
+.tk-readout code, .tk-ids code, .tk .jd-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; }
+.tk-ids { margin: 0; display: grid; gap: 0.25rem; }
+.tk-ids code { overflow-wrap: anywhere; font-variant-numeric: tabular-nums; color: color-mix(in oklab, currentColor 80%, transparent); }
+.tk-straw-wrap { overflow-x: auto; }
+.tk-straw { min-width: 640px; }
+.tk-straw th[scope="row"] { white-space: nowrap; font-weight: 500; }
+.tk-straw .tk-chips { gap: 3px; }
+.tk-straw .tk-chip { min-height: 1.6rem; font-size: 0.8125rem; padding: 0.1rem 0.35rem; }
+.tk-in { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; white-space: pre; }
+@media (max-width: 720px) { .tk-q { font-size: 1.15rem; } .tk-chip { font-size: 0.875rem; } }
