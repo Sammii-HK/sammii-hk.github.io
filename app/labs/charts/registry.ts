@@ -29,6 +29,7 @@ export const CHARTS: Chart[] = [
   { n: "03", slug: "communication", title: "Six centuries of communication and type", series: "Typography", stack: "Scroll timeline, 65 entries", blurb: "Gutenberg to ChatGPT on one spine, inventions on the left and typefaces on the right, so the two histories read against each other." },
   { n: "30", slug: "context-window", title: "A context window, to scale", series: "AI engineering", stack: "tiktoken counts of my own codebases", blurb: "Five context windows, 8k to a million tokens, against a page, a short story, a novel, my blog and four of my own codebases, each counted with a real tokeniser. The blog fits in 128k. Lunary would need twelve of the million-token windows." },
   { n: "31", slug: "llm-latency", title: "Where an LLM call spends its time", series: "AI engineering", stack: "28 streamed calls, measured", blurb: "One streamed model call taken apart: connect, queue, model load, prefill, the first token, then the answer a token at a time, measured on my Mac mini. Replayed twice from the recording, behind a spinner and streamed." },
+  { n: "32", slug: "grimoire-map", title: "Lunary's grimoire, mapped by meaning", series: "AI engineering", stack: "Local embeddings, t-SNE", blurb: "All 1,958 articles in Lunary's grimoire embedded on my Mac mini and laid out by meaning. Half of it is horoscopes, which form a continent of their own. Obsidian sits with the crystals, and two of its ten nearest neighbours are spells." },
 ];
 
 export const chartHref = (slug: string) => `https://labs.sammii.dev/charts/${slug}/`;

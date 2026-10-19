@@ -146,4 +146,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "prefill", focus: "long", text: "Give the same model a 3,300-token document and the first token takes 3.5 seconds, nearly all of it prefill: the model reads every prompt token before it can write one. Send the identical prompt again and prefill drops to 50 ms, because the server reuses the work." },
     { id: "cold", focus: "cold", text: "On a shared machine, two of 28 calls found the model pushed out of memory by another job and waited about 40 seconds for it to load back before producing anything. That is the call a spinner makes look broken." },
   ],
+  "grimoire-map": [
+    { id: "obsidian", focus: "obsidian", text: "Embed Lunary's 1,958 grimoire articles and ask what is nearest to obsidian: snowflake obsidian, onyx, serpentine, labradorite, then two spells, a black tourmaline shield and an obsidian shadow integration, before the next stone, vesuvianite. Meaning crosses the categories the site is built from." },
+    { id: "continent", text: "962 of the 1,958 articles in Lunary's grimoire are horoscopes, and mapped by meaning they form a continent of their own. They are generated from the sign and the month, so to an embedding model they mostly resemble each other." },
+    { id: "local", text: "Every grimoire article was embedded on my Mac mini with qwen3-embedding, a 0.6-billion-parameter model: 1,958 articles in about two minutes, with no API and no database." },
+  ],
 };

@@ -80,3 +80,24 @@ no hosted figures are in the chart.
 `llm-runs-2026-10-19.jsonl` is the raw run behind the published chart (28
 Ollama calls plus the two refused proxy calls), kept so the summary can be
 re-derived. It contains timings and the model's own output, nothing else.
+
+## Lunary's grimoire, mapped by meaning (`grimoire_map.py`)
+
+```sh
+ssh -N -L 11435:127.0.0.1:11434 mini &
+python3 scripts/labs/grimoire_map.py --ollama http://127.0.0.1:11435
+```
+
+No database: everything comes from the lunary repository at `origin/main`
+through `git show`. The article list is the grimoire search index; each
+article's text is its title, summary and keywords plus its body fields where
+the repo holds them as data (crystals, spells, tarot, runes, angel numbers,
+life path numbers, chakras, correspondences). Embeddings are
+`qwen3-embedding:0.6b` on the Mac mini's Ollama (1,024 dimensions, cached to
+`$TMPDIR/grimoire-embeddings.npy` between runs). Layout: L2-normalise, PCA to
+50 dimensions, exact t-SNE (perplexity 30, 1,000 iterations, PCA start,
+seed 42) in NumPy. Neighbours are cosine similarity in the full 1,024
+dimensions: ten for obsidian, five for every other article.
+
+The JSON holds title, slug, category, x, y, whether the article had a body,
+and neighbour indices. Article text and vectors are not committed.
