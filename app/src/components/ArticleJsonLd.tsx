@@ -14,6 +14,14 @@ function safeJsonLd(obj: unknown): string {
     .replace(/&/g, '\\u0026');
 }
 
+// The same full name and url as the homepage's Person schema, so search
+// engines tie every article to one person rather than a bare first name.
+const AUTHOR = {
+  '@type': 'Person',
+  name: 'Sammii Kellow',
+  url: 'https://sammii.dev',
+} as const;
+
 export const ArticleJsonLd = ({ title, description, date, url, tags }: Props) => {
   const schema = {
     '@context': 'https://schema.org',
@@ -22,16 +30,8 @@ export const ArticleJsonLd = ({ title, description, date, url, tags }: Props) =>
     description,
     datePublished: date,
     url,
-    author: {
-      '@type': 'Person',
-      name: 'Sammii',
-      url: 'https://sammii.dev',
-    },
-    publisher: {
-      '@type': 'Person',
-      name: 'Sammii',
-      url: 'https://sammii.dev',
-    },
+    author: AUTHOR,
+    publisher: AUTHOR,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': url,
