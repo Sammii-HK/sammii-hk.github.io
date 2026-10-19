@@ -142,4 +142,10 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "confound", focus: "sparkle", text: "Short beat long by ten to one on my account, but format, length and era all moved together, so most of that is October 2025 beating July 2026. Held inside one era, short still wins, by less: 11.8% against 7.7% in Aug to Sep 2025." },
     { id: "reach", focus: "sparkle", text: "The 31 videos with the most views and the 31 with the highest engagement on my personal account share none. Reach and engagement are different questions, and ranking by total likes just echoes reach." },
   ],
+  "frame-budget": [
+    { id: "ten-of-sixteen", focus: "typing", text: "A 60 Hz frame lasts 16.7 ms, but it is not all yours. web.dev's RAIL guidance says the browser needs about 6 ms of it to render, so keep your own work to 10. At 120 Hz the whole frame is 8.3 ms." },
+    { id: "halved", focus: "typing", text: "The same 11 ms keystroke fits a 60 Hz frame with 5.7 ms to spare and misses a 120 Hz frame by 2.7 ms. A faster screen does not make the page faster; it halves the deadline, and code that was smooth starts dropping every other frame." },
+    { id: "thrash", focus: "thrash", text: "web.dev's layout-thrashing example spends more than 28 ms in layout per frame on a page of 1,618 elements. That is a whole 60 Hz frame and more than three 120 Hz frames, before a single pixel is painted." },
+    { id: "transform", focus: "transform", text: "A transform or opacity animation costs the main thread nothing per frame: the compositor moves the layer it already has. Animate top instead and every frame restyles, lays out and repaints." },
+  ],
 };
