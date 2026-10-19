@@ -157,7 +157,7 @@ function wilsonInterval(
 }
 ```
 
-`z = 1.96` is the 95% confidence value. The `centre` and `denominator` terms come from the algebra of inverting the z-test. Because the calculation is a rearrangement rather than an approximation, the Wilson interval always sits inside [0, 1] and remains accurate at small `n`.
+`z = 1.96` is the 95% confidence value. The `centre` and `denominator` terms come from the algebra of inverting the z-test. It still rests on the normal approximation, but because it solves for the endpoints instead of plugging the observed rate into the standard error, the Wilson interval always sits inside [0, 1] and holds up much better than the naive interval at small `n`.
 
 The dashboard shows Wilson intervals as bars on each variant's conversion rate. A variant with 500 exposures and 50 conversions shows a 10% rate with a visibly wide bar. A variant with 50,000 exposures and 5,000 conversions shows a 10% rate with a bar so narrow you can only just see it. The bar is how "how confident am I in this number?" is communicated without a single line of text.
 
