@@ -106,7 +106,7 @@ function zTest(
 
 The pooled proportion `pPooled` is used in the standard error because under the null hypothesis the two variants share a single true conversion rate. Using separate proportions in the SE biases the test. This is the textbook move, and it matters: skipping it is one of the most common DIY A/B bugs.
 
-`pValue` is two-tailed because you do not know in advance which variant will win. The `(1 - pValue) * 100` conversion gives confidence as a percentage, so "significant" is defined as `confidence >= 95`, the standard 5% false-positive rate.
+`pValue` is two-tailed because you do not know in advance which variant will win. The dashboard shows `(1 - pValue) * 100` as a "confidence" percentage for readability, but it is not the probability that the variant is better. "Significant" is defined as `confidence >= 95`, which is just `pValue <= 0.05`: the standard 5% false-positive rate when there is no real difference.
 
 `normalCdf` is the Abramowitz and Stegun polynomial approximation to the standard normal cumulative distribution function. It has seven constants and maximum error of about 7.5 × 10⁻⁸, which is more than good enough for A/B results:
 
