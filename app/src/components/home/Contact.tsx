@@ -36,6 +36,7 @@ export const Contact = () => {
       <p className="contact-colophon">
         <span>© {new Date().getFullYear()} Sammii Kellow</span>
         <a href="/blog/">Blog</a>
+        <a href="/speaking/">Speaking</a>
         <a href="/rss.xml">RSS</a>
         <a href="https://labs.sammii.dev/">Labs</a>
       </p>
