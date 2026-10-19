@@ -149,7 +149,7 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "transform", focus: "transform", text: "A transform or opacity animation costs the main thread nothing per frame: the compositor moves the layer it already has. Animate top instead and every frame restyles, lays out and repaints." },
   ],
   "text-on-screen": [
-    { id: "twelve", focus: "3", text: "A fixed 2-second card asks for 360 words a minute from a 12-word line. The average adult reads English non-fiction silently at 238 (Brysbaert, 190 studies), and most top out around 300. Two seconds is plenty for six words and not enough for twelve." },
+    { id: "twelve", focus: "3", text: "A fixed 2-second card asks for 360 words a minute from a 12-word line. The average adult reads English non-fiction silently at 238 (Brysbaert, 190 studies), and most adults fall between 175 and 300. Two seconds is plenty for six words and not enough for twelve." },
     { id: "rule", focus: "3", text: "My video app holds each line of a silent text note for at least a quarter of a second a word plus 0.3 seconds: 240 words a minute with a beat to find the line. A 12-word line gets 3.3 seconds. The floors exist because one test render gave a 12-word line 1.5." },
     { id: "subtitles", focus: "3", text: "Subtitles run slower than page reading because the words compete with the picture: the BBC recommends 160 to 180 words a minute, Netflix at most 20 characters a second for adults and 17 for children. A 12-word line is 4 to 4.5 seconds at the BBC's rate." },
     { id: "moving", focus: "4", text: "Text that moves is read more slowly than text that sits still. In a study of dynamically presented Japanese text, the optimum rate was about 6 letters a second, against 11.3 for silent reading: roughly half." },
