@@ -108,7 +108,7 @@ The pooled proportion `pPooled` is used in the standard error because under the 
 
 `pValue` is two-tailed because you do not know in advance which variant will win. The dashboard shows `(1 - pValue) * 100` as a "confidence" percentage for readability, but it is not the probability that the variant is better. "Significant" is defined as `confidence >= 95`, which is just `pValue <= 0.05`: the standard 5% false-positive rate when there is no real difference.
 
-`normalCdf` is the Abramowitz and Stegun polynomial approximation to the standard normal cumulative distribution function. It has seven constants and maximum error of about 7.5 × 10⁻⁸, which is more than good enough for A/B results:
+`normalCdf` is the Abramowitz and Stegun polynomial approximation to the standard normal cumulative distribution function. It has six constants and maximum error of about 7.5 × 10⁻⁸, which is more than good enough for A/B results:
 
 ```typescript
 function normalCdf(z: number): number {
