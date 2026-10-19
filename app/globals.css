@@ -820,6 +820,28 @@ body {
 .work-index-case:hover, .work-index-case:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 0.3em; }
 .work-index-case:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; }
 
+/* ── /speaking: the /work index head, the Labs card surface, the About measure ── */
+.speaking { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; width: 100%; }
+.speaking-head { margin-bottom: 0.5rem; }
+.speaking-title { margin: 0; font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.1; letter-spacing: -0.015em; max-width: 30ch; text-wrap: balance; }
+.speaking-section { margin-top: 3rem; }
+.speaking-count { font-variant-numeric: tabular-nums; margin-left: 0.5rem; opacity: 0.6; }
+.speaking-talks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+.speaking-talk { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.1rem 1.1rem 1rem; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; background: color-mix(in oklab, currentColor 3%, transparent); }
+.speaking-talk-title { margin: 0; font-weight: 600; font-size: 1.125rem; line-height: 1.3; letter-spacing: -0.01em; text-wrap: balance; }
+.speaking-talk-summary { margin: 0; font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.875rem; line-height: 1.55; color: color-mix(in oklab, currentColor 78%, transparent); text-wrap: pretty; }
+.speaking-talk-format { margin: auto 0 0; padding-top: 0.75rem; border-top: 1px solid color-mix(in oklab, currentColor 8%, transparent); font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.75rem; color: color-mix(in oklab, currentColor 55%, transparent); }
+.speaking-bios { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2rem 4rem; align-items: start; }
+@media (max-width: 899px) { .speaking-bios { grid-template-columns: 1fr; gap: 1.75rem; } }
+.speaking-bio-label { margin: 0 0 0.5rem; font-weight: 600; font-size: 1.0625rem; }
+.speaking-bio-text { margin: 0; font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif; font-size: 1rem; line-height: 1.6; max-width: 58ch; color: color-mix(in oklab, currentColor 72%, transparent); }
+.speaking-booking a { color: inherit; text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: color-mix(in oklab, currentColor 35%, transparent); font-weight: 500; }
+.speaking-booking a:hover { text-decoration-color: currentColor; }
+.speaking-booking a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+/* development only: HeadshotSlot renders nothing in production */
+.speaking-headshot-todo { margin-top: 2rem; max-width: 240px; aspect-ratio: 4 / 5; display: grid; place-items: center; padding: 1rem; border: 1px dashed color-mix(in oklab, currentColor 35%, transparent); border-radius: 10px; font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.8125rem; line-height: 1.5; text-align: center; color: color-mix(in oklab, currentColor 60%, transparent); }
+@media (max-width: 640px) { .speaking { padding: 2rem 1.25rem 3rem; } .speaking-section { margin-top: 2.5rem; } }
+
 /* ── Case-study shell (Phase 2I). Scoped to .case-study; the blog keeps its own prose rules. ── */
 .case-study { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; width: 100%; }
 .case-hero { margin: 0 0 2.5rem; }

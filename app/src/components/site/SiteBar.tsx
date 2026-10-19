@@ -1,15 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export type SitePage = "work" | "blog" | "labs";
+export type SitePage = "work" | "blog" | "speaking" | "labs";
 
 /**
  * The one navigation bar for every page below the homepage: blog, work, case
- * studies and Labs. It is the homepage's condensed lens nav in every visible
+ * studies, speaking and Labs. It is the homepage's condensed lens nav in every visible
  * respect (same wordmark, type, glass and underline), always shown because
  * there is no hero to scroll past, with the site's sections in place of the
  * lenses. Labs resolves per host so it never moves you across hosts unasked;
- * Work and Blog live on sammii.dev, so from Labs they are absolute.
+ * Work, Blog and Speaking live on sammii.dev, so from Labs they are absolute.
  */
 export function SiteBar({ current }: { current?: SitePage }) {
   const [onLabsHost, setOnLabsHost] = useState(false);
@@ -18,6 +18,7 @@ export function SiteBar({ current }: { current?: SitePage }) {
   const links: { page: SitePage; label: string; href: string }[] = [
     { page: "work", label: "Work", href: `${main}/work/` },
     { page: "blog", label: "Blog", href: `${main}/blog/` },
+    { page: "speaking", label: "Speaking", href: `${main}/speaking/` },
     { page: "labs", label: "Labs", href: onLabsHost ? "/" : "/labs/" },
   ];
   return (
