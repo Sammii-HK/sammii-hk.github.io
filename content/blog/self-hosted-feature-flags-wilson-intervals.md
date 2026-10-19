@@ -81,7 +81,7 @@ Weights are percentages summing to 100. Unequal splits (like 90/10 for a gradual
 
 The second thing Flip does beyond most DIY A/B stacks is compute significance properly. Showing "variant A got 12% conversion, variant B got 14%" is a presentation failure, not a statistical one: without a p-value, the reader has no way to know whether the difference is signal or noise.
 
-A two-proportion z-test compares two conversion rates and returns the probability the observed difference could have happened by chance:
+A two-proportion z-test compares two conversion rates and returns the probability of a difference at least this large if the variants really converted at the same rate:
 
 ```typescript
 function zTest(
