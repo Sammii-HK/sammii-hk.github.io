@@ -1,0 +1,52 @@
+.ve { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.ve-label { display: block; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.6; margin-bottom: 0.35rem; }
+.ve-opts { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.ve-opts button, .ve-formats button { font: inherit; font-size: 0.75rem; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 18%, transparent); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.ve-opts button[aria-pressed="true"], .ve-formats button[aria-pressed="true"] { background: var(--chart-ink); color: var(--chart-bg); border-color: var(--chart-ink); }
+.ve-opts button:focus-visible, .ve-formats button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.ve-total { margin: 0; font-size: 1.05rem; line-height: 1.5; }
+.ve-total strong { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em; }
+.ve-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.25rem; align-items: start; }
+@media (max-width: 900px) { .ve-grid { grid-template-columns: 1fr; } .ve-panel.cst-panel { position: static; min-height: 0; } }
+.ve-stage { min-width: 0; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); border-radius: 10px; background: color-mix(in oklab, currentColor 3%, transparent); overflow: hidden; }
+.ve-svg { display: block; width: 100%; height: auto; touch-action: pan-y; }
+.ve-svg text { font-family: var(--font-inter), system-ui, sans-serif; fill: currentColor; font-size: 11px; }
+.ve-tick line { stroke: currentColor; stroke-opacity: 0.1; }
+.ve-tick text, .ve-tick-x { opacity: 0.55; font-variant-numeric: tabular-nums; }
+.ve-split { stroke: currentColor; stroke-opacity: 0.25; stroke-dasharray: 3 4; }
+.ve-bucket { font-size: 10px !important; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; }
+.ve-axis { opacity: 0.5; }
+.ve-dots circle { fill: currentColor; fill-opacity: 0.42; stroke: var(--chart-bg); stroke-width: 0.75; transition: fill-opacity 150ms ease; }
+.ve-dots.has-pick circle { fill-opacity: 0.07; }
+.ve-dots.has-pick circle.is-on { fill-opacity: 0.95; }
+.ve-dots circle.is-hover { fill-opacity: 1; stroke: currentColor; stroke-width: 2; }
+.ve-median line { stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; }
+.ve-median text { font-weight: 700; font-size: 12px; paint-order: stroke; stroke: var(--chart-bg); stroke-width: 4px; stroke-linejoin: round; font-variant-numeric: tabular-nums; }
+.ve-panel { min-height: 12rem; }
+.ve-formats ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.ve-formats button { display: inline-flex; align-items: baseline; gap: 0.4rem; }
+.ve-fmt-n { opacity: 0.55; font-variant-numeric: tabular-nums; }
+.ve-formats button b { font-variant-numeric: tabular-nums; }
+.ve-table-wrap { overflow-x: auto; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 10px; }
+.ve-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+.ve-caption { caption-side: top; text-align: left; padding: 0.6rem 0.6rem 0.2rem; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; }
+.ve-table th, .ve-table td { text-align: left; padding: 0.45rem 0.6rem; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); vertical-align: middle; font-variant-numeric: tabular-nums; }
+.ve-table thead th { font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; font-weight: 500; }
+.ve-table tbody th { font-weight: 500; }
+.ve-table tr.is-ref { background: color-mix(in oklab, currentColor 7%, transparent); }
+.ve-table td { white-space: nowrap; }
+.ve-eras { min-width: 640px; }
+.ve-eras tbody th { min-width: 14rem; }
+.ve-bar { display: inline-block; width: 90px; height: 8px; border-radius: 2px; background: color-mix(in oklab, currentColor 8%, transparent); margin-right: 0.5rem; vertical-align: middle; }
+.ve-bar i { display: block; height: 100%; border-radius: 2px; background: var(--chart-ink); }
+@media (max-width: 520px) { .ve-bar { width: 44px; } }
+.ve-lede { max-width: 70ch; margin: 0 0 1rem; font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.9375rem; line-height: 1.6; color: color-mix(in oklab, currentColor 80%, transparent); }
+.ve-covers { display: grid; gap: 1rem; font-family: var(--font-inter), system-ui, sans-serif; }
+.ve-cover { margin: 0; display: grid; gap: 0.45rem; }
+.ve-cover figcaption { font-size: 0.875rem; }
+.ve-cover figcaption b { font-family: var(--font-jost), system-ui, sans-serif; font-size: 1.15rem; margin-right: 0.3rem; font-variant-numeric: tabular-nums; }
+.ve-units { display: flex; flex-wrap: wrap; gap: 3px; max-width: 46rem; }
+.ve-units i { width: 12px; height: 12px; border-radius: 2px; border: 1px solid color-mix(in oklab, currentColor 30%, transparent); }
+.ve-units i.is-text { background: var(--chart-ink); border-color: var(--chart-ink); }
+.ve-units i.is-unknown { border-style: dashed; opacity: 0.5; }
+@media (prefers-reduced-motion: reduce) { .ve-dots circle { transition: none; } }

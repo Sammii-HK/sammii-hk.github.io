@@ -136,4 +136,10 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "no-cache", text: "no-cache does not mean do not store. It means store it and always revalidate before using it, which is exactly what you want on HTML: every visit asks, and almost every answer is an empty 304 costing one round trip. no-store is the one that means do not keep it." },
     { id: "immutable", text: "immutable plus a build hash is the only honest way to cache something for a year: a new build is a new URL, so the old one never needs invalidating. That is the whole reason bundlers put hashes in filenames." },
   ],
+  videos: [
+    { id: "ten-to-one", focus: "sparkle", text: "On my personal TikTok, videos of eight seconds or less have a median engagement rate of 13.6% (69 videos). From 21 to 45 seconds it is 1.9%; over 45 seconds, 1.3%. Same account, about ten to one." },
+    { id: "cover", focus: "scripted", text: "Text was found on 89 of my personal account's 154 TikTok covers, and on 1 of the 28 scripted talking heads my own pipeline made in June and July 2026. Those 28 sit at a median engagement of 1.4%. The line on the first frame was the part the generated videos left out." },
+    { id: "confound", focus: "sparkle", text: "Short beat long by ten to one on my account, but format, length and era all moved together, so most of that is October 2025 beating July 2026. Held inside one era, short still wins, by less: 11.8% against 7.7% in Aug to Sep 2025." },
+    { id: "reach", focus: "sparkle", text: "The 31 videos with the most views and the 31 with the highest engagement on my personal account share none. Reach and engagement are different questions, and ranking by total likes just echoes reach." },
+  ],
 };
