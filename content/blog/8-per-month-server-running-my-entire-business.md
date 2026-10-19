@@ -61,7 +61,7 @@ The Spellcast API container runs alongside these but is managed separately (buil
 
 **Postiz** handles the actual social media publishing: OAuth integrations, the publishing queue, and direct API calls to Twitter, LinkedIn, Instagram, and the rest. It's an open-source scheduling engine that I've extended with custom features.
 
-**Temporal** is the workflow engine. It handles long-running processes reliably: if a post fails to publish, Temporal retries it with backoff. If the server restarts mid-workflow, it picks up where it left off. This is overkill for small volume but it means I've never had a post silently fail to go out.
+**Temporal** is the workflow engine. It handles long-running processes reliably: if a post fails to publish, Temporal retries it with backoff. If the server restarts mid-workflow, it picks up where it left off. This is overkill for small volume, but it means a restart or a flaky API call doesn't quietly drop a post: it gets retried, and if it still fails, it shows up as failed instead of disappearing.
 
 **Caddy** handles HTTPS automatically. Zero config: point a domain at the server, write a two-line Caddyfile, done. No Let's Encrypt certificate management, no nginx config.
 
