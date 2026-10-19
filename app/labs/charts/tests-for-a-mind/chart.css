@@ -1,0 +1,50 @@
+.tm { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; min-width: 0; }
+.tm-controls { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.75rem 2rem; }
+.tm-count { margin: 0; font-size: 0.875rem; color: color-mix(in oklab, currentColor 75%, transparent); font-variant-numeric: tabular-nums; }
+
+/* the one axis: behaviour at the left, experience at the right */
+.tm-axis { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; }
+.tm-axis-end { font-family: var(--font-jost), system-ui, sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.2; }
+.tm-axis-end em { display: block; font-family: var(--font-inter), system-ui, sans-serif; font-style: normal; font-weight: 400; font-size: 0.75rem; color: color-mix(in oklab, currentColor 60%, transparent); }
+.tm-axis-end.is-right { text-align: right; }
+.tm-axis-line { position: relative; height: 2px; background: linear-gradient(90deg, var(--chart-ink), color-mix(in oklab, var(--chart-ink) 25%, transparent)); }
+.tm-axis-line::before, .tm-axis-line::after { content: ""; position: absolute; top: 50%; width: 9px; height: 9px; border-top: 2px solid var(--chart-ink); border-right: 2px solid var(--chart-ink); }
+.tm-axis-line::before { left: 0; transform: translateY(-50%) rotate(-135deg); }
+.tm-axis-line::after { right: 0; transform: translateY(-50%) rotate(45deg); border-color: color-mix(in oklab, var(--chart-ink) 40%, transparent); }
+
+.tm-axis-mobile { display: none; margin: 0; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 70%, transparent); }
+.tm-cols { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; }
+.tm-col { display: grid; align-content: start; gap: 0.6rem; min-width: 0; }
+.tm-col-head { margin: 0; padding-bottom: 0.5rem; border-bottom: 1px solid color-mix(in oklab, currentColor 18%, transparent); font-family: var(--font-jost), system-ui, sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; line-height: 1.25; }
+.tm-col-head em { display: block; font-family: var(--font-inter), system-ui, sans-serif; font-style: normal; font-weight: 400; font-size: 0.6875rem; letter-spacing: 0.02em; color: color-mix(in oklab, currentColor 55%, transparent); }
+.tm-col-n { display: inline-grid; place-items: center; width: 1.3rem; height: 1.3rem; margin-right: 0.45rem; border-radius: 50%; border: 1px solid currentColor; font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.6875rem; font-weight: 600; vertical-align: 0.1em; }
+.tm-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.tm-card { border: 1px solid color-mix(in oklab, currentColor 22%, transparent); border-radius: 10px; background: color-mix(in oklab, var(--chart-bg) 70%, transparent); transition: opacity 160ms ease, border-color 160ms ease; }
+.tm-card.is-argument { border-style: dashed; border-width: 1.5px; }
+.tm-card.is-fiction { border: 3px double color-mix(in oklab, currentColor 40%, transparent); }
+.tm-card.is-dim { opacity: 0.32; }
+.tm-card.is-open, .tm-card:hover { border-color: color-mix(in oklab, currentColor 55%, transparent); }
+.tm-card-head { display: grid; gap: 0.3rem; width: 100%; font: inherit; color: inherit; text-align: left; background: transparent; border: 0; padding: 0.75rem 0.8rem; cursor: pointer; border-radius: 10px; }
+.tm-card-head:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.tm-card-kicker { font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in oklab, currentColor 60%, transparent); font-variant-numeric: tabular-nums; }
+.tm-card-name { font-family: var(--font-jost), system-ui, sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.2; }
+.tm-card-line { font-size: 0.8125rem; line-height: 1.45; color: color-mix(in oklab, currentColor 80%, transparent); }
+.tm-card-who { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.15rem; }
+.tm-card-who span { font-size: 0.6875rem; padding: 0.1rem 0.45rem; border-radius: 999px; border: 1px solid color-mix(in oklab, currentColor 22%, transparent); }
+.tm-card-body { padding: 0 0.8rem 0.8rem; font-size: 0.8125rem; line-height: 1.5; }
+.tm-card-body p { margin: 0 0 0.5rem; }
+.tm-card-caveat { color: color-mix(in oklab, currentColor 75%, transparent); }
+.tm-card-src { font-size: 0.75rem; color: color-mix(in oklab, currentColor 55%, transparent); margin-bottom: 0 !important; }
+.tm-legend { margin: 0; max-width: 72ch; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 65%, transparent); }
+.tm-caption { margin: 0.5rem 0 0; max-width: 62ch; padding-left: 1rem; border-left: 2px solid var(--chart-ink); font-size: 1rem; line-height: 1.6; }
+.tm-caption p { margin: 0 0 0.6rem; }
+.tm-caption p:last-child { margin: 0; }
+
+/* on a phone the axis turns: behaviour at the top, experience at the bottom, one column after another */
+@media (max-width: 1000px) {
+  .tm-axis { display: none; }
+  .tm-cols { grid-template-columns: 1fr; gap: 1.5rem; padding-left: 1.1rem; position: relative; }
+  .tm-cols::before { content: ""; position: absolute; left: 0.25rem; top: 0.4rem; bottom: 0.4rem; width: 2px; background: linear-gradient(180deg, var(--chart-ink), color-mix(in oklab, var(--chart-ink) 25%, transparent)); }
+  .tm-axis-mobile { display: block; }
+}
+@media (prefers-reduced-motion: reduce) { .tm-card { transition: none; } }
