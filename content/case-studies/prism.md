@@ -1,7 +1,7 @@
 ---
 title: "Prism"
 description: "Design engineering component library with an autonomous daily build pipeline"
-techStack: "Next.js, Framer Motion, Spring Physics, GLSL, TypeScript"
+techStack: "Next.js, React, TypeScript, Spring Physics, GLSL"
 ---
 
 ## The problem

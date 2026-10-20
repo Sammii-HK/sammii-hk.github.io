@@ -115,7 +115,7 @@ export const projects: Project[] = [
   {
     id: 'prism',
     title: 'Prism',
-    techStack: 'Next.js, Framer Motion, Spring Physics, GLSL, TypeScript',
+    techStack: 'Next.js, React, TypeScript, Spring Physics, GLSL',
     info: 'Design engineering component library. Cursor-reactive buttons, spotlight cards, ripple effects, and shader-driven playground experiments. Dark, luminous aesthetic with spring physics and GPU-accelerated animations.',
     type: 'product',
     home: 'home',
