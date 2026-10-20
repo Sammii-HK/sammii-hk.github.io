@@ -362,7 +362,7 @@ export const projects: Project[] = [
     id: 'iprep',
     title: 'iPrep',
     techStack: 'Next.js, SwiftUI, Llama 3.3 70B, Whisper Large V3 Turbo, RevenueCat, Prisma, PostgreSQL',
-    info: 'AI-powered spoken interview practice platform. Record answers, get automatic transcription via DeepInfra Whisper, and receive multi-dimensional scoring on delivery (WPM, fillers, confidence, intonation) and content quality (STAR methodology, impact, clarity). Also built as a native iOS app with on-device Apple Speech transcription, a watchOS companion, and home-screen widgets.',
+    info: 'AI-powered spoken interview practice platform. Record answers, get automatic transcription via DeepInfra Whisper, and receive multi-dimensional scoring on delivery (WPM, fillers, confidence, intonation) and content quality (STAR methodology, impact, clarity). Also built as a native iOS app with Apple Speech transcription, a watchOS companion, and home-screen widgets.',
     type: 'product',
     home: 'work',
     group: 'ai',

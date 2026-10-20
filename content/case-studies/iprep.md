@@ -24,7 +24,7 @@ The transcript is scored across two axes. Delivery metrics are calculated determ
 
 ### Native iOS app
 
-iPrep also ships as a native SwiftUI app with home-screen widgets, a watchOS companion, and Mac Catalyst support. Transcription runs on-device via Apple's Speech framework rather than calling out to Whisper. Scoring is tiered: a local rule-based engine and on-device Apple Intelligence handle the free path, while a RevenueCat-gated Pro tier calls the same Llama 3.3 70B backend as the web app for higher-quality feedback.
+iPrep also ships as a native SwiftUI app with home-screen widgets, a watchOS companion, and Mac Catalyst support. The native app transcribes with Apple's Speech framework, using server recognition because on-device recognition drops text after pauses on iOS 18. Scoring is tiered: a local rule-based engine and on-device Apple Intelligence handle the free path, while a RevenueCat-gated Pro tier calls the same Llama 3.3 70B backend as the web app for higher-quality feedback.
 
 ### Question banks and analytics
 
