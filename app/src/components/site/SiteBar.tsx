@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { STUDIO_URL } from "../../../constants";
 
 export type SitePage = "work" | "blog" | "speaking" | "labs";
 
@@ -10,6 +11,8 @@ export type SitePage = "work" | "blog" | "speaking" | "labs";
  * there is no hero to scroll past, with the site's sections in place of the
  * lenses. Labs resolves per host so it never moves you across hosts unasked;
  * Work, Blog and Speaking live on sammii.dev, so from Labs they are absolute.
+ * Hire me always goes to the contracting site and sits outside the link
+ * group, so the narrow-screen scroll fade never covers it.
  */
 export function SiteBar({ current }: { current?: SitePage }) {
   const [onLabsHost, setOnLabsHost] = useState(false);
@@ -37,6 +40,9 @@ export function SiteBar({ current }: { current?: SitePage }) {
           </a>
         ))}
       </div>
+      <a href={STUDIO_URL} className="lens-phrase lens-nav-phrase lens-nav-hire" data-state="idle">
+        Hire me
+      </a>
     </nav>
   );
 }

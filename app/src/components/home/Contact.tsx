@@ -1,6 +1,6 @@
 "use client";
 import type { Lens } from "../../../common/data/projects";
-import { EMAIL, GITHUB_URL_SAMMII, LINKEDIN_URL } from "../../../constants";
+import { EMAIL, GITHUB_URL_SAMMII, LINKEDIN_URL, STUDIO_URL } from "../../../constants";
 import { useLens } from "../lens/LensProvider";
 import { ArrowUpRight } from "lucide-react";
 
@@ -25,7 +25,8 @@ export const Contact = () => {
         Contact
       </h2>
       <p className="contact-line">
-        Looking for a senior or staff {cv.role} role, London or remote. The fastest way to reach me is email.
+        Looking for a senior or staff {cv.role} role, London or remote, and taking contract work:{" "}
+        <a href={STUDIO_URL}>studio.sammii.dev</a>. The fastest way to reach me is email.
       </p>
       <ul className="contact-links">
         <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>

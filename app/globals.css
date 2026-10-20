@@ -547,9 +547,10 @@ body {
 .lens-nav-phrase { opacity: 0.55; --u: 0; padding-bottom: 0.3em; }
 .lens-nav-phrase[data-state="preview"] { opacity: 0.9; --u: 1; }
 .lens-nav-phrase[data-state="committed"] { opacity: 1; font-weight: 600; --u: 1; }
-/* Labs is a nav link like the lenses: same weight, same underline on hover, pushed to the end */
+/* Labs and Hire me are nav links like the lenses: same weight, same underline on hover, pushed to the end */
 .lens-nav-labs { margin-left: auto; white-space: nowrap; }
-.lens-nav-labs:hover, .lens-nav-labs:focus-visible { opacity: 1; --u: 1; }
+.lens-nav-hire { white-space: nowrap; }
+.lens-nav-labs:hover, .lens-nav-labs:focus-visible, .lens-nav-hire:hover, .lens-nav-hire:focus-visible { opacity: 1; --u: 1; }
 /* The one bar below the homepage (blog, work, case studies, Labs): the lens
    nav's look, but in the flow and always shown, since there is no hero to
    scroll past. */
@@ -798,6 +799,9 @@ body {
 .contact-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 2rem; }
 .contact-links a { color: inherit; text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: color-mix(in oklab, currentColor 35%, transparent); font-weight: 500; }
 .contact-links a:hover { text-decoration-color: currentColor; }
+.contact-line a { color: inherit; text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: color-mix(in oklab, currentColor 35%, transparent); }
+.contact-line a:hover { text-decoration-color: currentColor; }
+.contact-line a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 .contact-links a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 
 /* ── /work temporary index (Phase 2H) ────────────────────────────────────── */

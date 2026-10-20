@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { STUDIO_URL } from "../../../constants";
 import { lensHref } from "../../../lib/lenses";
 import { LENS_NAV_LABEL, LENS_ORDER, LENS_SHORT } from "./lens-copy";
 import { useLens } from "./LensProvider";
@@ -62,6 +63,9 @@ export function LensNav() {
       </div>
       <a href="https://labs.sammii.dev" className="lens-phrase lens-nav-phrase lens-nav-labs">
         Labs
+      </a>
+      <a href={STUDIO_URL} className="lens-phrase lens-nav-phrase lens-nav-hire">
+        Hire me
       </a>
     </nav>
   );
