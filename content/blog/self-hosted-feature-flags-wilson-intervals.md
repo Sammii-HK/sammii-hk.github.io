@@ -81,7 +81,7 @@ Weights are percentages summing to 100. Unequal splits (like 90/10 for a gradual
 
 The second thing Flip does beyond most DIY A/B stacks is compute significance properly. Showing "variant A got 12% conversion, variant B got 14%" is a presentation failure, not a statistical one: without a p-value, the reader has no way to know whether the difference is signal or noise.
 
-A two-proportion z-test compares two conversion rates and returns the probability the observed difference could have happened by chance:
+A two-proportion z-test compares two conversion rates and returns the probability of a difference at least this large if the variants really converted at the same rate:
 
 ```typescript
 function zTest(
@@ -106,9 +106,9 @@ function zTest(
 
 The pooled proportion `pPooled` is used in the standard error because under the null hypothesis the two variants share a single true conversion rate. Using separate proportions in the SE biases the test. This is the textbook move, and it matters: skipping it is one of the most common DIY A/B bugs.
 
-`pValue` is two-tailed because you do not know in advance which variant will win. The `(1 - pValue) * 100` conversion gives confidence as a percentage, so "significant" is defined as `confidence >= 95`, the standard 5% false-positive rate.
+`pValue` is two-tailed because you do not know in advance which variant will win. The dashboard shows `(1 - pValue) * 100` as a "confidence" percentage for readability, but it is not the probability that the variant is better. "Significant" is defined as `confidence >= 95`, which is just `pValue <= 0.05`: the standard 5% false-positive rate when there is no real difference.
 
-`normalCdf` is the Abramowitz and Stegun polynomial approximation to the standard normal cumulative distribution function. It has seven constants and maximum error of about 7.5 × 10⁻⁸, which is more than good enough for A/B results:
+`normalCdf` is the Abramowitz and Stegun polynomial approximation to the standard normal cumulative distribution function. It has six constants and maximum error of about 7.5 × 10⁻⁸, which is more than good enough for A/B results:
 
 ```typescript
 function normalCdf(z: number): number {
@@ -157,7 +157,7 @@ function wilsonInterval(
 }
 ```
 
-`z = 1.96` is the 95% confidence value. The `centre` and `denominator` terms come from the algebra of inverting the z-test. Because the calculation is a rearrangement rather than an approximation, the Wilson interval always sits inside [0, 1] and remains accurate at small `n`.
+`z = 1.96` is the 95% confidence value. The `centre` and `denominator` terms come from the algebra of inverting the z-test. It still rests on the normal approximation, but because it solves for the endpoints instead of plugging the observed rate into the standard error, the Wilson interval always sits inside [0, 1] and holds up much better than the naive interval at small `n`.
 
 The dashboard shows Wilson intervals as bars on each variant's conversion rate. A variant with 500 exposures and 50 conversions shows a 10% rate with a visibly wide bar. A variant with 50,000 exposures and 5,000 conversions shows a 10% rate with a bar so narrow you can only just see it. The bar is how "how confident am I in this number?" is communicated without a single line of text.
 

@@ -37,7 +37,7 @@ export async function publishPost(postId: string): Promise<void> {
 }
 ```
 
-If the process crashes after `publishToTwitter` succeeds but before `publishToLinkedIn` runs, Temporal replays the workflow. Because the `publishToTwitter` activity completed and was logged, Temporal skips it and continues from `publishToLinkedIn`. No duplicates. No silent gaps.
+If the process crashes after `publishToTwitter` succeeds but before `publishToLinkedIn` runs, Temporal replays the workflow. Because the `publishToTwitter` activity completed and was logged, Temporal skips it and continues from `publishToLinkedIn`, so the crash doesn't silently drop the rest. The caveat is a crash inside an activity, after the API call succeeds but before Temporal records the activity as complete: Temporal retries it, so that post can go out twice unless the activity is idempotent.
 
 ## The activities
 
