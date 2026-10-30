@@ -490,20 +490,20 @@ export const projects: Project[] = [
   // ── Experiments ───────────────────────────────────────────────────
   {
     id: 'moth-drawings',
-    title: 'Moth\'s drawings',
+    title: 'Inside Moth',
     techStack: 'TypeScript, Vite, SVG, Node keeper',
-    info: 'Moth is an autonomous kitten in a persistent world. This page shows every drawing she has kept, oldest first, rebuilt from the strokes the keeper stores, with the ability scores she had that day and the mistakes she noticed afterwards.',
+    info: 'Moth is an autonomous kitten in a persistent world. This page opens up what the keeper recorded about her: her drawings in order, the places she has been with the episodes recorded at each, her mistakes and what was mended, and her recorded beliefs. It is a record, not a report of what she feels.',
     type: 'experiment',
     home: 'labs',
     group: 'earlier',
     labs: { kind: 'experiment' },
-    liveUrl: 'https://moth.sammii.dev/evolution.html',
+    liveUrl: 'https://moth.sammii.dev/observatory.html',
     privateRepo: true,
     highlights: [
-      'Drawings are stored as strokes, not images, and redrawn as SVG from the keeper\'s public state',
-      'Anything she put away is left out, as the window does',
-      'The ability chart fits its axis to her scores, because they sit in a narrow band and a zero-to-one axis would hide the change',
-      'Limits: the scores move only a little, so the page makes no claim that she is improving',
+      'Four views of one record, fetched once from the keeper: drawings, memory map, mistakes and beliefs',
+      'Drawings are stored as strokes, not images, and redrawn as SVG',
+      'Where the keeper recorded nothing the page says so, and anything she put away is left out',
+      'Limits: her ability scores barely move, so the page makes no claim that she is improving',
     ],
   },
   {
