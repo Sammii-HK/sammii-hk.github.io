@@ -19,13 +19,14 @@ export const About = () => (
           The through-line is the seam between design and code. At Garden Computing I built the design system and component
           library from scratch: a Radix-based headless layer, design tokens, shared primitives, and I owned brand, marketing
           and component architecture at once. At ASOS I built a date-based seasonal theming system that activates and
-          deactivates itself, which removed the manual release cycle entirely. Gamut is my OKLCH colour engine, implemented
+          deactivates itself, which removed the need for over 15 manual releases a year. Gamut is my OKLCH colour engine, implemented
           from first principles because I wanted to understand the colour space well enough to make decisions in it.
         </p>
         <p>
-          Lunary is the product I run on my own: design, engineering, AI orchestration, analytics and marketing. It is live and
-          it has paying subscribers, and it is where I learned what a design system has to do when one person ships every
-          surface.
+          Lunar Computing is where I bring that work together: web products, native iOS apps, developer tools and games.
+          Lunary is the live subscription product I design, build and run. Nocturne brings spaces, widgets and connected
+          tools into a digital home; Saer reads the design system in a codebase and makes it usable by coding agents.
+          Nocturne and Saer are live work in progress, with invite-only access and a private beta respectively.
         </p>
         <p>
           Trained as a designer (MA Visual Communication), then an immersive software engineering course at General Assembly.

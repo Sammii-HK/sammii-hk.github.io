@@ -19,7 +19,7 @@ function ReferenceInner({ reference }: { reference: ReferenceModel }) {
           {project.title}
         </span>
         <span className="reference-summary">{summary}</span>
-        {emphasis.length > 0 && <span className="reference-meta">{emphasis.join(" · ")}</span>}
+        {(project.status || emphasis.length > 0) && <span className="reference-meta">{[project.status, ...emphasis].filter(Boolean).join(" · ")}</span>}
       </span>
       <span className="reference-arrow" aria-hidden="true">
         <ArrowRight size={16} />

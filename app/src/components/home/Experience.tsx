@@ -4,7 +4,7 @@
  * Typographic rows, tabular dates, no logos.
  */
 const ROLES = [
-  { role: "Founder", org: "Lunar Computing, Inc", from: "2026", to: "now", note: "Lunary: design, engineering, AI orchestration and infrastructure, owned solo." },
+  { role: "Product Engineer (independent)", org: "Lunar Computing, Inc", from: "2026", to: "now", note: "Web products, native iOS apps, developer tools and games, including Lunary, Nocturne and Saer. Product design, full-stack engineering and AI tooling." },
   { role: "Founding Design Engineer", org: "Garden Computing", from: "2025", to: "2026", note: "Component library and design system from scratch: shared primitives, design tokens, a Radix-based headless layer." },
   { role: "Senior Front-end Engineer", org: "Bots (Bond Origination Technologies)", from: "2024", to: "2025", note: "Search and analytics layers; features from concept to launch." },
   { role: "Web Engineer", org: "ASOS.com", from: "2022", to: "2024", note: "Date-based seasonal theming system, site-wide accessibility, the typography system in the shared component library." },

@@ -11,7 +11,7 @@ import { SiteShell } from "../src/components/site/SiteShell";
  * archived projects are not listed here.
  */
 export const metadata: Metadata = {
-  title: "Work: everything I have shipped",
+  title: "Work: products, tools and work in progress",
   description: "Products, design and developer tools, AI systems and earlier work by Sammii Kellow.",
   alternates: { canonical: "https://sammii.dev/work/" },
 };
@@ -23,7 +23,7 @@ export default function WorkPage() {
       <main id="main" className="work-index">
         <header className="work-index-head">
           <p className="section-eyebrow">Work</p>
-          <h1 className="work-index-title">Everything I have shipped, by kind.</h1>
+          <h1 className="work-index-title">Products, tools and work in progress.</h1>
           <p className="work-index-lead">
             The homepage is the argument; this is the evidence. Products, tools, AI systems and earlier work, each with a case
             study or a live link. <a href="/">Back to the front page</a>.

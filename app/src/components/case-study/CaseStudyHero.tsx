@@ -32,6 +32,7 @@ export function CaseStudyHero({ title, description, techStack, readingTime, proj
         <span className="case-hero-time">{readingTime}</span>
       </p>
       <h1 className="case-hero-title">{title}</h1>
+      {project?.status && <p className="section-eyebrow">{project.status}</p>}
       {description && <p className="case-hero-lead">{description}</p>}
       {techStack && (
         <p className="case-hero-stack">

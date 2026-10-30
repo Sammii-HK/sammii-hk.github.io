@@ -15,6 +15,7 @@ type ProjectItem = {
   caseStudy?: string;
   privateRepo?: boolean;
   noRepo?: boolean;
+  status?: string;
 };
 
 type Project = {
@@ -53,6 +54,7 @@ export const ProjectItem = (projectItem: Project) => {
           <h3 className="text-sm sm:text-base md:text-xl font-semibold break-words line-clamp-2 flex-1 min-w-0">
             {project.title}
           </h3>
+          {project.status && <span className="text-[10px] text-black/60 dark:text-white/60">{project.status}</span>}
           {project.caseStudy && (
             <span
               className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] uppercase tracking-wider text-black/50 dark:text-white/50 border border-black/15 dark:border-white/15 flex-shrink-0"

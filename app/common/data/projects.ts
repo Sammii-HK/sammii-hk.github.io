@@ -50,6 +50,7 @@ export type Project = {
   caseStudy?: string;
   privateRepo?: boolean;
   noRepo?: boolean;
+  status?: string;
   home: Home;
   group: WorkGroup;
   /** supersededBy: the project that replaced it (shown on labs.sammii.dev). */
@@ -64,6 +65,28 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: 'nocturne',
+    title: 'Nocturne',
+    techStack: 'Next.js, TypeScript, SQLite, MCP, SwiftUI',
+    info: 'A connected digital home: arrange spaces and widgets around pages, collections and the tools you use. A web product with an iOS companion, built around scoped permissions and traceable connected data.',
+    type: 'product', home: 'work', group: 'products',
+    status: 'Live WIP · Invite-only',
+    liveUrl: 'https://nocturne.lunarcomputing.org/about',
+    caseStudy: 'nocturne', privateRepo: true,
+    highlights: ['Customisable spaces and widgets', 'Pages, collections and views', 'Scoped MCP and API connections', 'Web product and iOS companion'],
+  },
+  {
+    id: 'saer',
+    title: 'Saer',
+    techStack: 'Python, TypeScript, CSS analysis, MCP',
+    info: 'Design-system intelligence grounded in the codebase. Reconstructs tokens and components, finds implementation drift and gives coding agents evidence-backed guidance through a local, read-only MCP interface.',
+    type: 'product', home: 'work', group: 'tools',
+    status: 'Live WIP · Private beta',
+    liveUrl: 'https://saer.app', caseStudy: 'saer', privateRepo: true,
+    highlights: ['Declared system checked against real usage', 'Exact and inferred findings kept separate', 'Local, read-only scanning', 'Evidence-backed guidance for coding agents'],
+  },
+
   // ── Products ──────────────────────────────────────────────────────
   {
     id: 'gamut',

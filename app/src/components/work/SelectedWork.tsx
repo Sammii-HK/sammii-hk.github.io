@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useRef } from "react";
-import { selectedWorkModel } from "../../../lib/selected-work";
+import { projects } from "../../../common/data/projects";
+import { projectHref, selectedWorkModel } from "../../../lib/selected-work";
 import { useLens } from "../lens/LensProvider";
 import { Chapter } from "./Chapter";
 import { Reference } from "./Reference";
@@ -42,6 +43,16 @@ export const SelectedWork = () => {
       <p className="work-more">
         <a href="/work/">More work, by kind <ArrowRight size={13} className="icon-inline" aria-hidden="true" /></a>
       </p>
+      <section aria-labelledby="work-in-progress-heading" className="pt-12">
+        <h3 id="work-in-progress-heading" className="section-eyebrow scroll-mt-24">Live work in progress</h3>
+        <ol className="references" aria-label="Live work in progress">
+          {projects.filter((project) => project.status).map((project, index) => (
+            <li key={project.id} className="work-item" data-tier="supporting">
+              <Reference reference={{ project, index: index + 1, summary: project.info, emphasis: [], href: projectHref(project) }} />
+            </li>
+          ))}
+        </ol>
+      </section>
     </section>
   );
 };
