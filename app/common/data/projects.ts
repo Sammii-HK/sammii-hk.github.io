@@ -507,6 +507,23 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'why-this-take-won',
+    title: 'Why this take won',
+    techStack: 'TypeScript, ES modules, plain DOM',
+    info: "Post Ready picks the best delivery of each phrase across several takes using four small numbers: words heard, a penalty per filler, pace and eye contact. This page runs a port of that scoring rule on three invented takes and shows every part of every score, with sliders for the weights. The takes are invented; no recording is used.",
+    type: 'experiment',
+    home: 'labs',
+    group: 'earlier',
+    labs: { kind: 'experiment' },
+    liveUrl: 'https://sammii.dev/experiments/why-this-take-won/index.html',
+    privateRepo: true,
+    highlights: [
+      'The scorer is a port of the app\'s own phrase-scoring code, checked against hand-worked cases',
+      'Every score is shown as its four parts, so the winner is explained, not just announced',
+      'Limits: it cannot judge tone or whether a joke landed, and the demo takes are invented',
+    ],
+  },
+  {
     id: 'kinetic',
     title: 'Kinetic',
     techStack: 'Next.js, Framer Motion, TypeScript, Tailwind CSS',

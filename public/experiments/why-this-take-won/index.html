@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why this take won</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1b18;--mut:#6b655d;--line:#dcd6cb;--card:#fff;--cov:#2f6f5e;--fil:#b4452f;--pace:#6a5acd;--gaze:#b08a2e;--win:#e7f1ec}
+@media (prefers-color-scheme:dark){:root{--bg:#161513;--fg:#efebe3;--mut:#a39c90;--line:#3a3731;--card:#201e1b;--cov:#6fc2a8;--fil:#e8856f;--pace:#a99cf0;--gaze:#e0bb62;--win:#1f2e28}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:32px 16px 64px}h1{font-size:1.9rem;margin:0 0 6px}p{margin:.4em 0}.mut{color:var(--mut)}
+.note{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:12px 14px;margin:16px 0}
+.row{display:grid;grid-template-columns:minmax(0,1.1fr) repeat(3,minmax(0,1fr));gap:8px;align-items:stretch;margin:8px 0}
+.ph{padding:8px 0;font-size:.95rem}.cell{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 10px}
+.cell.win{background:var(--win);border-color:var(--cov)}.tot{font-weight:650;font-variant-numeric:tabular-nums}
+.bar{display:flex;height:10px;margin:6px 0;border-radius:3px;overflow:hidden;background:var(--line)}.bar i{display:block}
+.parts{font-size:.8rem;color:var(--mut);font-variant-numeric:tabular-nums;display:grid;grid-template-columns:1fr 1fr;gap:0 8px}
+.hd{font-weight:600}.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px;margin:12px 0}
+label{display:block;font-size:.9rem}input[type=range]{width:100%;min-height:32px}button{font:inherit;padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);min-height:44px;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.sum{margin-top:18px}.chip{display:inline-block;padding:2px 8px;border-radius:99px;background:var(--win);font-size:.85rem}
+@media (max-width:720px){.row{grid-template-columns:1fr}.hd.top{display:none}}
+</style></head><body><main>
+<h1>Why this take won</h1>
+<p class="mut">Post Ready picks the best delivery of each phrase across several takes. The rule is four small numbers added together. This page runs that rule on three invented takes and shows every part of every score.</p>
+<div class="note"><b>What is real and what is not.</b> The scoring and phrase-splitting code is a port of <code>MultiTakeAssembler.scorePhrase</code> (Post Ready 1.0.1, commit 3fff237a), checked by tests against hand-worked cases. The script and the three takes are invented for this page; no recording or real transcript is used. The window sliders change the weights for exploring only, they are not what the app uses.</div>
+<div id="script" class="note"></div>
+<div class="ctl" id="ctl"></div>
+<div style="display:flex;gap:8px;margin-bottom:8px"><button id="reset" type="button">Reset to Post Ready's values</button></div>
+<div id="grid" aria-live="polite"></div>
+<div class="sum" id="sum"></div>
+<p class="mut" style="margin-top:24px">What it cannot see: how a take sounds, whether a joke landed, tone. It scores words heard, fillers, pace and eye contact, and nothing else. A person still chooses what to post.</p>
+</main>
+<script type="module">
+import { scorePhrase, SWIFT_WEIGHTS } from './score.mjs';
+import { SCRIPT, scriptWords, phrases, takes } from './takes.mjs';
+const el = (t, a = {}, ...k) => { const e = document.createElement(t); for (const [n, v] of Object.entries(a)) n === 'class' ? e.className = v : e.setAttribute(n, v); for (const c of k) e.append(c); return e; };
+const W = { ...SWIFT_WEIGHTS };
+const defs = [['filler','Penalty per "um"',0,1,0.05],['gaze','Weight on eye contact',0,2,0.1],['target','Target pace (words per second)',1.5,3.5,0.05],['pacePenalty','Largest pace penalty',0,1.5,0.05]];
+const ctl = document.getElementById('ctl'), outs = {};
+for (const [k, lab, mn, mx, st] of defs) {
+  const o = el('output'); outs[k] = o;
+  const i = el('input', { type: 'range', min: mn, max: mx, step: st, value: W[k], id: 'w-' + k });
+  i.addEventListener('input', () => { W[k] = +i.value; render(); });
+  ctl.append(el('label', { for: 'w-' + k }, lab + ': ', o, i));
+}
+document.getElementById('reset').addEventListener('click', () => { Object.assign(W, SWIFT_WEIGHTS); for (const [k] of defs) document.getElementById('w-' + k).value = W[k]; render(); });
+const fmt = (n) => (n >= 0 ? '+' : '−') + Math.abs(n).toFixed(2);
+function render() {
+  for (const [k] of defs) outs[k].textContent = (+W[k]).toFixed(2) + (k === 'filler' ? ' (app: 0.40)' : '');
+  const sc = document.getElementById('script'); sc.replaceChildren(el('b', {}, 'Invented script, split the way the app splits it: '));
+  phrases.forEach((p, i) => sc.append(el('span', { class: 'chip', style: 'margin:2px 4px 2px 0' }, (i + 1) + '  ' + scriptWords.slice(p.from, p.to + 1).join(' '))));
+  const g = document.getElementById('grid'); g.replaceChildren();
+  const head = el('div', { class: 'row hd top' }, el('div', {}, 'Phrase'), ...takes.map((t) => el('div', {}, t.name))); g.append(head);
+  const wins = takes.map(() => 0); let best = 0;
+  phrases.forEach((p, pi) => {
+    const res = takes.map((t) => scorePhrase({ phrase: p, scriptWords, window: t.rows[pi].window, gazeBonus: t.rows[pi].gazeBonus * W.gaze }, W));
+    let wi = 0; res.forEach((r, i) => { if (r.total > res[wi].total) wi = i; }); wins[wi]++; best += res[wi].total;
+    const row = el('div', { class: 'row' }, el('div', { class: 'ph' }, el('b', {}, 'Phrase ' + (pi + 1) + ' '), scriptWords.slice(p.from, p.to + 1).join(' ')));
+    res.forEach((r, ti) => {
+      const scale = 100 / 2.4, parts = [['coverage', r.coverage, 'var(--cov)'], ['filler', r.filler, 'var(--fil)'], ['pace', r.pace, 'var(--pace)'], ['gaze', r.gaze, 'var(--gaze)']];
+      const bar = el('div', { class: 'bar', role: 'img', 'aria-label': 'Score parts' });
+      for (const [, v, c] of parts) bar.append(el('i', { style: `width:${Math.abs(v) * scale}%;background:${c};opacity:${v < 0 ? 0.55 : 1}` }));
+      const t = takes[ti].rows[pi];
+      const cell = el('div', { class: 'cell' + (ti === wi ? ' win' : '') },
+        el('div', { class: 'tot' }, r.total.toFixed(2), ti === wi ? '  ✓ wins' : ''), bar,
+        el('div', { class: 'parts' }, el('span', {}, 'words heard ' + fmt(r.coverage)), el('span', {}, r.fillers + ' um ' + fmt(r.filler)), el('span', {}, r.wps.toFixed(1) + ' wps ' + fmt(r.pace)), el('span', {}, 'eyes ' + fmt(r.gaze))));
+      if (t.missed.length) cell.append(el('div', { class: 'mut', style: 'font-size:.8rem' }, 'not heard: ' + t.missed.join(', ')));
+      row.append(cell);
+    });
+    g.append(row);
+  });
+  document.getElementById('sum').replaceChildren(el('b', {}, 'Result: '), takes.map((t, i) => t.name + ' wins ' + wins[i]).join(', ') + ' of ' + phrases.length + ' phrases. Spliced total ' + best.toFixed(2) + '. ' + (wins.some((n) => n === phrases.length) ? 'One take wins every phrase with these weights, so splicing adds nothing here.' : 'No single take wins every phrase with these weights, which is what splicing is for.'));
+}
+render();
+</script></body></html>
