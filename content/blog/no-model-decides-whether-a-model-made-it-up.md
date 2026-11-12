@@ -9,13 +9,13 @@ tags:
 draft: false
 ---
 
-Cast is my job-search system. An LLM tailors each CV and cover letter to a role, and drafts replies and form answers in my name. Then deterministic checks verify every claim against my real history before I send anything.
+Cast is a system I built that drafts text in my name: replies, form answers and documents about my work. An LLM writes the draft. Then deterministic checks verify every claim against my real history before I send anything.
 
 That last step is the part worth writing about. Text about a real person is where a language model does the most damage when it fills a gap. A plausible sentence about a tool I have never used reads exactly like a true one, and the person reading it has no way to tell.
 
 ## What went wrong first
 
-Before the check existed, drafts claimed tools and experience my records do not support, and said I had read something I had not. That is the failure to design for. Ask a model to make someone sound like a good fit and it will tend to supply the details a good fit would have.
+Before the check existed, drafts claimed tools and experience my records do not support, and said I had read something I had not. That is the failure to design for. Ask a model to make someone sound credible and it will tend to supply the details a credible person would have.
 
 ## Why the checker is not a model
 
@@ -35,9 +35,9 @@ The rules are small and literal.
 - Numbers next to the same noun. A count of engineers needs that same count near the word engineer in my records, not the same digit somewhere else. A figure in millions has to appear in millions.
 - Strong verbs. Words that claim more than built or worked on, such as led, managed, founded or architected, need the same stem in the source.
 - A not-claimable list. Lines in my verified facts mark things I must never imply. Terms named there are refused in any sentence about me, unless the sentence says I have not done it. A few terms are claimable only in the context I gave.
-- Fixed rules that need no records: no claim that I read something I have not confirmed reading, no personal detail, no proposed days or times, no links except my own sites or ones from the message or job ad being answered, and no em or en dashes.
+- Fixed rules that need no records: no claim that I read something I have not confirmed reading, no personal detail, no proposed days or times, no links except my own sites or ones from the message being answered, and no em or en dashes.
 
-The checker also reads who a sentence is about. A sentence with I, my or me in it is a claim about me, and may only use my records. A sentence about the other person, or a question, may also use words from their message. A sentence about what I would do in a new role is intent rather than history, so it may use the job ad's terms. Anything I say I have done stays limited to my records.
+The checker also reads who a sentence is about. A sentence with I, my or me in it is a claim about me, and may only use my records. A sentence about the other person, or a question, may also use words from their message. A sentence about what I would do next is intent rather than history, so it may use the terms of the request it answers. Anything I say I have done stays limited to my records.
 
 ## A single redraft, then no draft
 
