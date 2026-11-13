@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { getAllSlugs, getPostBySlug, REVALIDATE } from '../../lib/blog';
+import { InteractiveExploration } from '../../src/components/blog/InteractiveExploration';
 
 export const revalidate = REVALIDATE;
 export const dynamicParams = true;
@@ -27,12 +28,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) return {};
+  if (post.draft || new Date(post.date) > new Date()) {
+    return { title: post.title, robots: { index: false, follow: false } };
+  }
 
-  const url = `https://sammii.dev/blog/${slug}`;
+  const url = `https://sammii.dev/blog/${slug}/`;
 
   return {
     title: `${post.title} · sammii.dev`,
     description: post.description,
+    alternates: { canonical: url },
     openGraph: {
       title: `${post.title} · sammii.dev`,
       description: post.description,
@@ -57,7 +62,7 @@ export default async function BlogPost({ params }: Props) {
   const isFuture = new Date(post.date) > new Date();
   if (isFuture) notFound();
 
-  const url = `https://sammii.dev/blog/${slug}`;
+  const url = `https://sammii.dev/blog/${slug}/`;
 
   return (
     <main className="max-w-2xl mx-auto px-6 py-12">
@@ -103,7 +108,7 @@ export default async function BlogPost({ params }: Props) {
       </header>
 
       <article className="prose dark:prose-invert prose-neutral max-w-none">
-        <MDXRemote source={post.content} options={mdxOptions} />
+        <MDXRemote source={post.content} options={mdxOptions} components={{ InteractiveExploration }} />
       </article>
     </main>
   );

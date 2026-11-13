@@ -1,0 +1,104 @@
+{
+  "files": [
+    {
+      "source": "atlas/worlds/worlds.js",
+      "runtime": "modules/worlds.js",
+      "sha256": "682eaa401f7b037e31fd8eee7706021d723b673453a8035868835f103878356f"
+    },
+    {
+      "source": "atlas/worlds/worlds.css",
+      "runtime": "modules/worlds.css",
+      "sha256": "294a7425cd132166e2f0fc84d7c1398e4cdd25f185ff3b449ee96a0042abc1af"
+    },
+    {
+      "source": "atlas/worlds/SOURCES.md",
+      "runtime": "sources/worlds.md",
+      "sha256": "a62f428e4d3898e6dcc56668b3fbf89c47e72b50a7eea9b0045e82d66e11ff60"
+    },
+    {
+      "source": "atlas/sky/sky.js",
+      "runtime": "modules/sky.js",
+      "sha256": "43e0efc0b03f170e1208bf6d9bd80b651ee8b88ec5c6eaa6ffdbb204372d0760"
+    },
+    {
+      "source": "atlas/sky/sky.css",
+      "runtime": "modules/sky.css",
+      "sha256": "39d80e7791a4391d3974c4bced5316995cfbeca47b3bd23f265293dbbb7275b2"
+    },
+    {
+      "source": "atlas/sky/SOURCES.md",
+      "runtime": "sources/sky.md",
+      "sha256": "1dea1049c83a35e238c39c9bb19d6c3c42e710428a8920b0f7ff73495e9f64fe"
+    },
+    {
+      "source": "atlas/sky/data/D3-LICENSE.txt",
+      "runtime": "sources/D3-LICENSE.txt",
+      "sha256": "a8c79239001ad4bea243d1796b85084e1fc39309c5c5a663930a1b46320254c6"
+    },
+    {
+      "source": "atlas/labs/labs.js",
+      "runtime": "modules/labs.js",
+      "sha256": "ec68de2761d160d809edc83e4db716072f50743d5300de62724b4114aac1499f"
+    },
+    {
+      "source": "atlas/labs/labs.css",
+      "runtime": "modules/labs.css",
+      "sha256": "3ee028a91530fcf377095cbc19b71a6b4362dbf3c70b5d3c103b71a912579575"
+    },
+    {
+      "source": "atlas/labs/SOURCES.md",
+      "runtime": "sources/physics.md",
+      "sha256": "b0482c29424e4addd57800d45df84412dc98753c4488e07af4ade12a5a3c2dfe"
+    },
+    {
+      "source": "atlas/clock/black-hole-clocks.html",
+      "runtime": "modules/black-hole-clocks.html",
+      "sha256": "d6877c69373ef8e78d3a177a6c1826c1b2ced6ed3f9be5f9d3e5d4f92f216ce7"
+    },
+    {
+      "source": "atlas/clock/SOURCES.md",
+      "runtime": "sources/clocks.md",
+      "sha256": "a0674c318731b5aa96ce6ef4b60240f47962604fa097c3f7b797accb8309f142"
+    },
+    {
+      "source": "evolution/model.js",
+      "runtime": "modules/evolution-model.js",
+      "sha256": "98e168d0e9eb8a1cbe1b158b87e5bd9018ee3378a8adc1fe5ba8c38b75137eb9"
+    },
+    {
+      "source": "evolution/app.js",
+      "runtime": "modules/evolution-app.js",
+      "sha256": "36fa81207fcec3fc7ee96c65e7d083ff3ee87824cea4151f2737cc441b935710"
+    },
+    {
+      "source": "evolution/index.template.html",
+      "runtime": "modules/evolution.template.html",
+      "sha256": "cb1dbc5dd63290032d6d1f5ad0e5646defae14b3b04e7a310aa60d6fb4e90101"
+    },
+    {
+      "source": "evolution/SOURCES.md",
+      "runtime": "sources/evolution.md",
+      "sha256": "cdcd6abb84905c7c7b23c9eb1021c75717513cb5e23ee5742ad23ce8ff65a6fe"
+    },
+    {
+      "source": "editorial/assets/Inter.ttf",
+      "runtime": "fonts/Inter.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "source": "editorial/assets/Jost.ttf",
+      "runtime": "fonts/Jost.ttf",
+      "sha256": "6343b70971000b04c5d401c96ae08ce371086135e999d5e1e1413039c0213076"
+    },
+    {
+      "source": "editorial/assets/Inter-LICENSE.txt",
+      "runtime": "fonts/Inter-LICENSE.txt",
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "source": "editorial/assets/Jost-LICENSE.txt",
+      "runtime": "fonts/Jost-LICENSE.txt",
+      "sha256": "1af3438a4d5f0ed2bdbc5751a5a67ebf6d537334161184b7fbb68503ef0ea0c5"
+    }
+  ]
+}

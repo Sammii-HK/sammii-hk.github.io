@@ -1,0 +1,601 @@
+{
+  "collection": {
+    "title": "Explorations",
+    "seoTitle": "Interactive space and physics explorations | Sammii Kellow",
+    "description": "Explore black-hole light, quantum patterns, changing constellations and other worlds through interactive visualisations by design engineer Sammii Kellow.",
+    "intro": "Space, physics and patterns you can play with. Change a condition, make a prediction, then see what follows.",
+    "author": {
+      "name": "Sammii Kellow",
+      "url": "https://sammii.dev/"
+    },
+    "authorCopy": "Built by Sammii Kellow, a design engineer working across visual communication, interaction and software."
+  },
+  "items": [
+    {
+      "id": "past-earth",
+      "moduleFamily": "world",
+      "slug": "plate-tectonics",
+      "title": "A planet reshaping itself",
+      "topic": "Plate tectonics",
+      "category": "Worlds",
+      "seoTitle": "Plate tectonics: an interactive exploration | Sammii Kellow",
+      "description": "Scrub through diverging plates, subduction and transform faults. Explore how geological processes reshape a landscape in three interactive illustrations.",
+      "intro": "Pull a landscape apart, push its plates together or slide them past one another. Three illustrated sequences reveal how different kinds of plate movement leave different shapes behind.",
+      "instructions": [
+        "Choose divergence, convergence or transform motion.",
+        "Drag the progress control or play the sequence.",
+        "Follow the changing labels and compare the resulting landforms."
+      ],
+      "explanation": "Divergence opens a rift and builds new crust. Convergence sends one slab beneath another. Transform motion offsets features along a fault. The shared control makes those processes easy to compare.",
+      "limitations": "This is a process illustration. Progress is not elapsed geological time, and the view does not reconstruct historical coastlines, local geology or a real place in the past.",
+      "sources": [
+        {
+          "label": "USGS: Plate tectonics and volcanism",
+          "url": "https://pubs.usgs.gov/fs/2025/3013/fs20253013.pdf"
+        },
+        {
+          "label": "NASA: Earth facts",
+          "url": "https://science.nasa.gov/earth/facts/"
+        }
+      ],
+      "relatedIds": [
+        "evolution",
+        "interiors",
+        "surfaces"
+      ],
+      "readouts": [
+        "The selected boundary process and its labelled landforms.",
+        "Progress through an illustration, rather than a geological date."
+      ]
+    },
+    {
+      "id": "surfaces",
+      "moduleFamily": "world",
+      "slug": "day-on-another-world",
+      "title": "A day on another world",
+      "topic": "Planetary skies and light",
+      "category": "Worlds",
+      "seoTitle": "A day on another world: skies and sunsets | Sammii Kellow",
+      "description": "Move from dawn to dusk on twelve planets and moons. Compare artistic surface and atmospheric views, from Mars's sunset to Titan's diffuse haze.",
+      "intro": "Keep your viewpoint and change the world around you. Move the light from dawn to dusk, then compare a dusty atmosphere, a hazy sky and a world with almost no air.",
+      "instructions": [
+        "Choose a planet, moon or dwarf planet.",
+        "Move the dawn-to-dusk control.",
+        "Compare the sky, terrain and lighting notes across worlds."
+      ],
+      "explanation": "The twelve scenes draw on published planetary descriptions while keeping the same interaction. Airless worlds keep black skies; giant planets show cloud-only imagined viewpoints rather than a solid surface.",
+      "limitations": "These are original artistic scenes informed by observations, not radiative-transfer calculations or calibrated photographs. The control is a daylight phase, not hours, season, latitude or the length of a planetary day.",
+      "sources": [
+        {
+          "label": "NASA: Sunsets on other worlds",
+          "url": "https://www.nasa.gov/solar-system/nasa-scientist-simulates-sunsets-on-other-worlds/"
+        },
+        {
+          "label": "NASA: Mars facts",
+          "url": "https://science.nasa.gov/mars/facts/"
+        },
+        {
+          "label": "NASA: Titan facts",
+          "url": "https://science.nasa.gov/saturn/moons/titan/facts/"
+        }
+      ],
+      "relatedIds": [
+        "interiors",
+        "gravity"
+      ],
+      "readouts": [
+        "The selected world and its atmosphere or surface notes.",
+        "The daylight phase, from dawn to dusk; it is not a clock time."
+      ]
+    },
+    {
+      "id": "interiors",
+      "moduleFamily": "world",
+      "slug": "inside-planets",
+      "title": "Beneath the surface",
+      "topic": "Planet and moon interiors",
+      "category": "Worlds",
+      "seoTitle": "Inside planets and moons: interactive cutaways | Sammii Kellow",
+      "description": "Reveal the layers inside twelve planets and moons. Inspect rock, ice, ocean and fluid regions in simplified models with their uncertainties explained.",
+      "intro": "Peel back the surface of a world and inspect what may lie beneath it. Compare rocky planets, giant planets and icy moons without treating them as the same kind of object.",
+      "instructions": [
+        "Choose one of the twelve worlds.",
+        "Drag the cutaway control to reveal its interior.",
+        "Inspect a layer and read which parts are inferred or uncertain."
+      ],
+      "explanation": "The cutaways make broad interior models legible: rock and metal, pressurised fluids, ice and possible liquid layers. Labels distinguish strongly supported structures from unresolved possibilities.",
+      "limitations": "Layer proportions are illustrative, not measured thicknesses. Giant-planet transitions can be gradual. Titan's liquid-rich layer is one possible model, and Pluto's ocean is not presented as proven.",
+      "sources": [
+        {
+          "label": "NASA: Jupiter facts",
+          "url": "https://science.nasa.gov/jupiter/jupiter-facts/"
+        },
+        {
+          "label": "NASA: Europa facts",
+          "url": "https://science.nasa.gov/jupiter/jupiter-moons/europa/europa-facts/"
+        },
+        {
+          "label": "NASA: Titan facts",
+          "url": "https://science.nasa.gov/saturn/moons/titan/facts/"
+        }
+      ],
+      "relatedIds": [
+        "surfaces",
+        "past-earth"
+      ],
+      "readouts": [
+        "The selected interior layer and its composition notes.",
+        "The revealed cutaway, with illustrative layer proportions."
+      ]
+    },
+    {
+      "id": "gravity",
+      "moduleFamily": "world",
+      "slug": "gravity-on-other-worlds",
+      "title": "The gravity room",
+      "topic": "Gravity across the Solar System",
+      "category": "Worlds",
+      "seoTitle": "Gravity on other worlds: interactive comparison | Sammii Kellow",
+      "description": "Launch the same object on twelve worlds and compare its path. Play, pause and scrub a shared clock, then inspect height, distance and vertical velocity.",
+      "intro": "Give the same object the same launch on different worlds. Keep time and distance on a shared scale, then see which differences are caused by gravity.",
+      "instructions": [
+        "Choose a world or comparison group.",
+        "Set the launch and play or scrub the common clock.",
+        "Inspect a path to compare its height, distance and velocity at that moment."
+      ],
+      "explanation": "Every displayed trajectory uses the same elapsed time and metre scale. A ball remains at its endpoint after landing, so a longer flight can be compared with a shorter one without changing the clock.",
+      "limitations": "The comparison assumes a vacuum and constant acceleration over a short path. It omits air resistance, terrain and planetary curvature. Giant-planet values refer to a 1-bar atmospheric level with an imaginary reference plane.",
+      "sources": [
+        {
+          "label": "NASA: Planetary fact sheet",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        },
+        {
+          "label": "NASA: Fact sheet notes",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/planetfact_notes.html"
+        },
+        {
+          "label": "NASA Glenn: Ballistic flight equations",
+          "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/ballistic-flight-equations/"
+        }
+      ],
+      "relatedIds": [
+        "surfaces",
+        "black-hole"
+      ],
+      "readouts": [
+        "Gravity, range and flight time for the selected world.",
+        "Elapsed time, horizontal distance, height and vertical velocity at the inspected point."
+      ]
+    },
+    {
+      "id": "stories",
+      "moduleFamily": "sky",
+      "slug": "constellations-and-sky-stories",
+      "title": "One sky, many stories",
+      "topic": "Constellations and attributed sky stories",
+      "category": "Skies",
+      "seoTitle": "Constellations and sky stories: interactive atlas | Sammii Kellow",
+      "description": "Explore 88 modern constellation figures in stars, lines or illustration. Compare separately attributed Matariki, Seven Sisters and Celestial Emu accounts.",
+      "intro": "A line between stars is a choice made by someone looking up. Explore modern constellation figures, then read three specifically attributed accounts of patterns in the sky.",
+      "instructions": [
+        "Search for a modern constellation.",
+        "Switch between stars, lines and illustration.",
+        "Use the separate account selector to explore the attributed sky stories."
+      ],
+      "explanation": "The modern catalogue and the cultural accounts are separate views with different purposes. Switching a drawing does not change the measured star data, and a named story is not treated as a universal account shared by every community.",
+      "limitations": "The illustrations are contemporary original interpretations. Matariki, the Greek Seven Sisters and the Kamilaroi/Euahlayi Celestial Emu are concise, source-attributed examples, not complete alternative sky catalogues or invented traditional artwork.",
+      "sources": [
+        {
+          "label": "Te Papa: Matariki regional variations",
+          "url": "https://www.tepapa.govt.nz/digital-museum/explore-digital-museum/matariki-maori-new-year/matariki-regional-variations"
+        },
+        {
+          "label": "NASA JPL: The Seven Sisters",
+          "url": "https://www.jpl.nasa.gov/images/pia09263-the-seven-sisters-pose-for-spitzer/"
+        },
+        {
+          "label": "Ngarrngga: The Celestial Emu",
+          "url": "https://www.ngarrngga.org/case-study/case-study-1-the-celestial-emu"
+        },
+        {
+          "label": "D3 Celestial source catalogue",
+          "url": "https://github.com/ofrohn/d3-celestial"
+        }
+      ],
+      "relatedIds": [
+        "time",
+        "depth"
+      ],
+      "readouts": [
+        "The selected constellation, measured star count and line segments.",
+        "An inspected star’s catalogue position, proper motion and parallax, with a link to the original ESA record.",
+        "The source attribution for the separate cultural account."
+      ]
+    },
+    {
+      "id": "time",
+      "moduleFamily": "sky",
+      "slug": "constellations-through-time",
+      "title": "The sky unravelling",
+      "topic": "Stellar proper motion",
+      "category": "Skies",
+      "seoTitle": "How constellations change over time | Sammii Kellow",
+      "description": "Scrub through an illustrative future and past for 88 constellations. Compare measured stellar proper motions with the original pattern and inspect the data.",
+      "intro": "The stars in a constellation do not stay fixed relative to one another. Stretch the timeline and watch measured proper motions accumulate into a different pattern.",
+      "instructions": [
+        "Choose a constellation and keep its original guide visible.",
+        "Play or scrub the time offset from the catalogue epoch.",
+        "Inspect a star and use trails or zoom to follow its motion."
+      ],
+      "explanation": "The view starts from the original Hipparcos catalogue epoch, J1991.25. It projects a linear transverse-motion model back onto the sky, keeping the original pattern visible for comparison.",
+      "limitations": "The long time range is illustrative, not an accurate long-term ephemeris. Radial velocities, Galactic gravity, binary motion, precession and stellar evolution are omitted. The source epoch is not labelled as today.",
+      "sources": [
+        {
+          "label": "NASA HEASARC: Hipparcos catalogue",
+          "url": "https://heasarc.gsfc.nasa.gov/w3browse/star-catalog/hipparcos.html"
+        },
+        {
+          "label": "CDS VizieR: Original Hipparcos catalogue",
+          "url": "https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=I%2F239"
+        },
+        {
+          "label": "ESA: The future of the Orion constellation",
+          "url": "https://www.esa.int/articles/about-us/directorates/science/gaia/the-future-of-the-orion-constellation"
+        }
+      ],
+      "relatedIds": [
+        "stories",
+        "depth"
+      ],
+      "readouts": [
+        "Years before or after the catalogue epoch J1991.25.",
+        "An inspected star’s proper motion in milliarcseconds per year.",
+        "Catalogue position, parallax and its uncertainty; approximate distance only where the historical measurement supports it."
+      ]
+    },
+    {
+      "id": "depth",
+      "moduleFamily": "sky",
+      "slug": "big-dipper-in-3d",
+      "title": "Step outside the pattern",
+      "topic": "Constellation depth and viewpoint",
+      "category": "Skies",
+      "seoTitle": "The Big Dipper in 3D: change your viewpoint | Sammii Kellow",
+      "description": "Move sideways from Earth's viewpoint and see the Big Dipper change. Explore a seven-star sample using Hipparcos positions and measured parallaxes.",
+      "intro": "The Big Dipper looks flat from Earth, but its stars sit at different distances. Move the viewpoint sideways and the familiar shape begins to open into depth.",
+      "instructions": [
+        "Start from the Earth-view pattern.",
+        "Move the observer sideways with the distance control.",
+        "Compare the projected stars and the top-view inset."
+      ],
+      "explanation": "The view uses seven familiar stars with high-significance parallax measurements. Their inferred distances and sky positions define a static three-dimensional sample that can be viewed from a new location.",
+      "limitations": "This is a focused seven-star geometric study, not an all-sky map or a spacecraft simulation. It does not include motion during travel, light-time effects, relativistic aberration or newly calculated apparent brightness.",
+      "sources": [
+        {
+          "label": "NASA HEASARC: Hipparcos catalogue",
+          "url": "https://heasarc.gsfc.nasa.gov/w3browse/star-catalog/hipparcos.html"
+        },
+        {
+          "label": "ESA: Hipparcos catalogue fields",
+          "url": "https://hipparcos-tools.cosmos.esa.int/pstex/sect2_01.pdf"
+        }
+      ],
+      "relatedIds": [
+        "stories",
+        "time"
+      ],
+      "readouts": [
+        "The observer’s sideways displacement from Earth in light-years.",
+        "The selected star’s distance from Earth and from the current viewpoint.",
+        "The catalogue parallax and a distance interval obtained by inverting its one-standard-error limits."
+      ]
+    },
+    {
+      "id": "black-hole",
+      "moduleFamily": "clock",
+      "slug": "black-hole-time-dilation",
+      "title": "Near a black hole",
+      "topic": "Gravitational time dilation",
+      "category": "Light and time",
+      "seoTitle": "Black-hole time dilation: compare two clocks | Sammii Kellow",
+      "description": "Place a stationary clock near a non-rotating black hole and compare its rate with a distant clock. Change the radius and watch the difference accumulate.",
+      "intro": "One clock stays close to a black hole; another provides a far-away reference. Change the near clock's radius and compare how much time accumulates in the ideal model.",
+      "instructions": [
+        "Choose a radius outside the event horizon.",
+        "Start the clocks and compare their elapsed times.",
+        "Change the radius to restart the comparison under a new condition."
+      ],
+      "explanation": "The displayed rate comes from the stationary Schwarzschild time relation. Each local observer's own clock runs normally; the comparison concerns how the two clocks relate in this geometry.",
+      "limitations": "The near clock is held stationary. This is not an orbit, freefall or travel calculation. Rotation, charge and the practical limits of holding position are omitted; the drawing compresses radial spacing.",
+      "sources": [
+        {
+          "label": "Andrew Hamilton, JILA: Schwarzschild geometry",
+          "url": "https://jila.colorado.edu/~ajsh/courses/bh/schwp.html"
+        }
+      ],
+      "relatedIds": [
+        "black-hole-light",
+        "gravity"
+      ],
+      "readouts": [
+        "Radius from the centre, expressed in horizon radii.",
+        "Elapsed time on the distant and hovering clocks.",
+        "The hovering clock’s rate as a percentage of the distant reference."
+      ]
+    },
+    {
+      "id": "black-hole-light",
+      "moduleFamily": "lab",
+      "slug": "black-hole-light-paths",
+      "title": "Where light can go",
+      "topic": "Light around a black hole",
+      "category": "Light and time",
+      "seoTitle": "Light around a black hole: interactive paths | Sammii Kellow",
+      "description": "Aim light past a black hole and find the boundary between escape and capture. Trace and scrub calculated Schwarzschild paths with readable model limits.",
+      "intro": "Move the aim of a light ray by a little. Watch its route change from a gentle bend to a long turn, then to capture at the horizon.",
+      "instructions": [
+        "Choose a path preset or adjust its aim.",
+        "Trace the ray or scrub its progress.",
+        "Compare the outcome, closest approach and deflection readouts."
+      ],
+      "explanation": "The curve is calculated from an ideal Schwarzschild light-path equation. The impact parameter describes the incoming aim; it is different from the closest approach reported after the path is calculated.",
+      "limitations": "This is an exterior coordinate-path map for a non-rotating, uncharged black hole. It is not a telescope image, accretion-disc rendering or travel-time clock. Captured rays end at the horizon.",
+      "sources": [
+        {
+          "label": "MIT: Schwarzschild metric and black holes",
+          "url": "https://ocw.mit.edu/courses/8-033-relativity-fall-2006/5dae4a0c2d69b367951ddea5e17a2cea_schwarzschild.pdf"
+        },
+        {
+          "label": "NASA: Anatomy of a black hole",
+          "url": "https://science.nasa.gov/universe/black-holes/anatomy/"
+        }
+      ],
+      "relatedIds": [
+        "black-hole",
+        "double-slit"
+      ],
+      "readouts": [
+        "Selected path: whether the model ray escapes or is captured.",
+        "Closest approach to the centre, in the model’s distance units.",
+        "Deflection for an escaping path."
+      ]
+    },
+    {
+      "id": "double-slit",
+      "moduleFamily": "lab",
+      "slug": "double-slit-experiment",
+      "title": "One arrival at a time",
+      "topic": "The double-slit experiment",
+      "category": "Quantum",
+      "seoTitle": "Double-slit experiment: build the pattern | Sammii Kellow",
+      "description": "Build an interference pattern from individual detections. Change wavelength and slit separation, then compare indistinguishable paths with a path record.",
+      "intro": "Clear the detector and add one arrival at a time. Keep going until a pattern appears, then change the conditions that determine where the next arrivals are likely to land.",
+      "instructions": [
+        "Clear the detector, then add individual detections or start playback.",
+        "Change wavelength or slit separation and compare the pattern.",
+        "Switch on a path record to compare the ideal distinguishable-path case."
+      ],
+      "explanation": "The upper curve is the predicted density and the dots are sampled events. Indistinguishable alternatives contribute amplitudes; the ideal path-record setting removes their interference term.",
+      "limitations": "The model uses ideal far-field diffraction and a one-dimensional detector window. It samples outcomes rather than hidden particle trajectories. The path toggle represents physical information, with no role assigned to human consciousness.",
+      "sources": [
+        {
+          "label": "OpenStax: Double-slit diffraction",
+          "url": "https://openstax.org/books/university-physics-volume-3/pages/4-3-double-slit-diffraction"
+        },
+        {
+          "label": "Feynman Lectures: Quantum behavior",
+          "url": "https://www.feynmanlectures.caltech.edu/III_01.html"
+        }
+      ],
+      "relatedIds": [
+        "uncertainty",
+        "tunnelling"
+      ],
+      "readouts": [
+        "Detections shown in the sampled display.",
+        "The calculated fringe spacing.",
+        "Whether a distinguishable path record is enabled."
+      ]
+    },
+    {
+      "id": "tunnelling",
+      "moduleFamily": "lab",
+      "slug": "quantum-tunnelling",
+      "title": "Through the forbidden",
+      "topic": "Quantum tunnelling",
+      "category": "Quantum",
+      "seoTitle": "Quantum tunnelling: an interactive barrier | Sammii Kellow",
+      "description": "Change an electron's energy and a rectangular barrier's height and width. Compare transmission and the matched stationary wavefunction across the barrier.",
+      "intro": "An energy barrier changes a quantum state without making the far side automatically impossible. Alter the barrier and examine how much transmission remains.",
+      "instructions": [
+        "Choose the electron energy and barrier height.",
+        "Change the barrier width.",
+        "Compare transmission, density and the real-wave view on each side."
+      ],
+      "explanation": "The displayed stationary wavefunction is matched at both barrier edges. The incident side includes a reflected component, while the transmitted side preserves the appropriate amplitude and phase.",
+      "limitations": "This is a nonrelativistic, one-dimensional, single-energy stationary state. It does not calculate a wavepacket's journey or tunnelling time. Energy is conserved; no temporary energy borrowing is implied.",
+      "sources": [
+        {
+          "label": "Richard Fitzpatrick, UT Austin: Square potential barrier",
+          "url": "https://farside.ph.utexas.edu/teaching/qmech/Quantum/node48.html"
+        },
+        {
+          "label": "NIST: Fundamental physical constants",
+          "url": "https://physics.nist.gov/cuu/Constants/"
+        }
+      ],
+      "relatedIds": [
+        "double-slit",
+        "uncertainty"
+      ],
+      "readouts": [
+        "Transmission and reflection probabilities.",
+        "The electron’s energy regime relative to the barrier.",
+        "Probability density or the real part of the matched stationary wavefunction."
+      ]
+    },
+    {
+      "id": "uncertainty",
+      "moduleFamily": "lab",
+      "slug": "quantum-uncertainty",
+      "title": "A little less certain",
+      "topic": "Quantum uncertainty and wave packets",
+      "category": "Quantum",
+      "seoTitle": "Quantum uncertainty: prepare and release a wave | Sammii Kellow",
+      "description": "Squeeze a Gaussian wave packet, compare position and momentum spreads, then release a free electron and watch the position distribution broaden.",
+      "intro": "Prepare a narrow wave packet and compare its momentum spread. Then let it evolve freely and see which part of the distribution changes with time.",
+      "instructions": [
+        "Change the initial position spread.",
+        "Compare the position and momentum plots on their fixed axes.",
+        "Release the packet, then pause or scrub its evolution."
+      ],
+      "explanation": "The paired plots describe the same Gaussian preparation. During free evolution the position distribution spreads while the momentum distribution retains its width.",
+      "limitations": "The plots describe distributions across repeated preparations, not a simultaneous measurement of one particle's exact position and momentum. The free-electron model omits external forces and does not reduce uncertainty to measurement disturbance.",
+      "sources": [
+        {
+          "label": "Richard Fitzpatrick, UT Austin: Uncertainty",
+          "url": "https://farside.ph.utexas.edu/teaching/qmech/Quantum/node39.html"
+        },
+        {
+          "label": "MIT: Time evolution of a free wave packet",
+          "url": "https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/6ca5bd79a2121967796f7c0b8f6f48c9_MIT8_04S16_LecNotes7.pdf"
+        }
+      ],
+      "relatedIds": [
+        "double-slit",
+        "tunnelling"
+      ],
+      "readouts": [
+        "Position spread, σₓ, and momentum spread, σₚ.",
+        "The uncertainty product for the displayed state.",
+        "Elapsed model time after release."
+      ]
+    },
+    {
+      "id": "sound-patterns",
+      "moduleFamily": "lab",
+      "slug": "vibrating-membranes",
+      "title": "The shape of a note",
+      "topic": "Vibrating membrane modes",
+      "category": "Sound and pattern",
+      "seoTitle": "Vibrating membranes: explore standing-wave patterns | Sammii Kellow",
+      "description": "Explore the still lines inside a vibrating square membrane. Blend equal-frequency modes, inspect nodes and optionally hear a synthetic tone.",
+      "intro": "A surface can move while some of its lines stay still. Change a square membrane's vibration mode and find the nodes inside the pattern.",
+      "instructions": [
+        "Select a pair of membrane modes.",
+        "Change the blend and inspect the nodal lines.",
+        "Play the slowed movement, or explicitly choose Listen for the optional tone."
+      ],
+      "explanation": "Equal-frequency modes on a square can combine into different shapes. The nodal contour follows the mode shape rather than mistaking the whole surface's momentary zero displacement for a permanent node.",
+      "limitations": "This is an ideal tensioned membrane, not a metal Chladni plate or sand simulation. Visible vibration is slowed and colour is arbitrary. The optional sine tone does not reproduce a real instrument's timbre.",
+      "sources": [
+        {
+          "label": "Daniel Russell, Penn State: Rectangular membrane modes",
+          "url": "https://www.acs.psu.edu/drussell/Demos/rect-membrane/rect-mem.html"
+        }
+      ],
+      "relatedIds": [
+        "living-patterns",
+        "double-slit"
+      ],
+      "readouts": [
+        "The selected membrane mode pair and frequency.",
+        "The ideal membrane model used for the pattern.",
+        "Nodal lines, which remain still through the vibration cycle."
+      ]
+    },
+    {
+      "id": "living-patterns",
+      "moduleFamily": "lab",
+      "slug": "reaction-diffusion",
+      "title": "Patterns that grow",
+      "topic": "Reaction and diffusion",
+      "category": "Sound and pattern",
+      "seoTitle": "Reaction diffusion: paint and grow patterns | Sammii Kellow",
+      "description": "Paint into a Gray–Scott reaction–diffusion model and watch spots, stripes and branching forms emerge. Change feed and removal rates, then compare outcomes.",
+      "intro": "Paint a disturbance into two interacting fields, then let the equations run. A small change in the rules can produce a very different kind of pattern.",
+      "instructions": [
+        "Choose a preset or adjust feed and removal rates.",
+        "Paint a disturbance or use the keyboard-accessible seed control.",
+        "Start growth, pause to inspect it, and reset to compare the same starting conditions."
+      ],
+      "explanation": "The browser advances a Gray–Scott reaction–diffusion model on a periodic grid. The displayed clock tracks model time, while presets offer different tendencies for spots, stripes and branching forms.",
+      "limitations": "The fields use dimensionless units and synthetic starting conditions. Colours are a display choice. The model creates mathematical patterns and does not claim to simulate actual coral, animal markings or biological life.",
+      "sources": [
+        {
+          "label": "John Pearson: Complex patterns in a simple system",
+          "url": "https://arxiv.org/abs/patt-sol/9304003"
+        },
+        {
+          "label": "MIT CSAIL: Gray–Scott model",
+          "url": "https://groups.csail.mit.edu/mac/projects/amorphous/GrayScott/"
+        }
+      ],
+      "relatedIds": [
+        "sound-patterns",
+        "past-earth"
+      ],
+      "readouts": [
+        "Elapsed model time.",
+        "Mean concentration of the V field.",
+        "The periodic boundary condition used by the grid."
+      ]
+    },
+    {
+      "id": "evolution",
+      "moduleFamily": "evolution",
+      "slug": "planetary-surface-evolution",
+      "title": "Worlds in Time",
+      "topic": "Planetary surface evolution",
+      "category": "Worlds",
+      "seoTitle": "Planetary surface evolution: Worlds in Time | Sammii Kellow",
+      "description": "Grow a synthetic planet or moon through impacts, cooling and surface renewal. Scrub its calculated history, change the conditions and place an impact.",
+      "intro": "Give a world a history, then change what happens to it. Choose a planet or moon, alter the surface processes and inspect the traces they leave behind.",
+      "instructions": [
+        "Choose Earth, the Moon, Mars, Mercury, Venus, Io, Europa or Enceladus.",
+        "Adjust impact frequency, surface renewal, relief relaxation or sustained tidal heat, then run those conditions.",
+        "Play or scrub the stored history. Compare it with the starting terrain, or place an impact to change the later states."
+      ],
+      "explanation": "A numerical model updates surface height, deposits and recent activity. Impacts add craters, diffusion relaxes relief, and volcanic or icy deposition renews parts of the surface. Each position on the timeline is a stored calculation; adding an impact recomputes the later history while preserving earlier snapshots.",
+      "limitations": "The terrain is synthetic and the rates are accelerated and uncalibrated. Model years do not reconstruct the actual history or predict the future of these bodies. Internal heat is a dimensionless activity index. The model omits plate tectonics, interior fluid dynamics, impact shock physics, climate and orbital tides; colours, icy fractures and exaggerated relief are illustrative.",
+      "sources": [
+        {
+          "label": "Fassett and Thomson: Crater degradation and topographic diffusion",
+          "url": "https://doi.org/10.1002/2014JE004698"
+        },
+        {
+          "label": "NASA: Moon formation",
+          "url": "https://science.nasa.gov/moon/formation/"
+        },
+        {
+          "label": "NASA: Io",
+          "url": "https://science.nasa.gov/jupiter/jupiter-moons/io/"
+        },
+        {
+          "label": "NASA: Europa facts",
+          "url": "https://science.nasa.gov/jupiter/jupiter-moons/europa/europa-facts/"
+        },
+        {
+          "label": "NASA: Enceladus",
+          "url": "https://science.nasa.gov/saturn/moons/enceladus/"
+        },
+        {
+          "label": "NASA: Planetary fact sheet",
+          "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
+        }
+      ],
+      "relatedIds": [
+        "past-earth",
+        "interiors",
+        "surfaces"
+      ],
+      "readouts": [
+        "Model time since the generated starting surface.",
+        "Relative internal heat, a dimensionless activity proxy.",
+        "The number of impact events and the recently changed surface fraction.",
+        "Calculated elevation at the inspected point, with coordinates."
+      ]
+    }
+  ]
+}

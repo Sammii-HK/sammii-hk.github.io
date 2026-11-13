@@ -1,0 +1,254 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="color-scheme" content="dark"><title>Near a black hole · interactive view</title><link rel="canonical" href="https://labs.sammii.dev/explorations/black-hole-time-dilation/"><script src="../bridge.js"></script><link rel="stylesheet" href="../frame.css"></head><body data-slug="black-hole-time-dilation" data-family="clock" data-mode="black-hole"><main id="scene" class="scene"><div id="black-hole-clocks">
+  <style>
+    #black-hole-clocks { color: var(--foreground); padding: 0 0 8px; }
+    #black-hole-clocks .bh-heading { padding-right: 96px; margin-bottom: 4px; }
+    #black-hole-clocks .bh-scene { position: relative; height: 248px; margin: 4px 0 12px; overflow: hidden; }
+    #black-hole-clocks .bh-scene canvas { display: block; width: 100%; height: 100%; }
+    #black-hole-clocks .bh-scene-label { position: absolute; pointer-events: none; }
+    #black-hole-clocks .bh-centre-label { transform: translateX(-50%); }
+    #black-hole-clocks .bh-probe-label { transform: translateX(-50%); white-space: nowrap; }
+    #black-hole-clocks .bh-controls { display: flex; align-items: center; gap: 20px; margin-top: 12px; }
+    #black-hole-clocks .bh-radius { flex: 1; min-width: 0; }
+    #black-hole-clocks .bh-label-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; }
+    #black-hole-clocks .bh-scale-labels { display: flex; justify-content: space-between; gap: 8px; }
+    #black-hole-clocks .bh-clock-pair { margin-top: 22px; }
+    #black-hole-clocks .bh-clock { display: flex; align-items: center; gap: 16px; }
+    #black-hole-clocks .bh-dial { width: 76px; height: 76px; flex: 0 0 76px; color: var(--foreground); }
+    #black-hole-clocks .bh-dial-circle { fill: none; stroke: var(--border); stroke-width: 1; }
+    #black-hole-clocks .bh-tick { stroke: var(--muted-foreground); stroke-width: 1; opacity: .5; }
+    #black-hole-clocks .bh-hand { stroke-width: 2; stroke-linecap: round; }
+    #black-hole-clocks .bh-clock h2 { margin: 0; }
+    #black-hole-clocks .bh-clock-name { margin-bottom: 3px; }
+    #black-hole-clocks .bh-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; background: var(--viz-series-1); vertical-align: middle; }
+    #black-hole-clocks .bh-near-dot { background: var(--viz-series-2); }
+    #black-hole-clocks .bh-result { margin: 20px 0 6px; }
+    #black-hole-clocks .bh-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 20px; }
+    #black-hole-clocks .bh-colour-probe { position: absolute; visibility: hidden; pointer-events: none; }
+    @media (max-width: 420px) {
+      #black-hole-clocks .bh-scene { height: 222px; }
+      #black-hole-clocks .bh-controls { gap: 12px; }
+      #black-hole-clocks .bh-clock { gap: 12px; }
+      #black-hole-clocks .bh-clock-pair { margin-top: 16px; }
+    }
+  </style>
+  <h3 class="bh-heading">Time, near a black hole</h3>
+  <div class="bh-scene">
+    <canvas role="img" aria-label="A schematic black hole and a stationary clock. The slider changes the clock's radius outside the event horizon."></canvas>
+    <span class="bh-scene-label bh-centre-label text-small text-muted">Event horizon</span>
+    <span class="bh-scene-label bh-probe-label text-small">Hovering clock</span>
+  </div>
+  <div class="bh-controls">
+    <div class="bh-radius">
+      <div class="bh-label-row">
+        <label for="bh-radius-input" class="form-label">Radius from centre</label>
+        <output id="bh-radius-value" class="tabular-nums" for="bh-radius-input">1.50 × horizon radius</output>
+      </div>
+      <input id="bh-radius-input" class="form-range" type="range" min="1.05" max="20" step="0.01" value="1.5" aria-describedby="bh-radius-value" />
+      <div class="bh-scale-labels text-small text-muted"><span>Near the horizon</span><span>Further away</span></div>
+    </div>
+    <button type="button" class="btn" id="bh-pause">Pause</button>
+  </div>
+  <div class="viz-grid bh-clock-pair">
+    <div class="bh-clock">
+      <svg class="bh-dial" viewBox="0 0 76 76" role="img" aria-label="Distant clock dial">
+        <circle class="bh-dial-circle" cx="38" cy="38" r="35" />
+        <path class="bh-tick" d="M38 4V10 M72 38H66 M38 72V66 M4 38H10 M55 8L52 13 M68 21L63 24 M68 55L63 52 M55 68L52 63 M21 68L24 63 M8 55L13 52 M8 21L13 24 M21 8L24 13" />
+        <line id="bh-far-hand" class="bh-hand" x1="38" y1="38" x2="38" y2="14" stroke="var(--viz-series-1)" />
+        <circle cx="38" cy="38" r="3" fill="var(--viz-series-1)" />
+      </svg>
+      <div>
+        <div class="bh-clock-name"><span class="bh-dot"></span>Distant clock</div>
+        <h2 id="bh-far-time" class="tabular-nums">00:00.0</h2>
+        <span class="text-small text-muted">min:sec · far-away reference</span>
+      </div>
+    </div>
+    <div class="bh-clock">
+      <svg class="bh-dial" viewBox="0 0 76 76" role="img" aria-label="Hovering clock dial">
+        <circle class="bh-dial-circle" cx="38" cy="38" r="35" />
+        <path class="bh-tick" d="M38 4V10 M72 38H66 M38 72V66 M4 38H10 M55 8L52 13 M68 21L63 24 M68 55L63 52 M55 68L52 63 M21 68L24 63 M8 55L13 52 M8 21L13 24 M21 8L24 13" />
+        <line id="bh-near-hand" class="bh-hand" x1="38" y1="38" x2="38" y2="14" stroke="var(--viz-series-2)" />
+        <circle cx="38" cy="38" r="3" fill="var(--viz-series-2)" />
+      </svg>
+      <div>
+        <div class="bh-clock-name"><span class="bh-dot bh-near-dot"></span>Hovering clock</div>
+        <h2 id="bh-near-time" class="tabular-nums">00:00.0</h2>
+        <span id="bh-rate" class="text-small text-muted tabular-nums">57.7% of the distant rate</span>
+      </div>
+    </div>
+  </div>
+  <div id="bh-equivalence" class="bh-result tabular-nums" aria-live="polite" aria-atomic="true">1 hour far away = 34.6 minutes here</div>
+  <div class="bh-footer text-small text-muted"><span>10× playback</span><span>Schematic · radius spacing compressed</span></div>
+  <details class="bh-notes text-small text-muted" style="margin-top:22px;border-top:1px solid var(--border);padding-top:16px">
+    <summary style="cursor:pointer">Model &amp; sources</summary>
+    <p>A stationary clock outside a nonrotating black hole has rate √(1 − 1/u) relative to a clock at infinity, where u is the radius divided by the horizon radius. Holding the clock still requires acceleration. This is not an orbit or freefall calculation. Each local clock reads normally to its own observer.</p>
+    <p>Changing the radius starts a fresh comparison. The picture is schematic, with compressed spacing. <a href="https://jila.colorado.edu/~ajsh/courses/bh/schwp.html" target="_blank" rel="noopener noreferrer">Andrew Hamilton, JILA: Schwarzschild geometry</a></p>
+  </details>
+  <span class="bh-colour-probe" aria-hidden="true"></span>
+  <script>
+  (() => {
+    const root = document.getElementById('black-hole-clocks');
+    const select = (s) => root.querySelector(s);
+    const canvas = select('canvas');
+    const ctx = canvas.getContext('2d');
+    const radiusInput = select('#bh-radius-input');
+    const pauseButton = select('#bh-pause');
+    const farTime = select('#bh-far-time');
+    const nearTime = select('#bh-near-time');
+    const farHand = select('#bh-far-hand');
+    const nearHand = select('#bh-near-hand');
+    const farDial = farHand.closest('svg');
+    const nearDial = nearHand.closest('svg');
+    const colourProbe = select('.bh-colour-probe');
+    const horizonLabel = select('.bh-centre-label');
+    const observerLabel = select('.bh-probe-label');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const colourScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    let playing = !reducedMotion.matches;
+    let disposed = false;
+    let frame = 0;
+    let radius = Number(radiusInput.value);
+    let rate = Math.sqrt(1 - 1 / radius);
+    let elapsed = 0;
+    let lastFrame = 0;
+    let previousTenth = -1;
+    let width = 0;
+    let height = 0;
+    let theme = {};
+    let seed = 4079;
+    const random = () => { seed = (1664525 * seed + 1013904223) >>> 0; return seed / 4294967296; };
+    const stars = Array.from({length: 110}, () => ({ x: random(), y: random(), size: .35 + random() * .85, alpha: .10 + random() * .32 }));
+    const resolveColour = (css) => { colourProbe.style.color = css; return getComputedStyle(colourProbe).color; };
+    function readTheme() {
+      theme = {
+        background: resolveColour('var(--background)'),
+        foreground: resolveColour('var(--foreground)'),
+        border: resolveColour('var(--border)'),
+        primary: resolveColour('var(--viz-series-1)'),
+        near: resolveColour('var(--viz-series-2)'),
+        halo: resolveColour('var(--purple)'),
+        faintHalo: resolveColour('color-mix(in srgb, var(--purple) 12%, transparent)'),
+        clearHalo: resolveColour('color-mix(in srgb, var(--purple) 0%, transparent)'),
+        darkCore: resolveColour('color-mix(in srgb, var(--background) 97%, var(--foreground))')
+      };
+    }
+    function circle(x, y, r, fill) {
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fillStyle = fill; ctx.fill();
+    }
+    function drawScene() {
+      if (!width || !height) return;
+      ctx.clearRect(0, 0, width, height);
+      const cx = width < 440 ? width * .29 : width * .32;
+      const cy = height * .49;
+      const hr = width < 440 ? 35 : 47;
+      const minX = cx + hr + 12;
+      const maxX = width - 30;
+      const pos = Math.log(radius) / Math.log(20);
+      const px = minX + pos * (maxX - minX);
+      for (const star of stars) {
+        const sx = star.x * width, sy = star.y * height;
+        if (Math.hypot(sx - cx, sy - cy) < hr + 5) continue;
+        ctx.globalAlpha = star.alpha;
+        circle(sx, sy, star.size, theme.foreground);
+      }
+      ctx.globalAlpha = 1;
+      const glow = ctx.createRadialGradient(cx, cy, hr * .86, cx, cy, hr * 2.6);
+      glow.addColorStop(0, theme.faintHalo); glow.addColorStop(.24, theme.faintHalo); glow.addColorStop(1, theme.clearHalo);
+      circle(cx, cy, hr * 2.6, glow);
+      ctx.strokeStyle = theme.border;
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = .7;
+      for (let i = 0; i < 3; i++) {
+        ctx.beginPath(); ctx.arc(cx, cy, hr + 15 + i * 18, 0, Math.PI * 2); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      ctx.save();
+      ctx.translate(cx, cy); ctx.rotate(-.17);
+      for (let i = 0; i < 7; i++) {
+        ctx.beginPath(); ctx.ellipse(0, 0, hr * (2.1 + i * .07), hr * (.38 + i * .04), 0, 0, Math.PI * 2);
+        ctx.strokeStyle = theme.halo; ctx.lineWidth = i === 1 ? 1.8 : .7; ctx.globalAlpha = .29 - i * .025; ctx.stroke();
+      }
+      ctx.restore();
+      ctx.globalAlpha = 1;
+      circle(cx, cy, hr, theme.darkCore);
+      ctx.beginPath(); ctx.arc(cx, cy, hr, 0, Math.PI * 2); ctx.strokeStyle = theme.halo; ctx.lineWidth = 1.3; ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx + hr + 4, cy); ctx.lineTo(px - 12, cy); ctx.strokeStyle = theme.border; ctx.lineWidth = 1; ctx.stroke();
+      ctx.globalAlpha = .1; circle(px, cy, 17, theme.near); ctx.globalAlpha = 1;
+      circle(px, cy, 7, theme.near);
+      ctx.strokeStyle = theme.near; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(px, cy - 13); ctx.lineTo(px, cy - 35); ctx.stroke();
+      horizonLabel.style.left = cx + 'px'; horizonLabel.style.top = (cy + hr + 27) + 'px';
+      observerLabel.style.left = Math.max(66, Math.min(width - 64, px)) + 'px'; observerLabel.style.top = (cy - 65) + 'px';
+      canvas.setAttribute('aria-label', 'Schematic black hole. A clock is held stationary at ' + radius.toFixed(2) + ' horizon radii. Its rate is ' + (100 * rate).toFixed(1) + '% of the distant reference clock.');
+    }
+    function formatTime(time) {
+      const tenths = Math.floor(time * 10);
+      const mins = Math.floor(tenths / 600);
+      const secs = Math.floor((tenths % 600) / 10);
+      return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0') + '.' + tenths % 10;
+    }
+    function drawClocks() {
+      const near = elapsed * rate;
+      farHand.setAttribute('transform', 'rotate(' + (elapsed % 60) * 6 + ' 38 38)');
+      nearHand.setAttribute('transform', 'rotate(' + (near % 60) * 6 + ' 38 38)');
+      const tenth = Math.floor(elapsed * 10);
+      if (tenth !== previousTenth) {
+        farTime.textContent = formatTime(elapsed);
+        nearTime.textContent = formatTime(near);
+        farDial.setAttribute('aria-label', 'Distant clock: ' + elapsed.toFixed(1) + ' seconds elapsed');
+        nearDial.setAttribute('aria-label', 'Hovering clock: ' + near.toFixed(1) + ' seconds elapsed');
+        previousTenth = tenth;
+      }
+    }
+    function setRadius() {
+      radius = Number(radiusInput.value);
+      rate = Math.sqrt(1 - 1 / radius);
+      elapsed = 0; previousTenth = -1;
+      select('#bh-radius-value').textContent = radius.toFixed(2) + ' × horizon radius';
+      radiusInput.setAttribute('aria-valuetext', radius.toFixed(2) + ' times the horizon radius');
+      select('#bh-rate').textContent = (rate * 100).toFixed(1) + '% of the distant rate';
+      select('#bh-equivalence').textContent = '1 hour far away = ' + (60 * rate).toFixed(1) + ' minutes here';
+      drawScene(); drawClocks();
+    }
+    function resize() {
+      const bounds = canvas.getBoundingClientRect();
+      width = bounds.width; height = bounds.height;
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * pixelRatio); canvas.height = Math.round(height * pixelRatio);
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      readTheme(); drawScene();
+    }
+    function tick(now) {
+      if (disposed || !root.isConnected) return;
+      if (lastFrame && playing && !document.hidden) elapsed += Math.min((now - lastFrame) / 1000, .1) * 10;
+      lastFrame = now;
+      if (playing) drawClocks();
+      frame = requestAnimationFrame(tick);
+    }
+    pauseButton.textContent = playing ? 'Pause' : 'Play';
+    pauseButton.addEventListener('click', () => { playing = !playing; pauseButton.textContent = playing ? 'Pause' : 'Play'; });
+    radiusInput.addEventListener('input', setRadius);
+    const onReducedMotion = () => { if (reducedMotion.matches) { playing = false; pauseButton.textContent = 'Play'; } };
+    const onVisibility = () => { lastFrame = 0; };
+    const onColourScheme = () => { readTheme(); drawScene(); };
+    reducedMotion.addEventListener('change', onReducedMotion);
+    document.addEventListener('visibilitychange', onVisibility);
+    const resizeObserver = new ResizeObserver(resize); resizeObserver.observe(canvas);
+    const themeObserver = new MutationObserver(() => { readTheme(); drawScene(); });
+    themeObserver.observe(document.documentElement, {attributes: true, attributeFilter: ['class', 'style', 'data-theme']});
+    themeObserver.observe(document.body, {attributes: true, attributeFilter: ['class', 'style', 'data-theme']});
+    colourScheme.addEventListener('change', onColourScheme);
+    readTheme(); setRadius(); resize(); frame = requestAnimationFrame(tick);
+    return () => {
+      disposed = true;
+      playing = false;
+      cancelAnimationFrame(frame);
+      resizeObserver.disconnect();
+      themeObserver.disconnect();
+      reducedMotion.removeEventListener('change', onReducedMotion);
+      document.removeEventListener('visibilitychange', onVisibility);
+      colourScheme.removeEventListener('change', onColourScheme);
+    };
+  })();
+  </script>
+</div>
+</main><noscript><p class="frame-fallback">This visualisation needs JavaScript for its controls. The parent page contains the explanation, model limits and sources.</p></noscript></body></html>

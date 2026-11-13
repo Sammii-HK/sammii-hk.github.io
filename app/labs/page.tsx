@@ -7,6 +7,7 @@ import { getImagePath } from "../common/utils/image-path";
 import { getGithubRepoUrl } from "../common/utils/github-repo-url";
 import { LabsShell } from "../src/components/labs/LabsShell";
 import { CHARTS, chartHref } from "./charts/registry";
+import { EXPLORATIONS, explorationHref } from "./explorations/registry";
 
 /**
  * labs.sammii.dev (served from this route by a host rewrite in vercel.json).
@@ -78,6 +79,27 @@ export default function LabsPage() {
             <a href="https://sammii.dev/">sammii.dev</a>.
           </p>
         </header>
+        <section aria-labelledby="labs-explorations" className="labs-index-group">
+          <h2 id="labs-explorations" className="section-eyebrow">
+            Explorations <span className="work-index-count" aria-hidden="true">{EXPLORATIONS.length}</span>
+          </h2>
+          <p className="labs-index-group-lead">Move a ray of light, change a world, watch a pattern emerge. Interactive studies of space, physics and perception, with the model and its limits alongside the thing itself. <a href="https://labs.sammii.dev/explorations/">All explorations</a>.</p>
+          <ul className="lab-grid" aria-label="Featured explorations">
+            {['black-hole-light-paths', 'double-slit-experiment', 'planetary-surface-evolution'].map((slug) => {
+              const exploration = EXPLORATIONS.find((item) => item.slug === slug);
+              if (!exploration) return null;
+              return (
+                <li key={slug} className="lab-card">
+                  <div className="lab-card-body">
+                    <h3 className="lab-card-title">{exploration.title}</h3>
+                    <p className="lab-card-info">{exploration.description}</p>
+                    <div className="lab-card-links"><a href={explorationHref(slug)}>Open the exploration</a></div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
         <section aria-labelledby="labs-charts" className="labs-index-group">
           <h2 id="labs-charts" className="section-eyebrow">
             Charts <span className="work-index-count" aria-hidden="true">{CHARTS.length}</span>
