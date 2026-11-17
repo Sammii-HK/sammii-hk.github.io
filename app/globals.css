@@ -872,6 +872,40 @@ body {
 .case-foot a:hover, .case-foot a:focus-visible { opacity: 1; text-decoration: underline; text-underline-offset: 0.35em; }
 .case-foot a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 2px; }
 
+/* Case-study data components: stats, before/after flow, comparison bars, caveats. */
+.case-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1px; margin: 2rem 0; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 10px; overflow: hidden; background: color-mix(in oklab, currentColor 12%, transparent); }
+.case-stat { margin: 0; padding: 1.1rem 1.2rem; background: var(--chart-bg, #fff); }
+.case-stat dt { margin: 0; font-size: 0.75rem; letter-spacing: 0.02em; color: color-mix(in oklab, currentColor 60%, transparent); }
+.case-stat dd { margin: 0.35rem 0 0; padding: 0; }
+.case-stat-value { display: block; font-family: var(--font-jost), system-ui, sans-serif; font-size: clamp(1.25rem, 2.2vw, 1.6rem); white-space: nowrap; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.case-stat-note { display: block; margin-top: 0.3rem; font-size: 0.75rem; color: color-mix(in oklab, currentColor 60%, transparent); }
+.case-flow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+@media (max-width: 560px) { .case-flow { grid-template-columns: 1fr; } }
+.case-flow-col { padding: 1rem 1.1rem; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 10px; }
+.case-flow-title { margin: 0 0 0.75rem !important; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: color-mix(in oklab, currentColor 60%, transparent); }
+.case-flow ol { list-style: none; margin: 0 !important; padding: 0 !important; counter-reset: step; }
+.case-flow li { position: relative; margin: 0 !important; padding: 0 0 0.9rem 1.75rem !important; counter-increment: step; }
+.case-flow li::before { content: counter(step); position: absolute; left: 0; top: 0.1rem; width: 1.2rem; height: 1.2rem; border-radius: 999px; border: 1px solid color-mix(in oklab, currentColor 30%, transparent); font-size: 0.6875rem; line-height: 1.15rem; text-align: center; font-variant-numeric: tabular-nums; }
+.case-flow li:not(:last-child)::after { content: ""; position: absolute; left: 0.6rem; top: 1.4rem; bottom: 0.2rem; width: 1px; background: color-mix(in oklab, currentColor 18%, transparent); }
+.case-flow li[data-end="dead"]::before { content: "×"; border-color: #d9534f; color: #d9534f; }
+.case-flow li[data-end="done"]::before { content: "✓"; border-color: #2f9e6b; color: #2f9e6b; }
+.case-flow-label { display: block; font-weight: 500; }
+.case-flow-detail { display: block; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 62%, transparent); }
+.case-bars { margin: 2rem 0; }
+.case-bars table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 !important; }
+.case-bars caption { caption-side: top; text-align: left; padding-bottom: 0.75rem; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 60%, transparent); }
+.case-bars th, .case-bars td { padding: 0.55rem 0.5rem 0.55rem 0 !important; border-bottom: 1px solid color-mix(in oklab, currentColor 10%, transparent); text-align: left; vertical-align: middle; font-weight: 400; }
+.case-bars thead th { font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in oklab, currentColor 55%, transparent); }
+.case-bars tbody th { width: 34%; }
+.case-bars td { width: 33%; }
+.case-bar { display: block; height: 0.5rem; width: var(--p); min-width: 2px; border-radius: 999px; background: color-mix(in oklab, currentColor 30%, transparent); margin-bottom: 0.3rem; }
+.case-bars td[data-side="after"] .case-bar { background: #2f9e6b; }
+.case-bar-text { font-variant-numeric: tabular-nums; font-weight: 500; }
+.case-bar-n { font-weight: 400; color: color-mix(in oklab, currentColor 55%, transparent); }
+.case-caveat { margin: 2rem 0; padding: 1rem 1.2rem; border-left: 2px solid color-mix(in oklab, currentColor 35%, transparent); background: color-mix(in oklab, currentColor 4%, transparent); border-radius: 0 8px 8px 0; }
+.case-caveat-title { margin: 0 0 0.5rem !important; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: color-mix(in oklab, currentColor 60%, transparent); }
+.case-caveat ul { margin: 0 !important; }
+
 /* ── labs.sammii.dev ─────────────────────────────────────────────────────── */
 .labs-index { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; width: 100%; }
 .labs-index-head { margin-bottom: 3rem; }

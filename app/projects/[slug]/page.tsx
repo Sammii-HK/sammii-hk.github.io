@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
   const study = getCaseStudyBySlug(slug);
-  if (!study) notFound();
+  if (!study || study.kind !== 'project') notFound();
 
   const url = `https://sammii.dev/projects/${slug}/`;
   const project = projects.find((p) => p.caseStudy === slug) ?? null;

@@ -5,8 +5,16 @@ import readingTime from 'reading-time';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content/case-studies');
 
+/**
+ * `project` files are per-project overviews, served at /projects/<slug>.
+ * `story` files are outcome case studies (one problem, one result),
+ * served at /work/<slug>.
+ */
+export type CaseStudyKind = 'project' | 'story';
+
 export interface CaseStudy {
   slug: string;
+  kind: CaseStudyKind;
   title: string;
   description: string;
   techStack: string;
@@ -24,6 +32,7 @@ function parseCaseStudy(slug: string): CaseStudy {
 
   return {
     slug,
+    kind: data.kind === 'story' ? 'story' : 'project',
     title: data.title ?? slug,
     description: data.description ?? '',
     techStack: data.techStack ?? '',
@@ -38,10 +47,20 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | null {
   return parseCaseStudy(slug);
 }
 
-export function getAllCaseStudySlugs(): string[] {
+function allSlugs(): string[] {
   if (!fs.existsSync(CONTENT_DIR)) return [];
   return fs
     .readdirSync(CONTENT_DIR)
     .filter((f) => f.endsWith('.md'))
     .map((f) => f.replace(/\.md$/, ''));
+}
+
+/** Project overviews only (served at /projects/<slug>). */
+export function getAllCaseStudySlugs(): string[] {
+  return allSlugs().filter((slug) => parseCaseStudy(slug).kind === 'project');
+}
+
+/** Outcome stories only (served at /work/<slug>). */
+export function getAllStorySlugs(): string[] {
+  return allSlugs().filter((slug) => parseCaseStudy(slug).kind === 'story');
 }
