@@ -1,5 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
 import type { MDXComponents } from "mdx/types";
+import { AttentionField, PrecisionTest, ReducedMotionDemo, SpringLab } from "../essay/attention/widgets";
 
 /** Stable anchor ids for headings so sections can be linked to. */
 function slugify(node: ReactNode): string {
@@ -167,4 +168,25 @@ export const caseStudyComponents: MDXComponents = {
   BeforeAfterBars,
   BarRow,
   Caveat,
+};
+
+/**
+ * Components available inside blog posts: the data components for writing
+ * about outcomes, and the live widgets for interactive essays. Headings and
+ * links keep the blog's own styling.
+ */
+export const blogComponents: MDXComponents = {
+  img: Img,
+  Stats,
+  Stat,
+  FlowCompare,
+  FlowColumn,
+  FlowStep,
+  BeforeAfterBars,
+  BarRow,
+  Caveat,
+  AttentionField,
+  SpringLab,
+  PrecisionTest,
+  ReducedMotionDemo,
 };

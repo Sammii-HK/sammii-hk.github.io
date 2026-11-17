@@ -50,4 +50,4 @@ Lunary has active users on both web and mobile through Capacitor, and the grimoi
 
 ## Read next
 
-[The signup that said “check your email”](/work/lunary-signup-dead-end/): how one field between the auth library and the sign-up screen was losing a third of new users, and what activation did when it stopped.
+[The signup that said “check your email”](/blog/lunary-signup-dead-end): how one field between the auth library and the sign-up screen was losing a third of new users, and what activation did when it stopped.

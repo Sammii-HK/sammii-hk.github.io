@@ -1,8 +1,15 @@
 ---
 title: "The signup that said “check your email”"
-description: "How a one-field mismatch between an auth library and a sign-up screen was quietly losing a third of Lunary's new users, and what happened to activation when it stopped."
-techStack: "Next.js, better-auth, PostgreSQL, product analytics"
-kind: story
+description: >-
+  How a one-field mismatch between an auth library and a sign-up screen was
+  quietly losing a third of Lunary's new users, and what happened to
+  activation when it stopped.
+date: '2026-11-17'
+tags:
+  - product-engineering
+  - ux
+  - analytics
+  - lunary
 ---
 
 ## What people saw

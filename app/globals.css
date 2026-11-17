@@ -950,3 +950,49 @@ body {
 /* present mode (?present=1): chart only, larger, no notes, for recordings */
 [data-present] .chart-head, [data-present] .chart-foot { display: none; }
 [data-present] .chart-page { padding-top: 1.5rem; max-width: 1600px; }
+
+/* ── Interactive essay widgets (blog). Colours mix from currentColor so they work in light and dark. ── */
+.essay-widget { margin: 2.25rem 0; }
+.essay-widget-stage { padding: 1.25rem; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); border-radius: 14px; background: color-mix(in oklab, currentColor 3%, transparent); }
+.essay-widget figcaption { margin-top: 0.6rem; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 62%, transparent); }
+.essay-widget figcaption strong { color: currentColor; font-weight: 600; }
+.essay-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+.essay-tile { padding: 1.1rem 0.5rem; border-radius: 10px; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); background: transparent; color: inherit; font: inherit; font-size: 0.875rem; cursor: pointer; outline: none; }
+.essay-tile:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.essay-spring { display: grid; gap: 0.9rem; }
+.essay-track { position: relative; height: 2.25rem; border-radius: 999px; background: color-mix(in oklab, currentColor 7%, transparent); }
+.essay-track { container-type: inline-size; }
+.essay-puck { --x: 0; position: absolute; top: 0.25rem; left: 0.25rem; width: 1.75rem; height: 1.75rem; border-radius: 999px; background: color-mix(in oklab, currentColor 45%, transparent); transform: translateX(calc(var(--x) * (100cqw - 2.25rem))); }
+.essay-puck-spring { background: #7b8cff; box-shadow: 0 0 18px rgb(123 140 255 / 0.5); }
+.essay-spring-controls { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 0.5rem 1rem; font-size: 0.875rem; }
+.essay-spring-controls .essay-button { grid-column: 1 / -1; justify-self: start; }
+.essay-spring-controls label { display: flex; justify-content: space-between; gap: 0.75rem; min-width: 8.5rem; }
+.essay-spring-controls output, .essay-readout strong { font-variant-numeric: tabular-nums; }
+.essay-spring-controls input[type="range"], .essay-test input[type="range"] { accent-color: #7b8cff; width: 100%; }
+.essay-button { padding: 0.45rem 1rem; border-radius: 8px; border: 1px solid color-mix(in oklab, currentColor 25%, transparent); background: color-mix(in oklab, currentColor 6%, transparent); color: inherit; font: inherit; font-size: 0.875rem; font-weight: 500; cursor: pointer; }
+.essay-button:hover { background: color-mix(in oklab, currentColor 10%, transparent); }
+.essay-button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.essay-plot { width: 100%; height: auto; max-height: 9rem; }
+.essay-plot-target { stroke: color-mix(in oklab, currentColor 30%, transparent); stroke-dasharray: 3 4; stroke-width: 1; }
+.essay-plot-line { fill: none; stroke: #7b8cff; stroke-width: 2; }
+.essay-readout, .essay-note { margin: 0 !important; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 70%, transparent); }
+.essay-tests { display: grid; gap: 1.5rem; }
+@media (min-width: 640px) { .essay-tests { grid-template-columns: 1fr 1fr; } }
+.essay-test-head { display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: 500; }
+.essay-test-value { font-variant-numeric: tabular-nums; }
+.essay-test-track { position: relative; height: 2rem; margin-top: 0.5rem; }
+.essay-test-track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 4px; margin-top: -2px; border-radius: 999px; background: color-mix(in oklab, currentColor 12%, transparent); }
+.essay-test-target { position: absolute; top: 0.2rem; bottom: 0.2rem; width: 2px; margin-left: -1px; background: #2f9e6b; }
+.essay-test-thumb { position: absolute; top: 50%; width: 1.1rem; height: 1.1rem; margin: -0.55rem 0 0 -0.55rem; border-radius: 999px; background: #7b8cff; box-shadow: 0 0 12px rgb(123 140 255 / 0.5); pointer-events: none; }
+.essay-test-track input[type="range"] { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.essay-test-track:has(input:focus-visible) .essay-test-thumb { outline: 2px solid currentColor; outline-offset: 2px; }
+.essay-test-result { margin: 0.4rem 0 0 !important; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 65%, transparent); }
+.essay-reduced { display: grid; gap: 1rem; }
+.essay-check { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; }
+.essay-reduced-card { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid color-mix(in oklab, currentColor 15%, transparent); }
+.essay-reduced-label { flex: 1; font-size: 0.9375rem; }
+.essay-dot { width: 0.6rem; height: 0.6rem; border-radius: 999px; background: #2f9e6b; }
+.essay-switch { position: relative; width: 46px; height: 26px; border-radius: 999px; border: 1px solid color-mix(in oklab, currentColor 20%, transparent); background: color-mix(in oklab, currentColor 8%, transparent); cursor: pointer; padding: 0; }
+.essay-switch[data-on="true"] { background: rgb(123 140 255 / 0.45); }
+.essay-switch:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.essay-switch-thumb { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 999px; background: currentColor; }

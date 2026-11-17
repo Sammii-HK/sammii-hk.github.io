@@ -1,35 +1,45 @@
 ---
 title: "ScapeStudio"
-description: "Browser-based photo editor for fine art print and t-shirt preparation"
-techStack: "Next.js, TypeScript, Web Workers, Canvas 2D, Zustand, JSZip"
+description: "A browser photo editor that prepares fine art photographs for both prints and t-shirts in one pass"
+techStack: "Next.js, TypeScript, Web Workers, OffscreenCanvas, Zustand, IndexedDB, JSZip, Capacitor"
 ---
 
 ## The problem
 
-Photoshop already does everything this workflow needs: grayscale conversion with proper tonal control, threshold-based background knockout with feathered edges, export at 300 DPI across a set of predefined sizes. What it isn't good at is doing that same sequence twenty times in a row. Batch work is slow, and the licence is expensive. So I built ScapeStudio, a browser-based editor purpose-built for this pipeline, with the actual pixel processing kept off the main thread so the interface never locks up while it works.
+I sell my photography as fine art prints and t-shirts under Scape Squared. Every photograph needs two outputs: a grayscale print with careful tonal control, and a transparent version for screen printing, where the dark background is knocked out so the shirt shows through. Both need exporting at several physical sizes at 300 DPI.
 
-## The worker pipeline
+Photoshop can do all of it, as a long sequence of manual steps repeated for every image and every size. ScapeStudio does the same work in the browser, from one interface, producing both outputs side by side.
 
-All image processing runs in a dedicated Web Worker using OffscreenCanvas. The main thread hands the worker the source image and the current parameter values; the worker runs the full pipeline, grayscale conversion, curves adjustment, threshold knockout, and returns the processed result. That keeps the UI responsive even on large files: dragging a curves handle kicks off a new pipeline run without blocking scrolling or button clicks elsewhere on the page.
+## The pipeline
 
-OffscreenCanvas support was inconsistent across browsers at the time this was built, so the worker checks for it and falls back to transferring plain ImageData arrays when it isn't available. The fallback path loses the GPU-accelerated canvas operations, which makes it slower, but the output is functionally identical either way.
+All pixel processing runs off the main thread, in a Web Worker drawing to an `OffscreenCanvas`. The page sends the worker the source image and the current settings, and the worker runs the pipeline:
 
-## Non-destructive editing and the curves tool
+1. Grayscale conversion.
+2. A tone curve, applied through a 256-entry lookup table.
+3. A threshold knockout for the t-shirt version.
 
-Nothing in the pipeline touches the original image data. Each stage reads from the previous stage's output buffer, and changing a single parameter only reruns that stage and whatever comes after it, not the whole chain from scratch.
+Because the work happens in the worker, dragging a curve point re-runs the pipeline without freezing the interface. Nothing ever modifies the source image, so every setting can be changed in any order.
 
-The curves adjustment is a cubic spline interpolated from user-placed control points and evaluated per pixel against the luminance channel. Getting it to feel like Photoshop's curves tool meant using Catmull-Rom splines through the control points, clamped to the 0-255 range, with a real-time preview as you drag. The awkward part was the spline overshooting at extreme control point positions; fixing that required adding tension parameters.
+## The curve, and why it can't overshoot
 
-## Threshold knockout and feathering
+The tone curve is drawn through control points you place by hand. The obvious spline choices bend past the points between them, which on a tone curve means a highlight briefly gets darker as you lighten it, or tones invert. For print, that's unacceptable.
 
-The knockout system converts the image to pure black and transparent based on a luminance threshold. A feather control then runs a gaussian blur over the alpha channel after thresholding, which turns a hard pixel boundary into a soft edge. That distinction matters: hard edges look unnatural on fabric, so feathering isn't a cosmetic option here, it's what makes the t-shirt output usable.
+So the curve uses monotone cubic Hermite interpolation (the Fritsch–Carlson method). It passes exactly through every point and never overshoots between them: if the points only go up, the curve only goes up. The result is baked into a 256-entry lookup table, so applying it to a full-size image is one table read per pixel.
 
-## State, preview and export
+## The knockout
 
-State, including undo/redo history, is handled with Zustand. A dual split preview makes a before/after comparison always one glance away.
+For the t-shirt output, every pixel darker than the threshold becomes transparent. A hard cut looks harsh on fabric, so a feather control softens it: pixels in a band just above the threshold fade in linearly, from fully transparent to fully opaque. A split preview shows the print and the t-shirt version next to each other, so you can tune one without losing sight of the other.
 
-Export takes the processed image and renders it at several predefined sizes, A4, A3, A2, and square crop variants, all at 300 DPI. Every size is generated in the worker, compressed as PNGs, and packed into a single zip via JSZip for download. Large source files complicate this step: an 8000x6000 image straight off a DSLR produces multiple full-resolution buffers as it moves through the pipeline, which can push a browser tab toward running out of memory. The worker explicitly nulls intermediate buffers after each stage and calls garbage collection hints to keep that in check.
+## Presets and export
+
+Tonal looks (curve plus threshold) save as presets in IndexedDB, with a set of built-in ones such as High Contrast, Soft & Airy and Noir. Export renders both versions at 25, 50 and 70 cm squares at 300 DPI, up to 8,268 pixels a side, in a separate export worker, and bundles everything into a single zip.
+
+Real photographs come from real libraries, so it also reads HEIC files and accepts images dragged straight out of the macOS Photos app. A Capacitor build wraps it as an iOS app with a Photos share extension, so a photo can go from the camera roll into the editor straight from the share sheet.
+
+## A second life: Darkroom
+
+ScapeStudio's curve maths, presets and knockout now also power [Darkroom](https://prism.sammii.dev/showcase/darkroom), a demo built with my Prism component library. Rebuilding it there was a chance to fix what the original did badly. The curve editor in ScapeStudio is mouse-only: click to add a point, right-click to delete. In Darkroom every curve point is a focusable slider you can move with the arrow keys, dragging works the same with a finger, every edit can be undone, and split-toning picks its tints from Prism's colour system.
 
 ## Outcome
 
-ScapeStudio handles the full print preparation workflow in the browser. A typical batch of twenty photographs can be processed, checked against the split preview, and exported across every predefined size in under five minutes, with no server involved anywhere in the pipeline.
+ScapeStudio replaced the Photoshop routine I used to prepare Scape Squared prints and t-shirts. One editor produces both outputs at every size, in the browser, with no server involved.
