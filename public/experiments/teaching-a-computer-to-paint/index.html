@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teaching a computer to paint</title>
+<meta name="description" content="A painting engine built one episode at a time, then directed by six AI models. Same brief, same canvas, same paints, one run each.">
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1b18;--mut:#625c54;--line:#dcd6cb;--card:#fff;--acc:#a8401f}
+@media (prefers-color-scheme:dark){:root{--bg:#161513;--fg:#efebe3;--mut:#a39c90;--line:#3a3731;--card:#201e1b;--acc:#ff8a5c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:32px 16px 64px}h1{font-size:1.9rem;margin:0 0 6px}h2{font-size:1.25rem;margin:40px 0 6px}
+p{margin:.5em 0}.mut{color:var(--mut)}.ep{color:var(--acc);font-weight:650;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;margin:0}
+figure{margin:14px 0 0}img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#0d0d0f}
+figcaption{font-size:.9rem;color:var(--mut);margin-top:6px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.note{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:12px 14px;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;margin:10px 0}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}th{font-weight:600}
+td.n,th.n{text-align:right}a{color:var(--acc)}a:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>Teaching a computer to paint</h1>
+<p class="mut">One painting engine, built an episode at a time, every episode painting the same sunset so any two can sit side by side. Then six AI models took turns as art director.</p>
+<div class="note"><b>What is real and what is not.</b> The sunset is generated in code, not a photo. Every image below is the program's real output, re-rendered from saved settings. Numbers are measured, not estimated. The model comparison is one run per model, so it is an experiment, not a benchmark. <a href="/projects/teaching-a-computer-to-paint/">Read the case study</a>.</div>
+
+<p class="ep">Episode 1</p><h2>Random shapes</h2>
+<p>Propose a random shape, give it the best colour, keep it only if the picture gets closer. 6,000 strokes, error from 24,690 to 1.68. Accurate, and it looks like a filter.</p>
+<figure><img src="ep1.webp" width="1600" height="900" alt="The target sunset beside the hill-climbing result: a close but soft, blurred copy."><figcaption>Target and result. Hill climbing in the style of Geometrize and primitive.</figcaption></figure>
+
+<p class="ep">Episode 2</p><h2>Brushstrokes that follow the light</h2>
+<p>Hertzmann's 1998 painterly method: five brushes from big to small, strokes steering along the edges, plus bristle texture and paint thickness lit from the top left. 20,229 strokes.</p>
+<figure><img src="ep2.webp" width="1600" height="900" alt="Three panels: the target, episode 1's soft result, and episode 2's painting with visible curved strokes."><figcaption>Target, episode 1, episode 2.</figcaption></figure>
+<div class="two">
+<figure><img src="ep2-detail.webp" width="1080" height="1350" alt="Close-up of the painted sun and ridges, showing circular strokes, bristle marks and raised paint."><figcaption>Up close: the sun is painted in circles.</figcaption></figure>
+<figure><img src="ep2-process.webp" width="2240" height="900" alt="Three attempts side by side: v1 smears colour across the ridges, v2 has a squiggly sun, v3 paints the sun in circles."><figcaption>How it got there: v1 smeared across the ridges, v2 had a squiggly sun, v3 fixed both. Each version re-renders exactly.</figcaption></figure>
+</div>
+
+<p class="ep">Episode 3</p><h2>Paint that mixes like paint</h2>
+<p>Screens average light, so yellow and blue make a muddy sage. Paint absorbs light, so they make green. Kubelka-Munk mixing, eight real paints, a recipe for every stroke.</p>
+<figure><img src="ep3-demo.webp" width="1600" height="900" alt="The same yellow and blue strokes crossing twice: screen mixing gives a grey-green overlap, pigment mixing gives a clear green."><figcaption>Same two strokes, mixed both ways.</figcaption></figure>
+<figure><img src="ep3.webp" width="1600" height="900" alt="Three panels: the target, episode 2, and episode 3 painted only with colours mixable from eight paints."><figcaption>Target, episode 2, episode 3. The deepest navy is out of reach for these eight paints, so the bottom strip goes grey.</figcaption></figure>
+
+<p class="ep">Episode 4</p><h2>The model as art director</h2>
+<p>The model never places a stroke. Each round it looks at the target and the canvas on a grid and gives up to three notes: where, which brush, and why. The painter does the rest. It never sees the error score.</p>
+<figure><img src="ep4-view.webp" width="1376" height="750" alt="What the director sees: the target on the left and the half-finished canvas on the right, both with an A to J by 1 to 10 grid."><figcaption>What the director sees, round 4.</figcaption></figure>
+<figure><img src="directors.webp" width="1600" height="900" alt="Seven final paintings in a grid, ranked by error: the fixed schedule first, then GPT-6.1-Sol, GPT-6.1 Terra, Claude Opus 5.5, Claude Haiku 5.5, Claude Sonnet 5.5 and GPT-6-Luna. They look very similar."><figcaption>Same brief, same canvas, one run each. By eye they are hard to tell apart.</figcaption></figure>
+<figure><img src="chart.webp" width="1600" height="900" alt="Line chart of error against strokes for the fixed schedule and six AI directors. The fixed schedule's line is lowest at the finish."><figcaption>Error against strokes. Lower is closer.</figcaption></figure>
+<table>
+<caption class="mut" style="text-align:left;caption-side:bottom;padding-top:6px">Error is the mean squared difference from what the eight paints can reach. One run per model.</caption>
+<thead><tr><th>Director</th><th class="n">Strokes</th><th class="n">Error</th></tr></thead>
+<tbody>
+<tr><td>Fixed schedule (Hertzmann 1998)</td><td class="n">9,949</td><td class="n"><b>19.6</b></td></tr>
+<tr><td>GPT-6.1-Sol (Codex)</td><td class="n">11,215</td><td class="n">21.0</td></tr>
+<tr><td>GPT-6.1 Terra (Codex)</td><td class="n">10,994</td><td class="n">24.4</td></tr>
+<tr><td>Claude Opus 5.5</td><td class="n">7,874</td><td class="n">27.2</td></tr>
+<tr><td>Claude Haiku 5.5</td><td class="n">9,680</td><td class="n">31.4</td></tr>
+<tr><td>Claude Sonnet 5.5</td><td class="n">7,194</td><td class="n">34.3</td></tr>
+<tr><td>GPT-6-Luna (Codex)</td><td class="n">9,189</td><td class="n">35.6</td></tr>
+</tbody></table>
+<p>No model beat the fixed schedule at the finish. The models directed like painters, mostly big shapes first and the sun next, and their notes named real problems. But they were judging by eye, and the schedule was checking every cell.</p>
+</main></body></html>
