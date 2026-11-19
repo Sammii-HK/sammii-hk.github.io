@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import { blogComponents } from '../../src/components/case-study/mdx-components';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { getAllSlugs, getPostBySlug, REVALIDATE } from '../../lib/blog';
 
@@ -103,7 +104,7 @@ export default async function BlogPost({ params }: Props) {
       </header>
 
       <article className="prose dark:prose-invert prose-neutral max-w-none">
-        <MDXRemote source={post.content} options={mdxOptions} />
+        <MDXRemote source={post.content} options={mdxOptions} components={blogComponents} />
       </article>
     </main>
   );

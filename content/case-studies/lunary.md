@@ -47,3 +47,7 @@ At grimoire scale, structured metadata and cross-references stop being optional.
 ## Outcome
 
 Lunary has active users on both web and mobile through Capacitor, and the grimoire drives significant organic search traffic. The MCP server, 60+ tools for AI-assisted content management and analytics, now powers the automated content pipeline that runs through Orbit.
+
+## Read next
+
+[The signup that said “check your email”](/blog/lunary-signup-dead-end): how one field between the auth library and the sign-up screen was losing a third of new users, and what activation did when it stopped.
