@@ -9,6 +9,7 @@ import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';
 import { SiteShell } from '../../src/components/site/SiteShell';
 import { CaseStudyHero } from '../../src/components/case-study/CaseStudyHero';
 import { caseStudyComponents } from '../../src/components/case-study/mdx-components';
+import { CaseStudyBlocks, CaseStudyFacts } from '../../src/components/case-study/CaseStudyBlocks';
 import { ArrowRight } from "lucide-react";
 
 const mdxOptions = {
@@ -64,7 +65,7 @@ export default async function CaseStudyPage({ params }: Props) {
         <ArticleJsonLd
           title={study.title}
           description={study.description}
-          date={new Date().toISOString()}
+          date={study.structured ? new Date(study.structured.updated).toISOString() : new Date().toISOString()}
           url={url}
         />
         <Breadcrumbs
@@ -81,9 +82,18 @@ export default async function CaseStudyPage({ params }: Props) {
           readingTime={study.readingTime}
           project={project}
         />
-        <article className="prose prose-neutral dark:prose-invert max-w-none case-body">
-          <MDXRemote source={study.content} options={mdxOptions} components={caseStudyComponents} />
-        </article>
+        {study.structured ? (
+          <>
+            <CaseStudyFacts {...study.structured} />
+            <article className="prose prose-neutral dark:prose-invert max-w-none case-body">
+              <CaseStudyBlocks blocks={study.structured.blocks} />
+            </article>
+          </>
+        ) : (
+          <article className="prose prose-neutral dark:prose-invert max-w-none case-body">
+            <MDXRemote source={study.content} options={mdxOptions} components={caseStudyComponents} />
+          </article>
+        )}
         <nav className="case-foot" aria-label="More">
           <a href="/work/">All work <ArrowRight size={14} className="icon-inline" aria-hidden="true" /></a>
           <a href="/">Front page</a>

@@ -1,0 +1,128 @@
+{
+  "title": "Strata",
+  "description": "One zoom gesture, every scale: a single engine that turns any subject with an axis into a map you pinch through, free on the web with an iPhone app alongside.",
+  "techStack": "React Native, Expo, React Native Skia, RevenueCat",
+  "role": "Solo: design, engineering, content and product",
+  "status": "Free installable web app, with an iPhone app on the App Store",
+  "updated": "2026-11-19",
+  "facts": [
+    {
+      "label": "Products",
+      "value": "iOS app and a PWA"
+    },
+    {
+      "label": "Maps live",
+      "value": "8"
+    },
+    {
+      "label": "In the pipeline",
+      "value": "About 10 more"
+    },
+    {
+      "label": "A new map",
+      "value": "About 60 lines of config"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "prose",
+      "body": "Strata started as one idea: the ISS, the Moon, the Oort cloud and the edge of the observable universe on a single axis, where you pinch from one to the next and nothing collapses into a pixel. Then the same gesture turned out to work for everything else that has an axis. History is an axis. So is evolution, and so are the coats of arms of medieval Europe.\n\nSo Strata is not a space app with extras. It is an engine for any subject that can be laid along a line, and every subject is a pack."
+    },
+    {
+      "type": "decision",
+      "heading": "One app per subject, or one engine",
+      "context": "After Cosmos, the obvious next step was a History app. It would have shared the gestures by copy and paste and drifted from there, and every subject after it would have cost a new build.",
+      "options": [
+        {
+          "label": "A separate app per subject",
+          "detail": "Each one free to look different, but every fix made several times, and each launch starting from nothing."
+        },
+        {
+          "label": "One engine, a config per map",
+          "detail": "Every map is data: its axis and scale, its lanes, which lanes fan open, its items and how two of them compare.",
+          "chosen": true
+        }
+      ],
+      "outcome": "A map is now about 60 lines. Eight are live on one renderer: Cosmos, History, Evolution, Balladry, Bestiary, Mythologies, Geode and Blazon. Adding the next one is writing its data and its comparisons, not building an app."
+    },
+    {
+      "type": "code",
+      "lang": "ts",
+      "code": "export const blazonConfig: StrataConfig = {\n  id: \"blazon\",\n  name: \"Blazon\",\n  tagline: \"Coats of arms, and the moments they were adopted\",\n  scale: 'linear',\n  axis: {\n    kind: 'time',\n    format: fmtYear,\n    ticks: [1200, 1250, 1300, 1350, 1400, 1450, 1500],\n    frame: [1155, 1516],\n    domain: [1121, 1550],\n  },\n  lanes: LANES,\n  items: ITEMS,\n  compare,\n  scrubberLabel: 'Meanwhile',\n  formatSpan: fmtSpan,\n}",
+      "caption": "A whole map. The engine supplies the canvas, the gestures, the fan, search and the paywall."
+    },
+    {
+      "type": "decision",
+      "heading": "Two products, one engine",
+      "context": "Strata lives in two places: an iPhone app, and an installable web app at strata.sammii.dev. They share the engine and the maps, but they are not the same product, and pretending they were would have made both worse.",
+      "options": [
+        {
+          "label": "The web as a lesser copy",
+          "detail": "Ship the same app to the browser and let touch-first gestures limp along with a mouse."
+        },
+        {
+          "label": "The web as its own front door",
+          "detail": "Free and installable, with input built for a desk: wheel and trackpad zoom centred on the cursor, web fonts, no haptics. Locked depth points to the iPhone app instead of a checkout.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The PWA is the shareable way in: a link anyone can open, that installs from the browser. The iPhone app is where packs are bought, so payments live in one place, through RevenueCat, and the web never has to run a second billing system."
+    },
+    {
+      "type": "prose",
+      "heading": "The comparison is the product",
+      "body": "Pan and zoom on its own is a map. What makes Strata a tool is tapping one item, tapping a second, and being told something true about the gap. Each map writes its own comparison, so the sentence fits the subject: in Cosmos, two stars that share a constellation can sit hundreds of light-years apart in depth; on a timeline, it can tell you that something is closer to today than to the thing you compared it with.\n\nThat is why `compare` is part of the config rather than the engine. The gesture is shared; the insight belongs to the subject."
+    },
+    {
+      "type": "prose",
+      "heading": "Lanes that open as you zoom",
+      "body": "Zoomed out, a map is a handful of lanes: regions, constellations, eras. Zoom in and the lane under your fingers fans open into its parts, Europe into its countries, a constellation into its stars, eased in over a range of zoom rather than switching at a threshold. The zodiac signs come first in Cosmos because that is where most people start.\n\nGetting this right was mostly about intent. The fan locks to the lane under the pinch or wheel focal point, so a zoom never opens the lane next to the one you meant. One-finger pans lock to their dominant axis. A tap that lands as a pinch ends is ignored for a moment, and tap targets weigh vertical distance double, because the lanes run horizontally."
+    },
+    {
+      "type": "decision",
+      "heading": "Where the paywall goes",
+      "context": "Every map past Cosmos is a pack. A wall at the door would make the packs feel like a shop window you cannot look in.",
+      "options": [
+        {
+          "label": "Lock the map",
+          "detail": "Simple and clear, but nobody can tell whether a pack is worth having before they commit to it."
+        },
+        {
+          "label": "Let people in, lock the depth",
+          "detail": "Every locked map can be browsed at overview zoom. Zooming past the point where lanes fan open, comparing or searching shows an unlock bar that always has a 'not now'. On the web that bar points to the iPhone app.",
+          "chosen": true
+        }
+      ],
+      "outcome": "A pack is judged by looking at it, and nothing ever stops the app from opening."
+    },
+    {
+      "type": "metrics",
+      "heading": "What is in it",
+      "items": [
+        {
+          "label": "Maps",
+          "value": "8",
+          "note": "live on one engine",
+          "source": "the app's catalogue"
+        },
+        {
+          "label": "History",
+          "value": "903",
+          "note": "events across Europe, the world and ideas",
+          "source": "item count in the app's data files"
+        },
+        {
+          "label": "Evolution",
+          "value": "123",
+          "note": "items",
+          "source": "item count in the app's data files"
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "What it does not do yet",
+      "body": "Strata is honest about distance; it is not yet as smooth as it should be. Every gesture currently runs through React on the JavaScript thread, so the canvas re-renders on each event. Pans stop dead instead of carrying momentum, and jumping to an item or switching maps snaps rather than travels. VoiceOver cannot read the canvas, and Reduce Motion is not respected yet.\n\nThe next release moves the gestures onto the UI thread, adds momentum and spring transitions, and gives screen-reader users a list they can move through. Four more packs (Elements, Lunar Almanac, Calendarium and Star Stories) are written and waiting to be wired in."
+    }
+  ]
+}
