@@ -1,6 +1,26 @@
 {
   "routes": [
     {
+      "src": "^/sitemap\\.xml$",
+      "has": [{ "type": "host", "value": "labs.sammii.dev" }],
+      "dest": "/labs/sitemap.xml"
+    },
+    {
+      "src": "^/robots\\.txt$",
+      "has": [{ "type": "host", "value": "labs.sammii.dev" }],
+      "dest": "/labs/robots.txt"
+    },
+    {
+      "src": "^/explorations/?$",
+      "has": [{ "type": "host", "value": "labs.sammii.dev" }],
+      "dest": "/labs/explorations/"
+    },
+    {
+      "src": "^/explorations/(.*)$",
+      "has": [{ "type": "host", "value": "labs.sammii.dev" }],
+      "dest": "/labs/explorations/$1"
+    },
+    {
       "src": "^/$",
       "has": [
         {
