@@ -12,6 +12,18 @@
       "body": "Lattiq is an editor whose document lives on the device before it lives on a server. The release work restores the actual Lexical-to-Yjs binding, local persistence and collaboration, then checks the difficult paths: reload while offline, concurrent offline edits and reconnecting to a persisted room."
     },
     {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/lattiq-writing-room.jpg",
+          "alt": "Lattiq writing-room homepage with an editorial heading, scratch-pad entry point and device-only storage explanation.",
+          "width": 1280,
+          "height": 720,
+          "caption": "The redesigned writing room, local release candidate, 20 November 2026."
+        }
+      ]
+    },
+    {
       "type": "flow",
       "heading": "Follow an edit across the stack",
       "steps": [

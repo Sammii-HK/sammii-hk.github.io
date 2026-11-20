@@ -1,4 +1,6 @@
 "use client";
+import { Check } from "lucide-react";
+import { X } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 
 /**
@@ -58,7 +60,7 @@ function Box({ title, items, selected, mode, complexity }: { title: string; item
       <p className="aq-read"><strong>{samples.length ? `${ms.toFixed(1)} ms` : "type to measure"}</strong>{samples.length ? (ms > INSTANT ? " per keystroke: the field lags behind your fingers" : ms > FRAME ? " per keystroke: drops frames while you type" : " per keystroke: under one frame") : ""}</p>
       <Meter samples={samples} label={title} />
       <ul className="aq-list">
-        {rows.map(({ item, on }) => <li key={item.id} className={on ? "is-on" : ""}>{item.name}</li>)}
+        {rows.map(({ item, on }) => <li key={item.id} className={on ? "is-on" : ""}>{on && <Check size={12} aria-hidden="true" className="inline-block align-middle mr-1" />}{item.name}</li>)}
       </ul>
     </section>
   );
@@ -79,7 +81,7 @@ export function AccidentalQuadratic() {
         <Box title="selected.includes(id)" complexity="O(n · m)" items={items} selected={selected} mode="includes" />
         <Box title="selectedSet.has(id)" complexity="O(n)" items={items} selected={selected} mode="set" />
       </div>
-      <p className="jd-note">Same list, same query, same render. The only difference is one line: an array <code>includes</code> walks the selected list for every item (n items × m selected), a <code>Set</code> answers in one step. Clear the box to search everything again; the worst keystroke is the first one, when every item matches.</p>
+      <p className="jd-note">Same list, same query, same render. The only difference is one line: an array <code>includes</code> walks the selected list for every item (n items <X size={14} aria-hidden="true" className="inline-block align-middle" /> m selected), a <code>Set</code> answers in one step. Clear the box to search everything again; the worst keystroke is the first one, when every item matches.</p>
     </div>
   );
 }

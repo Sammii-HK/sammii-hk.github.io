@@ -42,6 +42,6 @@
 .aq-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-size: 0.75rem; min-height: 8.6em; }
 .aq-list li { padding: 0.15rem 0.4rem; border-radius: 4px; opacity: 0.6; }
 .aq-list li.is-on { opacity: 1; background: color-mix(in oklab, currentColor 10%, transparent); }
-.aq-list li.is-on::before { content: "✓ "; }
+
 .jd-note { margin: 0; font-size: 0.8125rem; line-height: 1.5; color: color-mix(in oklab, currentColor 75%, transparent); }
 .jd-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }

@@ -53,7 +53,7 @@ export const Footer = () => {
             href="/blog"
             className="text-xs sm:text-sm text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white transition-colors"
           >
-            Blog
+            Writing
           </Link>
           <a
             href="/rss.xml"

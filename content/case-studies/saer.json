@@ -3,7 +3,7 @@
   "description": "Create a design system, then give coding agents evidence of where the implementation diverges from it.",
   "techStack": "Python, TypeScript, OKLCH, CSS analysis, MCP",
   "role": "Solo: design, engineering and product",
-  "status": "Private beta; public browser-based Create tool",
+  "status": "Private beta; updated Create component workspace prepared locally",
   "updated": "2026-11-20",
   "blocks": [
     {
@@ -15,6 +15,23 @@
       "type": "prose",
       "heading": "A system you can inspect before exporting",
       "body": "The public Create interface exposes OKLCH scales, contrast ratios, heading and body fonts, a type scale, radius, elevation and density. A light and dark interface preview puts those choices together. Exports include CSS, Tailwind, shadcn/ui and design tokens; saer-system.json carries the system into the CLI workflow."
+    },
+    {
+      "type": "prose",
+      "heading": "The component code needs to be reachable",
+      "body": "Create already generated seven React components, but the browser hid their source inside the system bundle. The current local redesign separates Foundations, Components, and Export and handoff. Its component workspace renders the exact downloadable source, exposes button variants and control states, and lets a developer copy a component or download it with the required theme. The font catalogue expands from 44 curated families to a dated 1,840-family Google Fonts snapshot; only chosen font files are requested. This release is prepared locally and is not yet the public Create interface."
+    },
+    {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/saer-components.jpg",
+          "alt": "Saer Create with green, lavender and charcoal foundations, a component library selector, a live button variant preview and source export.",
+          "width": 1274,
+          "height": 717,
+          "caption": "Local release candidate, 20 November 2026. The browser previews are built from the same component sources offered for download."
+        }
+      ]
     },
     {
       "type": "decision",

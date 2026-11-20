@@ -7,7 +7,7 @@ import { InteractiveExploration } from '../../src/components/blog/InteractiveExp
 
 export const revalidate = REVALIDATE;
 export const dynamicParams = true;
-import { Breadcrumbs } from '../../src/components/Breadcrumbs';
+import { SiteShell } from '../../src/components/site/SiteShell';
 import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';
 
 const mdxOptions = {
@@ -65,21 +65,13 @@ export default async function BlogPost({ params }: Props) {
   const url = `https://sammii.dev/blog/${slug}/`;
 
   return (
-    <main className="max-w-2xl mx-auto px-6 py-12">
+    <SiteShell current="blog" breadcrumbs={[{label:"Home",href:"/"},{label:"Writing",href:"/blog/"},{label:post.title}]}><main id="main" className="max-w-2xl mx-auto px-6 py-12">
       <ArticleJsonLd
         title={post.title}
         description={post.description}
         date={post.date}
         url={url}
         tags={post.tags}
-      />
-
-      <Breadcrumbs
-        crumbs={[
-          { label: 'sammii.dev', href: '/' },
-          { label: 'Blog', href: '/blog' },
-          { label: post.title },
-        ]}
       />
 
       <header className="mb-10">
@@ -110,6 +102,6 @@ export default async function BlogPost({ params }: Props) {
       <article className="prose dark:prose-invert prose-neutral max-w-none">
         <MDXRemote source={post.content} options={mdxOptions} components={{ InteractiveExploration }} />
       </article>
-    </main>
+    </main></SiteShell>
   );
 }

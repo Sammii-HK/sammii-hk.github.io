@@ -1,0 +1,1436 @@
+{
+  "generatedAt": "2026-11-20T15:28:29.628Z",
+  "scope": "Every portfolio catalogue entry, Labs exploration and registered chart. HTTP checks do not establish visual polish, correctness or interaction quality.",
+  "counts": {
+    "projects": 39,
+    "explorations": 15,
+    "charts": 37
+  },
+  "items": [
+    {
+      "id": "saer",
+      "title": "Saer",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://saer.app",
+      "caseStudy": "content/case-studies/saer.json",
+      "image": "public/assets/images/refresh-20261120/saer-components.jpg",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T15:27:08.052Z",
+      "structured": true,
+      "studyWords": 646,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://saer.app/"
+      }
+    },
+    {
+      "id": "gamut",
+      "title": "Gamut",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://gamut.sammii.dev",
+      "caseStudy": "content/case-studies/gamut.md",
+      "image": "public/assets/images/gamut.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.130Z",
+      "structured": false,
+      "studyWords": 549,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://gamut.sammii.dev/"
+      }
+    },
+    {
+      "id": "kern",
+      "title": "Type Lab",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://kern.sammii.dev",
+      "caseStudy": "content/case-studies/kern.json",
+      "image": "public/assets/images/kern.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.301Z",
+      "structured": true,
+      "studyWords": 693,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://kern.sammii.dev/"
+      }
+    },
+    {
+      "id": "prism",
+      "title": "Prism",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://prism.sammii.dev",
+      "caseStudy": "content/case-studies/prism.json",
+      "image": "public/assets/images/refresh-20261120/prism-components.jpg",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T15:25:41.230Z",
+      "structured": true,
+      "studyWords": 960,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://prism.sammii.dev/"
+      }
+    },
+    {
+      "id": "scapestudio",
+      "title": "ScapeStudio",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://scapestudio.vercel.app",
+      "caseStudy": "content/case-studies/scapestudio.md",
+      "image": "public/assets/images/scapestudio.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.622Z",
+      "structured": false,
+      "studyWords": 580,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://scapestudio.vercel.app/"
+      }
+    },
+    {
+      "id": "strata",
+      "title": "Strata",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://strata.sammii.dev",
+      "caseStudy": "content/case-studies/strata.json",
+      "image": "public/assets/images/strata.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.665Z",
+      "structured": true,
+      "studyWords": 1168,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://strata.sammii.dev/"
+      }
+    },
+    {
+      "id": "lattiq",
+      "title": "Lattiq",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://lattiq.sammii.dev",
+      "caseStudy": "content/case-studies/lattiq.json",
+      "image": "public/assets/images/refresh-20261120/lattiq-writing-room.jpg",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T15:14:22.567Z",
+      "structured": true,
+      "studyWords": 806,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://lattiq.sammii.dev/"
+      }
+    },
+    {
+      "id": "pizzazz",
+      "title": "Pizzazz",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://www.npmjs.com/package/@unicorn-poo/pizzazz",
+      "caseStudy": "content/case-studies/pizzazz.md",
+      "image": "public/assets/images/pizzazz.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.466Z",
+      "structured": false,
+      "studyWords": 525,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 403,
+        "finalUrl": "https://www.npmjs.com/package/@unicorn-poo/pizzazz"
+      }
+    },
+    {
+      "id": "lunary",
+      "title": "Lunary",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://lunary.app",
+      "caseStudy": "content/case-studies/lunary.md",
+      "image": "public/assets/images/lunary.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.336Z",
+      "structured": false,
+      "studyWords": 644,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://lunary.app/"
+      }
+    },
+    {
+      "id": "conjure",
+      "title": "Conjure",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://conjure-two.vercel.app",
+      "caseStudy": "content/case-studies/conjure.md",
+      "image": "public/assets/images/conjure.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.064Z",
+      "structured": false,
+      "studyWords": 630,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://conjure-two.vercel.app/"
+      }
+    },
+    {
+      "id": "sammii-cli",
+      "title": "sammii-cli",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://www.npmjs.com/package/sammii",
+      "caseStudy": "content/case-studies/sammii-cli.md",
+      "image": "public/assets/images/sammii-cli.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.595Z",
+      "structured": false,
+      "studyWords": 507,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 403,
+        "finalUrl": "https://www.npmjs.com/package/sammii"
+      }
+    },
+    {
+      "id": "podify",
+      "title": "Podify",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://podify-topaz.vercel.app",
+      "caseStudy": "content/case-studies/podify.md",
+      "image": "public/assets/images/podify.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.473Z",
+      "structured": false,
+      "studyWords": 558,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://podify-topaz.vercel.app/login"
+      }
+    },
+    {
+      "id": "spellcast",
+      "title": "Spellcast",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://spellcast.sammii.dev",
+      "caseStudy": "content/case-studies/spellcast.json",
+      "image": "public/assets/images/spellcast.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.655Z",
+      "structured": true,
+      "studyWords": 497,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://spellcast.sammii.dev/"
+      }
+    },
+    {
+      "id": "moth",
+      "title": "Moth",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://moth.sammii.dev",
+      "caseStudy": "content/case-studies/moth.json",
+      "image": "public/assets/images/moth.png",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.364Z",
+      "structured": true,
+      "studyWords": 1300,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://moth.sammii.dev/"
+      }
+    },
+    {
+      "id": "orbit",
+      "title": "Orbit",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://orbit-live.sammii.dev",
+      "caseStudy": "content/case-studies/orbit.json",
+      "image": "public/assets/images/orbit.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.460Z",
+      "structured": true,
+      "studyWords": 563,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://orbit-live.sammii.dev/"
+      }
+    },
+    {
+      "id": "homebase",
+      "title": "Homebase",
+      "kind": "project",
+      "placement": "work",
+      "url": null,
+      "caseStudy": "content/case-studies/homebase.md",
+      "image": "public/assets/images/homebase.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.240Z",
+      "structured": false,
+      "studyWords": 493,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": null
+    },
+    {
+      "id": "iprep",
+      "title": "iPrep",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://iprep-five.vercel.app/",
+      "caseStudy": "content/case-studies/iprep.md",
+      "image": "public/assets/images/iprep.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.257Z",
+      "structured": false,
+      "studyWords": 572,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://iprep-five.vercel.app/"
+      }
+    },
+    {
+      "id": "artify",
+      "title": "Artify",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://artify-roan.vercel.app",
+      "caseStudy": "content/case-studies/artify.md",
+      "image": "public/assets/images/artify.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.007Z",
+      "structured": false,
+      "studyWords": 506,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://artify-roan.vercel.app/"
+      }
+    },
+    {
+      "id": "glint",
+      "title": "Glint",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://glint-dun.vercel.app",
+      "caseStudy": "content/case-studies/glint.md",
+      "image": "public/assets/images/glint.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.192Z",
+      "structured": false,
+      "studyWords": 584,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://glint-dun.vercel.app/"
+      }
+    },
+    {
+      "id": "create-mcp-server",
+      "title": "create-mcp-server",
+      "kind": "project",
+      "placement": "home",
+      "url": "https://www.npmjs.com/package/init-mcp-server",
+      "caseStudy": "content/case-studies/create-mcp-server.md",
+      "image": "public/assets/images/create-mcp-server.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.070Z",
+      "structured": false,
+      "studyWords": 575,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 403,
+        "finalUrl": "https://www.npmjs.com/package/init-mcp-server"
+      }
+    },
+    {
+      "id": "crystal-index",
+      "title": "Crystal Index",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://crystalindex.co.uk",
+      "caseStudy": "content/case-studies/crystal-index.md",
+      "image": "public/assets/images/crystal-index.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.113Z",
+      "structured": false,
+      "studyWords": 559,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://www.crystalindex.co.uk/"
+      }
+    },
+    {
+      "id": "the-colour-game",
+      "title": "The CSS Color Game",
+      "kind": "project",
+      "placement": "work",
+      "url": "https://thecolorgame.uk",
+      "caseStudy": "content/case-studies/the-colour-game.md",
+      "image": "public/assets/images/the-colour-game.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.748Z",
+      "structured": false,
+      "studyWords": 671,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://www.thecolorgame.uk/"
+      }
+    },
+    {
+      "id": "flip",
+      "title": "Flip",
+      "kind": "project",
+      "placement": "work",
+      "url": null,
+      "caseStudy": "content/case-studies/flip.md",
+      "image": "public/assets/images/flip.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.122Z",
+      "structured": false,
+      "studyWords": 580,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": null
+    },
+    {
+      "id": "moth-drawings",
+      "title": "Inside Moth",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://moth.sammii.dev/observatory.html",
+      "caseStudy": "content/case-studies/moth.json",
+      "image": "public/assets/images/moth-drawings.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.341Z",
+      "structured": true,
+      "studyWords": 1300,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://moth.sammii.dev/observatory.html"
+      }
+    },
+    {
+      "id": "why-this-take-won",
+      "title": "Why this take won",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://sammii.dev/experiments/why-this-take-won/index.html",
+      "caseStudy": "content/case-studies/why-this-take-won.json",
+      "image": "public/assets/images/why-this-take-won.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.766Z",
+      "structured": true,
+      "studyWords": 261,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://sammii.dev/experiments/why-this-take-won/index.html"
+      }
+    },
+    {
+      "id": "teaching-a-computer-to-paint",
+      "title": "Teaching a computer to paint",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://sammii.dev/experiments/teaching-a-computer-to-paint/index.html",
+      "caseStudy": "content/case-studies/teaching-a-computer-to-paint.md",
+      "image": "public/assets/images/teaching-a-computer-to-paint.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.735Z",
+      "structured": false,
+      "studyWords": 1179,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://sammii.dev/experiments/teaching-a-computer-to-paint/index.html"
+      }
+    },
+    {
+      "id": "kinetic",
+      "title": "Kinetic",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://kinetic.sammii.dev",
+      "caseStudy": null,
+      "image": "public/assets/images/kinetic.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.312Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://kinetic.sammii.dev/"
+      }
+    },
+    {
+      "id": "spectra",
+      "title": "Spectra",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://spectra.sammii.dev",
+      "caseStudy": null,
+      "image": "public/assets/images/spectra.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.646Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://spectra.sammii.dev/"
+      }
+    },
+    {
+      "id": "refract",
+      "title": "Refract",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://refract.sammii.dev",
+      "caseStudy": null,
+      "image": "public/assets/images/refract.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.555Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://refract.sammii.dev/"
+      }
+    },
+    {
+      "id": "grove",
+      "title": "Grove",
+      "kind": "project",
+      "placement": "archive",
+      "url": "https://grove.sammii.dev",
+      "caseStudy": null,
+      "image": "public/assets/images/grove.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.216Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://grove.sammii.dev/"
+      }
+    },
+    {
+      "id": "isle",
+      "title": "Isle",
+      "kind": "project",
+      "placement": "labs",
+      "url": null,
+      "caseStudy": null,
+      "image": "public/assets/images/isle.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.288Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": null
+    },
+    {
+      "id": "beyond-light-vr",
+      "title": "Beyond Light VR",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://beyond-light-vr.vercel.app",
+      "caseStudy": null,
+      "image": "public/assets/images/beyond-light-vr.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.027Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://beyond-light-vr.vercel.app/"
+      }
+    },
+    {
+      "id": "celestial-map",
+      "title": "Celestial map",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://celestial-map.sammii.dev",
+      "caseStudy": null,
+      "image": "public/assets/images/celestial-map.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.050Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://celestial-map.sammii.dev/"
+      }
+    },
+    {
+      "id": "creative-coding",
+      "title": "Creative Coding",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://creative-coding.sammii.dev",
+      "caseStudy": null,
+      "image": "public/assets/images/creative-coding.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.111Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://creative-coding.sammii.dev/"
+      }
+    },
+    {
+      "id": "liquidity",
+      "title": "Liquidity",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://liquidity-ten.vercel.app",
+      "caseStudy": null,
+      "image": "public/assets/images/liquidity.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.329Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://liquidity-ten.vercel.app/"
+      }
+    },
+    {
+      "id": "day-lite",
+      "title": "Day Lite",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://day-lite.vercel.app",
+      "caseStudy": null,
+      "image": "public/assets/images/day-lite.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.116Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://day-lite.vercel.app/"
+      }
+    },
+    {
+      "id": "balloon-bonanza",
+      "title": "Balloon Bonanza",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://balloon-bonanza.vercel.app",
+      "caseStudy": "content/case-studies/balloon-bonanza.md",
+      "image": "public/assets/images/balloon-bonanza.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.020Z",
+      "structured": false,
+      "studyWords": 588,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://balloon-bonanza.vercel.app/"
+      }
+    },
+    {
+      "id": "tailwind-colour-creator",
+      "title": "Tailwind Colour Creator",
+      "kind": "project",
+      "placement": "labs",
+      "url": "https://tailwind-colour-creator.vercel.app",
+      "caseStudy": null,
+      "image": "public/assets/images/tailwind-colour-creator.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.716Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://tailwind-colour-creator.vercel.app/"
+      }
+    },
+    {
+      "id": "communication-infographic",
+      "title": "Communication Infographic",
+      "kind": "project",
+      "placement": "archive",
+      "url": "https://communication-infographic.vercel.app",
+      "caseStudy": null,
+      "image": "public/assets/images/communication-infographic.webp",
+      "imageExists": true,
+      "imageUpdated": "2026-11-20T11:54:39.057Z",
+      "structured": false,
+      "studyWords": 1,
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "caseStudyReview": "missing",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://communication-infographic.vercel.app/"
+      }
+    },
+    {
+      "id": "past-earth",
+      "title": "A planet reshaping itself",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/plate-tectonics/",
+      "sources": 2,
+      "limitations": "This is a process illustration. Progress is not elapsed geological time, and the view does not reconstruct historical coastlines, local geology or a real place in the past.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/plate-tectonics/"
+      }
+    },
+    {
+      "id": "surfaces",
+      "title": "A day on another world",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/day-on-another-world/",
+      "sources": 3,
+      "limitations": "These are original artistic scenes informed by observations, not radiative-transfer calculations or calibrated photographs. The control is a daylight phase, not hours, season, latitude or the length of a planetary day.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/day-on-another-world/"
+      }
+    },
+    {
+      "id": "interiors",
+      "title": "Beneath the surface",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/inside-planets/",
+      "sources": 3,
+      "limitations": "Layer proportions are illustrative, not measured thicknesses. Giant-planet transitions can be gradual. Titan's liquid-rich layer is one possible model, and Pluto's ocean is not presented as proven.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/inside-planets/"
+      }
+    },
+    {
+      "id": "gravity",
+      "title": "The gravity room",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/gravity-on-other-worlds/",
+      "sources": 3,
+      "limitations": "The comparison assumes a vacuum and constant acceleration over a short path. It omits air resistance, terrain and planetary curvature. Giant-planet values refer to a 1-bar atmospheric level with an imaginary reference plane.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/gravity-on-other-worlds/"
+      }
+    },
+    {
+      "id": "stories",
+      "title": "One sky, many stories",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/constellations-and-sky-stories/",
+      "sources": 4,
+      "limitations": "The illustrations are contemporary original interpretations. Matariki, the Greek Seven Sisters and the Kamilaroi/Euahlayi Celestial Emu are concise, source-attributed examples, not complete alternative sky catalogues or invented traditional artwork.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/constellations-and-sky-stories/"
+      }
+    },
+    {
+      "id": "time",
+      "title": "The sky unravelling",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/constellations-through-time/",
+      "sources": 3,
+      "limitations": "The long time range is illustrative, not an accurate long-term ephemeris. Radial velocities, Galactic gravity, binary motion, precession and stellar evolution are omitted. The source epoch is not labelled as today.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/constellations-through-time/"
+      }
+    },
+    {
+      "id": "depth",
+      "title": "Step outside the pattern",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/big-dipper-in-3d/",
+      "sources": 2,
+      "limitations": "This is a focused seven-star geometric study, not an all-sky map or a spacecraft simulation. It does not include motion during travel, light-time effects, relativistic aberration or newly calculated apparent brightness.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/big-dipper-in-3d/"
+      }
+    },
+    {
+      "id": "black-hole",
+      "title": "Near a black hole",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/black-hole-time-dilation/",
+      "sources": 1,
+      "limitations": "The near clock is held stationary. This is not an orbit, freefall or travel calculation. Rotation, charge and the practical limits of holding position are omitted; the drawing compresses radial spacing.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/black-hole-time-dilation/"
+      }
+    },
+    {
+      "id": "black-hole-light",
+      "title": "Where light can go",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/black-hole-light-paths/",
+      "sources": 2,
+      "limitations": "This is an exterior coordinate-path map for a non-rotating, uncharged black hole. It is not a telescope image, accretion-disc rendering or travel-time clock. Captured rays end at the horizon.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/black-hole-light-paths/"
+      }
+    },
+    {
+      "id": "double-slit",
+      "title": "One arrival at a time",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/double-slit-experiment/",
+      "sources": 2,
+      "limitations": "The model uses ideal far-field diffraction and a one-dimensional detector window. It samples outcomes rather than hidden particle trajectories. The path toggle represents physical information, with no role assigned to human consciousness.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/double-slit-experiment/"
+      }
+    },
+    {
+      "id": "tunnelling",
+      "title": "Through the forbidden",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/quantum-tunnelling/",
+      "sources": 2,
+      "limitations": "This is a nonrelativistic, one-dimensional, single-energy stationary state. It does not calculate a wavepacket's journey or tunnelling time. Energy is conserved; no temporary energy borrowing is implied.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/quantum-tunnelling/"
+      }
+    },
+    {
+      "id": "uncertainty",
+      "title": "A little less certain",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/quantum-uncertainty/",
+      "sources": 2,
+      "limitations": "The plots describe distributions across repeated preparations, not a simultaneous measurement of one particle's exact position and momentum. The free-electron model omits external forces and does not reduce uncertainty to measurement disturbance.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/quantum-uncertainty/"
+      }
+    },
+    {
+      "id": "sound-patterns",
+      "title": "The shape of a note",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/vibrating-membranes/",
+      "sources": 1,
+      "limitations": "This is an ideal tensioned membrane, not a metal Chladni plate or sand simulation. Visible vibration is slowed and colour is arbitrary. The optional sine tone does not reproduce a real instrument's timbre.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/vibrating-membranes/"
+      }
+    },
+    {
+      "id": "living-patterns",
+      "title": "Patterns that grow",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/reaction-diffusion/",
+      "sources": 2,
+      "limitations": "The fields use dimensionless units and synthetic starting conditions. Colours are a display choice. The model creates mathematical patterns and does not claim to simulate actual coral, animal markings or biological life.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/reaction-diffusion/"
+      }
+    },
+    {
+      "id": "evolution",
+      "title": "Worlds in Time",
+      "kind": "exploration",
+      "url": "https://labs.sammii.dev/explorations/planetary-surface-evolution/",
+      "sources": 6,
+      "limitations": "The terrain is synthetic and the rates are accelerated and uncalibrated. Model years do not reconstruct the actual history or predict the future of these bodies. Internal heat is a dimensionless activity index. The model omits plate tectonics, interior fluid dynamics, impact shock physics, climate and orbital tides; colours, icy fractures and exaggerated relief are illustrative.",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/explorations/planetary-surface-evolution/"
+      }
+    },
+    {
+      "id": "colour-spaces",
+      "title": "The family tree of colour spaces",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/colour-spaces/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/colour-spaces/"
+      }
+    },
+    {
+      "id": "why-hsl-lies",
+      "title": "Why HSL lies",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/why-hsl-lies/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/why-hsl-lies/"
+      }
+    },
+    {
+      "id": "typography",
+      "title": "The typography genome",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/typography/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/typography/"
+      }
+    },
+    {
+      "id": "gamuts",
+      "title": "The gamuts",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/gamuts/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/gamuts/"
+      }
+    },
+    {
+      "id": "named-colours",
+      "title": "Every named CSS colour, in OKLCH",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/named-colours/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/named-colours/"
+      }
+    },
+    {
+      "id": "contrast",
+      "title": "Contrast, two ways that disagree",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/contrast/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/contrast/"
+      }
+    },
+    {
+      "id": "url",
+      "title": "How a URL becomes a page",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/url/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/url/"
+      }
+    },
+    {
+      "id": "repaint",
+      "title": "What a CSS property costs",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/repaint/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/repaint/"
+      }
+    },
+    {
+      "id": "event-loop",
+      "title": "The event loop, for interfaces",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/event-loop/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/event-loop/"
+      }
+    },
+    {
+      "id": "big-o",
+      "title": "Big O, in the keystroke",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/big-o/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/big-o/"
+      }
+    },
+    {
+      "id": "springs",
+      "title": "Easing versus springs",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/springs/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/springs/"
+      }
+    },
+    {
+      "id": "stacking",
+      "title": "Why z-index: 9999 does nothing",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/stacking/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/stacking/"
+      }
+    },
+    {
+      "id": "specificity",
+      "title": "Specificity, three columns",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/specificity/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/specificity/"
+      }
+    },
+    {
+      "id": "layout",
+      "title": "Thirty years of CSS layout, the same page each way",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/layout/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/layout/"
+      }
+    },
+    {
+      "id": "unicode",
+      "title": "The four lengths of a string",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/unicode/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/unicode/"
+      }
+    },
+    {
+      "id": "floating-point",
+      "title": "Floating point, at the pixel",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/floating-point/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/floating-point/"
+      }
+    },
+    {
+      "id": "js-cost",
+      "title": "What a byte of JavaScript costs",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/js-cost/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/js-cost/"
+      }
+    },
+    {
+      "id": "git-graph",
+      "title": "Your commit is not gone",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/git-graph/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/git-graph/"
+      }
+    },
+    {
+      "id": "anchor",
+      "title": "Getting the menu out of the card",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/anchor/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/anchor/"
+      }
+    },
+    {
+      "id": "caching",
+      "title": "Why they are still seeing the old version",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/caching/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/caching/"
+      }
+    },
+    {
+      "id": "keypress",
+      "title": "How a keypress becomes a pixel",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/keypress/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/keypress/"
+      }
+    },
+    {
+      "id": "seven",
+      "title": "Seven, and why the week is in that order",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/seven/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/seven/"
+      }
+    },
+    {
+      "id": "x-height",
+      "title": "Why 16px is not 16px",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/x-height/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/x-height/"
+      }
+    },
+    {
+      "id": "letter",
+      "title": "The anatomy of a letter",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/letter/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/letter/"
+      }
+    },
+    {
+      "id": "communication",
+      "title": "Six centuries of communication and type",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/communication/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/communication/"
+      }
+    },
+    {
+      "id": "spectrum",
+      "title": "The visible spectrum is a sliver",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/spectrum/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/spectrum/"
+      }
+    },
+    {
+      "id": "now",
+      "title": "How long “now” takes",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/now/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/now/"
+      }
+    },
+    {
+      "id": "tests-for-a-mind",
+      "title": "Tests for a mind",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/tests-for-a-mind/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/tests-for-a-mind/"
+      }
+    },
+    {
+      "id": "retina",
+      "title": "What your eye actually renders",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/retina/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/retina/"
+      }
+    },
+    {
+      "id": "context-window",
+      "title": "A context window, to scale",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/context-window/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/context-window/"
+      }
+    },
+    {
+      "id": "llm-latency",
+      "title": "Where an LLM call spends its time",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/llm-latency/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/llm-latency/"
+      }
+    },
+    {
+      "id": "grimoire-map",
+      "title": "Lunary's grimoire, mapped by meaning",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/grimoire-map/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/grimoire-map/"
+      }
+    },
+    {
+      "id": "tokens",
+      "title": "How text becomes tokens",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/tokens/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/tokens/"
+      }
+    },
+    {
+      "id": "videos",
+      "title": "What 900 videos taught me",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/videos/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/videos/"
+      }
+    },
+    {
+      "id": "frame-budget",
+      "title": "The 16.7ms frame budget",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/frame-budget/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/frame-budget/"
+      }
+    },
+    {
+      "id": "text-on-screen",
+      "title": "How long text needs on screen",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/text-on-screen/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/text-on-screen/"
+      }
+    },
+    {
+      "id": "touch-targets",
+      "title": "Touch targets, to scale",
+      "kind": "chart",
+      "url": "https://labs.sammii.dev/charts/touch-targets/",
+      "sourceReview": "pending",
+      "visualReview": "pending",
+      "http": {
+        "status": 200,
+        "finalUrl": "https://labs.sammii.dev/charts/touch-targets/"
+      }
+    }
+  ]
+}

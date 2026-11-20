@@ -3,19 +3,19 @@ import type { Metadata } from 'next';
 import { getAllPosts, REVALIDATE } from '../lib/blog';
 
 export const revalidate = REVALIDATE;
-import { Breadcrumbs } from '../src/components/Breadcrumbs';
+import { SiteShell } from '../src/components/site/SiteShell';
 
 export const metadata: Metadata = {
-  title: 'Blog · sammii.dev',
+  title: 'Writing · sammii.dev',
   description: 'Thoughts on engineering, design, and building things.',
   openGraph: {
-    title: 'Blog · sammii.dev',
+    title: 'Writing · sammii.dev',
     description: 'Thoughts on engineering, design, and building things.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog · sammii.dev',
+    title: 'Writing · sammii.dev',
     description: 'Thoughts on engineering, design, and building things.',
   },
 };
@@ -24,10 +24,10 @@ export default async function BlogIndex() {
   const posts = await getAllPosts();
 
   return (
-    <main className="max-w-2xl mx-auto px-6 py-12">
-      <Breadcrumbs crumbs={[{ label: 'sammii.dev', href: '/' }, { label: 'Blog' }]} />
+    <SiteShell current="blog" breadcrumbs={[{label:"Home",href:"/"},{label:"Writing"}]}><main id="main" className="max-w-2xl mx-auto px-6 py-12">
 
-      <h1 className="text-3xl font-bold mb-2">Blog</h1>
+
+      <h1 className="text-3xl font-bold mb-2">Writing</h1>
       <p className="text-neutral-600 dark:text-neutral-400 mb-12">Thoughts on engineering, design, and building things.</p>
 
       {posts.length === 0 ? (
@@ -66,6 +66,6 @@ export default async function BlogIndex() {
           ))}
         </ul>
       )}
-    </main>
+    </main></SiteShell>
   );
 }

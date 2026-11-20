@@ -4,7 +4,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { getAllCaseStudySlugs, getCaseStudyBySlug } from '../../lib/case-studies';
 import { projects } from '../../common/data/projects';
-import { Breadcrumbs } from '../../src/components/Breadcrumbs';
 import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';
 import { SiteShell } from '../../src/components/site/SiteShell';
 import { CaseStudyHero } from '../../src/components/case-study/CaseStudyHero';
@@ -60,20 +59,13 @@ export default async function CaseStudyPage({ params }: Props) {
   const project = projects.find((p) => p.caseStudy === slug) ?? null;
 
   return (
-    <SiteShell current="work">
+    <SiteShell current="work" breadcrumbs={[{label:"Home",href:"/"},{label:"Work",href:"/work/"},{label:study.title}]}>
       <main id="main" className="case-study">
         <ArticleJsonLd
           title={study.title}
           description={study.description}
           date={study.structured ? new Date(study.structured.updated).toISOString() : new Date().toISOString()}
           url={url}
-        />
-        <Breadcrumbs
-          crumbs={[
-            { label: 'sammii.dev', href: '/' },
-            { label: 'Work', href: '/work/' },
-            { label: study.title },
-          ]}
         />
         <CaseStudyHero
           title={study.title}

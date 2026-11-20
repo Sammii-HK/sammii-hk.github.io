@@ -10,11 +10,13 @@
     "dev": "npm run generate-image-map && next dev",
     "build": "npm run generate-image-map && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "npm run lint:icons && next lint",
     "screenshot": "node scripts/screenshot.mjs",
     "screenshot:new": "node scripts/screenshot.mjs --only spellcast,podify,artify,celestial-map",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "lint:icons": "node scripts/lint-icons.mjs",
+    "test:icons": "node --test scripts/icons.test.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.4.1",

@@ -1,0 +1,48 @@
+{
+  "title": "Why this take won",
+  "description": "Making a phrase-scoring rule inspectable, from its four inputs to a reviewable choice between takes.",
+  "techStack": "TypeScript, ES modules, scoring models, interface design",
+  "role": "Solo: product, design and engineering",
+  "status": "Interactive scoring explainer; invented examples, not recorded user sessions",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "A score should have an explanation",
+      "body": "Post Ready combines words heard, filler penalties, pace and eye contact when comparing deliveries of a phrase. The explainer makes those parts visible. Three invented takes let a reader adjust the weights and see why the chosen take changes."
+    },
+    {
+      "type": "decision",
+      "heading": "Expose the parts of the decision",
+      "context": "A single winning score hides what the rule rewards and what it cannot assess.",
+      "options": [
+        {
+          "label": "Show only the winning take",
+          "detail": "A short result with little basis for questioning it."
+        },
+        {
+          "label": "Show each contribution and its weight",
+          "detail": "Make the arithmetic inspectable and let the reader explore a different weighting.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The explainer shows how the scoring rule behaves. It does not establish that the winning take is the most convincing performance."
+    },
+    {
+      "type": "tradeoff",
+      "heading": "What the model cannot decide",
+      "gave": "A small mechanical model cannot assess tone, delivery nuance or whether a joke landed.",
+      "got": "Its inputs and weighting can be inspected directly, without presenting invented example takes as recorded evidence."
+    },
+    {
+      "type": "links",
+      "heading": "Explore the scoring study",
+      "items": [
+        {
+          "label": "Open the interactive scoring explainer",
+          "href": "https://sammii.dev/experiments/why-this-take-won/index.html"
+        }
+      ]
+    }
+  ]
+}

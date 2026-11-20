@@ -36,13 +36,13 @@ export const ProjectItem = (projectItem: Project) => {
 
   return (
     <div className="p-2 sm:p-4 flex flex-col h-full">
-      <div className="mb-1.5 sm:mb-3 flex-shrink-0">
+      <div className="mb-1.5 sm:mb-3 flex-shrink-0 aspect-video overflow-hidden rounded">
         <Image
           src={imagePath}
           alt={project.title}
           width={1000}
           height={500}
-          className="w-full h-auto rounded object-cover"
+          className="w-full h-full object-cover"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
           quality={80}
           {...(index < 6 ? { priority: true } : { loading: "lazy" as const })}

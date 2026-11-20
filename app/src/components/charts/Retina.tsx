@@ -189,8 +189,8 @@ function DensityChart() {
           {v.ticks.map((t) => (
             <g key={t} className="rt-tick rt-tick-x"><line x1={x(t)} x2={x(t)} y1={T} y2={H - B} /><text x={x(t)} y={H - B + 16} textAnchor="middle">{t === 0 ? "0°" : `${Math.abs(t)}°`}</text></g>
           ))}
-          <text x={L} y={H - 8} className="rt-axis">← temporal retina</text>
-          <text x={W - R} y={H - 8} textAnchor="end" className="rt-axis">nasal retina →</text>
+          <text x={L} y={H - 8} className="rt-axis">Temporal retina (left)</text>
+          <text x={W - R} y={H - 8} textAnchor="end" className="rt-axis">Nasal retina (right)</text>
           <text x={L + 4} y={T + 10} className="rt-axis">{logY ? "per mm², log scale; zero sits on the floor" : "per mm²"}</text>
           <g clipPath={`url(#${uid}-plot)`}>
             {view === "whole" && (

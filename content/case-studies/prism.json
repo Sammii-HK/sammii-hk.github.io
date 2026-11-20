@@ -12,6 +12,18 @@
       "body": "The interesting part of Prism is no longer an individual button. It is whether inputs, menus, dialogs and asynchronous responses behave like they belong to the same product. I moved the work towards shared behaviour: typed APIs, spring motion, a common overlay layer and visual expressions held to the same interaction contracts."
     },
     {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/prism-components.jpg",
+          "alt": "Prism Components gallery showing the AI response, toast and menu previews with search and category filters.",
+          "width": 1280,
+          "height": 720,
+          "caption": "Components gallery, local release candidate, 20 November 2026."
+        }
+      ]
+    },
+    {
       "type": "flow",
       "heading": "Follow an asynchronous answer through the interface",
       "steps": [
