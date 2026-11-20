@@ -24,6 +24,6 @@ All 91 ledger entries remain explicit. Source review, mounted UI checks, full in
 
 The default home selected work is Prism, Type Lab and Saer. Actual focus-link navigation changed it to Moth/Orbit/Prism for AI and Lunary/Lattiq/Strata for product, with no page overflow at390px. Orbit release ordering remains mandatory. Glint and Spectra case images loaded and local/synthetic/silent-preview captions were visible. Moth gallery frame equality was checked in the first sweep, not inferred from thumbnail appearance.
 
-A reused browser URL initially retained an earlier stylesheet despite the new production build. A fresh review query loaded the current hashed CSS; all nine command-state width checks then passed. The saved, directly inspected `.codex-artifacts/git-command-phone.jpg` is from this final build. No cache-based failure was misreported as a passing current UI check.
+A reused browser URL initially retained an earlier stylesheet despite the new production build. A fresh review query loaded the current hashed CSS; all nine command-state width checks then passed. The saved, directly inspected `screenshots/git-command-phone-20261120.jpg` is from this final build. No cache-based failure was misreported as a passing current UI check.
 
 The original `portfolio-audit-20261120.json` remains an explicitly labelled historical HTTP/inventory baseline. The per-entry ledger is the current source of truth. The browser is released to the Crystal agent with the viewport reset.
