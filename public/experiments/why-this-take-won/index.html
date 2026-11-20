@@ -60,7 +60,7 @@ function render() {
       for (const [, v, c] of parts) bar.append(el('i', { style: `width:${Math.abs(v) * scale}%;background:${c};opacity:${v < 0 ? 0.55 : 1}` }));
       const t = takes[ti].rows[pi];
       const cell = el('div', { class: 'cell' + (ti === wi ? ' win' : '') },
-        el('div', { class: 'tot' }, r.total.toFixed(2), ti === wi ? '  ✓ wins' : ''), bar,
+        el('div', { class: 'tot' }, r.total.toFixed(2), ti === wi ? ' wins' : ''), bar,
         el('div', { class: 'parts' }, el('span', {}, 'words heard ' + fmt(r.coverage)), el('span', {}, r.fillers + ' um ' + fmt(r.filler)), el('span', {}, r.wps.toFixed(1) + ' wps ' + fmt(r.pace)), el('span', {}, 'eyes ' + fmt(r.gaze))));
       if (t.missed.length) cell.append(el('div', { class: 'mut', style: 'font-size:.8rem' }, 'not heard: ' + t.missed.join(', ')));
       row.append(cell);

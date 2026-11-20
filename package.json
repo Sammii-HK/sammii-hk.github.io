@@ -13,10 +13,10 @@
     "lint": "npm run lint:icons && next lint",
     "screenshot": "node scripts/screenshot.mjs",
     "screenshot:new": "node scripts/screenshot.mjs --only spellcast,podify,artify,celestial-map",
-    "test": "vitest run",
+    "test": "npm run test:icons && vitest run",
     "test:watch": "vitest",
-    "lint:icons": "node scripts/lint-icons.mjs",
-    "test:icons": "node --test scripts/icons.test.mjs"
+    "lint:icons": "node scripts/check-ui-icons.mjs",
+    "test:icons": "node --test scripts/icons.test.mjs scripts/icon-coverage.test.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.4.1",
