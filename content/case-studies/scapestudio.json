@@ -3,13 +3,25 @@
   "description": "A focused image-to-print workflow: crop and shape tone locally, then export proportional colour, grayscale and transparent artwork.",
   "techStack": "Next.js, TypeScript, Web Workers, OffscreenCanvas, Zustand, IndexedDB, JSZip",
   "role": "Solo: product, design and engineering",
-  "status": "Live prototype; product and export improvements prepared locally, not yet released",
+  "status": "Live prototype; the reviewed local release candidate is not yet deployed",
   "updated": "2026-11-20",
   "blocks": [
     {
       "type": "prose",
       "heading": "One image, three material outcomes",
       "body": "ScapeStudio focuses on preparing a photograph for a print or apparel workflow. The source stays on the device. Crop and tonal decisions feed a colour crop, a grayscale print and a transparent version with dark tones removed. The interface makes those different outputs visible before export."
+    },
+    {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/scapestudio-editor.jpg",
+          "alt": "The actual ScapeStudio editor displaying its synthetic tonal study in Print mode, with crop handles, orientation and curve controls.",
+          "width": 1144,
+          "height": 926,
+          "caption": "Actual local production build, 20 November 2026. The labelled synthetic sample exercises the real image pipeline. This is not a capture of the deployed site."
+        }
+      ]
     },
     {
       "type": "decision",
@@ -53,12 +65,17 @@
           "chosen": true
         }
       ],
-      "outcome": "An actual downloaded sample ZIP was decoded and inspected: all three PNGs measured 2,953 by 2,215 pixels at approximately 300 DPI. The apparel output contained transparent and opaque alpha values. This verifies one desktop sample export, not a cross-browser certification or a benchmark for large photographs."
+      "outcome": "Two actual downloaded ZIPs were decoded and inspected. The full study produced 2,953 by 2,215 PNGs at approximately 300 DPI. A 600 by 400 pixel crop produced 2,953 by 1,969 PNGs at the same print width and density. The full-study apparel file contained transparent and opaque pixels; the bright edited crop stayed opaque. These are particular desktop runs, not a large-image benchmark or cross-browser certification."
     },
     {
       "type": "prose",
       "heading": "Make the tool approachable before the first upload",
       "body": "The local redesign replaces an empty drop zone with a clear introduction and an explicitly synthetic tonal study that opens in the real editor. The workspace stacks controls beneath the canvas on narrow screens, gives frequent controls larger targets, names threshold fields and reports export failures in the interface. Presets use local IndexedDB; they do not upload an image."
+    },
+    {
+      "type": "prose",
+      "heading": "One crop state drives the preview and export plan",
+      "body": "In the local browser pass, swapping the original 1,200 by 900 crop orientation changed its bounds to 675 by 900. Exact width and height edits then changed both the selection and the export dimensions. A curve point was added, edited and removed while the endpoints remained. At a measured 390-pixel layout, dragging a crop handle changed the selection without horizontal document overflow. This was pointer input in a phone-sized browser, not a physical touchscreen test. A saved tone preset was also available after a reload."
     },
     {
       "type": "prose",

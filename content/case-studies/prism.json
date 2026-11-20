@@ -3,7 +3,7 @@
   "description": "A component system that makes its behaviour inspectable: spring motion, shared overlays, three visual expressions and recorded AI response states.",
   "techStack": "React, TypeScript, Spring Physics, Browser Top Layer",
   "role": "Solo: design, engineering and product",
-  "status": "Component-system release merged; live demos and recorded AI replays",
+  "status": "Live component demos; registry and interaction refinements verified locally, not yet deployed",
   "updated": "2026-11-20",
   "blocks": [
     {
@@ -15,11 +15,11 @@
       "type": "media",
       "items": [
         {
-          "src": "/assets/images/refresh-20261120/prism-installable.jpg",
-          "alt": "Prism Components gallery showing the AI response, toast and menu previews with search and category filters.",
-          "width": 1280,
-          "height": 720,
-          "caption": "Components gallery, local release candidate, 20 November 2026."
+          "src": "/assets/images/refresh-20261120/prism-registry-gallery.jpg",
+          "alt": "The local Prism Components gallery filtered to its eight installable registry items, including AI response, Dialog and Menu previews.",
+          "width": 1144,
+          "height": 926,
+          "caption": "Actual local gallery, 20 November 2026, filtered to eight registry installs. The registry release is not yet deployed."
         }
       ]
     },
@@ -132,6 +132,13 @@
           "href": "https://prism.sammii.dev/token-compose"
         }
       ]
+    },
+    {
+      "type": "failure",
+      "heading": "An invisible palette was still reachable",
+      "what": "The closed command palette was transparent and ignored pointer input, but its modal and search field remained in the accessibility tree.",
+      "why": "Visual hiding did not remove the closed interface from focus navigation or assistive-technology exposure.",
+      "fix": "The local component now makes the closed panel inert and aria-hidden, isolates the background while open and restores prior states on close. In the browser pass, Tab and Shift+Tab stayed in the search field, submenu selection returned focus there, Escape returned to the root and then restored focus to the launcher, and reopening reset the query and submenu. The palette and gallery also fitted the measured 390-pixel viewport. This is observed Chrome interaction behaviour, not a full accessibility certification."
     },
     {
       "type": "prose",

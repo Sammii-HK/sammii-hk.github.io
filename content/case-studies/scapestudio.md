@@ -1,35 +1,55 @@
 ---
 title: "ScapeStudio"
-description: "Browser-based photo editor for fine art print and t-shirt preparation"
-techStack: "Next.js, TypeScript, Web Workers, Canvas 2D, Zustand, JSZip"
+description: "A focused image-to-print workflow: crop and shape tone locally, then export proportional colour, grayscale and transparent artwork."
+techStack: "Next.js, TypeScript, Web Workers, OffscreenCanvas, Zustand, IndexedDB, JSZip"
+updated: "2026-11-20"
+status: "Live prototype; the reviewed local release candidate is not yet deployed"
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in scapestudio.json. -->
 
-Photoshop already does everything this workflow needs: grayscale conversion with proper tonal control, threshold-based background knockout with feathered edges, export at 300 DPI across a set of predefined sizes. What it isn't good at is doing that same sequence twenty times in a row. Batch work is slow, and the licence is expensive. So I built ScapeStudio, a browser-based editor purpose-built for this pipeline, with the actual pixel processing kept off the main thread so the interface never locks up while it works.
+Live prototype; the reviewed local release candidate is not yet deployed
 
-## The worker pipeline
+## One image, three material outcomes
 
-All image processing runs in a dedicated Web Worker using OffscreenCanvas. The main thread hands the worker the source image and the current parameter values; the worker runs the full pipeline, grayscale conversion, curves adjustment, threshold knockout, and returns the processed result. That keeps the UI responsive even on large files: dragging a curves handle kicks off a new pipeline run without blocking scrolling or button clicks elsewhere on the page.
+ScapeStudio focuses on preparing a photograph for a print or apparel workflow. The source stays on the device. Crop and tonal decisions feed a colour crop, a grayscale print and a transparent version with dark tones removed. The interface makes those different outputs visible before export.
 
-OffscreenCanvas support was inconsistent across browsers at the time this was built, so the worker checks for it and falls back to transferring plain ImageData arrays when it isn't available. The fallback path loses the GPU-accelerated canvas operations, which makes it slower, but the output is functionally identical either way.
+_Actual local production build, 20 November 2026. The labelled synthetic sample exercises the real image pipeline. This is not a capture of the deployed site._
 
-## Non-destructive editing and the curves tool
+## Keep editing responsive without pretending every stage is incremental
 
-Nothing in the pipeline touches the original image data. Each stage reads from the previous stage's output buffer, and changing a single parameter only reruns that stage and whatever comes after it, not the whole chain from scratch.
+Pixel processing and several large output canvases can compete with the interface for time and memory.
 
-The curves adjustment is a cubic spline interpolated from user-placed control points and evaluated per pixel against the luminance channel. Getting it to feel like Photoshop's curves tool meant using Catmull-Rom splines through the control points, clamped to the 0-255 range, with a real-time preview as you drag. The awkward part was the spline overshooting at extreme control point positions; fixing that required adding tension parameters.
+- **Run pixel loops on the interface thread:** Simple to begin, but expensive image work competes with input and rendering.
+- **Separate preview and export workers (chosen):** Preview processing is debounced by 100 milliseconds and bounded to a 2,000-pixel maximum dimension. Export works from a copy of the original bitmap at the requested output dimensions.
 
-## Threshold knockout and feathering
+The original remains available for later edits. The current preview reruns the processing pipeline when its inputs change; it is not a cached, stage-by-stage editor.
 
-The knockout system converts the image to pure black and transparent based on a luminance threshold. A feather control then runs a gaussian blur over the alpha channel after thresholding, which turns a hard pixel boundary into a soft edge. That distinction matters: hard edges look unnatural on fabric, so feathering isn't a cosmetic option here, it's what makes the t-shirt output usable.
+## A curve that stays within its control points
 
-## State, preview and export
+Tone control uses a 256-entry lookup table generated from monotone cubic Hermite interpolation with Fritsch-Carlson slope limiting. That keeps individual segments from overshooting. The local refinement adds pointer input for touch, exact input/output fields and keyboard-accessible add/remove controls beside the drawn histogram.
 
-State, including undo/redo history, is handled with Zustand. A dual split preview makes a before/after comparison always one glance away.
+## Transparency follows tone, not object recognition
 
-Export takes the processed image and renders it at several predefined sizes, A4, A3, A2, and square crop variants, all at 300 DPI. Every size is generated in the worker, compressed as PNGs, and packed into a single zip via JSZip for download. Large source files complicate this step: an 8000x6000 image straight off a DSLR produces multiple full-resolution buffers as it moves through the pipeline, which can push a browser tab toward running out of memory. The worker explicitly nulls intermediate buffers after each stage and calls garbage collection hints to keep that in check.
+The apparel output removes pixels at or below a dark-tone threshold. A feather interval ramps alpha between the lower boundary and the threshold. This is luminance-based knockout, not a Gaussian blur or an AI background remover. Light and dark regions inside a subject follow the same rule, which is why a dedicated apparel preview matters.
 
-## Outcome
+## A print width must not stretch the image
 
-ScapeStudio handles the full print preparation workflow in the browser. A typical batch of twenty photographs can be processed, checked against the split preview, and exported across every predefined size in under five minutes, with no server involved anywhere in the pipeline.
+The previous exporter forced a square canvas and labelled it 300 DPI while browser PNG metadata described 96 DPI.
+
+- **Resize every crop into preset rectangles:** Convenient dimensions would distort a non-square crop.
+- **Choose physical width and preserve the crop ratio (chosen):** The local exporter derives height from the actual crop, calculates pixels at 300 DPI and writes a PNG pHYs density chunk.
+
+Two actual downloaded ZIPs were decoded and inspected. The full study produced 2,953 by 2,215 PNGs at approximately 300 DPI. A 600 by 400 pixel crop produced 2,953 by 1,969 PNGs at the same print width and density. The full-study apparel file contained transparent and opaque pixels; the bright edited crop stayed opaque. These are particular desktop runs, not a large-image benchmark or cross-browser certification.
+
+## Make the tool approachable before the first upload
+
+The local redesign replaces an empty drop zone with a clear introduction and an explicitly synthetic tonal study that opens in the real editor. The workspace stacks controls beneath the canvas on narrow screens, gives frequent controls larger targets, names threshold fields and reports export failures in the interface. Presets use local IndexedDB; they do not upload an image.
+
+## One crop state drives the preview and export plan
+
+In the local browser pass, swapping the original 1,200 by 900 crop orientation changed its bounds to 675 by 900. Exact width and height edits then changed both the selection and the export dimensions. A curve point was added, edited and removed while the endpoints remained. At a measured 390-pixel layout, dragging a crop handle changed the selection without horizontal document overflow. This was pointer input in a phone-sized browser, not a physical touchscreen test. A saved tone preset was also available after a reload.
+
+## What still needs proving
+
+Large-source memory behaviour, HEIC conversion across browsers and native iOS delivery need further verification. There is no measured twenty-photo throughput claim, undo-history feature or automatic print-profile certification in this review. The local improvements must be released before the live tool is described as having them.

@@ -3,7 +3,7 @@
   "description": "Create a design system, then give coding agents evidence of where the implementation diverges from it.",
   "techStack": "Python, TypeScript, OKLCH, CSS analysis, MCP",
   "role": "Solo: design, engineering and product",
-  "status": "Private beta; updated Create component workspace prepared locally",
+  "status": "Private beta; Saer\u2019s own component registry and Create handoff verified locally, publication pending",
   "updated": "2026-11-20",
   "blocks": [
     {
@@ -28,6 +28,16 @@
     },
     {
       "type": "prose",
+      "heading": "An owned component registry",
+      "body": "Saer\u2019s local registry now gives its seven React components a searchable catalogue, real previews and shadcn-compatible installation files. The preview, ZIP and registry item use the same generated component source. Installation puts the files under the consumer\u2019s configured UI folder in a saer subdirectory, keeping an existing shadcn button separate. Create can export an item with the person\u2019s chosen light and dark theme; the catalogue starts with Saer\u2019s default system. The install explains its global theme changes and separate font-loading requirement."
+    },
+    {
+      "type": "prose",
+      "heading": "Keep component distribution separate from the engine",
+      "body": "The local source-only registry folder is prepared to become a separate public component repository. It contains the manifest and component sources, without the paid scanning engine. Actual shadcn installation of all seven components in an isolated consumer, compilation and preservation of its existing button were checked. A visible custom-colour export was also compared with the generator. Repository publication, a distribution licence and a shadcn directory namespace are still release decisions; no public @saer registration is claimed."
+    },
+    {
+      "type": "prose",
       "heading": "Use the portfolio as a real customer",
       "body": "The portfolio uses an adapted Prism Select. Saer\u2019s first component audit resolved its actual use but did not know its library origin. The local follow-up preserves that origin in a source-copy record, checks the local file checksum and reports the resolved use. Radix imports and configured shadcn copies have separate evidence paths. An attributed copy is not the same as independently authenticated upstream code, and a dependency declaration is not proof of use. This scanner extension is local and unreleased."
     },
@@ -35,11 +45,11 @@
       "type": "media",
       "items": [
         {
-          "src": "/assets/images/refresh-20261120/saer-component-kit.jpg",
-          "alt": "Saer Create with green, lavender and charcoal foundations, a component library selector, a live button variant preview and source export.",
-          "width": 1274,
-          "height": 717,
-          "caption": "Local release candidate, 20 November 2026. The browser previews are built from the same component sources offered for download."
+          "src": "/assets/images/refresh-20261120/saer-own-registry.jpg",
+          "alt": "Saer\u2019s own component registry showing searchable editable React components and real previews of Button, Input and Switch.",
+          "width": 1138,
+          "height": 921,
+          "caption": "Actual local registry catalogue, 20 November 2026. This is Saer\u2019s own component library, not an external-library directory. Publishing the registry is still pending."
         }
       ]
     },

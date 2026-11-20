@@ -1,6 +1,6 @@
 # Product and selection pass, 20 November 2026
 
-Local release candidates only. This is a substantive pass across three selected journeys, not completion of the whole project catalogue.
+Local release candidates only. Selected actual-tool journeys and source-grounded case studies have been reviewed; the whole project catalogue is still in progress. Latest browser evidence and captions are recorded in verified-tool-captures-20261120.md and the per-entry ledger.
 
 ## Selection
 
@@ -57,3 +57,10 @@ Source triage has also begun for Conjure, Artify and Glint. Glint's dashboard cu
 Final local verification: ScapeStudio final production build, lint, TypeScript, five export/crop tests and eight icon guard tests pass. Later source checks found an inert rotate control; it now swaps physical crop proportions about the centre and clamps to image bounds, with regression tests. Crop dragging uses pointer events and exact pixel fields offer a keyboard alternative. Final browser interaction/screenshot verification of those later controls is still pending. No release was made.
 
 Glint study and catalogue copy now match source44bacf9: API-mediated ingestion, separate Prisma models, bounded snapshot reads and explicit simulated metrics. Removed unsupported zero-latency, indexed million-row performance, partition/retention, bot filtering, date picker and refresh claims. Glint's actual tool still needs the design and provenance pass. Conjure/Artify have source triage only. The broader workspace inventory (including projects absent from the catalogue) is stored in shared private memory, not committed to the public portfolio.
+
+
+## Verified browser follow-up supersedes earlier pending checks
+
+Prism6b0a415 closes the named phone header, sticky categories and palette keyboard/focus/AX checks in the local build. ScapeStudio3943569 records actual orientation/numeric/pointer crop, curve editing/removal, preset reload and post-crop2953x1969/300DPI export checks. Real desktop and phone captures are now in the portfolio assets and case studies with unreleased captions. Cross-browser/AT, physical touch, HEIC and large-source limits remain open.
+
+Saer's owner confirmed its own component registry. The local catalogue, custom-theme shadcn item and separate source-only repository candidate are described without claiming a live repository, namespace or release. Root's default-registry screenshot replaces the kit-only primary image; it is not the purple-export proof. See verified-tool-captures-20261120.md for the exact evidence.

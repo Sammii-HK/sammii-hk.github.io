@@ -12,8 +12,8 @@
       "title": "Saer",
       "kind": "project",
       "url": "https://saer.app",
-      "status": "Local product pass verified",
-      "evidenceAndRemaining": "Create workflow, source previews, downloadable kit and restore; static build and 31 tests. Broader site and assistive technology review remains."
+      "status": "Own local component registry and Create handoff verified; publication pending",
+      "evidenceAndRemaining": "Owner confirmed Saer\u2019s own registry. bef31ea adds7component shadcn registry, searchable real previews and customised theme export; source-only public-repo candidate excludes paidengine.35Loomchecks and browser/custompurpleexport proof pass. WebNext15.5.29 securitybatch2b283f8 reports audit0/186tests/buildpass. New local directory screenshot incorporated. No publicrepository, distributionlicence, namespace registration or deployment claimed. Root owns furthericonfollow-up."
     },
     {
       "id": "gamut",
@@ -36,16 +36,16 @@
       "title": "Prism",
       "kind": "project",
       "url": "https://prism.sammii.dev",
-      "status": "Local product pass verified; phone follow-up in progress",
-      "evidenceAndRemaining": "31 previews, 8 compilable registry bundles, discovery filters. Updated mobile navigation and command palette need final browser check. Follow-up saved as 871fd10: full audit zero, lint and 54-route build pass. Chrome later disconnected; final changed header/palette check remains."
+      "status": "Local gallery and palette interaction pass verified; deployment pending",
+      "evidenceAndRemaining": "6b0a415: actual closed-palette AX/focus isolation corrected, modal/background/focus restore and submenu/reset keyboard/pointer checks pass. Measured390px header targets44px, sticky category row clears101px header, no overflow;8installable results. Latest54-route build, changed lint and8icon tests pass. Verified local desktop/phone captures incorporated; not live screenshots. Cross-browser/AT and release remain open."
     },
     {
       "id": "scapestudio",
       "title": "ScapeStudio",
       "kind": "project",
       "url": "https://scapestudio.vercel.app",
-      "status": "Local product batch saved; final browser controls pending",
-      "evidenceAndRemaining": "3d586d1: production build, lint, TypeScript, 5 export/crop tests, 8 icon guard tests and full dependency audit pass. Real desktop ZIP decoded: 3 proportional 300 DPI PNGs with apparel transparency. 390px layout has no horizontal overflow. Later pointer cropping, exact crop/curve controls and orientation fixes need final browser verification and screenshot. No release."
+      "status": "Local editor/export interaction pass verified; deployment pending",
+      "evidenceAndRemaining": "3d586d1+3943569: actual crop orientation, numeric crop, curve add/edit/remove,390px pointer handle/nooverflow and preset reload pass. Edited600x400 crop produced three2953x1969 PNGs at~300DPI; full-study export separately verified transparency. Local actual-tool desktop/phone captures incorporated, explicitly labelled synthetic sample and unreleased.5export/crop tests,8icon tests,lint,tsc,productionbuild,audit0 previously pass. Physicaltouch/HEIC/large-source/cross-browser/native remain open."
     },
     {
       "id": "strata",
