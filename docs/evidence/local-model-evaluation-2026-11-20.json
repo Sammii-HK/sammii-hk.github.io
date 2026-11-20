@@ -1,0 +1,104 @@
+{
+  "inspected": "2026-11-20",
+  "setBuilt": "2026-11-19T20:50:52Z",
+  "kind": "retained local evaluation results, not a fresh run",
+  "sourceFiles": [
+    "state/local-model-eval/results.json",
+    "state/local-model-eval/results-batch1.json",
+    "tools/local-model-eval.py",
+    "state/local-model-eval/moth-decide/result-*.json"
+  ],
+  "summaryRubric": [
+    "nonempty output",
+    "no novel numeric strings except simple list numbering",
+    "at least min(2, source numeric strings) retained",
+    "1 to 3 bullet lines",
+    "at most 90 words"
+  ],
+  "limitations": [
+    "Mechanical numeric membership does not prove semantic fidelity.",
+    "Small task-specific samples; no general model superiority or statistical significance claimed.",
+    "summary and summary2 are disjoint batches and cannot be mixed.",
+    "Moth accepted means contract-valid, not character quality.",
+    "Timings are local machine observations."
+  ],
+  "summaryFirstBatch": [
+    {
+      "model": "bonsai-2:2b",
+      "n": 20,
+      "passes": 13,
+      "medianSeconds": 1.69
+    },
+    {
+      "model": "tev1:0.8b",
+      "n": 20,
+      "passes": 12,
+      "medianSeconds": 0.88
+    },
+    {
+      "model": "bonsai-2:4b",
+      "n": 20,
+      "passes": 16,
+      "medianSeconds": 6.37
+    },
+    {
+      "model": "bonsai-2:9b",
+      "n": 20,
+      "passes": 15,
+      "medianSeconds": 6.73
+    },
+    {
+      "model": "gemma3:4b-it-qat",
+      "n": 20,
+      "passes": 17,
+      "medianSeconds": 7.07
+    }
+  ],
+  "summarySecondBatch": [
+    {
+      "model": "gemma3:4b-it-qat",
+      "n": 20,
+      "passes": 7
+    },
+    {
+      "model": "bonsai-2:4b",
+      "n": 20,
+      "passes": 10
+    },
+    {
+      "model": "bonsai-2:9b",
+      "n": 20,
+      "passes": 13
+    }
+  ],
+  "replyOpportunityTev": {
+    "model": "tev1:0.8b",
+    "n": 30,
+    "positives": 8,
+    "negatives": 22,
+    "truePositives": 0,
+    "falsePositives": 0,
+    "ordinaryAccuracyPct": 73.3,
+    "balancedAccuracyPctDerivedFromCounts": 50
+  },
+  "mothDecisionReplay": [
+    {
+      "model": "bonsai-2:4b",
+      "n": 25,
+      "accepted": 22,
+      "medianSeconds": 10.367
+    },
+    {
+      "model": "bonsai-2:9b",
+      "n": 25,
+      "accepted": 22,
+      "medianSeconds": 17.823
+    },
+    {
+      "model": "gemma3:4b-it-qat",
+      "n": 25,
+      "accepted": 1,
+      "medianSeconds": 11.084
+    }
+  ]
+}
