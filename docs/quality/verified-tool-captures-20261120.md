@@ -22,7 +22,7 @@ The synthetic study is clearly identified in the case study. It is a fixture exe
 
 ## Saer
 
-The owner explicitly confirmed Saer's own component registry. Local bef31ea contains seven installable components, real catalogue previews, customised theme export and a source-only public repository candidate under packages/saer-registry. It excludes the paid scanner. Root verified the visible custom Hex colour export against the generator; an earlier attempted purple-control change that retained green is superseded and is not used as proof. The registry has 35 Loom checks; the separate web security 2b283f8 batch reports 186 checks/build and audit 0. Root owns the remaining icon follow-up.
+The owner explicitly confirmed Saer's own component registry. Local bef31ea contains seven installable components, real catalogue previews, customised theme export and a source-only public repository candidate under packages/saer-registry. It excludes the paid scanner. Root verified the visible custom Hex colour export against the generator; an earlier attempted purple-control change that retained green is superseded and is not used as proof. The registry has 35 Loom checks; the separate web security 2b283f8 batch reports 186 checks/build and audit 0. The follow-up a4b05b8 replaces both connection-dialogue custom SVG icons with Lucide and runs the shared guard plus eight regression tests through normal web lint/test scripts. Focused checks and TypeScript pass, with zero blocking shared icon findings; four installer CLI content symbols still require contextual review.
 
 - [Own registry catalogue](/assets/images/refresh-20261120/saer-own-registry.jpg),1138x921: root's actual local catalogue capture with default system previews. It is not the custom-colour export proof.
 

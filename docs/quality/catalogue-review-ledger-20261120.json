@@ -108,8 +108,8 @@
       "title": "Spellcast",
       "kind": "project",
       "url": "https://spellcast.sammii.dev",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Scheduling failure-state source review completed; live journey pending",
+      "evidenceAndRemaining": "Committed b4c6bdf schedule route inspected separately from dirty local changes: ownership-scoped read, conditional scheduling claim, existing-result returns, ten-minute stale claim recovery, per-destination partial failure receipts and total-failure draft fallback. Case study now explains decisions and exactly-once limits. Local LLM helper and uncommitted A/B gate remain bounded. No DB, service calls or live schedule changes. Actual review/schedule/error/retry UI, phone/accessibility, recorded AI demo and platform identity proofs remain open."
     },
     {
       "id": "moth",
@@ -164,8 +164,8 @@
       "title": "create-mcp-server",
       "kind": "project",
       "url": "https://www.npmjs.com/package/init-mcp-server",
-      "status": "Source accuracy and case-study pass completed; tool polish pending",
-      "evidenceAndRemaining": "Reviewed committed source a699c5d: current examples hello/calculator/notes/summarise, explicit modules, stdio, generated tsc/tsx scripts and install/Git stages. Corrected old file-reader/web-fetch/watch/dual-module and timing claims. Positional-name validation, cancellation/install failures and generated-project runtime remain to test. No scaffold/install run."
+      "status": "Local generated-server workflow verified; npm release pending",
+      "evidenceAndRemaining": "fc0f2b0 local candidate: five distributed-CLI regressions, TypeScript/build, strict shared name/containment validation, preserved folders/symlinks, failed-install recovery and real tsx watch. Fresh generated project compiled; real MCP SDK stdio client initialised/listed six tools and exercised hello, arithmetic, in-memory notes, bounded sentence selection and invalid-input rejection. Scaffolder and fresh project audits report zero advisories. Published npm and old screenshot remain baseline; no source push/publication. Windows, broad client compatibility and refreshed CLI capture remain."
     },
     {
       "id": "crystal-index",
@@ -324,416 +324,416 @@
       "title": "A planet reshaping itself",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/plate-tectonics/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "surfaces",
       "title": "A day on another world",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/day-on-another-world/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "interiors",
       "title": "Beneath the surface",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/inside-planets/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "gravity",
       "title": "The gravity room",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/gravity-on-other-worlds/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "stories",
       "title": "One sky, many stories",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/constellations-and-sky-stories/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "time",
       "title": "The sky unravelling",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/constellations-through-time/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "depth",
       "title": "Step outside the pattern",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/big-dipper-in-3d/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "black-hole",
       "title": "Near a black hole",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/black-hole-time-dilation/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "black-hole-light",
       "title": "Where light can go",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/black-hole-light-paths/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "double-slit",
       "title": "One arrival at a time",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/double-slit-experiment/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "tunnelling",
       "title": "Through the forbidden",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/quantum-tunnelling/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "uncertainty",
       "title": "A little less certain",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/quantum-uncertainty/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "sound-patterns",
       "title": "The shape of a note",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/vibrating-membranes/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "living-patterns",
       "title": "Patterns that grow",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/reaction-diffusion/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "evolution",
       "title": "Worlds in Time",
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/planetary-surface-evolution/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "colour-spaces",
       "title": "The family tree of colour spaces",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/colour-spaces/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "why-hsl-lies",
       "title": "Why HSL lies",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/why-hsl-lies/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "typography",
       "title": "The typography genome",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/typography/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "gamuts",
       "title": "The gamuts",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/gamuts/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "named-colours",
       "title": "Every named CSS colour, in OKLCH",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/named-colours/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "contrast",
       "title": "Contrast, two ways that disagree",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/contrast/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "url",
       "title": "How a URL becomes a page",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/url/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "repaint",
       "title": "What a CSS property costs",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/repaint/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "event-loop",
       "title": "The event loop, for interfaces",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/event-loop/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "big-o",
       "title": "Big O, in the keystroke",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/big-o/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "springs",
       "title": "Easing versus springs",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/springs/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "stacking",
       "title": "Why z-index: 9999 does nothing",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/stacking/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "specificity",
       "title": "Specificity, three columns",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/specificity/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "layout",
       "title": "Thirty years of CSS layout, the same page each way",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/layout/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "unicode",
       "title": "The four lengths of a string",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/unicode/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "floating-point",
       "title": "Floating point, at the pixel",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/floating-point/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "js-cost",
       "title": "What a byte of JavaScript costs",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/js-cost/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "git-graph",
       "title": "Your commit is not gone",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/git-graph/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "anchor",
       "title": "Getting the menu out of the card",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/anchor/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "caching",
       "title": "Why they are still seeing the old version",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/caching/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "keypress",
       "title": "How a keypress becomes a pixel",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/keypress/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "seven",
       "title": "Seven, and why the week is in that order",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/seven/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "x-height",
       "title": "Why 16px is not 16px",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/x-height/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "letter",
       "title": "The anatomy of a letter",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/letter/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "communication",
       "title": "Six centuries of communication and type",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/communication/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "spectrum",
       "title": "The visible spectrum is a sliver",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/spectrum/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "now",
       "title": "How long \u201cnow\u201d takes",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/now/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "tests-for-a-mind",
       "title": "Tests for a mind",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/tests-for-a-mind/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "retina",
       "title": "What your eye actually renders",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/retina/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "context-window",
       "title": "A context window, to scale",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/context-window/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Blog and repository totals now explicitly dated 19 October 2026; historical scale no longer implies current model limits or current corpus totals."
     },
     {
       "id": "llm-latency",
       "title": "Where an LLM call spends its time",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/llm-latency/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Raw run reconciled: 27 compared calls plus one cache-prime, two refused proxy attempts excluded. Every displayed representative equals a real recorded call. No benchmark rerun."
     },
     {
       "id": "grimoire-map",
       "title": "Lunary's grimoire, mapped by meaning",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/grimoire-map/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Recorded data has 1,958 index rows but 1,951 unique destinations; seven duplicate weekday pages are now disclosed. Layout and original neighbours retained, pending a separately regenerated deduplicated study."
     },
     {
       "id": "tokens",
       "title": "How text becomes tokens",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/tokens/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Every sample reconstructs original UTF-8 bytes for all four tokenisers. Removed claim that token boundaries prove counting impossible. This is not a model-accuracy benchmark."
     },
     {
       "id": "videos",
       "title": "What 900 videos taught me",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/videos/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "frame-budget",
       "title": "The 16.7ms frame budget",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/frame-budget/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "text-on-screen",
       "title": "How long text needs on screen",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/text-on-screen/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     },
     {
       "id": "touch-targets",
       "title": "Touch targets, to scale",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/touch-targets/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source chain checked; product and accuracy review open",
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
     }
   ]
 }

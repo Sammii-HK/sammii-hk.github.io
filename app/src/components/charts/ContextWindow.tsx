@@ -14,8 +14,8 @@ const WINDOWS = [
   { id: "8k", tokens: 8192, label: "8k", who: "GPT-4 at launch, March 2023" },
   { id: "32k", tokens: 32768, label: "32k", who: "GPT-4-32k, 2023" },
   { id: "128k", tokens: 128000, label: "128k", who: "GPT-4 Turbo (November 2023) and GPT-4o" },
-  { id: "200k", tokens: 200000, label: "200k", who: "Claude 2.1 (November 2023) and the Claude models since" },
-  { id: "1m", tokens: 1000000, label: "1M", who: "Gemini 1.5 Pro (2024) and GPT-4.1 (2025)" },
+  { id: "200k", tokens: 200000, label: "200k", who: "Claude 2.1 (November 2023)" },
+  { id: "1m", tokens: 1000000, label: "1M", who: "Gemini 1.5 Pro (2024); rounded comparison scale" },
 ];
 
 type Row = { id: string; name: string; sub: string; tokens: number; code?: number; kind: "estimate" | "measured" | "repo"; note: string };
@@ -25,8 +25,8 @@ const ROWS: Row[] = [
   { id: "page", name: "A page", sub: `${DATA.estimates.page.words} words, estimated`, tokens: DATA.estimates.page.tokens, kind: "estimate", note: `A double-spaced manuscript page, by the publishing rule of thumb of ${DATA.estimates.page.words} words, at the ${tpw} tokens per word measured on my own prose.` },
   { id: "story", name: "A short story", sub: `${DATA.estimates.short_story.words.toLocaleString("en-GB")} words, estimated`, tokens: DATA.estimates.short_story.tokens, kind: "estimate", note: `The longest a short story can be under the Nebula Awards rules (fewer than ${DATA.estimates.short_story.words.toLocaleString("en-GB")} words), at ${tpw} tokens per word.` },
   { id: "novel", name: "A novel", sub: `${DATA.estimates.novel.words.toLocaleString("en-GB")} words, estimated`, tokens: DATA.estimates.novel.tokens, kind: "estimate", note: `The shortest book the Nebula rules call a novel (${DATA.estimates.novel.words.toLocaleString("en-GB")} words). Most published novels are longer, so treat this as the floor.` },
-  { id: "blog", name: "My blog", sub: `all ${DATA.blog.posts} posts, measured`, tokens: DATA.blog.o200k_base, kind: "measured", note: `Every published post on sammii.dev, Markdown and code blocks included. The median post is ${DATA.blog.medianPost.toLocaleString("en-GB")} tokens.` },
-  ...[...DATA.repos].sort((a, b) => a.o200k_base.total - b.o200k_base.total).map((r) => ({ id: r.id, name: r.name, sub: `${r.files.toLocaleString("en-GB")} files, measured`, tokens: r.o200k_base.total, code: r.o200k_base.code, kind: "repo" as const, note: `${r.what}. ${r.o200k_base.code.toLocaleString("en-GB")} tokens of code in ${r.codeFiles.toLocaleString("en-GB")} files, and ${r.o200k_base.other.toLocaleString("en-GB")} of content, docs and data. ${(r.bytes / 1e6).toFixed(1)} MB of text.` })),
+  { id: "blog", name: "My blog", sub: `${DATA.blog.posts} posts, ${DATA.counted} snapshot`, tokens: DATA.blog.o200k_base, kind: "measured", note: `Published posts counted on ${DATA.counted}, Markdown and code blocks included. The median post is ${DATA.blog.medianPost.toLocaleString("en-GB")} tokens.` },
+  ...[...DATA.repos].sort((a, b) => a.o200k_base.total - b.o200k_base.total).map((r) => ({ id: r.id, name: r.name, sub: `${r.files.toLocaleString("en-GB")} files, ${DATA.counted} snapshot`, tokens: r.o200k_base.total, code: r.o200k_base.code, kind: "repo" as const, note: `${r.what}. ${r.o200k_base.code.toLocaleString("en-GB")} tokens of code in ${r.codeFiles.toLocaleString("en-GB")} files, and ${r.o200k_base.other.toLocaleString("en-GB")} of content, docs and data. ${(r.bytes / 1e6).toFixed(1)} MB of text.` })),
 ];
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

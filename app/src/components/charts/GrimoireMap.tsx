@@ -64,7 +64,7 @@ export function GrimoireMap() {
       </div>
       <div className="gm-body">
         <div className="gm-stage">
-          <svg ref={svg} viewBox={`${-PAD} ${-PAD} ${W + PAD * 2} ${H + PAD * 2}`} className={`gm-svg${cat !== null || matches ? " is-filtered" : ""}`} role="img" aria-label={`${PTS.length} grimoire articles placed by meaning; the selected article is ${sel.title}`} onPointerMove={(e) => e.pointerType === "mouse" && setHover(nearestAt(e))} onPointerLeave={() => setHover(null)} onPointerDown={(e) => { const p = nearestAt(e); if (p) { setSel(p); setHover(null); } }}>
+          <svg ref={svg} viewBox={`${-PAD} ${-PAD} ${W + PAD * 2} ${H + PAD * 2}`} className={`gm-svg${cat !== null || matches ? " is-filtered" : ""}`} role="img" aria-label={`${PTS.length} grimoire search-index entries placed by meaning; the selected article is ${sel.title}`} onPointerMove={(e) => e.pointerType === "mouse" && setHover(nearestAt(e))} onPointerLeave={() => setHover(null)} onPointerDown={(e) => { const p = nearestAt(e); if (p) { setSel(p); setHover(null); } }}>
             {labels.map((l) => <text key={l.c} x={Math.min(W - 90, Math.max(0, l.x))} y={l.y} textAnchor={l.x < 90 ? "start" : "middle"} className="gm-region">{nice(l.c)}</text>)}
             {PTS.map((p) => <circle key={p.i} cx={p.x} cy={p.y} className={`gm-dot${lit(p) ? " is-lit" : ""}`} />)}
             {near.map((p) => <line key={`l${p.i}`} x1={shown.x} y1={shown.y} x2={p.x} y2={p.y} className="gm-edge" />)}

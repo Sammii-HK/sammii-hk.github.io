@@ -1,31 +1,59 @@
 ---
 title: "Spellcast"
-description: "Self-hosted social media scheduling across 8+ platforms with AI-driven content automation"
-techStack: "Next.js, Turborepo, Drizzle ORM, PostgreSQL, Docker, Postiz"
+description: "The execution layer for a multi-brand content operation: account sets, scheduling adapters and AI assistance with explicit evidence limits."
+techStack: "Next.js, Turborepo, Drizzle ORM, PostgreSQL, Postiz, Temporal"
+updated: "2026-11-20"
+status: "Production scheduling product; source reviewed at b4c6bdf with separate uncommitted local changes. Live scheduling was not exercised."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in spellcast.json. -->
 
-Buffer and Hootsuite are expensive and limited in customisation. What they won't do is hand over the infrastructure underneath it: you're paying per seat, working inside someone else's feature set, and waiting on someone else's roadmap if you need something they haven't built. Running social for multiple brands across Instagram, X, LinkedIn, TikTok, Threads, Bluesky and more, with AI-driven content generation, A/B testing and cross-brand boosting layered on top, meant either accepting those limits or building the scheduling layer myself.
+Production scheduling product; source reviewed at b4c6bdf with separate uncommitted local changes. Live scheduling was not exercised.
 
-## How it's built
+## One operation, distinct identities
 
-Spellcast runs entirely on a Hetzner VPS via Docker Compose: the Next.js app, a Node.js backend-for-frontend, PostgreSQL, and a self-hosted Postiz instance with Temporal handling job scheduling. Self-hosting was a deliberate choice: it removes per-seat pricing, keeps the data under my control, and means the scheduling engine can be extended whenever a new brand need shows up rather than filed as a feature request.
+Spellcast groups a brand’s accounts into an account set, with its own queue, schedule and analytics. The product problem is keeping identities and platform rules attached to the work as it passes through drafting, review and publishing.
 
-The codebase is a Turborepo monorepo split into three packages: the Next.js frontend, the BFF, and a shared types package. The BFF sits between the frontend and Postiz's scheduling engine and carries the logic Postiz doesn't: brand management, boost rules, analytics aggregation.
+## Extend the scheduling engine
 
-The core abstraction for managing several brands from one system is the "account set", which groups a brand's social accounts across platforms and gives them their own posting cadence, content queue, and analytics. Six account sets run through the system today, each publishing to multiple platforms at once.
+The operation needs a product-specific interface, account sets, AI assistance and analytics without rebuilding every platform integration.
 
-On top of that sits the Spellcast MCP server, exposing over 100 tools for AI-driven scheduling and analytics. It's what the Orbit content pipeline talks to: AI agents create posts, schedule them at optimal times, check analytics, and adjust strategy, all through structured tool calls instead of clicking through a UI.
+- **Rebuild the whole publishing stack:** Own every API connection, OAuth flow and queue from the beginning.
+- **Build a product layer around Postiz (chosen):** Use Postiz for integration and publishing, with a Next.js interface and backend-for-frontend carrying the product-specific work.
 
-## What was hard
+The repository separates web, API and shared packages. Postiz and its Temporal infrastructure form the scheduling foundation. The product layer supplies identity, drafts, campaigns and platform-specific adapters.
 
-Postiz covers the actual platform API connections, but its surface stopped short of what I needed, so the BFF grew an adapter layer on top: thread posting, carousel building, article cross-publishing to Dev.to and Hashnode, and platform-specific formatting that Postiz doesn't handle natively.
+## Claim the work before calling a publisher
 
-Cadence was a harder problem than it looked. Every platform has different optimal posting times and frequency limits, and the first data model I wrote was flat, which meant it couldn't express something as basic as "post to X four times a day but LinkedIn only once." Getting the cadence config to represent per-platform schedules with their own preferred days and time slots took a few passes at the model before it held up.
+Two schedule requests can arrive for the same draft while a publisher call is still in progress. A crashed request can also leave work stuck between states.
 
-Boost rules reshare content between brands after a configurable delay, so when Lunary publishes, Sammii's accounts can pick it up 30 minutes later. That delay has to survive a server restart mid-wait, so the timing logic runs as Temporal workflows to keep execution reliable.
+- **Treat each request as a new publication attempt:** Concurrent requests could send the same draft to a publisher more than once.
+- **Use a conditional scheduling claim (chosen):** An update claims a draft as scheduling. Requests seeing an already scheduled record or a stored publisher identifier return the existing result. A scheduling record without a publisher identifier can be reclaimed after ten minutes.
 
-## Where it landed
+The committed route contains explicit contention and recovery states rather than relying on a disabled button. The ten-minute timeout is an operational policy, not proof that an external publisher has done nothing; this does not establish exactly-once publication.
 
-Spellcast now runs all social presence across six brands and eight platforms, processing hundreds of scheduled posts a week and handling article cross-publishing alongside it. It's also the execution layer under the Orbit AI content pipeline. Running it self-hosted keeps the whole thing under £10 a month in VPS costs, against the hundreds a commercial equivalent would charge.
+## Scheduled does not mean every destination succeeded
+
+- **What happened:** A multi-platform request can reach one publisher successfully while another destination fails. Rolling the whole draft back would hide surviving external work.
+- **Why:** The application database and external publishing services do not share one transaction.
+- **Fix:** The committed scheduling route retains successful publisher identifiers, records failed integration identifiers and a partial-failure reason, and keeps the post scheduled when any leg succeeded. If no leg succeeds, the error path returns it to draft with the reason. These source paths are evidence of recovery intent; the current review has not replayed live partial failures or verified every retry path.
+
+## AI has a route and a failure state
+
+The local text helper tries the Brand API, then Ollama, with request timeouts. If neither returns usable text, it throws an error. That route is a concrete integration to inspect, not evidence that every AI feature uses the same provider or has the same reliability. Source: apps/api/src/lib/local-llm.ts.
+
+## An A/B winner needs evidence
+
+- **What happened:** The earlier portfolio described automatic A/B learning without explaining whether recorded winners had enough observations.
+- **Why:** A winning label does not establish an experiment result. The handoff recorded zero-metric production winners; this audit did not query or change the production database.
+- **Fix:** Remove outcome claims from the case study. The current local evaluator checks sample floors, a confidence threshold and lift, but its shared statistics file is still uncommitted and its assumptions need review before it is presented as validated learning.
+
+## What is still to prove
+
+The current helper discards response usage fields, so it does not establish per-run token or cost accounting. The A/B calculation sums engagement actions against impressions; repeat actions are not automatically a unique engaged audience. Shipping the local gate does not by itself validate that statistical model. A stronger recorded demo should show a draft, its identity and checks, the review decision, the scheduled result and the actual metric receipt.
+
+> No A/B lift, weekly publishing volume, cost saving or autonomous business outcome is claimed here. Those need dated production evidence. The audit makes no changes to live schedules or publishing permissions.
+
+## Explore Spellcast
+
+- [Open Spellcast](https://spellcast.sammii.dev)

@@ -3,7 +3,7 @@
   "description": "The execution layer for a multi-brand content operation: account sets, scheduling adapters and AI assistance with explicit evidence limits.",
   "techStack": "Next.js, Turborepo, Drizzle ORM, PostgreSQL, Postiz, Temporal",
   "role": "Solo: design, engineering and product",
-  "status": "Production scheduling product; this study distinguishes local work from verified operation",
+  "status": "Production scheduling product; source reviewed at b4c6bdf with separate uncommitted local changes. Live scheduling was not exercised.",
   "updated": "2026-11-20",
   "blocks": [
     {
@@ -27,6 +27,30 @@
         }
       ],
       "outcome": "The repository separates web, API and shared packages. Postiz and its Temporal infrastructure form the scheduling foundation. The product layer supplies identity, drafts, campaigns and platform-specific adapters."
+    },
+    {
+      "type": "decision",
+      "heading": "Claim the work before calling a publisher",
+      "context": "Two schedule requests can arrive for the same draft while a publisher call is still in progress. A crashed request can also leave work stuck between states.",
+      "options": [
+        {
+          "label": "Treat each request as a new publication attempt",
+          "detail": "Concurrent requests could send the same draft to a publisher more than once."
+        },
+        {
+          "label": "Use a conditional scheduling claim",
+          "detail": "An update claims a draft as scheduling. Requests seeing an already scheduled record or a stored publisher identifier return the existing result. A scheduling record without a publisher identifier can be reclaimed after ten minutes.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The committed route contains explicit contention and recovery states rather than relying on a disabled button. The ten-minute timeout is an operational policy, not proof that an external publisher has done nothing; this does not establish exactly-once publication."
+    },
+    {
+      "type": "failure",
+      "heading": "Scheduled does not mean every destination succeeded",
+      "what": "A multi-platform request can reach one publisher successfully while another destination fails. Rolling the whole draft back would hide surviving external work.",
+      "why": "The application database and external publishing services do not share one transaction.",
+      "fix": "The committed scheduling route retains successful publisher identifiers, records failed integration identifiers and a partial-failure reason, and keeps the post scheduled when any leg succeeded. If no leg succeeds, the error path returns it to draft with the reason. These source paths are evidence of recovery intent; the current review has not replayed live partial failures or verified every retry path."
     },
     {
       "type": "prose",

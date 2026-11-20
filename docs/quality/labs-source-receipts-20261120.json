@@ -1,0 +1,1268 @@
+{
+  "reviewDate": "2026-11-20",
+  "scope": {
+    "charts": 37,
+    "explorations": 15
+  },
+  "meaning": "Source-chain receipts only. These checks do not establish scientific correctness, interaction quality, live deployment or visual polish. No generation, model loading, provider calls or database commands were run.",
+  "entries": [
+    {
+      "id": "colour-spaces",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/colour-spaces/page.tsx",
+      "components": [
+        "app/src/components/charts/ColourSpacesTree.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/colour-spaces/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/colour-spaces/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "why-hsl-lies",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/why-hsl-lies/page.tsx",
+      "components": [
+        "app/src/components/charts/WhyHslLies.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/why-hsl-lies/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "typography",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/typography/page.tsx",
+      "components": [
+        "app/src/components/charts/TypographyGenome.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/typography/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/typography/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "gamuts",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/gamuts/page.tsx",
+      "components": [
+        "app/src/components/charts/GamutDiagram.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/gamuts/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/gamuts/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "named-colours",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/named-colours/page.tsx",
+      "components": [
+        "app/src/components/charts/NamedColours.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/named-colours/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/named-colours/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "contrast",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/contrast/page.tsx",
+      "components": [
+        "app/src/components/charts/ContrastThreeWays.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/contrast/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "url",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/url/page.tsx",
+      "components": [
+        "app/src/components/charts/UrlWaterfall.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/url/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "repaint",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/repaint/page.tsx",
+      "components": [
+        "app/src/components/charts/RepaintMap.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/repaint/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/repaint/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "event-loop",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/event-loop/page.tsx",
+      "components": [
+        "app/src/components/charts/EventLoop.tsx",
+        "app/src/components/charts/JankDemo.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/event-loop/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "big-o",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/big-o/page.tsx",
+      "components": [
+        "app/src/components/charts/BigO.tsx",
+        "app/src/components/charts/AccidentalQuadratic.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/big-o/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "springs",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/springs/page.tsx",
+      "components": [
+        "app/src/components/charts/Springs.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/springs/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "stacking",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/stacking/page.tsx",
+      "components": [
+        "app/src/components/charts/StackingContexts.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/stacking/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "specificity",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/specificity/page.tsx",
+      "components": [
+        "app/src/components/charts/Specificity.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/specificity/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "layout",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/layout/page.tsx",
+      "components": [
+        "app/src/components/charts/LayoutEras.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/layout/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "unicode",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/unicode/page.tsx",
+      "components": [
+        "app/src/components/charts/Unicode.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/unicode/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "floating-point",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/floating-point/page.tsx",
+      "components": [
+        "app/src/components/charts/FloatingPoint.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/floating-point/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "js-cost",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/js-cost/page.tsx",
+      "components": [
+        "app/src/components/charts/JsCost.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/js-cost/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "git-graph",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/git-graph/page.tsx",
+      "components": [
+        "app/src/components/charts/GitGraph.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/git-graph/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/git-graph/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "anchor",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/anchor/page.tsx",
+      "components": [
+        "app/src/components/charts/AnchorPositioning.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/anchor/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "caching",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/caching/page.tsx",
+      "components": [
+        "app/src/components/charts/Caching.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/caching/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "keypress",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/keypress/page.tsx",
+      "components": [
+        "app/src/components/charts/KeypressFlow.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/keypress/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/keypress/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "seven",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/seven/page.tsx",
+      "components": [
+        "app/src/components/charts/Seven.tsx"
+      ],
+      "dataSources": [],
+      "canonical": "https://labs.sammii.dev/charts/seven/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "x-height",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/x-height/page.tsx",
+      "components": [
+        "app/src/components/charts/XHeight.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/x-height/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/x-height/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "letter",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/letter/page.tsx",
+      "components": [
+        "app/src/components/charts/LetterAnatomy.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/letter/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/letter/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "communication",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/communication/page.tsx",
+      "components": [
+        "app/src/components/charts/CommunicationTimeline.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/communication/data.json"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/communication/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "spectrum",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/spectrum/page.tsx",
+      "components": [
+        "app/src/components/charts/Spectrum.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/spectrum/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/spectrum/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "now",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/now/page.tsx",
+      "components": [
+        "app/src/components/charts/Now.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/now/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/now/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "tests-for-a-mind",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/tests-for-a-mind/page.tsx",
+      "components": [
+        "app/src/components/charts/TestsForAMind.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/tests-for-a-mind/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/tests-for-a-mind/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "retina",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/retina/page.tsx",
+      "components": [
+        "app/src/components/charts/Retina.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/retina/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/retina/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "context-window",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/context-window/page.tsx",
+      "components": [
+        "app/src/components/charts/ContextWindow.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/context-window/data.json"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/context-window/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "llm-latency",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/llm-latency/page.tsx",
+      "components": [
+        "app/src/components/charts/LlmLatency.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/llm-latency/data.json"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/llm-latency/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "grimoire-map",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/grimoire-map/page.tsx",
+      "components": [
+        "app/src/components/charts/GrimoireMap.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/grimoire-map/data.json"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/grimoire-map/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "tokens",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/tokens/page.tsx",
+      "components": [
+        "app/src/components/charts/Tokens.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/tokens/data.json"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/tokens/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "videos",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/videos/page.tsx",
+      "components": [
+        "app/src/components/charts/VideoEngagement.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/videos/data.json"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/videos/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "frame-budget",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/frame-budget/page.tsx",
+      "components": [
+        "app/src/components/charts/FrameBudget.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/frame-budget/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/frame-budget/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "text-on-screen",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/text-on-screen/page.tsx",
+      "components": [
+        "app/src/components/charts/TextOnScreen.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/text-on-screen/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/text-on-screen/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "touch-targets",
+      "kind": "chart",
+      "routeSource": "app/labs/charts/touch-targets/page.tsx",
+      "components": [
+        "app/src/components/charts/TouchTargets.tsx"
+      ],
+      "dataSources": [
+        "app/labs/charts/touch-targets/data.ts"
+      ],
+      "canonical": "https://labs.sammii.dev/charts/touch-targets/",
+      "checks": [
+        "Registry entry, unique ordinal and slug",
+        "Canonical URL in route source",
+        "Real chart component import",
+        "Notes footer",
+        "Labs sitemap entry",
+        "Follow-up fact entry"
+      ],
+      "remaining": [
+        "Browser controls, phone layout and accessibility",
+        "Independent factual and numerical review",
+        "Current screenshot and evidence-led writing"
+      ]
+    },
+    {
+      "id": "past-earth",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/plate-tectonics/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/worlds.js",
+        "public/exploration-runtime/sources/worlds.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/plate-tectonics/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "surfaces",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/day-on-another-world/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/worlds.js",
+        "public/exploration-runtime/sources/worlds.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/day-on-another-world/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "interiors",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/inside-planets/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/worlds.js",
+        "public/exploration-runtime/sources/worlds.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/inside-planets/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "gravity",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/gravity-on-other-worlds/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/worlds.js",
+        "public/exploration-runtime/sources/worlds.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/gravity-on-other-worlds/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "stories",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/constellations-and-sky-stories/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/sky.js",
+        "public/exploration-runtime/sources/sky.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/constellations-and-sky-stories/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "time",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/constellations-through-time/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/sky.js",
+        "public/exploration-runtime/sources/sky.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/constellations-through-time/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "depth",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/big-dipper-in-3d/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/sky.js",
+        "public/exploration-runtime/sources/sky.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/big-dipper-in-3d/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "black-hole",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/black-hole-time-dilation/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/black-hole-clocks.html",
+        "public/exploration-runtime/sources/clocks.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/black-hole-time-dilation/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "black-hole-light",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/black-hole-light-paths/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/labs.js",
+        "public/exploration-runtime/sources/physics.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/black-hole-light-paths/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "double-slit",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/double-slit-experiment/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/labs.js",
+        "public/exploration-runtime/sources/physics.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/double-slit-experiment/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "tunnelling",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/quantum-tunnelling/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/labs.js",
+        "public/exploration-runtime/sources/physics.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/quantum-tunnelling/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "uncertainty",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/quantum-uncertainty/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/labs.js",
+        "public/exploration-runtime/sources/physics.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/quantum-uncertainty/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "sound-patterns",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/vibrating-membranes/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/labs.js",
+        "public/exploration-runtime/sources/physics.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/vibrating-membranes/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "living-patterns",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/reaction-diffusion/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/labs.js",
+        "public/exploration-runtime/sources/physics.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/reaction-diffusion/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    },
+    {
+      "id": "evolution",
+      "kind": "exploration",
+      "routeSource": "app/labs/explorations/[slug]/page.tsx",
+      "runtime": "public/exploration-runtime/planetary-surface-evolution/index.html",
+      "modelSources": [
+        "public/exploration-runtime/modules/evolution-model.js",
+        "public/exploration-runtime/modules/evolution-app.js",
+        "public/exploration-runtime/sources/evolution.md"
+      ],
+      "canonical": "https://labs.sammii.dev/explorations/planetary-surface-evolution/",
+      "checks": [
+        "15 unique IDs and slugs with valid related entries",
+        "Runtime wrapper family and mode match",
+        "Real 1600x900 card",
+        "Explanation, controls, readouts, boundaries and HTTPS source references",
+        "Runtime SHA-256 matches recorded source manifest",
+        "Canonical route and Labs sitemap entry"
+      ],
+      "remaining": [
+        "Browser interaction, phone layout and assistive technology",
+        "Independent scientific accuracy and model limits review",
+        "Screenshot remains a model capture, not an observed-world claim"
+      ]
+    }
+  ]
+}
