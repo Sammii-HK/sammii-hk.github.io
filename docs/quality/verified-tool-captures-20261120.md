@@ -39,3 +39,13 @@ Local candidate 9cafbd8 repairs validation states, rejected-image retry handling
 The three unedited captures in `public/assets/images/refresh-20261120/artify-*.jpg` show the local studio, actual loaded source workspace and phone layout. The hero output is an explicitly labelled recorded project asset. The workspace result is the starting sketch, not a fresh generated image. The isolated checkout has no saved daily manifests or generated tarot cards; its archive routes show honest absence. Their broader visual polish remains open.
 
 The repaired daily dry entry is plan-only, exercised under network/credential-read/write guards. The wider legacy manual CLI was not re-certified. Live generation, provider availability/charges, rendering, scheduling, real result download CORS, large-source/HEIC handling and deployment remain unverified.
+
+## Gamut and Glint follow-up
+
+Gamut's unedited desktop and phone captures show the unreleased 8c36917 editor and purple/amber preview. Renaming and duplicate export identities and reload persistence were browser-checked by the tool owner. Clipboard feedback was observed, but the copied contents were not independently recovered.
+
+Glint's earlier blank capture was withdrawn. The replacement desktop capture was directly inspected and visibly contains its labelled synthetic visit-event area plot. Root's final 7e33b73 browser receipt also records twenty-four hourly bars, axes, 7/14 captured-date selection and no page overflow at 390px. Both replacement assets are copied unchanged. Nineteen automated checks, types, lint/build and full/production audits pass. The precise cause of the earlier blank chart was not conclusively isolated. No database, real audience or stored-data correctness is inferred from sample mode.
+
+## Spectra
+
+Unedited local c9510cf desktop and 390px phone captures were copied from the tool owner's actual silent-preview browser pass. The desktop image was directly inspected before use. These show the real WebGL surface and explicit no-audio-input status, not a recorded or live microphone response. The structured study describes separate visual/audio lifetimes, the stale-reference repair and the limits of the seven offline audio-session checks. No microphone permission was accepted. Eight icon regressions, types/lint/build and audit zero pass. Publication and real device/frequency verification remain open.

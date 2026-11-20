@@ -31,6 +31,7 @@ describe("standalone explorations", () => {
       expect(html).toContain(`data-mode="${item.id}"`);
       expect(html).toContain(`data-family="${item.moduleFamily}"`);
       expect(html).toContain('content="noindex,follow"');
+      expect(html).toContain('<script src="../ui-icons.js"></script>');
       expect(html).toContain(explorationHref(item.slug));
       expect(html).not.toMatch(/\/\*__(MODEL|APP|MODULE_[A-Z]+)__\*\//);
       const png = readFileSync(resolve(runtime, "cards", `${item.slug}.png`));

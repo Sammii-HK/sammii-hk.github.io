@@ -8,3 +8,7 @@ body[data-family=evolution]{padding:clamp(14px,2.3vw,30px)}body[data-family=evol
 @media(min-width:700px){.scene .sky-account-selector{display:grid;grid-template-columns:210px 1fr;gap:5px 15px;align-items:center}.scene .sky-account-selector>label{margin:0}.scene .sky-account-selector>p{grid-column:1/-1}}
 @media(max-width:580px){.scene .ph-root[data-mode=uncertainty] canvas.ph-canvas{height:550px}.scene .we-root canvas{height:380px}.scene .ph-root canvas.ph-canvas{height:420px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+/* Named Lucide controls, installed by the presentation adapter. */
+button > svg.lucide, a > svg.lucide { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+
+.scene button.ph-help, .scene button.sky-zoom-button { min-width:44px; min-height:44px; }

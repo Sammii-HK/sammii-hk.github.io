@@ -20,8 +20,8 @@
       "title": "Gamut",
       "kind": "project",
       "url": "https://gamut.sammii.dev",
-      "status": "Source and claim review completed; actual tool polish pending",
-      "evidenceAndRemaining": "Source 3d05f4c. Evidence: src/lib/palette.ts; src/lib/colour.ts; src/lib/tokens.ts; src/lib/export.ts; src/lib/url.ts; src/app/page.tsx. Implemented: Eleven fixed OKLCH steps, 20-iteration chroma search, white/black contrast, role-derived previews and four export formats. Remaining: Scale rename preserves ID but palette maps use names, so semantic resolution can fall back to #888888. Shared URLs are decoded without colour/role validation. Test renames, malformed URLs, semantic-pair contrast and exact exports. Shared source icon scan: 1 blocking icon finding; 0 content-symbol reviews. No live browser/tool workflow, provider calls, database commands or deployment in this pass."
+      "status": "Local editor/exports and phone pass verified; release pending",
+      "evidenceAndRemaining": "8c36917 after c18a636 fixes stable scale identity, URLs and safe export keys. Five regressions, TypeScript/build, eight icon tests and audit zero pass. Actual purple Hex #8544cc, renamed Orchid/Slate, duplicate Orchid separate orchid-2 accent #d18500 and reload persistence verified. Desktop/390px no overflow and controls44px. Unedited local captures copied with unreleased captions. Clipboard feedback only; copied contents, global semantic contrast and preserved colour maths not independently certified."
     },
     {
       "id": "kern",
@@ -84,8 +84,8 @@
       "title": "Conjure",
       "kind": "project",
       "url": "https://conjure-two.vercel.app",
-      "status": "Source accuracy and case-study pass completed; tool polish pending",
-      "evidenceAndRemaining": "Reviewed source 0ca070b. New structured study traces request validation, generation/formatting and refinement. Removed sub-second and any-page/shadow-DOM/background-worker claims. New sessions use temporary identifiers; saving/output-schema/extension host and message-origin review remain. No model/API/DB calls or visual test performed."
+      "status": "Local product/mocked checks verified; live integrations and dependency migration pending",
+      "evidenceAndRemaining": "7cf0d8a plus 550bbc2 repairs browser draft IDs/local shelf, dedupe/quota/corruption handling, account-scoped persistence paths, three-direction output schema, refinement, platform syntax and packaged origin-checked extension. Eleven mock/injected tests, auth dependency fixture, both types/builds and icon tests pass. Actual desktop/390px navigation/provider-unavailable state checked without generated output. No configured DB persistence, live provider or installed Midjourney DOM check. Known dependency findings needing breaking transitions remain; audit not zero."
     },
     {
       "id": "sammii-cli",
@@ -133,7 +133,7 @@
       "kind": "project",
       "url": null,
       "status": "Source and claim review completed; actual tool polish pending",
-      "evidenceAndRemaining": "Source 4a9c05a, with separate dirty local work. Evidence: apps/web/src/components/Dashboard.tsx; apps/web/src/lib/autonomy.ts; apps/web/src/lib/action-outbox.ts; apps/web/src/lib/auth.ts; apps/web/public/sw.js. Implemented: Current command-centre/social/money/queue/chat navigation, sixty-second core refresh, action tiers and subject acknowledgements. Pixel rooms are legacy, not current navigation. Remaining: No private state or live actions inspected. Check route-by-route policy enforcement, configured authentication, stale/partial/source-time UX, cached reads versus offline mutations and recorded safe-fixture walkthrough. Shared source icon scan: 130 blocking icon findings; 39 content-symbol reviews. No live browser/tool workflow, provider calls, database commands or deployment in this pass."
+      "evidenceAndRemaining": "Source 4a9c05a, with separate dirty local work. Evidence: apps/web/src/components/Dashboard.tsx; apps/web/src/lib/autonomy.ts; apps/web/src/lib/action-outbox.ts; apps/web/src/lib/auth.ts; apps/web/public/sw.js. Implemented: Current command-centre/social/money/queue/chat navigation, sixty-second core refresh, action tiers and subject acknowledgements. Pixel rooms are legacy, not current navigation. Remaining: No private state or live actions inspected. Check route-by-route policy enforcement, configured authentication, stale/partial/source-time UX, cached reads versus offline mutations and recorded safe-fixture walkthrough. Shared source icon scan: 130 blocking icon findings; 39 content-symbol reviews. No live browser/tool workflow, provider calls, database commands or deployment in this pass. Local source follow-up 8ad7eca reduces blocking icons 123 to zero; twelve regressions and TypeScript pass, audit zero. Private dashboard/browser/auth/provider/build not exercised. No screenshot or outcome certification."
     },
     {
       "id": "iprep",
@@ -156,8 +156,8 @@
       "title": "Glint",
       "kind": "project",
       "url": "https://glint-dun.vercel.app",
-      "status": "Source accuracy review completed; tool polish pending",
-      "evidenceAndRemaining": "Structured study and portfolio claims corrected against 44bacf9. Synthetic metrics explicit; no DB queried. Dashboard provenance, delivery lifecycle, error/empty states and visual polish remain."
+      "status": "Local sample dashboard and final charts verified; release pending",
+      "evidenceAndRemaining": "7e33b73: nineteen tests, types, lint, build, full/production audit zero. Final actual desktop/390px area path and twenty-four hourly bars visible; 7/14 captured-date selection checked. Earlier blank capture withdrawn, cause not conclusively isolated. Fresh synthetic-data captures incorporated. Stored snapshots, DB and unchanged collection backend not exercised."
     },
     {
       "id": "create-mcp-server",
@@ -188,8 +188,8 @@
       "title": "Flip",
       "kind": "project",
       "url": null,
-      "status": "Source and claim review completed; actual tool polish pending",
-      "evidenceAndRemaining": "Source b696ada, unrelated screenshot modification preserved. Evidence: src/lib/hashing.ts; src/lib/stats.ts; src/lib/auth.ts; src/lib/schemas.ts; src/sdk/flip.ts; src/app/api/v1/decide/route.ts; src/app/api/v1/track/route.ts; src/app/api/internal/experiments/route.ts; src/app/api/internal/stats/[id]/route.ts. Implemented: Server-side weighted MurmurHash3 assignment; one-year visitor cookie; in-memory SDK choice cache; z-test and Wilson calculations; event-count dashboard. Remaining: Beacon sends no credential accepted by tracking auth. SDK track uses last cached experiment. Stats count all conversion events rather than goal-filtered unique visitors; no sample/power/multiple-testing gates. Internal management/stats routes lack checked authentication. No batching/WebSocket/size/performance proof. Repair actual tool before promoting its experiment results. Shared source icon scan: 0 blocking icon findings; 0 content-symbol reviews. No live browser/tool workflow, provider calls, database commands or deployment in this pass."
+      "status": "Local sample product and mocked infrastructure verified; integration pending",
+      "evidenceAndRemaining": "02b9610 plus d312262: labelled read-only sample never reads real keys; management uses separate server-only operator authority plus tenant key and defaults503; tracking matches goal and prior owned exposure; SDK explicit experiment/authenticated keepalive; unique-visitor exploratory stats with count guards and Bonferroni, no auto winner/power/sequential claim. Twelve mocks/eight icon tests/types/lint/build and desktop/390px sample checks pass. Remaining three package entries represent one deepmerge-ts advisory. No real configured management, DB, experiment or conversion. Source and release remain local."
     },
     {
       "id": "moth-drawings",
@@ -228,8 +228,8 @@
       "title": "Spectra",
       "kind": "project",
       "url": "https://spectra.sammii.dev",
-      "status": "Source and claim review completed; actual tool polish pending",
-      "evidenceAndRemaining": "Source d43105a, unrelated untracked build declarations preserved. Evidence: apps/web/src/hooks/useAudioData.ts; apps/web/src/components/ShaderCanvas.tsx; apps/web/src/shaders/fragment.glsl.ts. Implemented: Explicit microphone request, 512-point FFT with index-band averages, smoothed shader uniforms and Three.js rendering. Bass warps, mid shifts hue and high adds shimmer. Remaining: Start click exists on parent overlay and child button, allowing bubbling to request twice; denial is caught in hook but handleStart still hides the overlay containing the error. AudioContext is not retained/closed; only tracks/RAF are stopped. React polling updates the audio bridge rather than exposing the unused ref getter. Verify single start, denial/retry, resource cleanup, physical frequency-band labels and reduced-motion fallback in the actual tool. Shared source icon scan: 0 blocking icon findings; 0 content-symbol reviews. No live browser/tool workflow, provider calls, database commands or deployment in this pass."
+      "status": "Local silent-preview product pass verified; release pending",
+      "evidenceAndRemaining": "c9510cf: seven offline audio-session and eight icon checks, lint/types/build and audit zero. Actual desktop/390px WebGL, silent pointer/Enter Play/Pause and status, 48px targets and no overflow. Local captures copied unchanged. No microphone permission/device or live frequency response tested."
     },
     {
       "id": "refract",
@@ -325,7 +325,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/plate-tectonics/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "surfaces",
@@ -333,7 +341,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/day-on-another-world/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "interiors",
@@ -341,7 +357,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/inside-planets/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "gravity",
@@ -349,7 +373,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/gravity-on-other-worlds/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "stories",
@@ -357,7 +389,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/constellations-and-sky-stories/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "time",
@@ -365,7 +405,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/constellations-through-time/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "depth",
@@ -373,7 +421,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/big-dipper-in-3d/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "black-hole",
@@ -381,7 +437,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/black-hole-time-dilation/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "black-hole-light",
@@ -389,7 +453,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/black-hole-light-paths/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "double-slit",
@@ -397,7 +469,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/double-slit-experiment/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "tunnelling",
@@ -405,7 +485,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/quantum-tunnelling/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "uncertainty",
@@ -413,7 +501,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/quantum-uncertainty/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "sound-patterns",
@@ -421,7 +517,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/vibrating-membranes/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "living-patterns",
@@ -429,7 +533,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/reaction-diffusion/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "evolution",
@@ -437,7 +549,15 @@
       "kind": "exploration",
       "url": "https://labs.sammii.dev/explorations/planetary-surface-evolution/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Runtime wrapper, 1600x900 card, controls/readouts/model-limit copy, related paths and recorded source hashes checked. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "iconFollowUp": "All wrappers load generated Lucide presentation adapter; manifest model bytes unchanged. Actual plate transport Play/Pause/Replay and physics help/sky zoom checked, help/zoom44px. Other model-specific actions not exhaustively exercised."
+      }
     },
     {
       "id": "colour-spaces",
@@ -445,7 +565,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/colour-spaces/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "why-hsl-lies",
@@ -453,7 +580,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/why-hsl-lies/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "typography",
@@ -461,7 +595,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/typography/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "gamuts",
@@ -469,7 +610,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/gamuts/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "named-colours",
@@ -477,7 +625,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/named-colours/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "contrast",
@@ -485,7 +640,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/contrast/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "url",
@@ -493,7 +655,15 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/url/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "followUp": "Final rebuilt phone recheck passed: document390px. X-height specimen942px/table720px scroll inside340px containers, not the page."
+      }
     },
     {
       "id": "repaint",
@@ -501,7 +671,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/repaint/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "event-loop",
@@ -509,7 +686,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/event-loop/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "big-o",
@@ -517,7 +701,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/big-o/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "springs",
@@ -525,7 +716,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/springs/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "stacking",
@@ -533,7 +731,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/stacking/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "specificity",
@@ -541,7 +746,15 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/specificity/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "followUp": "Final rebuilt phone recheck passed: document390px. X-height specimen942px/table720px scroll inside340px containers, not the page."
+      }
     },
     {
       "id": "layout",
@@ -549,7 +762,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/layout/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "unicode",
@@ -557,7 +777,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/unicode/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "floating-point",
@@ -565,7 +792,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/floating-point/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "js-cost",
@@ -573,7 +807,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/js-cost/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "git-graph",
@@ -581,7 +822,15 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/git-graph/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "followUp": "Final ArrowRight/Home/End focus and selection verified. All nine command states fit390px after bounding nested panel/reflog min-content; panel semantically linked. Final current stylesheet explicitly verified after stale cached response."
+      }
     },
     {
       "id": "anchor",
@@ -589,7 +838,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/anchor/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "caching",
@@ -597,7 +853,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/caching/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "keypress",
@@ -605,7 +868,15 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/keypress/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "followUp": "Final rebuilt phone recheck passed: document390px. X-height specimen942px/table720px scroll inside340px containers, not the page."
+      }
     },
     {
       "id": "seven",
@@ -613,7 +884,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/seven/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "x-height",
@@ -621,7 +899,15 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/x-height/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification.",
+        "followUp": "Final rebuilt phone recheck passed: document390px. X-height specimen942px/table720px scroll inside340px containers, not the page."
+      }
     },
     {
       "id": "letter",
@@ -629,7 +915,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/letter/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "communication",
@@ -637,7 +930,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/communication/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "spectrum",
@@ -645,7 +945,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/spectrum/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "now",
@@ -653,7 +960,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/now/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "tests-for-a-mind",
@@ -661,7 +975,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/tests-for-a-mind/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "retina",
@@ -669,7 +990,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/retina/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "context-window",
@@ -677,7 +1005,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/context-window/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Blog and repository totals now explicitly dated 19 October 2026; historical scale no longer implies current model limits or current corpus totals."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Blog and repository totals now explicitly dated 19 October 2026; historical scale no longer implies current model limits or current corpus totals.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "llm-latency",
@@ -685,7 +1020,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/llm-latency/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Raw run reconciled: 27 compared calls plus one cache-prime, two refused proxy attempts excluded. Every displayed representative equals a real recorded call. No benchmark rerun."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Raw run reconciled: 27 compared calls plus one cache-prime, two refused proxy attempts excluded. Every displayed representative equals a real recorded call. No benchmark rerun.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "grimoire-map",
@@ -693,7 +1035,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/grimoire-map/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Recorded data has 1,958 index rows but 1,951 unique destinations; seven duplicate weekday pages are now disclosed. Layout and original neighbours retained, pending a separately regenerated deduplicated study."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Recorded data has 1,958 index rows but 1,951 unique destinations; seven duplicate weekday pages are now disclosed. Layout and original neighbours retained, pending a separately regenerated deduplicated study.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "tokens",
@@ -701,7 +1050,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/tokens/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Every sample reconstructs original UTF-8 bytes for all four tokenisers. Removed claim that token boundaries prove counting impossible. This is not a model-accuracy benchmark."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open. Every sample reconstructs original UTF-8 bytes for all four tokenisers. Removed claim that token boundaries prove counting impossible. This is not a model-accuracy benchmark.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "videos",
@@ -709,7 +1065,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/videos/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "frame-budget",
@@ -717,7 +1080,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/frame-budget/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "text-on-screen",
@@ -725,7 +1095,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/text-on-screen/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     },
     {
       "id": "touch-targets",
@@ -733,7 +1110,14 @@
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/touch-targets/",
       "status": "Source chain checked; product and accuracy review open",
-      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open."
+      "evidenceAndRemaining": "All 52 Labs source-chain receipts recorded in docs/quality/labs-source-receipts-20261120.json. Route, real component import, notes, sitemap and follow-up fact present. Browser workflow, phone layout, accessibility, scientific accuracy and current visual evidence remain open.",
+      "browserReview": {
+        "date": "2026-11-20",
+        "desktopWidth": 1144,
+        "phoneWidth": 390,
+        "observed": "Registry title, route, breadcrumb, mounted default controls and rendering surface checked. Exploration opaque frames inspected inside frame, not through contentDocument.",
+        "limits": "Not independent scientific validation, exhaustive interaction or assistive-technology certification."
+      }
     }
   ]
 }

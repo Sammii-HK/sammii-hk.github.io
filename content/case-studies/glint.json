@@ -3,7 +3,7 @@
   "description": "Tracing a server-side analytics prototype from request metadata through ingestion, PostgreSQL and a chart dashboard, with simulated data made explicit.",
   "techStack": "Next.js, TypeScript, Vercel Edge Middleware, Prisma, PostgreSQL, Recharts, Cloudflare Workers",
   "role": "Solo: design and engineering",
-  "status": "Prototype; source reviewed at 44bacf9 on 20 November 2026. Product polish remains in progress.",
+  "status": "Local dashboard candidate 7e33b73; sample charts and responsive controls verified, release pending.",
   "updated": "2026-11-20",
   "blocks": [
     {
@@ -12,9 +12,20 @@
       "body": "Glint explores capturing request metadata on the server, storing it behind an API and presenting it in a dashboard. Its demonstration includes simulated traffic from a scheduled Cloudflare Worker. Session duration and network-speed values in the middleware are also randomly generated. Those values are not measurements of real visitor behaviour."
     },
     {
+      "type": "media",
+      "layout": "single",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/glint-desktop.jpg",
+          "alt": "Local Glint dashboard with a visible visit-event chart and a prominent synthetic-data notice.",
+          "caption": "Unreleased local dashboard at 7e33b73. Every displayed value is from the labelled synthetic example, not a real audience."
+        }
+      ]
+    },
+    {
       "type": "flow",
       "heading": "Follow a request into a chart",
-      "caption": "Source review, not a production database or performance test.",
+      "caption": "These links identify the unchanged collection baseline. The local 7e33b73 dashboard candidate adds the explicit data-source and request-state work below. No database or collection operation was verified.",
       "steps": [
         {
           "label": "Request boundary",
@@ -49,7 +60,7 @@
         },
         {
           "label": "Describe the prototype and identify synthetic inputs",
-          "detail": "The case study identifies the scheduled data generator and the random middleware fields. The actual dashboard still needs a persistent provenance label in its product polish pass.",
+          "detail": "The local dashboard starts from a fixed synthetic example with persistent provenance text. Stored snapshots are a separate explicit selection and never silently fall back to sample values.",
           "chosen": true
         }
       ],
@@ -63,12 +74,12 @@
     {
       "type": "prose",
       "heading": "Make query scope legible",
-      "body": "The average-metrics endpoint reads the latest 100 records, while the hourly endpoint reads up to 500 and groups them into hours. These are bounded snapshots, not proof of million-row query performance, a user-selected reporting range or a continuously refreshing dashboard. Those distinctions should shape the next interface: clear time coverage, separate loading/error/empty states and honest data provenance."
+      "body": "The local dashboard separates six independently scoped requests, uses no-store, aborts on view changes and times out after ten seconds. Empty, malformed, HTTP-failure and network-error states are distinct. Seven or fourteen captured dates are selected from a snapshot, not an arbitrary reporting range. Dates aggregate in UTC, and expandable value tables expose the displayed records. Random session/network fields are omitted from this presentation. Stored-data branches have mock coverage only."
     },
     {
       "type": "prose",
       "heading": "What the current source proves",
-      "body": "The prototype connects middleware, typed ingestion routes, multiple Prisma models, a scheduled data generator and Recharts components. This review does not claim retention partitions, a nightly deletion policy, bot filtering, a date-range picker, a 60-second refresh interval or a sub-50-millisecond benchmark. No database connection, production write or generator run was made during this review."
+      "body": "The local product pass has nineteen tests, TypeScript, source lint and a production build passing, with zero findings in its full and production dependency audits. Final mounted desktop and 390px browser checks show a visible area plot, twenty-four hourly bars and labelled axes. Seven/fourteen captured-date selection and overflow checks passed. An earlier blank capture was withdrawn; the cause was not conclusively isolated. No stored-data or database operation was exercised, and sample-mode checks do not certify the unchanged collection backend."
     }
   ]
 }

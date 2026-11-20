@@ -607,6 +607,7 @@ export const projects: Project[] = [
   {
     id: 'spectra',
     title: 'Spectra',
+    caseStudy: 'spectra',
     techStack: 'Three.js, GLSL, Web Audio API, Next.js',
     info: 'Audio-reactive shader visualiser driven by microphone input. Domain-warped simplex noise fragment shader with bass, mid, and high frequency bands mapped to warp intensity, hue rotation, and shimmer, all running in real time on the GPU.',
     type: 'experiment',

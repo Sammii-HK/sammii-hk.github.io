@@ -75,20 +75,22 @@ export const ProjectItem = (projectItem: Project) => {
               target="_blank"
               rel="noopener noreferrer"
               href={project.liveUrl}
-              className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
+              aria-label={`${liveLabel} ${project.title} (opens in a new tab)`}
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
               onClick={(e) => e.stopPropagation()}
             >
-              <ExternalLink size={12} className="sm:w-3.5 sm:h-3.5" />
+              <ExternalLink aria-hidden="true" size={12} className="sm:w-3.5 sm:h-3.5" />
               <span className="hidden sm:inline">{liveLabel}</span>
             </a>
           )}
           {project.privateRepo && (
             <a
               href={privateRepoMailto}
-              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
+              aria-label={`Request code access for ${project.title}`}
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
               onClick={(e) => e.stopPropagation()}
             >
-              <Lock size={12} className="sm:w-4 sm:h-4" />
+              <Lock aria-hidden="true" size={12} className="sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">Request access</span>
               <span className="sm:hidden">Private</span>
             </a>
@@ -98,10 +100,11 @@ export const ProjectItem = (projectItem: Project) => {
               target="_blank"
               rel="noopener noreferrer"
               href={githubRepoUrl}
-              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
+              aria-label={`View code for ${project.title} (opens in a new tab)`}
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 border border-black/20 dark:border-white/20 rounded hover:border-black/40 dark:hover:border-white/40 hover:bg-black/5 dark:hover:bg-white/5 transition-all text-xs sm:text-sm font-medium"
               onClick={(e) => e.stopPropagation()}
             >
-              <CodeXml size={12} className="sm:w-4 sm:h-4" />
+              <CodeXml aria-hidden="true" size={12} className="sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">View Code</span>
               <span className="sm:hidden">Code</span>
             </a>

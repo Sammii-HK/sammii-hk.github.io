@@ -1,0 +1,43 @@
+{
+  "title": "Spectra",
+  "description": "An audio-reactive shader study with an explicit silent preview and microphone lifecycle.",
+  "techStack": "Next.js, TypeScript, Three.js, GLSL, Web Audio API",
+  "role": "Solo: design and engineering",
+  "status": "Local product candidate c9510cf; silent preview checked, release pending.",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Give motion and audio separate boundaries",
+      "body": "Spectra maps low, middle and high frequency bands to shader parameters. The local candidate opens with visuals paused and no microphone access. A silent preview lets someone explore the GLSL surface before deciding whether to provide audio input."
+    },
+    {
+      "type": "media",
+      "layout": "pair",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/spectra-desktop.jpg",
+          "alt": "Purple Spectra shader and explicit silent-preview status in the local desktop interface.",
+          "caption": "Unreleased local c9510cf, silent preview. No microphone or recorded audio was used."
+        },
+        {
+          "src": "/assets/images/refresh-20261120/spectra-phone.jpg",
+          "alt": "Spectra local phone interface with microphone and visual-playback controls.",
+          "caption": "Local 390px view. The microphone path was not exercised."
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "heading": "Keep the renderer connected to the current session",
+      "what": "The renderer could retain a stale audio reference, and permission failures could leave an awkward overlay. Repeated activation and cleanup also needed explicit ownership.",
+      "why": "An asynchronous audio session and a long-lived rendering loop have different lifetimes. A captured reference can outlive the state it is meant to describe.",
+      "fix": "The local repair uses a live session getter, explicit stop/retry and cleanup, and controls which keep silent preview independent from microphone activation."
+    },
+    {
+      "type": "prose",
+      "heading": "What was actually checked",
+      "body": "Seven offline audio-session regressions and eight icon checks pass, along with types, lint, production build and a zero-finding dependency audit. Actual desktop and 390px browser checks verified the WebGL surface, silent Play/Pause by pointer and Enter, correct status, 48px phone controls and no page overflow. Microphone permission, real input devices and frequency response were not tested. These checks establish the silent interface and mocked lifecycle, not live-audio correctness."
+    }
+  ]
+}

@@ -1302,7 +1302,7 @@
     },
     {
       "id": "now",
-      "title": "How long “now” takes",
+      "title": "How long \u201cnow\u201d takes",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/now/",
       "sourceReview": "pending",
@@ -1432,5 +1432,6 @@
         "finalUrl": "https://labs.sammii.dev/charts/touch-targets/"
       }
     }
-  ]
+  ],
+  "baselineNotice": "Historical 15:28 HTTP/inventory baseline. Image paths and case-study existence are not current after local follow-ups. Current per-entry source and browser status is docs/quality/catalogue-review-ledger-20261120.json. Do not infer missing current studies from this baseline."
 }

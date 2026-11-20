@@ -23,3 +23,21 @@ test("React keys and CSS template fragments are not ASCII icons",()=>{assert.equ
 test("hand-drawn UI icons fail while data visualisations remain allowed",()=>{assert.ok(scanSource('<svg viewBox="0 0 24 24"><path d="M0 0"/></svg>').some(f=>f.rule==="lucide-only"));assert.equal(scanSource('<svg viewBox="0 0 400 300"><path d="M0 0"/></svg>').length,0);});
 
 test("an explicitly identified product brand mark is not a UI icon",()=>{assert.equal(scanSource('<svg data-brand-mark="prism" viewBox="0 0 14 14"><path d="M0 0"/></svg>').length,0);});
+
+
+test('catches icon font classes and font families without treating ordinary labels as icons',()=>{
+ for (const [source,file] of [
+  ['<span className="material-symbols-outlined">arrow_forward</span>','icon.tsx'],
+  ['<span className="fa-solid fa-arrow-right" />','icon.tsx'],
+  ['<i class="bi bi-arrow-right"></i>','index.html'],
+  ['.icon {font-family:"Material Icons"}','style.css'],
+  ['.icon {font-family:"Font Awesome 6 Free"}','style.css'],
+ ]) assert.ok(scanSource(source,file).some(f=>f.rule==='lucide-only'),source);
+ for (const source of ['<p>Material symbols are discussed here.</p>','<span className="bi-modal-count">Bimodal data</span>','<span className="font-sans">Material</span>']) {
+  assert.equal(scanSource(source).length,0,source);
+ }
+});
+test('catches other component icon families while retaining Lucide imports',()=>{
+ for (const source of ['import {ArrowRight} from "react-feather";','import {ArrowRightOutlined} from "@ant-design/icons";','import {ArrowRight} from "@remixicon/react";'])assert.ok(scanSource(source).some(f=>f.rule==='lucide-only'),source);
+ assert.equal(scanSource('import {ArrowRight} from "lucide-react";').length,0);
+});

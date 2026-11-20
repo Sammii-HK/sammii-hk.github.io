@@ -57,7 +57,7 @@ for item in catalogue['items']:
     directory.mkdir(exist_ok=True)
     family, mode = item['moduleFamily'], item['id']
     title = html.escape(item['title'])
-    head = f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="color-scheme" content="dark"><title>{title} · interactive view</title><link rel="canonical" href="https://labs.sammii.dev/explorations/{item['slug']}/"><script src="../bridge.js"></script>'''
+    head = f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><meta name="color-scheme" content="dark"><title>{title} · interactive view</title><link rel="canonical" href="https://labs.sammii.dev/explorations/{item['slug']}/"><script src="../ui-icons.js"></script><script src="../bridge.js"></script>'''
     common = '<link rel="stylesheet" href="../frame.css">'
     body_attrs = f'data-slug="{item["slug"]}" data-family="{family}" data-mode="{mode}"'
     noscript = '<noscript><p class="frame-fallback">This visualisation needs JavaScript for its controls. The parent page contains the explanation, model limits and sources.</p></noscript>'

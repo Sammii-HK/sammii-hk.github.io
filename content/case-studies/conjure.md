@@ -3,12 +3,12 @@ title: "Conjure"
 description: "A prompt-building prototype that separates a visual brief, a creative direction and the syntax expected by an image platform."
 techStack: "Next.js, TypeScript, AI SDK, Groq, Zod, Prisma, Chrome Extension MV3"
 updated: "2026-11-20"
-status: "Prototype; source reviewed at 0ca070b. Generation, saving and extension delivery need further end-to-end verification."
+status: "Local product candidate 7cf0d8a with dependency follow-up 550bbc2; live generation, account storage and extension delivery remain unverified."
 ---
 
 <!-- Kept in step with the canonical structured study in conjure.json. -->
 
-Prototype; source reviewed at 0ca070b. Generation, saving and extension delivery need further end-to-end verification.
+Local product candidate 7cf0d8a with dependency follow-up 550bbc2; live generation, account storage and extension delivery remain unverified.
 
 ## Make variation a decision people can inspect
 
@@ -21,7 +21,7 @@ A brief can stay the same while an image direction changes. Conjure asks for con
 3. **Formatting boundary:** The route requests three labelled variations, parses the response and appends platform parameters after generation. DALL·E is handled separately from prompt-text parameters. [Implementation](https://github.com/Sammii-HK/conjure/blob/0ca070b/apps/web/src/app/api/generate/route.ts)
 4. **Iteration boundary:** Refinement carries the original brief, a selected base prompt and a change request back to the same endpoint. [Implementation](https://github.com/Sammii-HK/conjure/blob/0ca070b/apps/web/src/components/PromptBuilder.tsx)
 
-Source reviewed at 0ca070b on 20 November 2026. This review did not invoke generation or publishing services.
+Architecture links identify the earlier 0ca070b baseline. The local 7cf0d8a/550bbc2 candidate adds the persistence, output validation, extension and dependency work below. No generation or database operation was exercised.
 
 ## Keep formatting outside the creative instruction
 
@@ -32,14 +32,18 @@ A platform-specific suffix is deterministic. Asking a model to reproduce it make
 
 The same brief and variation workflow can target different image tools without asking the model to invent parameter syntax.
 
-## Persistence is an unfinished product boundary
+## Give a browser draft its own identity
 
-The repository includes saved-prompt, rating and library routes, but the generation path currently returns temporary session and iteration identifiers when it cannot resolve an existing session. A save endpoint expects a real stored iteration. A visible Save control therefore does not establish that a newly generated prompt will survive a reload. Completing that transition and testing its failure states is a prerequisite for presenting the library as a finished workflow.
+The earlier generation response used temporary IDs that the save endpoint could not persist. Guest drafts now have explicit browser identities: save, rating, favourites, search and remix share a local shelf. Repeated saves deduplicate by iteration and direction; corrupt storage and quota errors are visible. Those records stay in that browser and are not account-synced or backed up. Authenticated generation uses a separate user-owned session/iteration path, and library operations check ownership before saving. Injected tests cover both contracts; real authenticated database persistence remains unexercised.
 
 ## The extension has a concrete integration surface
 
-The MV3 manifest targets Midjourney. Its content script adds a collapsible iframe pointing to a local development server and can write a prompt into recognised Midjourney inputs. A separate panel implementation also calls that local server. The reviewed implementation is an iframe/content-script prototype; production host configuration, message-origin checks and extension interaction testing still need work.
+The local MV3 package now bundles its actual React panel instead of embedding localhost. The content script checks both iframe identity and extension origin; the panel checks acknowledgements against the Midjourney parent and origin. Text insertion is bounded and does not submit an image. The production API host is explicit, and the temporary draft panel does not claim library sync. Manifest/package checks and a production build pass. The extension has not been installed or tested against today’s live Midjourney DOM.
 
-## The next quality gate
+## Validate the result as well as the request
 
-The request has a schema, while the generated variations are currently parsed and mapped without an equivalent output schema enforcing labels and count. Strengthening that boundary belongs before stronger reliability claims. This review did not measure response speed, call the model, exercise account persistence or install the extension. A public AI demonstration should be a recording of the actual verified flow.
+The local candidate checks all three distinct direction labels and their output fields, retains refinement context and includes remixed reference prompts. Only Midjourney gets an aspect-ratio suffix; the tool does not force a model version or stylisation. Eleven injected/mocked tests cover storage failure, ownership, output rejection, refinement and extension messages. Actual desktop and 390px navigation and provider-unavailable feedback were checked without fabricating output. Generation and account persistence still require separately authorised live integration checks.
+
+## Keep compatible repairs separate from a breaking migration
+
+The dependency follow-up patches within supported major versions and denies account routes with 503 when account configuration is absent. A resolved dependency regression distinguishes the authentication router’s Zod 4 from the application’s Zod 3. Builds and local auth/session fixtures pass, but known findings remain in older SDK, Zod and Prisma tooling lines. Their breaking transitions are not presented as completed. No environment files, credentials, database commands, generation or release were used.

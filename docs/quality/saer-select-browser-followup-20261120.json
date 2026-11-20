@@ -1,0 +1,175 @@
+{
+  "before": {
+    "status": "COMPLETED",
+    "counts": {
+      "definitions": 198,
+      "definitionsExported": 158,
+      "definitionsReachedOutsideScanned": 0,
+      "definitionsByKind": {
+        "arrow": 32,
+        "function": 166
+      },
+      "definitionsByFileClass": {
+        "og_image": 5,
+        "product": 193
+      },
+      "useSites": 366,
+      "useSitesResolvedScanned": 210,
+      "useSitesResolvedOutsideScanned": 0,
+      "useSitesResolvedNotComponent": 4,
+      "useSitesExternal": 140,
+      "useSitesAsset": 0,
+      "useSitesViaVariable": 12,
+      "useSitesUnresolved": 0,
+      "exactNameDuplicates": 2,
+      "exactNameDuplicatesLocalLibraryCopies": 0,
+      "nearDuplicates": 0,
+      "nearDuplicateFamilies": 0,
+      "variantFindings": 0,
+      "variantFindingsInLocalLibraryCopies": 0,
+      "overriddenComponents": 0,
+      "unused": 5,
+      "unusedInLocalLibraryCopies": 0,
+      "onlyInStoriesOrTests": 0,
+      "livenessUnknown": 0
+    },
+    "prism": [
+      {
+        "id": "prism",
+        "name": "Prism",
+        "distribution": "source",
+        "state": "OBSERVED_DECLARED_ORIGIN",
+        "scope": ".",
+        "source": {
+          "library": "Prism",
+          "repository": "https://github.com/Sammii-HK/prism",
+          "revision": "03a2e50",
+          "path": "app/lib/expressions/reserved.tsx",
+          "sha256": "6eb0ac7f39179fdb08db5a8db0b926f81d8cd3b634ec3df4b80904ad5fc512e7"
+        },
+        "localIntegrity": "MATCHED",
+        "evidence": [
+          "saer.components.json",
+          "app/src/components/prism/Select.tsx"
+        ],
+        "uses": 1,
+        "components": [
+          {
+            "name": "Select",
+            "file": "app/src/components/prism/Select.tsx",
+            "uses": 1,
+            "sites": [
+              "app/labs/LabLibrary.tsx:12"
+            ]
+          }
+        ],
+        "limitation": "Local file integrity and use are verified. Upstream attribution is declared by this repository, not independently authenticated."
+      }
+    ]
+  },
+  "changed": {
+    "status": "COMPLETED",
+    "counts": {
+      "definitions": 198,
+      "definitionsExported": 158,
+      "definitionsReachedOutsideScanned": 0,
+      "definitionsByKind": {
+        "arrow": 32,
+        "function": 166
+      },
+      "definitionsByFileClass": {
+        "og_image": 5,
+        "product": 193
+      },
+      "useSites": 366,
+      "useSitesResolvedScanned": 210,
+      "useSitesResolvedOutsideScanned": 0,
+      "useSitesResolvedNotComponent": 4,
+      "useSitesExternal": 140,
+      "useSitesAsset": 0,
+      "useSitesViaVariable": 12,
+      "useSitesUnresolved": 0,
+      "exactNameDuplicates": 2,
+      "exactNameDuplicatesLocalLibraryCopies": 0,
+      "nearDuplicates": 0,
+      "nearDuplicateFamilies": 0,
+      "variantFindings": 0,
+      "variantFindingsInLocalLibraryCopies": 0,
+      "overriddenComponents": 0,
+      "unused": 5,
+      "unusedInLocalLibraryCopies": 0,
+      "onlyInStoriesOrTests": 0,
+      "livenessUnknown": 0
+    },
+    "prism": []
+  },
+  "reviewed": {
+    "status": "COMPLETED",
+    "counts": {
+      "definitions": 198,
+      "definitionsExported": 158,
+      "definitionsReachedOutsideScanned": 0,
+      "definitionsByKind": {
+        "arrow": 32,
+        "function": 166
+      },
+      "definitionsByFileClass": {
+        "og_image": 5,
+        "product": 193
+      },
+      "useSites": 366,
+      "useSitesResolvedScanned": 210,
+      "useSitesResolvedOutsideScanned": 0,
+      "useSitesResolvedNotComponent": 4,
+      "useSitesExternal": 140,
+      "useSitesAsset": 0,
+      "useSitesViaVariable": 12,
+      "useSitesUnresolved": 0,
+      "exactNameDuplicates": 2,
+      "exactNameDuplicatesLocalLibraryCopies": 0,
+      "nearDuplicates": 0,
+      "nearDuplicateFamilies": 0,
+      "variantFindings": 0,
+      "variantFindingsInLocalLibraryCopies": 0,
+      "overriddenComponents": 0,
+      "unused": 5,
+      "unusedInLocalLibraryCopies": 0,
+      "onlyInStoriesOrTests": 0,
+      "livenessUnknown": 0
+    },
+    "prism": [
+      {
+        "id": "prism",
+        "name": "Prism",
+        "distribution": "source",
+        "state": "OBSERVED_DECLARED_ORIGIN",
+        "scope": ".",
+        "source": {
+          "library": "Prism",
+          "repository": "https://github.com/Sammii-HK/prism",
+          "revision": "03a2e50",
+          "path": "app/lib/expressions/reserved.tsx",
+          "sha256": "6eb0ac7f39179fdb08db5a8db0b926f81d8cd3b634ec3df4b80904ad5fc512e7"
+        },
+        "localIntegrity": "MATCHED",
+        "evidence": [
+          "saer.components.json",
+          "app/src/components/prism/Select.tsx"
+        ],
+        "uses": 1,
+        "components": [
+          {
+            "name": "Select",
+            "file": "app/src/components/prism/Select.tsx",
+            "uses": 1,
+            "sites": [
+              "app/labs/LabLibrary.tsx:12"
+            ]
+          }
+        ],
+        "limitation": "Local file integrity and use are verified. Upstream attribution is declared by this repository, not independently authenticated."
+      }
+    ]
+  },
+  "meaning": "Component development engine only, not full released scan or upstream authenticity. Before: current configured copy matched. Changed: hash mismatch was reported UNRESOLVED. Reviewed: one-line pointer-isolation adaptation reviewed against declared original source; local checksum refreshed and matched."
+}

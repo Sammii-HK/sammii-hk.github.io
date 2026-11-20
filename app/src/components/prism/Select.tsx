@@ -42,7 +42,7 @@ export function Select({ value, onChange, options, label, disabled }: SelectProp
       </button>
       <ul {...listProps} ref={listRef} aria-labelledby={labelId} aria-hidden={!open}
         className="prism-select-options"
-        style={{ transition, opacity: open ? 1 : 0, transform: `translateY(${open ? 0 : -4}px)`, visibility: open ? 'visible' : 'hidden' }}>
+        style={{ transition, opacity: open ? 1 : 0, transform: `translateY(${open ? 0 : -4}px)`, visibility: open ? 'visible' : 'hidden', pointerEvents: open ? 'auto' : 'none' }}>
         {options.map((option, index) => (
           <li key={option.value} {...optionProps(index)} className="prism-select-option" data-active={index === active ? '' : undefined}>
             <span>{option.label}</span>
