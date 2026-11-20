@@ -3,13 +3,40 @@
   "description": "A component system that makes its behaviour inspectable: spring motion, shared overlays, three visual expressions and recorded AI response states.",
   "techStack": "React, TypeScript, Spring Physics, Browser Top Layer",
   "role": "Solo: design, engineering and product",
-  "status": "Implementation on the release branch; production rollout pending",
+  "status": "Component-system release merged; live demos and recorded AI replays",
   "updated": "2026-11-20",
   "blocks": [
     {
       "type": "prose",
       "heading": "From components to a system",
       "body": "The interesting part of Prism is no longer an individual button. It is whether inputs, menus, dialogs and asynchronous responses behave like they belong to the same product. I moved the work towards shared behaviour: typed APIs, spring motion, a common overlay layer and visual expressions held to the same interaction contracts."
+    },
+    {
+      "type": "flow",
+      "heading": "Follow an asynchronous answer through the interface",
+      "steps": [
+        {
+          "label": "Stream contract",
+          "detail": "An abortable StreamSource yields text, tool calls, tool results, errors and completion. The contract accepts either a real provider adapter or a recording.",
+          "href": "https://github.com/Sammii-HK/prism/blob/db18633/app/lib/hooks/assistant.ts"
+        },
+        {
+          "label": "State transitions",
+          "detail": "A quiet window avoids flashing a busy state. A stalled stream exposes waiting and cancellation. A settled or replaced run ignores late events.",
+          "href": "https://github.com/Sammii-HK/prism/blob/db18633/app/lib/hooks/assistant.ts"
+        },
+        {
+          "label": "Response surface",
+          "detail": "The component renders received text, inspectable tool steps, citations and stop/retry controls. A citation is a link only when its source exists.",
+          "href": "https://github.com/Sammii-HK/prism/blob/db18633/app/lib/components/ai-response.tsx"
+        },
+        {
+          "label": "Behaviour checks",
+          "detail": "The browser suite exercises the response lifecycle. The demo uses retained recordings, including imperfect runs and a labelled injected timeout.",
+          "href": "https://github.com/Sammii-HK/prism/blob/db18633/tests/ai-response.spec.ts"
+        }
+      ],
+      "caption": "This is interface engineering around a model response. It does not claim that displaying a citation proves the answer correct."
     },
     {
       "type": "decision",

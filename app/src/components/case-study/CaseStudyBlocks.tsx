@@ -35,6 +35,23 @@ const MediaItem = ({ m }: { m: Media }) => (
 
 const BlockView = ({ block }: { block: Block }) => {
   switch (block.type) {
+    case "flow":
+      return (
+        <section className="cs-block cs-flow">
+          <Heading>{block.heading}</Heading>
+          <ol>
+            {block.steps.map((step, i) => (
+              <li key={step.label}>
+                <span className="cs-flow-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <h3>{step.label}</h3>
+                <p>{step.detail}</p>
+                <a href={step.href}>Read the {step.label.toLowerCase()} implementation</a>
+              </li>
+            ))}
+          </ol>
+          <p className="cs-flow-caption">{block.caption}</p>
+        </section>
+      );
     case "prose":
       return (
         <section className="cs-block cs-prose">

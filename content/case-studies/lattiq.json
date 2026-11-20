@@ -12,6 +12,33 @@
       "body": "Lattiq is an editor whose document lives on the device before it lives on a server. The release work restores the actual Lexical-to-Yjs binding, local persistence and collaboration, then checks the difficult paths: reload while offline, concurrent offline edits and reconnecting to a persisted room."
     },
     {
+      "type": "flow",
+      "heading": "Follow an edit across the stack",
+      "steps": [
+        {
+          "label": "Editor binding",
+          "detail": "Lexical’s CollaborationPlugin maps the visible document into Yjs. The document is loaded before network collaboration starts, and undo uses the collaborative history.",
+          "href": "https://github.com/Sammii-HK/lattiq/blob/dbabae3/src/components/editor/CollaborativeEditor.tsx"
+        },
+        {
+          "label": "Persistence and transport",
+          "detail": "The provider restores IndexedDB state and negotiates missing updates with Yjs state vectors. Heartbeats use a separate message type from presence.",
+          "href": "https://github.com/Sammii-HK/lattiq/blob/dbabae3/src/lib/yjs/collaboration-provider.ts"
+        },
+        {
+          "label": "Room boundary",
+          "detail": "The server validates room names and optional expiring room tokens, owns socket presence, and writes room state through a temporary file and rename.",
+          "href": "https://github.com/Sammii-HK/lattiq/blob/dbabae3/server/index.ts"
+        },
+        {
+          "label": "Visible honesty",
+          "detail": "The status surface distinguishes device-only saving from collaboration. No WebSocket URL means the deployed editor stays local rather than showing pretend collaborators.",
+          "href": "https://github.com/Sammii-HK/lattiq/blob/dbabae3/src/components/editor/SyncStatus.tsx"
+        }
+      ],
+      "caption": "The collaboration path is verified on localhost. The public deployment is device-only until a long-lived room server with persistent storage is hosted."
+    },
+    {
       "type": "failure",
       "heading": "A protocol error disguised as a bundling problem",
       "what": "Collaboration had been removed after a lib0 decoder error, leaving a standalone editor without the promised sync.",

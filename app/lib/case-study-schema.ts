@@ -27,6 +27,8 @@ export type Media = {
 };
 
 export type Block =
+  /** A concrete path through a system, with implementation evidence at each boundary. */
+  | { type: "flow"; heading: string; steps: Array<{ label: string; detail: string; href: string }>; caption: string }
   /** Plain writing. The heading is optional: not every passage needs one. */
   | { type: "prose"; heading?: string; body: string }
   /** A choice that was made: the question, what was weighed, and what happened. */
@@ -87,6 +89,7 @@ const isObject = (v: unknown): v is Record<string, unknown> => typeof v === "obj
 
 /** Required string fields per block type. Optional fields are checked by type only. */
 const REQUIRED: Record<BlockType, string[]> = {
+  flow: ["heading", "caption"],
   prose: ["body"],
   decision: ["heading", "context", "outcome"],
   tradeoff: ["gave", "got"],
@@ -138,6 +141,16 @@ export function validateCaseStudy(value: unknown, slug: string): string[] {
     for (const key of REQUIRED[type]) if (!isString(raw[key])) errors.push(`${at}.${key}: required for ${type}`);
 
     switch (type) {
+      case "flow":
+        if (!isArray(raw.steps) || raw.steps.length < 2) errors.push(`${at}.steps: needs at least two system boundaries`);
+        else raw.steps.forEach((step, j) => {
+          if (!isObject(step) || !isString(step.label) || !isString(step.detail) || !isString(step.href)) {
+            errors.push(`${at}.steps[${j}]: needs label, detail and implementation link`);
+          } else if (!/^https:\/\//.test(step.href)) {
+            errors.push(`${at}.steps[${j}].href: needs an HTTPS implementation link`);
+          }
+        });
+        break;
       case "decision":
         if (!isArray(raw.options) || raw.options.length < 2) errors.push(`${at}.options: a decision weighs at least two options`);
         else {
@@ -188,6 +201,11 @@ export function caseStudyToMarkdown(study: StructuredCaseStudy): string {
   const h = (text?: string) => text && out.push(`## ${text}`, "");
   for (const b of study.blocks) {
     switch (b.type) {
+      case "flow":
+        h(b.heading);
+        b.steps.forEach((step, i) => out.push(`${i + 1}. **${step.label}:** ${step.detail} [Implementation](${step.href})`));
+        out.push("", b.caption, "");
+        break;
       case "prose":
         h(b.heading);
         out.push(b.body, "");

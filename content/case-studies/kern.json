@@ -3,13 +3,40 @@
   "description": "From browsing a font to exporting a type system: pairing, variable axes, fluid scales and previews from shared inputs.",
   "techStack": "Next.js, TypeScript, Variable Fonts, CSS, Design Tokens",
   "role": "Solo: design, engineering and product",
-  "status": "Type Lab release branch ready; production rollout pending",
+  "status": "Type Lab release merged; live web application",
   "updated": "2026-11-20",
   "blocks": [
     {
       "type": "prose",
       "heading": "A typography decision needs somewhere to go",
       "body": "Kern began as a variable-font explorer. Type Lab extends the workflow: browse the catalogue, choose heading, body and mono roles, compare them in interface previews, tune a fluid scale and export the result. The output matters as much as the specimen."
+    },
+    {
+      "type": "flow",
+      "heading": "Follow a type decision into production",
+      "steps": [
+        {
+          "label": "Catalogue boundary",
+          "detail": "A server-side fetch races the live refresh against a patience window. The browser can receive the bundled catalogue while an upstream request completes into the cache.",
+          "href": "https://github.com/Sammii-HK/kern/blob/0b9763d/lib/catalogue/fetch.ts"
+        },
+        {
+          "label": "Type roles",
+          "detail": "Heading, body and mono share one lab state. The same family can serve more than one role without requiring duplicate font requests.",
+          "href": "https://github.com/Sammii-HK/kern/blob/0b9763d/lib/lab-state.ts"
+        },
+        {
+          "label": "Scale mathematics",
+          "detail": "Each step has two endpoint sizes, a slope and an intercept. Tracking tightens with size; leading is derived from the base. Rounding happens when formatting output.",
+          "href": "https://github.com/Sammii-HK/kern/blob/0b9763d/lib/scale.ts"
+        },
+        {
+          "label": "Export boundary",
+          "detail": "CSS, Tailwind v4 and token output receive the same roles and scale. Browser-measured fallback faces feed size-adjust rather than changing the authored font sizes.",
+          "href": "https://github.com/Sammii-HK/kern/blob/0b9763d/lib/export.ts"
+        }
+      ],
+      "caption": "The path is from source data to an editable design-system artefact. It is separate from a claim about which typeface improves conversion or readability."
     },
     {
       "type": "decision",

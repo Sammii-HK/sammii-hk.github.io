@@ -3,7 +3,7 @@
   "description": "Connecting evidence, specialist jobs, drafting and review in a content operation, with an inspectable boundary between preparing work and publishing it.",
   "techStack": "Shell, Python, Node.js, JSON job definitions, Local models",
   "role": "Solo: design, engineering and operation",
-  "status": "Source walkthrough rebuilt locally; public replacement not deployed",
+  "status": "Public showcase replacement prepared locally; deployment pending",
   "updated": "2026-11-20",
   "blocks": [
     {
