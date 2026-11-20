@@ -1,0 +1,114 @@
+{
+  "title": "Lunary",
+  "description": "Building a daily astrology product where precise calculations, uncertain inputs, searchable knowledge and subscription infrastructure have to work together.",
+  "techStack": "Next.js, TypeScript, astronomy-engine, PostgreSQL, Stripe, Capacitor",
+  "role": "Solo founder: product, design and engineering",
+  "status": "Live product; source reviewed at 42ae638655 on 20 November 2026",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "A daily interface for a complicated system",
+      "body": "Lunary brings a chart, the current sky and a reference library into one product. The design problem is deciding what a person needs now, what deserves an explanation, and which claims their birth details actually support. The engineering spans astronomical calculation, a searchable content system, personalised interfaces, subscription access and web/native delivery."
+    },
+    {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/lunary-grimoire.jpg",
+          "alt": "The current public Lunary Grimoire, with a structured learning introduction, search and a route to a personal birth chart.",
+          "width": 1280,
+          "height": 720,
+          "caption": "Public Grimoire captured on 20 November 2026. The search-control and introductory-card copy changes described below are prepared separately and are not yet deployed."
+        }
+      ]
+    },
+    {
+      "type": "decision",
+      "heading": "An unknown birth time must stay unknown",
+      "context": "An exact-looking degree or house is misleading when the supplied birth details cannot establish it. The uncertainty changes which comparisons the interface can responsibly display.",
+      "options": [
+        {
+          "label": "Fill every position with a precise-looking value",
+          "detail": "A complete-looking chart would hide the uncertainty in the inputs."
+        },
+        {
+          "label": "Carry uncertainty through calculation and presentation",
+          "detail": "Placement helpers distinguish known signs from known degrees. Degree-uncertain placements are excluded from aspect comparisons that require precise positions.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The interface can withhold unsupported precision instead of decorating a guessed result. This is a product decision expressed in shared calculation and display rules."
+    },
+    {
+      "type": "prose",
+      "heading": "Compatibility is a calculation pipeline",
+      "body": "The relationship and friends compatibility engine compares ten chart points against six aspect definitions, with shared orb policies and weighted results. With two complete ten-point inputs, that means 600 candidate point-pair/aspect checks before the angle, orb and input-quality filters. It does not mean that a pair has 600 matching aspects. A separate utility path is also present in the repository and uses a narrower planet selection; this review does not claim every compatibility surface has identical coverage."
+    },
+    {
+      "type": "decision",
+      "heading": "Search should explain what kind of answer it found",
+      "context": "A feature, a personal destination and a reference article may match the same query, but selecting them does different things.",
+      "options": [
+        {
+          "label": "Flatten every result into one list",
+          "detail": "The visitor must infer whether a result opens a tool, personal material or a reference page."
+        },
+        {
+          "label": "Preserve the intent of the destination",
+          "detail": "The shared discovery presentation distinguishes Do, About you and Learn. The same retrieval hook supports the command palette and Grimoire search, with optional semantic broadening.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Result identity and destination are shared across surfaces, while each interface chooses its scope and presentation. The client loads a slim index once for local retrieval; semantic requests are a separate, bounded path."
+    },
+    {
+      "type": "prose",
+      "heading": "Search infrastructure has a cost boundary",
+      "body": "Semantic search is an optional server-backed step, rather than a network request for every keystroke. Query and result limits, category validation and per-client/global request budgets live in the semantic search guard. The search interface debounces that step and distinguishes a confident answer from related material or no answer. These are inspected implementation boundaries, not a claim of a measured latency or cost improvement."
+    },
+    {
+      "type": "prose",
+      "heading": "Billing has to survive repeated delivery",
+      "body": "Subscription changes arrive through Stripe webhooks. The handler verifies the event signature and records the event identifier and processing state. A repeated completed event returns without applying the subscription change again; the processing record also supports retry handling. That is a different problem from rendering a successful checkout screen: payment delivery and access changes need a persistent, reviewable path."
+    },
+    {
+      "type": "tradeoff",
+      "heading": "One product across web and native surfaces",
+      "gave": "A shared product still has platform-specific permission, navigation, copy and delivery behaviour to maintain.",
+      "got": "The web application and Capacitor client can reuse product logic and content while explicitly accounting for their different environments. Shared search presentation applies platform copy at the presentation boundary."
+    },
+    {
+      "type": "prose",
+      "heading": "Polishing the small interactions",
+      "body": "The local follow-up improves the shared search control used by the crystal and spell collections: a persistent accessible name, a larger clear target, focus returned to the input after clearing, Escape handling and announced result counts. The Grimoire\u2019s introductory cards also replace internal implementation and SEO wording with descriptions of what a reader will find. These changes are prepared and tested locally; they are not yet a claim about the deployed interface."
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "body": "Evidence reviewed on 20 November 2026 from source commit 42ae638655. No database, payment or production mutation was run for this study. Historical article counts, tool counts, pricing and revenue have been omitted rather than treated as current measurements. The compatibility implementations need a separate parity review. This is source evidence, not a fresh end-to-end verification of every production journey."
+    },
+    {
+      "type": "links",
+      "heading": "Explore Lunary",
+      "items": [
+        {
+          "label": "Open Lunary",
+          "href": "https://lunary.app"
+        },
+        {
+          "label": "Browse the Grimoire",
+          "href": "https://lunary.app/grimoire"
+        },
+        {
+          "label": "Search the Grimoire",
+          "href": "https://lunary.app/grimoire/search"
+        },
+        {
+          "label": "Read the chart-point expansion",
+          "href": "/blog/synastry-at-36-aspects/"
+        }
+      ]
+    }
+  ]
+}

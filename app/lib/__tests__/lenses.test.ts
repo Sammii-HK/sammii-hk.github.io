@@ -40,7 +40,7 @@ describe("lensHref", () => {
 });
 
 describe("getLensOrder", () => {
-  it("matches the approved hierarchy", () => {
+  it("matches the reviewed hierarchy", () => {
     const ids = (lens: Lens) => {
       const o = getLensOrder(lens);
       return { featured: o.featured.map((p) => p.id), supporting: o.supporting.map((p) => p.id) };
@@ -50,12 +50,12 @@ describe("getLensOrder", () => {
       supporting: ["strata", "lunary", "lattiq"],
     });
     expect(ids("ai")).toEqual({
-      featured: ["moth", "lunary", "spellcast"],
-      supporting: ["prism", "create-mcp-server", "lattiq", "iprep", "orbit"],
+      featured: ["moth", "orbit", "prism"],
+      supporting: ["lunary", "spellcast", "iprep", "create-mcp-server"],
     });
     expect(ids("product")).toEqual({
       featured: ["lunary", "lattiq", "strata"],
-      supporting: ["gamut", "orbit", "spellcast", "kern"],
+      supporting: ["saer", "orbit", "spellcast", "kern"],
     });
   });
 

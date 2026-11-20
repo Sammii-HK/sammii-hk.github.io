@@ -15,7 +15,7 @@
       "type": "media",
       "items": [
         {
-          "src": "/assets/images/refresh-20261120/prism-components.jpg",
+          "src": "/assets/images/refresh-20261120/prism-installable.jpg",
           "alt": "Prism Components gallery showing the AI response, toast and menu previews with search and category filters.",
           "width": 1280,
           "height": 720,
@@ -136,7 +136,7 @@
     {
       "type": "prose",
       "heading": "What remains",
-      "body": "The shadcn-format registry, the next form primitives and a shared OKLCH token contract are follow-ups. They are not presented as available installation paths. Current source files include app/lib/hooks/overlay.ts, anchor.ts and assistant.ts; browser contracts live under tests/."
+      "body": "The local release candidate adds eight shadcn-format registry bundles, tested together in a separate consumer. The gallery distinguishes registry installs, source references and interaction studies, and links installation instructions from the actual component. These installation paths depend on deploying the new registry; they are not claimed as already public. More form primitives and a shared OKLCH token contract remain follow-ups."
     },
     {
       "type": "links",

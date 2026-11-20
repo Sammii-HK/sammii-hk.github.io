@@ -7,16 +7,16 @@ const LENSES: Lens[] = ["design", "ai", "product"];
 const ids = (xs: { project: { id: string } }[]) => xs.map((x) => x.project.id);
 
 describe("Selected Work editorial contract", () => {
-  it("renders the approved hierarchy for every lens", () => {
+  it("renders the reviewed hierarchy for every lens", () => {
     const d = selectedWorkModel("design");
     expect(ids(d.chapters)).toEqual(["prism", "kern", "saer"]);
     expect(ids(d.references)).toEqual(["strata", "lunary", "lattiq"]);
     const a = selectedWorkModel("ai");
-    expect(ids(a.chapters)).toEqual(["moth", "lunary", "spellcast"]);
-    expect(ids(a.references)).toEqual(["prism", "create-mcp-server", "lattiq", "iprep", "orbit"]);
+    expect(ids(a.chapters)).toEqual(["moth", "orbit", "prism"]);
+    expect(ids(a.references)).toEqual(["lunary", "spellcast", "iprep", "create-mcp-server"]);
     const p = selectedWorkModel("product");
     expect(ids(p.chapters)).toEqual(["lunary", "lattiq", "strata"]);
-    expect(ids(p.references)).toEqual(["gamut", "orbit", "spellcast", "kern"]);
+    expect(ids(p.references)).toEqual(["saer", "orbit", "spellcast", "kern"]);
   });
 
   it("always has exactly three chapters, numbered 1..3, with the pacing layouts in order", () => {
@@ -56,7 +56,7 @@ describe("Selected Work editorial contract", () => {
         expect(c.emphasis.length).toBeGreaterThan(0);
       }
     }
-    const lunaryAI = selectedWorkModel("ai").chapters.find((c) => c.project.id === "lunary")!;
+    const lunaryAI = selectedWorkModel("ai").references.find((c) => c.project.id === "lunary")!;
     const lunaryProduct = selectedWorkModel("product").chapters.find((c) => c.project.id === "lunary")!;
     const lunaryDesign = selectedWorkModel("design").references.find((r) => r.project.id === "lunary")!;
     expect(new Set([lunaryAI.summary, lunaryProduct.summary, lunaryDesign.summary]).size).toBe(3);

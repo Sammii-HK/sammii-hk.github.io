@@ -22,10 +22,20 @@
       "body": "Create already generated seven React components, but the browser hid their source inside the system bundle. The current local redesign separates Foundations, Components, and Export and handoff. Its component workspace renders the exact downloadable source, exposes button variants and control states, and lets a developer copy a component or download it with the required theme. The font catalogue expands from 44 curated families to a dated 1,840-family Google Fonts snapshot; only chosen font files are requested. This release is prepared locally and is not yet the public Create interface."
     },
     {
+      "type": "prose",
+      "heading": "A component needs a usable handoff",
+      "body": "The local component kit now packages all seven previewed component sources, the required theme, optional selected-font loading, an example and setup instructions in one ZIP. The same archive carries saer-system.json, so the foundations can be reopened rather than reconstructed by hand. I verified the browser download, inspected its twelve files and restored the exported configuration through Create. On smaller screens the foundation controls collapse so the selected workspace is reachable."
+    },
+    {
+      "type": "prose",
+      "heading": "Use the portfolio as a real customer",
+      "body": "The portfolio uses an adapted Prism Select. Saer\u2019s first component audit resolved its actual use but did not know its library origin. The local follow-up preserves that origin in a source-copy record, checks the local file checksum and reports the resolved use. Radix imports and configured shadcn copies have separate evidence paths. An attributed copy is not the same as independently authenticated upstream code, and a dependency declaration is not proof of use. This scanner extension is local and unreleased."
+    },
+    {
       "type": "media",
       "items": [
         {
-          "src": "/assets/images/refresh-20261120/saer-components.jpg",
+          "src": "/assets/images/refresh-20261120/saer-component-kit.jpg",
           "alt": "Saer Create with green, lavender and charcoal foundations, a component library selector, a live button variant preview and source export.",
           "width": 1274,
           "height": 717,
@@ -53,7 +63,7 @@
     {
       "type": "prose",
       "heading": "Give the system to the agent",
-      "body": "The full product’s local MCP interface supplies tokens, components and guidance before a coding task, and checks the changes afterwards. Scanning is deterministic and local. Code, report files and paths stay on the device; optional cloud summaries are a separate flow. The connected portfolio review surface is narrower and currently exposes colour evidence only, so it is not used to substantiate the other analysis areas."
+      "body": "The full product\u2019s local MCP interface supplies tokens, components and guidance before a coding task, and checks the changes afterwards. Scanning is deterministic and local. Code, report files and paths stay on the device; optional cloud summaries are a separate flow. The connected portfolio review surface is narrower and currently exposes colour evidence only, so it is not used to substantiate the other analysis areas."
     },
     {
       "type": "tradeoff",
@@ -64,7 +74,7 @@
     {
       "type": "prose",
       "heading": "Evidence and limits",
-      "body": "This study describes the public beta and Create interface inspected on 20 November 2026. It does not claim a fresh local scan or an independent re-run of the published Lunary results. The beta currently targets macOS on Apple Silicon. Product capabilities and installation limits are documented on the product site."
+      "body": "The public beta and Create interface were inspected on 20 November 2026. The local follow-up includes a fresh component-domain audit of this portfolio, export round-trip checks and a static Create build. It does not claim an independent full re-run of the published Lunary results or certification of every browser and assistive-technology combination. The beta currently targets macOS on Apple Silicon."
     },
     {
       "type": "links",
