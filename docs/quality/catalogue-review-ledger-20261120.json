@@ -172,8 +172,8 @@
       "title": "Crystal Index",
       "kind": "project",
       "url": "https://crystalindex.co.uk",
-      "status": "Source and claim review completed; actual tool polish pending",
-      "evidenceAndRemaining": "Source 56258c19, with separate dirty local work. Evidence: prisma/schema.prisma; components/Organisms/FilterableCrystalGallery.tsx; app/crystals/page.tsx; app/api/v1/crystals/route.ts; pages/api/crystalInfo/create.ts; lib/openai-identify.ts; pages/api/v1/identify.ts. Implemented: String-array catalogue/collection records, browser directory filters, separately paginated array-filter API, legacy GPT-4 descriptions and Qwen3-VL identification. Three/Fiber source found is a location globe. Remaining: Removed per-specimen 3D, indexed join filtering, editable-before-save generation and query-speed claims. Vision output only checks field types, not membership/bounds/normalisation. Native SwiftUI/RevenueCat source not located in reviewed web checkout. Check ownership, image validation, subscriptions, uncertainty UI and native source separately. No DB/model/image calls made. Shared source icon scan: 23 blocking icon findings; 34 content-symbol reviews. No live browser/tool workflow, provider calls, database commands or deployment in this pass."
+      "status": "Local directory and offline fixture interaction pass verified; full release checks open",
+      "evidenceAndRemaining": "ba6f28e0 repairs structured association facets, URL/detail/back state, empty/error/image fallbacks, shared navigation/keyboard and icons. Nine query/actual-component DOM regressions and eleven shared icon tests pass; source icons zero blocking/review. Actual explicitly labelled three-record offline fixture desktop/390px and keyboard restoration verified; not live catalogue, real images, backend/auth/model/native proof. Existing hero retained; fixture media labelled inside study. TS4.6 declarations and DB sitemap prevent full build/typecheck claim; compatible dependency follow-up pending, owner dirty draft must be preserved."
     },
     {
       "id": "the-colour-game",
