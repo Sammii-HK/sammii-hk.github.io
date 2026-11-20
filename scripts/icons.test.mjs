@@ -41,3 +41,14 @@ test('catches other component icon families while retaining Lucide imports',()=>
  for (const source of ['import {ArrowRight} from "react-feather";','import {ArrowRightOutlined} from "@ant-design/icons";','import {ArrowRight} from "@remixicon/react";'])assert.ok(scanSource(source).some(f=>f.rule==='lucide-only'),source);
  assert.equal(scanSource('import {ArrowRight} from "lucide-react";').length,0);
 });
+
+
+test('HTML scripts and styles keep comments and source comparisons separate from visible icons',()=>{
+ const source='<html><script>\n// Config → source, not a control\nconst less = count < 3;\nconst more = count > 1;\n</script><style>/* → not rendered */ p {color:red}</style><button>Continue</button></html>';
+ assert.equal(scanSource(source,'page.html').length,0);
+ const findings=scanSource('<script>\nconst icon="→";\n</script><button>&rarr;</button>','page.html');
+ assert.ok(findings.some(f=>f.line===2&&f.rule==='use-lucide-icon'));
+ assert.ok(findings.some(f=>f.line===3&&f.rule==='use-lucide-icon'));
+ assert.ok(scanSource('<style>.next:after{content:"→"}</style>','page.html').some(f=>f.rule==='use-lucide-icon'));
+ assert.equal(scanSource('<script type="application/ld+json">{"name":"Arrows → notation"}</script>','page.html').length,0);
+});

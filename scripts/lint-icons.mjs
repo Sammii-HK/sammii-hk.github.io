@@ -28,7 +28,18 @@ export function scanSource(source, filename='component.tsx') {
     return findings;
   }
   if (/\.(?:html|vue|svelte)$/.test(filename)) {
-    const clean=source.replace(/<!--[\s\S]*?-->/g,m=>m.replace(/[^\n]/g,' '));
+    let clean=source.replace(/<!--[\s\S]*?-->/g,m=>m.replace(/[^\n]/g,' '));
+    // Script/style text is source, not rendered HTML. Preserve offsets while scanning it in its own language.
+    clean=clean.replace(/<(script|style)\b([^>]*)>([\s\S]*?)<\/\1\s*>/gi,(whole,tag,attributes,body,offset)=>{
+      if(!/\btype\s*=\s*["'](?:application\/(?:ld\+)?json|importmap)["']/i.test(attributes)) {
+        const bodyOffset=offset+whole.indexOf('>')+1;
+        for(const finding of scanSource(body,tag.toLowerCase()==='style'?'inline.css':'inline.js')) {
+          const lineOffset=body.split('\n').slice(0,finding.line-1).reduce((total,line)=>total+line.length+1,0);
+          report(bodyOffset+lineOffset,finding.rule,finding.message);
+        }
+      }
+      return whole.replace(/[^\n]/g,' ');
+    });
     for(const m of clean.matchAll(/\bclass\s*=\s*([\"'])(.*?)\1/gi))if(hasIconFontClass(m[2]))report(m.index,'lucide-only','Use Lucide instead of an icon font.');
     for(const m of clean.matchAll(/>([^<]+)</g))inspect(m[1],m.index+1,/(?:button|aria-hidden)/.test(clean.slice(Math.max(0,m.index-150),m.index)));
     for(const m of clean.matchAll(/\b(?:icon|glyph)\s*[:=]\s*(["'])(.*?)\1/g))inspect(m[2],m.index,true);
