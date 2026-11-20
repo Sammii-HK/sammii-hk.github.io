@@ -3,13 +3,64 @@
   "description": "A text-to-audio product with explicit stages for source material, dialogue, speech synthesis, assembly and episode distribution.",
   "techStack": "Next.js, TypeScript, Ollama, Voicebox, configurable TTS providers, ffmpeg, Vercel Blob, RSS",
   "role": "Solo: product, design and engineering",
-  "status": "Source reviewed at 460c62a. Generation performance, cost and listening quality were not benchmarked in this review.",
+  "status": "Architecture reviewed at 460c62a; local interface, device-job access and safe-diagnostics repairs at 7d46f43 remain unreleased. Audio generation and listening quality are not demonstrated.",
   "updated": "2026-11-20",
   "blocks": [
     {
       "type": "prose",
       "heading": "Turn source material into something people can listen to",
       "body": "Podify accepts text, a URL or a supported content path and prepares a dialogue or narration. The engineering problem spans a long-running process and several formats: source text, structured speaker turns, individual audio clips, an assembled MP3 and episode metadata. The interface needs to keep that progress understandable while preserving the transcript alongside the sound."
+    },
+    {
+      "type": "prose",
+      "heading": "Design the brief before starting a long-running job",
+      "body": "The local studio groups the source, conversation format, target length, tone and voice choice into one brief. Text and URL values survive switching source modes, voice choices support keyboard radio navigation, and validation focuses the field that needs attention. Reported progress uses labelled stages and transcript disclosure keeps reading alongside listening. The browser review used the actual client components with hand-written fixtures and disconnected services; it did not create an episode."
+    },
+    {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/podify-studio-desktop.jpg",
+          "alt": "Podify local studio with source tabs, a hand-written text brief and an explicit disconnected interface-review banner.",
+          "caption": "Actual unreleased client at 1144px. Source text and records are illustrative; generation, playback, accounts and external services are disconnected.",
+          "width": 1144,
+          "height": 926
+        },
+        {
+          "src": "/assets/images/refresh-20261120/podify-brief-phone.jpg",
+          "alt": "Full local Podify phone brief with source text, format, target length, tone, keyboard radio voice options and a Review this brief button.",
+          "caption": "Actual 390px offline form. Reviewing this brief sends no generation request; no generated audio or provider quality is shown.",
+          "width": 390,
+          "height": 2788
+        }
+      ]
+    },
+    {
+      "type": "decision",
+      "heading": "Treat a device key as a principal with owned work",
+      "context": "A long-running episode needs an access boundary across generation, processing, status and job audio. Looking like a device key is not enough to establish ownership.",
+      "options": [
+        {
+          "label": "Trust a key prefix or a job identifier",
+          "detail": "The shape of a credential or identifier cannot establish who may read or process a job."
+        },
+        {
+          "label": "Resolve the issued device record and check job ownership",
+          "detail": "The local handlers assign ownership on the server and use the same access check for processing, status and job audio. Operators retain a separate route; legacy ownerless jobs stay operator-only.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Mocked actual-handler tests cover device isolation and indistinguishable missing/foreign-job responses. These local code checks do not certify deployment or historical storage confidentiality."
+    },
+    {
+      "type": "prose",
+      "heading": "Keep provider diagnostics out of the listening interface",
+      "body": "A failed provider request can contain more than a useful error message. The local route boundary now reports fixed stage and failure messages to clients, with allowlisted failure codes, error types and stages for operators. Regression cases pass synthetic exception markers through the actual handlers and check that responses, new job writes and route logs omit them. Unchanged provider-internal logs and historical records remain outside that check."
+    },
+    {
+      "type": "prose",
+      "heading": "Separate interface proof from release readiness",
+      "body": "The local batch passes 75 unit and handler checks plus 11 icon regressions, lint, types and a build guarded against provider, network and media execution. The disconnected desktop and phone review covers source switching, keyboard voice selection, local brief review, transcript disclosure and feed filtering. Public Blob/config storage, unrestricted manifest-slug audio and legacy media confidentiality still need a separate repair before release. No audio was generated or played, and no provider, account or private feed was contacted."
     },
     {
       "type": "flow",

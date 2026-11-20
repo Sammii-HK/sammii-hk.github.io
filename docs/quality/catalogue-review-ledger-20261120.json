@@ -100,8 +100,8 @@
       "title": "Podify",
       "kind": "project",
       "url": "https://podify-topaz.vercel.app",
-      "status": "Source accuracy and case-study pass completed; tool polish pending",
-      "evidenceAndRemaining": "Reviewed source 460c62a. Structured study traces job state, script/transcript, configurable speech, ffmpeg and RSS. Corrected current web TTS default to Voicebox and removed fixed cost/time/naturalness/crossfade/silence-analysis claims. Existing cost metadata is an estimate. Actual audio, visibility, long-running UX and accessible controls remain unverified. No generation/provider/publishing invoked."
+      "status": "Local interface and source-boundary pass completed; provider/storage release checks remain",
+      "evidenceAndRemaining": "Local7d46f43: actual disconnected client desktop/390 review,75unit/handler+11icon tests, lint/types/protected-IO build. Server-assigned device-job ownership and safe diagnostic DTOs verified with mocks. No audio/provider/account/private feed. Public Blob/config, unrestricted manifest-slug audio and legacy/provider-internal confidentiality remain release blockers. Base460c62a architecture remains separately traced."
     },
     {
       "id": "spellcast",
