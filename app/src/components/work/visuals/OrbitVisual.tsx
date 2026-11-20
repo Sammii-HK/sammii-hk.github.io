@@ -1,11 +1,8 @@
 import type { VisualProps } from "../Chapter";
 import { Screenshot } from "../Chapter";
 
-// The real pipeline, from the project's own description: fourteen agents with
-// single responsibilities, run in stages. Drawn as stages and hand-offs, not
-// as a network. The moving dash is the only motion and it stops under
-// reduced motion.
-const STAGES = ["scriptwriting", "editing", "optimisation", "scheduling", "engagement", "SEO", "performance analysis"];
+// A high-level map of the full orchestration path, not a live activity feed.
+const STAGES = ["context", "research", "optimisation", "drafting", "review", "handoff"];
 
 export function OrbitVisual({ image, title, priority }: VisualProps) {
   return (
@@ -18,7 +15,7 @@ export function OrbitVisual({ image, title, priority }: VisualProps) {
           </li>
         ))}
       </ol>
-      <p className="orbit-note">14 agents · one responsibility each · JSON-defined: a system prompt, the tools it may call, an input and output contract</p>
+      <p className="orbit-note">Model-backed jobs and deterministic scripts · separate content and research modes · publishing is a distinct boundary</p>
       <div className="orbit-shot">
         <Screenshot image={image} title={title} priority={priority} />
       </div>

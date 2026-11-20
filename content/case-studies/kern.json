@@ -1,0 +1,83 @@
+{
+  "title": "Type Lab",
+  "description": "From browsing a font to exporting a type system: pairing, variable axes, fluid scales and previews from shared inputs.",
+  "techStack": "Next.js, TypeScript, Variable Fonts, CSS, Design Tokens",
+  "role": "Solo: design, engineering and product",
+  "status": "Type Lab release branch ready; production rollout pending",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "A typography decision needs somewhere to go",
+      "body": "Kern began as a variable-font explorer. Type Lab extends the workflow: browse the catalogue, choose heading, body and mono roles, compare them in interface previews, tune a fluid scale and export the result. The output matters as much as the specimen."
+    },
+    {
+      "type": "decision",
+      "heading": "Make the catalogue resilient",
+      "context": "The catalogue should refresh without requiring every visitor to wait for an upstream service.",
+      "options": [
+        {
+          "label": "Only serve a live catalogue",
+          "detail": "Fresh data, but a slow or changed upstream response blocks the first useful screen."
+        },
+        {
+          "label": "Live metadata with a bundled fallback",
+          "detail": "Try the keyless Google Fonts metadata endpoint, then the official API when configured, then a bundled snapshot. A short patience window lets the page return the snapshot while refresh continues.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Source selection is explicit in lib/catalogue/fetch.ts. The snapshot can also be rebuilt deliberately, rather than relying on a hand-maintained font list."
+    },
+    {
+      "type": "prose",
+      "heading": "Pairing with reasons",
+      "body": "Suggestions combine category contrast, curated pairings and font measurements where available. Each suggestion carries its reasons. They are typography heuristics, not a model predicting which pairing will perform best. Variable axes use each font’s actual range rather than assuming every family exposes the same controls."
+    },
+    {
+      "type": "decision",
+      "heading": "One system behind the previews and exports",
+      "context": "A good-looking preview is misleading if copying the output produces different typography.",
+      "options": [
+        {
+          "label": "Calculate each export independently",
+          "detail": "Easy to start, but the preview, CSS and token output can drift."
+        },
+        {
+          "label": "Generate from shared role and scale inputs",
+          "detail": "Use the same heading, body and mono state, catalogue entries and scale steps for CSS, Tailwind and token exports.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Scale arithmetic keeps full precision until formatting. Both ends of the viewport range define the fluid interpolation. Interface previews make the pairing reviewable in context."
+    },
+    {
+      "type": "tradeoff",
+      "heading": "Be explicit about fluid tokens",
+      "gave": "A fluid clamp() value cannot be represented as a single standard DTCG dimension.",
+      "got": "Each scale step exports minimum and maximum typography tokens. A namespaced extension carries the clamp() expression for tools that understand it; consumers still need to implement the interpolation."
+    },
+    {
+      "type": "prose",
+      "heading": "A route for each part of the job",
+      "body": "The root is now the font browser. Pairing, the scale and export have their own routes; the traditional specimen is at /specimen. Sources for the shared implementation are lib/scale.ts, lib/export.ts, lib/pairing.ts and lib/catalogue/fetch.ts. No adoption or performance outcome is claimed here."
+    },
+    {
+      "type": "links",
+      "heading": "Explore the work",
+      "items": [
+        {
+          "label": "Browse Type Lab",
+          "href": "https://kern.sammii.dev"
+        },
+        {
+          "label": "Open the specimen",
+          "href": "https://kern.sammii.dev/specimen"
+        },
+        {
+          "label": "Review the implementation",
+          "href": "https://github.com/Sammii-HK/kern/pull/1"
+        }
+      ]
+    }
+  ]
+}

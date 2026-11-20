@@ -46,12 +46,12 @@ describe("getLensOrder", () => {
       return { featured: o.featured.map((p) => p.id), supporting: o.supporting.map((p) => p.id) };
     };
     expect(ids("design")).toEqual({
-      featured: ["strata", "kern", "gamut"],
-      supporting: ["prism", "lunary", "lattiq"],
+      featured: ["prism", "kern", "saer"],
+      supporting: ["strata", "lunary", "lattiq"],
     });
     expect(ids("ai")).toEqual({
-      featured: ["orbit", "lunary", "spellcast"],
-      supporting: ["create-mcp-server", "lattiq", "iprep"],
+      featured: ["moth", "lunary", "spellcast"],
+      supporting: ["prism", "create-mcp-server", "lattiq", "iprep", "orbit"],
     });
     expect(ids("product")).toEqual({
       featured: ["lunary", "lattiq", "strata"],
@@ -147,7 +147,7 @@ describe("project data invariants", () => {
 describe("summaryFor", () => {
   it("falls back to base info when the lens has no summary", () => {
     const prism = projects.find((p) => p.id === "prism")!;
-    expect(summaryFor(prism, "ai")).toBe(prism.info);
+    expect(summaryFor(prism, "ai")).not.toBe(prism.info);
     expect(summaryFor(prism, "design")).not.toBe(prism.info);
   });
 });

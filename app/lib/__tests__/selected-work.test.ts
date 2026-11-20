@@ -9,11 +9,11 @@ const ids = (xs: { project: { id: string } }[]) => xs.map((x) => x.project.id);
 describe("Selected Work editorial contract", () => {
   it("renders the approved hierarchy for every lens", () => {
     const d = selectedWorkModel("design");
-    expect(ids(d.chapters)).toEqual(["strata", "kern", "gamut"]);
-    expect(ids(d.references)).toEqual(["prism", "lunary", "lattiq"]);
+    expect(ids(d.chapters)).toEqual(["prism", "kern", "saer"]);
+    expect(ids(d.references)).toEqual(["strata", "lunary", "lattiq"]);
     const a = selectedWorkModel("ai");
-    expect(ids(a.chapters)).toEqual(["orbit", "lunary", "spellcast"]);
-    expect(ids(a.references)).toEqual(["create-mcp-server", "lattiq", "iprep"]);
+    expect(ids(a.chapters)).toEqual(["moth", "lunary", "spellcast"]);
+    expect(ids(a.references)).toEqual(["prism", "create-mcp-server", "lattiq", "iprep", "orbit"]);
     const p = selectedWorkModel("product");
     expect(ids(p.chapters)).toEqual(["lunary", "lattiq", "strata"]);
     expect(ids(p.references)).toEqual(["gamut", "orbit", "spellcast", "kern"]);
@@ -32,7 +32,7 @@ describe("Selected Work editorial contract", () => {
   it("the committed lens decides the hierarchy; a preview lens never does", () => {
     // displayLens is what the hero shows; the work section must ignore it.
     expect(displayLens("ai", "design")).toBe("ai");
-    expect(ids(selectedWorkModel("design").chapters)).toEqual(["strata", "kern", "gamut"]);
+    expect(ids(selectedWorkModel("design").chapters)).toEqual(["prism", "kern", "saer"]);
     // Simulate "hovering AI while Design is committed": the model is only ever built from committed.
     const committed: Lens = "design";
     const preview: Lens = "ai";
@@ -63,7 +63,7 @@ describe("Selected Work editorial contract", () => {
   });
 
   it("the Gamut fragment is eligible only when Gamut is a chapter", () => {
-    expect(selectedWorkModel("design").chapters.find((c) => c.project.id === "gamut")?.fragment).toBe(true);
+    expect(selectedWorkModel("design").chapters.find((c) => c.project.id === "gamut")?.fragment).toBeUndefined();
     expect(selectedWorkModel("product").chapters.some((c) => c.fragment)).toBe(false);
     expect(selectedWorkModel("ai").chapters.some((c) => c.fragment)).toBe(false);
     for (const lens of LENSES) for (const c of selectedWorkModel(lens).chapters) if (c.project.id !== "gamut") expect(c.fragment).toBe(false);
@@ -79,6 +79,6 @@ describe("Selected Work editorial contract", () => {
     }
     expect(projectHref(projects.find((p) => p.id === "gamut")!)).toBe("/projects/gamut/");
     // Strata has a production domain now, so its chapter carries the live link
-    expect(selectedWorkModel("design").chapters[0].liveUrl).toBe("https://strata.sammii.dev");
+    expect(selectedWorkModel("product").chapters.find((c) => c.project.id === "strata")?.liveUrl).toBe("https://strata.sammii.dev");
   });
 });
