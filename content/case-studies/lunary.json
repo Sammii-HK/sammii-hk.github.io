@@ -43,7 +43,7 @@
     {
       "type": "prose",
       "heading": "Compatibility is a calculation pipeline",
-      "body": "The relationship and friends compatibility engine compares ten chart points against six aspect definitions, with shared orb policies and weighted results. With two complete ten-point inputs, that means 600 candidate point-pair/aspect checks before the angle, orb and input-quality filters. It does not mean that a pair has 600 matching aspects. A separate utility path is also present in the repository and uses a narrower planet selection; this review does not claim every compatibility surface has identical coverage."
+      "body": "The relationship and friends compatibility engine compares ten chart points against six aspect definitions, with shared orb policies and weighted results. With two complete ten-point inputs, that means 600 candidate point-pair/aspect checks before the angle, orb and input-quality filters. It does not mean that a pair has 600 matching aspects. A separate utility path previously selected fewer points. A local fix now shares the ten-point selection and uncertainty filter between both calculations, with pair-coverage regression tests. Their result structures and scoring remain distinct; the change is not yet deployed."
     },
     {
       "type": "decision",

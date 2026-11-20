@@ -37,3 +37,23 @@ Release ordering: the accurate Orbit walkthrough must be deployed before this ne
 ScapeStudio as a potential design/full-stack flagship; each remaining catalogue item's main journey and case study; screenshot coverage beyond the refreshed projects; Prism phone-width check; Lunary compatibility parity and broader visual/interactive review. Do not call every linked project polished from this batch.
 
 Local saved batches: Saer3325ac7; Lunaryb2537ffcac (actual fast pre-commit gate invoked and passed, including service-worker/sitemap updates). Portfolio has103 tests passing after the selection and structured-study changes.
+
+
+## Continued tool pass
+
+The full scope is recorded per entry in `catalogue-review-ledger-20261120.json`: 39 projects, 15 explorations and 37 charts. Pending is explicit; presence in the ledger is not a completed review.
+
+ScapeStudio local branch: responsive workspace and a synthetic sample that opens the actual editor, accessible threshold fields and larger targets, pointer-based curves plus exact keyboard controls, visible export feedback and preserved crop proportions. A downloaded sample ZIP was decoded: all three PNGs are 2953x2215, approximately 300 DPI; apparel alpha spans 0-255. Five export/crop tests and eight shared icon checks pass. Production build passes. Dependency audit reports zero advisories including development packages. The structured case study replaces unsupported claims about Catmull-Rom, Gaussian blur, partial pipeline caching, undo history, garbage-collection hints and five-minute batch throughput.
+
+Prism continued checks: the actual Chrome viewport was 390px with no horizontal overflow, registry filter showed eight cards and keyboard category selection scrolled its tab into view. That check found small header targets; the local follow-up enlarges them and uses a two-row header. The final header and revised command-palette interactions remain browser checks to complete. New tooling lint, registry compilation, three gallery/discovery tests and the full 54-route build pass. Full dependency audit is zero. Saved local batch 871fd10.
+
+Lunary continued checks: both calculation implementations now import shared ten-point coverage and keep degree-unknown placements out. The existing core suite plus new parity tests pass, 25 tests in total. Scoring formulas remain distinct. The actual fast pre-commit gate passed including secret scan, staged lint, use-before-define and formatting. Full app/build/authentication verification remains open.
+
+Browser connection then stalled and Chrome became unavailable. The attempted exact-curve removal/final screenshot and final Prism header check are not claimed as passed. The 390px viewport reset could not be confirmed after disconnection. Do not infer that a successful export makes the whole application certified.
+
+Source triage has also begun for Conjure, Artify and Glint. Glint's dashboard currently says real-time insights while its repository documents simulated traffic; display provenance needs attention. These tools have not yet received a completed product pass.
+
+
+Final local verification: ScapeStudio final production build, lint, TypeScript, five export/crop tests and eight icon guard tests pass. Later source checks found an inert rotate control; it now swaps physical crop proportions about the centre and clamps to image bounds, with regression tests. Crop dragging uses pointer events and exact pixel fields offer a keyboard alternative. Final browser interaction/screenshot verification of those later controls is still pending. No release was made.
+
+Glint study and catalogue copy now match source44bacf9: API-mediated ingestion, separate Prisma models, bounded snapshot reads and explicit simulated metrics. Removed unsupported zero-latency, indexed million-row performance, partition/retention, bot filtering, date picker and refresh claims. Glint's actual tool still needs the design and provenance pass. Conjure/Artify have source triage only. The broader workspace inventory (including projects absent from the catalogue) is stored in shared private memory, not committed to the public portfolio.

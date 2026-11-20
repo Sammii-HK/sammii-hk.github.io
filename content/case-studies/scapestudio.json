@@ -1,0 +1,69 @@
+{
+  "title": "ScapeStudio",
+  "description": "A focused image-to-print workflow: crop and shape tone locally, then export proportional colour, grayscale and transparent artwork.",
+  "techStack": "Next.js, TypeScript, Web Workers, OffscreenCanvas, Zustand, IndexedDB, JSZip",
+  "role": "Solo: product, design and engineering",
+  "status": "Live prototype; product and export improvements prepared locally, not yet released",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "One image, three material outcomes",
+      "body": "ScapeStudio focuses on preparing a photograph for a print or apparel workflow. The source stays on the device. Crop and tonal decisions feed a colour crop, a grayscale print and a transparent version with dark tones removed. The interface makes those different outputs visible before export."
+    },
+    {
+      "type": "decision",
+      "heading": "Keep editing responsive without pretending every stage is incremental",
+      "context": "Pixel processing and several large output canvases can compete with the interface for time and memory.",
+      "options": [
+        {
+          "label": "Run pixel loops on the interface thread",
+          "detail": "Simple to begin, but expensive image work competes with input and rendering."
+        },
+        {
+          "label": "Separate preview and export workers",
+          "detail": "Preview processing is debounced by 100 milliseconds and bounded to a 2,000-pixel maximum dimension. Export works from a copy of the original bitmap at the requested output dimensions.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The original remains available for later edits. The current preview reruns the processing pipeline when its inputs change; it is not a cached, stage-by-stage editor."
+    },
+    {
+      "type": "prose",
+      "heading": "A curve that stays within its control points",
+      "body": "Tone control uses a 256-entry lookup table generated from monotone cubic Hermite interpolation with Fritsch-Carlson slope limiting. That keeps individual segments from overshooting. The local refinement adds pointer input for touch, exact input/output fields and keyboard-accessible add/remove controls beside the drawn histogram."
+    },
+    {
+      "type": "prose",
+      "heading": "Transparency follows tone, not object recognition",
+      "body": "The apparel output removes pixels at or below a dark-tone threshold. A feather interval ramps alpha between the lower boundary and the threshold. This is luminance-based knockout, not a Gaussian blur or an AI background remover. Light and dark regions inside a subject follow the same rule, which is why a dedicated apparel preview matters."
+    },
+    {
+      "type": "decision",
+      "heading": "A print width must not stretch the image",
+      "context": "The previous exporter forced a square canvas and labelled it 300 DPI while browser PNG metadata described 96 DPI.",
+      "options": [
+        {
+          "label": "Resize every crop into preset rectangles",
+          "detail": "Convenient dimensions would distort a non-square crop."
+        },
+        {
+          "label": "Choose physical width and preserve the crop ratio",
+          "detail": "The local exporter derives height from the actual crop, calculates pixels at 300 DPI and writes a PNG pHYs density chunk.",
+          "chosen": true
+        }
+      ],
+      "outcome": "An actual downloaded sample ZIP was decoded and inspected: all three PNGs measured 2,953 by 2,215 pixels at approximately 300 DPI. The apparel output contained transparent and opaque alpha values. This verifies one desktop sample export, not a cross-browser certification or a benchmark for large photographs."
+    },
+    {
+      "type": "prose",
+      "heading": "Make the tool approachable before the first upload",
+      "body": "The local redesign replaces an empty drop zone with a clear introduction and an explicitly synthetic tonal study that opens in the real editor. The workspace stacks controls beneath the canvas on narrow screens, gives frequent controls larger targets, names threshold fields and reports export failures in the interface. Presets use local IndexedDB; they do not upload an image."
+    },
+    {
+      "type": "prose",
+      "heading": "What still needs proving",
+      "body": "Large-source memory behaviour, HEIC conversion across browsers and native iOS delivery need further verification. There is no measured twenty-photo throughput claim, undo-history feature or automatic print-profile certification in this review. The local improvements must be released before the live tool is described as having them."
+    }
+  ]
+}

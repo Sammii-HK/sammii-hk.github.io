@@ -1,0 +1,74 @@
+{
+  "title": "Glint",
+  "description": "Tracing a server-side analytics prototype from request metadata through ingestion, PostgreSQL and a chart dashboard, with simulated data made explicit.",
+  "techStack": "Next.js, TypeScript, Vercel Edge Middleware, Prisma, PostgreSQL, Recharts, Cloudflare Workers",
+  "role": "Solo: design and engineering",
+  "status": "Prototype; source reviewed at 44bacf9 on 20 November 2026. Product polish remains in progress.",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Explore the measurement pipeline",
+      "body": "Glint explores capturing request metadata on the server, storing it behind an API and presenting it in a dashboard. Its demonstration includes simulated traffic from a scheduled Cloudflare Worker. Session duration and network-speed values in the middleware are also randomly generated. Those values are not measurements of real visitor behaviour."
+    },
+    {
+      "type": "flow",
+      "heading": "Follow a request into a chart",
+      "caption": "Source review, not a production database or performance test.",
+      "steps": [
+        {
+          "label": "Request boundary",
+          "detail": "Middleware reads request headers and starts four API posts for average, location, referral and traffic payloads. It excludes API, Next.js and favicon paths from its matcher.",
+          "href": "https://github.com/Sammii-HK/glint/blob/44bacf9/src/middleware.ts"
+        },
+        {
+          "label": "Ingestion boundary",
+          "detail": "The route checks the payload type and required location/referral/traffic fields, then calls the appropriate Prisma model. Middleware does not write directly to PostgreSQL.",
+          "href": "https://github.com/Sammii-HK/glint/blob/44bacf9/src/app/api/trackAnalytics/route.ts"
+        },
+        {
+          "label": "Storage boundary",
+          "detail": "Separate models store average, location, referral, traffic, session and device records. This is not a single partitioned events table.",
+          "href": "https://github.com/Sammii-HK/glint/blob/44bacf9/prisma/schema.prisma"
+        },
+        {
+          "label": "Presentation boundary",
+          "detail": "The average-metrics component loads an API snapshot, groups records by date in the browser and passes it to Recharts. The reviewed component fetches on mount.",
+          "href": "https://github.com/Sammii-HK/glint/blob/44bacf9/src/components/charts/AverageMetricsChart.tsx"
+        }
+      ]
+    },
+    {
+      "type": "decision",
+      "heading": "Keep demonstration data separate from evidence",
+      "context": "A regularly populated dashboard makes the charting pipeline visible, but plausible-looking numbers can suggest a real audience.",
+      "options": [
+        {
+          "label": "Present generated values as audience metrics",
+          "detail": "The chart would look active while obscuring the provenance of its values."
+        },
+        {
+          "label": "Describe the prototype and identify synthetic inputs",
+          "detail": "The case study identifies the scheduled data generator and the random middleware fields. The actual dashboard still needs a persistent provenance label in its product polish pass.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The portfolio does not use the demonstration as evidence of customer volume, engagement or a measured performance gain."
+    },
+    {
+      "type": "prose",
+      "heading": "Delivery is a boundary still to strengthen",
+      "body": "The middleware starts its posts without awaiting them. That avoids deliberately holding the response open for ingestion, but it does not establish zero latency or guarantee that a serverless runtime will finish those requests. Delivery lifetime and failure handling need explicit verification before this becomes production analytics."
+    },
+    {
+      "type": "prose",
+      "heading": "Make query scope legible",
+      "body": "The average-metrics endpoint reads the latest 100 records, while the hourly endpoint reads up to 500 and groups them into hours. These are bounded snapshots, not proof of million-row query performance, a user-selected reporting range or a continuously refreshing dashboard. Those distinctions should shape the next interface: clear time coverage, separate loading/error/empty states and honest data provenance."
+    },
+    {
+      "type": "prose",
+      "heading": "What the current source proves",
+      "body": "The prototype connects middleware, typed ingestion routes, multiple Prisma models, a scheduled data generator and Recharts components. This review does not claim retention partitions, a nightly deletion policy, bot filtering, a date-range picker, a 60-second refresh interval or a sub-50-millisecond benchmark. No database connection, production write or generator run was made during this review."
+    }
+  ]
+}
