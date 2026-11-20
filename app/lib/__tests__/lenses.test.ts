@@ -177,7 +177,10 @@ describe("resolveHashTarget", () => {
   it("sends legacy #slug links to the case study, or /work when there is none", () => {
     expect(resolveHashTarget("#gamut")).toBe("/projects/gamut/");
     expect(resolveHashTarget("#kinetic")).toBe("/projects/kinetic/");
-    expect(resolveHashTarget("#refract")).toBe("/work/#refract");
+    expect(resolveHashTarget("#refract")).toBe("/projects/refract/");
+    const withoutStudy = projects.find(project => !project.caseStudy);
+    expect(withoutStudy).toBeDefined();
+    expect(resolveHashTarget(`#${withoutStudy!.id}`)).toBe(`/work/#${withoutStudy!.id}`);
     expect(resolveHashTarget("#nope")).toBeNull();
   });
 });

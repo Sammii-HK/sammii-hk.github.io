@@ -1,0 +1,60 @@
+{
+  "title": "Creative Coding",
+  "description": "One photograph explored through fifteen p5.js studies, with a shared shell that makes the sketches discoverable and controllable.",
+  "techStack": "p5.js, JavaScript, HTML, CSS",
+  "role": "Solo: visual exploration and engineering",
+  "status": "Local product candidate 656c6e9; all fifteen initial views checked, release pending.",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Look at the same material fifteen ways",
+      "body": "The collection starts from one cream-begonia photograph. Pixel sampling, particles, edge detection, flow fields, Voronoi partitions and mirrored segments produce different ways of reading that image. These are creative visual sketches. Their names and numerical readouts are not scientific validation or measured performance results."
+    },
+    {
+      "type": "media",
+      "layout": "pair",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/creative-coding-gallery-desktop.jpg",
+          "alt": "Local Creative Coding gallery with fifteen searchable photographic studies and category controls.",
+          "caption": "Unreleased local 656c6e9. The gallery is generated from the fifteen-study catalogue."
+        },
+        {
+          "src": "/assets/images/refresh-20261120/creative-coding-kaleidoscope-phone.jpg",
+          "alt": "Local Kaleidoscope study on a 390px phone view with a real photographic canvas, paused controls and keyboard guidance.",
+          "caption": "Actual local photographic sketch, not a generated illustration. The canvas is paused after interaction."
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Give the sketchbook a shared way in",
+      "body": "The local gallery has search, category controls, shareable query state and an empty-state recovery. Every study gets a consistent heading, neighbouring-study navigation, restart, one-frame action and explicit Play/Pause controls. Canvas dimensions remain in the sketch\u2019s logical coordinate system while the display fits the available stage. The source photograph is unchanged."
+    },
+    {
+      "type": "failure",
+      "heading": "A paused interaction still needs visible feedback",
+      "what": "Pausing the draw loop exposed a mismatch: pointer actions changed a sketch\u2019s state without repainting, while keyboard activation already requested a frame.",
+      "why": "The old pointer callback assumed an animation loop would draw the next state. The new paused default removed that assumption.",
+      "fix": "The shared wrapper preserves the original callback result and requests one redraw after an action while paused. Surrounding controls do not trigger the canvas action. The actual Kaleidoscope browser check changed the paused image with both a pointer click and Enter."
+    },
+    {
+      "type": "failure",
+      "heading": "Preserved source can still acquire the wrong binding",
+      "what": "Pixel Scanner defines its own saturation helper, but p5 also publishes a global function with that name. Runtime initialisation could replace the study\u2019s calculation.",
+      "why": "An unchanged script hash preserves bytes, not the global function bindings those bytes will call.",
+      "fix": "The shell captures the study\u2019s original helper before p5 initialises and restores it before the original setup. A regression runs the actual vendored binder, proves the overwrite and verifies the restored function\u2019s identity and red/grey results. The fifteen inline sketch algorithms remain unchanged."
+    },
+    {
+      "type": "prose",
+      "heading": "Check the interface separately from the artwork",
+      "body": "The local branch passes twenty-three tests, normal static build/lint, original algorithm hashes, generated-data and runtime/icon freshness checks, and zero-finding full/production dependency audits. All fifteen real pages rendered labelled paused canvases at 1144px and 390px without page overflow. Phone canvases fit 334px stages, toolbar buttons measure 46px and shared navigation 44px. Selected Burst and Kaleidoscope controls, gallery discovery, keyboard coordinates and navigation were exercised."
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "body": "The runtime is self-hosted p5 1.11.13. Preserved algorithm bytes do not establish pixel-identical historical output after a runtime update, or certify every pointer combination, physical touch, screen reader, GPU/browser or long session. Some studies reveal more as frames advance; their initial frame is not a finished artwork or benchmark."
+    }
+  ]
+}

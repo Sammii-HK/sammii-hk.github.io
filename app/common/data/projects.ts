@@ -626,6 +626,7 @@ export const projects: Project[] = [
   {
     id: 'refract',
     title: 'Refract',
+    caseStudy: 'refract',
     techStack: 'Next.js, Three.js, GLSL, Groq, TypeScript',
     info: 'Text-to-shader experiment: a server-side model proposes GLSL from a visual description, then the browser compiles it before replacing the current shader. The preview exposes time, resolution and pointer uniforms; failed compilation keeps the previous scene.',
     type: 'experiment',
@@ -711,8 +712,9 @@ export const projects: Project[] = [
   {
     id: 'creative-coding',
     title: 'Creative Coding',
+    caseStudy: 'creative-coding',
     techStack: 'p5.js, JavaScript',
-    info: '15 browser-based visual experiments treating a single photograph as raw material. Pixel data drives particle systems, edge detection, flow fields, Voronoi partitions, kaleidoscopes, and more; each sketch is unique to the source image.',
+    info: 'Fifteen photographic p5.js studies spanning pixel sampling, particles, edge detection, flow fields and kaleidoscopes. A shared local candidate adds discovery, paused playback and keyboard controls without rewriting their inline algorithms.',
     type: 'experiment',
     home: 'labs',
     group: 'earlier',

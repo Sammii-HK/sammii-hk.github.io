@@ -28,6 +28,8 @@ _Unreleased local 390px gallery. Search and categories lead to the actual studie
 
 Spring studies support arrow-key pulls and Enter/Space release. Swipe cards have a dismiss action; reorder rows have bounded move controls. Flip cards expose pressed state and remove the hidden face from the accessibility tree. Tabs expose selection and move focus with arrows, Home and End. The actual phone pass caught focus loss after moving a row and clipping of a magnified dock item. The repaired candidate keeps focus on the moved row and scrolls the focused dock control inside its stage.
 
+_Unreleased local keyboard check after the layout settled. The earlier mid-transition capture was withheld._
+
 ## What was checked, and what remains
 
 Three control regressions cover selected duration, elapsed-time boundaries and immutable bounded reordering. Shared icon regressions, TypeScript, lint, production build and a zero-finding dependency audit pass. The tool owner checked the real countdown, keyboard flip, tabs, reorder and dock at 390px with no page overflow. The gallery follows system reduced-motion settings and offers further reduction; it does not promise that every timing or opacity effect stops. All twenty-five interaction combinations, long background sessions and a complete assistive-technology audit remain open.

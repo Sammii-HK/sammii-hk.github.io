@@ -173,7 +173,7 @@
       "kind": "project",
       "url": "https://crystalindex.co.uk",
       "status": "Local directory and offline fixture interaction pass verified; full release checks open",
-      "evidenceAndRemaining": "ba6f28e0 repairs structured association facets, URL/detail/back state, empty/error/image fallbacks, shared navigation/keyboard and icons. Nine query/actual-component DOM regressions and eleven shared icon tests pass; source icons zero blocking/review. Actual explicitly labelled three-record offline fixture desktop/390px and keyboard restoration verified; not live catalogue, real images, backend/auth/model/native proof. Existing hero retained; fixture media labelled inside study. TS4.6 declarations and DB sitemap prevent full build/typecheck claim; compatible dependency follow-up pending, owner dirty draft must be preserved."
+      "evidenceAndRemaining": "ba6f28e0 repairs structured association facets, URL/detail/back state, empty/error/image fallbacks, shared navigation/keyboard and icons. Nine query/actual-component DOM regressions and eleven shared icon tests pass; source icons zero blocking/review. Actual explicitly labelled three-record offline fixture desktop/390px and keyboard restoration verified; not live catalogue, real images, backend/auth/model/native proof. Existing hero retained; fixture media labelled inside study. TS4.6 declarations and DB sitemap prevent full build/typecheck claim; compatible dependency follow-up 6a82322c passes three added checks; production audit still 3 critical, 38 high, 45 moderate and 16 low, framework migration required, owner dirty draft must be preserved."
     },
     {
       "id": "the-colour-game",
@@ -221,7 +221,7 @@
       "kind": "project",
       "url": "https://kinetic.sammii.dev",
       "status": "Local gallery and selected motion-control pass verified; release pending",
-      "evidenceAndRemaining": "ee8b23b+d1333e9: selected-duration clock, discovery/deferred initialisation, keyboard alternatives and phone focus/containment repaired. Actual five-second timing, keyboard flip/tabs/reorder/dock390px no-overflow receipt. Three control regressions plus shared guard, types/lint/build and audit zero pass. New local captures/study. All25combinations, long-session/background and full reduced-motion/AT certification remain open."
+      "evidenceAndRemaining": "ee8b23b+d1333e9: selected-duration clock, discovery/deferred initialisation, keyboard alternatives and phone focus/containment repaired. Actual five-second timing, keyboard flip/tabs/reorder/dock390px no-overflow receipt. Three control regressions plus shared guard, types/lint/build and audit zero pass. New local captures/study. All25combinations, long-session/background and full reduced-motion/AT certification remain open. Settled phone recapture at documentation follow-up 1230363 directly inspected: five separate rows with 8px gaps and focus retained; earlier mid-transition image remains withheld."
     },
     {
       "id": "spectra",
@@ -236,8 +236,8 @@
       "title": "Refract",
       "kind": "project",
       "url": "https://refract.sammii.dev",
-      "status": "Source and claim review completed; actual tool polish pending",
-      "evidenceAndRemaining": "Source 8ee0c7a. Evidence: app/api/shader/route.ts; components/ShaderCanvas.tsx; app/page.tsx. Implemented: Server-side Groq Llama 3.3 70B description-to-GLSL, request-length validation and browser compile-before-apply; failed compile retains previous scene. No text hashing. Remaining: No generation or recorded playback invoked. Route lacks reviewed auth/rate/timeout/provider-failure handling; regex float conversion is not a GLSL parser. Full program-link behaviour, high-DPI coordinate consistency, GPU cost, material/geometry disposal, pointer/touch and reduced motion remain. Portfolio AI showcase must use recorded evidence. Shared source icon scan: 0 blocking icon findings; 0 content-symbol reviews. No live browser/tool workflow, provider calls, database commands or deployment in this pass."
+      "status": "Local authored-shader/editor pass verified; generation and release open",
+      "evidenceAndRemaining": "3d832e1: preserves GLSL integers, retains last valid source/image/export after invalid draft, explicit authored studies, pause/resource/drawing-buffer boundaries. Ten request/resource and eleven icon regressions, types/build and audit zero pass. Actual desktop/390px authored GPU/paused/compiler-error/integer-loop/397-byte valid export checked. Three directly inspected local captures labelled authored, not AI proof. No Generate/provider/model/billing validation; context loss, other GPUs and exhaustive visibility paths remain open."
     },
     {
       "id": "grove",
@@ -276,8 +276,8 @@
       "title": "Creative Coding",
       "kind": "project",
       "url": "https://creative-coding.sammii.dev",
-      "status": "Source and claim review completed; actual tool checks open",
-      "evidenceAndRemaining": "Source 1cff25f, unrelated gitignore change preserved. Evidence: index.html; experiment-01.html through experiment-15.html. Established: All fifteen linked HTML sketches exist, load the same DSCF7641.JPG and p5 1.9.0. Index and representative pixel-scanner, Sobel-edge, Voronoi, particle and final sketches inspected. Reclassified as interactive experiments rather than writing. Remaining: All fifteen actual workflows, image/load errors, p5 CDN availability/licence, captions, reduced motion, keyboard/phone, and low-contrast index metadata. No live sketch or image edit. Icon scan: 16 blocking, 0 reviews."
+      "status": "Local shared gallery/sketch shell verified across all fifteen initial views; release pending",
+      "evidenceAndRemaining": "656c6e9: twenty-three tests, normal build/lint, all fifteen algorithm hashes and asset/runtime freshness pass; full/production audit zero and icon0/0. Actual fifteen-page desktop1144/phone390 initial rendering/containment pass, labelled paused canvas, phone stage334px/toolbars46px/nav44px. Selected gallery/Burst/Kaleidoscope pointer+keyboard actions pass. Separate shell repairs paused redraw, page-cache state and p5 global saturation binding; original inline algorithm bytes unchanged. Inspected local gallery and photographic phone captures. No scientific, pixel-identical historical, exhaustive pointer/touch/AT/GPU or long-session certification."
     },
     {
       "id": "liquidity",
