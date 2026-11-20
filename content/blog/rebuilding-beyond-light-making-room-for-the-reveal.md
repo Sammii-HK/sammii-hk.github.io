@@ -126,3 +126,9 @@ The renderer caps its pixel ratio at two, and resize handling updates the camera
 The implementation also makes a useful design question visible: which details need to survive a change of medium? The physical work depended on material and illumination. The browser version depends on a texture mask, colour interpolation and a timeline. The experience can still preserve the relationship between waiting and discovering without claiming those mechanisms are physically equivalent.
 
 That is what the separate clocks protect. The reveal has time to become readable before the desktop effect begins to dissolve it. You can [try the reconstruction](https://beyond-light-vr.vercel.app), then return to [the installation essay](https://sammii.dev/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted) for the ideas that gave those technical choices their purpose.
+
+## Read this as a series
+
+This article is part of **Light, image and sound**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Start with [the physical installation](https://sammii.dev/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted/), then compare [Beyond Light](https://beyond-light-vr.vercel.app), [Refract](https://refract.sammii.dev) and [Spectra](https://spectra.sammii.dev). These are connected questions about rendering and perception, with different mechanisms.

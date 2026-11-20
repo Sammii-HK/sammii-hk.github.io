@@ -121,3 +121,9 @@ Video frames are rendered offline and passed to ffmpeg. The demonstration does n
 The part I would carry into another tool is this separation of responsibilities. Keep a reliable process for the work it can do thoroughly. Give a model the decisions that benefit from interpreting an image or a brief. Preserve enough of both that a disappointing result can be explained.
 
 The [interactive series](https://sammii.dev/experiments/teaching-a-computer-to-paint/index.html) lets you compare those layers directly. The most useful question is which part of the picture changes when the decision-maker changes, and whether that change serves the thing you actually wanted to make.
+
+## Read this as a series
+
+This article is part of **Systems that learn and choose**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Read this alongside [Moth's possibilities](https://sammii.dev/blog/moth-a-world-of-possibilities/), [task-specific model evaluation](https://sammii.dev/blog/moth-choosing-models-by-task/) and [the painting experiment](https://sammii.dev/experiments/teaching-a-computer-to-paint/index.html). They ask different questions about decisions, observation and evidence of improvement.

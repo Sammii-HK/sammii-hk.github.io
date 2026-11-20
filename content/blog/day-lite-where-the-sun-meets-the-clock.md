@@ -140,3 +140,9 @@ Day Lite makes a small astronomical calculation tangible. You move across a glob
 The most valuable lesson for me to articulate is where that rule ends. A horizon model has assumptions. A search has a time window. A date belongs to a time zone. A time zone belongs to a maintained body of civil rules. Making those boundaries visible gives the reader more understanding than another decimal place ever could.
 
 [Explore Day Lite](https://day-lite.vercel.app) · [Read the source](https://github.com/Sammii-HK/day-lite)
+
+## Read this as a series
+
+This article is part of **Building a sky: from a view to a model**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Move between [the celestial map](https://celestial-map.sammii.dev), [Day Lite](https://day-lite.vercel.app) and [the sky in three dimensions](https://labs.sammii.dev/explorations/big-dipper-in-3d/). Each changes a different assumption about where a view comes from.

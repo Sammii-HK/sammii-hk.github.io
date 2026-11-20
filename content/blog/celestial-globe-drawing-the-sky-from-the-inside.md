@@ -130,3 +130,9 @@ There are straightforward improvements to make before treating the globe as a pr
 For an exploratory map, the existing layers already give people several ways into the sky. You can recognise a constellation, inspect a named star, change the date or compare a planet's path with the ecliptic. Each interaction makes one relationship easier to see.
 
 That is the balance I want in this kind of visualisation: enough atmosphere to invite exploration, with the coordinate systems and visual encodings explained well enough that the picture does not imply more than its model contains. You can explore the [live globe](https://celestial-map.sammii.dev) and inspect the [source](https://github.com/Sammii-HK/celestial-map) side by side.
+
+## Read this as a series
+
+This article is part of **Building a sky: from a view to a model**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Move between [the celestial map](https://celestial-map.sammii.dev), [Day Lite](https://day-lite.vercel.app) and [the sky in three dimensions](https://labs.sammii.dev/explorations/big-dipper-in-3d/). Each changes a different assumption about where a view comes from.

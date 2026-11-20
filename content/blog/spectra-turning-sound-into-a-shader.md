@@ -115,3 +115,9 @@ The renderer caps pixel ratio at two, which puts an upper bound on one source of
 A pause control, a quieter motion setting and a static preview would broaden who can use the experiment. The current shader remains animated even without audio and does not provide reduced-motion handling. These are concrete next design decisions.
 
 When exploring Spectra, try a few different kinds of sound and watch which part of the image responds. The code reveals why a visualiser can feel connected to sound without measuring musical meaning. It is a deliberately designed translation: a signal is reduced, shaped in time, then given a visual role.
+
+## Read this as a series
+
+This article is part of **Light, image and sound**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Start with [the physical installation](https://sammii.dev/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted/), then compare [Beyond Light](https://beyond-light-vr.vercel.app), [Refract](https://refract.sammii.dev) and [Spectra](https://spectra.sammii.dev). These are connected questions about rendering and perception, with different mechanisms.

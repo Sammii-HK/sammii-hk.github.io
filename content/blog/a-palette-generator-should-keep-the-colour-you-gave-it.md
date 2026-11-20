@@ -120,3 +120,9 @@ WCAG's [minimum text contrast guidance](https://www.w3.org/WAI/WCAG22/Understand
 The original colour, the family around it and the semantic roles that use it are three distinct layers. A useful next step after generating a scale is to assign roles such as text, surface, border and accent, then test those actual combinations in both themes.
 
 That is where the small generator hands over to the larger design-system problem. It can preserve a colour, produce a family and export a clear structure. The surrounding interface still needs decisions. Keeping that boundary explicit makes the generated code much easier to trust.
+
+## Read this as a series
+
+This article is part of **Colour: from coordinates to a useful tool**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Follow the colour decisions through [the Gamut article](https://sammii.dev/blog/why-your-design-system-needs-oklch-not-hsl/) and the live [colour-space family tree](https://labs.sammii.dev/charts/colour-spaces/). The palette is one application of the same questions about lightness, gamut and meaning.

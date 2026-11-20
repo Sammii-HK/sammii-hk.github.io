@@ -143,3 +143,9 @@ These are visual studies, not a claim of a complete accessible graphics toolkit.
 Performance claims should also be attached to a measured device and scene. Precomputing edge strength, reusing sorted buffers and limiting the simulation grid all reduce particular kinds of work. They do not prove a universal frame rate.
 
 To explore the collection, compare Particle Burst with Flow Field first. One uses the image as a place to return to; the other uses it as something to sample while passing through. That single change in relationship produces a remarkably different sense of the photograph. It is the reason I like working this way: a small rule can make familiar material behave like something new.
+
+## Read this as a series
+
+This article is part of **Light, image and sound**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Start with [the physical installation](https://sammii.dev/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted/), then compare [Beyond Light](https://beyond-light-vr.vercel.app), [Refract](https://refract.sammii.dev) and [Spectra](https://spectra.sammii.dev). These are connected questions about rendering and perception, with different mechanisms.

@@ -111,3 +111,9 @@ Motion also needs an exit. The current source continuously advances time; it doe
 Try two related descriptions in Refract: one that specifies only a subject, then another that adds palette, pace and density. Look separately at whether the result compiles, whether it preserves the request, and whether you actually like it. Those are three different evaluations.
 
 The project makes the relationship between language and a visual system unusually direct. Words become a programme with a small set of inputs. The renderer decides whether parts of that programme are valid. A person decides whether it expresses anything worth keeping. The strongest next version would make each of those decisions equally visible.
+
+## Read this as a series
+
+This article is part of **Light, image and sound**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Start with [the physical installation](https://sammii.dev/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted/), then compare [Beyond Light](https://beyond-light-vr.vercel.app), [Refract](https://refract.sammii.dev) and [Spectra](https://spectra.sammii.dev). These are connected questions about rendering and perception, with different mechanisms.

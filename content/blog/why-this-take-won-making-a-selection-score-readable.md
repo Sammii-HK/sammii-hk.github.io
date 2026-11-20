@@ -135,3 +135,9 @@ The small functions in [the demo source](https://github.com/Sammii-HK/sammii-hk.
 None of those checks can tell us whether a cut feels natural. Nor can a synthetic example establish the accuracy of the transcription or gaze signals in a real recording. Those need their own evaluation.
 
 The value of this interface is that it gives a person something specific to judge. It turns “the computer preferred this” into a visible set of trade-offs. The final choice still belongs to the person making the video, who can hear what these four numbers leave out.
+
+## Read this as a series
+
+This article is part of **From footage to a decision**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Compare [the video outcomes chart](https://labs.sammii.dev/charts/videos/), [text reading time](https://labs.sammii.dev/charts/text-on-screen/) and [the take-selection demo](https://sammii.dev/experiments/why-this-take-won/index.html). An outcome, a reading-time assumption and a ranking score are three different kinds of evidence.

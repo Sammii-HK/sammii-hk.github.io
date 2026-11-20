@@ -129,3 +129,9 @@ For a physics playground, motion carries much of the information. That makes use
 The part I would keep, even if the rest became much more elaborate, is the directness: pick something up and immediately feel the rules. A circle, a triangle and a few connections are enough to turn a physics engine into an object you understand with your hand.
 
 [Play with Balloon Bonanza](https://balloon-bonanza.vercel.app) · [Read the source](https://github.com/Sammii-HK/balloon-bonanza)
+
+## Read this as a series
+
+This article is part of **Motion: from a curve to something you can interrupt**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Try the live [easing and springs comparison](https://labs.sammii.dev/charts/springs/), then [Kinetic](https://kinetic.sammii.dev) and [Liquidity](https://liquidity-ten.vercel.app). They put different demands on motion: retargeting, physical constraints and a convincing visual surface.

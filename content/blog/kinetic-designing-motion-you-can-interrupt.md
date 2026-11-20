@@ -135,3 +135,9 @@ Kinetic is most useful when you stop admiring it and start interrupting it. Chan
 The motion that remains clear under those conditions is worth studying. It acknowledges the latest action, preserves identity where it matters and leaves the final state legible. That is the part I want to carry from a playful gallery into an actual product.
 
 [Explore all 25 Kinetic studies](https://kinetic.sammii.dev) · [Read the source](https://github.com/Sammii-HK/kinetic) · [Compare easing and springs in the chart](https://labs.sammii.dev/charts/springs/)
+
+## Read this as a series
+
+This article is part of **Motion: from a curve to something you can interrupt**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Try the live [easing and springs comparison](https://labs.sammii.dev/charts/springs/), then [Kinetic](https://kinetic.sammii.dev) and [Liquidity](https://liquidity-ten.vercel.app). They put different demands on motion: retargeting, physical constraints and a convincing visual surface.

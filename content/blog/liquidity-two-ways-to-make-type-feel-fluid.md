@@ -134,3 +134,9 @@ A production treatment should also include a static reduced-motion version, a wa
 The decision between the two approaches comes back to the experience you need. A wave path is a compact way to direct a surface inside type. A population of bodies is a richer way to let a disturbance spread through moving pieces. Liquidity makes both available to inspect, including the parts where the convincing image depends on a useful cheat.
 
 [Compare the two Liquidity experiments](https://liquidity-ten.vercel.app) · [Read the source](https://github.com/Sammii-HK/liquidity)
+
+## Read this as a series
+
+This article is part of **Motion: from a curve to something you can interrupt**. [The series guide](https://sammii.dev/blog/reading-the-labs-as-connected-series/) connects the chapters and their different questions.
+
+Try the live [easing and springs comparison](https://labs.sammii.dev/charts/springs/), then [Kinetic](https://kinetic.sammii.dev) and [Liquidity](https://liquidity-ten.vercel.app). They put different demands on motion: retargeting, physical constraints and a convincing visual surface.
