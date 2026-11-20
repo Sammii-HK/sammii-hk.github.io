@@ -61,6 +61,10 @@ const LunaryIcon = () => (
 
 const links: LinkItem[] = [
   {
+    name: "Lunar Computing",
+    url: "https://lunarcomputing.org",
+  },
+  {
     name: "Lunary",
     url: "https://lunary.app",
     icon: LunaryIcon,

@@ -16,7 +16,7 @@ All palette generation runs in OKLCH (Oklab Lightness, Chroma, Hue) rather than 
 
 ### Lightness curve
 
-The 11-step scale (50 through 950) follows a custom bezier curve rather than linear interpolation, tuned to match the conventions of existing design systems like Tailwind and Radix, where the middle steps are more tightly spaced and the extremes compress faster. The curve shape is adjustable in the UI, with the palette updating in real time as it changes.
+The 11-step scale (50 through 950) follows a tuned lightness table rather than linear interpolation, matched to the conventions of existing design systems like Tailwind and Radix, where the middle steps are more tightly spaced and the extremes compress faster.
 
 ### Gamut clamping
 
@@ -28,9 +28,9 @@ Every step in a palette is checked against both white and black backgrounds for 
 
 ## What made this hard
 
-Matching an existing visual language meant reverse-engineering it. "Looking like Tailwind" isn't a formula, it's dozens of hand-tuned palettes with their own implicit lightness distribution, and turning that into a single piecewise bezier, with different tension above and below the midpoint, took a lot of side-by-side comparison before it stopped looking almost right and started looking right.
+Matching an existing visual language meant reverse-engineering it. "Looking like Tailwind" isn't a formula, it's dozens of hand-tuned palettes with their own implicit lightness distribution, and turning that into a single lightness table took a lot of side-by-side comparison before it stopped looking almost right and started looking right.
 
-Export needed its own handling, too. Every downstream format has its own conventions: CSS custom properties want raw OKLCH values, Tailwind configs want hex or RGB, Style Dictionary tokens want structured JSON with metadata attached. The export system renders all of them from the same internal palette representation.
+Export needed its own handling, too. Every downstream format has its own shape: CSS custom properties, a Tailwind config, plain JSON and Style Dictionary tokens. The export system renders all of them from the same internal palette, as hex values that work everywhere.
 
 ## Outcome
 

@@ -1,0 +1,117 @@
+{
+  "title": "Prism",
+  "description": "A component system that makes its behaviour inspectable: spring motion, shared overlays, three visual expressions and recorded AI response states.",
+  "techStack": "React, TypeScript, Spring Physics, Browser Top Layer",
+  "role": "Solo: design, engineering and product",
+  "status": "Implementation on the release branch; production rollout pending",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "From components to a system",
+      "body": "The interesting part of Prism is no longer an individual button. It is whether inputs, menus, dialogs and asynchronous responses behave like they belong to the same product. I moved the work towards shared behaviour: typed APIs, spring motion, a common overlay layer and visual expressions held to the same interaction contracts."
+    },
+    {
+      "type": "decision",
+      "heading": "Keep the behaviour, change the expression",
+      "context": "A different visual language should not require a different keyboard model or props API.",
+      "options": [
+        {
+          "label": "Separate component implementations",
+          "detail": "Each expression could evolve independently, but behaviour would need to be checked and repaired in several places."
+        },
+        {
+          "label": "Shared behaviour with distinct expressions",
+          "detail": "Keep the interaction contract and vary the presentation. Test that contract across the expressions.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The expressions become a test of the component system rather than separate galleries. Visual variety has to survive the same behavioural checks."
+    },
+    {
+      "type": "decision",
+      "heading": "Let the browser own the layer",
+      "context": "A panel inside a transformed or clipped ancestor can disappear regardless of its z-index. Closing a native overlay immediately also cuts off its exit motion.",
+      "options": [
+        {
+          "label": "Portals and larger z-index values",
+          "detail": "Move each panel manually and manage its stacking outside the browser top layer."
+        },
+        {
+          "label": "Top layer with shared dismissal and presence",
+          "detail": "Use manual popovers and native dialogs, with a shared dismiss stack and spring presence. Prefer CSS anchor positioning where supported, with a measured JavaScript fallback.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Escape dismisses the top layer. Closing panels stay mounted through their exit spring. Modal focus return and scroll locking belong to the shared layer, rather than each component inventing them."
+    },
+    {
+      "type": "prose",
+      "heading": "Show the engineering",
+      "body": "X-ray makes hit targets, focus order, roles, contrast and springs visible while exploring a component. Its overlay joins the top layer too, so opening a dialog does not hide the inspection tools. This exposes implementation choices; it does not certify accessibility or replace testing."
+    },
+    {
+      "type": "decision",
+      "heading": "Make AI behaviour repeatable",
+      "context": "An AI response interface needs to handle waiting, tool calls, partial answers, interruption and failure. A fresh model response on every visit would make those states difficult to compare and introduce a running cost.",
+      "options": [
+        {
+          "label": "Call a model on every visit",
+          "detail": "Fresh output, but variable timing, variable content and a model bill attached to a public demo."
+        },
+        {
+          "label": "Replay recorded local-model events",
+          "detail": "Record real local Ollama output, preserve event timing and feed it through an abortable stream interface.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The demo can be stopped, retried and inspected without a paid call. An injected tool timeout is labelled, and a wrong-source run remains visible as a failure. The interface presents response state; it does not verify whether a model claim is true."
+    },
+    {
+      "type": "prose",
+      "heading": "AI interfaces beyond the answer bubble",
+      "body": "The AI response component makes tool arguments inspectable, reveals streamed text at an even pace, links citations only when a source exists and announces the completed answer once to screen readers. Latency states and the async button share timing rules for fast starts, slow requests and retry; settled states ignore late results. Token Compose explores a different boundary: a seeded generator produces layouts from a closed token vocabulary, and a validator rejects off-token values. It is deterministic generation, not an LLM choosing a layout, and the validator checks membership rather than taste or contrast."
+    },
+    {
+      "type": "links",
+      "heading": "Inspect the AI interaction work",
+      "items": [
+        {
+          "label": "Recorded AI response",
+          "href": "https://prism.sammii.dev/ai-response"
+        },
+        {
+          "label": "Latency states",
+          "href": "https://prism.sammii.dev/latency-adapt"
+        },
+        {
+          "label": "Async button",
+          "href": "https://prism.sammii.dev/async-button"
+        },
+        {
+          "label": "Token Compose",
+          "href": "https://prism.sammii.dev/token-compose"
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "What remains",
+      "body": "The shadcn-format registry, the next form primitives and a shared OKLCH token contract are follow-ups. They are not presented as available installation paths. Current source files include app/lib/hooks/overlay.ts, anchor.ts and assistant.ts; browser contracts live under tests/."
+    },
+    {
+      "type": "links",
+      "heading": "Explore the work",
+      "items": [
+        {
+          "label": "Open Prism",
+          "href": "https://prism.sammii.dev"
+        },
+        {
+          "label": "Review the implementation",
+          "href": "https://github.com/Sammii-HK/prism/pull/33"
+        }
+      ]
+    }
+  ]
+}

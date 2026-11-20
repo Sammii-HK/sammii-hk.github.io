@@ -1,0 +1,141 @@
+{
+  "title": "Moth",
+  "description": "A growing world built from possibilities and probabilities, where a kitten forms mistaken beliefs, follows interests, learns skills and changes the place she lives.",
+  "techStack": "TypeScript, Three.js, Ollama, Zod, Local persistence",
+  "role": "Solo: design, engineering and product",
+  "status": "Live world; agent implementation and recorded demo inspected locally",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Possibilities, probabilities and a kitten",
+      "body": "Moth has no prescribed ending to reach. Her world supplies possibilities, conditions and probabilities. What happens leaves a history, and that history changes what she might do next. She can become interested in something, form an assumption that is right or wrong, draw it, practise a skill, make an unexpected object or begin a project that wanders somewhere else.\n\nThe technical distinction matters: seeded randomness makes the simulation reproducible for inspection. It does not mean a story has been written for her to perform. The implementation defines what is possible and how likely it is; her particular history emerges from the encounters and choices along the way."
+    },
+    {
+      "type": "prose",
+      "heading": "She can be wrong about her own world",
+      "body": "Beliefs are separate from the objective event record. When something unusual happens, she may attribute it to the actual cause or to another condition she noticed at the same time. A belief then changes what she favours doing. Further experience can strengthen it, shake it or leave it to fade. A mistaken assumption has consequences for her behaviour rather than existing only as a line of generated prose. This mechanism lives in cat/beliefs.ts."
+    },
+    {
+      "type": "prose",
+      "heading": "Interest becomes practice",
+      "body": "Interests grow from things she has done, encountered, researched or been given. They can branch into related subjects and lose strength when neglected. They affect what she searches for, draws and starts making. Practice is recorded in a medium: it changes her ability and what she can attempt later. A drawing records its subject, the reason she chose it and her ability when she made it. Her hand can notice a problem and have something specific to work on next."
+    },
+    {
+      "type": "prose",
+      "heading": "Her world keeps the things she changes",
+      "body": "Moth is not limited to describing a world that stays the same. She can choose a place for a work, collect useful materials and build it over time. A den can make a place soft and hidden. A garden grows and needs tending. A mobile rings in the wind; a ramp can open a route. Weather and creatures can damage the work, giving her something to mend.\n\nThose are implemented possibilities, not a claim that every living world has already produced them. The works engine uses authored kinds and material requirements, while the choices, timing, setbacks and place in her history are not a fixed narrative. Finished and unfinished things persist as part of the world. They change what she can encounter and choose next."
+    },
+    {
+      "type": "prose",
+      "heading": "An idea does not dictate its result",
+      "body": "The open-ended project layer holds a subject and what drew her to it. It records the things she actually does around that subject, rather than prescribing a sequence of scenes. A project can change medium, fail, rest or be abandoned. The more concrete works layer has material stages, but the wider project need not finish as the object its original idea suggested. Skills, interests and the world feed each other: doing something leaves her different, and can leave the place different too."
+    },
+    {
+      "type": "decision",
+      "heading": "The model chooses among possibilities",
+      "context": "A model can describe an action that is impossible in the current world. Accepting its prose as state would let narration overwrite the simulation.",
+      "options": [
+        {
+          "label": "Let the model write world state",
+          "detail": "Flexible, but every response becomes a potential inconsistency."
+        },
+        {
+          "label": "Validate a decision against its context",
+          "detail": "The simulation supplies possibilities. A provider returns a choice which is checked against that context.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Invalid or slow answers become null, and the simulation’s own choice stands. The world continues when the model is unavailable. The boundary is implemented in packages/core/src/agent/provider.ts."
+    },
+    {
+      "type": "prose",
+      "heading": "Creation is a separate capability",
+      "body": "The keeper’s agent layer can research, recall, plan, write pages and draw SVG through specific tools. It does not receive a generic shell or arbitrary filesystem tool. The local file boundary checks paths, extensions, symlinks and size limits. Budgets and a kill switch are checked around the run; tool calls and gate decisions are recorded."
+    },
+    {
+      "type": "decision",
+      "heading": "Writing a page is not publishing it",
+      "context": "Generated content should be inspectable before a visitor encounters it.",
+      "options": [
+        {
+          "label": "Serve every completed file",
+          "detail": "A technically valid output would become public immediately."
+        },
+        {
+          "label": "Stage a version for review",
+          "detail": "Keep the output with its reasons and preview. Approval controls which version is served.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The review interface offers approval, rejection, taking down and rollback. Files and version history are retained. A content gate and browser content-security policy provide separate checks; they are not described as a perfect security boundary."
+    },
+    {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/moth.png",
+          "alt": "Moth’s Little Pond, a recorded template-based page with a creature simulation and the observed creatures listed underneath",
+          "width": 900,
+          "height": 1329,
+          "caption": "Recorded demo from a throwaway copy of the world, 11 November 2026. The pond uses the keeper’s template and real creature records from that copy; its prose is from the local model. This is evidence of the demo, not a capture of current production."
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Keep authorship visible",
+      "body": "The demo documentation distinguishes local-model output, Codex-written prose, authored templates and hand-written explanatory text. A weak drawing or generic answer remains a weak result. The portfolio does not turn the presence of a tool call into a claim that a model independently designed the whole artefact."
+    },
+    {
+      "type": "tradeoff",
+      "heading": "An agent with a deliberately small reach",
+      "gave": "Unrestricted browsing, arbitrary execution and automatic public release.",
+      "got": "Specific tools, bounded writes, logged decisions, reviewable versions and a simulation that can keep running without the model."
+    },
+    {
+      "type": "prose",
+      "heading": "Sources and current limits",
+      "body": "The world mechanics are in packages/core/src/cat/beliefs.ts, interests.ts, skills.ts, drawing.ts, ideas.ts, making.ts and works.ts. The provider boundary and keeper agent files explain model choices and tool use. Recorded demo images come from docs/agent-demo/README.md, which identifies templates and model-written text. This is a source audit and recorded demo account, not verification that every capability is enabled in the current live configuration."
+    },
+    {
+      "type": "prose",
+      "heading": "Models are part of the experiment",
+      "body": "The earlier recorded search replay used gemma3:4b-it-qat. The keeper configuration inspected on 20 November 2026 names bonsai-2:4b as the main model, bonsai-2:9b for wondering and bonsai-2:2b for the shadow-model role. The wider local-model evaluation also includes tev1:0.8b. These are different jobs: a small-model summary score is not evidence of decision quality in Moth’s world."
+    },
+    {
+      "type": "metrics",
+      "heading": "A separate decision replay",
+      "items": [
+        {
+          "label": "Bonsai 2 4B",
+          "value": "22 of 25 accepted",
+          "note": "10.367 s median in the retained replay. Acceptance is the decision contract, not a judgement of the richness of her character.",
+          "source": "Mini state/local-model-eval/moth-decide/result-bonsai-2_4b.json, inspected 20 November 2026"
+        },
+        {
+          "label": "Bonsai 2 9B",
+          "value": "22 of 25 accepted",
+          "note": "17.823 s median in the same replay set.",
+          "source": "Mini state/local-model-eval/moth-decide/result-bonsai-2_9b.json, inspected 20 November 2026"
+        },
+        {
+          "label": "Earlier Gemma 3 4B candidate",
+          "value": "1 of 25 accepted",
+          "note": "11.084 s median in this harness; does not establish universal model quality.",
+          "source": "Mini state/local-model-eval/moth-decide/result-gemma3_4b-it-qat.json, inspected 20 November 2026"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "heading": "Explore Moth",
+      "items": [
+        {
+          "label": "Visit her world",
+          "href": "https://moth.sammii.dev"
+        }
+      ]
+    }
+  ]
+}

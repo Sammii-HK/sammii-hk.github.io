@@ -1,0 +1,64 @@
+{
+  "title": "Spellcast",
+  "description": "The execution layer for a multi-brand content operation: account sets, scheduling adapters and AI assistance with explicit evidence limits.",
+  "techStack": "Next.js, Turborepo, Drizzle ORM, PostgreSQL, Postiz, Temporal",
+  "role": "Solo: design, engineering and product",
+  "status": "Production scheduling product; this study distinguishes local work from verified operation",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "One operation, distinct identities",
+      "body": "Spellcast groups a brand’s accounts into an account set, with its own queue, schedule and analytics. The product problem is keeping identities and platform rules attached to the work as it passes through drafting, review and publishing."
+    },
+    {
+      "type": "decision",
+      "heading": "Extend the scheduling engine",
+      "context": "The operation needs a product-specific interface, account sets, AI assistance and analytics without rebuilding every platform integration.",
+      "options": [
+        {
+          "label": "Rebuild the whole publishing stack",
+          "detail": "Own every API connection, OAuth flow and queue from the beginning."
+        },
+        {
+          "label": "Build a product layer around Postiz",
+          "detail": "Use Postiz for integration and publishing, with a Next.js interface and backend-for-frontend carrying the product-specific work.",
+          "chosen": true
+        }
+      ],
+      "outcome": "The repository separates web, API and shared packages. Postiz and its Temporal infrastructure form the scheduling foundation. The product layer supplies identity, drafts, campaigns and platform-specific adapters."
+    },
+    {
+      "type": "prose",
+      "heading": "AI has a route and a failure state",
+      "body": "The local text helper tries the Brand API, then Ollama, with request timeouts. If neither returns usable text, it throws an error. That route is a concrete integration to inspect, not evidence that every AI feature uses the same provider or has the same reliability. Source: apps/api/src/lib/local-llm.ts."
+    },
+    {
+      "type": "failure",
+      "heading": "An A/B winner needs evidence",
+      "what": "The earlier portfolio described automatic A/B learning without explaining whether recorded winners had enough observations.",
+      "why": "A winning label does not establish an experiment result. The handoff recorded zero-metric production winners; this audit did not query or change the production database.",
+      "fix": "Remove outcome claims from the case study. The current local evaluator checks sample floors, a confidence threshold and lift, but its shared statistics file is still uncommitted and its assumptions need review before it is presented as validated learning."
+    },
+    {
+      "type": "prose",
+      "heading": "What is still to prove",
+      "body": "The current helper discards response usage fields, so it does not establish per-run token or cost accounting. The A/B calculation sums engagement actions against impressions; repeat actions are not automatically a unique engaged audience. Shipping the local gate does not by itself validate that statistical model. A stronger recorded demo should show a draft, its identity and checks, the review decision, the scheduled result and the actual metric receipt."
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "body": "No A/B lift, weekly publishing volume, cost saving or autonomous business outcome is claimed here. Those need dated production evidence. The audit makes no changes to live schedules or publishing permissions."
+    },
+    {
+      "type": "links",
+      "heading": "Explore Spellcast",
+      "items": [
+        {
+          "label": "Open Spellcast",
+          "href": "https://spellcast.sammii.dev"
+        }
+      ]
+    }
+  ]
+}

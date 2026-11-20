@@ -1,0 +1,62 @@
+{
+  "status": "drafts_only_not_scheduled",
+  "items": [
+    {
+      "id": 1,
+      "status": "review_only",
+      "hook": "A belief needs somewhere to be wrong.",
+      "post": "A belief needs somewhere to be wrong.\n\nGiving an AI character a personality prompt is straightforward. Making her experience change what she does takes a different kind of system.\n\nMoth has an objective event record and a separate set of beliefs about why things happened. She can credit a real cause or a coincidence. That assumption changes which actions she favours. Later experience can strengthen it, shake it or leave it to fade.\n\nThe mistake has consequences. It is more than a sentence saying she is confused.\n\nThe same distinction runs through her interests and skills. An interest grows from something she actually encountered or did. It changes what she researches, draws and makes. Practice changes what she can attempt later.\n\nThen she can change the place she lives. A den makes a place soft and hidden. A mobile rings. A garden needs tending. A ramp can open a route. Those things become part of the world she encounters tomorrow.\n\nThere is an engine underneath this, with authored capabilities and material requirements. I have not built an unrestricted intelligence. I have built possibilities that can interact without requiring a particular story to happen.\n\nSeeded randomness lets me inspect the same history again. It does not mean that history was a plot I wrote for her.\n\nThe engineering question is how to make experience matter to the next choice, rather than merely decorating the last one.",
+      "why": "Makes emergence concrete through state, consequences and feedback rather than anthropomorphic claims.",
+      "characters": 1416,
+      "selfScore": 12,
+      "rubric": {
+        "hook": 2,
+        "engineeringReach": 2,
+        "concreteDetail": 2,
+        "voice": 2,
+        "length": 2,
+        "closing": 2
+      },
+      "advisoryExternalScore": "not requested; no extra model call",
+      "firstCommentUrl": "https://sammii.dev/blog/moth-a-world-of-possibilities/"
+    },
+    {
+      "id": 2,
+      "status": "review_only",
+      "hook": "Accuracy can reward doing nothing.",
+      "post": "Accuracy can reward doing nothing.\n\nI compared local models on tasks from my own operation. One result looked respectable until I checked what the model had actually done.\n\nThe reply-opportunity set contained 30 labelled posts. Eight were useful opportunities. Twenty-two were not.\n\nTev rejected all 30.\n\nPlain accuracy: 73.3%.\nUseful opportunities found: zero.\n\nThat is not a model-selection win. It is an imbalanced dataset making an unhelpful decision rule look competent.\n\nBalanced accuracy puts that result at 50%, because it gives equal weight to finding the positives and rejecting the negatives. The underlying counts explain more than the headline percentage.\n\nOther tasks told different stories. On the first short-summary batch, Bonsai 2 2B passed 13 of 20 cases against a mechanical rubric. Tev passed 12. Tev was faster. Larger candidates passed more cases. One extra pass in a small batch is not a universal superiority claim.\n\nMoth needed a separate decision replay. Bonsai 4B and 9B each produced 22 accepted decisions in 25 contexts, but their median times differed: 10.367 seconds and 17.823 seconds. Acceptance there means meeting the interface contract, not being a better character.\n\nA model name and one score cannot carry all those distinctions.\n\nKeep the task, prompt, rubric, sample size and failure counts attached to the decision. Otherwise you can optimise a system until it becomes very good at refusing to help.",
+      "why": "Uses an observed degenerate classifier to explain why evaluation must match the product task.",
+      "characters": 1441,
+      "selfScore": 12,
+      "rubric": {
+        "hook": 2,
+        "engineeringReach": 2,
+        "concreteDetail": 2,
+        "voice": 2,
+        "length": 2,
+        "closing": 2
+      },
+      "advisoryExternalScore": "not requested; no extra model call",
+      "firstCommentUrl": "https://sammii.dev/blog/moth-choosing-models-by-task/"
+    },
+    {
+      "id": 3,
+      "status": "review_only",
+      "hook": "The waiting state is part of the answer.",
+      "post": "The waiting state is part of the answer.\n\nAn AI response can be thinking, using a tool, streaming text, stalled, interrupted or partially failed. A spinner followed by a finished answer hides most of the interaction you actually need to design.\n\nIn Prism, the response component uses an explicit event stream. Tool calls become inspectable steps. The user can stop the stream. Partial text remains visible.\n\nThe smaller latency machine ignores late results after a request has settled. Cancellation would be misleading if an old response could still arrive and move the interface back into success.\n\nThere is also a quiet window before showing anything new. A fast response should not flash a placeholder merely because the implementation has a loading boolean.\n\nStreaming text appears at an even pace instead of turning network bursts into visual jumps. Screen readers hear the completed answer once, rather than every token.\n\nThe public demo replays recorded local-model output with its event timing. It can show a labelled injected tool timeout and an actual wrong-source answer without making a paid model call every time someone visits.\n\nThose are different failure examples. The injected timeout tests a controlled interface path. The wrong-source recording exposes an answer-quality failure. A citation link does not turn that answer into truth.\n\nAn interface cannot guarantee the model is right. It can make the state, evidence and available actions clear enough for someone to stay in control.",
+      "why": "Connects state machines, accessibility and provenance to a recognisable AI interface problem.",
+      "characters": 1502,
+      "selfScore": 12,
+      "rubric": {
+        "hook": 2,
+        "engineeringReach": 2,
+        "concreteDetail": 2,
+        "voice": 2,
+        "length": 2,
+        "closing": 2
+      },
+      "advisoryExternalScore": "not requested; no extra model call",
+      "firstCommentUrl": "https://sammii.dev/blog/prism-designing-the-wait/"
+    }
+  ]
+}

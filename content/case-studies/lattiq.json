@@ -1,0 +1,98 @@
+{
+  "title": "Lattiq",
+  "description": "Repairing a local-first editor, from a misread heartbeat to measured convergence after offline edits.",
+  "techStack": "Next.js, Lexical, Yjs, IndexedDB, WebSockets",
+  "role": "Solo: design, engineering and product",
+  "status": "Collaboration verified locally; public demo remains local-only until the room server is hosted",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "The promise had to work",
+      "body": "Lattiq is an editor whose document lives on the device before it lives on a server. The release work restores the actual Lexical-to-Yjs binding, local persistence and collaboration, then checks the difficult paths: reload while offline, concurrent offline edits and reconnecting to a persisted room."
+    },
+    {
+      "type": "failure",
+      "heading": "A protocol error disguised as a bundling problem",
+      "what": "Collaboration had been removed after a lib0 decoder error, leaving a standalone editor without the promised sync.",
+      "why": "The server answered a heartbeat with a byte the client interpreted as an awareness message, then tried to decode a payload that was not there. The report reproduces this without a bundler.",
+      "fix": "Give heartbeat traffic its own message type, restore CollaborationPlugin inside LexicalCollaboration, and use Lexical’s own Yjs binding to build valid seeds."
+    },
+    {
+      "type": "decision",
+      "heading": "Persist the document, not an outgoing queue",
+      "context": "An in-memory offline buffer disappears on reload. A convincing offline demo must survive closing and reopening the page.",
+      "options": [
+        {
+          "label": "Queue unsent messages in memory",
+          "detail": "Works only while the tab stays alive."
+        },
+        {
+          "label": "Persist Yjs state in IndexedDB",
+          "detail": "Load local state and apply the seed after the binding is ready, then connect and exchange missing state using Yjs state vectors.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Offline edits survive reload. A browser and server applying the same deterministic seed retain one copy. Undo follows the collaborative document rather than treating remote changes as local history."
+    },
+    {
+      "type": "prose",
+      "heading": "A bounded room server",
+      "body": "The room server validates document names and can require expiring, room-scoped HMAC tokens. Presence belongs to a socket and is removed when it leaves. Disk writes use a temporary file and rename. This is a single-instance design with anonymous per-tab identities, not a multi-tenant permissions system."
+    },
+    {
+      "type": "metrics",
+      "heading": "Measured on localhost",
+      "items": [
+        {
+          "label": "Cold book load",
+          "value": "269 ms median",
+          "note": "127,360 words; empty IndexedDB; navigation to all blocks in the DOM",
+          "source": "docs/live-sync-report.md and bench/results.json, release branch, 20 November 2026"
+        },
+        {
+          "label": "Warm load with server down",
+          "value": "213 ms median",
+          "note": "The same book loaded from IndexedDB",
+          "source": "docs/live-sync-report.md, Measurements table"
+        },
+        {
+          "label": "Keystroke to remote DOM",
+          "value": "1.4 ms median",
+          "note": "100 single-keystroke samples on localhost; not internet latency",
+          "source": "docs/live-sync-report.md, Measurements table"
+        },
+        {
+          "label": "Offline merge after sockets reopen",
+          "value": "21 ms median",
+          "note": "5 samples; excludes reconnect backoff. From server restart: 786 ms median.",
+          "source": "docs/live-sync-report.md, Measurements table"
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "What those numbers establish",
+      "body": "The measurements use a production build and headless Chrome on an Apple M3, without network throttling. They measure the local code path. A hosted collaboration service will add network latency and needs a separate measurement. The browser tests cover two-way edits, presence removal, offline reload and convergence, seed deduplication, token rejection and console errors."
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "body": "The public build runs in device-only mode until a long-lived room server with persistent disk is hosted. Local collaboration is verified; a production collaboration service is not yet available."
+    },
+    {
+      "type": "links",
+      "heading": "Explore the work",
+      "items": [
+        {
+          "label": "Open the editor",
+          "href": "https://lattiq.sammii.dev"
+        },
+        {
+          "label": "Read the measurement report",
+          "href": "https://github.com/Sammii-HK/lattiq/blob/claude/lattiq-live-sync-c33f52/docs/live-sync-report.md"
+        }
+      ]
+    }
+  ]
+}

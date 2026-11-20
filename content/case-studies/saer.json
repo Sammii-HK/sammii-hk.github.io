@@ -1,0 +1,71 @@
+{
+  "title": "Saer",
+  "description": "Create a design system, then give coding agents evidence of where the implementation diverges from it.",
+  "techStack": "Python, TypeScript, OKLCH, CSS analysis, MCP",
+  "role": "Solo: design, engineering and product",
+  "status": "Private beta; public browser-based Create tool",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Creation and implementation belong together",
+      "body": "Gamut explored building colour palettes. Saer takes the broader problem: create a usable design system, then inspect the code that is supposed to follow it. Saer Create covers colour, typography, shape and density. The local scanner reconstructs declared foundations and compares them with actual usage."
+    },
+    {
+      "type": "prose",
+      "heading": "A system you can inspect before exporting",
+      "body": "The public Create interface exposes OKLCH scales, contrast ratios, heading and body fonts, a type scale, radius, elevation and density. A light and dark interface preview puts those choices together. Exports include CSS, Tailwind, shadcn/ui and design tokens; saer-system.json carries the system into the CLI workflow."
+    },
+    {
+      "type": "decision",
+      "heading": "Keep exact and inferred findings apart",
+      "context": "A literal equal to a declared token is a different kind of evidence from a value merely close to one.",
+      "options": [
+        {
+          "label": "Present every suggestion as a correction",
+          "detail": "A simpler list, but it hides how much interpretation the finding required."
+        },
+        {
+          "label": "Preserve the evidence state",
+          "detail": "Separate exact matches from experimental near-matches and show unresolved or conflicting evidence explicitly.",
+          "chosen": true
+        }
+      ],
+      "outcome": "A near-match is a review decision. Static accessibility checks are source findings, not a claim that the rendered interface conforms to WCAG."
+    },
+    {
+      "type": "prose",
+      "heading": "Give the system to the agent",
+      "body": "The full product’s local MCP interface supplies tokens, components and guidance before a coding task, and checks the changes afterwards. Scanning is deterministic and local. Code, report files and paths stay on the device; optional cloud summaries are a separate flow. The connected portfolio review surface is narrower and currently exposes colour evidence only, so it is not used to substantiate the other analysis areas."
+    },
+    {
+      "type": "tradeoff",
+      "heading": "Read first, change deliberately",
+      "gave": "An audit does not silently rewrite the code to make every finding disappear.",
+      "got": "The scan is read-only apart from its report. Reviewed fixes, agent setup and creating a system are separate actions with their own write boundaries."
+    },
+    {
+      "type": "prose",
+      "heading": "Evidence and limits",
+      "body": "This study describes the public beta and Create interface inspected on 20 November 2026. It does not claim a fresh local scan or an independent re-run of the published Lunary results. The beta currently targets macOS on Apple Silicon. Product capabilities and installation limits are documented on the product site."
+    },
+    {
+      "type": "links",
+      "heading": "Explore the work",
+      "items": [
+        {
+          "label": "Open Saer Create",
+          "href": "https://saer.app/create"
+        },
+        {
+          "label": "Explore the beta",
+          "href": "https://saer.app"
+        },
+        {
+          "label": "Read the published Lunary scan",
+          "href": "https://saer.app/case-studies/lunary"
+        }
+      ]
+    }
+  ]
+}

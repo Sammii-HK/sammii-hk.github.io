@@ -1,0 +1,71 @@
+/* Structured case-study blocks. Colours come from currentColor, so they follow the site theme. */
+
+.cs-blocks { display: grid; gap: 3rem; }
+.cs-block { margin: 0; }
+.cs-heading { margin: 0 0 0.9rem; font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; text-wrap: balance; }
+.cs-block p { text-wrap: pretty; }
+
+.cs-tag {
+  display: inline-block; margin: 0 0 0 0.6em; padding: 0.1rem 0.45rem; border-radius: 999px;
+  border: 1px solid color-mix(in oklab, currentColor 25%, transparent);
+  font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: 0.15em;
+}
+.cs-before-after .cs-tag { margin: 0 0 0.5rem; }
+
+/* Decision: the options sit side by side, the chosen one marked, the outcome underneath. */
+.cs-options { list-style: none; margin: 1.25rem 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.cs-option { padding: 1rem 1.1rem; border-radius: 10px; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); }
+.cs-option--chosen { border-color: color-mix(in oklab, currentColor 45%, transparent); background: color-mix(in oklab, currentColor 4%, transparent); }
+.cs-option-label { margin: 0; font-weight: 600; }
+.cs-option-detail { margin: 0.4rem 0 0; font-size: 0.9375rem; line-height: 1.55; color: color-mix(in oklab, currentColor 75%, transparent); }
+.cs-outcome { padding-left: 1rem; border-left: 2px solid color-mix(in oklab, currentColor 30%, transparent); }
+
+/* Trade-off and failure: labelled pairs and steps. */
+.cs-pair, .cs-steps { margin: 0; display: grid; gap: 0.75rem; }
+.cs-pair { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.cs-pair > div, .cs-steps > div { padding: 1rem 1.1rem; border-radius: 10px; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); }
+.cs-pair dt, .cs-steps dt, .cs-metric dt, .cs-facts dt {
+  font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in oklab, currentColor 55%, transparent);
+}
+.cs-pair dd, .cs-steps dd { margin: 0.35rem 0 0; line-height: 1.55; }
+.cs-steps dd > :first-child { margin-top: 0; }
+.cs-steps dd > :last-child { margin-bottom: 0; }
+.cs-failure .cs-steps > div:first-child { border-color: color-mix(in oklab, rgb(220 80 70) 45%, transparent); }
+
+/* Metrics: big value, small source. The source is always shown. */
+.cs-metric-grid { margin: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
+.cs-metric { padding: 1rem 1.1rem; border-radius: 10px; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); }
+.cs-metric dd { margin: 0.35rem 0 0; display: grid; gap: 0.2rem; }
+.cs-metric-value { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.cs-metric-note { font-size: 0.875rem; color: color-mix(in oklab, currentColor 70%, transparent); }
+.cs-metric-source { font-size: 0.75rem; color: color-mix(in oklab, currentColor 50%, transparent); }
+
+/* Media */
+.cs-media { display: grid; gap: 0.75rem; }
+.cs-media--pair { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.cs-media--grid { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.cs-media-item { margin: 0; }
+.cs-media-item img, .cs-media-item video { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); }
+.cs-media-item figcaption, .cs-before-after > figcaption, .cs-code figcaption { margin-top: 0.5rem; font-size: 0.8125rem; color: color-mix(in oklab, currentColor 60%, transparent); }
+
+/* Timeline: how the project changed. */
+.cs-timeline ol { list-style: none; margin: 0; padding: 0 0 0 1.1rem; border-left: 1px solid color-mix(in oklab, currentColor 18%, transparent); display: grid; gap: 1.1rem; }
+.cs-timeline li { position: relative; }
+.cs-timeline li::before { content: ""; position: absolute; left: calc(-1.1rem - 4px); top: 0.45rem; width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.55; }
+.cs-timeline time { font-family: var(--font-inter), system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.04em; color: color-mix(in oklab, currentColor 55%, transparent); font-variant-numeric: tabular-nums; }
+.cs-timeline-title { margin: 0.15rem 0 0; font-weight: 600; }
+.cs-timeline-body { margin: 0.25rem 0 0; line-height: 1.55; color: color-mix(in oklab, currentColor 75%, transparent); }
+
+.cs-callout { padding: 1rem 1.2rem; border-radius: 10px; background: color-mix(in oklab, currentColor 5%, transparent); border: 1px solid color-mix(in oklab, currentColor 12%, transparent); }
+.cs-callout--caution { border-color: color-mix(in oklab, rgb(220 160 60) 50%, transparent); }
+.cs-callout > :first-child { margin-top: 0; }
+.cs-callout > :last-child { margin-bottom: 0; }
+
+.cs-links ul { margin: 0; padding-left: 1.1rem; }
+
+/* At a glance, beside or under the hero. */
+.cs-facts { margin: 0 0 3rem; padding: 1.1rem 1.25rem; border-radius: 10px; border: 1px solid color-mix(in oklab, currentColor 10%, transparent); }
+.cs-facts dl { margin: 0; display: grid; gap: 0.9rem 1.5rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); }
+.cs-facts dd { margin: 0.25rem 0 0; font-weight: 500; }
+.cs-updated { margin: 1rem 0 0; font-size: 0.75rem; color: color-mix(in oklab, currentColor 50%, transparent); }
