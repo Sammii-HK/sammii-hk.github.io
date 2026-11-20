@@ -1,37 +1,29 @@
 ---
 title: "Homebase"
-description: "A COO-in-a-browser-tab for running several businesses from one screen"
+description: "A private operations console that brings product signals, approvals and action state into one place."
 techStack: "Next.js, WebAuthn, Push API, Service Workers"
+updated: "2026-11-20"
+status: "Private operations tool; committed source reviewed at 4a9c05a, with separate local changes left untouched."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in homebase.json. -->
 
-Running several products alone means the actual bottleneck isn't building features, it's staying oriented: which system needs attention right now, which numbers moved, which AI-proposed action is waiting on a human yes. That state was scattered across a dozen dashboards and cron logs. Homebase is the single screen that answers "what needs me right now."
+Private operations tool; committed source reviewed at 4a9c05a, with separate local changes left untouched.
 
-## Architecture
+## Turn signals into the next decision
 
-### A live operations surface, not a static dashboard
+Homebase’s current dashboard opens a command centre and separates social, money, queue and chat views. The committed dashboard refreshes its core data on a sixty-second interval and requests stats, heartbeat and alerts concurrently. The earlier pixel-room interface remains in source but is explicitly retired from the current navigation; it is part of the project’s progression rather than the present product claim.
 
-Homebase polls health, revenue, social, SEO, and deploy status across every product every 15–60 seconds and renders them as one continuously-updating view, rather than a report you'd open once a day. It's a full PWA — installable, offline-capable, push-notified — because the whole point is that it should behave like a native ops console, not a webpage you remember to check.
+## Give different actions different authority
 
-### Approval, not autopilot
+The autonomy module distinguishes auto, notify, approve and escalate tiers. Rules can override a tier above a score threshold; unknown actions default to approval. That is a concrete policy interface, not a guarantee that every route or external worker consults it. The approval queue and the underlying execution paths need to be checked together before claiming universal enforcement.
 
-AI-proposed actions below a configured autonomy threshold sit in a queue for a human yes/no rather than executing unsupervised. Above that threshold, actions execute and log a "receipt" instead of waiting — the threshold itself is the actual design decision: how much do you trust the automation with, and where does a human have to be in the loop.
+## Remember work that is already being handled
 
-### An unusual status visualisation
+Action acknowledgements are grouped by a canonical subject. Recent in-progress and completed acknowledgements suppress repeated surfacing for different windows, while the latest acknowledgement can be attached to a remaining action. This separates a newly detected issue from work already claimed or finished. The source exposes the state and time windows rather than relying only on a disappearing card.
 
-Each business renders as a room in a custom-built pixel-art canvas — a spatial, at-a-glance way to represent business health that doesn't reduce every product to the same row in the same table. It's a genuinely bespoke rendering layer, not a component library default.
+## Keep installation, freshness and authority distinct
 
-### Receipts, not a black box
+The source includes passkey registration and authentication, a signed session path, service-worker caching and push support. The current worker caches selected read endpoints and keeps mutations on the network path; that is narrower than an offline operations guarantee. The authentication helper skips checks when its secret is unconfigured for local development. This source review does not verify production configuration, offline mutation delivery or every action’s audit receipt.
 
-The automation loops feeding Homebase (scheduling content, adjusting spend, running email lifecycle lanes) don't just act silently — every action posts a structured "receipt" to an audit trail. That's the same approval-threshold idea applied one layer down: even the actions that don't need a human yes/no still leave a record a human can review after the fact, so "autonomous" never means "unauditable."
-
-## Challenges
-
-**Passkey-first auth on a single-user ops tool**: WebAuthn is normally justified by scale (many users, high account-takeover risk). Here the justification was different — this dashboard can trigger real actions across real revenue-generating systems, so the auth needed to be stronger than the stakes of a typical side-project tool, not weaker just because there's only one user.
-
-**Real-time without a dedicated backend**: polling half a dozen independent systems every 15–60 seconds without either hammering their APIs or showing stale data meant building a genuinely tiered refresh strategy — fast polling for anomaly-sensitive numbers, slow polling for things that rarely change, rather than one global interval.
-
-## Outcome
-
-Homebase is the thing I actually open first every day — not a portfolio piece built to be shown, but working infrastructure that happens to be worth showing. (For that reason it isn't linked live here: it surfaces real, live business data, so this is deliberately a description rather than a demo.)
+> Homebase surfaces private business information and has no public live demonstration here. No private metrics, state files or approval items were copied into this study. A future walkthrough should use a labelled safe fixture and show a signal, its source time, the review decision and the resulting receipt. No live actions were invoked.

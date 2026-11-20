@@ -1,39 +1,29 @@
 ---
 title: "Flip"
-description: "Feature flag and A/B testing service with statistical significance engine"
+description: "A feature-flag and experiment prototype with deterministic server assignment, an editable browser SDK and explicit tracking and statistical limitations."
 techStack: "Next.js, Prisma, PostgreSQL, TypeScript, Zod"
+updated: "2026-11-20"
+status: "Prototype source reviewed at b696ada; database and browser workflows not exercised."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in flip.json. -->
 
-Feature flags and A/B testing are a standard need in product development, but hosted services like LaunchDarkly charge per seat and per flag evaluation. Flip is a self-hosted alternative: a dashboard, a drop-in SDK, and a significance engine that treats "significant" as an actual statistical claim rather than just "variant A got more clicks."
+Prototype source reviewed at b696ada; database and browser workflows not exercised.
 
-## Under the hood
+## Give one visitor a repeatable assignment
 
-### The significance engine
+The decision endpoint hashes the visitor ID and experiment key with MurmurHash3, reduces the result to one of one hundred buckets and walks cumulative variant weights. Assignment happens on the server. The browser SDK awaits that endpoint, caches experiment choices in memory and stores a generated visitor ID in a one-year cookie. Deterministic hashing does not make this implementation cookie-free or synchronous in the browser.
 
-The core of Flip is a two-proportion z-test comparing conversion rates between variants, with Wilson confidence intervals providing bounded estimates of the true conversion rate that stay sensible even at small sample sizes. The dashboard surfaces lift as a percentage improvement alongside the p-value and confidence interval, and only shows a significance badge once there's enough data to draw a conclusion worth trusting.
+## Expose the calculation without overstating it
 
-### Deterministic variant assignment
+The statistics module computes conversion rates, lift against the first variant, a pooled two-proportion z-test and Wilson intervals. The implementation labels a comparison significant at 95% and selects the first positive significant variant. It has no power calculation, minimum-sample gate, correction for repeated inspection or multiple comparisons. The API counts conversion events rather than deduplicated converted visitors and does not filter those counts by the experiment’s goal-event name. Those limits matter before interpreting a badge as a trustworthy experimental result.
 
-Assignment itself uses MurmurHash3, hashed against a combination of user ID and experiment ID. That gets three properties for free: the same user always lands in the same variant, no cookie or client-side state is needed to remember which one, and the distribution across variants is even. The hash output maps onto variant weights, so unequal splits (90/10 for a gradual rollout, say) fall out of the same mechanism as a straight 50/50.
+## The transport and authentication must agree
 
-### A sub-2KB SDK
+The reviewed SDK sends one conversion event using sendBeacon when available. That request contains no Bearer header or body API key, while the tracking route authenticates only a Bearer header. The fetch fallback includes the header. Consequently the beacon path does not satisfy the route’s authentication contract. The SDK also attributes track calls to the last cached experiment rather than an explicit experiment argument. There is no verified reliable unload tracking or event batching here.
 
-The client SDK is a single JavaScript file under 2KB. Variant assignment runs synchronously in the browser, since MurmurHash3 needs no network round trip to resolve. Conversion events go out via `navigator.sendBeacon`, which is built to survive page unload, so an event fired the instant before a user navigates away still lands.
+## An internal route is still a product boundary
 
-### REST API with Zod validation
+The public decision and tracking routes validate input with Zod and use API-key checks. The reviewed internal experiment-management and statistics routes do not apply that authentication guard. Experiment weights are individually constrained but not required to sum to one hundred. These are tool follow-ups, alongside transport repair and explicit event attribution. No requests or database mutations were made in this review.
 
-Every endpoint, experiment creation, flag evaluation, event ingestion, validates its input against a Zod schema and returns typed errors for anything malformed, sitting behind API key authentication. Flags are built as a cascading experiment model: a single flag can hold several experiments, each with its own percentage-based traffic allocation.
-
-## Challenges
-
-Show the significance badge too early and you get false positives dressed up as confidence, so the engine first calculates a minimum sample size per variant from the expected effect size and baseline conversion rate, and only runs the test once that threshold is met. The dashboard shows progress toward that minimum as a percentage bar rather than hiding the wait.
-
-`sendBeacon` solved the unload-reliability problem but brought its own limits: it caps payload size and won't carry custom headers, which rules out a standard Authorization header for the API key. The SDK works around this by encoding the key in the request body instead, and keeps every payload under 64KB by batching events rather than sending them one at a time.
-
-The dashboard also had to reconcile two different freshness needs. Conversion charts don't need to update every second, so they run on SWR with a 30-second revalidation interval, while live event counts do feel wrong if they lag, so those run over a WebSocket connection instead. Splitting the two rather than forcing everything onto one update strategy kept the database query load reasonable.
-
-## Outcome
-
-Flip ended up doing feature flags and A/B testing with proper statistical rigour: deterministic assignment means no cookies, the significance engine means no conclusions drawn from underpowered data, and a sub-2KB SDK means the whole thing barely registers on page performance. It runs self-hosted, with no per-seat pricing attached to any of it.
+> The earlier claims of a sub-2KB measured SDK, WebSocket updates, underpowered-test protection and guaranteed delivery were removed because the reviewed source does not establish them. Flip is not being presented as a validated experimentation service. A repaired tool needs recorded authenticated SDK-to-route checks and a reviewed statistical contract.

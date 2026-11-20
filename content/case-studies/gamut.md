@@ -1,37 +1,36 @@
 ---
 title: "Gamut"
-description: "Real-time theme builder powered by OKLCH colour science with perceptual palette generation"
+description: "An earlier colour-system tool connecting generated OKLCH scales, semantic roles, interface previews and editable exports."
 techStack: "Next.js, TypeScript, OKLCH, Tailwind CSS"
+updated: "2026-11-20"
+status: "Source reviewed at 3d05f4c; live interactions and exports have not been retested."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in gamut.json. -->
 
-Ask an HSL-based palette generator for a green and a yellow both set to "50% lightness" and you'll get two colours that don't read as equally bright at all. That's a real problem for design systems, which need colour scales that are perceptually uniform across lightness steps, that hold up in both light and dark mode, and that export cleanly to CSS variables, Tailwind configs, or design tokens. OKLCH fixes the underlying maths: it separates perceptual lightness from chroma and hue, so a "50" step actually is a "50" step regardless of what colour it started from. Gamut is built entirely on that colour space, and handles the parts that make it usable in practice: gamut clamping, contrast checking, and export to the formats teams actually use.
+Source reviewed at 3d05f4c; live interactions and exports have not been retested.
 
-## Architecture
+## A scale becomes an interface
 
-### Working in OKLCH
+Gamut starts with named colour scales and roles. A base hex colour supplies hue and chroma; the generator applies a fixed table of eleven lightness and chroma factors, then reduces chroma where necessary to fit sRGB. The same generated palettes feed the swatches, light/dark interface previews and export formats.
 
-All palette generation runs in OKLCH (Oklab Lightness, Chroma, Hue) rather than HSL or HSV. The generator takes a base colour, extracts its hue and chroma, then distributes 11 steps along a lightness curve running from near-white to near-black. Because OKLCH keeps lightness genuinely independent of hue and chroma, two colours at the same L value are actually equally bright, which is the property HSL fails to guarantee.
+## Make the conversion inspectable
 
-### Lightness curve
+The source contains the Oklab conversion matrices, sRGB transfer functions and a twenty-iteration binary search over chroma. It holds the requested lightness and hue while finding an in-gamut chroma. This is an implemented colour pipeline, not proof that equal OKLCH lightness looks equally bright in every context. The fixed step table is a design convention, not a perceptual benchmark.
 
-The 11-step scale (50 through 950) follows a tuned lightness table rather than linear interpolation, matched to the conventions of existing design systems like Tailwind and Radix, where the middle steps are more tightly spaced and the extremes compress faster.
+## Separate scale values from semantic roles
 
-### Gamut clamping
+Roles such as primary and neutral produce default mappings for backgrounds, surfaces, borders and text. Light and dark modes resolve those mappings to different scale steps. CSS and JSON export resolve the selected mode; the Style Dictionary-shaped export includes both semantic modes. Tailwind export writes colour scales into a configuration object. There is no Figma API synchronisation in this path.
 
-OKLCH can describe colours that fall outside sRGB, the range a display can actually show. When a step lands outside the gamut, naively clipping the RGB channels causes a visible hue shift. Instead, the clamper reduces chroma while holding lightness and hue fixed, using a binary search along the chroma axis to find the maximum in-gamut chroma at each step. That keeps colours as saturated as the display allows without introducing the hue drift that naive clipping causes.
+## Target sRGB output
 
-### Contrast checking
+- **Gave up:** Wide-gamut source colours are reduced to values suitable for sRGB hex exports.
+- **Got:** One set of generated values can be previewed and copied into ordinary CSS and downstream configuration. The tool checks each scale step against white and black using WCAG contrast ratios; that does not certify every semantic foreground/background pair.
 
-Every step in a palette is checked against both white and black backgrounds for WCAG AA (4.5:1) and AAA (7:1) contrast ratios, with the UI marking which steps clear each threshold. That turns picking an accessible foreground/background pairing into a lookup rather than a manual calculation.
+## A rename exposes an identity mismatch
 
-## What made this hard
+The current source keeps a scale ID when its display name changes. Semantic tokens refer to IDs, while preview/export palette maps are keyed by names. A renamed scale can therefore fall through to the #888888 token fallback. URL decoding also accepts scale fields without the validation used by the colour input. These remain actual tool follow-ups; this portfolio review has corrected the earlier production-ready and timing claims, not repaired that code.
 
-Matching an existing visual language meant reverse-engineering it. "Looking like Tailwind" isn't a formula, it's dozens of hand-tuned palettes with their own implicit lightness distribution, and turning that into a single lightness table took a lot of side-by-side comparison before it stopped looking almost right and started looking right.
+## Place it in the progression
 
-Export needed its own handling, too. Every downstream format has its own shape: CSS custom properties, a Tailwind config, plain JSON and Style Dictionary tokens. The export system renders all of them from the same internal palette, as hex values that work everywhere.
-
-## Outcome
-
-Gamut generates production-ready colour scales from any base colour in under a second. Because the whole pipeline runs in OKLCH, palettes stay consistent across hues in a way HSL-based generators can't manage, and the multi-format export removes the manual step of converting between tools that design systems otherwise require.
+Gamut remains an earlier focused colour tool alongside the broader system-creation work in Saer. Its source shows palette generation and format adapters. The next product evidence should exercise rename, malformed shared links, semantic contrast and exported values, then capture the real workflow. No speed or production adoption result is claimed.

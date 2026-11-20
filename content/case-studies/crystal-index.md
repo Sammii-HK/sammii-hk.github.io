@@ -1,43 +1,33 @@
 ---
 title: "Crystal Index"
-description: "Custom CMS for cataloguing crystals with structured filters and 3D visualisation"
-techStack: "TypeScript, Next.js, Prisma, SQL, GPT-4, React Three Fiber, SwiftUI"
+description: "A structured crystal catalogue and collection product with a separately authenticated image-identification API."
+techStack: "TypeScript, Next.js, Prisma, PostgreSQL, Vercel Blob, AI vision"
+updated: "2026-11-20"
+status: "Web source reviewed at 56258c19; uncommitted web changes and native companion release remain separately unverified."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in crystal-index.json. -->
 
-Crystal collections resist the note-taking apps most people reach for first. A collection isn't a simple list: each crystal carries a colour, a chakra association, a set of metaphysical properties, a Mohs hardness rating, an origin, and its own care instructions, and generic tools don't hold that structure well. Crystal Index is a purpose-built CMS for it: filterable structured fields, GPT-4-generated descriptions, and a 3D visualisation for each entry, plus a native iOS companion app for identifying crystals by camera against the same catalogue.
+Web source reviewed at 56258c19; uncommitted web changes and native companion release remain separately unverified.
 
-## Architecture
+## Keep a catalogue separate from a specimen
 
-### Data model
+The Prisma schema separates a Crystal record from reusable CrystalInfo, images, users, locations and collection records. Colour, chakra and intention are string arrays; hardness is a numeric field. This provides a concrete catalogue and collection model without the enum/join-table architecture described in the earlier case study.
 
-The database schema models each crystal as structured fields: name, colour (enum), chakra (enum), hardness on the Mohs scale, origin, plus a JSON field for freeform properties. Prisma handles migrations and generates type-safe queries. Join tables link crystals to multiple chakras and properties, so a single stone can carry more than one chakra association.
+## Filter the list the user actually has
 
-### Filtering
+The directory route fetches a catalogue list, and FilterableCrystalGallery filters and sorts that list in the browser. Search, colour, chakra, zodiac and element controls combine over those records. The source does not establish indexed server-side composed filtering, URL-persisted filter state or a sub-100ms query result. Those earlier claims were removed. A separate public v1 catalogue endpoint applies Prisma array-membership filters and capped pagination; it is distinct from the browser directory path.
 
-Users filter the browse view by any combination of colour, chakra, and property. Conditions AND across categories and OR within a category, so "purple OR blue" AND "heart chakra" is a valid query. Filter state serialises to URL parameters, which makes any filtered view shareable as a link.
+## Two AI paths with different purposes
 
-### Generated descriptions
+The legacy CrystalInfo creation route asks GPT-4 for a short description and colour/chakra arrays, parses JSON and writes the result. The image-identification helper instead calls Qwen3-VL through DeepInfra and returns model-suggested matches. Its runtime parser checks string names and numeric confidence values, but does not enforce catalogue membership, bounded values, a normalised total or sorting. A confidence value is a model output, not calibrated identification accuracy.
 
-Adding a new crystal triggers a GPT-4 call seeded with the structured fields: name, colour, chakra, and known properties. It produces a short paragraph on appearance, traditional associations, and suggested uses. Descriptions are editable before saving.
+## Identification crosses more than one boundary
 
-### 3D visualisation
+The identification API accepts an app credential or a hashed API key, applies a plan-based rate check, accepts an image, stores an image record and can use confirmed similar examples when calling the vision helper. This review read those paths without uploading an image, loading a model, querying the database or exercising subscriptions. Remote-image validation, uncertain identifications, collection ownership and failure recovery still need a real tool pass.
 
-Each entry renders a 3D visualisation in React Three Fiber, built from procedural geometry: rough polyhedrons for raw specimens, smoother forms for polished ones, with physically-based materials tuned to approximate colour and translucency. Mouse drag rotates the scene.
+## Show only the visual evidence that exists
 
-### iOS companion
+React Three Fiber is used for a location globe in the reviewed web source. No per-crystal procedural geometry or material preset system was found, so the portfolio no longer presents a 3D specimen viewer as implemented. The native companion is recorded project context, but its SwiftUI/RevenueCat source and release were not located or verified in this web checkout. A separate native review is needed before using it as current engineering evidence.
 
-A native SwiftUI app extends the catalogue to camera-based identification: point a phone at a crystal and it's matched against the same API the web CMS reads from. RevenueCat handles the app's subscriptions.
-
-## Challenges
-
-Filtering across join tables was the first performance risk. Composing colour, chakra, and property filters naively meant fetching every crystal and filtering client-side, which doesn't scale. The fix was a single Prisma query with nested where clauses instead, with indexed foreign keys on the join tables keeping query times under 100ms even as filters compose.
-
-Getting the 3D materials to read as convincing crystals, rather than generic glossy shapes, took more tuning than expected. Amethyst needed subsurface scattering and a purple tint; clear quartz needed high transmission and refraction. That tuning now lives in a material preset system mapping crystal types to Three.js material configurations.
-
-The GPT-4 descriptions carried a different risk: occasional inaccurate metaphysical claims stated as fact. The prompt is constrained to well-established traditional associations, and the output is explicitly framed as "traditional associations" rather than settled fact. Every generated description stays editable before it's saved.
-
-## Outcome
-
-Crystal Index is live at crystalindex.co.uk. It gives crystal collections a structured, searchable catalogue with rich metadata, AI-assisted descriptions, and an interactive 3D preview on every entry. The filtering system holds up at collections of hundreds of entries, and the 3D visualisation adds a tactile quality that photos alone don't provide. A native SwiftUI companion app extends the catalogue to camera-based crystal identification, backed by RevenueCat subscriptions.
+> Cultural and metaphysical associations belong to catalogue content, not scientific or medical identification evidence. No model-accuracy, collection-scale performance or therapeutic result is claimed. Current web polish, legacy icon replacement, native verification and a recorded identification walkthrough remain open.
