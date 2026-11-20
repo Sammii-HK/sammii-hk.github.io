@@ -176,7 +176,8 @@ describe("getLabsProjects", () => {
 describe("resolveHashTarget", () => {
   it("sends legacy #slug links to the case study, or /work when there is none", () => {
     expect(resolveHashTarget("#gamut")).toBe("/projects/gamut/");
-    expect(resolveHashTarget("#kinetic")).toBe("/work/#kinetic");
+    expect(resolveHashTarget("#kinetic")).toBe("/projects/kinetic/");
+    expect(resolveHashTarget("#refract")).toBe("/work/#refract");
     expect(resolveHashTarget("#nope")).toBeNull();
   });
 });

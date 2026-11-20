@@ -1,0 +1,48 @@
+{
+  "title": "Kinetic",
+  "description": "Twenty-five motion studies, with engineering work on elapsed time, keyboard interaction and responsive discovery.",
+  "techStack": "Next.js, TypeScript, Framer Motion, Tailwind CSS",
+  "role": "Solo: design and engineering",
+  "status": "Local product candidate d1333e9 after ee8b23b; selected interactions verified, release pending.",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Make movement something to investigate",
+      "body": "Kinetic collects twenty-five studies spanning springs, authored transitions, drag interactions, SVG morphing and scroll effects. The local gallery adds search, categories and permanent section links. Demonstrations initialise on first approach, rather than starting every animation on page load. Once visited, a demonstration stays mounted: this is an initial-load improvement, not a complete animation budget."
+    },
+    {
+      "type": "media",
+      "layout": "pair",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/kinetic-desktop-gallery.jpg",
+          "alt": "Kinetic local motion gallery with discovery controls and spring and layout studies.",
+          "caption": "Unreleased local gallery at d1333e9, showing real interactive studies."
+        },
+        {
+          "src": "/assets/images/refresh-20261120/kinetic-phone-gallery.jpg",
+          "alt": "Kinetic local 390px gallery showing search, categories and the beginning of the spring study.",
+          "caption": "Unreleased local 390px gallery. Search and categories lead to the actual studies."
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "heading": "A countdown must follow elapsed time",
+      "what": "The duration control changed the starting number, but the old ring always sprang its progress straight to zero. Its visual animation did not implement the chosen duration.",
+      "why": "A spring can interpolate a displayed value without being a clock. Equating the two made the duration setting misleading.",
+      "fix": "The local candidate records a monotonic start time and computes the remaining fraction from elapsed time. The displayed number and ring share that value. A real five-second browser run showed Running3 at 2.105 seconds and Stopped0 at 5.260 seconds; this samples one duration rather than proving every background-tab condition."
+    },
+    {
+      "type": "prose",
+      "heading": "Keep control when the pointer is absent",
+      "body": "Spring studies support arrow-key pulls and Enter/Space release. Swipe cards have a dismiss action; reorder rows have bounded move controls. Flip cards expose pressed state and remove the hidden face from the accessibility tree. Tabs expose selection and move focus with arrows, Home and End. The actual phone pass caught focus loss after moving a row and clipping of a magnified dock item. The repaired candidate keeps focus on the moved row and scrolls the focused dock control inside its stage."
+    },
+    {
+      "type": "prose",
+      "heading": "What was checked, and what remains",
+      "body": "Three control regressions cover selected duration, elapsed-time boundaries and immutable bounded reordering. Shared icon regressions, TypeScript, lint, production build and a zero-finding dependency audit pass. The tool owner checked the real countdown, keyboard flip, tabs, reorder and dock at 390px with no page overflow. The gallery follows system reduced-motion settings and offers further reduction; it does not promise that every timing or opacity effect stops. All twenty-five interaction combinations, long background sessions and a complete assistive-technology audit remain open."
+    }
+  ]
+}

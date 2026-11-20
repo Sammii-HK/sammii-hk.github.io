@@ -590,6 +590,7 @@ export const projects: Project[] = [
   {
     id: 'kinetic',
     title: 'Kinetic',
+    caseStudy: 'kinetic',
     techStack: 'Next.js, Framer Motion, TypeScript, Tailwind CSS',
     info: 'A collection of 25 motion studies covering springs, layout transitions, drag interactions, SVG shape changes and scroll effects. Selected studies expose controls; the collection mixes physical spring motion with authored animation.',
     type: 'experiment',
