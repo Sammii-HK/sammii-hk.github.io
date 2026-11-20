@@ -28,8 +28,8 @@
       "title": "Type Lab",
       "kind": "project",
       "url": "https://kern.sammii.dev",
-      "status": "Earlier release merged",
-      "evidenceAndRemaining": "Type Lab workflow expanded. Recheck current live journey, mobile and screenshots in the full catalogue pass."
+      "status": "Earlier release merged; actual local role/export and phone controls verified, latest polish unreleased",
+      "evidenceAndRemaining": "ad269a2 from merged PR1 b7ae81e: six visible phone navigation links, 44px app/family controls, independent axis labels/focus, bounded muted-token contrast, honest snapshot fallback and Lucide pricing checks. Actual 1144/390 Fraunces loaded, keyboard weight900 assigned Heading, persisted through Pairing/Export via hv=wght.900, copied CSS included900/clamps/measured fallback. Fresh local pairing desktop/phone media incorporated. Sixty Vitest +11 icon checks, normal lint/types/Next build and full/production audit zero; Vitest4.1.12/Vite7.3.8, Next16.4.6/React19.2.5. Public font files loaded; no keyed catalogue/provider request, DB or env file. Playwright CLI, download handling, physical touch, every route/breakpoint and broad AT remain unverified. No release."
     },
     {
       "id": "prism",
@@ -52,8 +52,8 @@
       "title": "Strata",
       "kind": "project",
       "url": "https://strata.sammii.dev",
-      "status": "Earlier release merged; deployment pending",
-      "evidenceAndRemaining": "57 tests and web export passed. Live web deployment remains stale; iOS release excluded."
+      "status": "Earlier release merged; local web icon source/platform gates verified, wider runtime/native follow-ups open",
+      "evidenceAndRemaining": "e77e319 based on actual merged PR1 d472cee: named Lucide web adapter and Maps close label. Installed Metro selects web/native files correctly; thirteen real React DOM SVGs, 11 canonical + 3 focused checks and full types pass. AST comparison preserves all 34 press handlers and original layout/style/state attributes. Web source zero blockers; three review lines are the unresolved native character compatibility table, not cleared as data notation. No full app launch/export, browser or new screenshot; existing broader suite not rerun. Expo audit remains 30 (17 moderate, 12 high, 1 critical); no native/Expo migration or release. Earlier web/native deployment reconciliation remains open."
     },
     {
       "id": "lattiq",
@@ -68,8 +68,8 @@
       "title": "Pizzazz",
       "kind": "project",
       "url": "https://www.npmjs.com/package/@unicorn-poo/pizzazz",
-      "status": "Source accuracy and case-study pass completed; tool polish pending",
-      "evidenceAndRemaining": "Reviewed committed implementation d265b1d: DOM spans, CSS transitions/cubic-bezier presets, timed removal and listener cleanup. Corrected spring physics/pooling/shared-loop/render-callback and unmeasured size/FPS claims. Legacy glyph presets, reduced motion, accessibility and real interactions need a tool-side pass. Existing .gitignore change untouched."
+      "status": "Actual local library/playground verified; publication and deployment pending",
+      "evidenceAndRemaining": "6455b1a: demo bundles actual source, SSR/default exports, keyboard origins, reduced motion, decorative accessibility, escaped snippets and ordered size controls repaired. Actual 1144/390 Chrome Enter/Space, centred particles and removal, range ordering, clipboard contents/focus, Fire/gravity/Spring/reset verified. Current local media incorporated; particle artwork preserved separately from Lucide UI. Nineteen Jest checks, 11 guard regressions, source zero blocking / 28 particle-art reviews, builds and audit zero. No runtime dependencies added. Physical touch, other browsers/AT and physics/FPS/size claims remain unverified; no release."
     },
     {
       "id": "lunary",
@@ -124,8 +124,8 @@
       "title": "Orbit",
       "kind": "project",
       "url": "https://orbit-live.sammii.dev",
-      "status": "Local accuracy pass verified",
-      "evidenceAndRemaining": "Walkthrough corrected against implementation. Release must precede portfolio AI curation. Recorded demo and deeper actual tool polish remain."
+      "status": "Source walkthrough and normal UI policy gates verified locally; runtime evidence open",
+      "evidenceAndRemaining": "bdf3de9 adds minimal private source-only normal lint/test tooling for showcase/dashboard without changing operational JS module mode. Dynamic stage glyph and manual nav paths replaced with named Lucide. Sixteen checks include canonical 11 and pure/mock-DOM rendering; source zero unclassified blockers, one exact reviewed pipeline diagram connector; audit zero. Brand initial, sparklines and numeric notation retained. No dashboard service, private state/credentials, APIs, orchestration or browser runtime accessed in this pass. Walkthrough remains implementation snapshot, not execution; recorded demo, release and production reconciliation remain."
     },
     {
       "id": "homebase",
@@ -292,8 +292,8 @@
       "title": "Day Lite",
       "kind": "project",
       "url": "https://day-lite.vercel.app",
-      "status": "Source and claim review completed; actual tool checks open",
-      "evidenceAndRemaining": "Source d36261e. Evidence: src/App.tsx. Established: Mapbox pointer coordinates select an Astronomy Engine Observer; SearchRiseSet supplies sunrise/sunset and daylight readouts. No custom terminator layer or explicit globe projection found. Corrected catalogue accordingly. Remaining: Longitude/15 offset is an approximation, not civil time-zone/DST lookup. Polar missing events and date-boundary math need checking; current time refresh depends on rerenders, not a timer. Verify map credentials through normal runtime without reading env files, map errors and phone/keyboard selection. Icon scan: 1 blocking, 0 reviews."
+      "status": "Actual offline solar calculator and phone/keyboard verified; maps and release open",
+      "evidenceAndRemaining": "63eb9cb + 273180a product, 895c163 compatible graph. Civil day/zone, 23/25-hour and repeated-midnight bounds, polar/missing events, interval totals, clock and date rollover repaired. Actual labelled no-key/CSP-offline Chrome desktop/390 native date keys, typed coordinates/Enter/error retention, zone-specific Today and corrected Sun/Calendar status verified; no overflow and observed targets at least 44x44. Twelve solar/UI + 11 guard tests, source zero/zero, normal lint/type/build, frozen install and full/production audit zero. Local captures only; configured map, location/permissions, physical virtual keyboard, all astronomy/history/border accuracy and broader AT/browser coverage remain unverified. Large optional SDK chunk warning retained; no release."
     },
     {
       "id": "balloon-bonanza",

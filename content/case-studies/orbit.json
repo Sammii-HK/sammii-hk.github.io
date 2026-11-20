@@ -57,6 +57,11 @@
       "body": "The replacement was checked against the local orchestrator.sh, scheduler configuration and scripts, and research-contract implementation on 20 November 2026. That working tree contains unreleased changes. The public demo replacement is prepared separately from the production runtime; no schedules, agents or publishing permissions were changed."
     },
     {
+      "type": "prose",
+      "heading": "Enforce the interface policy without running the operation",
+      "body": "Local bdf3de9 adds normal scoped lint and test commands for showcase/dashboard source. A contextual stage-button arrow now uses the existing Lucide renderer; dashboard navigation uses named official Lucide nodes. The pipeline topology connector, sparklines and Orbit brand initial remain reviewed diagram/data/brand content. Sixteen source/syntax/mock-DOM checks include the eleven canonical regressions, with audit zero. Pure dashboard navigation was tested in isolation; no dashboard service, private state, credentials, job trigger or operational API was opened. This does not certify runtime behaviour or replace a recorded execution."
+    },
+    {
       "type": "links",
       "heading": "Explore Orbit",
       "items": [

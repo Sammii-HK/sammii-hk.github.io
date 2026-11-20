@@ -1,0 +1,91 @@
+{
+  "title": "Day Lite",
+  "description": "A daylight explorer built around civil dates, polar states and a usable calculator that works without map tiles.",
+  "techStack": "React, TypeScript, Astronomy Engine, Day.js, tz-lookup, Mapbox GL, Vite",
+  "role": "Solo: design and engineering",
+  "status": "Unreleased local 895c163 / 273180a: actual offline calculator verified; configured maps and release remain unverified.",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "The selected day is part of the calculation",
+      "body": "Day Lite began as a map-led daylight sketch. The local repair turns the selected place and civil date into the calculation boundary. It uses bundled coordinate-to-time-zone data and Astronomy Engine rise/set estimates; the map is optional. Longitude divided by fifteen is no longer treated as a civil time zone, and moving a pointer is no longer the only way to choose a place."
+    },
+    {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/day-lite-offline-desktop.jpg",
+          "alt": "Day Lite local calculator showing Greenwich daylight, sunrise and sunset, a local-date field and coordinate controls beside an explicit unavailable-map message.",
+          "caption": "Actual unreleased offline calculator. The solar outputs are calculated locally; Mapbox tiles, geolocation and configured-map behaviour are not demonstrated.",
+          "width": 1144,
+          "height": 926
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "heading": "A missing sunrise is not the current time",
+      "what": "The earlier client could feed an absent event into Day.js and receive a plausible current-time value. It also compared day-of-month numbers and subtracted timestamps in the wrong direction.",
+      "why": "Searching forward from now does not define the selected civil date. Taking an absolute negative duration or filling a missing event hides the boundary problem instead of resolving it.",
+      "fix": "Validate the date and coordinates, define the local day’s start and end, collect events within those bounds and sum daylight intervals. A rise or set at the next day’s midnight belongs to that next day. Missing events remain missing, and an unresolved ordering is explicitly unavailable."
+    },
+    {
+      "type": "decision",
+      "heading": "Treat midnight as a civil boundary",
+      "context": "The local day can last 23 or 25 hours, and some zones repeat midnight itself. A default ambiguous-time conversion selected the later Havana midnight and lost an hour in a regression.",
+      "options": [
+        {
+          "label": "Choose the first valid local midnight",
+          "detail": "Inspect nearby actual zone offsets, select the earliest valid midnight and resolve the following date independently. Reject a skipped entire local date.",
+          "chosen": true
+        },
+        {
+          "label": "Add twenty-four hours to a convenient instant",
+          "detail": "The result can describe the wrong local date or miss an hour around a civil-clock transition."
+        }
+      ],
+      "outcome": "Regressions cover London’s 23/25-hour dates, Kathmandu’s non-hour offset, Havana’s repeated midnight and the skipped Apia date. These checks exercise specific rules in the runtime zone data, not every political boundary or historical calendar change."
+    },
+    {
+      "type": "prose",
+      "heading": "Polar day and night are results",
+      "body": "Next rise/set ordering establishes whether the selected date begins in daylight, using the library’s own event model. The bounded search can distinguish continuous daylight from continuous night, including a day with only one event. If no usable ordering can be resolved, the result stays unavailable. There is no invented sunrise or claim that this measures terrain, weather or all real-world observing conditions."
+    },
+    {
+      "type": "media",
+      "layout": "pair",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/day-lite-offline-polar-phone.jpg",
+          "alt": "Full Day Lite phone view for Tromsø on 21 June 2026, with continuous 24-hour daylight, no event labels, a Sun status icon and an explicit offline map panel.",
+          "caption": "Actual local calculation at 390px, selected through native date keys. This is model output with a sea-level observer and standard refraction, not field observation or a configured-map demonstration.",
+          "width": 390,
+          "height": 1684
+        },
+        {
+          "src": "/assets/images/refresh-20261120/day-lite-offline-coordinates-phone.jpg",
+          "alt": "Day Lite phone coordinate form with negative latitude for Sydney, the selected Sydney preset and a map-unavailable explanation.",
+          "caption": "Actual typed coordinates plus Enter. Offline map state is preserved; no device location was requested.",
+          "width": 390,
+          "height": 844
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "Keep the calculator usable without a map",
+      "body": "The coordinate form, public example places and local-date controls work with a keyboard. Invalid input announces an error while retaining the last valid results. The local clock refreshes separately; Today follows the chosen zone and rolls at its midnight, while an explicitly selected date stays selected. Solar calculations are memoised by place and date rather than repeated for every clock tick or pointer move."
+    },
+    {
+      "type": "prose",
+      "heading": "Make the network boundary visible",
+      "body": "Mapbox is lazy-loaded only after an explicit action when configured. Missing configuration and mocked load errors leave the calculator intact; map and marker resources have disposal paths. The actual browser review used an empty map token, no external stylesheet and a static preview with connect-src none. No tile request, permission, private calendar, actual location or provider call was used."
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "body": "Local 895c163 / 273180a passes 12 solar/UI tests, 11 canonical icon regressions, lint and the TypeScript/Vite build. Full and production-group dependency audits report zero findings. Actual Chrome desktop/390px checks cover zone-specific dates, invalid and valid Enter submissions, native date keys, polar states, Today, no document overflow and observed controls at least 44 by 44px. Configured Mapbox, physical virtual keyboards, wider assistive technologies and broad astronomy/time-zone accuracy remain unverified. The large optional map chunk warning is retained. No deployment occurred."
+    }
+  ]
+}

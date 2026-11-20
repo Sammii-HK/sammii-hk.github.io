@@ -4,7 +4,7 @@
   "techStack": "React Native, Expo, React Native Skia, RevenueCat",
   "role": "Solo: design, engineering, content and product",
   "status": "Free installable web app, with an iPhone app on the App Store",
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "facts": [
     {
       "label": "Products",
@@ -123,6 +123,11 @@
       "type": "prose",
       "heading": "What it does not do yet",
       "body": "Strata is honest about distance; it is not yet as smooth as it should be. Every gesture currently runs through React on the JavaScript thread, so the canvas re-renders on each event. Pans stop dead instead of carrying momentum, and jumping to an item or switching maps snaps rather than travels. VoiceOver cannot read the canvas, and Reduce Motion is not respected yet.\n\nThe next release moves the gestures onto the UI thread, adds momentum and spring transitions, and gives screen-reader users a list they can move through. Four more packs (Elements, Lunar Almanac, Calendarium and Star Stories) are written and waiting to be wired in."
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "body": "Latest local web-source follow-up e77e319 adds named Lucide web adapters, a labelled Maps close action and normal policy gates. Eleven canonical and three platform/render checks plus TypeScript pass; the real Metro resolver selects the web adapter, and thirteen SVGs are checked through React DOM server rendering. This did not launch/export the app or re-test gestures, accounts, purchases or native packaging. The native character fallback remains unresolved under the all-platform Lucide policy, and the existing Expo dependency audit still has 30 findings including one critical. Earlier product screenshots remain unchanged; this is not a runtime or release certification."
     }
   ]
 }

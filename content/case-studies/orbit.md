@@ -1,37 +1,55 @@
 ---
 title: "Orbit"
-description: "A content pipeline run as a team of specialised agents on local models"
-techStack: "Node.js, Shell, Ollama (local models), launchd"
+description: "Connecting evidence, specialist jobs, drafting and review in a content operation, with an inspectable boundary between preparing work and publishing it."
+techStack: "Shell, Python, Node.js, JSON job definitions, Local models"
+updated: "2026-11-20"
+status: "Public showcase replacement prepared locally; deployment pending"
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in orbit.json. -->
 
-Several brands, eight platforms, and a content pipeline with distinct stages: research, scriptwriting, editing, optimisation, scheduling, engagement and analysis. Each stage needs different skills and different context, and doing all of it by hand is a full-time job on its own. Orbit is what came out of trying to close that gap: rather than one person context-switching between kinds of task, specialised agents each take one stage and hand their work on.
+Public showcase replacement prepared locally; deployment pending
 
-## Architecture
+## The operation is the product
 
-### One job per agent
+Orbit coordinates jobs with different responsibilities: planning, analytics, research, optimisation, writing and review. The difficult part is keeping evidence, account identity and the state of the work attached as it passes between them. A collection of prompts does not establish that a useful result reached the end.
 
-Each agent has a single responsibility: one writes scripts, another edits for tone, another optimises hooks and captions, another plans the schedule, another watches engagement. Agents are defined as JSON: a system prompt, the tools they are allowed to call, and what they receive and are expected to hand back.
+## The old demo showed the wrong evidence
 
-### Local models, routed by role
+- **What happened:** The public control room generated its own activity, tool calls, publication totals and estimated spend. It could look like a functioning operation without showing any real execution evidence.
+- **Why:** It illustrated a tidy pipeline rather than the current implementation. The scheduler is a script, and the lean content path is review-only. A fixed fleet count and animated publishing board obscured those distinctions.
+- **Fix:** The replacement is an interactive source walkthrough with full, lean-content and research modes. Stage details show inputs, outputs, boundaries and retained source excerpts. It is labelled as a dated implementation snapshot, not a live run.
 
-Every agent runs on a local model through Ollama, chosen for the job. Gemma 3 27B writes and edits long-form scripts, Phi-4 writes short punchy hooks and captions, and Qwen 3 handles research, analytics, planning and structured tasks, with a smaller Qwen for quick JSON work. Running locally keeps the marginal cost of a run at zero and the drafts on my own hardware.
+## Separate the modes
 
-### Scheduled, not orchestrated by a platform
+Research, drafting and a full orchestration cycle do not need the same chain of work.
 
-There is no workflow platform underneath. launchd jobs start each part of the pipeline on a schedule, research, creative work, engagement checks and self-review, and a shell orchestrator runs the stages in order and passes each one's output to the next.
+- **One pipeline for every task:** A simple explanation that hides differences in responsibility and cost.
+- **Show the distinct code paths (chosen):** The full path coordinates planning and enrichment. Lean content writes and reviews. Research updates context without running the writing stages.
 
-### A control room
+The walkthrough reflects the selected orchestration paths without claiming every job runs on every cycle. Model-backed jobs and deterministic scripts are distinct.
 
-The page at orbit-live.sammii.dev shows the system's shape: every agent, its role, and the order work flows through them. The roster, roles and flow are the real ones. The activity on the page is simulated, and the page says so, because the real pipeline runs on a private machine.
+## A passing score is not publishing authority
 
-## Where it got hard
+The editor’s current instruction is human review only and prohibits creating, scheduling or publishing posts through the connected service. The scheduler source defaults to review-only unless explicitly enabled. Dedicated account pipelines own publishing. Those source boundaries do not prove the current production configuration, which the public walkthrough does not read.
 
-Passing work between stages without losing context took several iterations. A raw draft handed from one agent to the next lost what it was for, so each piece of work travels with its target platforms and a variant for each platform alongside the text.
+## Keep a place for failed work
 
-Local models also fail in ordinary ways: invalid output, a slow response, a tool erroring. Each run records which agents failed, so a bad output shows up in that run's summary instead of disappearing.
+The full pipeline records completed and failed jobs in a checkpoint. Resume can skip completed work. Job tiers influence failure handling, so the case study does not claim that every failed dependency always stops downstream work. A later recorded execution should preserve the holds and failures as well as the successful outputs.
 
-## Outcome
+## An explanation you can verify
 
-Orbit turns a content operation into software: a roster of narrow agents, each easy to change on its own, on models that cost nothing per run. Adding a capability means adding or editing an agent definition rather than rebuilding the pipeline.
+- **Gave up:** A constantly moving board with impressive-looking numbers.
+- **Got:** A finite, inspectable source snapshot with no model request on a visitor’s click. Runtime claims need a separate reviewed execution record.
+
+## What this audit used
+
+The replacement was checked against the local orchestrator.sh, scheduler configuration and scripts, and research-contract implementation on 20 November 2026. That working tree contains unreleased changes. The public demo replacement is prepared separately from the production runtime; no schedules, agents or publishing permissions were changed.
+
+## Enforce the interface policy without running the operation
+
+Local bdf3de9 adds normal scoped lint and test commands for showcase/dashboard source. A contextual stage-button arrow now uses the existing Lucide renderer; dashboard navigation uses named official Lucide nodes. The pipeline topology connector, sparklines and Orbit brand initial remain reviewed diagram/data/brand content. Sixteen source/syntax/mock-DOM checks include the eleven canonical regressions, with audit zero. Pure dashboard navigation was tested in isolation; no dashboard service, private state, credentials, job trigger or operational API was opened. This does not certify runtime behaviour or replace a recorded execution.
+
+## Explore Orbit
+
+- [Public Orbit page](https://orbit-live.sammii.dev)

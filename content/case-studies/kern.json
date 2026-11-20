@@ -3,13 +3,54 @@
   "description": "From browsing a font to exporting a type system: pairing, variable axes, fluid scales and previews from shared inputs.",
   "techStack": "Next.js, TypeScript, Variable Fonts, CSS, Design Tokens",
   "role": "Solo: design, engineering and product",
-  "status": "Type Lab release merged; live web application",
+  "status": "Earlier Type Lab release merged; local polish ad269a2 verified, not deployed.",
   "updated": "2026-11-20",
   "blocks": [
     {
       "type": "prose",
       "heading": "A typography decision needs somewhere to go",
       "body": "Kern began as a variable-font explorer. Type Lab extends the workflow: browse the catalogue, choose heading, body and mono roles, compare them in interface previews, tune a fluid scale and export the result. The output matters as much as the specimen."
+    },
+    {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/type-lab-pairing-desktop.jpg",
+          "alt": "Type Lab local Pairing screen with Fraunces, Inter and JetBrains Mono roles, reasoned suggestions and an article preview.",
+          "width": 1144,
+          "height": 900,
+          "caption": "Actual unreleased local ad269a2. The build uses the real bundled catalogue snapshot; public font files loaded in the browser. This is not a deployment screenshot."
+        }
+      ]
+    },
+    {
+      "type": "failure",
+      "heading": "Navigation should reveal the whole workflow",
+      "what": "Phone navigation clipped later sections inside an unmarked horizontal scroller. The routes existed, but their entry points were easy to miss.",
+      "why": "A desktop row had become a discovery problem at the narrow breakpoint.",
+      "fix": "All six sections now remain visible across two phone rows, with a named navigation region and current-page state. The final 390px check found no document overflow; app navigation, family pickers and controls have 44px targets."
+    },
+    {
+      "type": "prose",
+      "heading": "Prove that an axis reaches the exported system",
+      "body": "In the actual local browser, Fraunces loaded and its keyboard weight control reached 900. Assigning Heading carried that value into Pairing and Export through hv=wght.900. Copied CSS contained heading weight 900, fluid clamp values and measured fallback faces. This connects a real axis control to the exported artefact rather than relying only on a specimen screenshot."
+    },
+    {
+      "type": "media",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/type-lab-pairing-phone.jpg",
+          "alt": "Type Lab local phone Pairing page showing all six navigation links in two rows and three labelled font-family pickers.",
+          "width": 390,
+          "height": 844,
+          "caption": "Actual local 390px app controls. All six navigation links and the three family pickers were checked at 44px high. Scaled miniature previews are intentionally smaller and are not the app controls."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "body": "Local ad269a2 passes 60 Vitest checks plus 11 canonical icon regressions, normal lint, strict types and the normal Next build; full/production audits report zero findings. Independent axis labels and actual muted-text/background token contrast have dedicated regressions. The catalogue fallback identifies itself as a snapshot and does not promise an unimplemented retry. Playwright selectors were updated, but its CLI was not run. Physical touch, broader assistive technologies, every route/breakpoint and download handling are not certified by this pass."
     },
     {
       "type": "flow",
