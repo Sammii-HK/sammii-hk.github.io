@@ -1,41 +1,45 @@
 ---
 title: "Conjure"
-description: "AI-powered prompt builder for Midjourney, FLUX, and DALL-E"
-techStack: "Next.js, Turborepo, Groq (Llama 3.3 70B), Prisma, Chrome Extension MV3"
+description: "A prompt-building prototype that separates a visual brief, a creative direction and the syntax expected by an image platform."
+techStack: "Next.js, TypeScript, AI SDK, Groq, Zod, Prisma, Chrome Extension MV3"
+updated: "2026-11-20"
+status: "Prototype; source reviewed at 0ca070b. Generation, saving and extension delivery need further end-to-end verification."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in conjure.json. -->
 
-Midjourney, FLUX, and DALL-E do not read prompts the same way. Midjourney uses `--ar`, `--s`, and `--c` parameter flags. FLUX works with separate strength and guidance values. DALL-E has a preference for natural-language sentences. A prompt tuned for one platform needs restructuring for another. Conjure takes a single plain English description and turns it into three platform-formatted variations tuned for different risk levels, so moving between tools doesn't mean re-learning a syntax each time.
+Prototype; source reviewed at 0ca070b. Generation, saving and extension delivery need further end-to-end verification.
 
-## Architecture
+## Make variation a decision people can inspect
 
-### Three output tiers, not one
+A brief can stay the same while an image direction changes. Conjure asks for conservative, creative and experimental interpretations, then lets a person copy or refine a direction. Platform and orientation are separate inputs. That separation makes the interface useful for comparing the idea itself before adapting its syntax for Midjourney, FLUX or DALL·E.
 
-Every generation produces three variations rather than a single result: safe (reliable, well-tested phrasing), creative (more expressive language, unusual combinations), and experimental (pushing toward abstract or conflicting descriptors). The idea is to give people a spectrum from predictable to surprising without requiring them to understand prompt engineering themselves.
+## From brief to platform prompt
 
-### Why Groq
+1. **Input boundary:** The builder sends the brief, account context, platform and orientation, with a loading state and visible generation errors. [Implementation](https://github.com/Sammii-HK/conjure/blob/0ca070b/apps/web/src/components/PromptBuilder.tsx)
+2. **Request boundary:** Zod bounds the brief and accepts supported platform/orientation values. The reviewed adapter calls Llama 3.3 70B through Groq. [Implementation](https://github.com/Sammii-HK/conjure/blob/0ca070b/apps/web/src/app/api/generate/route.ts)
+3. **Formatting boundary:** The route requests three labelled variations, parses the response and appends platform parameters after generation. DALL·E is handled separately from prompt-text parameters. [Implementation](https://github.com/Sammii-HK/conjure/blob/0ca070b/apps/web/src/app/api/generate/route.ts)
+4. **Iteration boundary:** Refinement carries the original brief, a selected base prompt and a change request back to the same endpoint. [Implementation](https://github.com/Sammii-HK/conjure/blob/0ca070b/apps/web/src/components/PromptBuilder.tsx)
 
-Generation runs on Llama 3.3 70B via Groq's inference API, chosen specifically for latency: responses come back in under a second, which is the difference between the tool feeling interactive and feeling like a batch job. The system prompt carries the platform-specific knowledge itself — Midjourney's `--ar`, `--s`, `--c` parameters, FLUX's strength and guidance scales, DALL-E's preference for natural language over flags.
+Source reviewed at 0ca070b on 20 November 2026. This review did not invoke generation or publishing services.
 
-### Formatting per platform
+## Keep formatting outside the creative instruction
 
-Once a prompt is generated, it passes through a platform formatter that adds the correct parameter syntax: aspect ratio, stylize, and chaos flags for Midjourney; strength and guidance values for FLUX; a restructured natural sentence for DALL-E. The formatter also validates that parameter values sit within range before handing the prompt back.
+A platform-specific suffix is deterministic. Asking a model to reproduce it makes a mechanical constraint part of every generated sentence.
 
-### Refining without starting over
+- **Generate the whole string:** The model would be responsible for both the visual idea and the exact platform syntax.
+- **Apply supported platform parameters in code (chosen):** A shared platform/orientation map supplies parameters after the model returns its visual description.
 
-Users can refine a generated prompt by describing what to change — "make it darker", "add more detail to the background". The refinement step sends the original prompt alongside the modification instruction and produces updated variations that keep the core concept intact while folding in the feedback, rather than making people rewrite from scratch.
+The same brief and variation workflow can target different image tools without asking the model to invent parameter syntax.
 
-### A Chrome extension for wherever the work happens
+## Persistence is an unfinished product boundary
 
-Conjure also ships as a Chrome MV3 extension that injects the prompt builder into any page as a floating panel — useful when working directly in Discord (for Midjourney) or in an image generation UI. It calls the main app's API to generate prompts but otherwise renders independently of whatever page it's sitting on top of.
+The repository includes saved-prompt, rating and library routes, but the generation path currently returns temporary session and iteration identifiers when it cannot resolve an existing session. A save endpoint expects a real stored iteration. A visible Save control therefore does not establish that a newly generated prompt will survive a reload. Completing that transition and testing its failure states is a prerequisite for presenting the library as a finished workflow.
 
-## Challenges
+## The extension has a concrete integration surface
 
-Consistency was needed along two separate axes. Each platform revises its prompt syntax on its own schedule, so the platform-specific knowledge in the system prompt couldn't be baked in as a static block of text — it needed to live as data. Each platform's rules are now stored separately and can be updated without redeploying the app. At the same time, the three output tiers had to read as variations of one idea rather than three unrelated prompts, which meant the generation prompt has to explicitly chain the outputs: hold the core subject matter constant while deliberately varying style, mood, and specificity across the tiers.
+The MV3 manifest targets Midjourney. Its content script adds a collapsible iframe pointing to a local development server and can write a prompt into recognised Midjourney inputs. A separate panel implementation also calls that local server. The reviewed implementation is an iframe/content-script prototype; production host configuration, message-origin checks and extension interaction testing still need work.
 
-The extension raised a different problem entirely. Chrome MV3 extensions have strict Content Security Policy rules. Separately, the floating panel renders inside a shadow DOM to stop its styles leaking into, or being overridden by, whatever page it's embedded in. All communication with the API goes through message passing via the extension's background service worker rather than direct calls from the injected content itself.
+## The next quality gate
 
-## Outcome
-
-What ships is a tool that turns a plain English description into three platform-formatted prompts in under a second, works from inside whatever workflow someone is already generating images in via the extension, and lets people converge on the image they actually want through iterative refinement instead of rewriting prompts by hand each time.
+The request has a schema, while the generated variations are currently parsed and mapped without an equivalent output schema enforcing labels and count. Strengthening that boundary belongs before stronger reliability claims. This review did not measure response speed, call the model, exercise account persistence or install the extension. A public AI demonstration should be a recording of the actual verified flow.

@@ -1,39 +1,36 @@
 ---
 title: "Pizzazz"
-description: "Published npm package for customisable click and hover particle effects"
-techStack: "JavaScript, Rollup, Jest, npm"
+description: "A small DOM-effects package with configurable click and hover bursts, CSS motion and explicit listener cleanup."
+techStack: "JavaScript, DOM, CSS transitions, Rollup, Jest"
+updated: "2026-11-20"
+status: "Legacy package; source reviewed at d265b1d. Current motion and icon-policy review remains open."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in pizzazz.json. -->
 
-Most sites that want a bit of delight on click or hover end up choosing between two bad options: pull in a heavyweight animation library, or hand-roll canvas physics. Neither is proportionate to the problem. Pizzazz is the third option: a zero-dependency package that drops into any site with a single import, configures with a few options, and produces satisfying particle effects at under 1KB gzipped.
+Legacy package; source reviewed at d265b1d. Current motion and icon-policy review remains open.
 
-## Architecture
+## A narrow animation API
 
-### Particle system
+Pizzazz attaches a click or hover effect to a DOM target. Options control the number and size of effect elements, duration, spread, rotation and easing. The package is independent of a UI framework and its reviewed package definition has no runtime dependencies.
 
-Each effect type (confetti, sparkle, burst, trail, etc.) is a particle emitter with configurable physics. On trigger, click or hover, the emitter spawns N particles at the event coordinates. Each particle carries position, velocity, rotation, scale, opacity, and lifetime. A single shared requestAnimationFrame loop updates every active particle and removes the dead ones.
+## Motion comes from CSS transitions
 
-### Spring-based easing
+A trigger creates a positioned container and span elements around the event location. Randomised target offsets give each burst variation. Rotation adds a transform; the gravity option chooses a downward target. CSS handles transform and opacity transitions, while timers start the movement and remove the container. Easing presets named bounce and spring are cubic-bezier values rather than a physical spring simulation.
 
-Particle motion uses spring easing rather than linear or bezier curves. Particles launch with initial velocity, decelerate under configurable gravity, and can overshoot their rest position before settling. That overshoot is what makes the effects read as physical rather than animated: a confetti burst decelerates and settles, a sparkle expands and fades with a slight bounce.
+## Give attachment a cleanup path
 
-### Presets, not primitives
+A reusable effect must stop listening when its target no longer belongs to an interface.
 
-There are 13 built-in effects, and each one is a preset: a particle shape (circle, square, star, line), a spawn pattern (radial burst, directional spray, trail), and a set of physics parameters. Presets can be used directly or have their individual parameters overridden, and custom shapes are supported via a render callback for anyone who needs something the built-ins don't cover.
+- **Attach a permanent global listener:** Every mount would leave another listener unless a caller managed it independently.
+- **Return an unsubscribe function (chosen):** addPizzazz returns a function that removes the event handler it installed. Hover events can also be throttled.
 
-### Build and distribution
+A framework component can attach the effect and call its cleanup during unmount. Timed container removal handles the short-lived visual output separately from listener ownership.
 
-Rollup bundles the library as ESM and CJS with TypeScript declarations. Tree-shaking keeps unused effects out of the final bundle, so a project importing a single effect ships under 1KB gzipped rather than paying for all 13.
+## The implementation defines the next polish pass
 
-## The hard parts
+The current presets are glyph-based, with a custom character option. Their presentation needs review against the current Lucide-only policy for owned sites, alongside reduced-motion behaviour, accessibility and repeated-trigger cleanup. The reviewed code does not establish a particle pool, a shared animation loop, a custom render callback or measured mobile frame-rate and bundle-size results. Those claims have been removed from the portfolio.
 
-Spawning hundreds of particles on a single click causes frame drops on a low-end device. The fix was a particle pool: a fixed number of particle objects pre-allocated up front and recycled between triggers instead of created and garbage-collected every time, with the pool size auto-adjusting based on measured frame time.
+## Keep the example proportionate
 
-There was also a portability constraint running underneath all of it. The library needed to work in React, Vue, Svelte, and plain HTML without a different adapter for each. Rather than building framework-specific bindings, the API attaches to a DOM element directly through a plain `attach(element, options)` call. A React hook wrapper exists as a separate export for convenience, but nothing depends on it.
-
-Getting an effect to look right meant tuning gravity and spread by feel: too much gravity and particles feel heavy, too little and they float unnaturally. Every preset went through dozens of iterations, compared side by side at different screen sizes, before it was allowed to ship.
-
-## Outcome
-
-Pizzazz is published on npm under `@unicorn-poo/pizzazz`. It adds particle effects to any website with a single line of code, runs at 60fps on mobile, and weighs under 1KB per effect. The spring-based physics give it a tactile quality that CSS animations can't replicate.
+This is a focused package API and lifecycle example. Rollup distribution and existing DOM-oriented tests are part of its source. It should be demonstrated with an actual recorded interaction and measured output before it is used as evidence of high-performance motion engineering.

@@ -1,41 +1,45 @@
 ---
 title: "Artify"
-description: "Automated daily content pipeline for AI-generated illustrations, carousels, and reels"
-techStack: "Next.js, Remotion, FLUX, Kling, DeepInfra, fal.ai"
+description: "An image-making workspace and content pipeline that turns astronomical context, a source illustration and a format plan into reviewable visual outputs."
+techStack: "Next.js, TypeScript, astronomy-engine, FLUX Kontext, DeepInfra, Kling, fal.ai, Remotion, Spellcast API"
+updated: "2026-11-20"
+status: "Source reviewed at 4894054. Live generation quality, publishing cadence and production outcomes were not tested in this review."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in artify.json. -->
 
-Lunary's social presence needed a steady supply of illustrations, carousels, reels, and stories, each one tied to that day's actual astrological data, each one on-brand, and each one correctly sized for wherever it was going out. Producing that by hand, every day, across every platform, was never going to hold up.
+Source reviewed at 4894054. Live generation quality, publishing cadence and production outcomes were not tested in this review.
 
-## Architecture
+## Keep context, image direction and delivery separate
 
-Four stages, one pipeline, run each morning without anyone touching it.
+Artify combines a browser workspace with scripts for a recurring visual-content workflow. The browser accepts an image and a style, scene or custom instruction. The daily pipeline builds a plan from astronomical context, renders or generates media, prepares captions and can hand the resulting assets to Spellcast. Those are separate boundaries with different failure modes.
 
-### FLUX generates the base illustrations
+## From daily context to a scheduled asset
 
-Base illustrations come from FLUX image-to-image on fal.ai. A set of brand-consistent source images acts as the style anchor for every generation. The pipeline feeds today's astrological context, moon phase, planetary aspects, zodiac season, into the prompt alongside the source image, so the output stays visually consistent while the content itself changes daily.
+1. **Context:** astronomy-engine supplies lunar and solar context used by the day plan alongside the project’s scene and seasonal rules. [Implementation](https://github.com/Sammii-HK/artify/blob/4894054/src/lib/astro.ts)
+2. **Image generation:** The reviewed image-to-image path sends a source image and instruction to FLUX Kontext through DeepInfra. It writes the returned image for later stages. [Implementation](https://github.com/Sammii-HK/artify/blob/4894054/src/lib/pipeline/image-gen.ts)
+3. **Motion and composition:** A separate helper sends still images to Kling through fal.ai. Remotion compositions and rendering scripts prepare formatted assets. [Implementation](https://github.com/Sammii-HK/artify/blob/4894054/scripts/fal-video.ts)
+4. **Delivery:** The client uploads media, creates a draft and calls a separate scheduling endpoint. The daily run records media paths, failures and scheduled post identifiers in a manifest. [Implementation](https://github.com/Sammii-HK/artify/blob/4894054/src/lib/pipeline/spellcast-client.ts)
 
-### Kling turns stills into motion
+Source reviewed at 4894054 on 20 November 2026. This review did not invoke generation or publishing services.
 
-Static illustrations get animated with Kling's image-to-video model, called via DeepInfra. The pipeline pairs a generated illustration with a motion prompt, gentle shimmer on crystals, flowing hair, subtle particle effects, and gets back a 3-5 second clip sized for reels and stories.
+## Make the publishing boundary explicit
 
-### Remotion assembles the composed formats
+A successful image request does not establish that a post exists, has the right identity or is scheduled.
 
-Carousels and formatted posts are built in Remotion, React's video framework. Templates cover the recurring layouts: a 12-slide zodiac carousel (one slide per sign), a daily forecast card, a moon phase graphic. Depending on the target format, the pipeline renders each composition out as an image sequence or a video.
+- **Treat generation as completion:** An image file would stand in for the entire delivery workflow.
+- **Carry outputs into a separate scheduling stage (chosen):** The daily script collects results before uploads and scheduling, counts failures and records returned post identifiers.
 
-### Spellcast handles scheduling
+Generation, rendering and scheduling can be inspected separately. A run manifest is useful operational evidence; proving public delivery still requires the downstream receipt.
 
-Finished assets go to Spellcast, which schedules them at the right time for each platform. The pipeline writes platform-specific captions and hashtags for each post and queues them against the brand's existing cadence configuration.
+## Validation has its own failure policy
 
-## Challenges
+The image path can ask a vision model to inspect visible hands and fingers. A failed check triggers one retry, and a second explicit failure can skip the post. The implementation also has branches that retain an image after a retry API failure, and the validator reports a skipped check as passing when its API fails. Those distinctions matter: the current boolean does not certify that every accepted image was actually checked.
 
-AI image generation doesn't hold a style perfectly across runs, even with the same source images and prompt structure feeding it every time. Most outputs land within the brand's visual range, but outliers still happen, so the pipeline runs a basic quality check on every generation (resolution, aspect ratio, dominant colour) and rejects anything that falls outside bounds.
+## A dry run still has external generation work
 
-Rendering 12-slide carousels with custom fonts, gradients, and overlays takes time. Remotion's server-side rendering lets each slide extract as an independent frame, so the pipeline renders the whole carousel in parallel, keeping total render time under 30 seconds.
+The daily script’s dry-run mode disables Spellcast uploads and scheduling. Image and caption generation can still occur. That boundary makes it useful for inspecting a planned run before delivery, but it should be clear in the tool before someone invokes it. This review used source reads only and did not run the generator or contact the providers.
 
-Then there's the format problem, which is really a multiplication problem. Instagram alone wants three different aspect ratios: 1080x1080 for feed, 1080x1920 for stories, 1080x1350 for carousels. X wants 1200x675. TikTok wants 1080x1920 video. The pipeline maintains a format matrix and renders each piece at every size it needs, deduplicating renders where two platforms happen to share a format.
+## What deserves the next product pass
 
-## Outcome
-
-Artify now produces and schedules the full spread of daily visual content for Lunary's social presence with no manual step in between. It runs every morning, generating illustrations, carousels, reels, and stories tied to that day's actual astrological events. Monthly output went from a handful of manually made posts to consistent daily publishing across every platform.
+The browser workspace should make the input, selected treatment, generated result and failure/retry state equally clear. The pipeline needs validation outcomes that distinguish checked, skipped and failed, together with a visible review step before delivery. Rendering time, cost, daily publication volume and visual consistency need dated run evidence. None is inferred from a script containing an upload or schedule function.

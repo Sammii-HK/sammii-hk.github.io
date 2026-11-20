@@ -1,43 +1,49 @@
 ---
 title: "Podify"
-description: "AI podcast generator turning any content into a two-host episode for $0.04"
-techStack: "Next.js, Ollama (local LLM), Kokoro-82M, Orpheus 3B, ffmpeg"
+description: "A text-to-audio product with explicit stages for source material, dialogue, speech synthesis, assembly and episode distribution."
+techStack: "Next.js, TypeScript, Ollama, Voicebox, configurable TTS providers, ffmpeg, Vercel Blob, RSS"
+updated: "2026-11-20"
+status: "Source reviewed at 460c62a. Generation performance, cost and listening quality were not benchmarked in this review."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in podify.json. -->
 
-Podcasts are one of the most engaging content formats, but producing one is expensive and time-consuming. Recording, editing, and mixing a single episode takes hours. I wanted a system that could take any input (a blog post, a URL, a topic) and produce a natural-sounding two-host podcast episode automatically, at a cost low enough to generate episodes daily.
+Source reviewed at 460c62a. Generation performance, cost and listening quality were not benchmarked in this review.
 
-## Architecture
+## Turn source material into something people can listen to
 
-### Script generation
+Podify accepts text, a URL or a supported content path and prepares a dialogue or narration. The engineering problem spans a long-running process and several formats: source text, structured speaker turns, individual audio clips, an assembled MP3 and episode metadata. The interface needs to keep that progress understandable while preserving the transcript alongside the sound.
 
-A local Ollama model (qwen3:14b, running on my own hardware) converts the input content into a two-host dialogue script, keeping the LLM cost at zero. The system prompt establishes two distinct host personas with different communication styles. One host drives the narrative, the other asks clarifying questions and adds commentary. The output is structured JSON with speaker labels, timing hints, and segment markers. OpenRouter and a hosted Claude path exist as configurable alternatives for higher-quality scripts when the extra cost is worth it.
+## Follow an episode through the system
 
-### TTS synthesis
+1. **Request and capacity:** The generation route resolves source content, selects a voice configuration, checks capacity and creates a job. The reviewed web defaults are Ollama for scripting and Voicebox for speech. [Implementation](https://github.com/Sammii-HK/podify/blob/460c62a/app/api/podcast/generate/route.ts)
+2. **Script and speech:** The shared pipeline saves machine-readable and readable transcripts, then asks the selected speech adapter for each speaker turn. [Implementation](https://github.com/Sammii-HK/podify/blob/460c62a/lib/pipeline.ts)
+3. **Assembly:** ffmpeg converts clips into a consistent audio format, concatenates them with configured pauses and can add available intro, outro and background music. [Implementation](https://github.com/Sammii-HK/podify/blob/460c62a/lib/assemble-podcast.ts)
+4. **Distribution:** The pipeline can upload an MP3 to Blob and register its metadata. The feed route constructs RSS enclosures from recorded audio locations. [Implementation](https://github.com/Sammii-HK/podify/blob/460c62a/app/api/podcast/feed/route.ts)
 
-Each line of dialogue is synthesised individually. Kokoro-82M (self-hosted) is the default for the web app, chosen for its natural prosody and near-zero cost; the CLI defaults to Orpheus 3B via DeepInfra for more expressive delivery. Voice parameters (speed, pitch, emphasis) are tuned per host to create audible distinction between speakers.
+Source reviewed at 460c62a on 20 November 2026. This review did not invoke generation or publishing services.
 
-### Audio assembly
+## Track work outside a component’s loading flag
 
-ffmpeg assembles the individual audio clips into a complete episode. The assembly pipeline adds intro/outro music, crossfades between segments, normalises volume levels across clips, and applies light compression to even out the dynamic range. Silence between speaker turns is calibrated to feel conversational (300-600ms) rather than robotic.
+An episode can outlive a short UI interaction. A person needs to distinguish writing, synthesis, assembly, completion and failure.
 
-### RSS feed output
+- **Keep progress only in the generating page:** A refresh or another request would lose the current view of the process.
+- **Give generation a job record (chosen):** Job state lives in memory locally or in Blob when configured, and the browser polls a status endpoint.
 
-Generated episodes are served as an RSS feed compatible with Apple Podcasts, Spotify, and other podcast players. Each episode includes title, description, duration, and enclosure URL. The feed updates automatically when new episodes are generated.
+The UI displays the stage, reported progress and elapsed time. These are operational signals, not a measured estimate of how much time remains.
 
-### Web UI
+## The audio adapter is a product boundary
 
-The Next.js frontend provides a generation interface with real-time progress. Users see each pipeline stage (scripting, synthesis, assembly) as it completes, with estimated time remaining. Completed episodes can be previewed, downloaded, or published to the RSS feed.
+Speech providers have different voice identifiers, latency and failure behaviour. The current path supports Voicebox and several hosted alternatives. Voicebox paid fallback is explicitly gated by configuration. Clip generation preserves source order while processing tasks concurrently. The selected host voices and missing-voice fallback affect how the final conversation sounds and should be visible during review.
 
-## Challenges
+## Assembly should describe the processing it performs
 
-**Natural dialogue flow**: Early script generations sounded like two people reading a textbook. Fixing this required explicit instructions in the system prompt for conversational patterns: interruptions, "hmm" and "right" interjections, topic callbacks, and genuine disagreements. The scripts now read like an actual conversation.
+The reviewed assembler converts and concatenates clips, uses randomised gaps that depend on whether the speaker changes, and skips those inserted gaps for the Orpheus provider. Optional music is mixed when the requested file exists. This is concrete audio processing; it does not establish content-aware silence trimming, segment crossfades or a loudness/compression pass.
 
-**Audio timing**: Concatenating speech clips with fixed gaps sounds robotic. The assembly step analyses the end of each clip for trailing silence and adjusts the gap dynamically. Quick exchanges get shorter gaps; topic transitions get longer pauses with a subtle music bed.
+## Cost is an estimate until reconciled
 
-**Cost optimisation**: The target was under $0.05 per episode. Running the script-writing model locally on my own hardware keeps that cost at zero for the default path; the remaining spend is DeepInfra's per-minute TTS pricing when Orpheus is used instead of self-hosted Kokoro. Prompt engineering to generate complete scripts in a single call (rather than turn-by-turn) keeps generation fast even on a smaller local model.
+The pipeline estimates speech cost from character count and configured provider rates, then adds a fixed estimate for some script-provider paths. The result is useful metadata for comparing runs, but it is not a reconciled provider invoice. The portfolio does not present a universal per-episode price or a fixed generation time.
 
-## Outcome
+## What still needs listening and interaction evidence
 
-Podify generates a production-quality two-host podcast episode from any content in about three minutes, at a cost of roughly $0.04. The episodes sound natural enough that listeners cannot immediately tell they are AI-generated. The RSS output means episodes can be distributed through standard podcast infrastructure.
+The next review should follow a real source through generation, inspect the saved transcript, listen to the complete output and confirm the episode’s intended feed visibility. Model factuality, naturalness and podcast-platform acceptance need evidence from those actual outputs. This review did not generate audio, invoke a provider, publish an episode or infer listener reactions. AI demonstrations should use recorded, verified results.

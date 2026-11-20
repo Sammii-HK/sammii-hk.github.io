@@ -55,6 +55,22 @@ Removed unsupported human-calibrated scoring and measured learner-outcome claims
 
 Retained the existing detailed structured study and earlier attributed model replay evidence. Rechecked clean committed files in `elsewhere-agent` at `7526032`: provider contract, beliefs, interests, skills and works. The mechanics support the account of probabilistic encounters, mistaken assumptions, practice and persistent changes to the world. This pass did not rerun the Mini model evaluation or establish the current live model configuration. Live world/observatory UX, accessible controls and updated screenshot remain open.
 
+## MCP scaffolder
+
+Reviewed clean source `a699c5d`. The current choices are hello, calculator, notes and summarise. The generated notes example uses an in-memory map exposed as tools; summarise splits sentences and selects a bounded prefix. The CLI uses tsup ESM, while generated projects use tsc and direct tsx. Removed invented file reader/web fetcher, resource/prompt, watch/process-manager, dual-module and timed setup claims. The positional name skips the interactive regex validation; target containment/template escaping and failure paths need a tool-side review before stronger safety claims. No scaffolder or install was run.
+
+## Pizzazz
+
+Reviewed committed implementation `d265b1d`; the unrelated existing .gitignore change was untouched. Effects use DOM spans, CSS transitions and cubic-bezier presets, plus timed removal and a returned listener cleanup. Removed physical-spring/shared-loop/pool/custom-renderer and unmeasured size/FPS claims. Current glyph presets need review against the owned-site icon policy, together with reduced motion and trigger/cleanup behaviour. No runtime effect or benchmark was invoked.
+
+## Terminal portfolio
+
+Reviewed clean source `3f7ab9e`. A direct JavaScript entry calls Ink; ink-select-input owns the menu and state chooses a view. Links are text, and the views use fixed widths. Removed custom-navigation-hook, URL-launch, responsive-size, custom-exit-reset, compiled-entry and startup-time claims. Terminal interaction, current data and narrow-window behaviour remain open.
+
+## Fallback content
+
+All seven reviewed Markdown files are now kept in step with their canonical structured studies. This prevents the old unsupported statements surviving in the fallback format or source browsing. No case-study file was deleted.
+
 ## Validation
 
-The full portfolio suite passes: 109 tests across 16 files. TypeScript and the portfolio icon guard pass, with zero blocking icon findings and 18 data-symbol review candidates. The shared icon guard's eight regression tests pass. Source/API/architecture links point at the reviewed revisions for Conjure, Artify and Podify. The iPrep and Moth source reviews are recorded here without manufacturing hosted proof for local source branches.
+The full portfolio suite passes: 112 tests across 16 files. TypeScript and the portfolio icon guard pass, with zero blocking icon findings and 18 data-symbol review candidates. The shared icon guard's eight regression tests pass. Source/API/architecture links point at the reviewed revisions for Conjure, Artify and Podify. The iPrep and Moth source reviews are recorded here without manufacturing hosted proof for local source branches.

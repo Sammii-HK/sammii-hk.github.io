@@ -68,8 +68,8 @@
       "title": "Pizzazz",
       "kind": "project",
       "url": "https://www.npmjs.com/package/@unicorn-poo/pizzazz",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source accuracy and case-study pass completed; tool polish pending",
+      "evidenceAndRemaining": "Reviewed committed implementation d265b1d: DOM spans, CSS transitions/cubic-bezier presets, timed removal and listener cleanup. Corrected spring physics/pooling/shared-loop/render-callback and unmeasured size/FPS claims. Legacy glyph presets, reduced motion, accessibility and real interactions need a tool-side pass. Existing .gitignore change untouched."
     },
     {
       "id": "lunary",
@@ -92,8 +92,8 @@
       "title": "sammii-cli",
       "kind": "project",
       "url": "https://www.npmjs.com/package/sammii",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source accuracy and case-study pass completed; tool polish pending",
+      "evidenceAndRemaining": "Reviewed clean source 3f7ab9e: direct JS Ink entry, select-input menu, view state, text links, fixed widths. Corrected auto-open/custom navigation/responsive/build and timing claims. Actual terminal UX, glyph-policy applicability and current project data remain to review. No CLI run."
     },
     {
       "id": "podify",
@@ -164,8 +164,8 @@
       "title": "create-mcp-server",
       "kind": "project",
       "url": "https://www.npmjs.com/package/init-mcp-server",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source accuracy and case-study pass completed; tool polish pending",
+      "evidenceAndRemaining": "Reviewed committed source a699c5d: current examples hello/calculator/notes/summarise, explicit modules, stdio, generated tsc/tsx scripts and install/Git stages. Corrected old file-reader/web-fetch/watch/dual-module and timing claims. Positional-name validation, cancellation/install failures and generated-project runtime remain to test. No scaffold/install run."
     },
     {
       "id": "crystal-index",

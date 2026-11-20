@@ -1,43 +1,53 @@
 ---
 title: "iPrep"
-description: "AI-powered spoken interview practice with multi-dimensional scoring"
-techStack: "Next.js, SwiftUI, Llama 3.3 70B, Whisper Large V3 Turbo, RevenueCat, Prisma, PostgreSQL"
+description: "A practice product that connects spoken answers with worked engineering lessons, executable exercises and evidence of how much support a learner used."
+techStack: "Next.js, TypeScript, Web Workers, React, SwiftUI, Prisma, PostgreSQL"
+updated: "2026-11-20"
+status: "Web source reviewed at 9e415de. This review did not access learner records, record audio or verify native delivery."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in iprep.json. -->
 
-Interview preparation tools focus on written answers, but real interviews are spoken. Delivery matters as much as content: speaking too fast, using filler words, or failing to structure answers clearly can undermine a strong response. I wanted a platform where you practise by speaking aloud, get transcribed automatically, and receive detailed scoring on both what you said and how you said it.
+Web source reviewed at 9e415de. This review did not access learner records, record audio or verify native delivery.
 
-## Architecture
+## Preparation needs a learning loop
 
-### Web Audio recording
+iPrep began with spoken interview practice and now also teaches engineering through interactive lessons and feature construction. The product problem is broader than scoring an answer: a person needs to understand an unfamiliar idea, try a small action, see why it behaved that way and return to it later with less support.
 
-The recording interface uses the Web Audio API with MediaRecorder to capture speech directly in the browser. Audio is recorded as webm/opus for efficient file sizes. A real-time waveform visualisation gives feedback during recording so users know the microphone is active and picking up their voice.
+## Teach before asking for a complete solution
 
-### Whisper transcription
+A blank editor and a large assessment can leave a learner stuck before they have a useful model of the task.
 
-Recorded audio is sent to DeepInfra's hosted Whisper Large V3 Turbo for speech-to-text transcription, with OpenAI's Whisper API as an automatic fallback if the DeepInfra key isn't configured. Whisper returns timestamped segments, which are used both for the transcript display and for delivery analysis (calculating words per minute from segment timing, identifying pauses).
+- **Offer hints around the full assessment:** The complete task remains in front of the learner even when its first boundary is unfamiliar.
+- **Build the idea in graduated steps (chosen):** Each construction lesson names a goal, a first action and a technical term, then shows a worked example using different data before the learner changes their own source.
 
-### Multi-dimensional Llama scoring
+The feature-construction path moves through local choice, a controlled input, a captured save and reply ownership. Worked examples explain the pattern without replacing the learner’s source. This teaching structure is represented in lib/playground/studio-build-teaching.ts.
 
-The transcript is scored across two axes. Delivery metrics are calculated deterministically: words per minute, filler word count ("um", "uh", "like", "you know"), pause frequency, and estimated confidence based on speech patterns. Content quality is assessed by Llama 3.3 70B (via DeepInfra, with GPT-4o mini as fallback) against the STAR methodology (Situation, Task, Action, Result), checking for specificity, measurable impact, clarity, and relevance to the question.
+## A real attempt deserves causal feedback
 
-### Native iOS app
+The studio worker compiles the learner’s model and React view, creates a DOM environment and handles explicit events and simulated replies. Checks can therefore inspect the changed source and the resulting behaviour. The teaching copy connects failed checks to a concrete boundary, such as keeping the saved value separate from a draft or accepting only the reply that owns a request. A generated explanation alone is not an executed exercise.
 
-iPrep also ships as a native SwiftUI app with home-screen widgets, a watchOS companion, and Mac Catalyst support. The native app transcribes with Apple's Speech framework, using server recognition because on-device recognition drops text after pauses on iOS 18. Scoring is tiered: a local rule-based engine and on-device Apple Intelligence handle the free path, while a RevenueCat-gated Pro tier calls the same Llama 3.3 70B backend as the web app for higher-quality feedback.
+## Completion evidence has a contract
 
-### Question banks and analytics
+Guided construction validates the expected cumulative groups and check labels before recording a checkpoint. Receipts are tied to the source that was actually checked; changing that source can invalidate the checkpoint. Guided receipts are explicitly marked assisted. The broader completion contract also carries hints, misses and scaffold use, so independent practice and supported work can remain distinguishable. These rules live in studio-build-progress.ts, progress-contract.ts and the learning engine.
 
-Questions are organised by category (behavioural, technical, situational) and difficulty. Prisma + PostgreSQL stores every attempt with its scores, enabling analytics over time. Users can see their average WPM trending down, filler word count decreasing, and STAR compliance improving across sessions.
+## Treat progress sync as an ownership boundary
 
-## Challenges
+A local completion can be retried or arrive through more than one client. A response from the wrong account must not silently acknowledge it.
 
-**Filler word detection**: Whisper does not always transcribe filler words consistently. "Um" might be transcribed as part of the following word, or omitted entirely. The detection system uses both the transcript text and audio timing: unusually long pauses between segments often indicate filler words that Whisper dropped.
+- **Upload local counts as a total:** A retry could duplicate work, and a total would lose the evidence behind the completion.
+- **Sync identifiable completion events (chosen):** The client submits events with natural session/lesson identities, checks the returned account and accepts only recognised created or duplicate receipts before removing queued work.
 
-**Scoring calibration**: GPT-4's content scoring needed to correlate with how real interviewers evaluate answers. I calibrated the scoring prompt against example answers rated by experienced interviewers, adjusting the rubric until the model's scores matched human judgement within one point on a five-point scale.
+Conflicts, rejected receipts and an unexpected account leave work queued. A separate coaching reader replays canonical completion evidence through the existing learning functions. This is a concrete full-stack boundary in progress-client.ts and coaching-progress.ts, rather than a claim that every device has been verified in this review.
 
-**Recording reliability**: Browser audio recording is fragile. Different browsers handle MediaRecorder differently, some mobile browsers do not support it at all. The system checks for API support on load, shows clear error messages for unsupported browsers, and provides a fallback text input mode.
+## Keep AI feedback connected to what was observed
 
-## Outcome
+The spoken-practice path records audio and uses transcription and feedback services alongside deterministic delivery calculations. Pace and filler counts describe an attempt. Confidence indicators are heuristics based on language and timing, not a measurement of a person’s inner state. The reviewed scoring instructions distinguish behavioural examples, where STAR structure is relevant, from factual questions, where it is not. That distinction keeps the scoring method connected to the kind of answer being practised.
 
-iPrep gives job candidates a practice environment that mirrors real interview conditions. Speaking aloud, getting scored on delivery, and tracking improvement over time addresses the gap between knowing good answers and delivering them well. The analytics dashboard shows measurable progress across practice sessions.
+## The public curriculum is separate from private preparation
+
+The public coaching catalogue exposes lesson goals, worked teaching content and supported exercise information. Its execution text makes clear that discussing or revealing code in a chat does not establish an independent pass. Private question banks and interview material use separately scoped access. The portfolio can show the learning mechanism without turning someone’s preparation history into public evidence.
+
+## What still needs a person in the loop
+
+The next product review should observe hesitation, requested help and later independent recall, as well as verify browser and native continuity. Passing checks establishes particular behaviours, not enjoyment, retention or interview performance. This case study makes no claim of a human-calibrated scoring benchmark or measured improvement in candidate outcomes. Native features and live account flows need their own current delivery evidence.
