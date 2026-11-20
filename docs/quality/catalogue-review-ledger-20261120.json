@@ -13,7 +13,7 @@
       "kind": "project",
       "url": "https://saer.app",
       "status": "Own local component registry and Create handoff verified; publication pending",
-      "evidenceAndRemaining": "Owner confirmed Saer\u2019s own registry. bef31ea adds7component shadcn registry, searchable real previews and customised theme export; source-only public-repo candidate excludes paidengine.35Loomchecks and browser/custompurpleexport proof pass. WebNext15.5.29 securitybatch2b283f8 reports audit0/186tests/buildpass. New local directory screenshot incorporated. No publicrepository, distributionlicence, namespace registration or deployment claimed. Root owns furthericonfollow-up."
+      "evidenceAndRemaining": "Owner confirmed Saer’s own registry. bef31ea adds7component shadcn registry, searchable real previews and customised theme export; source-only public-repo candidate excludes paidengine.35Loomchecks and browser/custompurpleexport proof pass. WebNext15.5.29 securitybatch2b283f8 reports audit0/186tests/buildpass. New local directory screenshot incorporated. No publicrepository, distributionlicence, namespace registration or deployment claimed. Root owns furthericonfollow-up."
     },
     {
       "id": "gamut",
@@ -60,8 +60,8 @@
       "title": "Lattiq",
       "kind": "project",
       "url": "https://lattiq.sammii.dev",
-      "status": "Local product pass verified",
-      "evidenceAndRemaining": "Writing room, real persistence, icon guard and production build. Screenshot and final release reconciliation pending."
+      "status": "Current local device-only writing-room/editor/shelf verified; release and hosted collaboration open",
+      "evidenceAndRemaining": "d7071fe: actual production preview with an empty WebSocket URL. A synthetic scratch-pad sample and heading formatting survived reload; toolbar-to-document Tab, room/shelf navigation and opening the shipped public-domain Yellow Wallpaper were verified. Desktop and 390px had no document overflow; eleven phone toolbar targets measured at least 44px. Current room/editor/shelf captures are incorporated with local and synthetic captions. Normal lint, 11 icon regressions, TypeScript, production build and full audit zero pass. Earlier collaboration and benchmark evidence is retained separately, not re-certified. No private/account/DB/WebSocket/provider flow was used. Hosted collaboration and release remain open."
     },
     {
       "id": "pizzazz",
@@ -180,8 +180,8 @@
       "title": "The CSS Color Game",
       "kind": "project",
       "url": "https://thecolorgame.uk",
-      "status": "Source and claim review completed; actual tool checks open",
-      "evidenceAndRemaining": "Source 243408d, local game component change preserved. Evidence: src/lib/colours.ts; src/components/ColourGame.tsx; src/lib/email.ts; src/app/api/send-daily-email/route.ts; src/app/api/og/highscore/route.tsx. Established: Date-hashed colour helper, browser personal progress, React Email worker delivery and query-driven OG images. Removed shared-leaderboard, identical daily game/distractors, direct Resend, Edge middleware, durable send dedupe and measured retention claims. Remaining: Play/error/reset/phone/keyboard; process-local email dedupe and fallback recipients; no live delivery or DB checks. Icon scan: 28 blocking, 20 content-symbol reviews."
+      "status": "Local actual client game and phone/keyboard flows verified; full site and delivery checks open",
+      "evidenceAndRemaining": "cfaf28d builds on owner draft snapshot b5f0891; main 243408d and the owner Gauntlet source remain unchanged. Explicit round state and Next, duplicate-answer lock, three-correct promotions at 10/20/30 points, distinct rendered alternatives, CSS aliases, resilient browser-local progress and consistent theme are repaired. Actual client-only desktop, 390px, Enter, promotion, results and focus were verified. Labelled captures are incorporated inside the study; existing live hero retained. Twenty Jest checks, 11 icon regressions, zero icon violations, full TypeScript, changed-source lint and clean npm ci pass; full and production audit zero. Full Next build withheld; broad legacy lint failures and date/timezone semantics remain. No DB, email, worker, admin, generation or production proof is claimed. Existing owner Gauntlet contribution is credited."
     },
     {
       "id": "flip",
@@ -956,7 +956,7 @@
     },
     {
       "id": "now",
-      "title": "How long \u201cnow\u201d takes",
+      "title": "How long “now” takes",
       "kind": "chart",
       "url": "https://labs.sammii.dev/charts/now/",
       "status": "Source chain checked; product and accuracy review open",

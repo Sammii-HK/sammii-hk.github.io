@@ -1,31 +1,79 @@
 {
   "title": "Lattiq",
-  "description": "Repairing a local-first editor, from a misread heartbeat to measured convergence after offline edits.",
+  "description": "A local-first writing room with a working editor, readable device-only saving and separately documented collaboration experiments.",
   "techStack": "Next.js, Lexical, Yjs, IndexedDB, WebSockets",
   "role": "Solo: design, engineering and product",
-  "status": "Collaboration verified locally; public demo remains local-only until the room server is hosted",
+  "status": "Unreleased local d7071fe: device-only editor, reload persistence and formatting verified; hosted collaboration was not exercised.",
   "updated": "2026-11-20",
   "blocks": [
     {
       "type": "prose",
       "heading": "The promise had to work",
-      "body": "Lattiq is an editor whose document lives on the device before it lives on a server. The release work restores the actual Lexical-to-Yjs binding, local persistence and collaboration, then checks the difficult paths: reload while offline, concurrent offline edits and reconnecting to a persisted room."
+      "body": "Lattiq puts a document on the device before it depends on a server. The current local writing-room pass checks the visible product: opening a scratch pad, editing and formatting a labelled synthetic sample, reloading it, and reading a shipped public-domain book. It runs with no WebSocket URL and accurately shows device-only storage. Earlier collaboration and benchmark evidence is kept separately below; this pass did not re-certify it."
+    },
+    {
+      "type": "media",
+      "layout": "single",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/lattiq-writing-room-desktop.jpg",
+          "alt": "Lattiq local writing room with Room to think, Space to write, a scratch-pad entry point and explicit device-only storage explanation.",
+          "width": 1144,
+          "height": 926,
+          "caption": "Unreleased local writing room. Component presentation captured before the dependency-only d7071fe update; its source was unchanged. No collaboration server is connected."
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "From the room to a saved page",
+      "body": "The scratch pad opens through the writing-room navigation. A visibly labelled synthetic sample survived reload, and Heading 1 applied through the real toolbar became a heading in the document. Tabbing from Link reached the editable Document field; All documents returned to the room. On a 390px screen the eleven formatting buttons wrapped into two rows with at least 44px targets and no document overflow. These checks establish browser-local persistence and formatting, not a backup guarantee."
+    },
+    {
+      "type": "media",
+      "layout": "pair",
+      "items": [
+        {
+          "src": "/assets/images/refresh-20261120/lattiq-editor-desktop.jpg",
+          "alt": "Lattiq scratch pad containing a clearly labelled synthetic local review sample with Heading 1 formatting and Saved on this device status.",
+          "width": 1144,
+          "height": 926,
+          "caption": "Actual editor from the final local d7071fe build. Synthetic sample writing, saved only on the review origin; no private document or remote collaborator."
+        },
+        {
+          "src": "/assets/images/refresh-20261120/lattiq-editor-phone.jpg",
+          "alt": "Lattiq editor at 390px with the formatting toolbar wrapped into two rows and synthetic review text below it.",
+          "width": 390,
+          "height": 844,
+          "caption": "Final local editor at 390px. Reload persistence and selected-text heading formatting were checked after the compatible dependency update."
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "heading": "A shelf that opens the actual editor",
+      "body": "The reading-shelf link reaches the library section. Opening The Yellow Wallpaper loads its shipped public-domain text into the editable document. The shelf, room and editor share navigation and a restrained editorial palette. The shelf arrow is Lucide. No private library, account or remote storage was used."
     },
     {
       "type": "media",
       "items": [
         {
-          "src": "/assets/images/refresh-20261120/lattiq-writing-room.jpg",
-          "alt": "Lattiq writing-room homepage with an editorial heading, scratch-pad entry point and device-only storage explanation.",
-          "width": 1280,
-          "height": 720,
-          "caption": "The redesigned writing room, local release candidate, 20 November 2026."
+          "src": "/assets/images/refresh-20261120/lattiq-reading-shelf-desktop.jpg",
+          "alt": "Lattiq reading shelf with public-domain reading copies of The Yellow Wallpaper, Alice’s Adventures in Wonderland and Pride and Prejudice.",
+          "width": 1144,
+          "height": 926,
+          "caption": "Actual local public-domain shelf, unchanged by the dependency-only update. Opening The Yellow Wallpaper was verified; the capture does not demonstrate a hosted reading library."
         }
       ]
     },
     {
+      "type": "callout",
+      "tone": "note",
+      "body": "The current d7071fe pass has normal lint, the 11 shared icon regressions and the production build with TypeScript passing; the final dependency audit reports zero findings. It does not re-certify collaboration, offline reconnect merging, older timing benchmarks or assistive-technology conformance. The captures are unreleased local views, not a deployment."
+    },
+    {
       "type": "flow",
-      "heading": "Follow an edit across the stack",
+      "heading": "Earlier collaboration repair: follow an edit across the stack",
       "steps": [
         {
           "label": "Editor binding",
@@ -48,7 +96,7 @@
           "href": "https://github.com/Sammii-HK/lattiq/blob/dbabae3/src/components/editor/SyncStatus.tsx"
         }
       ],
-      "caption": "The collaboration path is verified on localhost. The public deployment is device-only until a long-lived room server with persistent storage is hosted."
+      "caption": "The earlier release report verifies this collaboration path on localhost. The current writing-room pass used no room server. Hosted collaboration still needs a long-lived service with persistent storage."
     },
     {
       "type": "failure",
@@ -81,7 +129,7 @@
     },
     {
       "type": "metrics",
-      "heading": "Measured on localhost",
+      "heading": "Earlier localhost measurements",
       "items": [
         {
           "label": "Cold book load",
@@ -112,12 +160,12 @@
     {
       "type": "prose",
       "heading": "What those numbers establish",
-      "body": "The measurements use a production build and headless Chrome on an Apple M3, without network throttling. They measure the local code path. A hosted collaboration service will add network latency and needs a separate measurement. The browser tests cover two-way edits, presence removal, offline reload and convergence, seed deduplication, token rejection and console errors."
+      "body": "The earlier measurement report uses a production build and headless Chrome on an Apple M3, without network throttling. It measures that local code path, not the current writing-room pass or hosted internet latency. That report records two-way edits, presence removal, offline reload and convergence, seed deduplication, token rejection and console errors. The current device-only review did not start a room server or repeat those benchmarks."
     },
     {
       "type": "callout",
       "tone": "note",
-      "body": "The public build runs in device-only mode until a long-lived room server with persistent disk is hosted. Local collaboration is verified; a production collaboration service is not yet available."
+      "body": "The current local build runs device-only with an empty WebSocket URL. A hosted collaboration service would require a long-lived room server with persistent disk. Earlier local collaboration evidence is not a production service or a re-certification by the current room/editor/shelf pass."
     },
     {
       "type": "links",

@@ -1,33 +1,79 @@
 ---
 title: "Lattiq"
-description: "A collaborative rich text editor designed local-first around Yjs CRDTs"
-techStack: "Next.js, Lexical, Yjs, WebSockets, TypeScript"
+description: "A local-first writing room with a working editor, readable device-only saving and separately documented collaboration experiments."
+techStack: "Next.js, Lexical, Yjs, IndexedDB, WebSockets"
+updated: "2026-11-20"
+status: "Unreleased local d7071fe: device-only editor, reload persistence and formatting verified; hosted collaboration was not exercised."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in lattiq.json. -->
 
-Take a collaborative editor offline mid-sentence and most of them fall over: either the edit disappears, or you're staring at a merge conflict dialog the second the connection comes back. That's the deal most tools ask you to accept. Lattiq is designed to remove it: edits land locally first, editing keeps working with no network at all, and when a connection reappears the document reconciles with everyone else's changes, with no conflict resolution screen for the user to sit through.
+Unreleased local d7071fe: device-only editor, reload persistence and formatting verified; hosted collaboration was not exercised.
 
-## Architecture
+## The promise had to work
 
-### Yjs: convergence instead of conflict resolution
+Lattiq puts a document on the device before it depends on a server. The current local writing-room pass checks the visible product: opening a scratch pad, editing and formatting a labelled synthetic sample, reloading it, and reading a shipped public-domain book. It runs with no WebSocket URL and accurately shows device-only storage. Earlier collaboration and benchmark evidence is kept separately below; this pass did not re-certify it.
 
-Sync is built on Yjs, a CRDT (Conflict-free Replicated Data Type) library. The property that matters is that concurrent edits from different clients are guaranteed to converge to the same result with no central authority adjudicating them. That's a different model from operational transform, which needs a server in the loop to resolve conflicting edits. It means two people can edit the same paragraph at the same time, even while one of them is offline, and when they reconnect the changes merge without either side's work being overwritten.
+_Unreleased local writing room. Component presentation captured before the dependency-only d7071fe update; its source was unchanged. No collaboration server is connected._
 
-### A provider built for bad connections
+## From the room to a saved page
 
-Rather than use the stock WebSocket provider, Lattiq has its own. It reconnects with exponential backoff, sends heartbeats so a dead connection is noticed rather than assumed alive, and buffers updates made while offline so they are sent once the connection is back. Yjs state vectors do the rest: on reconnect each side sends only the updates the other has not seen.
+The scratch pad opens through the writing-room navigation. A visibly labelled synthetic sample survived reload, and Heading 1 applied through the real toolbar became a heading in the document. Tabbing from Link reached the editable Document field; All documents returned to the room. On a 390px screen the eleven formatting buttons wrapped into two rows with at least 44px targets and no document overflow. These checks establish browser-local persistence and formatting, not a backup guarantee.
 
-### A room server
+_Actual editor from the final local d7071fe build. Synthetic sample writing, saved only on the review origin; no private document or remote collaborator._
 
-The collaboration server's job is rooms and relay. A document ID is the room; clients that open the same document join the same room, and the server relays Yjs updates between them. It also persists each document's Yjs state to disk, so a room survives everyone leaving.
+_Final local editor at 390px. Reload persistence and selected-text heading formatting were checked after the compatible dependency update._
 
-### Why Lexical
+## A shelf that opens the actual editor
 
-The editor is built on Lexical, Meta's text editor framework, which supplies the content model, selection handling, and undo/redo stack. The toolbar covers headings, bold, italic, underline, lists, code blocks, quotes, and links. Lexical won out over ProseMirror and Slate on a cleaner API, stronger TypeScript support, and React integration that didn't need extra glue.
+The reading-shelf link reaches the library section. Opening The Yellow Wallpaper loads its shipped public-domain text into the editable document. The shelf, room and editor share navigation and a restrained editorial palette. The shelf arrow is Lucide. No private library, account or remote storage was used.
 
-## Where it stands
+_Actual local public-domain shelf, unchanged by the dependency-only update. Opening The Yellow Wallpaper was verified; the capture does not demonstrate a hosted reading library._
 
-The pieces above are built, but the binding between Lexical and Yjs is not live. Lexical's CollaborationPlugin hit a bundling bug between its dependency lib0 and webpack, so the live demo currently runs the editor with Lexical's own undo history and no sync. Rebuilding that binding is the next piece of work, and it is the hard part: remote Yjs changes have to be applied to Lexical's state without Lexical then broadcasting the same change back out.
+> The current d7071fe pass has normal lint, the 11 shared icon regressions and the production build with TypeScript passing; the final dependency audit reports zero findings. It does not re-certify collaboration, offline reconnect merging, older timing benchmarks or assistive-technology conformance. The captures are unreleased local views, not a deployment.
 
-Once it is live, the plan is to measure it rather than describe it: load time for a full-length book, the delay from a keystroke to it appearing on another client, and how edits made offline merge when a client reconnects.
+## Earlier collaboration repair: follow an edit across the stack
+
+1. **Editor binding:** Lexical’s CollaborationPlugin maps the visible document into Yjs. The document is loaded before network collaboration starts, and undo uses the collaborative history. [Implementation](https://github.com/Sammii-HK/lattiq/blob/dbabae3/src/components/editor/CollaborativeEditor.tsx)
+2. **Persistence and transport:** The provider restores IndexedDB state and negotiates missing updates with Yjs state vectors. Heartbeats use a separate message type from presence. [Implementation](https://github.com/Sammii-HK/lattiq/blob/dbabae3/src/lib/yjs/collaboration-provider.ts)
+3. **Room boundary:** The server validates room names and optional expiring room tokens, owns socket presence, and writes room state through a temporary file and rename. [Implementation](https://github.com/Sammii-HK/lattiq/blob/dbabae3/server/index.ts)
+4. **Visible honesty:** The status surface distinguishes device-only saving from collaboration. No WebSocket URL means the deployed editor stays local rather than showing pretend collaborators. [Implementation](https://github.com/Sammii-HK/lattiq/blob/dbabae3/src/components/editor/SyncStatus.tsx)
+
+The earlier release report verifies this collaboration path on localhost. The current writing-room pass used no room server. Hosted collaboration still needs a long-lived service with persistent storage.
+
+## A protocol error disguised as a bundling problem
+
+- **What happened:** Collaboration had been removed after a lib0 decoder error, leaving a standalone editor without the promised sync.
+- **Why:** The server answered a heartbeat with a byte the client interpreted as an awareness message, then tried to decode a payload that was not there. The report reproduces this without a bundler.
+- **Fix:** Give heartbeat traffic its own message type, restore CollaborationPlugin inside LexicalCollaboration, and use Lexical’s own Yjs binding to build valid seeds.
+
+## Persist the document, not an outgoing queue
+
+An in-memory offline buffer disappears on reload. A convincing offline demo must survive closing and reopening the page.
+
+- **Queue unsent messages in memory:** Works only while the tab stays alive.
+- **Persist Yjs state in IndexedDB (chosen):** Load local state and apply the seed after the binding is ready, then connect and exchange missing state using Yjs state vectors.
+
+Offline edits survive reload. A browser and server applying the same deterministic seed retain one copy. Undo follows the collaborative document rather than treating remote changes as local history.
+
+## A bounded room server
+
+The room server validates document names and can require expiring, room-scoped HMAC tokens. Presence belongs to a socket and is removed when it leaves. Disk writes use a temporary file and rename. This is a single-instance design with anonymous per-tab identities, not a multi-tenant permissions system.
+
+## Earlier localhost measurements
+
+- **Cold book load:** 269 ms median (127,360 words; empty IndexedDB; navigation to all blocks in the DOM). Source: docs/live-sync-report.md and bench/results.json, release branch, 20 November 2026
+- **Warm load with server down:** 213 ms median (The same book loaded from IndexedDB). Source: docs/live-sync-report.md, Measurements table
+- **Keystroke to remote DOM:** 1.4 ms median (100 single-keystroke samples on localhost; not internet latency). Source: docs/live-sync-report.md, Measurements table
+- **Offline merge after sockets reopen:** 21 ms median (5 samples; excludes reconnect backoff. From server restart: 786 ms median.). Source: docs/live-sync-report.md, Measurements table
+
+## What those numbers establish
+
+The earlier measurement report uses a production build and headless Chrome on an Apple M3, without network throttling. It measures that local code path, not the current writing-room pass or hosted internet latency. That report records two-way edits, presence removal, offline reload and convergence, seed deduplication, token rejection and console errors. The current device-only review did not start a room server or repeat those benchmarks.
+
+> The current local build runs device-only with an empty WebSocket URL. A hosted collaboration service would require a long-lived room server with persistent disk. Earlier local collaboration evidence is not a production service or a re-certification by the current room/editor/shelf pass.
+
+## Explore the work
+
+- [Open the editor](https://lattiq.sammii.dev)
+- [Read the measurement report](https://github.com/Sammii-HK/lattiq/blob/claude/lattiq-live-sync-c33f52/docs/live-sync-report.md)
