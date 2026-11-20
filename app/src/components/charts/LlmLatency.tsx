@@ -105,7 +105,7 @@ export function LlmLatency() {
 function Replay({ chunks, total, label }: { chunks: [number, string][]; total: number; label: string }) {
   const [t, setT] = useState<number | null>(null);
   const [speed, setSpeed] = useState(1);
-  const raf = useRef<number>();
+  const raf = useRef<number | undefined>(undefined);
   useEffect(() => () => { if (raf.current) cancelAnimationFrame(raf.current); }, []);
   useEffect(() => { if (raf.current) cancelAnimationFrame(raf.current); setT(null); }, [chunks]);
   const play = () => {

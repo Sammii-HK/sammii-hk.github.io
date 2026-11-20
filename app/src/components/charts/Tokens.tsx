@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type JSX } from "react";
 import DATA from "../../../labs/charts/tokens/data.json";
 
 /**

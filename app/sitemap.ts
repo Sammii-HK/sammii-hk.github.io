@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next';
-import { getAllPosts, REVALIDATE } from './lib/blog';
+import { getAllPosts } from './lib/blog';
 import { getAllCaseStudySlugs } from './lib/case-studies';
 
-export const revalidate = REVALIDATE;
+export const revalidate = 600;
 
 /** Every public page, so search engines and AI crawlers find the writing and the work without following links. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

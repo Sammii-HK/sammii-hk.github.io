@@ -10,8 +10,9 @@ import "../explorations.css";
 export const dynamicParams = false;
 export function generateStaticParams() { return EXPLORATIONS.map(({ slug }) => ({ slug })); }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const item = getExploration(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const item = getExploration(slug);
   if (!item) return { title: "Exploration not found", robots: { index: false } };
   return {
     title: { absolute: item.seoTitle },
@@ -23,8 +24,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ExplorationPage({ params }: { params: { slug: string } }) {
-  const item = getExploration(params.slug);
+export default async function ExplorationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const item = getExploration(slug);
   if (!item) notFound();
   const related = getRelatedExplorations(item);
   return (

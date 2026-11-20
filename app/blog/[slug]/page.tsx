@@ -2,10 +2,10 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
-import { getAllSlugs, getPostBySlug, REVALIDATE } from '../../lib/blog';
+import { getAllSlugs, getPostBySlug } from '../../lib/blog';
 import { InteractiveExploration } from '../../src/components/blog/InteractiveExploration';
 
-export const revalidate = REVALIDATE;
+export const revalidate = 600;
 export const dynamicParams = true;
 import { SiteShell } from '../../src/components/site/SiteShell';
 import { ArticleJsonLd } from '../../src/components/ArticleJsonLd';

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getAllPosts, REVALIDATE } from '../lib/blog';
+import { getAllPosts } from '../lib/blog';
 
-export const revalidate = REVALIDATE;
+export const revalidate = 600;
 import { SiteShell } from '../src/components/site/SiteShell';
 
 export const metadata: Metadata = {

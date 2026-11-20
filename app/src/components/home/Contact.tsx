@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import type { Lens } from "../../../common/data/projects";
 import { EMAIL, GITHUB_URL_SAMMII, LINKEDIN_URL, STUDIO_URL } from "../../../constants";
 import { useLens } from "../lens/LensProvider";
@@ -36,9 +37,9 @@ export const Contact = () => {
       </ul>
       <p className="contact-colophon">
         <span>© {new Date().getFullYear()} Sammii Kellow</span>
-        <a href="/blog/">Blog</a>
-        <a href="/speaking/">Speaking</a>
-        <a href="/rss.xml">RSS</a>
+        <Link prefetch={false} href="/blog/">Blog</Link>
+        <Link prefetch={false} href="/speaking/">Speaking</Link>
+        <Link prefetch={false} href="/rss.xml">RSS</Link>
         <a href="https://labs.sammii.dev/">Labs</a>
       </p>
     </section>

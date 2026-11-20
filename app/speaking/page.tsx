@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { EMAIL, LINKEDIN_URL } from "../constants";
@@ -97,7 +98,7 @@ export default function SpeakingPage() {
               </a>
             </li>
             <li>
-              <a href="/blog/">Blog</a>
+              <Link prefetch={false} href="/blog/">Blog</Link>
             </li>
           </ul>
         </section>
