@@ -260,16 +260,16 @@
       "title": "Beyond Light VR",
       "kind": "project",
       "url": "https://beyond-light-vr.vercel.app",
-      "status": "Source and claim review completed; actual tool checks open",
-      "evidenceAndRemaining": "Source 91636b3. Evidence: src/journey.js; src/main.js; src/room.js; src/shaders/uvReveal.frag. Established: Authored colour phases, WebXR entry, GLSL text reveal and desktop postprocessing bloom after reading time. The VR branch uses the plain renderer, so desktop bloom is not proof of a headset white-out finish. Remaining: Headset session/controller/comfort/physical performance, phone navigation, font reading time, reduced motion and desktop-versus-VR parity. It is an artistic fluorescence simulation, not a UV/wavelength measurement. Icon scan: 1 blocking, 0 reviews."
+      "status": "Local non-VR actual-tool pass completed; headset and full timed journey remain",
+      "evidenceAndRemaining": "Localf3eaa32:17clock/control/iconchecks/lint/build/audit0;actual1144/390pause/next/restart/UVtext/arrowlook andmidtransitionpauseNextregression/nooverflow44 verified.7originalartfileshashidentical. ScreenRGBinterpretation, notphysicalIRUV. Noheadset/full50+9stimedjourney/AT/physicaltouchcertification."
     },
     {
       "id": "celestial-map",
       "title": "Celestial map",
       "kind": "project",
       "url": "https://celestial-map.sammii.dev",
-      "status": "Source and claim review completed; actual tool checks open",
-      "evidenceAndRemaining": "Source 92f24cc, untracked build output and ignore files preserved. Evidence: src/stars.js; src/projection.js; src/controls.js; src/interaction.js; src/planets.js. Established: D3 orthographic Canvas map, remote D3 Celestial catalogue, approximate B-V-to-RGB and magnitude-size mapping, named-star overlays and Astronomy Engine sidereal-time controls. Removed unverified 9,000-plus count and calibrated-colour implication. Remaining: Pin and attribute remote master catalogue; verify count and load/error states, projection/behind-globe clipping, controls and astronomical interpretation. No CDN request or scientific recalculation. Icon scan: 0 blocking, 0 reviews."
+      "status": "Local actual-tool pass completed; independent astronomy validation remains",
+      "evidenceAndRemaining": "Local614df51:13product+11icons/lint/build/audit0/frozenofflineinstall. Actual1144/390 UTC/nativekeys/bodyinspectCentre/rotation/pathcontrols/nooverflow44 verified. CorrectedEarthcentredintegration/pointhemisphereclipping/labelcollisions; pinnedBSDcatalogues. No localhorizon/location or independent ephemeris accuracy claim."
     },
     {
       "id": "creative-coding",
@@ -300,8 +300,8 @@
       "title": "Balloon Bonanza",
       "kind": "project",
       "url": "https://balloon-bonanza.vercel.app",
-      "status": "Source and claim review completed; actual tool checks open",
-      "evidenceAndRemaining": "Source 4bb3edd. Evidence: src/App.tsx; src/App.css. Established: 100 balloon circles and knots, three constraints each, three walls, pointer constraint, tuned low gravity/restitution, runner cleanup and separate theme update. Removed sixty-FPS measurement and physical-buoyancy implication. Remaining: Actual feel and frame times, phone touch, canvas resizing, keyboard alternative, motion pause and theme UI. No benchmark or browser pass in this review. Icon scan: 1 blocking, 0 reviews."
+      "status": "Local actual-tool pass completed; release and broader device checks remain",
+      "evidenceAndRemaining": "Local5b5b62e: actual1144/390 scene, pause/theme/realkeyboardlift/pointerfling/count/reset/resize verified;11icons+3Matterphysics/types/lint/build/audit0. Two-body constraints and tunedpositivegravitypreserved, notbuoyancy. Open-topflings/physicaltouch/OSmotion/AT/performance limits explicit."
     },
     {
       "id": "tailwind-colour-creator",
