@@ -1,0 +1,74 @@
+{
+  "title": "Artify",
+  "description": "An image-making workspace and content pipeline that turns astronomical context, a source illustration and a format plan into reviewable visual outputs.",
+  "techStack": "Next.js, TypeScript, astronomy-engine, FLUX Kontext, DeepInfra, Kling, fal.ai, Remotion, Spellcast API",
+  "role": "Solo: product, design and engineering",
+  "status": "Source reviewed at 4894054. Live generation quality, publishing cadence and production outcomes were not tested in this review.",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Keep context, image direction and delivery separate",
+      "body": "Artify combines a browser workspace with scripts for a recurring visual-content workflow. The browser accepts an image and a style, scene or custom instruction. The daily pipeline builds a plan from astronomical context, renders or generates media, prepares captions and can hand the resulting assets to Spellcast. Those are separate boundaries with different failure modes."
+    },
+    {
+      "type": "flow",
+      "heading": "From daily context to a scheduled asset",
+      "caption": "Source reviewed at 4894054 on 20 November 2026. This review did not invoke generation or publishing services.",
+      "steps": [
+        {
+          "label": "Context",
+          "detail": "astronomy-engine supplies lunar and solar context used by the day plan alongside the project’s scene and seasonal rules.",
+          "href": "https://github.com/Sammii-HK/artify/blob/4894054/src/lib/astro.ts"
+        },
+        {
+          "label": "Image generation",
+          "detail": "The reviewed image-to-image path sends a source image and instruction to FLUX Kontext through DeepInfra. It writes the returned image for later stages.",
+          "href": "https://github.com/Sammii-HK/artify/blob/4894054/src/lib/pipeline/image-gen.ts"
+        },
+        {
+          "label": "Motion and composition",
+          "detail": "A separate helper sends still images to Kling through fal.ai. Remotion compositions and rendering scripts prepare formatted assets.",
+          "href": "https://github.com/Sammii-HK/artify/blob/4894054/scripts/fal-video.ts"
+        },
+        {
+          "label": "Delivery",
+          "detail": "The client uploads media, creates a draft and calls a separate scheduling endpoint. The daily run records media paths, failures and scheduled post identifiers in a manifest.",
+          "href": "https://github.com/Sammii-HK/artify/blob/4894054/src/lib/pipeline/spellcast-client.ts"
+        }
+      ]
+    },
+    {
+      "type": "decision",
+      "heading": "Make the publishing boundary explicit",
+      "context": "A successful image request does not establish that a post exists, has the right identity or is scheduled.",
+      "options": [
+        {
+          "label": "Treat generation as completion",
+          "detail": "An image file would stand in for the entire delivery workflow."
+        },
+        {
+          "label": "Carry outputs into a separate scheduling stage",
+          "detail": "The daily script collects results before uploads and scheduling, counts failures and records returned post identifiers.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Generation, rendering and scheduling can be inspected separately. A run manifest is useful operational evidence; proving public delivery still requires the downstream receipt."
+    },
+    {
+      "type": "prose",
+      "heading": "Validation has its own failure policy",
+      "body": "The image path can ask a vision model to inspect visible hands and fingers. A failed check triggers one retry, and a second explicit failure can skip the post. The implementation also has branches that retain an image after a retry API failure, and the validator reports a skipped check as passing when its API fails. Those distinctions matter: the current boolean does not certify that every accepted image was actually checked."
+    },
+    {
+      "type": "prose",
+      "heading": "A dry run still has external generation work",
+      "body": "The daily script’s dry-run mode disables Spellcast uploads and scheduling. Image and caption generation can still occur. That boundary makes it useful for inspecting a planned run before delivery, but it should be clear in the tool before someone invokes it. This review used source reads only and did not run the generator or contact the providers."
+    },
+    {
+      "type": "prose",
+      "heading": "What deserves the next product pass",
+      "body": "The browser workspace should make the input, selected treatment, generated result and failure/retry state equally clear. The pipeline needs validation outcomes that distinguish checked, skipped and failed, together with a visible review step before delivery. Rendering time, cost, daily publication volume and visual consistency need dated run evidence. None is inferred from a script containing an upload or schedule function."
+    }
+  ]
+}

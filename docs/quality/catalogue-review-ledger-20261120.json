@@ -84,8 +84,8 @@
       "title": "Conjure",
       "kind": "project",
       "url": "https://conjure-two.vercel.app",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source accuracy and case-study pass completed; tool polish pending",
+      "evidenceAndRemaining": "Reviewed source 0ca070b. New structured study traces request validation, generation/formatting and refinement. Removed sub-second and any-page/shadow-DOM/background-worker claims. New sessions use temporary identifiers; saving/output-schema/extension host and message-origin review remain. No model/API/DB calls or visual test performed."
     },
     {
       "id": "sammii-cli",
@@ -100,8 +100,8 @@
       "title": "Podify",
       "kind": "project",
       "url": "https://podify-topaz.vercel.app",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source accuracy and case-study pass completed; tool polish pending",
+      "evidenceAndRemaining": "Reviewed source 460c62a. Structured study traces job state, script/transcript, configurable speech, ffmpeg and RSS. Corrected current web TTS default to Voicebox and removed fixed cost/time/naturalness/crossfade/silence-analysis claims. Existing cost metadata is an estimate. Actual audio, visibility, long-running UX and accessible controls remain unverified. No generation/provider/publishing invoked."
     },
     {
       "id": "spellcast",
@@ -116,8 +116,8 @@
       "title": "Moth",
       "kind": "project",
       "url": "https://moth.sammii.dev",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Mechanics source review refreshed; live tool polish pending",
+      "evidenceAndRemaining": "Existing structured study retained. Rechecked provider contract, beliefs/interests/skills/works paths in elsewhere-agent 7526032 against current prose. Invalid model decisions return null; world mechanics remain separate. Earlier model replay metrics and recorded demo provenance were not rerun in this source-only pass. Live world UX, observatory, accessible controls and current screenshot remain to review."
     },
     {
       "id": "orbit",
@@ -140,16 +140,16 @@
       "title": "iPrep",
       "kind": "project",
       "url": "https://iprep-five.vercel.app/",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source accuracy and case-study pass completed; tool polish pending",
+      "evidenceAndRemaining": "Reviewed deployed-source worktree 9e415de, rather than stale main 9c75f7f. New structured study covers teaching-before-assessment, actual worker execution, source-bound assisted receipts, event sync and scoped curriculum. Removed unsupported human-calibrated score/retention/outcome claims. No audio, model, DB, personal learner data or native flows exercised. Actual teaching UX/enjoyment/retention and current delivery still need review."
     },
     {
       "id": "artify",
       "title": "Artify",
       "kind": "project",
       "url": "https://artify-roan.vercel.app",
-      "status": "Not yet reviewed",
-      "evidenceAndRemaining": "Main workflow, responsive layout, accessibility, accuracy, icons, screenshots and case study remain."
+      "status": "Source accuracy and case-study pass completed; tool polish pending",
+      "evidenceAndRemaining": "Reviewed source 4894054. Structured study traces astronomical plan, DeepInfra FLUX edits, fal.ai Kling, composition and separate Spellcast delivery. Removed unmeasured daily-publication/render-time and guaranteed-validation claims. Validator can mark skipped API checks as passing; dry-run still invokes generation. Actual tool UX and recorded outputs remain to review. No generator/provider/publisher invoked."
     },
     {
       "id": "glint",
