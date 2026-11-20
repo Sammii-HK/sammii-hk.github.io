@@ -921,12 +921,10 @@ body {
 .labs-library-heading { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:1.5rem; }
 .labs-library-heading h2 { font-size:clamp(1.5rem,3vw,2.25rem); line-height:1.15; letter-spacing:-0.035em; margin-top:.6rem; }
 .labs-library-heading>p { max-width:24rem; font-size:.875rem; line-height:1.7; opacity:.7; }
-.labs-library-controls { display:grid; grid-template-columns:minmax(0,1fr) minmax(12rem,auto); gap:1rem; }
+.labs-library-controls { display:grid; grid-template-columns:minmax(0,1fr) 20rem; gap:1rem; }
 .labs-search { display:flex; align-items:center; gap:.75rem; padding:.8rem 1rem; border:1px solid color-mix(in oklab,currentColor 25%,transparent); border-radius:8px; }
 .labs-search input { width:100%; background:transparent; color:inherit; outline:none; font-size:.875rem; }
 .labs-search:focus-within { outline:2px solid currentColor; outline-offset:3px; }
-.labs-topic { display:flex; gap:.75rem; align-items:center; font-size:.8rem; }
-.labs-topic select { max-width:100%; background:var(--chart-bg); color:var(--chart-ink); padding:.8rem; border:1px solid color-mix(in oklab,currentColor 25%,transparent); border-radius:8px; }
 .labs-kind-filters { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.25rem 0; }
 .labs-kind-filters button { min-height:44px; display:flex; gap:.6rem; align-items:center; padding:.55rem .85rem; border:1px solid color-mix(in oklab,currentColor 20%,transparent); border-radius:999px; font-size:.75rem; }
 .labs-kind-filters button[aria-pressed=true] { background:var(--chart-ink); color:var(--chart-bg); }
@@ -939,7 +937,7 @@ body {
 .lab-card-title svg { flex-shrink:0; margin-top:.2rem; }
 .labs-empty { padding:3rem 0; }
 .labs-load-more { display:block; padding:.8rem 1.25rem; border:1px solid currentColor; border-radius:6px; margin:2rem auto; font-size:.875rem; }
-@media(max-width:640px){.labs-library-heading{align-items:start;flex-direction:column;gap:1rem}.labs-library-controls{grid-template-columns:1fr}.labs-topic select{flex:1;min-width:0}}
+@media(max-width:640px){.labs-library-heading{align-items:start;flex-direction:column;gap:1rem}.labs-library-controls{grid-template-columns:1fr}}
 
 .site-breadcrumbs { width:min(100% - 2.5rem, 1240px); margin:0 auto; padding-top:1.25rem; font-size:.7rem; opacity:.7; }
 .site-breadcrumbs ol { display:flex; flex-wrap:wrap; gap:.5rem; list-style:none; padding:0; margin:0; }
@@ -956,3 +954,20 @@ body {
  .site-bar .site-bar-links a { display:flex; align-items:center; justify-content:center; min-height:44px; padding:0 .25rem; }
  .site-bar .lens-nav-hire { margin-left:auto; min-height:40px; display:flex; align-items:center; padding:0; }
 }
+
+/* Prism Reserved Select: shared keyboard behaviour, portfolio surfaces. */
+.prism-select { position:relative; min-width:0; }
+.prism-select-label { position:absolute; z-index:1; top:.45rem; left:1rem; font-size:.625rem; letter-spacing:.08em; text-transform:uppercase; opacity:.65; pointer-events:none; }
+.prism-select-trigger { display:flex; align-items:center; justify-content:space-between; gap:1rem; width:100%; min-height:60px; padding:1.5rem 1rem .5rem; border:1px solid color-mix(in oklab,currentColor 25%,transparent); border-radius:8px; background:color-mix(in oklab,var(--chart-bg) 55%,transparent); color:inherit; text-align:left; font-size:.875rem; }
+.prism-select-trigger:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+.prism-select-trigger[aria-expanded="true"] { border-color:color-mix(in oklab,currentColor 65%,transparent); }
+.prism-select-trigger svg { flex-shrink:0; }
+.prism-select-options { position:absolute; inset-inline:0; top:100%; z-index:50; max-height:min(320px,45dvh); overflow-y:auto; overscroll-behavior:contain; margin:.5rem 0 0; padding:.375rem; list-style:none; border:1px solid color-mix(in oklab,currentColor 25%,transparent); border-radius:10px; background:#171719; color:#f3f1eb; box-shadow:0 16px 40px #0006; scrollbar-width:thin; }
+.prism-select-option { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:44px; padding:.65rem .75rem; border-radius:6px; font-size:.8125rem; cursor:pointer; }
+.prism-select-option[data-active] { background:#ffffff12; }
+.prism-select-option[aria-selected="true"] { background:#ffffff1c; color:#fff; }
+.prism-select-option svg { flex-shrink:0; }
+.labs-library-controls { align-items:stretch; }
+@media(max-width:640px) { .prism-select { width:100%; } }
+
+@media(max-width:760px) { .labs-library-controls { grid-template-columns:1fr; } }
