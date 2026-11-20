@@ -493,7 +493,7 @@ export const projects: Project[] = [
       'Legacy GPT-4 description route and a separate Qwen3-VL identification helper',
       'Client-side directory filters plus a paginated public catalogue API',
       'Authenticated identification with plan limits, stored images and suggested matches',
-      'Model confidence is reported separately from measured identification accuracy',
+      'Model-suggested matches with explicit confidence values',
     ],
   },
   {

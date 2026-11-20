@@ -31,3 +31,11 @@ No public component repository, distribution licence, @saer namespace registrati
 ## Portfolio validation
 
 The case studies and screenshot overrides now use these current local captures with explicit captions. Portfolio gallery frames keep the existing shared aspect ratio; source screenshots retain their original dimensions. Source reads, images and agent receipts close the named local checks only. The remaining catalogue, Labs scientific accuracy and actual tool design passes remain open in the ledger.
+
+## Artify
+
+Local candidate 9cafbd8 repairs validation states, rejected-image retry handling and daily dry-run isolation. Fifteen mocked tests, TypeScript/build, eight icon guard tests and a zero-advisory dependency audit pass. Actual browser checks at 1144px and 390px establish shared navigation, 44px targets, no horizontal overflow, source-sketch loading, style search and custom-scene readiness. No Generate action or provider request was used.
+
+The three unedited captures in `public/assets/images/refresh-20261120/artify-*.jpg` show the local studio, actual loaded source workspace and phone layout. The hero output is an explicitly labelled recorded project asset. The workspace result is the starting sketch, not a fresh generated image. The isolated checkout has no saved daily manifests or generated tarot cards; its archive routes show honest absence. Their broader visual polish remains open.
+
+The repaired daily dry entry is plan-only, exercised under network/credential-read/write guards. The wider legacy manual CLI was not re-certified. Live generation, provider availability/charges, rendering, scheduling, real result download CORS, large-source/HEIC handling and deployment remain unverified.

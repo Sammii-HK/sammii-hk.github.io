@@ -148,8 +148,8 @@
       "title": "Artify",
       "kind": "project",
       "url": "https://artify-roan.vercel.app",
-      "status": "Source accuracy and case-study pass completed; tool polish pending",
-      "evidenceAndRemaining": "Reviewed source 4894054. Structured study traces astronomical plan, DeepInfra FLUX edits, fal.ai Kling, composition and separate Spellcast delivery. Removed unmeasured daily-publication/render-time and guaranteed-validation claims. Validator can mark skipped API checks as passing; dry-run still invokes generation. Actual tool UX and recorded outputs remain to review. No generator/provider/publisher invoked."
+      "status": "Local studio and pipeline checks verified; release and providers pending",
+      "evidenceAndRemaining": "9cafbd8 local candidate: actual 1144px/390px navigation, 44px targets, no horizontal overflow, source sketch load, style search and custom-scene readiness checked without generation. Mocked validation distinguishes pass/fail/skipped/error; retry failures discard rejected candidates; dry daily CLI proved plan-only under network/credential-read/write guards. Fifteen mock tests, TypeScript/build, eight icon regressions and audit zero pass. Exact screenshots copied unedited with unreleased/recorded-source captions. No saved manifests or generated tarot assets in isolated checkout; empty routes verified as absence only. Live providers, generation/render quality, charges, delivery, HEIC/large images, real result CORS, wider manual CLI and archive design remain open. Earlier source receipt 4894054 retained for architecture links."
     },
     {
       "id": "glint",
