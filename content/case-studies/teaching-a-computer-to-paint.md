@@ -2,6 +2,8 @@
 title: "Teaching a computer to paint"
 description: "A painting engine built one episode at a time, then handed to six AI models as art director. Same brief, same canvas, same paints, one run each. The best model finished within 1.4 points of a 1998 algorithm, and none of them beat it."
 techStack: "JavaScript (ES modules), Node, ffmpeg, Claude Code subagents, Codex CLI"
+updated: "2026-11-20"
+status: "Recorded research essay; raw reproduction harness and run folders are not bundled with this portfolio."
 ---
 
 ## The problem
@@ -65,3 +67,6 @@ The models did direct like painters. Every one covered the whole canvas in round
 What I take from it as an AI engineer: a model is a good director when "good" means what a person sees, and a weak optimiser when "good" is a number it isn't shown. If you want both, give it the number, or let a plain loop do the thorough part and keep the model for the decisions.
 
 Limits: one run per model and one seed, so this is an experiment, not a benchmark. The palette caps how close anyone can get. The directors saw a 640 px view of a 1080 px canvas. The most expensive tiers, Claude Fable and GPT-6.2-Astra, weren't run.
+
+
+This essay documents a recorded experiment. Its saved visual outputs and reported comparison are preserved here; this portfolio review did not rerun the painter, recheck the metric implementation or reconstruct the director sessions. The one-run limits above remain part of the result.

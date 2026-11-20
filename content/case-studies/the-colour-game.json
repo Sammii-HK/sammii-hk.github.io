@@ -1,0 +1,35 @@
+{
+  "title": "The CSS Color Game",
+  "description": "Colour recognition, personal progress and a dated colour feature, with email and sharing as separate product paths.",
+  "techStack": "Next.js, React Email, PostgreSQL, Cloudflare Workers",
+  "role": "Solo: design and engineering",
+  "status": "Source reviewed at 243408d; a separate local game component change was preserved. Live play and delivery were not exercised.",
+  "updated": "2026-11-20",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Separate a recognition round from a dated colour",
+      "body": "The browser game builds recognition rounds, records personal scores and keeps play history in localStorage. The date-based colour helper hashes a date into the CSS-colour list for a separate daily feature. A date hash is not evidence that every player receives an identical game round, or that every colour appears once before repeating."
+    },
+    {
+      "type": "prose",
+      "heading": "Personal progress is local",
+      "body": "The reviewed component stores its high score and daily play history in the browser. A daily play streak records visits with a guess; it is not a server-verified streak of correct answers. No shared player leaderboard was found in the reviewed routes, so the earlier PostgreSQL leaderboard and fastest-answer claims have been removed."
+    },
+    {
+      "type": "prose",
+      "heading": "Email has its own delivery boundary",
+      "body": "The authenticated daily-email route loads active subscriber records and renders a React Email template. The helper posts HTML and plain text to a configurable worker endpoint. This is a different implementation from the earlier claim of direct Resend delivery. Its process-local sent-today set is a basic repeat guard, not durable idempotency across workers or restarts. Database-error and test-recipient fallback behaviour still needs a delivery review."
+    },
+    {
+      "type": "prose",
+      "heading": "Sharing can show a result without proving it",
+      "body": "The high-score OG endpoint renders supplied score and streak query parameters into an image. That is a useful personalised artefact, but those parameters are not a signed score receipt. There is no verified unique-player result hash or anti-tampering guarantee in this path."
+    },
+    {
+      "type": "callout",
+      "tone": "note",
+      "body": "This study makes no measured retention, learning improvement, organic-growth or inbox-deliverability claim. Actual play, score persistence, unsubscribe handling, durable delivery and current phone/accessibility design remain open. No email, database or worker action was triggered."
+    }
+  ]
+}

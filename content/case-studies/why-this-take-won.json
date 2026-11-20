@@ -12,6 +12,11 @@
       "body": "Post Ready combines words heard, filler penalties, pace and eye contact when comparing deliveries of a phrase. The explainer makes those parts visible. Three invented takes let a reader adjust the weights and see why the chosen take changes."
     },
     {
+      "type": "prose",
+      "heading": "Know what coverage counts",
+      "body": "The rule compares sets of normalised expected and heard words. Repeating a script word does not give it extra weight, so saying one occurrence can cover that word even when another occurrence is missing. That makes the score inspectable, but it is not a count of every correctly delivered word. The port was checked against the original Swift function at 3fff237a, and four hand-worked cases were exercised offline in this review. No speech recording or gaze detector was invoked."
+    },
+    {
       "type": "decision",
       "heading": "Expose the parts of the decision",
       "context": "A single winning score hides what the rule rewards and what it cannot assess.",

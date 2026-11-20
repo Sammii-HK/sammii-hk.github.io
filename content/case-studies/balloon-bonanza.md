@@ -1,25 +1,27 @@
 ---
 title: "Balloon Bonanza"
-description: "A physics playground where 100 balloons float, bounce, and can be flung across the screen"
+description: "A small rigid-body playground where a balloon’s character comes from its shape, constraints and tuned motion."
 techStack: "React, TypeScript, Matter.js, Vite"
+updated: "2026-11-20"
+status: "Earlier motion experiment; source reviewed at 4bb3edd, performance and device interaction not remeasured."
 ---
 
-## The problem
+<!-- Kept in step with the canonical structured study in balloon-bonanza.json. -->
 
-Matter.js has no concept of "up". It's a 2D rigid-body engine built for things that fall, stack, and collide, and out of the box a balloon in it behaves like a rubber ball: it drops to the floor and sits there. Getting 100 of them to instead drift, settle slowly, bounce like something full of air, and fling convincingly when you grab and throw one meant fighting the engine's default instincts on every axis. None of the "balloon" feeling is built in. All of it is tuning.
+Earlier motion experiment; source reviewed at 4bb3edd, performance and device interaction not remeasured.
 
-## Faking buoyancy
+## Two bodies give the knot room to move
 
-Real buoyancy isn't a Matter.js primitive, so the float had to be assembled from three parameters pulling against each other. World gravity runs at 0.11 instead of the default 1.0, so balloons barely fall. Each balloon body gets a low density (around 0.02 to 0.03) and a small amount of air friction (frictionAir around 0.01), so instead of dropping and bouncing hard it drifts down slowly and settles. Balanced right, the combination reads as a thing that's lighter than air even though the engine has no idea what air is. Getting that balance to feel like a balloon rather than a slow rock, or a thing that never comes down at all, was the single fiddliest part of the whole build.
+The scene creates one hundred balloons. Each uses a circle and a triangular knot, connected by a zero-length pin constraint and two softer side constraints. The pin has stiffness 0.1; the side constraints use 0.01. Keeping the knot separate gives it relative motion instead of drawing it as a fixed decoration on the circle.
 
-## The knot
+## Tune a feeling, not a fluid model
 
-A balloon isn't one shape, and modelling it as a single rigid circle looked dead. So each balloon is actually two bodies: a circle for the balloon and a small triangle for the knot, joined by three constraints. A firm pin constraint (stiffness 0.1) holds the knot to the base of the balloon, and two looser side springs (stiffness 0.01) keep it roughly straight while still letting it swing. The result is a knot that wobbles and trails as the balloon moves and gets knocked around, instead of a rigid lump welded to the bottom. With 100 balloons that's 200+ bodies and 300+ constraints all solving together at 60fps.
+The source reduces world gravity to 0.11, uses air friction and high restitution, and adds random initial torque and sideways force. These are authored rigid-body conditions. They do not calculate displaced air, gas pressure or buoyant lift, and a low-density body alone is not a buoyancy solver.
 
-## Bounce and throw
+## Let the pointer transfer momentum
 
-Every body (balloons, knots, and the ground) runs a restitution of 0.95, close to perfectly elastic, so collisions stay lively and springy rather than damping out into a dead pile. The ground and walls carry their own friction tuning so balloons don't slide forever along the floor. Throwing is the other half of the feel: the mouse constraint deliberately runs a low stiffness (0.05) so grabbing a balloon and flicking it transfers real momentum, letting you properly yeet one across the screen and watch it ricochet off the others, rather than it snapping rigidly to the cursor. Each balloon also spawns with a touch of random torque and sideways force, so the scene has drift and spin from the first frame instead of a static grid.
+A Matter mouse constraint with stiffness 0.05 provides grab-and-throw interaction. The world contains the balloon and knot bodies, three boundaries and three constraints per balloon. Source counts describe the scene setup; the previous sixty-frames-per-second claim has been removed because this review has no frame-time capture or named test device.
 
-## Outcome
+## Keep the lifecycle visible
 
-Balloon Bonanza is a small thing with a lot of tuning underneath it: a hundred balloons that float, jostle, wobble at the knot, and can be flung around, holding 60fps across 200+ bodies and 300+ constraints. It also respects light and dark mode, swapping the sky colour to match the system preference with a manual override. It started as an excuse to learn Matter.js properly, and most of the work turned out to be in the parameters, the invisible half a percent of restitution here and hundredth of gravity there that decides whether a circle feels like a balloon or just a ball.
+The component stops its runner and renderer and clears the world on unmount. A separate effect updates the canvas background when system colour preference or the manual theme changes, without rebuilding all bodies. The actual follow-up should test resizing, touch input, a keyboard alternative and reduced motion, then record frame timing and capture the result.
