@@ -284,8 +284,8 @@
       "title": "Liquidity",
       "kind": "project",
       "url": "https://liquidity-ten.vercel.app",
-      "status": "Source and claim review completed; actual tool checks open",
-      "evidenceAndRemaining": "Source ce2d908, unrelated untracked shell file untouched. Evidence: src/app/page.tsx; src/app/gsap/page.tsx; src/app/canvas/page.tsx. Established: Two selectable paths: GSAP SVG wave and Rapier Canvas particles constrained by a text mask. The latter creates 2,500 rigid bodies with strong containment forces; it is not a fluid solver. Remaining: Canvas RAF loop does not retain cancellation/free-world cleanup; GSAP timers/lifecycle and repeated navigation need checking. Also keyboard/touch equivalents, GPU/CPU/frame cost, reduced motion and actual phone layout. Icon scan: 0 blocking, 0 reviews."
+      "status": "Local actual-tool pass completed; release and broader device/clipboard checks remain",
+      "evidenceAndRemaining": "Local3e37c9e after469c06c:24tests(13+11)/normalchecks/fullprodaudit0. ActualWASM/wave pause, keyboard/manualshift/pulse/count2500/reset/onecanvas and390nooverflow44 verified. StaticcurrentSVG XML/failure contracts mocked; actual clipboard read empty, no pasted-byte claim. No fluid solver/FPS/physicaltouch/AT cert. OwnedRAF/world/timeline/timer andfinite scaledimpulse fixes."
     },
     {
       "id": "day-lite",

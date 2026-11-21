@@ -731,18 +731,19 @@ export const projects: Project[] = [
   },
   {
     id: 'liquidity',
+    caseStudy: 'liquidity',
     title: 'Liquidity',
     techStack: 'Next.js, Typescript, GSAP, Rapier2D',
-    info: 'Experimental Next.js project exploring advanced animation techniques for creating liquid text effects through multiple approaches.',
+    info: 'Two moving-type studies: an SVG wave and a Rapier rigid-body field drawn through a text mask. The local candidate adds pause, reset, keyboard controls, owned engine lifecycles and static current-SVG export.',
     type: 'experiment',
     home: 'labs',
     group: 'earlier',
     labs: { kind: 'experiment' },
     liveUrl: 'https://liquidity-ten.vercel.app',
     highlights: [
-      'GSAP timeline animations for fluid text morphing and drip effects',
-      'Rapier2D physics simulation for gravity-driven liquid letter behaviour',
-      'Multiple approaches compared: SVG filters, canvas, and DOM manipulation',
+      'GSAP-controlled sine-wave path inside an editable SVG text clip',
+      'Rapier rigid bodies filtered through a cached text mask, with explicit containment',
+      'Locally checked keyboard wave controls and particle pause, pulse, count and reset',
     ],
   },
   {
