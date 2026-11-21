@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { getWorkIndex } from "../lib/lenses";
 import { WorkIndexGrid } from "./WorkIndexGrid";
@@ -26,7 +27,7 @@ export default function WorkPage() {
           <h1 className="work-index-title">Everything I have shipped, by kind.</h1>
           <p className="work-index-lead">
             The homepage is the argument; this is the evidence. Products, tools, AI systems and earlier work, each with a case
-            study or a live link. <a href="/">Back to the front page</a>.
+            study or a live link. <Link prefetch={false} href="/">Back to the front page</Link>.
           </p>
         </header>
         {groups.map((g) => (

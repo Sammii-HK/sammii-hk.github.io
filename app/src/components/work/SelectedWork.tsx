@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useMemo, useRef } from "react";
 import { selectedWorkModel } from "../../../lib/selected-work";
 import { useLens } from "../lens/LensProvider";
@@ -40,7 +41,7 @@ export const SelectedWork = () => {
         </ol>
       </div>
       <p className="work-more">
-        <a href="/work/">More work, by kind <ArrowRight size={13} className="icon-inline" aria-hidden="true" /></a>
+        <Link prefetch={false} href="/work/">More work, by kind <ArrowRight size={13} className="icon-inline" aria-hidden="true" /></Link>
       </p>
     </section>
   );
