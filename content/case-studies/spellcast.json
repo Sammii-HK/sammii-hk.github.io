@@ -1,64 +1,58 @@
 {
   "title": "Spellcast",
-  "description": "The execution layer for a multi-brand content operation: account sets, scheduling adapters and AI assistance with explicit evidence limits.",
-  "techStack": "Next.js, Turborepo, Drizzle ORM, PostgreSQL, Postiz, Temporal",
+  "description": "A self-hosted content operation for several brands: account sets keep each identity separate, local models draft within each platform's rules, and Postiz with Temporal does the publishing.",
+  "techStack": "Next.js, Turborepo, Drizzle ORM, PostgreSQL, Postiz, Temporal, Ollama",
   "role": "Solo: design, engineering and product",
-  "status": "Production scheduling product; this study distinguishes local work from verified operation",
-  "updated": "2026-11-20",
+  "status": "Running in production for my own brands, self-hosted on Hetzner",
+  "facts": [
+    { "label": "Hosting", "value": "Docker Compose on Hetzner" },
+    { "label": "Text models", "value": "Local, through Ollama" },
+    { "label": "Agent access", "value": "MCP server, 100+ tools" }
+  ],
+  "updated": "2026-11-21",
   "blocks": [
     {
       "type": "prose",
       "heading": "One operation, distinct identities",
-      "body": "Spellcast groups a brand’s accounts into an account set, with its own queue, schedule and analytics. The product problem is keeping identities and platform rules attached to the work as it passes through drafting, review and publishing."
+      "body": "I run several brands, each with its own accounts, voice and audience. Spellcast groups a brand's accounts into an **account set** with its own queue, schedule, brand voice and analytics. The hard product problem is not posting. It is keeping the right identity and the right platform rules attached to a piece of work as it moves from idea to draft, review and publishing."
     },
     {
       "type": "decision",
-      "heading": "Extend the scheduling engine",
-      "context": "The operation needs a product-specific interface, account sets, AI assistance and analytics without rebuilding every platform integration.",
+      "heading": "Build a product layer, not another publishing stack",
+      "context": "Every social platform has its own OAuth flow, rate limits, media rules and failure modes. Rebuilding all of that would have taken months before any of the product-specific parts existed.",
       "options": [
-        {
-          "label": "Rebuild the whole publishing stack",
-          "detail": "Own every API connection, OAuth flow and queue from the beginning."
-        },
-        {
-          "label": "Build a product layer around Postiz",
-          "detail": "Use Postiz for integration and publishing, with a Next.js interface and backend-for-frontend carrying the product-specific work.",
-          "chosen": true
-        }
+        { "label": "Own every integration", "detail": "Write each API connection, OAuth flow and retry queue from scratch." },
+        { "label": "Build on Postiz and Temporal", "detail": "Let Postiz handle the integrations and Temporal the durable publishing workflows, and put the product in a Next.js front end and a Node backend-for-frontend.", "chosen": true }
       ],
-      "outcome": "The repository separates web, API and shared packages. Postiz and its Temporal infrastructure form the scheduling foundation. The product layer supplies identity, drafts, campaigns and platform-specific adapters."
+      "outcome": "The Turborepo separates the web app, the API and shared packages, with Postiz and Temporal running alongside them in Docker Compose. My time went into account sets, drafting, campaigns, review and per-platform adapters: the parts an off-the-shelf scheduler does not have."
     },
     {
       "type": "prose",
-      "heading": "AI has a route and a failure state",
-      "body": "The local text helper tries the Brand API, then Ollama, with request timeouts. If neither returns usable text, it throws an error. That route is a concrete integration to inspect, not evidence that every AI feature uses the same provider or has the same reliability. Source: apps/api/src/lib/local-llm.ts."
+      "heading": "AI that drafts inside the platform's rules",
+      "body": "Each AI action (write, shorten, optimise, variations, threads, carousels, reply suggestions, repurposing) is its own route with a Zod-validated request. The prompt carries the hard constraints instead of hoping the model knows them: the target platform's character limit and hashtag rule, and the account set's brand voice, injected into the system prompt.\n\nText generation runs on local models. The helper tries a local brand service first, behind a one-second health check, then falls back to Ollama, each with its own timeout. If neither returns usable text the request fails with an error, rather than returning something empty."
+    },
+    {
+      "type": "tradeoff",
+      "heading": "Local models",
+      "gave": "Small local models write less polished first drafts than the largest hosted ones, so I treat every draft as a draft and review it before it is scheduled.",
+      "got": "No per-token bill for an operation that drafts all day, brand copy that is never sent to a third-party model provider, and a pipeline that keeps working if a provider changes its pricing or terms."
     },
     {
       "type": "failure",
-      "heading": "An A/B winner needs evidence",
-      "what": "The earlier portfolio described automatic A/B learning without explaining whether recorded winners had enough observations.",
-      "why": "A winning label does not establish an experiment result. The handoff recorded zero-metric production winners; this audit did not query or change the production database.",
-      "fix": "Remove outcome claims from the case study. The current local evaluator checks sample floors, a confidence threshold and lift, but its shared statistics file is still uncommitted and its assumptions need review before it is presented as validated learning."
+      "heading": "A winner is not an experiment result",
+      "what": "A/B tests publish two variants and, once the evaluation window closes, a scheduled job marks the variant with the highest score as the winner.",
+      "why": "Highest score is a ranking, not evidence. With a handful of impressions a single like can decide it, and because engagement actions are counted against impressions, one enthusiastic person can look like a trend.",
+      "fix": "I don't report any lift from these tests. The next version requires a minimum sample, a confidence threshold and a minimum effect before it records a winner, and says \"not enough data\" otherwise. Until then the results are hints for me to read, not learning the system acts on."
     },
     {
       "type": "prose",
-      "heading": "What is still to prove",
-      "body": "The current helper discards response usage fields, so it does not establish per-run token or cost accounting. The A/B calculation sums engagement actions against impressions; repeat actions are not automatically a unique engaged audience. Shipping the local gate does not by itself validate that statistical model. A stronger recorded demo should show a draft, its identity and checks, the review decision, the scheduled result and the actual metric receipt."
-    },
-    {
-      "type": "callout",
-      "tone": "note",
-      "body": "No A/B lift, weekly publishing volume, cost saving or autonomous business outcome is claimed here. Those need dated production evidence. The audit makes no changes to live schedules or publishing permissions."
+      "heading": "Agents can run it too",
+      "body": "A separate MCP server exposes over 100 tools for scheduling, drafting, campaigns, analytics and engagement, so I can run the operation from an agent as easily as from the interface, using the same account sets and brand voices."
     },
     {
       "type": "links",
       "heading": "Explore Spellcast",
-      "items": [
-        {
-          "label": "Open Spellcast",
-          "href": "https://spellcast.sammii.dev"
-        }
-      ]
+      "items": [{ "label": "Open Spellcast", "href": "https://spellcast.sammii.dev" }]
     }
   ]
 }

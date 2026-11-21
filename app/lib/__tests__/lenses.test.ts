@@ -50,8 +50,8 @@ describe("getLensOrder", () => {
       supporting: ["strata", "lunary", "lattiq"],
     });
     expect(ids("ai")).toEqual({
-      featured: ["moth", "lunary", "spellcast"],
-      supporting: ["prism", "create-mcp-server", "iprep", "orbit"],
+      featured: ["lunary", "moth", "prism"],
+      supporting: ["spellcast", "create-mcp-server", "iprep", "orbit"],
     });
     expect(ids("product")).toEqual({
       featured: ["lunary", "lattiq", "strata"],

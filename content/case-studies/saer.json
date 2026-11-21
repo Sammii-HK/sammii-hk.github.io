@@ -4,7 +4,7 @@
   "techStack": "Python, TypeScript, OKLCH, CSS analysis, MCP",
   "role": "Solo: design, engineering and product",
   "status": "Private beta; public browser-based Create tool",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "blocks": [
     {
       "type": "prose",
@@ -36,7 +36,7 @@
     {
       "type": "prose",
       "heading": "Give the system to the agent",
-      "body": "The full product’s local MCP interface supplies tokens, components and guidance before a coding task, and checks the changes afterwards. Scanning is deterministic and local. Code, report files and paths stay on the device; optional cloud summaries are a separate flow. The connected portfolio review surface is narrower and currently exposes colour evidence only, so it is not used to substantiate the other analysis areas."
+      "body": "The full product’s local MCP interface hands tokens, components and guidance to a coding agent before a task, and checks its changes afterwards. Scanning is deterministic and local: code, reports and paths stay on the device, and optional cloud summaries are a separate, opt-in flow."
     },
     {
       "type": "tradeoff",
@@ -46,8 +46,8 @@
     },
     {
       "type": "prose",
-      "heading": "Evidence and limits",
-      "body": "This study describes the public beta and Create interface inspected on 20 November 2026. It does not claim a fresh local scan or an independent re-run of the published Lunary results. The beta currently targets macOS on Apple Silicon. Product capabilities and installation limits are documented on the product site."
+      "heading": "Limits",
+      "body": "Saer is in private beta and currently targets macOS on Apple Silicon. The Create tool is public in the browser. A published scan of Lunary shows what a real report looks like."
     },
     {
       "type": "links",
