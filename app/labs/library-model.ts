@@ -22,3 +22,9 @@ export function filterLibrary(items: LibraryItem[], query: string, kind: string,
   const words=query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
   return items.filter(item=>(kind==='all'||item.kind===kind)&&(topic==='all'||item.topic===topic)&&words.every(word=>[item.title,item.description,item.topic,...item.tags].join(' ').toLocaleLowerCase().includes(word)));
 }
+
+/** Keep preview journeys local, while Labs' separate public host links to the portfolio. */
+export function libraryHref(href: string, hostname: string): string {
+  if (hostname === 'labs.sammii.dev') return href;
+  return href.replace(/^https:\/\/sammii\.dev(?=\/|$)/, '') || '/';
+}
