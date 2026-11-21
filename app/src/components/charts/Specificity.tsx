@@ -1,4 +1,5 @@
 "use client";
+import { X } from "lucide-react";
 import { useMemo, useState } from "react";
 
 /**
@@ -85,7 +86,7 @@ export function Specificity() {
                   {r.spec.map((v, k) => <span key={k} className={`spc-bar spc-bar--${k}`}><i style={{ width: `${(v / top) * 100}%` }} /><b>{v}</b></span>)}
                 </span>
                 <span className="spc-tuple">({r.spec.join(",")})</span>
-                <button type="button" className="spc-x" onClick={() => setRules((rs) => rs.filter((x) => x !== r.sel))} aria-label={`Remove ${r.sel}`}>×</button>
+                <button type="button" className="spc-x" onClick={() => setRules((rs) => rs.filter((x) => x !== r.sel))} aria-label={`Remove ${r.sel}`}><X size={14} aria-hidden="true" className="inline-block align-middle" /></button>
               </li>
             ))}
           </ol>

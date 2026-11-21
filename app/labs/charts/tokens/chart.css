@@ -19,6 +19,7 @@
 .tk-ws { opacity: 0.45; }
 .tk-readout { margin: 0; font-size: 0.8125rem; line-height: 1.5; min-height: 3em; color: color-mix(in oklab, currentColor 80%, transparent); }
 .tk-readout code, .tk-ids code, .tk .jd-note code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8125rem; }
+code.tk-ws { font: inherit; }
 .tk-ids { margin: 0; display: grid; gap: 0.25rem; }
 .tk-ids code { overflow-wrap: anywhere; font-variant-numeric: tabular-nums; color: color-mix(in oklab, currentColor 80%, transparent); }
 .tk-straw-wrap { overflow-x: auto; }
