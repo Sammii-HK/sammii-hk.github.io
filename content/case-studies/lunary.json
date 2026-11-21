@@ -1,0 +1,131 @@
+{
+  "title": "Lunary",
+  "description": "A subscription astrology app I founded and run alone: the sky is computed, never generated, and every AI reply is checked against the ephemeris before anyone sees it.",
+  "techStack": "Next.js 15, TypeScript, astronomy-engine, Prisma, PostgreSQL, Stripe, Capacitor, Llama 3.3 70B",
+  "role": "Founder: design, engineering, product and operations",
+  "period": "May 2024 – now",
+  "status": "Live at lunary.app",
+  "facts": [
+    {
+      "label": "Ephemeris accuracy",
+      "value": "≤0.3′ against Swiss Ephemeris"
+    },
+    {
+      "label": "Grimoire",
+      "value": "2,000+ pages"
+    },
+    {
+      "label": "MCP tools",
+      "value": "97"
+    },
+    {
+      "label": "Commits",
+      "value": "5,000+"
+    }
+  ],
+  "updated": "2026-11-21",
+  "blocks": [
+    {
+      "type": "prose",
+      "heading": "Accurate first",
+      "body": "Most astrology apps either flatten the subject into one daily card or bury people in charts and jargon. Lunary sits between the two: real planetary positions, personal birth charts, a library deep enough to answer the questions a chart raises, and an AI guide to talk it through.\n\nThe product only works if people can trust it. If it says the Moon is in Scorpio, the Moon had better be in Scorpio. That one rule shaped the architecture, the AI and most of the hardest bugs."
+    },
+    {
+      "type": "decision",
+      "heading": "Compute the sky, never generate it",
+      "context": "A language model will happily describe the sky. It will also be wrong about it, confidently, and in a way most users cannot catch.",
+      "options": [
+        {
+          "label": "Let the model describe the sky",
+          "detail": "Simple, but every position becomes a guess dressed as a fact."
+        },
+        {
+          "label": "Compute positions, then hand them to the model",
+          "detail": "astronomy-engine works out where every body is. The model interprets those numbers and is told they are the only valid source for where anything is now.",
+          "chosen": true
+        }
+      ],
+      "outcome": "Positions are computed on the server, cached as a daily snapshot by a scheduled job, and passed into every guide conversation as a *current sky* block. Charts, transits, moon phases and void-of-course windows all come from the same ephemeris layer, so the interface and the AI can never disagree about the sky."
+    },
+    {
+      "type": "failure",
+      "heading": "The model still wrote the wrong sky",
+      "what": "On 1 October 2026 the guide answered \"With the Moon in Scorpio…\" and called a Scorpio ingress a current transit. The Moon was at 15° Gemini.",
+      "why": "Giving a model the right data does not stop it writing the wrong thing. The checker I already had for social copy let it through, because a Scorpio ingress fell inside its date window, and the Moon visits every sign within a month.",
+      "fix": "Every reply is now parsed back into sky claims and checked against the ephemeris at the moment of the request, before it is shown or saved. A stricter chat pass requires any planet-in-sign claim to match where the planet actually is. A false sentence is removed and a *Sky check* line with the computed position is added, so the false statement never stands. Natal placements (\"your Moon in Scorpio\") are recognised and left alone."
+    },
+    {
+      "type": "failure",
+      "heading": "My own astronomy was wrong too",
+      "what": "In July 2026 I found signs taken from the equatorial vector instead of ecliptic longitude, an inverted moon phase (full read as new), moon phases a day late, stations up to two days out, void-of-course windows hard-coded to 18:00–06:00 and a Mercury retrograde table that was hard-coded rather than computed.",
+      "why": "Each shortcut looked plausible on its own, and nothing compared the output with an independent ephemeris.",
+      "fix": "Every event is now dated by its exact instant in the right timezone, and void-of-course periods, retrogrades and zodiac seasons come from the ephemeris. Golden tests check positions against Swiss Ephemeris 2.10.03, to within 0.3 arcminutes for the Sun to Pluto, and run in CI on every pull request, with an exhaustive sweep every night."
+    },
+    {
+      "type": "code",
+      "lang": "ts",
+      "caption": "The core of the ephemeris layer, simplified: geocentric, aberration-corrected, then converted to ecliptic longitude.",
+      "code": "import { AstroTime, Ecliptic, GeoVector } from \"astronomy-engine\";\n\nexport const eclipticLongitude = (body: Body, date: Date) =>\n  Ecliptic(GeoVector(ENGINE_BODY[body], new AstroTime(date), true)).elon;"
+    },
+    {
+      "type": "prose",
+      "heading": "AI with a budget and a ceiling",
+      "body": "The guide runs on Llama 3.3 70B, an open-weights model on hosted inference, through an OpenAI-compatible client so the provider can change without rewriting the product. Each call has a 60-second timeout and at most one retry. Token costs are recorded in analytics, with an admin view of spend, and each plan has a daily message quota stored in Postgres."
+    },
+    {
+      "type": "tradeoff",
+      "heading": "Burst limits in memory",
+      "gave": "Per-user, per-IP and global burst limits live in memory, so on serverless they only hold within one instance.",
+      "got": "No database round trip on every message. The limit that has to hold, the daily quota, is durable in Postgres; the in-memory layer only takes the edge off bursts."
+    },
+    {
+      "type": "prose",
+      "heading": "Built to be run by one person",
+      "body": "Billing is Stripe subscriptions with trials, plus RevenueCat for app store purchases. The webhook handles subscriptions, checkouts, invoices, refunds and disputes, and records each event by its id, so a retried webhook is acknowledged and never applied twice. Each checkout tap carries its own idempotency key, so a double tap cannot create two subscriptions.\n\nThe iOS and Android apps are a Capacitor shell around the live site, so one codebase ships everywhere, with native push alongside web push. 39 scheduled jobs handle the daily sky snapshot, email, content and experiments. A 97-tool MCP server lets me run analytics, the grimoire, content and operations from an agent, which is how one person keeps all of this running."
+    },
+    {
+      "type": "metrics",
+      "heading": "The codebase, counted",
+      "items": [
+        {
+          "label": "Ephemeris accuracy",
+          "value": "≤0.3′",
+          "note": "Sun to Pluto, against Swiss Ephemeris 2.10.03",
+          "source": "Golden astronomy tests in the Lunary repository"
+        },
+        {
+          "label": "Prerendered grimoire pages",
+          "value": "2,219",
+          "note": "A lower bound: pages rendered on demand, such as the crystals, are not counted",
+          "source": "Production build prerender manifest, September 2026"
+        },
+        {
+          "label": "MCP tools",
+          "value": "97",
+          "note": "Grimoire, analytics, social, admin, growth, revenue and more",
+          "source": "Tool registrations in the MCP server, 21 November 2026"
+        },
+        {
+          "label": "Unit test files",
+          "value": "1,000+",
+          "note": "Jest, plus 34 Playwright end-to-end specs",
+          "source": "Test files tracked in the repository, 21 November 2026"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "heading": "Explore Lunary",
+      "items": [
+        {
+          "label": "Open Lunary",
+          "href": "https://lunary.app"
+        },
+        {
+          "label": "Read a Saer scan of the Lunary codebase",
+          "href": "https://saer.app/case-studies/lunary"
+        }
+      ]
+    }
+  ]
+}

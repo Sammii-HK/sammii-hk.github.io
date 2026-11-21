@@ -463,19 +463,6 @@ body {
   color: color-mix(in oklab, currentColor 62%, transparent);
 }
 
-.hero-route {
-  display: inline-flex; align-items: center; gap: 0.35em;
-  margin-top: 2.5rem;
-  font-weight: 500;
-  font-size: 0.6875rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.45;
-  text-decoration: none;
-  color: inherit;
-}
-.hero-route:hover, .hero-route:focus-visible { opacity: 0.9; }
-
 /* the phrase: a discipline inside prose that selects a lens.
    Two background underlines so they survive line wraps: a solid rule whose
    width (--u) is the interaction state, and an idle hairline (off here). */

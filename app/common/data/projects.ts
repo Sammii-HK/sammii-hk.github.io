@@ -145,7 +145,7 @@ export const projects: Project[] = [
     group: 'tools',
     focus: {
       design: { rank: 1, tier: 'featured', summary: 'One interaction contract across three expressions: spring-driven components, shared overlays and X-ray inspection that exposes the engineering while you use it.', emphasis: ['component systems', 'overlay behaviour', 'interaction contracts'] },
-      ai: { rank: 1, tier: 'supporting', summary: 'Recorded AI responses with tool steps, streaming, stop and retry, plus shared latency states and deterministic token-constrained generation.', emphasis: ['AI response UI', 'recorded replay', 'state machines'] },
+      ai: { rank: 3, tier: 'featured', summary: 'An AI response that is honest about where it is: tool steps as they run, smoothed streaming, stop, retry and citations that only link when a source exists, replayed from recorded local-model runs.', emphasis: ['AI response UI', 'recorded replay', 'state machines'] },
       product: { tier: 'work' },
     },
     liveUrl: 'https://prism.sammii.dev',
@@ -241,13 +241,13 @@ export const projects: Project[] = [
     id: 'lunary',
     title: 'Lunary',
     techStack: 'Next.js 15, TypeScript, Astronomy Engine, Prisma, PostgreSQL, Stripe',
-    info: 'Progressive Web App calculating planetary and lunar positions in real time using the Astronomy Engine library. A 1,300+ page programmatically-generated grimoire, Stripe-billed subscriptions, and a custom MCP server exposing 60+ tools for AI-assisted content and analytics.',
+    info: 'Progressive Web App calculating planetary and lunar positions in real time using the Astronomy Engine library. A 2,000+ page generated grimoire, Stripe-billed subscriptions, an AI guide whose every reply is checked against the ephemeris, and a 97-tool MCP server for running it all.',
     type: 'product',
     home: 'home',
     group: 'products',
     focus: {
       design: { rank: 2, tier: 'supporting', summary: 'Turning live planetary and lunar positions into an interface people read daily: information design for a system that never stops moving.', emphasis: ['information design', 'PWA', 'visual system'] },
-      ai: { rank: 2, tier: 'featured', summary: 'Deterministic astronomy from the Astronomy Engine, a 1,300+ page programmatically generated grimoire, and an MCP server exposing 60+ tools for AI-assisted content and analytics.', emphasis: ['Astronomy Engine', 'MCP server, 60+ tools', 'generated grimoire'] },
+      ai: { rank: 1, tier: 'featured', summary: 'The sky is computed, never generated: positions come from the ephemeris, the AI guide is told they are the only valid source, and every reply is parsed and checked against them before anyone sees it.', emphasis: ['grounded generation', 'post-generation checks', 'MCP server, 97 tools'] },
       product: { rank: 1, tier: 'featured', summary: 'A founder-built subscription PWA: real-time astronomical computation, Stripe billing, a generated content library and the infrastructure to run it solo.', emphasis: ['Next.js 15', 'Stripe', 'Prisma + PostgreSQL'] },
     },
     liveUrl: 'https://lunary.app',
@@ -255,11 +255,12 @@ export const projects: Project[] = [
     privateRepo: true,
     highlights: [
       'Real-time planetary and lunar ephemeris via astronomy-engine (VSOP87)',
-      'Full grimoire CMS with 1,300+ pages of structured astrology content',
+      'A generated grimoire of 2,000+ prerendered pages',
       'Push notifications, PWA install, and offline-first architecture',
       'Stripe subscription billing with webhook-driven lifecycle management',
       'SEO pipeline generating programmatic pages for transits, placements, and horoscopes through 2030',
-      'Custom MCP server exposing 60+ tools for AI-assisted content and analytics',
+      'Every AI guide reply checked against the ephemeris before it is shown',
+      'Custom MCP server exposing 97 tools for content, analytics and operations',
     ],
   },
   {
@@ -323,7 +324,7 @@ export const projects: Project[] = [
     group: 'products',
     focus: {
       design: { tier: 'work' },
-      ai: { rank: 3, tier: 'featured', summary: 'Self-hosted scheduling for multiple brands across 8+ platforms, with a Postiz and Temporal workflow stack doing the publishing.', emphasis: ['Temporal workflows', '8+ platforms', 'self-hosted'] },
+      ai: { rank: 1, tier: 'supporting', summary: 'Local models drafting inside each platform\'s character limit and each brand\'s voice, with Postiz and Temporal publishing and an MCP server of 100+ tools.', emphasis: ['local models', 'brand voice', 'MCP'] },
       product: { rank: 3, tier: 'supporting', summary: 'Turborepo monorepo, Next.js front end, Node BFF, Postiz + Temporal on Hetzner via Docker Compose: a platform, self-hosted and run.', emphasis: ['Turborepo', 'Drizzle', 'Docker Compose'] },
     },
     liveUrl: 'https://spellcast.sammii.dev',
@@ -347,7 +348,7 @@ export const projects: Project[] = [
     group: 'ai',
     focus: {
       design: { tier: 'work' },
-      ai: { rank: 1, tier: 'featured', summary: 'A world with possibilities rather than a prescribed ending: beliefs can be wrong, interests become practice, and what Moth builds changes what she can do next.', emphasis: ['emergent behaviour', 'beliefs and learning', 'world-building'] },
+      ai: { rank: 2, tier: 'featured', summary: 'A world with possibilities rather than a prescribed ending: beliefs can be wrong, interests become practice, and what Moth builds changes what she can do next.', emphasis: ['emergent behaviour', 'beliefs and learning', 'world-building'] },
       product: { tier: 'work' },
     },
     liveUrl: 'https://moth.sammii.dev',

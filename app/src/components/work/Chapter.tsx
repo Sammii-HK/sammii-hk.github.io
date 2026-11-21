@@ -10,6 +10,7 @@ import { OrbitVisual } from "./visuals/OrbitVisual";
 import { LunaryVisual } from "./visuals/LunaryVisual";
 import { SpellcastVisual } from "./visuals/SpellcastVisual";
 import { LattiqVisual } from "./visuals/LattiqVisual";
+import { PrismVisual } from "./visuals/PrismVisual";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export type VisualProps = { lens: Lens; image: string; title: string; priority: boolean; fragment?: boolean };
@@ -24,6 +25,7 @@ const VISUALS: Record<string, (p: VisualProps) => JSX.Element> = {
   lunary: LunaryVisual,
   spellcast: SpellcastVisual,
   lattiq: LattiqVisual,
+  prism: PrismVisual,
 };
 
 export const Screenshot = ({ image, title, priority }: Pick<VisualProps, "image" | "title" | "priority">) => (

@@ -3,8 +3,8 @@
   "description": "From browsing a font to exporting a type system: pairing, variable axes, fluid scales and previews from shared inputs.",
   "techStack": "Next.js, TypeScript, Variable Fonts, CSS, Design Tokens",
   "role": "Solo: design, engineering and product",
-  "status": "Type Lab release branch ready; production rollout pending",
-  "updated": "2026-11-20",
+  "status": "Live at kern.sammii.dev",
+  "updated": "2026-11-21",
   "blocks": [
     {
       "type": "prose",
@@ -59,7 +59,7 @@
     {
       "type": "prose",
       "heading": "A route for each part of the job",
-      "body": "The root is now the font browser. Pairing, the scale and export have their own routes; the traditional specimen is at /specimen. Sources for the shared implementation are lib/scale.ts, lib/export.ts, lib/pairing.ts and lib/catalogue/fetch.ts. No adoption or performance outcome is claimed here."
+      "body": "The root is now the font browser. Pairing, the scale and export each have their own route, and the traditional specimen lives at /specimen. Behind them sit four small modules (scale, export, pairing and the catalogue fetch) so every view and every export reads from the same state."
     },
     {
       "type": "links",
@@ -74,8 +74,8 @@
           "href": "https://kern.sammii.dev/specimen"
         },
         {
-          "label": "Review the implementation",
-          "href": "https://github.com/Sammii-HK/kern/pull/1"
+          "label": "Read the code",
+          "href": "https://github.com/Sammii-HK/kern"
         }
       ]
     }

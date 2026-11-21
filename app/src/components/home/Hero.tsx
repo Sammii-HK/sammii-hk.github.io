@@ -1,5 +1,4 @@
 "use client";
-import { ArrowDown } from "lucide-react";
 import { LensHeadline } from "../lens/LensHeadline";
 import { LensPhrase } from "../lens/LensPhrase";
 import { LENS_HEADLINE, LENS_PHRASE, SUPPORT } from "../lens/lens-copy";
@@ -38,9 +37,6 @@ export const Hero = () => {
           ),
         )}
       </p>
-      <a href="#work" className="hero-route">
-        Selected work <ArrowDown size={11} strokeWidth={2} aria-hidden="true" />
-      </a>
     </section>
   );
 };

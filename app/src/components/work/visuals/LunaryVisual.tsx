@@ -2,23 +2,23 @@ import type { VisualProps } from "../Chapter";
 import { Screenshot } from "../Chapter";
 
 // One composition, three emphases. Every line below is from the project data
-// or case study: Astronomy Engine positions, the 1,300+ page generated
-// grimoire, the MCP server with 60+ tools, Stripe subscriptions, Next.js 15,
+// or case study: Astronomy Engine positions, the 2,000+ page generated
+// grimoire, the sky check on every AI reply, the 97-tool MCP server, Stripe subscriptions, Next.js 15,
 // Prisma + PostgreSQL, a PWA.
 const FRAMES = {
   ai: {
-    label: "context, interpretation, personalisation",
+    label: "compute, ground, check",
     cols: [
-      { head: "Context", body: "Planetary and lunar positions computed deterministically with the Astronomy Engine. Nothing is guessed." },
-      { head: "Interpretation", body: "A 1,300+ page grimoire, programmatically generated, gives every position its meaning." },
-      { head: "Personalisation", body: "An MCP server exposing 60+ tools drives AI-assisted content and analytics on top." },
+      { head: "Compute", body: "Planetary and lunar positions from the ephemeris, within 0.3 arcminutes of Swiss Ephemeris. Nothing is guessed." },
+      { head: "Ground", body: "The AI guide gets the computed sky as the only valid source for where anything is now." },
+      { head: "Check", body: "Every reply is parsed back into sky claims and checked. A false sentence never stands." },
     ],
   },
   product: {
     label: "one founder-built system",
     cols: [
       { head: "Compute", body: "Real-time astronomical positions in a Next.js 15 progressive web app." },
-      { head: "Content", body: "A generated 1,300+ page library, indexed and served as the product's core." },
+      { head: "Content", body: "A generated 2,000+ page library, indexed and served as the product's core." },
       { head: "Commerce", body: "Stripe-billed subscriptions on Prisma + PostgreSQL, with an MCP server for operations." },
     ],
   },
