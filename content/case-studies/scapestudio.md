@@ -14,7 +14,7 @@ Live prototype; the reviewed local release candidate is not yet deployed
 
 ScapeStudio focuses on preparing a photograph for a print or apparel workflow. The source stays on the device. Crop and tonal decisions feed a colour crop, a grayscale print and a transparent version with dark tones removed. The interface makes those different outputs visible before export.
 
-_Actual local production build, 20 November 2026. The labelled synthetic sample exercises the real image pipeline. This is not a capture of the deployed site._
+_Original daisy-photo editor view restored. Later local functional checks are documented separately._
 
 ## Keep editing responsive without pretending every stage is incremental
 
@@ -42,9 +42,9 @@ The previous exporter forced a square canvas and labelled it 300 DPI while brows
 
 Two actual downloaded ZIPs were decoded and inspected. The full study produced 2,953 by 2,215 PNGs at approximately 300 DPI. A 600 by 400 pixel crop produced 2,953 by 1,969 PNGs at the same print width and density. The full-study apparel file contained transparent and opaque pixels; the bright edited crop stayed opaque. These are particular desktop runs, not a large-image benchmark or cross-browser certification.
 
-## Make the tool approachable before the first upload
+## Keep the photo workflow direct
 
-The local redesign replaces an empty drop zone with a clear introduction and an explicitly synthetic tonal study that opens in the real editor. The workspace stacks controls beneath the canvas on narrow screens, gives frequent controls larger targets, names threshold fields and reports export failures in the interface. Presets use local IndexedDB; they do not upload an image.
+The upload screen opens directly into choosing a photograph, and the original daisy remains the showcase. The workspace stacks controls beneath the canvas on narrow screens, gives frequent controls larger targets, names threshold fields and reports export failures in the interface. Presets use local IndexedDB; they do not upload an image.
 
 ## One crop state drives the preview and export plan
 

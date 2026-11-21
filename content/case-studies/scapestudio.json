@@ -4,7 +4,7 @@
   "techStack": "Next.js, TypeScript, Web Workers, OffscreenCanvas, Zustand, IndexedDB, JSZip",
   "role": "Solo: product, design and engineering",
   "status": "Live prototype; the reviewed local release candidate is not yet deployed",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "blocks": [
     {
       "type": "prose",
@@ -15,11 +15,11 @@
       "type": "media",
       "items": [
         {
-          "src": "/assets/images/refresh-20261120/scapestudio-editor.jpg",
-          "alt": "The actual ScapeStudio editor displaying its synthetic tonal study in Print mode, with crop handles, orientation and curve controls.",
-          "width": 1144,
-          "height": 926,
-          "caption": "Actual local production build, 20 November 2026. The labelled synthetic sample exercises the real image pipeline. This is not a capture of the deployed site."
+          "src": "/assets/images/scapestudio.webp",
+          "alt": "ScapeStudio with the original daisy photograph in the print and apparel editor.",
+          "caption": "Original daisy-photo editor view, restored as the showcase image. Later local functional checks are documented separately.",
+          "width": 2000,
+          "height": 1000
         }
       ]
     },
@@ -69,8 +69,8 @@
     },
     {
       "type": "prose",
-      "heading": "Make the tool approachable before the first upload",
-      "body": "The local redesign replaces an empty drop zone with a clear introduction and an explicitly synthetic tonal study that opens in the real editor. The workspace stacks controls beneath the canvas on narrow screens, gives frequent controls larger targets, names threshold fields and reports export failures in the interface. Presets use local IndexedDB; they do not upload an image."
+      "heading": "Keep the photo workflow direct",
+      "body": "The upload screen opens directly into choosing a photograph. The original daisy image remains the showcase. The local functional repairs retain stacked mobile controls, larger targets, labelled threshold fields and visible export failures. Presets use local IndexedDB; they do not upload an image."
     },
     {
       "type": "prose",

@@ -4,7 +4,7 @@
   "techStack": "Next.js, TypeScript, astronomy-engine, FLUX Kontext, DeepInfra, Kling, fal.ai, Remotion, Spellcast API",
   "role": "Solo: product, design and engineering",
   "status": "Local studio and pipeline candidate 9cafbd8 verified; deployment, live generation and delivery remain untested.",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "blocks": [
     {
       "type": "prose",
@@ -15,11 +15,11 @@
       "type": "media",
       "items": [
         {
-          "src": "/assets/images/refresh-20261120/artify-studio-desktop.jpg",
-          "alt": "Local studio and recorded project output; no fresh image generated.",
-          "caption": "Unreleased local candidate, 20 November 2026. Local studio and recorded project output; no fresh image generated.",
-          "width": 1144,
-          "height": 926
+          "src": "/assets/images/artify.webp",
+          "alt": "Original Artify image workspace with source upload and style choices.",
+          "caption": "Original image workspace. The later local simplification removes the added promotional introduction and Garamond; a fresh browser capture remains pending.",
+          "width": 2000,
+          "height": 1000
         }
       ],
       "layout": "single"
@@ -82,26 +82,6 @@
       "type": "prose",
       "heading": "Verify the interface up to the provider boundary",
       "body": "The actual local studio was checked at 1144px and 390px. Shared navigation links are 44px high, neither layout overflows horizontally, the project sketch loads as a source preview, style search narrows choices, and clearing a scene requires a custom direction before generation becomes available. The Generate button was not pressed. Fifteen mocked tests cover the dry-run boundary, validation states, retries and studio errors; TypeScript, production build and eight icon guard tests pass, with a zero-advisory dependency audit in that checkout. Recorded-run and tarot routes honestly show missing local records rather than populated archives."
-    },
-    {
-      "type": "media",
-      "items": [
-        {
-          "src": "/assets/images/refresh-20261120/artify-workspace-desktop.jpg",
-          "alt": "Actual local workspace with a loaded project sketch and custom scene direction. The result panel shows the source starting point, not a newly generated image.",
-          "caption": "Unreleased local candidate, 20 November 2026. Actual local workspace with a loaded project sketch and custom scene direction. The result panel shows the source starting point, not a newly generated image.",
-          "width": 1144,
-          "height": 982
-        },
-        {
-          "src": "/assets/images/refresh-20261120/artify-studio-phone.jpg",
-          "alt": "Actual 390px local studio layout, with shared navigation and recorded project output.",
-          "caption": "Unreleased local candidate, 20 November 2026. Actual 390px local studio layout, with shared navigation and recorded project output.",
-          "width": 390,
-          "height": 844
-        }
-      ],
-      "layout": "pair"
     },
     {
       "type": "callout",

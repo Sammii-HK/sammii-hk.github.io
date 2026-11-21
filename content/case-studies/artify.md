@@ -14,7 +14,7 @@ Local studio and pipeline candidate 9cafbd8 verified; deployment, live generatio
 
 Artify combines a browser workspace with scripts for a recurring visual-content workflow. The browser accepts an image and a style, scene or custom instruction. The daily pipeline builds a plan from astronomical context, renders or generates media, prepares captions and can hand the resulting assets to Spellcast. Those are separate boundaries with different failure modes.
 
-_Unreleased local candidate, 20 November 2026. Local studio and recorded project output; no fresh image generated._
+_Original image workspace restored as the showcase. The added marketing introduction and Garamond treatment have been removed locally; a fresh capture is pending._
 
 ## From daily context to a scheduled asset
 
