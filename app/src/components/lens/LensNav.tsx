@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { STUDIO_URL } from "../../../constants";
 import { lensHref } from "../../../lib/lenses";
@@ -30,9 +31,9 @@ export function LensNav() {
 
   return (
     <nav className="lens-nav" aria-label="Lens" data-shown={shown ? "" : undefined} data-motion={display}>
-      <a href="/" className="lens-nav-wordmark">
+      <Link prefetch={false} href="/" className="lens-nav-wordmark">
         SAMMII
-      </a>
+      </Link>
       <div className="lens-nav-lenses">
         {LENS_ORDER.map((lens) => {
           const state = preview === lens ? "preview" : committed === lens ? "committed" : "idle";

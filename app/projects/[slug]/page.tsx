@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -95,8 +96,8 @@ export default async function CaseStudyPage({ params }: Props) {
           </article>
         )}
         <nav className="case-foot" aria-label="More">
-          <a href="/work/">All work <ArrowRight size={14} className="icon-inline" aria-hidden="true" /></a>
-          <a href="/">Front page</a>
+          <Link prefetch={false} href="/work/">All work <ArrowRight size={14} className="icon-inline" aria-hidden="true" /></Link>
+          <Link prefetch={false} href="/">Front page</Link>
         </nav>
       </main>
     </SiteShell>

@@ -1,4 +1,5 @@
 "use client";
+import { Check } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 
 /**
@@ -58,7 +59,7 @@ function Box({ title, items, selected, mode, complexity }: { title: string; item
       <p className="aq-read"><strong>{samples.length ? `${ms.toFixed(1)} ms` : "type to measure"}</strong>{samples.length ? (ms > INSTANT ? " per keystroke: the field lags behind your fingers" : ms > FRAME ? " per keystroke: drops frames while you type" : " per keystroke: under one frame") : ""}</p>
       <Meter samples={samples} label={title} />
       <ul className="aq-list">
-        {rows.map(({ item, on }) => <li key={item.id} className={on ? "is-on" : ""}>{item.name}</li>)}
+        {rows.map(({ item, on }) => <li key={item.id} className={on ? "is-on" : ""}>{on && <Check size={12} aria-hidden="true" className="inline-block align-middle mr-1" />}{item.name}</li>)}
       </ul>
     </section>
   );

@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import { LabsShell } from "../../src/components/labs/LabsShell";
 import { COLLECTION, EXPLORATIONS, EXPLORATION_CATEGORIES, explorationHref, explorationImage } from "./registry";
@@ -29,14 +30,14 @@ export default function ExplorationsIndex() {
         </header>
         <a className="exploration-feature" href={`./${feature.slug}/`}>
           <img src={`/exploration-runtime/cards/${feature.slug}.png`} width={1600} height={900} alt="Calculated Schwarzschild light paths bending around a black hole" fetchPriority="high" />
-          <div><span className="section-eyebrow">Start with light</span><h2>{feature.title}</h2><p>{feature.intro}</p><span className="exploration-card-arrow">Explore light around a black hole ↗</span></div>
+          <div><span className="section-eyebrow">Start with light</span><h2>{feature.title}</h2><p>{feature.intro}</p><span className="exploration-card-arrow">Explore light around a black hole <ArrowUpRight size={14} aria-hidden="true" /></span></div>
         </a>
         {Array.from(new Set(categories)).map((category) => {
           const items = EXPLORATIONS.filter((item) => item.category === category);
           if (!items.length) return null;
           return <section className="exploration-index-group" aria-label={category} key={category}>
             <h2>{category}</h2>
-            <ul className="exploration-cards">{items.map((item) => <li key={item.slug} className="exploration-card"><a href={`./${item.slug}/`}><p className="exploration-card-kicker">{item.topic}</p><h3>{item.title}</h3><p className="exploration-card-copy">{item.description}</p><span className="exploration-card-arrow">Open exploration ↗</span></a></li>)}</ul>
+            <ul className="exploration-cards">{items.map((item) => <li key={item.slug} className="exploration-card"><a href={`./${item.slug}/`}><p className="exploration-card-kicker">{item.topic}</p><h3>{item.title}</h3><p className="exploration-card-copy">{item.description}</p><span className="exploration-card-arrow">Open exploration <ArrowUpRight size={14} aria-hidden="true" /></span></a></li>)}</ul>
           </section>;
         })}
         <footer className="exploration-author"><p>{COLLECTION.authorCopy}</p><nav aria-label="More from Sammii"><a href="https://sammii.dev/work/">My work</a><a href="https://sammii.dev/blog/">Writing</a><a href="https://sammii.dev/#contact">Get in touch</a></nav></footer>

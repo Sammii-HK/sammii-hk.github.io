@@ -13,7 +13,7 @@ describe("Selected Work editorial contract", () => {
     expect(ids(d.references)).toEqual(["strata", "lunary", "lattiq"]);
     const a = selectedWorkModel("ai");
     expect(ids(a.chapters)).toEqual(["moth", "lunary", "spellcast"]);
-    expect(ids(a.references)).toEqual(["prism", "create-mcp-server", "lattiq", "iprep", "orbit"]);
+    expect(ids(a.references)).toEqual(["prism", "create-mcp-server", "iprep", "orbit"]);
     const p = selectedWorkModel("product");
     expect(ids(p.chapters)).toEqual(["lunary", "lattiq", "strata"]);
     expect(ids(p.references)).toEqual(["gamut", "orbit", "spellcast", "kern"]);

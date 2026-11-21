@@ -51,7 +51,7 @@ describe("getLensOrder", () => {
     });
     expect(ids("ai")).toEqual({
       featured: ["moth", "lunary", "spellcast"],
-      supporting: ["prism", "create-mcp-server", "lattiq", "iprep", "orbit"],
+      supporting: ["prism", "create-mcp-server", "iprep", "orbit"],
     });
     expect(ids("product")).toEqual({
       featured: ["lunary", "lattiq", "strata"],
