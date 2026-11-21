@@ -3,8 +3,8 @@
   "description": "A component system that makes its behaviour inspectable: spring motion, shared overlays, three visual expressions and recorded AI response states.",
   "techStack": "React, TypeScript, Spring Physics, Browser Top Layer",
   "role": "Solo: design, engineering and product",
-  "status": "Implementation on the release branch; production rollout pending",
-  "updated": "2026-11-20",
+  "status": "Live at prism.sammii.dev",
+  "updated": "2026-11-21",
   "blocks": [
     {
       "type": "prose",
@@ -96,8 +96,8 @@
     },
     {
       "type": "prose",
-      "heading": "What remains",
-      "body": "The shadcn-format registry, the next form primitives and a shared OKLCH token contract are follow-ups. They are not presented as available installation paths. Current source files include app/lib/hooks/overlay.ts, anchor.ts and assistant.ts; browser contracts live under tests/."
+      "heading": "Installable, and what comes next",
+      "body": "Eight components install straight into a project with the shadcn CLI, for example `npx shadcn@latest add https://prism.sammii.dev/r/prism-menu.json`: async button, AI response, dialog, sheet, popover, tooltip, toast and menu. Each item carries the shared hooks it needs, such as overlay.ts, anchor.ts and assistant.ts, and a test compiles every item outside the app to prove it stands alone. The next form primitives and a shared OKLCH token contract are still to come."
     },
     {
       "type": "links",
