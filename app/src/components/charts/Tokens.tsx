@@ -31,7 +31,7 @@ function show(t: string) {
   let buf = "";
   const flush = () => { if (buf) { out.push(buf); buf = ""; } };
   Array.from(t).forEach((ch, i) => {
-    if (ch === " " || ch === "\n" || ch === "\t") { flush(); out.push(<span key={i} className="tk-ws" aria-hidden="true">{ch === " " ? "·" : ch === "\n" ? "↵" : "→"}</span>); }
+    if (ch === " " || ch === "\n" || ch === "\t") { flush(); out.push(<code key={i} className="tk-ws" aria-hidden="true">{ch === " " ? "·" : ch === "\n" ? "↵" : "→"}</code>); }
     else buf += ch;
   });
   flush();
@@ -79,7 +79,7 @@ export function Tokens() {
         ))}
       </div>
       <p className="tk-readout" aria-live="polite">
-        {picked ? <>Token <code>{picked[0]}</code> is {picked[1] === null ? <>the bytes <code>{picked[2]}</code>: part of a character, not a character</> : <><code>{JSON.stringify(picked[1])}</code>, {new TextEncoder().encode(picked[1]).length} bytes</>}. The model receives the number, never the text.</> : <>Hover a chip for its id. <span className="tk-ws">·</span> is a space, <span className="tk-ws">↵</span> a newline; a chip in hex is a token that is only part of a character.</>}
+        {picked ? <>Token <code>{picked[0]}</code> is {picked[1] === null ? <>the bytes <code>{picked[2]}</code>: part of a character, not a character</> : <><code>{JSON.stringify(picked[1])}</code>, {new TextEncoder().encode(picked[1]).length} bytes</>}. The model receives the number, never the text.</> : <>Hover a chip for its id. <span className="tk-ws">·</span> is a space, <code className="tk-ws">↵</code> a newline; a chip in hex is a token that is only part of a character.</>}
       </p>
       <p className="tk-ids"><span className="kp-knob-label">What GPT-4o actually receives</span><code>[{s.tokens.o200k.map((t) => t[0]).join(", ")}]</code></p>
 

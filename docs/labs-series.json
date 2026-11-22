@@ -1,6 +1,28 @@
 {
-  "checked_on": "2026-11-20",
+  "checked_on": "2026-11-22",
   "timezone": "Europe/London",
+  "source_repository_commit": "574bbec892621a4c4d810d8cf45268d213833a1e",
+  "existing_source_posts": 132,
+  "fresh_duplicate_check": {
+    "checked_on": "2026-11-22",
+    "master_commit": "574bbec892621a4c4d810d8cf45268d213833a1e",
+    "blog_delta": {
+      "old_count": 129,
+      "current_count": 132,
+      "added": [
+        "a-countdown-needs-a-clock.md",
+        "midnight-happened-twice.md",
+        "saer-a-theme-you-can-install.md"
+      ],
+      "changed": [],
+      "removed": []
+    },
+    "rss_entries": 75,
+    "spellcast_account": "Sammii Dev Blog",
+    "spellcast_published": 7,
+    "spellcast_pending": 0,
+    "spellcast_results_untruncated": true
+  },
   "pull_request_url": "https://github.com/Sammii-HK/sammii-hk.github.io/pull/15",
   "branch": "content/labs-blog-gaps-2026-11-20",
   "guide": {
@@ -17,15 +39,50 @@
   "catalogue_items": 66,
   "reader_paths": 9,
   "new_implementation_articles": 12,
-  "new_evolution_articles": 3,
+  "new_evolution_articles": 7,
   "new_reader_guide": 1,
-  "complete_drafts": 16,
-  "prose_words": 22789,
-  "code_examples": 37,
+  "existing_drafted_continuations": [
+    {
+      "slug": "a-countdown-needs-a-clock",
+      "title": "The countdown looked right until I timed it",
+      "status": "existing_draft",
+      "date": "2026-11-20",
+      "draft": true,
+      "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-countdown-needs-a-clock.md",
+      "public_blog_url": null,
+      "live_project_url": null,
+      "existing_series": null
+    },
+    {
+      "slug": "midnight-happened-twice",
+      "title": "My daylight calculator lost an hour at midnight",
+      "status": "existing_draft",
+      "date": "2026-11-20",
+      "draft": true,
+      "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/midnight-happened-twice.md",
+      "public_blog_url": null,
+      "live_project_url": null,
+      "existing_series": null
+    },
+    {
+      "slug": "saer-a-theme-you-can-install",
+      "title": "Turning a Saer theme into components I can install",
+      "status": "existing_draft",
+      "date": "2026-11-20",
+      "draft": true,
+      "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/saer-a-theme-you-can-install.md",
+      "public_blog_url": null,
+      "live_project_url": null,
+      "existing_series": null
+    }
+  ],
+  "complete_drafts": 20,
+  "prose_words": 28464,
+  "code_examples": 46,
   "original_publication_calendar_changed": false,
   "held_drafts_changed": false,
   "article_metadata_is_not_runtime_navigation": true,
-  "publication_dependency": "Publish the reader guide and three linked history pieces together, no later than the implementation articles that link to the guide. These remain unscheduled drafts. Existing live and scheduled article bodies are unchanged.",
+  "publication_dependency": "Publish the reader guide and seven linked history pieces together, no later than the implementation articles that link to the guide. These remain unscheduled drafts. Existing live, scheduled and held article bodies are unchanged.",
   "series": [
     {
       "id": "colour",
@@ -47,7 +104,7 @@
           "status": "published_coverage",
           "date": "2026-04-27",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/why-your-design-system-needs-oklch-not-hsl.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/why-your-design-system-needs-oklch-not-hsl.md",
           "public_blog_url": "https://sammii.dev/blog/why-your-design-system-needs-oklch-not-hsl/",
           "live_project_url": null,
           "existing_series": null
@@ -58,7 +115,7 @@
           "status": "published_coverage",
           "date": "2026-03-02",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/one-colour-formula-portfolio.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/one-colour-formula-portfolio.md",
           "public_blog_url": "https://sammii.dev/blog/one-colour-formula-portfolio/",
           "live_project_url": null,
           "existing_series": null
@@ -71,7 +128,7 @@
           "status": "future_dated",
           "date": "2026-11-24T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/colour-spaces.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/colour-spaces.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/colour-spaces/",
           "existing_series": "Colour and perception"
@@ -82,7 +139,7 @@
           "status": "future_dated",
           "date": "2027-01-20T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/why-hsl-lies.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/why-hsl-lies.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/why-hsl-lies/",
           "existing_series": "Colour and perception"
@@ -108,12 +165,23 @@
           "live_project_url": "https://tailwind-colour-creator.vercel.app"
         },
         {
+          "slug": "saer-a-theme-you-can-install",
+          "title": "Turning a Saer theme into components I can install",
+          "status": "existing_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/saer-a-theme-you-can-install.md",
+          "public_blog_url": null,
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
           "slug": "gamuts",
           "title": "The triangle your screen lives in",
           "status": "future_dated",
           "date": "2027-01-01T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/gamuts.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/gamuts.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/gamuts/",
           "existing_series": "Colour and perception"
@@ -124,7 +192,7 @@
           "status": "future_dated",
           "date": "2026-12-24T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/contrast.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/contrast.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/contrast/",
           "existing_series": "Colour and perception"
@@ -135,7 +203,7 @@
           "status": "future_dated",
           "date": "2027-01-11T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/named-colours.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/named-colours.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/named-colours/",
           "existing_series": "Colour and perception"
@@ -160,7 +228,7 @@
           "status": "published_coverage",
           "date": "2026-04-07",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/love-letter-to-garamond.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-garamond.md",
           "public_blog_url": "https://sammii.dev/blog/love-letter-to-garamond/",
           "live_project_url": null,
           "existing_series": null
@@ -171,7 +239,7 @@
           "status": "published_coverage",
           "date": "2026-06-01",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/love-letter-to-baskerville.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-baskerville.md",
           "public_blog_url": "https://sammii.dev/blog/love-letter-to-baskerville/",
           "live_project_url": null,
           "existing_series": null
@@ -182,7 +250,7 @@
           "status": "published_coverage",
           "date": "2026-06-08",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/love-letter-to-bodoni.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-bodoni.md",
           "public_blog_url": "https://sammii.dev/blog/love-letter-to-bodoni/",
           "live_project_url": null,
           "existing_series": null
@@ -193,7 +261,7 @@
           "status": "published_coverage",
           "date": "2026-06-22",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/love-letter-to-johnston-sans.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-johnston-sans.md",
           "public_blog_url": "https://sammii.dev/blog/love-letter-to-johnston-sans/",
           "live_project_url": null,
           "existing_series": null
@@ -204,7 +272,7 @@
           "status": "published_coverage",
           "date": "2026-04-03",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/love-letter-to-futura.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-futura.md",
           "public_blog_url": "https://sammii.dev/blog/love-letter-to-futura/",
           "live_project_url": null,
           "existing_series": null
@@ -215,7 +283,7 @@
           "status": "published_coverage",
           "date": "2026-06-29",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/love-letter-to-helvetica.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-helvetica.md",
           "public_blog_url": "https://sammii.dev/blog/love-letter-to-helvetica/",
           "live_project_url": null,
           "existing_series": null
@@ -226,7 +294,7 @@
           "status": "published_coverage",
           "date": "2026-07-06",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/love-letter-to-univers.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-univers.md",
           "public_blog_url": "https://sammii.dev/blog/love-letter-to-univers/",
           "live_project_url": null,
           "existing_series": null
@@ -237,7 +305,7 @@
           "status": "published_coverage",
           "date": "2026-06-17",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/the-kerning-pair-problem.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-kerning-pair-problem.md",
           "public_blog_url": "https://sammii.dev/blog/the-kerning-pair-problem/",
           "live_project_url": null,
           "existing_series": null
@@ -248,7 +316,7 @@
           "status": "published_coverage",
           "date": "2026-10-29T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/fluid-type-from-a-variable-font-explorer.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/fluid-type-from-a-variable-font-explorer.md",
           "public_blog_url": "https://sammii.dev/blog/fluid-type-from-a-variable-font-explorer/",
           "live_project_url": null,
           "existing_series": null
@@ -261,7 +329,7 @@
           "status": "future_dated",
           "date": "2026-12-30T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/communication.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/communication.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/communication/",
           "existing_series": "Typography"
@@ -272,7 +340,7 @@
           "status": "future_dated",
           "date": "2027-01-18T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/typography.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/typography.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/typography/",
           "existing_series": "Typography"
@@ -283,7 +351,7 @@
           "status": "future_dated",
           "date": "2027-01-07T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/letter.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/letter.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/letter/",
           "existing_series": "Typography"
@@ -294,10 +362,31 @@
           "status": "future_dated",
           "date": "2027-01-29T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/x-height.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/x-height.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/x-height/",
           "existing_series": "Typography"
+        },
+        {
+          "slug": "fluid-type-from-a-variable-font-explorer",
+          "title": "Kern: exploring variable fonts and generating fluid type",
+          "status": "published_coverage",
+          "date": "2026-10-29T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/fluid-type-from-a-variable-font-explorer.md",
+          "public_blog_url": "https://sammii.dev/blog/fluid-type-from-a-variable-font-explorer/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+          "title": "From Kern to Type Lab: letting the font data drive the tool",
+          "status": "new_draft",
+          "date": "2026-11-22",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/from-kern-to-type-lab-making-the-font-data-drive-the-tool.md",
+          "public_blog_url": null,
+          "live_project_url": "https://kern.sammii.dev"
         }
       ]
     },
@@ -320,7 +409,7 @@
           "status": "published_coverage",
           "date": "2026-02-25",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/cursor-reactive-gradients-css-mouse-position.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/cursor-reactive-gradients-css-mouse-position.md",
           "public_blog_url": "https://sammii.dev/blog/cursor-reactive-gradients-css-mouse-position/",
           "live_project_url": null,
           "existing_series": null
@@ -331,7 +420,7 @@
           "status": "published_coverage",
           "date": "2026-02-26",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/building-a-vertical-snap-carousel-touch-drag-pagination.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/building-a-vertical-snap-carousel-touch-drag-pagination.md",
           "public_blog_url": "https://sammii.dev/blog/building-a-vertical-snap-carousel-touch-drag-pagination/",
           "live_project_url": null,
           "existing_series": null
@@ -344,7 +433,7 @@
           "status": "future_dated",
           "date": "2027-01-12T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/springs.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/springs.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/springs/",
           "existing_series": "Motion and interaction"
@@ -358,6 +447,17 @@
           "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/kinetic-designing-motion-you-can-interrupt.md",
           "public_blog_url": null,
           "live_project_url": "https://kinetic.sammii.dev"
+        },
+        {
+          "slug": "a-countdown-needs-a-clock",
+          "title": "The countdown looked right until I timed it",
+          "status": "existing_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-countdown-needs-a-clock.md",
+          "public_blog_url": null,
+          "live_project_url": null,
+          "existing_series": null
         },
         {
           "slug": "making-balloons-feel-light-with-matter-js",
@@ -385,7 +485,7 @@
           "status": "future_dated",
           "date": "2027-01-22T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/touch-targets.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/touch-targets.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/touch-targets/",
           "existing_series": "Motion and interaction"
@@ -422,7 +522,7 @@
           "status": "published_coverage",
           "date": "2026-09-22",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/charts-information-design-for-design-engineers.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/charts-information-design-for-design-engineers.md",
           "public_blog_url": "https://sammii.dev/blog/charts-information-design-for-design-engineers/",
           "live_project_url": null,
           "existing_series": null
@@ -433,7 +533,7 @@
           "status": "published_coverage",
           "date": "2026-06-24",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/browser-photo-editing-web-workers.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/browser-photo-editing-web-workers.md",
           "public_blog_url": "https://sammii.dev/blog/browser-photo-editing-web-workers/",
           "live_project_url": null,
           "existing_series": null
@@ -444,7 +544,7 @@
           "status": "published_coverage",
           "date": "2026-05-13",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/local-first-collaborative-editing-yjs-crdts.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/local-first-collaborative-editing-yjs-crdts.md",
           "public_blog_url": "https://sammii.dev/blog/local-first-collaborative-editing-yjs-crdts/",
           "live_project_url": null,
           "existing_series": null
@@ -462,12 +562,22 @@
           "live_project_url": "https://labs.sammii.dev/explorations/"
         },
         {
+          "slug": "when-the-browser-became-part-of-the-explanation",
+          "title": "When the browser became part of the explanation",
+          "status": "new_draft",
+          "date": "2026-11-22",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/when-the-browser-became-part-of-the-explanation.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/event-loop/"
+        },
+        {
           "slug": "url",
           "title": "A slow page is mostly waiting",
           "status": "future_dated",
           "date": "2027-01-28T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/url.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/url.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/url/",
           "existing_series": "The browser and the machine"
@@ -478,7 +588,7 @@
           "status": "future_dated",
           "date": "2026-12-02T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/event-loop.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/event-loop.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/event-loop/",
           "existing_series": "The browser and the machine"
@@ -489,7 +599,7 @@
           "status": "future_dated",
           "date": "2027-01-15T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/unicode.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/unicode.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/unicode/",
           "existing_series": "The browser and the machine"
@@ -500,7 +610,7 @@
           "status": "future_dated",
           "date": "2026-12-04T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/floating-point.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/floating-point.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/floating-point/",
           "existing_series": "The browser and the machine"
@@ -511,7 +621,7 @@
           "status": "future_dated",
           "date": "2026-11-26T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/big-o.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/big-o.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/big-o/",
           "existing_series": "The browser and the machine"
@@ -522,10 +632,20 @@
           "status": "future_dated",
           "date": "2026-11-30T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/caching.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/caching.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/caching/",
           "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "when-a-blog-post-stopped-needing-a-deploy",
+          "title": "When a blog post stopped needing a deploy",
+          "status": "new_draft",
+          "date": "2026-11-22",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/when-a-blog-post-stopped-needing-a-deploy.md",
+          "public_blog_url": null,
+          "live_project_url": null
         },
         {
           "slug": "js-cost",
@@ -533,7 +653,7 @@
           "status": "future_dated",
           "date": "2026-12-11T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/js-cost.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/js-cost.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/js-cost/",
           "existing_series": "The browser and the machine"
@@ -544,7 +664,7 @@
           "status": "future_dated",
           "date": "2026-12-15T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/keypress.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/keypress.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/keypress/",
           "existing_series": "The browser and the machine"
@@ -555,7 +675,7 @@
           "status": "future_dated",
           "date": "2026-12-07T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/frame-budget.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/frame-budget.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/frame-budget/",
           "existing_series": "The browser and the machine"
@@ -566,7 +686,7 @@
           "status": "future_dated",
           "date": "2026-12-28T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/now.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/now.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/now/",
           "existing_series": "Perception and consciousness"
@@ -577,7 +697,7 @@
           "status": "future_dated",
           "date": "2026-12-21T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/repaint.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/repaint.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/repaint/",
           "existing_series": "The browser and the machine"
@@ -588,7 +708,7 @@
           "status": "future_dated",
           "date": "2026-12-17T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/layout.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/layout.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/layout/",
           "existing_series": "The browser and the machine"
@@ -599,7 +719,7 @@
           "status": "future_dated",
           "date": "2026-12-29T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/specificity.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/specificity.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/specificity/",
           "existing_series": "The browser and the machine"
@@ -610,7 +730,7 @@
           "status": "future_dated",
           "date": "2027-01-06T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/stacking.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/stacking.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/stacking/",
           "existing_series": "The browser and the machine"
@@ -621,7 +741,7 @@
           "status": "future_dated",
           "date": "2026-11-23T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/anchor.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/anchor.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/anchor/",
           "existing_series": "The browser and the machine"
@@ -632,7 +752,7 @@
           "status": "future_dated",
           "date": "2026-12-09T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/git-graph.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/git-graph.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/git-graph/",
           "existing_series": "The browser and the machine"
@@ -663,7 +783,7 @@
           "status": "published_coverage",
           "date": "2026-03-21",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/the-maths-behind-how-long-a-planet-stays-in-your-sign.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-maths-behind-how-long-a-planet-stays-in-your-sign.md",
           "public_blog_url": "https://sammii.dev/blog/the-maths-behind-how-long-a-planet-stays-in-your-sign/",
           "live_project_url": null,
           "existing_series": null
@@ -674,7 +794,7 @@
           "status": "published_coverage",
           "date": "2026-05-18",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/retrograde-stations-are-the-plot-twist.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/retrograde-stations-are-the-plot-twist.md",
           "public_blog_url": "https://sammii.dev/blog/retrograde-stations-are-the-plot-twist/",
           "live_project_url": null,
           "existing_series": null
@@ -685,7 +805,7 @@
           "status": "published_coverage",
           "date": "2026-07-01",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/synastry-at-36-aspects.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/synastry-at-36-aspects.md",
           "public_blog_url": "https://sammii.dev/blog/synastry-at-36-aspects/",
           "live_project_url": null,
           "existing_series": null
@@ -708,7 +828,7 @@
           "status": "future_dated",
           "date": "2026-12-08T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/one-sky-many-stories.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/one-sky-many-stories.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/constellations-and-sky-stories/",
           "existing_series": null
@@ -719,7 +839,7 @@
           "status": "future_dated",
           "date": "2026-12-22T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/the-sky-unravelling.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-sky-unravelling.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/constellations-through-time/",
           "existing_series": null
@@ -730,7 +850,7 @@
           "status": "future_dated",
           "date": "2026-12-16T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/step-outside-the-pattern.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/step-outside-the-pattern.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/big-dipper-in-3d/",
           "existing_series": null
@@ -746,12 +866,23 @@
           "live_project_url": "https://day-lite.vercel.app"
         },
         {
+          "slug": "midnight-happened-twice",
+          "title": "My daylight calculator lost an hour at midnight",
+          "status": "existing_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/midnight-happened-twice.md",
+          "public_blog_url": null,
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
           "slug": "a-day-on-another-world",
           "title": "A day on another world",
           "status": "future_dated",
           "date": "2026-11-25T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/a-day-on-another-world.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-day-on-another-world.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/day-on-another-world/",
           "existing_series": null
@@ -762,7 +893,7 @@
           "status": "future_dated",
           "date": "2026-12-10T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/one-throw-twelve-worlds.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/one-throw-twelve-worlds.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/gravity-on-other-worlds/",
           "existing_series": null
@@ -773,7 +904,7 @@
           "status": "future_dated",
           "date": "2026-12-03T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/beneath-the-surface.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/beneath-the-surface.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/inside-planets/",
           "existing_series": null
@@ -784,7 +915,7 @@
           "status": "future_dated",
           "date": "2026-12-01T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/a-planet-reshaping-itself.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-planet-reshaping-itself.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/plate-tectonics/",
           "existing_series": null
@@ -795,7 +926,7 @@
           "status": "future_dated",
           "date": "2027-01-21T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/worlds-in-time.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/worlds-in-time.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/planetary-surface-evolution/",
           "existing_series": null
@@ -823,7 +954,7 @@
           "status": "published_coverage",
           "date": "2026-09-22",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/charts-information-design-for-design-engineers.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/charts-information-design-for-design-engineers.md",
           "public_blog_url": "https://sammii.dev/blog/charts-information-design-for-design-engineers/",
           "live_project_url": null,
           "existing_series": null
@@ -836,7 +967,7 @@
           "status": "future_dated",
           "date": "2027-01-04T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/two-clocks-near-a-black-hole.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/two-clocks-near-a-black-hole.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/black-hole-time-dilation/",
           "existing_series": null
@@ -847,7 +978,7 @@
           "status": "held_draft",
           "date": "None",
           "draft": true,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/where-light-can-go.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/where-light-can-go.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/black-hole-light-paths/",
           "existing_series": null
@@ -858,7 +989,7 @@
           "status": "future_dated",
           "date": "2026-12-25T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/through-the-forbidden.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/through-the-forbidden.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/quantum-tunnelling/",
           "existing_series": null
@@ -869,7 +1000,7 @@
           "status": "future_dated",
           "date": "2026-11-27T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/a-little-less-certain.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-little-less-certain.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/quantum-uncertainty/",
           "existing_series": null
@@ -880,7 +1011,7 @@
           "status": "held_draft",
           "date": "None",
           "draft": true,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/one-arrival-at-a-time.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/one-arrival-at-a-time.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/double-slit-experiment/",
           "existing_series": null
@@ -891,7 +1022,7 @@
           "status": "future_dated",
           "date": "2026-12-18T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/the-shape-of-a-note.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-shape-of-a-note.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/vibrating-membranes/",
           "existing_series": null
@@ -902,7 +1033,7 @@
           "status": "future_dated",
           "date": "2026-12-14T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/patterns-that-grow.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/patterns-that-grow.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/explorations/reaction-diffusion/",
           "existing_series": null
@@ -931,7 +1062,7 @@
           "status": "published_coverage",
           "date": "2026-11-20",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/moth-choosing-models-by-task.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/moth-choosing-models-by-task.md",
           "public_blog_url": "https://sammii.dev/blog/moth-choosing-models-by-task/",
           "live_project_url": null,
           "existing_series": null
@@ -942,7 +1073,7 @@
           "status": "published_coverage",
           "date": "2026-10-15T16:35:00+01:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/when-an-agent-returns-code-instead-of-data.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/when-an-agent-returns-code-instead-of-data.md",
           "public_blog_url": "https://sammii.dev/blog/when-an-agent-returns-code-instead-of-data/",
           "live_project_url": null,
           "existing_series": null
@@ -953,7 +1084,7 @@
           "status": "published_coverage",
           "date": "2026-11-12T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/no-model-decides-whether-a-model-made-it-up.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/no-model-decides-whether-a-model-made-it-up.md",
           "public_blog_url": "https://sammii.dev/blog/no-model-decides-whether-a-model-made-it-up/",
           "live_project_url": null,
           "existing_series": null
@@ -964,7 +1095,7 @@
           "status": "published_coverage",
           "date": "2026-11-19T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/is-consciousness-merely-intelligence.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/is-consciousness-merely-intelligence.md",
           "public_blog_url": "https://sammii.dev/blog/is-consciousness-merely-intelligence/",
           "live_project_url": null,
           "existing_series": null
@@ -975,7 +1106,7 @@
           "status": "published_coverage",
           "date": "2026-05-04",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/the-grimoire-is-the-product-pgvector-semantic-search.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-grimoire-is-the-product-pgvector-semantic-search.md",
           "public_blog_url": "https://sammii.dev/blog/the-grimoire-is-the-product-pgvector-semantic-search/",
           "live_project_url": null,
           "existing_series": null
@@ -988,7 +1119,7 @@
           "status": "future_dated",
           "date": "2027-01-19T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/tokens.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/tokens.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/tokens/",
           "existing_series": "AI engineering"
@@ -999,7 +1130,7 @@
           "status": "future_dated",
           "date": "2026-12-23T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/context-window.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/context-window.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/context-window/",
           "existing_series": "AI engineering"
@@ -1010,7 +1141,7 @@
           "status": "future_dated",
           "date": "2027-01-08T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/llm-latency.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/llm-latency.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/llm-latency/",
           "existing_series": "AI engineering"
@@ -1021,10 +1152,20 @@
           "status": "future_dated",
           "date": "2026-12-31T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/grimoire-map.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/grimoire-map.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/grimoire-map/",
           "existing_series": "AI engineering"
+        },
+        {
+          "slug": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+          "title": "Lunary: the right data did not stop the wrong answer",
+          "status": "new_draft",
+          "date": "2026-11-22",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/lunary-the-right-data-did-not-stop-the-wrong-answer.md",
+          "public_blog_url": null,
+          "live_project_url": null
         },
         {
           "slug": "teaching-a-computer-to-paint-what-the-baseline-taught-me",
@@ -1042,7 +1183,7 @@
           "status": "published_coverage",
           "date": "2026-11-20",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/moth-a-world-of-possibilities.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/moth-a-world-of-possibilities.md",
           "public_blog_url": "https://sammii.dev/blog/moth-a-world-of-possibilities/",
           "live_project_url": "https://moth.sammii.dev/observatory.html",
           "existing_series": null
@@ -1063,7 +1204,7 @@
           "status": "published_coverage",
           "date": "2026-03-26",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers.md",
           "public_blog_url": "https://sammii.dev/blog/i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers/",
           "live_project_url": null,
           "existing_series": null
@@ -1074,7 +1215,7 @@
           "status": "future_dated",
           "date": "2027-01-26T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/tests-for-a-mind.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/tests-for-a-mind.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/tests-for-a-mind/",
           "existing_series": "Perception and consciousness"
@@ -1102,7 +1243,7 @@
           "status": "published_coverage",
           "date": "2026-05-25",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted.md",
           "public_blog_url": "https://sammii.dev/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted/",
           "live_project_url": null,
           "existing_series": null
@@ -1113,7 +1254,7 @@
           "status": "published_coverage",
           "date": "2026-10-22T09:00:00+01:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/the-light-we-built.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-light-we-built.md",
           "public_blog_url": "https://sammii.dev/blog/the-light-we-built/",
           "live_project_url": null,
           "existing_series": null
@@ -1124,7 +1265,7 @@
           "status": "published_coverage",
           "date": "2026-05-27",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/from-the-library-to-lunary.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/from-the-library-to-lunary.md",
           "public_blog_url": "https://sammii.dev/blog/from-the-library-to-lunary/",
           "live_project_url": null,
           "existing_series": null
@@ -1135,7 +1276,7 @@
           "status": "published_coverage",
           "date": "2026-05-11",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/mythology-as-code.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/mythology-as-code.md",
           "public_blog_url": "https://sammii.dev/blog/mythology-as-code/",
           "live_project_url": null,
           "existing_series": null
@@ -1148,7 +1289,7 @@
           "status": "future_dated",
           "date": "2027-01-25T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/seven.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/seven.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/seven/",
           "existing_series": "Number and symbol"
@@ -1159,7 +1300,7 @@
           "status": "future_dated",
           "date": "2027-01-13T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/spectrum.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/spectrum.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/spectrum/",
           "existing_series": "Perception and consciousness"
@@ -1170,7 +1311,7 @@
           "status": "future_dated",
           "date": "2027-01-05T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/retina.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/retina.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/retina/",
           "existing_series": "Perception and consciousness"
@@ -1234,7 +1375,7 @@
           "status": "published_coverage",
           "date": "2026-03-23",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/video-system-that-predicts-performance.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/video-system-that-predicts-performance.md",
           "public_blog_url": "https://sammii.dev/blog/video-system-that-predicts-performance/",
           "live_project_url": null,
           "existing_series": null
@@ -1245,7 +1386,7 @@
           "status": "published_coverage",
           "date": "2026-06-03",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/postready-beauty-filter-pipeline-ios.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/postready-beauty-filter-pipeline-ios.md",
           "public_blog_url": "https://sammii.dev/blog/postready-beauty-filter-pipeline-ios/",
           "live_project_url": null,
           "existing_series": null
@@ -1258,7 +1399,7 @@
           "status": "future_dated",
           "date": "2027-01-27T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/videos.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/videos.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/videos/",
           "existing_series": "Short-form video"
@@ -1269,7 +1410,7 @@
           "status": "future_dated",
           "date": "2027-01-14T09:00:00+00:00",
           "draft": false,
-          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/a79c7049cadc132d7103e921c3b9e20069a48c33/content/blog/text-on-screen.md",
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/text-on-screen.md",
           "public_blog_url": null,
           "live_project_url": "https://labs.sammii.dev/charts/text-on-screen/",
           "existing_series": "Short-form video"
@@ -1364,6 +1505,21 @@
       "git_blob_sha": "d5057866868cc736a66e97cce03d8920440c341a"
     },
     {
+      "slug": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "filename": "from-kern-to-type-lab-making-the-font-data-drive-the-tool.md",
+      "title": "From Kern to Type Lab: letting the font data drive the tool",
+      "description": "How a six-font explorer became a place to build a type system: live family metadata, shared heading and body roles, explicit scale endpoints and previews that stay faithful to their input.",
+      "prose_word_count": 1426,
+      "code_blocks": 3,
+      "code_languages": [
+        "typescript",
+        "diff",
+        "diff"
+      ],
+      "sha256": "b68426e13fd42d5fea0508727768e3705cc38c819b650f5daa77b0856313ec9e",
+      "git_blob_sha": "c8825671a50a789adcdaa8e12f89c894a18b3479"
+    },
+    {
       "slug": "kinetic-designing-motion-you-can-interrupt",
       "filename": "kinetic-designing-motion-you-can-interrupt.md",
       "title": "Kinetic: designing motion you can interrupt",
@@ -1390,6 +1546,20 @@
       ],
       "sha256": "8ed902fef9b38d249f43a9cce0d79b7076cfe2e5ca6b1e2545ca977357829f81",
       "git_blob_sha": "427a3173777c1378dbcff7d494789ede8bb7e1f9"
+    },
+    {
+      "slug": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "filename": "lunary-the-right-data-did-not-stop-the-wrong-answer.md",
+      "title": "Lunary: the right data did not stop the wrong answer",
+      "description": "A wrong Moon sign exposed a gap between a validator for scheduled copy and a validator for conversation. The fix was a more precise contract for time, claims and delivery.",
+      "prose_word_count": 1473,
+      "code_blocks": 2,
+      "code_languages": [
+        "ts",
+        "ts"
+      ],
+      "sha256": "6d3e1b60c2b8213b5e8474d08b0d9627c3f7eba80c5424d8a628fc07cfeba7a3",
+      "git_blob_sha": "cd891868b8e6d68f61645eaa3b33ee57d53037c9"
     },
     {
       "slug": "making-balloons-feel-light-with-matter-js",
@@ -1437,11 +1607,11 @@
       "filename": "reading-the-labs-as-connected-series.md",
       "title": "Reading the labs as connected series",
       "description": "Nine routes through the experiments, connecting the original questions, the tools they became and the decisions that changed along the way.",
-      "prose_word_count": 1466,
+      "prose_word_count": 1555,
       "code_blocks": 0,
       "code_languages": [],
-      "sha256": "c6be903615bc733ea4f2eecf0434f8b7d2da27f1d9840f22e2ba65c9e1e9f2d8",
-      "git_blob_sha": "f0d31ad17e7fad67bc53e88c84ba38c7b07a07c9"
+      "sha256": "e1cb4bb603c36271591304a7197f61b9bff837064caadb23f16ae872a5a6d9bc",
+      "git_blob_sha": "8115d42a182ad89a4677ced9bbe793a1734bde17"
     },
     {
       "slug": "rebuilding-beyond-light-making-room-for-the-reveal",
@@ -1500,6 +1670,34 @@
       ],
       "sha256": "aac04e2cc4a25a4305a429d426cae351aa4b0b30e3965acca1f248d335297d57",
       "git_blob_sha": "a30057e9ed6df399a807a9f0095a48103d956dbe"
+    },
+    {
+      "slug": "when-a-blog-post-stopped-needing-a-deploy",
+      "filename": "when-a-blog-post-stopped-needing-a-deploy.md",
+      "title": "When a blog post stopped needing a deploy",
+      "description": "How this blog moved from a static build to a live content reader, then gained full-text feeds and a shared publication policy. The useful changes were at the boundaries.",
+      "prose_word_count": 1421,
+      "code_blocks": 3,
+      "code_languages": [
+        "ts",
+        "ts",
+        "js"
+      ],
+      "sha256": "ba21ab9086e69c0dee3e0b1e54ff238ccb566b50c82054f1618ead66e55a2278",
+      "git_blob_sha": "6b316642467686998b1aac82f6dce7d14f6beb15"
+    },
+    {
+      "slug": "when-the-browser-became-part-of-the-explanation",
+      "filename": "when-the-browser-became-part-of-the-explanation.md",
+      "title": "When the browser became part of the explanation",
+      "description": "The recorded changes that put real buttons, lagging search fields and browser measurements ahead of the diagrams in Labs, and how to keep a measurement honest about what it includes.",
+      "prose_word_count": 1266,
+      "code_blocks": 1,
+      "code_languages": [
+        "js"
+      ],
+      "sha256": "ca859ca0821c03a408c916e15080172819d5d1f0bec43213890e8a6d70dfaa67",
+      "git_blob_sha": "45011d21c5f14c17d4919bb6bda9f54098897c80"
     },
     {
       "slug": "why-this-take-won-making-a-selection-score-readable",
@@ -1569,6 +1767,26 @@
       "target_status": "same_draft_batch"
     },
     {
+      "source": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target": "the-kerning-pair-problem",
+      "target_status": "already_published"
+    },
+    {
+      "source": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target": "fluid-type-from-a-variable-font-explorer",
+      "target_status": "already_published"
+    },
+    {
+      "source": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target": "fluid-type-from-a-variable-font-explorer",
+      "target_status": "already_published"
+    },
+    {
       "source": "kinetic-designing-motion-you-can-interrupt",
       "target": "reading-the-labs-as-connected-series",
       "target_status": "same_draft_batch"
@@ -1577,6 +1795,21 @@
       "source": "liquidity-two-ways-to-make-type-feel-fluid",
       "target": "reading-the-labs-as-connected-series",
       "target_status": "same_draft_batch"
+    },
+    {
+      "source": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "target": "moth-a-world-of-possibilities",
+      "target_status": "already_published"
+    },
+    {
+      "source": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "target": "moth-choosing-models-by-task",
+      "target_status": "already_published"
     },
     {
       "source": "making-balloons-feel-light-with-matter-js",
@@ -1640,6 +1873,21 @@
     },
     {
       "source": "reading-the-labs-as-connected-series",
+      "target": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "when-the-browser-became-part-of-the-explanation",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "when-a-blog-post-stopped-needing-a-deploy",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
       "target": "from-charts-to-explorable-models",
       "target_status": "same_draft_batch"
     },
@@ -1660,6 +1908,11 @@
     },
     {
       "source": "reading-the-labs-as-connected-series",
+      "target": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
       "target": "moth-choosing-models-by-task",
       "target_status": "already_published"
     },
@@ -1722,6 +1975,16 @@
       "source": "teaching-a-computer-to-paint-what-the-baseline-taught-me",
       "target": "moth-choosing-models-by-task",
       "target_status": "already_published"
+    },
+    {
+      "source": "when-a-blog-post-stopped-needing-a-deploy",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "when-the-browser-became-part-of-the-explanation",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
     },
     {
       "source": "why-this-take-won-making-a-selection-score-readable",

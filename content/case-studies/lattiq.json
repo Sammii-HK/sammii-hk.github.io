@@ -3,8 +3,8 @@
   "description": "Repairing a local-first editor, from a misread heartbeat to measured convergence after offline edits.",
   "techStack": "Next.js, Lexical, Yjs, IndexedDB, WebSockets",
   "role": "Solo: design, engineering and product",
-  "status": "Collaboration verified locally; public demo remains local-only until the room server is hosted",
-  "updated": "2026-11-20",
+  "status": "Live; real-time collaboration verified locally, waiting on a hosted room server",
+  "updated": "2026-11-21",
   "blocks": [
     {
       "type": "prose",
@@ -78,7 +78,7 @@
     {
       "type": "callout",
       "tone": "note",
-      "body": "The public build runs in device-only mode until a long-lived room server with persistent disk is hosted. Local collaboration is verified; a production collaboration service is not yet available."
+      "body": "The public editor runs device-only for now: your document lives in your browser and survives reloads and going offline. Live collaboration is built and tested locally, and switches on once a long-lived room server with persistent disk is hosted."
     },
     {
       "type": "links",
@@ -90,7 +90,7 @@
         },
         {
           "label": "Read the measurement report",
-          "href": "https://github.com/Sammii-HK/lattiq/blob/claude/lattiq-live-sync-c33f52/docs/live-sync-report.md"
+          "href": "https://github.com/Sammii-HK/lattiq/blob/main/docs/live-sync-report.md"
         }
       ]
     }

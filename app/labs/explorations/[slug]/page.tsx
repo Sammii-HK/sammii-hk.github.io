@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LabsShell } from "../../../src/components/labs/LabsShell";
@@ -64,7 +65,7 @@ export default function ExplorationPage({ params }: { params: { slug: string } }
         {related.length > 0 && <section className="exploration-related" aria-labelledby="related-explorations">
           <h2 id="related-explorations">Follow the next question</h2>
           <ul className="exploration-cards">{related.map((other) => <li className="exploration-card" key={other.slug}>
-            <a href={`../${other.slug}/`}><p className="exploration-card-kicker">{other.category}</p><h3>{other.title}</h3><p className="exploration-card-copy">{other.description}</p><span className="exploration-card-arrow">Explore {other.topic.toLowerCase()} ↗</span></a>
+            <a href={`../${other.slug}/`}><p className="exploration-card-kicker">{other.category}</p><h3>{other.title}</h3><p className="exploration-card-copy">{other.description}</p><span className="exploration-card-arrow">Explore {other.topic.toLowerCase()} <ArrowUpRight size={14} aria-hidden="true" className="inline-block align-middle" /></span></a>
           </li>)}</ul>
         </section>}
         <footer className="exploration-author">

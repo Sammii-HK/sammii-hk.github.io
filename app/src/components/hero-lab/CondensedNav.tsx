@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import type { Lens } from "../../../common/data/projects";
 import { lensHref } from "../../../lib/lenses";
 import { LENSES, LENS_LABEL, LENS_SHORT } from "./copy";
@@ -30,9 +31,9 @@ export function CondensedNav({
 }) {
   return (
     <nav className="lab-nav" aria-label="Lens" data-motion={motion}>
-      <a href="/" className="lab-nav-wordmark" onClick={(e) => e.preventDefault()}>
+      <Link prefetch={false} href="/" className="lab-nav-wordmark" onClick={(e) => e.preventDefault()}>
         SAMMII
-      </a>
+      </Link>
       <div className="lab-nav-lenses">
         {LENSES.map((l, i) => {
           const state = preview === l ? "preview" : committed === l ? "committed" : "idle";

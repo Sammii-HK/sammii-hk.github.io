@@ -13,12 +13,12 @@ export const ViewToggle = ({ currentView, onViewChange }: ViewToggleProps) => {
   const gridButtonRef = useRef<HTMLButtonElement>(null);
   const carouselButtonRef = useRef<HTMLButtonElement>(null);
 
-  const handleToggle = (view: ViewMode) => {
+  const handleToggle = useCallback((view: ViewMode) => {
     onViewChange(view);
     if (typeof window !== "undefined") {
-      localStorage.setItem("portfolioView", view);
+      try { localStorage.setItem("portfolioView", view); } catch { /* The selected view still works when storage is unavailable. */ }
     }
-  };
+  }, [onViewChange]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent, currentTab: ViewMode) => {
@@ -50,7 +50,7 @@ export const ViewToggle = ({ currentView, onViewChange }: ViewToggleProps) => {
         e.preventDefault();
       }
     },
-    []
+    [handleToggle]
   );
 
   return (
@@ -68,7 +68,7 @@ export const ViewToggle = ({ currentView, onViewChange }: ViewToggleProps) => {
         tabIndex={currentView === "grid" ? 0 : -1}
         onClick={() => handleToggle("grid")}
         onKeyDown={(e) => handleKeyDown(e, "grid")}
-        className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-1 ${
+        className={`min-h-11 min-w-11 flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-1 ${
           currentView === "grid"
             ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
             : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
@@ -86,7 +86,7 @@ export const ViewToggle = ({ currentView, onViewChange }: ViewToggleProps) => {
         tabIndex={currentView === "carousel" ? 0 : -1}
         onClick={() => handleToggle("carousel")}
         onKeyDown={(e) => handleKeyDown(e, "carousel")}
-        className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-1 ${
+        className={`min-h-11 min-w-11 flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-black dark:focus-visible:ring-white focus-visible:ring-offset-1 ${
           currentView === "carousel"
             ? "bg-black/10 dark:bg-white/10 text-black dark:text-white"
             : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"

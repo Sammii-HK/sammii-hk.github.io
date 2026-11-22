@@ -28,7 +28,7 @@ The [Love Letter to Garamond](https://sammii.dev/blog/love-letter-to-garamond/) 
 
 Then move closer again. [Letter anatomy](https://labs.sammii.dev/charts/letter/) gives names to shapes you can inspect. [X-height](https://labs.sammii.dev/charts/x-height/) asks why the same nominal size need not occupy the same visual space. Neither question is finished by choosing a font from a menu.
 
-[Kern](https://sammii.dev/blog/fluid-type-from-a-variable-font-explorer/) is the practical end of this path: adjustable specimens, variable axes and fluid type values. The bridge is from looking carefully to making the judgement explicit enough to reuse in an interface. That is a design progression through these pieces, not a claim that every specimen or chart was a previous version of Kern.
+[Kern's earlier workflow](https://sammii.dev/blog/fluid-type-from-a-variable-font-explorer/) brings that judgement into adjustable specimens, variable axes and fluid type values. [The rebuild into Type Lab](https://sammii.dev/blog/from-kern-to-type-lab-making-the-font-data-drive-the-tool/) continues the story with a live font catalogue, shared heading and body roles, and previews that follow the selected system. The connection is from looking carefully to making a judgement explicit enough to reuse in an interface. The charts are related explanations, rather than previous releases of the font tool.
 
 ## Motion: from a curve to something you can interrupt
 
@@ -45,6 +45,8 @@ This path follows the machinery behind the experiences. Begin with [a URL becomi
 The middle chapters move through the cost of JavaScript, algorithms, caching and the small representational surprises of text and floating point. Then [keypress to pixel](https://labs.sammii.dev/charts/keypress/), [frame budget](https://labs.sammii.dev/charts/frame-budget/) and [how long now takes](https://labs.sammii.dev/charts/now/) connect computation to something a person can notice.
 
 The CSS chapters ask a more local question: which rule or rendering step explains this particular result? Layout, specificity, stacking and anchor positioning make useful neighbours because they describe different causes of an element ending up somewhere unexpected. The path ends with [Git as a graph](https://labs.sammii.dev/charts/git-graph/), where the record of a change becomes something you can inspect too.
+
+Two development histories run alongside those explanations. [When the browser became part of the explanation](https://sammii.dev/blog/when-the-browser-became-part-of-the-explanation/) follows the shift towards real controls and measured work. [When a blog post stopped needing a deploy](https://sammii.dev/blog/when-a-blog-post-stopped-needing-a-deploy/) follows the content reader, publication rules and feeds that deliver the writing around them.
 
 ## Building a sky: from a view to a model
 
@@ -68,7 +70,7 @@ Start with [tokens](https://labs.sammii.dev/charts/tokens/), [context windows](h
 
 The [grimoire map](https://labs.sammii.dev/charts/grimoire-map/) concerns relationships in retrieved information. [Teaching a computer to paint](https://sammii.dev/experiments/teaching-a-computer-to-paint/index.html) asks how a proposed decision policy compares with a baseline on a recorded task. [Moth](https://sammii.dev/blog/moth-a-world-of-possibilities/) concerns an agent acting within a persistent world. [Isle](https://sammii.dev/blog/i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers/) makes agent activity visible through a different interface.
 
-The public view has a development story too. [Moth: from a drawing gallery to an observatory](https://sammii.dev/blog/moth-from-a-drawing-gallery-to-an-observatory/) follows the change from inspecting drawings to inspecting relationships around them.
+The public view has a development story too. [Moth: from a drawing gallery to an observatory](https://sammii.dev/blog/moth-from-a-drawing-gallery-to-an-observatory/) follows the change from inspecting drawings to inspecting relationships around them. [Lunary's validation story](https://sammii.dev/blog/lunary-the-right-data-did-not-stop-the-wrong-answer/) examines a different boundary: correct input data, a wrong generated claim, and the meaning of a check that must understand which time the sentence describes.
 
 These should not share one vague success claim. Retrieval quality, image error, a visible action and subjective experience are different questions. [Tests for a mind](https://labs.sammii.dev/charts/tests-for-a-mind/) and [the model-selection article](https://sammii.dev/blog/moth-choosing-models-by-task/) belong here because they help keep those questions specific.
 
