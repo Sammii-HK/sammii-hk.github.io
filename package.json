@@ -32,6 +32,7 @@
     "react-snap-carousel": "^0.4.0",
     "reading-time": "^1.5.0",
     "rehype-pretty-code": "^0.14.1",
+    "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
     "shiki": "^3.22.0",

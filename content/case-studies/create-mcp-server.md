@@ -6,30 +6,35 @@ techStack: "Node.js, TypeScript, tsup, Prompts"
 
 ## The problem
 
-Every new MCP (Model Context Protocol) server starts from the same fifteen minutes: TypeScript configuration, the MCP SDK, Zod validation schemas, stdio transport wiring, and a dev mode with auto-reload, copied and adjusted from whatever project came before. None of that setup is specific to what the server actually does: it's the same scaffolding every time, which makes it a good candidate for automating away entirely. create-mcp-server is an `npx` scaffolder that generates a ready-to-develop MCP server in seconds, so that boilerplate stops being something to remember and starts being something to run.
+Every new MCP (Model Context Protocol) server starts with the same setup: TypeScript configuration, the MCP SDK, Zod input schemas, stdio transport wiring and a development loop, usually copied from whichever project came before. None of it is specific to what the server does. init-mcp-server is an `npx` scaffolder that writes that setup for you, so the first thing you edit is a tool, not a config file.
 
 ## How it's built
 
 ### Prompts and validation
 
-The CLI uses the Prompts library for interactive setup: project name, description, and a checklist of example tools to include. Input is validated as it's entered (no spaces in the project name, a non-empty description), with sensible defaults where it can fall back to them.
+The CLI asks for a project name, a description and which example tools to include. The name can also be passed as an argument, and both routes go through the same validation: lowercase letters, numbers and hyphens, so a name can never escape the current directory or inject anything into the generated source. The description is written with JSON serialisation for the same reason.
 
 ### Generating the project
 
-Once the prompts complete, the scaffolder writes out a complete TypeScript project: a tsconfig.json in strict mode, a package.json with the MCP SDK as a dependency, a src/index.ts with stdio transport already wired up, Zod-validated example tool definitions, and npm scripts for build and dev mode. Which tools get included depends on the checklist, an echo tool, a file reader, a web fetcher, a calculator, each demonstrating a different MCP pattern (simple input/output, file system access, async operations, multiple parameters), and the selected ones are injected straight into the generated index.ts.
+The scaffolder writes a strict TypeScript project with the MCP SDK and Zod, a `src/index.ts` that connects a stdio transport, and one file per selected example under `src/tools/`. There are four examples, each showing a different MCP pattern:
 
-### The dev loop
+- **hello**: a tool with no parameters
+- **calculator**: add and multiply, with Zod validating the input
+- **notes**: create and list notes held in memory
+- **summarise**: select sentences, with an optional limit
 
-The generated project ships with a dev script that watches for file changes and restarts the server automatically, using tsup's watch mode to recompile on save alongside a process manager that restarts the stdio server. The loop it's built for is: edit a tool, save, test immediately.
+The server entry imports and registers only the tools that were selected, so any combination compiles. The generated project builds with `tsc` and develops with `tsx watch`, which restarts the server when a file is saved.
 
 ## Where it got hard
 
-Two things about this project needed real problem-solving beyond writing the templates themselves.
+The hard part was everything that happens outside the happy path, on someone else's machine.
 
-The first was making sure the generated code stays valid TypeScript no matter which combination of example tools someone picks. With four optional tools and no fixed combination guaranteed, a templating engine felt like the wrong tool for the job. Instead, the generator uses a plain string builder that constructs the imports, tool definitions, and handler registrations directly from whichever tools were selected.
+A scaffolder writes into a real directory, so it must never overwrite anything. It refuses existing directories and symlinks, rejects unknown example names before it creates a single file, and removes duplicate selections. If the dependency install fails, it keeps the generated project, explains how to finish the install, and skips the git commit rather than committing a broken state.
 
-The second was harder to test for, because it only shows up once the package leaves my machine. For `npx init-mcp-server` to work reliably, the package has to declare its binary correctly, handle being run without a prior install, and behave the same way across Node.js 18 and up. Testing across different Node and npm versions turned up edge cases in npx's caching behaviour that needed explicit version pinning to avoid. The generated project itself has a parallel version of this problem: it builds with tsup, which handles TypeScript compilation, bundling, and declaration generation in one step, but getting that config to produce both ESM and CJS outputs with correct package.json exports took real iteration, because it had to work on whoever runs the generator's machine, not just mine.
+The package manager was a quieter trap. The CLI used pnpm whenever pnpm was installed, even when launched with `npx`, and pnpm 10 and later stop an install until a dependency's build script is approved. tsx depends on esbuild, which has one, so a pnpm install failed on a fresh project. The CLI now installs with whichever package manager launched it, and pnpm projects get a workspace file that approves esbuild for both pnpm 10 and 11.
 
-## Outcome
+## Verification
 
-`npx init-mcp-server` generates a fully configured MCP server project in under 10 seconds. The generated project compiles, runs in dev mode, and responds to tool calls immediately, removing the boilerplate barrier to building MCP integrations so the next step is implementing the tools that are actually specific to the project.
+Seven regression tests run against the built CLI: unsafe names through the real command, unsafe targets and unknown tools, existing directories and symlinks, the generated files for every example, recovery from a failed install, package manager detection and the pnpm approval.
+
+Beyond the tests, a real MCP SDK client connected to a freshly generated server over stdio. It listed six tools (hello, add, multiply, create-note, list-notes and summarise), each one worked, and invalid calculator input was rejected. After the package manager fix, fresh projects generated through npm and through pnpm both installed and committed cleanly, and the npm one compiled and answered over stdio. This covers macOS with Node 23; it doesn't establish Windows behaviour or compatibility with every MCP client.

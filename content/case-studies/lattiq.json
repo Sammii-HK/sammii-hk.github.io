@@ -48,25 +48,25 @@
           "label": "Cold book load",
           "value": "269 ms median",
           "note": "127,360 words; empty IndexedDB; navigation to all blocks in the DOM",
-          "source": "docs/live-sync-report.md and bench/results.json, release branch, 20 November 2026"
+          "source": "Lattiq live sync report and bench/results.json, 20 November 2026"
         },
         {
           "label": "Warm load with server down",
           "value": "213 ms median",
           "note": "The same book loaded from IndexedDB",
-          "source": "docs/live-sync-report.md, Measurements table"
+          "source": "Lattiq live sync report, Measurements table"
         },
         {
           "label": "Keystroke to remote DOM",
           "value": "1.4 ms median",
           "note": "100 single-keystroke samples on localhost; not internet latency",
-          "source": "docs/live-sync-report.md, Measurements table"
+          "source": "Lattiq live sync report, Measurements table"
         },
         {
           "label": "Offline merge after sockets reopen",
           "value": "21 ms median",
           "note": "5 samples; excludes reconnect backoff. From server restart: 786 ms median.",
-          "source": "docs/live-sync-report.md, Measurements table"
+          "source": "Lattiq live sync report, Measurements table"
         }
       ]
     },
@@ -90,7 +90,7 @@
         },
         {
           "label": "Read the measurement report",
-          "href": "https://github.com/Sammii-HK/lattiq/blob/main/docs/live-sync-report.md"
+          "href": "/projects/lattiq/report/"
         }
       ]
     }
