@@ -1,4 +1,5 @@
 "use client";
+import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CARD_MM, FINDINGS, FINGERS, MM_PER_IN, SCREENS, TARGETS, cssOf, guessCssPerIn, mmOf } from "../../../labs/charts/touch-targets/data";
 
@@ -58,8 +59,8 @@ export function TouchTargets() {
             <input type="range" min={60} max={220} step={0.5} value={here.cssPerIn} onChange={(e) => save(Number(e.target.value))} aria-valuetext={`${here.cssPerIn} CSS pixels per inch`} />
             <output className="cst-year-value">{here.cssPerIn.toFixed(1)}</output>
           </label>
-          <p className="tt-note">Hold a bank card (any card of the standard 85.6 × 54 mm size) flat against the screen, top-left corner to the outline&rsquo;s, and drag until the outline matches its edges. Kept in this browser only.</p>
-          <div className="tt-card-wrap"><div className="tt-card" style={{ width: (CARD_MM[1] * pxPerMm) / zoom, height: (CARD_MM[0] * pxPerMm) / zoom }}><span>54 × 85.6 mm</span></div></div>
+          <p className="tt-note">Hold a bank card (any card of the standard 85.6 <X size={14} aria-hidden="true" className="inline-block align-middle" /> 54 mm size) flat against the screen, top-left corner to the outline&rsquo;s, and drag until the outline matches its edges. Kept in this browser only.</p>
+          <div className="tt-card-wrap"><div className="tt-card" style={{ width: (CARD_MM[1] * pxPerMm) / zoom, height: (CARD_MM[0] * pxPerMm) / zoom }}><span>54 <X size={14} aria-hidden="true" className="inline-block align-middle" /> 85.6 mm</span></div></div>
         </div>
       )}
 
@@ -70,7 +71,7 @@ export function TouchTargets() {
       <div className="tt-stage">
         <div className="tt-opts tt-zoom" role="group" aria-label="Scale">
           <button type="button" aria-pressed={zoom === 1} onClick={() => setZoom(1)}>Life-size</button>
-          <button type="button" aria-pressed={zoom === 3} onClick={() => setZoom(3)}>3× for detail</button>
+          <button type="button" aria-pressed={zoom === 3} onClick={() => setZoom(3)}>3<X size={14} aria-hidden="true" className="inline-block align-middle" /> for detail</button>
         </div>
         <div className="tt-ruler" style={{ width: rulerMm * pxPerMm }} aria-hidden="true">
           {Array.from({ length: rulerMm + 1 }, (_, i) => <i key={i} className={i % 5 === 0 ? "is-major" : ""} style={{ left: i * pxPerMm }}>{i % (zoom > 1 ? 5 : 10) === 0 ? <b>{i}</b> : null}</i>)}

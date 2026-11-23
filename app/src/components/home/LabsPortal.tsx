@@ -77,7 +77,7 @@ export const LabsPortal = () => {
       <h2 id="labs-heading" className="labs-heading">
         Labs
       </h2>
-      <p className="labs-line">Things that don&apos;t belong in case studies.</p>
+      <p className="labs-line">Interactive experiments, visual explanations and research notes.</p>
       <div ref={boundary} className="labs-boundary" aria-hidden="true">
         <svg viewBox="0 0 1000 160" preserveAspectRatio="none" focusable="false">
           <path ref={path} d="M0 80 Q 500 80 1000 80" />

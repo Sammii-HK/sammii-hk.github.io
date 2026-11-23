@@ -1,7 +1,10 @@
+// Preserve the public read-only route caching used before Next 15.
+export const dynamic = 'force-static';
+
 import { NextResponse } from 'next/server';
 import { getAllPosts, REVALIDATE } from '../../lib/blog';
 
-export const revalidate = REVALIDATE;
+export const revalidate = 600;
 
 /** GET /api/blog/: every published post, newest first, without bodies. Fetch one by slug for the full text. */
 export async function GET() {

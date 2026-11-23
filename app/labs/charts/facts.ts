@@ -162,7 +162,7 @@ export const FACTS: Record<string, Fact[]> = {
   ],
   "context-window": [
     { id: "lunary-twelve", focus: "1m", text: "Lunary is 11.4 million tokens of code, content and data, counted with GPT-4o's tokeniser. The biggest context windows hold a million. Showing a model the whole codebase once would take twelve of them, end to end." },
-    { id: "blog-128k", focus: "128k", text: "Everything I have published on my blog, 66 posts, is 112,552 tokens. It fits in a 128k window with 15,448 tokens to spare, and in nothing smaller." },
+    { id: "blog-128k", focus: "128k", text: "The 19 October 2026 snapshot of my blog, 66 posts, is 112,552 tokens. It fits in a 128k window with 15,448 tokens to spare, and in nothing smaller." },
     { id: "eight-k", focus: "8k", text: "GPT-4 launched in March 2023 with 8,192 tokens of context: about 25 manuscript pages, at the 1.32 tokens per word measured on my own writing. Less than a year later, Gemini 1.5 Pro offered a million." },
   ],
   "llm-latency": [
@@ -171,9 +171,9 @@ export const FACTS: Record<string, Fact[]> = {
     { id: "cold", focus: "cold", text: "On a shared machine, two of 28 calls found the model pushed out of memory by another job and waited about 40 seconds for it to load back before producing anything. That is the call a spinner makes look broken." },
   ],
   "grimoire-map": [
-    { id: "obsidian", focus: "obsidian", text: "Embed Lunary's 1,958 grimoire articles and ask what is nearest to obsidian: snowflake obsidian, onyx, serpentine, labradorite, then two spells, a black tourmaline shield and an obsidian shadow integration, before the next stone, vesuvianite. Meaning crosses the categories the site is built from." },
-    { id: "continent", text: "962 of the 1,958 articles in Lunary's grimoire are horoscopes, and mapped by meaning they form a continent of their own. They are generated from the sign and the month, so to an embedding model they mostly resemble each other." },
-    { id: "local", text: "Every grimoire article was embedded on my Mac mini with qwen3-embedding, a 0.6-billion-parameter model: 1,958 articles in about two minutes, with no API and no database." },
+    { id: "obsidian", focus: "obsidian", text: "Embed a snapshot of Lunary's 1,958 grimoire search-index entries and ask what is nearest to obsidian: snowflake obsidian, onyx, serpentine, labradorite, then two spells, a black tourmaline shield and an obsidian shadow integration, before the next stone, vesuvianite. Meaning crosses the categories the site is built from." },
+    { id: "continent", text: "962 of the 1,958 search-index entries in this grimoire snapshot are horoscopes, and mapped by meaning they form a continent of their own. They are generated from the sign and the month, so to an embedding model they mostly resemble each other." },
+    { id: "local", text: "The recorded grimoire search-index entries were embedded on my Mac mini with qwen3-embedding, a 0.6-billion-parameter model: 1,958 search-index entries in about two minutes, using local Ollama rather than a hosted embedding API or database." },
   ],
   tokens: [
     { id: "strawberry", focus: "strawberry", text: "To GPT-4o, 'strawberry' is three tokens: st, raw and berry, ids 302, 1618 and 19772. Not one of them is an r. Asking a model to count the r's is asking it to remember how three numbers are spelt." },

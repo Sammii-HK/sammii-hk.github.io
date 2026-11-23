@@ -1,5 +1,6 @@
 "use client";
 import { Check } from "lucide-react";
+import { X } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 
 /**
@@ -80,7 +81,7 @@ export function AccidentalQuadratic() {
         <Box title="selected.includes(id)" complexity="O(n · m)" items={items} selected={selected} mode="includes" />
         <Box title="selectedSet.has(id)" complexity="O(n)" items={items} selected={selected} mode="set" />
       </div>
-      <p className="jd-note">Same list, same query, same render. The only difference is one line: an array <code>includes</code> walks the selected list for every item (n items × m selected), a <code>Set</code> answers in one step. Clear the box to search everything again; the worst keystroke is the first one, when every item matches.</p>
+      <p className="jd-note">Same list, same query, same render. The only difference is one line: an array <code>includes</code> walks the selected list for every item (n items <X size={14} aria-hidden="true" className="inline-block align-middle" /> m selected), a <code>Set</code> answers in one step. Clear the box to search everything again; the worst keystroke is the first one, when every item matches.</p>
     </div>
   );
 }

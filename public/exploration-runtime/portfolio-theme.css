@@ -1,0 +1,6 @@
+/* Portfolio presentation layer. Reviewed model modules remain byte-for-byte unchanged. */
+.scene .ph-root { --ph-bg:#0a0a0a; --ph-panel:#151515; --ph-line:#333333; }
+.scene .we-root { --we-bg:#0a0a0a; --we-surface:#151515; --we-line:#333333; }
+.scene .sky-exhibit { --sky-ink:#0a0a0a; }
+.scene .sky-controls, .scene .sky-search, .scene .sky-select { background:#151515; }
+.scene .sky-zoom-button, .scene .we-stage { background:#0a0a0a; }

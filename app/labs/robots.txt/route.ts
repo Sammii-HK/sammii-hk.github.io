@@ -1,3 +1,6 @@
+// Preserve the public read-only route caching used before Next 15.
+export const dynamic = 'force-static';
+
 /** Served at labs.sammii.dev/robots.txt by the host-specific Vercel route. */
 export function GET() {
   return new Response(

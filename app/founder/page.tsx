@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Bot, Code2, Dog, Mail, MapPin, Moon, Palette, Palmtree, Rocket } from "lucide-react";
+import { ArrowUpRight, Bot, Building2, Code2, Dog, Globe, Mail, MapPin, Moon, Palette } from "lucide-react";
 import { gradientCreator } from "../common/scripts/gradient-creator";
 
 const LinkedInIcon = () => (
@@ -267,9 +267,9 @@ export default function FounderPage() {
               { icon: <MapPin size={20} aria-hidden="true" />, label: "Based in the UK" },
               { icon: <Moon size={20} aria-hidden="true" />, label: "Founder of Lunary" },
               { icon: <Code2 size={20} aria-hidden="true" />, label: "Senior Frontend & Design Engineer" },
-              { icon: <Rocket size={20} aria-hidden="true" />, label: "Building a Delaware C-Corp" },
+              { icon: <Building2 size={20} aria-hidden="true" />, label: "Founder of Lunar Computing" },
               { icon: <Palette size={20} aria-hidden="true" />, label: "Background in design and engineering" },
-              { icon: <Palmtree size={20} aria-hidden="true" />, label: "Exploring location-independent founder living" },
+              { icon: <Globe size={20} aria-hidden="true" />, label: "Exploring location-independent founder living" },
               { icon: <Bot size={20} aria-hidden="true" />, label: "Building with AI and automation" },
               { icon: <Dog size={20} aria-hidden="true" />, label: "Managed by two dogs" },
             ].map((fact) => (

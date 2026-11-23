@@ -1,4 +1,4 @@
-.gg { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; }
+.gg { min-width: 0; grid-template-columns: minmax(0, 1fr); font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1rem; }
 .gg-cmds { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.3rem; }
 .gg-cmd { font: inherit; color: inherit; background: transparent; border: 1px solid color-mix(in oklab, currentColor 14%, transparent); border-radius: 8px; padding: 0.4rem 0.5rem; cursor: pointer; display: grid; gap: 0.15rem; text-align: left; min-width: 0; }
 .gg-cmd span { font-size: 0.625rem; letter-spacing: 0.12em; opacity: 0.5; font-variant-numeric: tabular-nums; }
@@ -29,7 +29,7 @@
 .gg-ref.is-head rect { fill: var(--chart-ink); }
 .gg-ref.is-head text { fill: var(--chart-bg); }
 .gg-info { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
-@media (max-width: 800px) { .gg-info { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .gg-info { grid-template-columns: minmax(0, 1fr); } }
 .gg-feels { margin: 0 0 0.5rem; font-size: 0.9375rem; line-height: 1.55; font-weight: 600; }
 .gg-what { margin: 0; font-size: 0.875rem; line-height: 1.6; color: color-mix(in oklab, currentColor 82%, transparent); }
 .gg-reflog pre { margin: 0; padding: 0.7rem 0.8rem; border-radius: 8px; background: color-mix(in oklab, currentColor 6%, transparent); overflow-x: auto; }
@@ -42,3 +42,5 @@
 .gg-head text { font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; }
 .gg-ref.is-head .gg-head rect { fill: var(--chart-bg); }
 .gg-ref.is-head .gg-head text { fill: var(--chart-ink); }
+
+.gg-info > div { min-width: 0; }

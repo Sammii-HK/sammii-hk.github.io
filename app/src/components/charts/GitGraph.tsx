@@ -1,5 +1,6 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
+import { useTabs } from "../prism/behaviour";
 import { STEPS } from "../../../labs/charts/git-graph/data";
 
 /**
@@ -14,6 +15,8 @@ const short = (m: string) => (m.length > 22 ? m.slice(0, 21) + "…" : m);
 export function GitGraph() {
   const [i, setI] = useState(0);
   const [showLost, setShowLost] = useState(true);
+  const tabsId = useId();
+  const { tabProps } = useTabs(STEPS.length, i, setI);
   const step = STEPS[i];
   const reachable = useMemo(() => {
     const byId = new Map(step.commits.map((c) => [c.id, c]));
@@ -38,8 +41,9 @@ export function GitGraph() {
   return (
     <div className="gg">
       <div className="gg-cmds" role="tablist" aria-label="Commands">
-        {STEPS.map((s, n) => <button key={n} role="tab" type="button" aria-selected={n === i} className={`gg-cmd ${n === i ? "is-on" : ""} ${n < i ? "is-done" : ""}`} onClick={() => setI(n)}><span>{n + 1}</span><code>{s.cmd.split(" ").slice(0, 3).join(" ")}</code></button>)}
+        {STEPS.map((s, n) => <button key={n} {...tabProps(n, tabsId)} aria-controls={`${tabsId}-panel`} type="button" className={`gg-cmd ${n === i ? "is-on" : ""} ${n < i ? "is-done" : ""}`}><span>{n + 1}</span><code>{s.cmd.split(" ").slice(0, 3).join(" ")}</code></button>)}
       </div>
+      <div className="gg" role="tabpanel" id={`${tabsId}-panel`} aria-labelledby={`${tabsId}-tab-${i}`}>
       <div className="gg-bar">
         <code className="gg-full">{step.cmd}</code>
         <label className="sc-toggle"><input type="checkbox" checked={showLost} onChange={(e) => setShowLost(e.target.checked)} />show unreachable objects</label>
@@ -84,6 +88,7 @@ export function GitGraph() {
           <pre><code>{step.reflog.join("\n")}</code></pre>
           {step.lost && showLost && <p className="gg-lost-note">{step.lost.length} commit{step.lost.length > 1 ? "s" : ""} unreachable and still in <code>.git/objects</code>: {step.lost.join(", ")}. <code>git gc</code> keeps unreachable objects for 90 days by default.</p>}
         </div>
+      </div>
       </div>
     </div>
   );

@@ -1,0 +1,13 @@
+{
+  "guard": {
+    "failOn": "block",
+    "rules": {
+      "colour.exact_drift": "block",
+      "*.exact_drift": "block",
+      "components.invalid_variant": "block",
+      "components.inline_primitive": "warn",
+      "components.local_duplicate": "warn"
+    },
+    "ignore": ["**/*.stories.tsx", "**/*.test.tsx"]
+  }
+}

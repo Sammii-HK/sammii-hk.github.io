@@ -20,7 +20,7 @@ export function SiteBar({ current }: { current?: SitePage }) {
   const main = onLabsHost ? "https://sammii.dev" : "";
   const links: { page: SitePage; label: string; href: string }[] = [
     { page: "work", label: "Work", href: `${main}/work/` },
-    { page: "blog", label: "Blog", href: `${main}/blog/` },
+    { page: "blog", label: "Writing", href: `${main}/blog/` },
     { page: "speaking", label: "Speaking", href: `${main}/speaking/` },
     { page: "labs", label: "Labs", href: onLabsHost ? "/" : "/labs/" },
   ];

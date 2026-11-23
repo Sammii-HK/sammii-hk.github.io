@@ -2,6 +2,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { EnvironmentProvider } from "../env/EnvironmentProvider";
 import { Footer } from "../Footer";
+import { Breadcrumbs } from "../site/Breadcrumbs";
 import { SiteBar } from "../site/SiteBar";
 
 /**
@@ -25,6 +26,7 @@ export const LabsShell = ({ children }: { children: ReactNode }) => {
             Skip to content
           </a>
           <SiteBar current="labs" />
+          <Breadcrumbs labs />
         </>
       )}
       <main id="main" className="flex-1" data-present={present ? "" : undefined}>

@@ -26,7 +26,7 @@ export default function ContextWindowChart() {
           <p className="section-eyebrow">Charts · 30</p>
           <h1 className="chart-title">A context window, to scale</h1>
           <p className="chart-lead">
-            A context window is how much a model can read at once, and it is measured in tokens, not pages. Windows grew from 8,192 tokens to a million in under a year, which sounds like infinity until you put something real in it. These are my own things, counted with a real tokeniser: everything I have published on this blog fits in one window with room to spare, and Lunary, at {(lunary.o200k_base.total / 1e6).toFixed(1)} million tokens, would need {Math.ceil(lunary.o200k_base.total / 1e6)} of the largest.
+            A context window is how much a model can read at once, and it is measured in tokens, not pages. Windows grew from 8,192 tokens to a million in under a year, which sounds like infinity until you put something real in it. These are my own things, counted with a real tokeniser: the {DATA.blog.posts} blog posts counted on {ukDate(DATA.counted)} fit in one window with room to spare, and the Lunary snapshot, at {(lunary.o200k_base.total / 1e6).toFixed(1)} million tokens, would need {Math.ceil(lunary.o200k_base.total / 1e6)} of the largest.
           </p>
         </header>
         <ContextWindow />
