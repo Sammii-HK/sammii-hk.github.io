@@ -66,7 +66,7 @@ export function CaseStudyHero({ title, description, techStack, readingTime, proj
       )}
       {project && (
         <figure className="case-hero-shot">
-          <Image src={getImagePath(project.id)} alt={`${project.title} screenshot`} width={1600} height={900} priority sizes="(max-width: 900px) 100vw, 880px" />
+          <Image src={getImagePath(project.id)} alt={`${project.title} screenshot`} width={2000} height={1000} priority sizes="(max-width: 900px) 100vw, 880px" />
         </figure>
       )}
     </header>
