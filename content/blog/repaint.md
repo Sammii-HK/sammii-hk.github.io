@@ -38,7 +38,7 @@ The composite column holds `transform`, `opacity`, `filter`, `will-change`, `bac
 
 `filter` is composited when the element has its own layer, and is a paint otherwise. `clip-path` composites for simple shapes on a promoted layer and paints otherwise. `will-change` is not an effect at all, it is a hint to promote the element ahead of an animation, and the note warns that overuse costs memory. `backdrop-filter` is a GPU blur of what is behind the layer: cheap to move, expensive in area.
 
-Which leaves `transform` and `opacity`. Move, scale, rotate and skew, plus fade. Those two are the reason smooth animation on the web exists at all. Everything else costs a paint or a layout.
+`transform` and `opacity` are useful starting points because suitable animations can run on existing compositor layers without layout or paint on every frame. That is an opportunity, not a universal guarantee: layer allocation, rasterisation, affected area and engine behaviour still matter. Profile the actual animation before calling it cheap.
 
 ## How to use it
 

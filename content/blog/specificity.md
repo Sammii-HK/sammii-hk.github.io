@@ -55,17 +55,11 @@ The legacy single-colon `:before` and `:after` are treated as pseudo-elements, a
 
 ## What gets a say before specificity
 
-Below the winner, the panel lists **What beats specificity, in order**, from CSS Cascade 5. Seven steps, and specificity is the sixth:
+The panel includes a simplified ladder, but two distinctions need spelling out before using it on production CSS. Running transitions outrank important declarations; animation declarations do not. Important declarations outrank animations, while animations outrank ordinary author declarations.
 
-1. Transition and animation declarations the browser is running
-2. `!important`, with the origins reversed: user-agent `!important` beats author `!important`
-3. Origin: author over user over user-agent
-4. Cascade layers: a later `@layer` beats an earlier one, and unlayered styles beat every layer
-5. The inline style attribute
-6. Specificity, the three columns
-7. Source order: last one wins
+Layer order also reverses for important declarations. Later layers beat earlier ones for normal declarations, and normal unlayered styles beat normal layered styles. For important declarations, earlier layers take priority and important layered styles beat important unlayered ones. Inline styles have their own precedence within the relevant origin and importance.
 
-Most "my override doesn't apply" bugs are on that ladder, not in the columns. A rule in a layer will lose to an unlayered rule however specific it is. An `!important` somewhere upstream ends the conversation. The three columns only get to decide once everything above them is level.
+Specificity only compares declarations after the earlier cascade decisions are tied. Source order resolves a remaining tie; scoped rules can also introduce scoping proximity. The chart's tuple comparison deliberately leaves those other inputs out. Read the [CSS Cascade specification](https://www.w3.org/TR/css-cascade-5/#cascade-sorting) alongside it before treating a more specific selector as the answer to an override problem.
 
 ## How it is built
 

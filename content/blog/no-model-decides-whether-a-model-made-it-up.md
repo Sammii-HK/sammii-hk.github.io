@@ -9,7 +9,7 @@ tags:
 draft: false
 ---
 
-Cast is a system I built that drafts text in my name: replies, form answers and documents about my work. An LLM writes the draft. Then deterministic checks verify every claim against my real history before I send anything.
+Cast is a system I built that drafts text in my name: replies, form answers and documents about my work. An LLM writes the draft. Deterministic rules then check names, numbers and particular claims against my records, and flag unsupported wording before review. These checks catch specific failure patterns; a pass is not proof that every sentence is true.
 
 That last step is the part worth writing about. Text about a real person is where a language model does the most damage when it fills a gap. A plausible sentence about a tool I have never used reads exactly like a true one, and the person reading it has no way to tell.
 
@@ -21,7 +21,7 @@ Before the check existed, drafts claimed tools and experience my records do not 
 
 The claims check says it in its own docstring: deterministic on purpose, so no model decides whether a model made something up.
 
-A second model asked to judge the first is judging whether a sentence sounds right, which is the same judgement that produced the error. A deterministic check does something narrower and more useful. It asks whether each claim traces to a record. It gives the same answer every time for the same text, and every flag comes with a reason a person can read. Each verdict carries a hash of the exact text it judged.
+A second model can help find problems, but its agreement does not establish a fact. This deterministic check asks narrower questions about the text and its records. With the same text, records and rules, it returns the same verdict, with a reason for each flag. Each verdict carries a hash of the exact text it judged. The scope of the rules matters as much as the repeatability.
 
 ## Ground truth is my own records
 
@@ -38,6 +38,8 @@ The rules are small and literal.
 - Fixed rules that need no records: no claim that I read something I have not confirmed reading, no personal detail, no proposed days or times, no links except my own sites or ones from the message being answered, and no em or en dashes.
 
 The checker also reads who a sentence is about. A sentence with I, my or me in it is a claim about me, and may only use my records. A sentence about the other person, or a question, may also use words from their message. A sentence about what I would do next is intent rather than history, so it may use the terms of the request it answers. Anything I say I have done stays limited to my records.
+
+For example, a sentence claiming “I managed 12 engineers” needs more than the number 12 somewhere in my history. The number must occur near the relevant noun, and the management verb needs its own support. This is an illustrative sentence, not a claim about my experience. Even passing those literal checks would not prove that the records describe the same team or period. That relationship still needs review.
 
 ## A single redraft, then no draft
 

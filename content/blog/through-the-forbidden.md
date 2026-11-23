@@ -70,7 +70,7 @@ The exploration is a nonrelativistic, one-dimensional, single-energy stationary 
 
 The notes also rule out one explanation on purpose: tunnelling does not require borrowing energy. In this model energy is conserved throughout, and the dashed energy line stays flat across all three regions. Nothing is borrowed.
 
-The physical constants come from NIST's CODATA 2022 values: the electron mass and the exact SI values of the Planck constant and the electronvolt. Energies are in electronvolts and widths in nanometres throughout. For very thick barriers, the code switches to a logarithmic form so the numbers do not overflow, and any transmission below a thousandth of a percent is shown as **<0.001%** rather than rounded to a misleading zero.
+The physical constants come from NIST's CODATA 2022 values: the electron mass and the exact SI values of the Planck constant and the electronvolt. Energies are in electronvolts and widths in nanometres throughout. For very thick barriers, the code switches to a logarithmic form so the numbers do not overflow, and any transmission below a thousandth of a percent is shown as **less than 0.001%** rather than rounded to a misleading zero.
 
 Return to **Below the barrier** and nudge the width up a single step at a time. The electron's energy is still below the top of the barrier. The wave on the right is still there.
 

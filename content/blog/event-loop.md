@@ -25,7 +25,7 @@ The browser runs one task at a time on the same thread that paints. It paints be
 
 So if you set the label and then do 400 ms of work in the same task, the label is set, the work runs, the label is set again to "Saved", and only then does the task end and the browser get a chance to paint. By that point the only thing to paint is "Saved".
 
-Every stutter, every spinner that never appears, every click that seems to do nothing for a moment is that same fact wearing a different costume.
+This demo isolates a main-thread scheduling failure. A loading indicator can also be delayed by rendering cost, application state or work elsewhere in the system; the loop is the first thing to inspect here because the example deliberately blocks it.
 
 ## Feel it first
 
@@ -68,7 +68,7 @@ The demos are the opposite: no model at all, just a busy loop and a frame meter.
 
 ## What it does not do
 
-The model treats a 0 ms timer as due before the next frame. That is what happens in practice, because frames are about 16 ms apart and the timer clamp is 1 to 4 ms, but it is a simplification. It also ignores task sources and priorities, which do not change these three orderings.
+The model gives a due timer priority over its next simulated frame. That is a modelling choice, not a guarantee that a real zero-delay timer always runs before a real animation-frame callback. Timer delays, rendering opportunities, refresh rates, background throttling and task scheduling can change what a browser does. The familiar synchronous and promise ordering is useful; the drawing should not be treated as an executable specification of every queue.
 
 The demos measure your machine, so what you see depends on it. The dropped-frames label uses one fixed threshold, so on a high refresh rate screen it is a rough guide rather than a frame count. And the fix in demo two is the smallest one, not the best one. The notes say the better fix is to move the work off the thread with a Worker, or split it.
 

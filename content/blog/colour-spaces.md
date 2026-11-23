@@ -60,7 +60,7 @@ The SVG on the page is the poster. **Download the poster (SVG)** clones it, adds
 
 ## What it does not show
 
-Dates are the year of the defining paper or standard, which is not always the year anyone used the thing. Display P3 is dated to DCI-P3 in 2007, though Apple shipped the Display variant in 2015. CSS Color 4 is dated to 2022, the year all three engines shipped `lab()`, `lch()`, `oklab()` and `oklch()`.
+The timeline's dates are editorial reference points, not a complete browser-support history. Display P3 is placed beside its DCI-P3 ancestry, which should not be read as the date Apple shipped Display P3. The CSS Color 4 node uses 2022; that is not a claim that all three browser engines shipped every listed function that year. The [specification's publication history](https://www.w3.org/standards/history/css-color-4/) and individual feature support need checking separately when choosing a production fallback.
 
 The lanes are a judgement. Rec. 2020 sits in broadcast and could argue for display. The split between derivation and influence is also mine: it is a reading of the papers, not a property of the maths.
 

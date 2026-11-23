@@ -23,7 +23,7 @@ None of these is a bug in your code. They are what happens when numbers that can
 
 The first panel is a row of tiles. There are two sliders: Columns, from 2 to 7, and Container width, from 300 to 1200 pixels. It opens at three columns in a 1001px container, because that is the case that hurts.
 
-Three columns at 33.333% of 1001px are 333.667px each. CSS pixels are real numbers, so the browser is happy to lay that out. The page notes give the precision: Chromium's layout runs in 1/64 px units, WebKit and Gecko in 1/60 px. But painting happens on the device-pixel grid, and you cannot light two thirds of a pixel. Every fractional edge has to be either snapped to the grid or blended across it.
+An exact third of 1001px is about 333.667px. A literal `33.333%` is a slightly different input, so percentage rounding is another possible source of a small gap. CSS layout supports fractional positions; the final raster still has to represent an edge on device pixels. The chart measures the resulting boxes rather than establishing the internal layout precision of every browser engine.
 
 Under the tiles, the chart reads every one of them back with `getBoundingClientRect`, adds the widths up, and tells you whether they come to the container width exactly, fall short (a seam) or run over (an overflow). It also lists where each edge lands and what your screen can actually paint, which is multiples of one over your device pixel ratio. I am not going to tell you what it says, because it depends on your browser and your screen. Drag the width a pixel at a time and watch the readout change.
 
@@ -31,7 +31,7 @@ Under the tiles, the chart reads every one of them back with `getBoundingClientR
 
 The second panel is the same 1px border three times: once with no transform, once moved with `translateX`, once moved with `margin-left`. A translateX slider runs from 0 to 1px in steps of 0.05, starting at 0.5.
 
-At half a pixel, the transformed box looks soft and the margin box stays crisp. They have moved the same distance. The difference is when the move happens. Layout positions (widths, margins, left) are snapped to the pixel grid before painting. A transform is applied by the compositor after layout, at raster time, so it can sit between device pixels and gets anti-aliased across two of them.
+The comparison lets you look for a difference between an offset applied through layout and one applied through a transform. Fractional placement, rasterisation, layer allocation and device-pixel ratio can change how sharp either border appears. A half-CSS-pixel shift does not guarantee one soft border and one crisp border on every display. Compare the actual boxes at several offsets rather than treating this as a universal snapping rule.
 
 That is the whole blurry-animation bug, and it is also why `will-change: transform` on text sometimes makes it go soft. The chart's advice is to look with your operating system's magnifier: on a 1× screen it is obvious at 0.5, on a 2× screen it is subtler because the grid is finer.
 

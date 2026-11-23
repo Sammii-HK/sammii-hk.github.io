@@ -29,7 +29,24 @@ There are two fields side by side. They do the same job on the same list with th
 - `selected.includes(id)`, labelled **O(n · m)**
 - `selectedSet.has(id)`, labelled **O(n)**
 
-An array's `includes` walks the selected list for every item. A `Set` answers in one step. The notes call `includes`, `indexOf` or `find` inside a loop over another array the most common accidental quadratic in interface code, and the fix is a Set or a Map built once.
+An array's `includes` can walk the selected list for every matching item. A `Set` avoids that repeated linear scan. The ECMAScript contract requires average access time to be sublinear; it does not promise that every lookup takes one step. Build the Set once when the selection changes, then reuse it for keystrokes.
+
+Here is a small version of that change. Both expressions return the matching items that are selected:
+
+```js
+// Repeated linear membership scans.
+items.filter(item =>
+  item.label.includes(query) && selectedIds.includes(item.id)
+);
+
+// Rebuild this when the selection changes, outside the filter.
+const selectedSet = new Set(selectedIds);
+items.filter(item =>
+  item.label.includes(query) && selectedSet.has(item.id)
+);
+```
+
+The Set costs memory and takes work to construct. Rebuilding it inside the predicate would throw away the benefit. This changes the membership operation; measure the rest of the filtering and rendering work too.
 
 The slider above them is **Items in the list (half selected)**, from 1,000 to 100,000 in steps of 1,000. It starts at 40,000. At that size there are 20,000 selected ids, so when every item matches, the `includes` field can make up to 40,000 × 20,000 = 800 million comparisons in one keystroke. The `Set` field makes 40,000 lookups.
 
@@ -79,4 +96,4 @@ The chart is at [labs.sammii.dev/charts/big-o](https://labs.sammii.dev/charts/bi
 
 - Nielsen, Response Times: The 3 Important Limits (1993)
 - Cormen, Leiserson, Rivest and Stein, Introduction to Algorithms
-- The ECMAScript specification (Array.prototype.sort must be stable; engines use TimSort, O(n log n))
+- [ECMAScript, Set objects](https://tc39.es/ecma262/2025/multipage/keyed-collections.html#sec-set-objects), for the average-access requirement. The specification requires stable array sorting but does not prescribe TimSort or a sorting complexity.

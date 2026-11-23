@@ -57,7 +57,15 @@ Each row shows what the browser does, the status, the bytes transferred and the 
 
 `no-cache` does not mean do not store. It means store it, and always revalidate before using it. That is what you want on HTML: every visit asks, and almost every answer is an empty 304 costing one round trip. `no-store` is the one that means do not keep it.
 
-And `immutable` plus a build hash is the only honest way to cache something for a year. `immutable` tells the browser not to revalidate even on an explicit reload, so it is only safe on a URL whose content genuinely cannot change. A hash in the filename guarantees that. That is the whole reason bundlers put hashes in filenames.
+Content-addressed asset names make a long freshness lifetime easier to reason about. `immutable` says the resource will not change during that lifetime; clients can avoid ordinary revalidation while it is fresh. A content hash in the URL lets a new build request a new resource instead. This relies on the publishing system preserving the old URL's contents. Force-reload behaviour is a separate browser choice, as [RFC 8246](https://www.rfc-editor.org/rfc/rfc8246.html) explains.
+
+For HTML, the response can carry `Cache-Control: no-cache` and an `ETag`, so the browser validates a stored copy before reuse. A separately served, content-addressed script can carry:
+
+```http
+Cache-Control: public, max-age=31536000, immutable
+```
+
+Those are different response configurations. A personalised page needs its own storage policy; freshness headers alone do not decide whether a shared cache may store it.
 
 ## Why the hard reload lies to you
 
@@ -65,7 +73,7 @@ A hard reload sends `Cache-Control: no-cache` on the request and ignores every s
 
 ## How the numbers are made
 
-The times are a model, not a measurement. The chart assumes one 4G round trip of 170 ms and 75 ms to send 84 KB, the same model as [How a URL becomes a page](https://labs.sammii.dev/charts/url/). A memory hit is 0 ms, a disk hit 3 ms, a 304 one round trip, a full response the round trip plus the transfer. What matters is the shape: a fresh hit costs nothing and can be wrong, a 304 costs one round trip and is always right, a full response costs both.
+The times are a model, not a measurement. The chart assumes one 4G round trip of 170 ms and 75 ms to send 84 KB, the same model as [How a URL becomes a page](https://labs.sammii.dev/charts/url/). A memory hit is modelled as 0 ms, a disk hit as 3 ms, validation as one round trip, and a full response as the round trip plus transfer. A `304` confirms that the selected stored representation remains valid according to the server's validator. Its correctness still depends on the validator and cache key being correct.
 
 The logic is a small function that follows RFC 9111 freshness. It checks for `no-store`, works out the age of the stored copy, compares it with `max-age` (or a year, for an immutable hashed URL), then checks the `stale-while-revalidate` window, then the ETag. It also tracks which build the stored copy is, so a hard reload halfway through stores the new version and later cache hits are counted as seeing the fix.
 
@@ -73,7 +81,7 @@ The logic is a small function that follows RFC 9111 freshness. It checks for `no
 
 It is one browser cache. There is no CDN, no proxy and no service worker in the model, so if one of those is holding your old build, the chart cannot show it.
 
-`Vary` is in the notes but not in the demo. It lists the request headers that form part of the cache key: a response that varies on `Accept-Encoding` is stored separately per encoding, and one that varies on `Cookie` is effectively uncacheable. It is the header that silently breaks things, and the chart does not show it.
+`Vary` is in the notes but not in the demo. It names request headers that a cache must match before reusing a response. `Vary: Cookie` does not itself prohibit caching, but it can create many variants and reduce reuse. It also does not make a personalised response safe for a shared cache. Storage policy and the cache key are separate decisions. [RFC 9111](https://www.rfc-editor.org/rfc/rfc9111.html) describes both.
 
 The split between memory and disk cache is the model's own rule: the chart calls anything under 60 seconds a memory hit and anything older a disk hit, except the hashed asset, which is always a memory hit.
 

@@ -33,7 +33,7 @@ The **a** is double-storey too: **Stem**, **Bowl**, **Counter**, **Terminal** an
 
 The **R** gets **Stem**, **Bowl**, **Counter**, **Leg** and **Serif**. The leg is the one typographers argue about: straight, splayed, or curved with a flick, and that choice is most of a face's character. The serif here is bracketed, joined to the stem by a curve.
 
-The **e** gets **Crossbar**, **Eye**, **Aperture** and **Terminal**, and it is the letter that classifies a serif face. A slanted crossbar marks a Venetian or humanist roman. A level one marks a Garalde or later. That one angle is the difference between Jenson and Garamond, and it is the first branch of the [typography genome](/blog/typography). EB Garamond is the genome's stand-in for the Garaldes, so its crossbar should be level.
+The **e** gets **Crossbar**, **Eye**, **Aperture** and **Terminal**, and it is the letter that classifies a serif face. A slanted crossbar marks a Venetian or humanist roman. A level one marks a Garalde or later. That one angle is the difference between Jenson and Garamond, and it is the first branch of the [typography genome](https://labs.sammii.dev/charts/typography/). EB Garamond is the genome's stand-in for the Garaldes, so its crossbar should be level.
 
 The counter gets a line of its own in the panel that I think about a lot: its size, not the stroke weight, is what makes a face feel open or tight at small sizes.
 
@@ -51,7 +51,7 @@ The metric lines are measured, not drawn, too. x-height is measured from a lower
 
 ## What it does not do
 
-All four specimens are in one face. The chart measures EB Garamond's overshoot and EB Garamond's x-height, and you cannot switch it to another family to compare. If you want to see how differently families fill the em, that is the [x-height chart](/blog/x-height), which measures up to twenty-two of them. If you want to see a Garalde next to a Didone next to a grotesque, that is the genome.
+All four specimens are in one face. The chart measures EB Garamond's overshoot and EB Garamond's x-height, and you cannot switch it to another family to compare. If you want to see how differently families fill the em, that is the [x-height chart](https://labs.sammii.dev/charts/x-height/), which measures up to twenty-two of them. If you want to see a Garalde next to a Didone next to a grotesque, that is the genome.
 
 The rules that find the parts were written for these four glyphs. They are expressed so they should hold in other fonts, but I have not tested them across many, and a very different letter (a single-storey g, say) has different parts.
 

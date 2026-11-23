@@ -16,13 +16,13 @@ draft: false
 
 You run `git reset --hard HEAD~2`. The editor empties. `git log` no longer shows the two commits you spent the afternoon on. Your stomach drops.
 
-What actually happened is that git rewrote one 40-byte file. The two commits are still in the object database, byte for byte, with nothing pointing at them. Unreachable is a different thing from deleted, and that difference is the whole chart: [labs.sammii.dev/charts/git-graph](https://labs.sammii.dev/charts/git-graph/).
+For the committed history in this example, Git moved the branch reference backwards. The two commits remain in the object database and can usually be found through the local reflog until its entries expire. `reset --hard` also changes the index and working tree, so it can discard uncommitted work. The chart separates those risks: [labs.sammii.dev/charts/git-graph](https://labs.sammii.dev/charts/git-graph/).
 
 ## The one true thing
 
 A commit is an immutable object. It holds a tree hash, its parent hashes, the author and committer, and a message, and its id is the hash of exactly that content (SHA-1, or SHA-256 in newer repositories). Change any part of it, including a parent, and you get a different commit with a different id.
 
-A branch is not a line of commits. It is a file under `.git/refs/heads/` containing one id. `HEAD` is a file containing the name of a branch, or an id directly when you are detached.
+A branch is a reference to one commit ID. A loose reference can be stored under `.git/refs/heads/`, but references can also be packed or use another backend. `HEAD` normally names the current branch, or directly names a commit when detached. The reference is the useful abstraction; its storage format does not explain every operation's cost.
 
 Once you hold those two ideas together, most of git's scary commands stop being scary. They rewrite names. The objects stay where they are.
 
@@ -33,7 +33,7 @@ The chart is a stepper with nine steps along the top, each labelled with its num
 The sequence is a small, made-up history that starts with three commits: "Add the reading list", "Extract the card component" and "Fix the empty state". Then:
 
 1. `git log --oneline`: three commits on main.
-2. `git switch -c feat/filters`: a new branch, which is a new 40-byte file with the same id in it. Nothing copied, nothing moved.
+2. `git switch -c feat/filters`: a new branch reference with the same commit ID. No commit history is copied.
 3. Two commits on the branch: "Add the filter pills" and "Make the pills legible in dark mode".
 4. `git reset --hard HEAD~2`: the branch name points two commits back.
 5. `git reset --hard e5f6a7b`, with the id taken from the reflog: recovered.
@@ -64,11 +64,11 @@ Step nine closes it out. After the rebase, main is an ancestor of the branch tip
 
 ## Why it is all instant
 
-Because a branch is a file containing one commit id, switching branches, resetting and a fast-forward merge are all fast whatever the size of the history. Each one rewrites a name, not a history.
+Moving a reference avoids copying the history it names. Updating the index and working tree can still take time, especially in a large checkout. The graph explains which commits a name reaches; it does not benchmark a branch switch, reset or merge.
 
 ## The bit that really does lose work
 
-The page notes are honest about this, so I will be too. The one thing that really does drop work is a `reset --hard` over changes that were never committed, because those were never objects in the first place. The chart only shows committed work. If you had not committed it, the graph has nothing to draw.
+The graph only shows committed work. `reset --hard` can discard changes in the index and working tree; a reflog entry for a commit does not restore arbitrary unsaved edits. A staged blob might exist in the object database without a convenient commit pointing to it, but that is not a recovery plan. Inspect `git status` and preserve local work before trying history-changing commands.
 
 ## How it is built
 
@@ -78,7 +78,7 @@ The history is hand-modelled, not emulated. Each step in the data file is the fu
 
 It is not a git. You cannot type your own commands, and the ids are made up and short so they fit on the graph. It models nine commands faithfully and nothing else: no stash, no cherry-pick, no remote.
 
-It also does not run `gc`, so it cannot show you the day the objects really do go. The page notes say the reflog keeps every value a ref has held for 90 days by default (`gc.reflogExpire`), that unreachable objects are kept for two weeks (`gc.pruneExpire`), and that `git fsck --lost-found` lists them. Between those, almost every unreachable commit is recoverable, which is the point, but almost is not always.
+It also does not run garbage collection. Git's defaults distinguish ordinary reflog entries, which normally expire after 90 days, from entries unreachable from the current tip, which normally expire after 30. Object pruning has a separate default age threshold of two weeks. Those settings interact with reachability and repository configuration; none promises a fixed recovery period from the moment you reset. See the [reflog manual](https://git-scm.com/docs/git-reflog) and [reset manual](https://git-scm.com/docs/git-reset) before using the illustrated commands on real work.
 
 Step through it once before the next time you panic: [labs.sammii.dev/charts/git-graph](https://labs.sammii.dev/charts/git-graph/).
 

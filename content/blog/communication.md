@@ -47,7 +47,7 @@ There are smaller pleasures. The Didot Point System entry gives the Didot point 
 
 Here is the thing the launch post did not say. The last entry on the type side of the spine is Bell Centennial, in 1976. After that the right-hand side is empty. Every one of the last fourteen entries is an invention: the internet in 1989, Google, Facebook, YouTube, Twitter, Instagram, Snapchat, Slack, WhatsApp, TikTok, Zoom, ChatGPT, Threads, and the Apple Vision Pro in 2024.
 
-The chart's own introduction says the web arrived "with a hundred new faces a week". It does not have an entry for any of them. I think that is honest in its way: once type became software, and then web fonts, it stopped arriving as single landmarks you can put on a timeline. But it is also a gap in the chart, and if you want the digital half of the type story it lives in the [typography genome](/blog/typography), whose technology lane runs from PostScript in 1984 to variable fonts in 2016.
+The chart's own introduction says the web arrived "with a hundred new faces a week". It does not have an entry for any of them. I think that is honest in its way: once type became software, and then web fonts, it stopped arriving as single landmarks you can put on a timeline. But it is also a gap in the chart, and if you want the digital half of the type story it lives in the [typography genome](https://labs.sammii.dev/charts/typography/), whose technology lane runs from PostScript in 1984 to variable fonts in 2016.
 
 ## What it does not do
 

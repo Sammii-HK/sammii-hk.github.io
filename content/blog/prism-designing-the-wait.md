@@ -1,6 +1,6 @@
 ---
 title: "Designing the wait in an AI interface"
-description: "Prism's response component treats waiting, tools, interruption and failure as interface states, using recorded local-model runs."
+description: "Inside Prism's AI response component: a 400ms quiet window, gaps between stream events, cancellation races, readable output and a recorded answer that cites the wrong component."
 date: '2026-11-20'
 tags:
   - design-engineering
@@ -10,48 +10,113 @@ tags:
   - accessibility
 draft: false
 ---
-An AI response is rarely just a loading spinner followed by an answer.
+One of the recorded answers in Prism opens the wrong component. The question asks about the action menu's keyboard behaviour. Search returns Menu first. The model opens Radial menu, writes an answer and supplies a perfectly functional citation to Radial menu.
 
-It can start quickly, sit quietly, call a tool, receive a result, write part of an answer, stop making progress or fail halfway through. The user might stop it before any of that finishes.
+The request completes successfully. The answer still needs checking.
 
-I built Prism's AI response component around those states. The visual treatment comes after deciding what the interface actually knows.
+I kept that run in the [AI response demo](https://prism.sammii.dev/ai-response). It makes a useful test of the interface: can someone see what happened, inspect the source and decide whether the answer deserves their trust?
 
-## A fast response should not flash a loader
+That question shaped more of the component than the typing animation did. Waiting for an AI response includes several different experiences: waiting for the first event, watching a tool run, reading partial text, sitting through a gap and deciding to stop. Each needs its own behaviour.
 
-Prism shares timing rules between its waiting surfaces. There is a quiet window before anything new is drawn. If a response starts inside it, the interface avoids inserting a placeholder only to remove it immediately.
+## Give the interface events it can explain
 
-After a longer period without progress, the response says it is still working and offers a way out. A tool call is shown as a tool step. Its arguments are available to inspect rather than mixed into the answer as unexplained activity.
+The response consumes an asynchronous stream with five event types: `text`, `tool_call`, `tool_result`, `error` and `done`. A text event appends a chunk. A tool call creates a step with a name and arguments. Its result updates that same step, matched by ID, and can attach sources.
 
-The async button and loading region use a shared latency state machine. Each surface takes the part of that machine it needs. The button does not pretend to offer every capability the response interface has.
+Here is the shape of the event contract, abbreviated from the implementation:
 
-## Interruption belongs in the design
+```ts
+type StreamEvent =
+  | { t: number; type: "text"; text: string }
+  | { t: number; type: "tool_call"; id: string;
+      name: string; args: Record<string, unknown> }
+  | { t: number; type: "tool_result"; id: string;
+      ok: boolean; summary: string; sources?: Source[] }
+  | { t: number; type: "error"; message: string }
+  | { t: number; type: "done" };
+```
 
-Stop is a real state. What has arrived stays visible. A retry needs to make sense in the context of the partial answer rather than wiping away evidence that something happened.
+The component can render “Opened dialog” because it received a call to `get_component` with `slug: "dialog"`. Expanding the step reveals those arguments. It does not invent a reassuring account of work the system has not reported.
 
-The stream accepts an abort signal. The simpler latency machine also ignores late results once a request has settled. That matters when a response arrives after the user has already cancelled or started again.
+A failed tool and a failed response are also separate. A tool can time out, display its failure and leave the model able to explain what happened. Treating every failed tool as the end of the whole response would lose that distinction.
 
-These decisions are easy to miss in a polished recording where everything succeeds. They are the decisions the user meets when the system behaves imperfectly.
+## Two clocks, two different questions
 
-## Streaming should be readable
+Prism's waiting surfaces share two defaults: a **400ms quiet window** and a **2,000ms slow threshold**. These are implementation choices, not timings established by a usability study.
 
-The response reveals text at an even pace rather than reproducing every burst of transport timing as a visual jump.
+During the quiet window, the assistant is in `waiting`. Its response shell and Stop control can exist, but the “Thinking” label is withheld. If an event arrives sooner, the interface moves directly to the state that event describes. The whole interface does not disappear for 400ms, and the rule does not delay incoming text.
 
-Screen readers hear the completed answer once instead of receiving an announcement for every token. Citations only become links when a corresponding source exists.
+The longer threshold measures something different: **time since the last event**. Every tool call, tool result and text chunk updates `lastEventAt`. A timer checks that gap every 250ms and shows “Still working” with the elapsed seconds after it passes the threshold.
 
-That last rule has a boundary: a source link is not a truth detector. The interface can make provenance inspectable. It cannot turn a model's mistaken use of a source into a correct answer.
+This matters for a response that takes twenty seconds but keeps producing useful output. Its total duration alone does not justify calling it stalled. Conversely, an answer can begin promptly and then go silent halfway through. Measuring the gap catches that second case.
 
-## The demo replays real output
+The label only establishes that the client has not received another event. It cannot prove the server is still making progress. Stop remains available so the user can act on the uncertainty.
 
-A public component demo needs to make failure reproducible. I do not want a different model bill and a different answer every time someone opens it.
+## Stop has to win the race
 
-Prism uses an event stream interface. The demo supplies recorded output from a local Ollama model, preserving its timing. No paid model call happens when a visitor presses play.
+Aborting a request and protecting the interface from its late results are separate jobs. A source might already have queued an event when the user presses Stop.
 
-One run contains an injected tool timeout, labelled as such. Another keeps a wrong-source result instead of quietly replacing it with a better take. The first demonstrates a controlled failure path. The second is a real quality failure in the recorded output. They should not be described as the same kind of evidence.
+The assistant hook keeps a monotonically increasing run ID. Starting a response captures the current ID; stopping, resetting or starting another response advances it. Before accepting an event, the hook checks that the event still belongs to the current run.
 
-## Generation needs boundaries too
+This is the relevant check from the stream loop:
 
-Token Compose explores another part of the problem. It generates layouts from a closed vocabulary of spacing, radii, type sizes, layouts and colours. A validator can reject an off-token value and name the rule it broke.
+```ts
+for await (const event of source(ctl.signal)) {
+  if (id !== run.current) return;
+  lastEventAt.current = performance.now();
+  dispatch({ type: "event", event });
+}
+```
 
-It is a seeded generator, not a language model choosing a layout. Its validator checks membership, not whether the composition is beautiful or its contrast is sufficient. That boundary is part of the work, rather than a detail to conceal behind the word “generative”.
+Stop also aborts the source and moves the response into `stopped`. The reducer rejects further events once the response has settled. Running tool steps become failed steps labelled “Stopped”, rather than continuing to look active.
 
-The implementation is in [Prism’s release PR](https://github.com/Sammii-HK/prism/pull/33). The recorded response, latency states and Token Compose are the pieces to explore as that release goes live.
+The text already received stays visible. If the reveal animation was behind the incoming stream, stopping exposes the received text immediately, so the answer does not appear to keep typing after Stop.
+
+**Retry starts a fresh run.** The partial answer is preserved while the response is stopped or failed; it is not a saved conversation history that survives every subsequent attempt. That is an important limit of this component. A product that needs to compare attempts would need to retain them outside this single-response state.
+
+## Smooth the delivery without hiding its end
+
+Transport chunks are a poor reading rhythm. A burst can contain half a sentence; the next event might be a single word. Rendering those bursts directly makes the answer jump down the page.
+
+Prism separates received text from revealed text. On each animation frame, it advances through a share of the outstanding characters, with a minimum advance so the last few characters can finish. A larger backlog catches up faster. Reduced-motion mode shows the received text directly.
+
+There is a cost: smoothing adds a presentation delay after the network has delivered the words. The component keeps its `aria-busy` state until both the stream and the reveal have finished. Copy uses the received text, so its contents do not depend on the animation's current position.
+
+This is a character-based reveal. It does not implement grapheme-aware pacing, and the animation advances per frame rather than using an elapsed-time rate. Those are useful boundaries to know before adapting it to more languages or treating its reading speed as identical across displays.
+
+## A citation should expose the mistake
+
+The renderer recognises numbered markers such as `[2]`. It creates a link only when a source with that number exists in the response's source data. An unmatched marker stays plain text.
+
+In the wrong-source recording, source 2 really is Radial menu. The link works because the source exists. Following it exposes the mismatch with the question about Menu.
+
+That is what this layer can offer: a way to inspect where an answer came from. It does not establish that the retrieved source was the right one, that the model used it correctly or that the answer is true. A successful `done` event cannot settle those questions either.
+
+## Make the difficult runs repeatable
+
+The demo replays five recordings made with a local `qwen2.5-coder:7b` model through Ollama. Calls use two tools over Prism's component registry: search the components, then retrieve a component's description.
+
+In the successful Dialog recording, the first tool call arrives at **8,833ms** and the run ends at **31,933ms**. Those are timestamps from that recording on the recorded setup, not a benchmark for the model or a prediction for another machine. They give the demo real periods of waiting to render.
+
+Replay preserves the relative event timing at real pace. The public demo defaults to **3× faster**, with a real-pace option; the tests can request another speed. Visitors replay stored events rather than generating another paid model call.
+
+The failure scenarios have different provenance:
+
+| Scenario | What actually happened |
+| --- | --- |
+| Wrong component | The recorded model selected Radial menu after search returned Menu first. The result is kept. |
+| Tool timeout | The first component lookup was deliberately made to fail during recording. The model's subsequent response is its own. |
+| Dropped connection | Replay deliberately cuts the Dialog recording at 24 seconds and emits an error. Retry plays the full recording. |
+
+The timeout scenario's next attempt is a separately recorded run. It is not a live recovery taking place in the visitor's browser. Keeping those distinctions visible makes the demo more useful to someone trying to understand its behaviour.
+
+## Test what the interface promises
+
+The existing Playwright suite has seven AI-response cases: completion with sources, the quiet-window delay, a long silence, Stop and Escape, a tool timeout followed by another attempt, the wrong-source recording and a connection drop followed by Retry.
+
+The quiet-window test measures from the click to the “Thinking” label inside the page, rather than trusting the test runner to observe a 400ms interval accurately. The Stop test checks that the retained paragraphs stop changing. The citation tests check actual link destinations.
+
+For announcements, a polite, atomic live region stays empty while text arrives. It receives the complete answer after completion and reveal, or a short stopped/error message. The tests check the DOM status text. They do **not** establish how this behaves in an actual screen-reader session; that still needs testing with assistive technology.
+
+These checks make specific promises inspectable. They do not demonstrate that people finish tasks faster or trust the interface more. I have not measured either outcome for this component.
+
+The [implementation merged in Prism PR 33](https://github.com/Sammii-HK/prism/pull/33). Start with the [wrong-component scenario](https://prism.sammii.dev/ai-response), expand the tool step and follow its citation. It is a compact example of how a response can finish, look convincing and still leave the most important decision to its reader.

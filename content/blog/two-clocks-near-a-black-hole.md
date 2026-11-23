@@ -68,7 +68,7 @@ The drawing is a schematic. A dark circle labelled **Event horizon** sits on one
 
 That slide is not to scale. The radial spacing is compressed: the code places the clock according to the logarithm of its radius, so moving from 1.05 to 2 covers a useful amount of screen and moving from 10 to 20 does not run off the edge. The rings and soft glow around the horizon are decoration. They are not a ray-traced view and they do not encode light, heat or matter.
 
-If you want the light-path side of the same geometry, [Where light can go](/blog/where-light-can-go) traces rays around a black hole of the same kind, also measured in horizon radii. The default radius here, `1.5`, is the radius of the photon sphere described there. This clock model says nothing about light at that radius. It is simply the same number in a different question.
+If you want the light-path side of the same geometry, [Where light can go](https://labs.sammii.dev/explorations/black-hole-light-paths/) traces rays around a black hole of the same kind, also measured in horizon radii. The default radius here, `1.5`, is the radius of the photon sphere described there. This clock model says nothing about light at that radius. It is simply the same number in a different question.
 
 ## Limits, in one place
 

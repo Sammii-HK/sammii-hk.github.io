@@ -23,7 +23,7 @@ That hitch is the difference between a transition and a spring, and it is invisi
 
 There are two cards on two tracks. The top one moves with a CSS transition. The bottom one moves with a spring. One button, "Move right" (then "Move left"), sends both to the other end at the same moment.
 
-Click it once and let them land, and you will struggle to say which you prefer. Click it, then click it again before they arrive. The spring carries its velocity into the new journey and curves round. The transition starts a fresh curve from wherever it was, at zero velocity, and you feel the hitch.
+Click it once and let them land, then click twice before they arrive. The spring carries its simulated velocity into the changed target. The CSS transition follows the browser's transition and reversal rules instead. That comparison is worth trying with each easing: an interrupted transition does not necessarily restart at zero velocity or take its full configured duration.
 
 Under the cards is a graph of the last 2.4 seconds: the transition's position, the spring's position, and a third line for where each card was told to go. Both lines are recorded from the screen every frame, not drawn from a formula. The spring's position is the one the page just painted; the transition's is read back from the element's computed transform matrix. So when you interrupt, the graph shows the interruption exactly as you saw it: a sharp corner on one line and a smooth one on the other.
 
@@ -35,7 +35,7 @@ On the transition side there are five easings, `ease`, `ease-out`, `ease-in-out`
 
 ## A duration versus a force
 
-A transition is a duration and a curve. It will arrive in exactly the time you gave it, wherever it started and however fast it was already going. That is what makes it predictable, and it is also why it cannot cope with being interrupted: the new transition has no idea the old one was moving.
+A transition is specified with a duration and a timing function. CSS also defines how a running transition reverses, including a shortening factor, so its configured duration is not a promise that every interrupted return trip takes that long. The useful comparison here is with the spring's explicit position and velocity state, rather than a claim that CSS cannot respond to interruption. See [CSS Transitions, reversing](https://www.w3.org/TR/css-transitions-1/#reversing).
 
 A spring is a force. The chart's spring is a damped harmonic oscillator, F = −k(x − target) − cv: stiffness pulls it toward the target, damping bleeds off speed, and mass resists both. It arrives when the physics says so.
 

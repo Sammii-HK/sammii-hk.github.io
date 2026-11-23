@@ -15,7 +15,7 @@ draft: false
 
 The card is called Sprint board. It has five tasks in a list that scrolls, and the second one, Fix the filter pills, has an Assign button. Open it and a menu drops down: Priya, Sam, Wren, Unassigned. It is cut off at the bottom edge of the card. Scroll the list and the menu scrolls with it, sliding out of view behind the card's edge. It has `z-index: 9999`, and the number does nothing.
 
-That is the opening state of [labs.sammii.dev/charts/anchor](https://labs.sammii.dev/charts/anchor/), and it is the follow-up to [Why z-index: 9999 does nothing](/blog/stacking). That chart showed why a number cannot rescue a menu from inside a stacking context. This one is the way out.
+That is the opening state of [labs.sammii.dev/charts/anchor](https://labs.sammii.dev/charts/anchor/), and it is the follow-up to [Why z-index: 9999 does nothing](https://labs.sammii.dev/charts/stacking/). That chart showed why a number cannot rescue a menu from inside a stacking context. This one is the way out.
 
 ## The card is every card
 
@@ -61,7 +61,7 @@ It does not fall back gracefully on a browser without anchor positioning. The pa
 
 It shows one menu on one card. There is no nested scroller, no virtualised list and no focus trap. And the "one frame behind" in the JavaScript mode is described, not measured: the chart does not time the lag on your machine.
 
-Try it at [labs.sammii.dev/charts/anchor](https://labs.sammii.dev/charts/anchor/), and if you have not seen the first half, start with [Why z-index: 9999 does nothing](/blog/stacking).
+Try it at [labs.sammii.dev/charts/anchor](https://labs.sammii.dev/charts/anchor/), and if you have not seen the first half, start with [Why z-index: 9999 does nothing](https://labs.sammii.dev/charts/stacking/).
 
 ## Sources
 

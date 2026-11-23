@@ -13,7 +13,7 @@ chart: "gamuts"
 draft: false
 ---
 
-There is a bright green near the top of the horseshoe that your screen cannot show you. The chart draws it anyway, and what you see is the nearest sRGB colour, clipped. That gap, between the colour that should be there and the one that is, is what this chart is about.
+There is a bright green near the top of the horseshoe that an sRGB display cannot reproduce. The chart computes its coordinates anyway, then clips the result into sRGB. That gap, between a chromaticity on the diagram and the colour the fill can render, is what this chart is about.
 
 It is at [labs.sammii.dev/charts/gamuts](https://labs.sammii.dev/charts/gamuts/). The horseshoe is the CIE 1931 chromaticity diagram: every chromaticity a standard observer can see. Each triangle is what a display standard can reproduce, with its three primaries as the corners. sRGB, the default of the web and of every image without a profile, covers about a third of the horseshoe.
 
@@ -46,7 +46,7 @@ Two triangles, almost the same size, describing different colours. Adobe RGB's g
 
 Rec. 2020 is the outlier. Its primaries sit on the spectral locus itself: pure single wavelengths at 630, 532 and 467 nanometres. You can check it on the chart. Its red corner, (0.708, 0.292), lands on the curve almost exactly where the 630 nm point of the locus is.
 
-It is the container for HDR video, and no commercial display reaches it. The colour-spaces chart calls it the target everything aims at, which is the right way to read it: a box, not a description of a screen.
+Rec. 2020 defines a colour gamut used in UHD television systems. The triangle is a reference gamut, not evidence that a particular HDR display reproduces every point inside it. Gamut and dynamic range are different properties; this two-dimensional chart only shows chromaticity.
 
 Turn it on and off with its button and watch how much of the horseshoe it takes with it. It is the only one of the four that reaches into the deep greens at the top.
 
@@ -60,7 +60,7 @@ The colours inside the horseshoe are not an image. They are computed on a canvas
 
 For each pixel, the chart works out its x and y, checks whether that point is inside the locus, then treats it as a colour at unit luminance: x and y become XYZ, XYZ becomes linear sRGB through the standard matrix, and the result is scaled so its brightest channel is one. That last step matters: this is a diagram of chromaticity, not brightness. Then negative channels are clipped to zero and the result is companded to sRGB.
 
-Inside the sRGB triangle, that gives the exact colour. Outside it, at least one channel goes negative and is clipped to zero, so what you see is the nearest sRGB colour. That is the point of the fill: the region outside the small triangle looks less vivid than it should, and the reason it looks wrong is the lesson.
+Inside the sRGB triangle, the calculation produces an sRGB representation of that chromaticity at the chosen normalisation. Outside it, channels can go negative and are clipped. This is channel clipping, not a search for the perceptually nearest in-gamut colour. The fill illustrates where sRGB runs out; it does not reproduce colours outside that gamut.
 
 The triangles are drawn on an SVG on top of the canvas, largest first, so the smaller ones sit on top and take the hover. Adobe RGB starts switched off; sRGB, Display P3 and Rec. 2020 start on. `?focus=` with a gamut id, like [`?focus=rec2020`](https://labs.sammii.dev/charts/gamuts/?focus=rec2020), opens the chart with that triangle highlighted.
 

@@ -61,7 +61,7 @@ Both methods are written out in the site's own code, with no library. WCAG 2 use
 
 ## What it does not show
 
-APCA is a candidate, not a standard. It is not yet normative, and WCAG 3 is still a working draft as of 2026. WCAG 2 is the legal standard in most jurisdictions and the one your audit will use. The honest position, and the one the chart takes, is to ship to WCAG 2 and design with APCA.
+APCA is an additional contrast model, not a replacement conformance test for WCAG 2.2. [WCAG 3 remains an in-progress draft](https://www.w3.org/WAI/standards-guidelines/wcag/wcag3-intro/). For a product targeting WCAG 2.2, check its published success criteria and use this comparison to investigate rendering choices. An APCA score does not establish WCAG conformance, and this chart makes no legal compliance determination.
 
 The size guidance is the simplified lookup: one minimum body size, at weight 400, for each band. That is enough to make the point and not enough to set a type scale from.
 

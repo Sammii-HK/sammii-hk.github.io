@@ -21,7 +21,7 @@ The chart is at [labs.sammii.dev/charts/text-on-screen](https://labs.sammii.dev/
 
 ## Why I built it
 
-My video app puts lines of text on screen, one after another. In that test render, a line of twelve words was on screen for 1.5 seconds. Nobody can read that. A fixed 2-second card, which is the default in a lot of templates, is not much better.
+My video app puts lines of text on screen, one after another. In that test render, a line of twelve words was on screen for 1.5 seconds: 480 words a minute, before allowing time to notice the card. That is well above the average silent-reading rate discussed below. A fixed 2-second card still asks for 360 words a minute. Neither is a sensible default for the audience I am designing for.
 
 So the app now has floors. The chart sets them beside the published reading and subtitle rates, times your line six ways, and the first part of it makes you feel the difference rather than read about it.
 
@@ -80,7 +80,7 @@ Word counts are a split on spaces, so "£1,234.56" is one word to the chart. Net
 
 And my rules are floors I chose for my app, with sources behind them, not a standard. The silent text notes loop, which is the only reason the note rule can be as quick as it is.
 
-The chart is at [labs.sammii.dev/charts/text-on-screen](https://labs.sammii.dev/charts/text-on-screen/). `?focus=3` opens it on the 12-word line, and `?focus=4` on the 20-word one. It sits alongside [what 900 of my videos taught me](/blog/videos) in the short-form video series.
+The chart is at [labs.sammii.dev/charts/text-on-screen](https://labs.sammii.dev/charts/text-on-screen/). `?focus=3` opens it on the 12-word line, and `?focus=4` on the 20-word one. It sits alongside [what 900 of my videos taught me](https://labs.sammii.dev/charts/videos/) in the short-form video series.
 
 ## Sources
 
