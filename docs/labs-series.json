@@ -1,0 +1,1995 @@
+{
+  "checked_on": "2026-11-22",
+  "timezone": "Europe/London",
+  "source_repository_commit": "574bbec892621a4c4d810d8cf45268d213833a1e",
+  "existing_source_posts": 132,
+  "fresh_duplicate_check": {
+    "checked_on": "2026-11-22",
+    "master_commit": "574bbec892621a4c4d810d8cf45268d213833a1e",
+    "blog_delta": {
+      "old_count": 129,
+      "current_count": 132,
+      "added": [
+        "a-countdown-needs-a-clock.md",
+        "midnight-happened-twice.md",
+        "saer-a-theme-you-can-install.md"
+      ],
+      "changed": [],
+      "removed": []
+    },
+    "rss_entries": 75,
+    "spellcast_account": "Sammii Dev Blog",
+    "spellcast_published": 7,
+    "spellcast_pending": 0,
+    "spellcast_results_untruncated": true
+  },
+  "pull_request_url": "https://github.com/Sammii-HK/sammii-hk.github.io/pull/15",
+  "branch": "content/labs-blog-gaps-2026-11-20",
+  "guide": {
+    "slug": "reading-the-labs-as-connected-series",
+    "title": "Reading the labs as connected series",
+    "status": "new_draft",
+    "date": "2026-11-20",
+    "draft": true,
+    "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/reading-the-labs-as-connected-series.md",
+    "public_blog_url": null,
+    "live_project_url": null
+  },
+  "reading_order_meaning": "A curated reading order, not a claim about project chronology or code ancestry.",
+  "catalogue_items": 66,
+  "reader_paths": 9,
+  "new_implementation_articles": 12,
+  "new_evolution_articles": 7,
+  "new_reader_guide": 1,
+  "existing_drafted_continuations": [
+    {
+      "slug": "a-countdown-needs-a-clock",
+      "title": "The countdown looked right until I timed it",
+      "status": "existing_draft",
+      "date": "2026-11-20",
+      "draft": true,
+      "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-countdown-needs-a-clock.md",
+      "public_blog_url": null,
+      "live_project_url": null,
+      "existing_series": null
+    },
+    {
+      "slug": "midnight-happened-twice",
+      "title": "My daylight calculator lost an hour at midnight",
+      "status": "existing_draft",
+      "date": "2026-11-20",
+      "draft": true,
+      "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/midnight-happened-twice.md",
+      "public_blog_url": null,
+      "live_project_url": null,
+      "existing_series": null
+    },
+    {
+      "slug": "saer-a-theme-you-can-install",
+      "title": "Turning a Saer theme into components I can install",
+      "status": "existing_draft",
+      "date": "2026-11-20",
+      "draft": true,
+      "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/saer-a-theme-you-can-install.md",
+      "public_blog_url": null,
+      "live_project_url": null,
+      "existing_series": null
+    }
+  ],
+  "complete_drafts": 20,
+  "prose_words": 28464,
+  "code_examples": 46,
+  "original_publication_calendar_changed": false,
+  "held_drafts_changed": false,
+  "article_metadata_is_not_runtime_navigation": true,
+  "publication_dependency": "Publish the reader guide and seven linked history pieces together, no later than the implementation articles that link to the guide. These remain unscheduled drafts. Existing live, scheduled and held article bodies are unchanged.",
+  "series": [
+    {
+      "id": "colour",
+      "title": "Colour: from coordinates to a useful tool",
+      "question": "What has to survive when a colour moves from an idea to a screen, a palette and an export?",
+      "arc": "Colour history and perceptual differences lead into the documented Tailwind Colour Creator and Gamut feedback loop, then into gamut limits, contrast and naming.",
+      "chapters": [
+        "colour-spaces",
+        "why-hsl-lies",
+        "a-palette-generator-should-keep-the-colour-you-gave-it",
+        "gamuts",
+        "contrast",
+        "named-colours"
+      ],
+      "published_companions": [
+        {
+          "slug": "why-your-design-system-needs-oklch-not-hsl",
+          "title": "Why your design system needs OKLCH, not HSL",
+          "status": "published_coverage",
+          "date": "2026-04-27",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/why-your-design-system-needs-oklch-not-hsl.md",
+          "public_blog_url": "https://sammii.dev/blog/why-your-design-system-needs-oklch-not-hsl/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "one-colour-formula-portfolio",
+          "title": "One colour formula: how I made my developer portfolio feel alive",
+          "status": "published_coverage",
+          "date": "2026-03-02",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/one-colour-formula-portfolio.md",
+          "public_blog_url": "https://sammii.dev/blog/one-colour-formula-portfolio/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "colour-spaces",
+          "title": "Twenty-five ways to write a colour down",
+          "status": "future_dated",
+          "date": "2026-11-24T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/colour-spaces.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/colour-spaces/",
+          "existing_series": "Colour and perception"
+        },
+        {
+          "slug": "why-hsl-lies",
+          "title": "Fifty percent of what? Why HSL lies about lightness",
+          "status": "future_dated",
+          "date": "2027-01-20T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/why-hsl-lies.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/why-hsl-lies/",
+          "existing_series": "Colour and perception"
+        },
+        {
+          "slug": "from-a-palette-generator-to-gamut-and-back-again",
+          "title": "From a palette generator to Gamut, and back again",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/from-a-palette-generator-to-gamut-and-back-again.md",
+          "public_blog_url": null,
+          "live_project_url": "https://tailwind-colour-creator.vercel.app"
+        },
+        {
+          "slug": "a-palette-generator-should-keep-the-colour-you-gave-it",
+          "title": "A palette generator should keep the colour you gave it",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/a-palette-generator-should-keep-the-colour-you-gave-it.md",
+          "public_blog_url": null,
+          "live_project_url": "https://tailwind-colour-creator.vercel.app"
+        },
+        {
+          "slug": "saer-a-theme-you-can-install",
+          "title": "Turning a Saer theme into components I can install",
+          "status": "existing_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/saer-a-theme-you-can-install.md",
+          "public_blog_url": null,
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "gamuts",
+          "title": "The triangle your screen lives in",
+          "status": "future_dated",
+          "date": "2027-01-01T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/gamuts.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/gamuts/",
+          "existing_series": "Colour and perception"
+        },
+        {
+          "slug": "contrast",
+          "title": "Orange on white, scored twice",
+          "status": "future_dated",
+          "date": "2026-12-24T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/contrast.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/contrast/",
+          "existing_series": "Colour and perception"
+        },
+        {
+          "slug": "named-colours",
+          "title": "darkgray is lighter than gray",
+          "status": "future_dated",
+          "date": "2027-01-11T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/named-colours.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/named-colours/",
+          "existing_series": "Colour and perception"
+        }
+      ]
+    },
+    {
+      "id": "typography",
+      "title": "Typography: from a letter to a system",
+      "question": "How do the history and proportions of letterforms become decisions in a working interface?",
+      "arc": "Type history becomes a family tree, then a study of anatomy and apparent size, and finally an adjustable tool in Kern.",
+      "chapters": [
+        "communication",
+        "typography",
+        "letter",
+        "x-height"
+      ],
+      "published_companions": [
+        {
+          "slug": "love-letter-to-garamond",
+          "title": "A love letter to Garamond",
+          "status": "published_coverage",
+          "date": "2026-04-07",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-garamond.md",
+          "public_blog_url": "https://sammii.dev/blog/love-letter-to-garamond/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "love-letter-to-baskerville",
+          "title": "A love letter to Baskerville",
+          "status": "published_coverage",
+          "date": "2026-06-01",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-baskerville.md",
+          "public_blog_url": "https://sammii.dev/blog/love-letter-to-baskerville/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "love-letter-to-bodoni",
+          "title": "A love letter to Bodoni",
+          "status": "published_coverage",
+          "date": "2026-06-08",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-bodoni.md",
+          "public_blog_url": "https://sammii.dev/blog/love-letter-to-bodoni/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "love-letter-to-johnston-sans",
+          "title": "A love letter to Johnston Sans",
+          "status": "published_coverage",
+          "date": "2026-06-22",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-johnston-sans.md",
+          "public_blog_url": "https://sammii.dev/blog/love-letter-to-johnston-sans/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "love-letter-to-futura",
+          "title": "A love letter to Futura",
+          "status": "published_coverage",
+          "date": "2026-04-03",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-futura.md",
+          "public_blog_url": "https://sammii.dev/blog/love-letter-to-futura/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "love-letter-to-helvetica",
+          "title": "A love letter to Helvetica",
+          "status": "published_coverage",
+          "date": "2026-06-29",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-helvetica.md",
+          "public_blog_url": "https://sammii.dev/blog/love-letter-to-helvetica/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "love-letter-to-univers",
+          "title": "A love letter to Univers",
+          "status": "published_coverage",
+          "date": "2026-07-06",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/love-letter-to-univers.md",
+          "public_blog_url": "https://sammii.dev/blog/love-letter-to-univers/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "the-kerning-pair-problem",
+          "title": "The kerning pair problem: why I built Kern",
+          "status": "published_coverage",
+          "date": "2026-06-17",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-kerning-pair-problem.md",
+          "public_blog_url": "https://sammii.dev/blog/the-kerning-pair-problem/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "fluid-type-from-a-variable-font-explorer",
+          "title": "Kern: exploring variable fonts and generating fluid type",
+          "status": "published_coverage",
+          "date": "2026-10-29T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/fluid-type-from-a-variable-font-explorer.md",
+          "public_blog_url": "https://sammii.dev/blog/fluid-type-from-a-variable-font-explorer/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "communication",
+          "title": "Six centuries of communication and type, and the student who wrote it",
+          "status": "future_dated",
+          "date": "2026-12-30T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/communication.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/communication/",
+          "existing_series": "Typography"
+        },
+        {
+          "slug": "typography",
+          "title": "The typography genome: five hundred years of type as one family tree",
+          "status": "future_dated",
+          "date": "2027-01-18T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/typography.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/typography/",
+          "existing_series": "Typography"
+        },
+        {
+          "slug": "letter",
+          "title": "The anatomy of a letter, and the overshoot nobody mentions",
+          "status": "future_dated",
+          "date": "2027-01-07T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/letter.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/letter/",
+          "existing_series": "Typography"
+        },
+        {
+          "slug": "x-height",
+          "title": "Why 16px is not 16px",
+          "status": "future_dated",
+          "date": "2027-01-29T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/x-height.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/x-height/",
+          "existing_series": "Typography"
+        },
+        {
+          "slug": "fluid-type-from-a-variable-font-explorer",
+          "title": "Kern: exploring variable fonts and generating fluid type",
+          "status": "published_coverage",
+          "date": "2026-10-29T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/fluid-type-from-a-variable-font-explorer.md",
+          "public_blog_url": "https://sammii.dev/blog/fluid-type-from-a-variable-font-explorer/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+          "title": "From Kern to Type Lab: letting the font data drive the tool",
+          "status": "new_draft",
+          "date": "2026-11-22",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/from-kern-to-type-lab-making-the-font-data-drive-the-tool.md",
+          "public_blog_url": null,
+          "live_project_url": "https://kern.sammii.dev"
+        }
+      ]
+    },
+    {
+      "id": "motion",
+      "title": "Motion: from a curve to something you can interrupt",
+      "question": "What changes when an animation must respond to another action before it finishes?",
+      "arc": "Springs and input lead into Kinetic, constrained bodies in Balloon Bonanza, two fluid-looking techniques in Liquidity and the size of the controls people touch.",
+      "chapters": [
+        "springs",
+        "kinetic-designing-motion-you-can-interrupt",
+        "making-balloons-feel-light-with-matter-js",
+        "liquidity-two-ways-to-make-type-feel-fluid",
+        "touch-targets"
+      ],
+      "published_companions": [
+        {
+          "slug": "cursor-reactive-gradients-css-mouse-position",
+          "title": "Cursor-Reactive Gradients: Making CSS Respond to Mouse Position",
+          "status": "published_coverage",
+          "date": "2026-02-25",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/cursor-reactive-gradients-css-mouse-position.md",
+          "public_blog_url": "https://sammii.dev/blog/cursor-reactive-gradients-css-mouse-position/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "building-a-vertical-snap-carousel-touch-drag-pagination",
+          "title": "Building a vertical snap carousel with touch-drag pagination",
+          "status": "published_coverage",
+          "date": "2026-02-26",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/building-a-vertical-snap-carousel-touch-drag-pagination.md",
+          "public_blog_url": "https://sammii.dev/blog/building-a-vertical-snap-carousel-touch-drag-pagination/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "springs",
+          "title": "Easing versus springs: what happens when you interrupt",
+          "status": "future_dated",
+          "date": "2027-01-12T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/springs.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/springs/",
+          "existing_series": "Motion and interaction"
+        },
+        {
+          "slug": "kinetic-designing-motion-you-can-interrupt",
+          "title": "Kinetic: designing motion you can interrupt",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/kinetic-designing-motion-you-can-interrupt.md",
+          "public_blog_url": null,
+          "live_project_url": "https://kinetic.sammii.dev"
+        },
+        {
+          "slug": "a-countdown-needs-a-clock",
+          "title": "The countdown looked right until I timed it",
+          "status": "existing_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-countdown-needs-a-clock.md",
+          "public_blog_url": null,
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "making-balloons-feel-light-with-matter-js",
+          "title": "Making balloons feel light with Matter.js",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/making-balloons-feel-light-with-matter-js.md",
+          "public_blog_url": null,
+          "live_project_url": "https://balloon-bonanza.vercel.app"
+        },
+        {
+          "slug": "liquidity-two-ways-to-make-type-feel-fluid",
+          "title": "Liquidity: two ways to make type feel fluid",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/liquidity-two-ways-to-make-type-feel-fluid.md",
+          "public_blog_url": null,
+          "live_project_url": "https://liquidity-ten.vercel.app"
+        },
+        {
+          "slug": "touch-targets",
+          "title": "Touch targets, at the size your finger meets them",
+          "status": "future_dated",
+          "date": "2027-01-22T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/touch-targets.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/touch-targets/",
+          "existing_series": "Motion and interaction"
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "title": "The browser: from an input to a visible result",
+      "question": "Which part of the journey is responsible when the page arrives late, looks wrong or fails to respond?",
+      "arc": "Network and JavaScript work lead into rendering and perception, then CSS diagnosis and the source history needed to inspect a change.",
+      "chapters": [
+        "url",
+        "event-loop",
+        "unicode",
+        "floating-point",
+        "big-o",
+        "caching",
+        "js-cost",
+        "keypress",
+        "frame-budget",
+        "now",
+        "repaint",
+        "layout",
+        "specificity",
+        "stacking",
+        "anchor",
+        "git-graph"
+      ],
+      "published_companions": [
+        {
+          "slug": "charts-information-design-for-design-engineers",
+          "title": "Charts: information design about the tools we use",
+          "status": "published_coverage",
+          "date": "2026-09-22",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/charts-information-design-for-design-engineers.md",
+          "public_blog_url": "https://sammii.dev/blog/charts-information-design-for-design-engineers/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "browser-photo-editing-web-workers",
+          "title": "Browser photo editing in Web Workers: 60fps on large images",
+          "status": "published_coverage",
+          "date": "2026-06-24",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/browser-photo-editing-web-workers.md",
+          "public_blog_url": "https://sammii.dev/blog/browser-photo-editing-web-workers/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "local-first-collaborative-editing-yjs-crdts",
+          "title": "Local-first collaborative editing with Yjs CRDTs: an editor that survives the Tube",
+          "status": "published_coverage",
+          "date": "2026-05-13",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/local-first-collaborative-editing-yjs-crdts.md",
+          "public_blog_url": "https://sammii.dev/blog/local-first-collaborative-editing-yjs-crdts/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "from-charts-to-explorable-models",
+          "title": "From charts to explorable models: what changed in Labs",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/from-charts-to-explorable-models.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/"
+        },
+        {
+          "slug": "when-the-browser-became-part-of-the-explanation",
+          "title": "When the browser became part of the explanation",
+          "status": "new_draft",
+          "date": "2026-11-22",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/when-the-browser-became-part-of-the-explanation.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/event-loop/"
+        },
+        {
+          "slug": "url",
+          "title": "A slow page is mostly waiting",
+          "status": "future_dated",
+          "date": "2027-01-28T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/url.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/url/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "event-loop",
+          "title": "Why the loading label never shows",
+          "status": "future_dated",
+          "date": "2026-12-02T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/event-loop.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/event-loop/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "unicode",
+          "title": "One emoji, four lengths",
+          "status": "future_dated",
+          "date": "2027-01-15T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/unicode.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/unicode/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "floating-point",
+          "title": "Floating point, at the pixel",
+          "status": "future_dated",
+          "date": "2026-12-04T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/floating-point.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/floating-point/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "big-o",
+          "title": "The search box that stops keeping up",
+          "status": "future_dated",
+          "date": "2026-11-26T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/big-o.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/big-o/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "caching",
+          "title": "Why they are still seeing the old version",
+          "status": "future_dated",
+          "date": "2026-11-30T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/caching.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/caching/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "when-a-blog-post-stopped-needing-a-deploy",
+          "title": "When a blog post stopped needing a deploy",
+          "status": "new_draft",
+          "date": "2026-11-22",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/when-a-blog-post-stopped-needing-a-deploy.md",
+          "public_blog_url": null,
+          "live_project_url": null
+        },
+        {
+          "slug": "js-cost",
+          "title": "What a byte of JavaScript costs",
+          "status": "future_dated",
+          "date": "2026-12-11T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/js-cost.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/js-cost/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "keypress",
+          "title": "Most of a keypress is the screen",
+          "status": "future_dated",
+          "date": "2026-12-15T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/keypress.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/keypress/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "frame-budget",
+          "title": "A faster screen halves your deadline",
+          "status": "future_dated",
+          "date": "2026-12-07T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/frame-budget.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/frame-budget/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "now",
+          "title": "How long \"now\" takes",
+          "status": "future_dated",
+          "date": "2026-12-28T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/now.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/now/",
+          "existing_series": "Perception and consciousness"
+        },
+        {
+          "slug": "repaint",
+          "title": "Fifty-five CSS properties, and the two safe to animate",
+          "status": "future_dated",
+          "date": "2026-12-21T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/repaint.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/repaint/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "layout",
+          "title": "Thirty years of CSS layout, one page seven ways",
+          "status": "future_dated",
+          "date": "2026-12-17T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/layout.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/layout/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "specificity",
+          "title": "Specificity is three columns, not a score",
+          "status": "future_dated",
+          "date": "2026-12-29T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/specificity.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/specificity/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "stacking",
+          "title": "Why z-index: 9999 does nothing",
+          "status": "future_dated",
+          "date": "2027-01-06T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/stacking.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/stacking/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "anchor",
+          "title": "Getting the menu out of the card",
+          "status": "future_dated",
+          "date": "2026-11-23T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/anchor.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/anchor/",
+          "existing_series": "The browser and the machine"
+        },
+        {
+          "slug": "git-graph",
+          "title": "Your commit is not gone",
+          "status": "future_dated",
+          "date": "2026-12-09T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/git-graph.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/git-graph/",
+          "existing_series": "The browser and the machine"
+        }
+      ]
+    },
+    {
+      "id": "sky",
+      "title": "Building a sky: from a view to a model",
+      "question": "What changes when the observer, the world or the timescale moves?",
+      "arc": "A celestial view leads into sky stories, stellar motion and depth; local daylight then opens onto planetary days, gravity, interiors and long histories.",
+      "chapters": [
+        "celestial-globe-drawing-the-sky-from-the-inside",
+        "one-sky-many-stories",
+        "the-sky-unravelling",
+        "step-outside-the-pattern",
+        "day-lite-where-the-sun-meets-the-clock",
+        "a-day-on-another-world",
+        "one-throw-twelve-worlds",
+        "beneath-the-surface",
+        "a-planet-reshaping-itself",
+        "worlds-in-time"
+      ],
+      "published_companions": [
+        {
+          "slug": "the-maths-behind-how-long-a-planet-stays-in-your-sign",
+          "title": "The maths behind how long a planet stays in your sign",
+          "status": "published_coverage",
+          "date": "2026-03-21",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-maths-behind-how-long-a-planet-stays-in-your-sign.md",
+          "public_blog_url": "https://sammii.dev/blog/the-maths-behind-how-long-a-planet-stays-in-your-sign/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "retrograde-stations-are-the-plot-twist",
+          "title": "Retrograde stations are the plot twist: rewriting the transit engine three times",
+          "status": "published_coverage",
+          "date": "2026-05-18",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/retrograde-stations-are-the-plot-twist.md",
+          "public_blog_url": "https://sammii.dev/blog/retrograde-stations-are-the-plot-twist/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "synastry-at-36-aspects",
+          "title": "Synastry at 600 pairs (and why the first 245 were thin)",
+          "status": "published_coverage",
+          "date": "2026-07-01",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/synastry-at-36-aspects.md",
+          "public_blog_url": "https://sammii.dev/blog/synastry-at-36-aspects/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "celestial-globe-drawing-the-sky-from-the-inside",
+          "title": "Celestial Globe: drawing the sky from the inside",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/celestial-globe-drawing-the-sky-from-the-inside.md",
+          "public_blog_url": null,
+          "live_project_url": "https://celestial-map.sammii.dev"
+        },
+        {
+          "slug": "one-sky-many-stories",
+          "title": "One sky, many stories",
+          "status": "future_dated",
+          "date": "2026-12-08T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/one-sky-many-stories.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/constellations-and-sky-stories/",
+          "existing_series": null
+        },
+        {
+          "slug": "the-sky-unravelling",
+          "title": "The sky unravelling",
+          "status": "future_dated",
+          "date": "2026-12-22T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-sky-unravelling.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/constellations-through-time/",
+          "existing_series": null
+        },
+        {
+          "slug": "step-outside-the-pattern",
+          "title": "Step outside the pattern",
+          "status": "future_dated",
+          "date": "2026-12-16T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/step-outside-the-pattern.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/big-dipper-in-3d/",
+          "existing_series": null
+        },
+        {
+          "slug": "day-lite-where-the-sun-meets-the-clock",
+          "title": "Day Lite: where the Sun meets the clock",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/day-lite-where-the-sun-meets-the-clock.md",
+          "public_blog_url": null,
+          "live_project_url": "https://day-lite.vercel.app"
+        },
+        {
+          "slug": "midnight-happened-twice",
+          "title": "My daylight calculator lost an hour at midnight",
+          "status": "existing_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/midnight-happened-twice.md",
+          "public_blog_url": null,
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "a-day-on-another-world",
+          "title": "A day on another world",
+          "status": "future_dated",
+          "date": "2026-11-25T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-day-on-another-world.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/day-on-another-world/",
+          "existing_series": null
+        },
+        {
+          "slug": "one-throw-twelve-worlds",
+          "title": "One throw, twelve worlds",
+          "status": "future_dated",
+          "date": "2026-12-10T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/one-throw-twelve-worlds.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/gravity-on-other-worlds/",
+          "existing_series": null
+        },
+        {
+          "slug": "beneath-the-surface",
+          "title": "Beneath the surface",
+          "status": "future_dated",
+          "date": "2026-12-03T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/beneath-the-surface.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/inside-planets/",
+          "existing_series": null
+        },
+        {
+          "slug": "a-planet-reshaping-itself",
+          "title": "A planet reshaping itself",
+          "status": "future_dated",
+          "date": "2026-12-01T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-planet-reshaping-itself.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/plate-tectonics/",
+          "existing_series": null
+        },
+        {
+          "slug": "worlds-in-time",
+          "title": "Worlds in time",
+          "status": "future_dated",
+          "date": "2027-01-21T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/worlds-in-time.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/planetary-surface-evolution/",
+          "existing_series": null
+        }
+      ]
+    },
+    {
+      "id": "models",
+      "title": "Invisible worlds: what an interactive model can explain",
+      "question": "Which part of a phenomenon can the reader vary, and where does the explanation stop?",
+      "arc": "Relativity and light paths lead into quantum examples, then vibrating membranes and reaction-diffusion patterns, with the model limits carried alongside the controls.",
+      "chapters": [
+        "two-clocks-near-a-black-hole",
+        "where-light-can-go",
+        "through-the-forbidden",
+        "a-little-less-certain",
+        "one-arrival-at-a-time",
+        "the-shape-of-a-note",
+        "patterns-that-grow"
+      ],
+      "published_companions": [
+        {
+          "slug": "charts-information-design-for-design-engineers",
+          "title": "Charts: information design about the tools we use",
+          "status": "published_coverage",
+          "date": "2026-09-22",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/charts-information-design-for-design-engineers.md",
+          "public_blog_url": "https://sammii.dev/blog/charts-information-design-for-design-engineers/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "two-clocks-near-a-black-hole",
+          "title": "Two clocks near a black hole",
+          "status": "future_dated",
+          "date": "2027-01-04T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/two-clocks-near-a-black-hole.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/black-hole-time-dilation/",
+          "existing_series": null
+        },
+        {
+          "slug": "where-light-can-go",
+          "title": "Where light can go",
+          "status": "held_draft",
+          "date": "None",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/where-light-can-go.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/black-hole-light-paths/",
+          "existing_series": null
+        },
+        {
+          "slug": "through-the-forbidden",
+          "title": "Through the forbidden",
+          "status": "future_dated",
+          "date": "2026-12-25T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/through-the-forbidden.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/quantum-tunnelling/",
+          "existing_series": null
+        },
+        {
+          "slug": "a-little-less-certain",
+          "title": "A little less certain",
+          "status": "future_dated",
+          "date": "2026-11-27T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/a-little-less-certain.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/quantum-uncertainty/",
+          "existing_series": null
+        },
+        {
+          "slug": "one-arrival-at-a-time",
+          "title": "One arrival at a time",
+          "status": "held_draft",
+          "date": "None",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/one-arrival-at-a-time.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/double-slit-experiment/",
+          "existing_series": null
+        },
+        {
+          "slug": "the-shape-of-a-note",
+          "title": "The shape of a note",
+          "status": "future_dated",
+          "date": "2026-12-18T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-shape-of-a-note.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/vibrating-membranes/",
+          "existing_series": null
+        },
+        {
+          "slug": "patterns-that-grow",
+          "title": "Patterns that grow",
+          "status": "future_dated",
+          "date": "2026-12-14T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/patterns-that-grow.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/explorations/reaction-diffusion/",
+          "existing_series": null
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "title": "Systems that learn and choose",
+      "question": "What can the system actually do, and what evidence would justify calling it better?",
+      "arc": "Tokens, context and latency establish the machinery; retrieval, a painting baseline, Moth and Isle show different uses of it; tests for a mind keep capability and consciousness distinct.",
+      "chapters": [
+        "tokens",
+        "context-window",
+        "llm-latency",
+        "grimoire-map",
+        "teaching-a-computer-to-paint-what-the-baseline-taught-me",
+        "moth-a-world-of-possibilities",
+        "i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers",
+        "tests-for-a-mind"
+      ],
+      "published_companions": [
+        {
+          "slug": "moth-choosing-models-by-task",
+          "title": "The smallest model that does the actual job",
+          "status": "published_coverage",
+          "date": "2026-11-20",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/moth-choosing-models-by-task.md",
+          "public_blog_url": "https://sammii.dev/blog/moth-choosing-models-by-task/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "when-an-agent-returns-code-instead-of-data",
+          "title": "When an agent returns code instead of data",
+          "status": "published_coverage",
+          "date": "2026-10-15T16:35:00+01:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/when-an-agent-returns-code-instead-of-data.md",
+          "public_blog_url": "https://sammii.dev/blog/when-an-agent-returns-code-instead-of-data/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "no-model-decides-whether-a-model-made-it-up",
+          "title": "No model decides whether a model made something up",
+          "status": "published_coverage",
+          "date": "2026-11-12T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/no-model-decides-whether-a-model-made-it-up.md",
+          "public_blog_url": "https://sammii.dev/blog/no-model-decides-whether-a-model-made-it-up/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "is-consciousness-merely-intelligence",
+          "title": "Is consciousness merely intelligence?",
+          "status": "published_coverage",
+          "date": "2026-11-19T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/is-consciousness-merely-intelligence.md",
+          "public_blog_url": "https://sammii.dev/blog/is-consciousness-merely-intelligence/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "the-grimoire-is-the-product-pgvector-semantic-search",
+          "title": "The grimoire is the product: 2,000 articles with pgvector semantic search",
+          "status": "published_coverage",
+          "date": "2026-05-04",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-grimoire-is-the-product-pgvector-semantic-search.md",
+          "public_blog_url": "https://sammii.dev/blog/the-grimoire-is-the-product-pgvector-semantic-search/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "tokens",
+          "title": "Strawberry is three numbers",
+          "status": "future_dated",
+          "date": "2027-01-19T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/tokens.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/tokens/",
+          "existing_series": "AI engineering"
+        },
+        {
+          "slug": "context-window",
+          "title": "A million tokens is not much of a codebase",
+          "status": "future_dated",
+          "date": "2026-12-23T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/context-window.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/context-window/",
+          "existing_series": "AI engineering"
+        },
+        {
+          "slug": "llm-latency",
+          "title": "Where an LLM call spends its time",
+          "status": "future_dated",
+          "date": "2027-01-08T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/llm-latency.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/llm-latency/",
+          "existing_series": "AI engineering"
+        },
+        {
+          "slug": "grimoire-map",
+          "title": "Obsidian's nearest neighbours: Lunary's grimoire, mapped by meaning",
+          "status": "future_dated",
+          "date": "2026-12-31T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/grimoire-map.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/grimoire-map/",
+          "existing_series": "AI engineering"
+        },
+        {
+          "slug": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+          "title": "Lunary: the right data did not stop the wrong answer",
+          "status": "new_draft",
+          "date": "2026-11-22",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/lunary-the-right-data-did-not-stop-the-wrong-answer.md",
+          "public_blog_url": null,
+          "live_project_url": null
+        },
+        {
+          "slug": "teaching-a-computer-to-paint-what-the-baseline-taught-me",
+          "title": "Teaching a computer to paint: what the baseline taught me",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/teaching-a-computer-to-paint-what-the-baseline-taught-me.md",
+          "public_blog_url": null,
+          "live_project_url": "https://sammii.dev/experiments/teaching-a-computer-to-paint/index.html"
+        },
+        {
+          "slug": "moth-a-world-of-possibilities",
+          "title": "Moth has possibilities, not a plot",
+          "status": "published_coverage",
+          "date": "2026-11-20",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/moth-a-world-of-possibilities.md",
+          "public_blog_url": "https://sammii.dev/blog/moth-a-world-of-possibilities/",
+          "live_project_url": "https://moth.sammii.dev/observatory.html",
+          "existing_series": null
+        },
+        {
+          "slug": "moth-from-a-drawing-gallery-to-an-observatory",
+          "title": "Moth: from a drawing gallery to an observatory",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/moth-from-a-drawing-gallery-to-an-observatory.md",
+          "public_blog_url": null,
+          "live_project_url": "https://moth.sammii.dev/observatory.html"
+        },
+        {
+          "slug": "i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers",
+          "title": "I made a VS Code extension that turns my AI agents into Animal Crossing villagers",
+          "status": "published_coverage",
+          "date": "2026-03-26",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers.md",
+          "public_blog_url": "https://sammii.dev/blog/i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "tests-for-a-mind",
+          "title": "Tests for a mind: what each one actually looks at",
+          "status": "future_dated",
+          "date": "2027-01-26T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/tests-for-a-mind.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/tests-for-a-mind/",
+          "existing_series": "Perception and consciousness"
+        }
+      ]
+    },
+    {
+      "id": "image",
+      "title": "Light, image and sound",
+      "question": "Which qualities of an experience survive when its material changes?",
+      "arc": "The existing Journey Through Light essays connect perception and symbolism to the installation; browser reconstruction, image transformations, generated shaders and audio mappings explore other materials.",
+      "chapters": [
+        "seven",
+        "spectrum",
+        "retina",
+        "rebuilding-beyond-light-making-room-for-the-reveal",
+        "one-photograph-fifteen-ways-to-draw-with-data",
+        "refract-from-words-to-a-running-shader",
+        "spectra-turning-sound-into-a-shader"
+      ],
+      "published_companions": [
+        {
+          "slug": "beyond-the-visible-uv-acetate-and-the-installation-i-painted",
+          "title": "Beyond the visible: UV, acetate, and the installation I painted",
+          "status": "published_coverage",
+          "date": "2026-05-25",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted.md",
+          "public_blog_url": "https://sammii.dev/blog/beyond-the-visible-uv-acetate-and-the-installation-i-painted/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "the-light-we-built",
+          "title": "The light we built",
+          "status": "published_coverage",
+          "date": "2026-10-22T09:00:00+01:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/the-light-we-built.md",
+          "public_blog_url": "https://sammii.dev/blog/the-light-we-built/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "from-the-library-to-lunary",
+          "title": "From the library to Lunary: how seven spheres became an app",
+          "status": "published_coverage",
+          "date": "2026-05-27",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/from-the-library-to-lunary.md",
+          "public_blog_url": "https://sammii.dev/blog/from-the-library-to-lunary/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "mythology-as-code",
+          "title": "Mythology as code: planetary gods as stages of consciousness",
+          "status": "published_coverage",
+          "date": "2026-05-11",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/mythology-as-code.md",
+          "public_blog_url": "https://sammii.dev/blog/mythology-as-code/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "seven",
+          "title": "Seven, and why the week is in that order",
+          "status": "future_dated",
+          "date": "2027-01-25T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/seven.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/seven/",
+          "existing_series": "Number and symbol"
+        },
+        {
+          "slug": "spectrum",
+          "title": "The visible spectrum is a sliver",
+          "status": "future_dated",
+          "date": "2027-01-13T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/spectrum.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/spectrum/",
+          "existing_series": "Perception and consciousness"
+        },
+        {
+          "slug": "retina",
+          "title": "What your eye actually renders",
+          "status": "future_dated",
+          "date": "2027-01-05T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/retina.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/retina/",
+          "existing_series": "Perception and consciousness"
+        },
+        {
+          "slug": "rebuilding-beyond-light-making-room-for-the-reveal",
+          "title": "Rebuilding Beyond Light: making room for the reveal",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/rebuilding-beyond-light-making-room-for-the-reveal.md",
+          "public_blog_url": null,
+          "live_project_url": "https://beyond-light-vr.vercel.app"
+        },
+        {
+          "slug": "one-photograph-fifteen-ways-to-draw-with-data",
+          "title": "One photograph, fifteen ways to draw with data",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/one-photograph-fifteen-ways-to-draw-with-data.md",
+          "public_blog_url": null,
+          "live_project_url": "https://creative-coding.sammii.dev"
+        },
+        {
+          "slug": "refract-from-words-to-a-running-shader",
+          "title": "Refract: from a sentence to a running shader",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/refract-from-words-to-a-running-shader.md",
+          "public_blog_url": null,
+          "live_project_url": "https://refract.sammii.dev"
+        },
+        {
+          "slug": "spectra-turning-sound-into-a-shader",
+          "title": "Spectra: turning sound into a shader without animating every pixel in JavaScript",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/spectra-turning-sound-into-a-shader.md",
+          "public_blog_url": null,
+          "live_project_url": "https://spectra.sammii.dev"
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "title": "From footage to a decision",
+      "question": "How can a video tool make a useful recommendation without hiding its assumptions?",
+      "arc": "Observed video outcomes lead into the reading time of an overlay and the explicit trade-offs behind selecting a take.",
+      "chapters": [
+        "videos",
+        "text-on-screen",
+        "why-this-take-won-making-a-selection-score-readable"
+      ],
+      "published_companions": [
+        {
+          "slug": "video-system-that-predicts-performance",
+          "title": "I Built a Video System That Predicts Performance Before Publishing",
+          "status": "published_coverage",
+          "date": "2026-03-23",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/video-system-that-predicts-performance.md",
+          "public_blog_url": "https://sammii.dev/blog/video-system-that-predicts-performance/",
+          "live_project_url": null,
+          "existing_series": null
+        },
+        {
+          "slug": "postready-beauty-filter-pipeline-ios",
+          "title": "Building a beauty filter pipeline for iOS that doesn't melt faces",
+          "status": "published_coverage",
+          "date": "2026-06-03",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/postready-beauty-filter-pipeline-ios.md",
+          "public_blog_url": "https://sammii.dev/blog/postready-beauty-filter-pipeline-ios/",
+          "live_project_url": null,
+          "existing_series": null
+        }
+      ],
+      "reading_order": [
+        {
+          "slug": "videos",
+          "title": "What 900 of my videos taught me, and why it is less than it looks",
+          "status": "future_dated",
+          "date": "2027-01-27T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/videos.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/videos/",
+          "existing_series": "Short-form video"
+        },
+        {
+          "slug": "text-on-screen",
+          "title": "Two seconds is plenty for six words and not enough for twelve",
+          "status": "future_dated",
+          "date": "2027-01-14T09:00:00+00:00",
+          "draft": false,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/574bbec892621a4c4d810d8cf45268d213833a1e/content/blog/text-on-screen.md",
+          "public_blog_url": null,
+          "live_project_url": "https://labs.sammii.dev/charts/text-on-screen/",
+          "existing_series": "Short-form video"
+        },
+        {
+          "slug": "why-this-take-won-making-a-selection-score-readable",
+          "title": "Why this take won: making a selection score readable",
+          "status": "new_draft",
+          "date": "2026-11-20",
+          "draft": true,
+          "source_url": "https://github.com/Sammii-HK/sammii-hk.github.io/blob/content/labs-blog-gaps-2026-11-20/content/blog/why-this-take-won-making-a-selection-score-readable.md",
+          "public_blog_url": null,
+          "live_project_url": "https://sammii.dev/experiments/why-this-take-won/index.html"
+        }
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "slug": "a-palette-generator-should-keep-the-colour-you-gave-it",
+      "filename": "a-palette-generator-should-keep-the-colour-you-gave-it.md",
+      "title": "A palette generator should keep the colour you gave it",
+      "description": "Inside Tailwind Colour Creator: anchoring the 500 step, shaping an OKLCH scale, fitting it into sRGB and exporting the right contract for Tailwind v3 and v4.",
+      "prose_word_count": 1469,
+      "code_blocks": 3,
+      "code_languages": [
+        "typescript",
+        "css",
+        "typescript"
+      ],
+      "sha256": "522ae44e613dcbf3938062c89e4a6a60137742f36d989bd2bd99cc640ba5ce7b",
+      "git_blob_sha": "bfb49ba1e3290ecae83c1f7a1becd10c9a5776b3"
+    },
+    {
+      "slug": "celestial-globe-drawing-the-sky-from-the-inside",
+      "filename": "celestial-globe-drawing-the-sky-from-the-inside.md",
+      "title": "Celestial Globe: drawing the sky from the inside",
+      "description": "How a Canvas sky map combines D3 projections, stellar magnitude, layered drawing and planetary positions, and where its visual model needs careful boundaries.",
+      "prose_word_count": 1451,
+      "code_blocks": 4,
+      "code_languages": [
+        "js",
+        "js",
+        "js",
+        "js"
+      ],
+      "sha256": "f9d74dbeecbcfde96c762b676290ae28aca9e12952cd0316f3d02359ffdc590f",
+      "git_blob_sha": "cd4b2499f6a41fd76d841b1e99c7c1284408089f"
+    },
+    {
+      "slug": "day-lite-where-the-sun-meets-the-clock",
+      "filename": "day-lite-where-the-sun-meets-the-clock.md",
+      "title": "Day Lite: where the Sun meets the clock",
+      "description": "Building a daylight globe with Mapbox and Astronomy Engine, and separating sunrise calculations from the much messier business of local time.",
+      "prose_word_count": 1403,
+      "code_blocks": 3,
+      "code_languages": [
+        "ts",
+        "js",
+        "js"
+      ],
+      "sha256": "9de9e0d8f39a97e1e28584454bebceda76abd2e5875ef32a5d4a95a9b0ae9645",
+      "git_blob_sha": "0e1b71f9ad29f378b395997cf2eca2dc62ab3cf2"
+    },
+    {
+      "slug": "from-a-palette-generator-to-gamut-and-back-again",
+      "filename": "from-a-palette-generator-to-gamut-and-back-again.md",
+      "title": "From a palette generator to Gamut, and back again",
+      "description": "The path from a small HSL palette tool to a broader colour system, and the OKLCH maths that travelled back. The commits reveal a useful feedback loop with different promises at each end.",
+      "prose_word_count": 1220,
+      "code_blocks": 3,
+      "code_languages": [
+        "typescript",
+        "typescript",
+        "diff"
+      ],
+      "sha256": "53cd21543d2dd2438acf4b573c9c50349f0079e3b5aa5dc677734ad8d1230fe4",
+      "git_blob_sha": "774857155a747bb24dae4aeeb003acf6585b52ae"
+    },
+    {
+      "slug": "from-charts-to-explorable-models",
+      "filename": "from-charts-to-explorable-models.md",
+      "title": "From charts to explorable models: what changed in Labs",
+      "description": "How Labs grew from a colour-space family tree into a collection of explorable models, and the specific changes that made the explanations easier to inspect, compare and trust.",
+      "prose_word_count": 1338,
+      "code_blocks": 2,
+      "code_languages": [
+        "tsx",
+        "ts"
+      ],
+      "sha256": "572ca51c2e5373c3e013d4c9694d75c820b50742568292d1b8f4e87f34101dcb",
+      "git_blob_sha": "d5057866868cc736a66e97cce03d8920440c341a"
+    },
+    {
+      "slug": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "filename": "from-kern-to-type-lab-making-the-font-data-drive-the-tool.md",
+      "title": "From Kern to Type Lab: letting the font data drive the tool",
+      "description": "How a six-font explorer became a place to build a type system: live family metadata, shared heading and body roles, explicit scale endpoints and previews that stay faithful to their input.",
+      "prose_word_count": 1426,
+      "code_blocks": 3,
+      "code_languages": [
+        "typescript",
+        "diff",
+        "diff"
+      ],
+      "sha256": "b68426e13fd42d5fea0508727768e3705cc38c819b650f5daa77b0856313ec9e",
+      "git_blob_sha": "c8825671a50a789adcdaa8e12f89c894a18b3479"
+    },
+    {
+      "slug": "kinetic-designing-motion-you-can-interrupt",
+      "filename": "kinetic-designing-motion-you-can-interrupt.md",
+      "title": "Kinetic: designing motion you can interrupt",
+      "description": "What 25 interactive animation studies reveal about springs, gestures, identity, interruption and the work needed to turn a polished effect into a usable component.",
+      "prose_word_count": 1426,
+      "code_blocks": 2,
+      "code_languages": [
+        "tsx",
+        "js"
+      ],
+      "sha256": "3f66c984ebcbbc5f2eaffdae131c5fdcba237cd9aff910f38e52c7661b39f5ae",
+      "git_blob_sha": "cba91084070b81497bcd97c335dda45a4ae642c2"
+    },
+    {
+      "slug": "liquidity-two-ways-to-make-type-feel-fluid",
+      "filename": "liquidity-two-ways-to-make-type-feel-fluid.md",
+      "title": "Liquidity: two ways to make type feel fluid",
+      "description": "Comparing an SVG wave with 2,500 Rapier particles, including the difference between a visual mask, a collision shape and an actual fluid model.",
+      "prose_word_count": 1517,
+      "code_blocks": 2,
+      "code_languages": [
+        "js",
+        "js"
+      ],
+      "sha256": "8ed902fef9b38d249f43a9cce0d79b7076cfe2e5ca6b1e2545ca977357829f81",
+      "git_blob_sha": "427a3173777c1378dbcff7d494789ede8bb7e1f9"
+    },
+    {
+      "slug": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "filename": "lunary-the-right-data-did-not-stop-the-wrong-answer.md",
+      "title": "Lunary: the right data did not stop the wrong answer",
+      "description": "A wrong Moon sign exposed a gap between a validator for scheduled copy and a validator for conversation. The fix was a more precise contract for time, claims and delivery.",
+      "prose_word_count": 1473,
+      "code_blocks": 2,
+      "code_languages": [
+        "ts",
+        "ts"
+      ],
+      "sha256": "6d3e1b60c2b8213b5e8474d08b0d9627c3f7eba80c5424d8a628fc07cfeba7a3",
+      "git_blob_sha": "cd891868b8e6d68f61645eaa3b33ee57d53037c9"
+    },
+    {
+      "slug": "making-balloons-feel-light-with-matter-js",
+      "filename": "making-balloons-feel-light-with-matter-js.md",
+      "title": "Making balloons feel light with Matter.js",
+      "description": "How Balloon Bonanza uses two bodies, three constraints and carefully chosen motion to turn a pile of circles into a tactile physics playground.",
+      "prose_word_count": 1517,
+      "code_blocks": 1,
+      "code_languages": [
+        "ts"
+      ],
+      "sha256": "a3928a57957e010d2e7123edc841fa59ec11683e0da4de1c655557658b4d59c6",
+      "git_blob_sha": "f629864c83e4351642fc3cae4a4c99a807b3312e"
+    },
+    {
+      "slug": "moth-from-a-drawing-gallery-to-an-observatory",
+      "filename": "moth-from-a-drawing-gallery-to-an-observatory.md",
+      "title": "Moth: from a drawing gallery to an observatory",
+      "description": "How the public view of Moth grew from a chronological drawing gallery into four views of one record, and what that change can honestly tell us.",
+      "prose_word_count": 1496,
+      "code_blocks": 1,
+      "code_languages": [
+        "ts"
+      ],
+      "sha256": "83c29701d509217f61e3e76cf2304923b146e42dff63eab49ceddcafcdb5ba8a",
+      "git_blob_sha": "8c4c5d37aeb6f79ee061f77c6431661cec19b7fc"
+    },
+    {
+      "slug": "one-photograph-fifteen-ways-to-draw-with-data",
+      "filename": "one-photograph-fifteen-ways-to-draw-with-data.md",
+      "title": "One photograph, fifteen ways to draw with data",
+      "description": "How my creative coding studies turn one image into particles, edges, sorted columns and growing regions, with the small algorithms that give each experiment its character.",
+      "prose_word_count": 1448,
+      "code_blocks": 3,
+      "code_languages": [
+        "javascript",
+        "javascript",
+        "javascript"
+      ],
+      "sha256": "41b74827aea6aea09c5d21aaefc9ad3031d66d4acc3cfbad0de4f134ba0b8a8d",
+      "git_blob_sha": "5adfeab4b54dec8826efd90887cbdfbb71c857db"
+    },
+    {
+      "slug": "reading-the-labs-as-connected-series",
+      "filename": "reading-the-labs-as-connected-series.md",
+      "title": "Reading the labs as connected series",
+      "description": "Nine routes through the experiments, connecting the original questions, the tools they became and the decisions that changed along the way.",
+      "prose_word_count": 1555,
+      "code_blocks": 0,
+      "code_languages": [],
+      "sha256": "e1cb4bb603c36271591304a7197f61b9bff837064caadb23f16ae872a5a6d9bc",
+      "git_blob_sha": "8115d42a182ad89a4677ced9bbe793a1734bde17"
+    },
+    {
+      "slug": "rebuilding-beyond-light-making-room-for-the-reveal",
+      "filename": "rebuilding-beyond-light-making-room-for-the-reveal.md",
+      "title": "Rebuilding Beyond Light: making room for the reveal",
+      "description": "The Three.js implementation behind Beyond Light: a room made from planes, text revealed in a shader, and separate clocks for reading and bloom.",
+      "prose_word_count": 1456,
+      "code_blocks": 3,
+      "code_languages": [
+        "glsl",
+        "js",
+        "js"
+      ],
+      "sha256": "6050f7e9d8019d34140f958c83f93a165d3efb381f7bb2484640decfc1ec3c6e",
+      "git_blob_sha": "802ef74ebc43678a1b30ee063dfb705faa6a77a8"
+    },
+    {
+      "slug": "refract-from-words-to-a-running-shader",
+      "filename": "refract-from-words-to-a-running-shader.md",
+      "title": "Refract: from a sentence to a running shader",
+      "description": "How Refract turns a visual description into GLSL, checks the result before replacing the canvas, and separates a successful generation from a successful picture.",
+      "prose_word_count": 1305,
+      "code_blocks": 2,
+      "code_languages": [
+        "glsl",
+        "typescript"
+      ],
+      "sha256": "11c741dd32b486b6e87776a7df18334a098452f5049495b403fcb9ff48ab7be4",
+      "git_blob_sha": "05f54ee8b8c041fc3f7eb3b17dfdda102f7ae652"
+    },
+    {
+      "slug": "spectra-turning-sound-into-a-shader",
+      "filename": "spectra-turning-sound-into-a-shader.md",
+      "title": "Spectra: turning sound into a shader without animating every pixel in JavaScript",
+      "description": "The audio graph, frequency bands, smoothing and domain-warped noise behind Spectra, with a closer look at where visual response and audio measurement differ.",
+      "prose_word_count": 1333,
+      "code_blocks": 3,
+      "code_languages": [
+        "typescript",
+        "typescript",
+        "glsl"
+      ],
+      "sha256": "bc21c722710902acea2039ce3a0985415822744844953295438176122cd8a489",
+      "git_blob_sha": "0a8d51122b1fad614dd2cd790f71e581b5e7231c"
+    },
+    {
+      "slug": "teaching-a-computer-to-paint-what-the-baseline-taught-me",
+      "filename": "teaching-a-computer-to-paint-what-the-baseline-taught-me.md",
+      "title": "Teaching a computer to paint: what the baseline taught me",
+      "description": "A reproducible painting experiment, from random shapes to pigment mixing and six AI art directors, and why a fixed brush schedule still mattered.",
+      "prose_word_count": 1483,
+      "code_blocks": 2,
+      "code_languages": [
+        "js",
+        "js"
+      ],
+      "sha256": "aac04e2cc4a25a4305a429d426cae351aa4b0b30e3965acca1f248d335297d57",
+      "git_blob_sha": "a30057e9ed6df399a807a9f0095a48103d956dbe"
+    },
+    {
+      "slug": "when-a-blog-post-stopped-needing-a-deploy",
+      "filename": "when-a-blog-post-stopped-needing-a-deploy.md",
+      "title": "When a blog post stopped needing a deploy",
+      "description": "How this blog moved from a static build to a live content reader, then gained full-text feeds and a shared publication policy. The useful changes were at the boundaries.",
+      "prose_word_count": 1421,
+      "code_blocks": 3,
+      "code_languages": [
+        "ts",
+        "ts",
+        "js"
+      ],
+      "sha256": "ba21ab9086e69c0dee3e0b1e54ff238ccb566b50c82054f1618ead66e55a2278",
+      "git_blob_sha": "6b316642467686998b1aac82f6dce7d14f6beb15"
+    },
+    {
+      "slug": "when-the-browser-became-part-of-the-explanation",
+      "filename": "when-the-browser-became-part-of-the-explanation.md",
+      "title": "When the browser became part of the explanation",
+      "description": "The recorded changes that put real buttons, lagging search fields and browser measurements ahead of the diagrams in Labs, and how to keep a measurement honest about what it includes.",
+      "prose_word_count": 1266,
+      "code_blocks": 1,
+      "code_languages": [
+        "js"
+      ],
+      "sha256": "ca859ca0821c03a408c916e15080172819d5d1f0bec43213890e8a6d70dfaa67",
+      "git_blob_sha": "45011d21c5f14c17d4919bb6bda9f54098897c80"
+    },
+    {
+      "slug": "why-this-take-won-making-a-selection-score-readable",
+      "filename": "why-this-take-won-making-a-selection-score-readable.md",
+      "title": "Why this take won: making a selection score readable",
+      "description": "Inside Post Ready's phrase scoring: word coverage, fillers, pace and gaze, with worked examples and an interactive way to inspect the trade-offs.",
+      "prose_word_count": 1461,
+      "code_blocks": 3,
+      "code_languages": [
+        "js",
+        "js",
+        "js"
+      ],
+      "sha256": "254d5d310819e82345e04eb0ad1c1a6d44413479054ce79877f6567e9186ee9a",
+      "git_blob_sha": "27975438df604ea97d630645243022024caaea99"
+    }
+  ],
+  "link_checks": [
+    {
+      "source": "a-palette-generator-should-keep-the-colour-you-gave-it",
+      "target": "why-your-design-system-needs-oklch-not-hsl",
+      "target_status": "already_published"
+    },
+    {
+      "source": "a-palette-generator-should-keep-the-colour-you-gave-it",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "a-palette-generator-should-keep-the-colour-you-gave-it",
+      "target": "why-your-design-system-needs-oklch-not-hsl",
+      "target_status": "already_published"
+    },
+    {
+      "source": "celestial-globe-drawing-the-sky-from-the-inside",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "day-lite-where-the-sun-meets-the-clock",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "from-a-palette-generator-to-gamut-and-back-again",
+      "target": "why-your-design-system-needs-oklch-not-hsl",
+      "target_status": "already_published"
+    },
+    {
+      "source": "from-a-palette-generator-to-gamut-and-back-again",
+      "target": "fluid-type-from-a-variable-font-explorer",
+      "target_status": "already_published"
+    },
+    {
+      "source": "from-a-palette-generator-to-gamut-and-back-again",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "from-a-palette-generator-to-gamut-and-back-again",
+      "target": "why-your-design-system-needs-oklch-not-hsl",
+      "target_status": "already_published"
+    },
+    {
+      "source": "from-charts-to-explorable-models",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target": "the-kerning-pair-problem",
+      "target_status": "already_published"
+    },
+    {
+      "source": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target": "fluid-type-from-a-variable-font-explorer",
+      "target_status": "already_published"
+    },
+    {
+      "source": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target": "fluid-type-from-a-variable-font-explorer",
+      "target_status": "already_published"
+    },
+    {
+      "source": "kinetic-designing-motion-you-can-interrupt",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "liquidity-two-ways-to-make-type-feel-fluid",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "target": "moth-a-world-of-possibilities",
+      "target_status": "already_published"
+    },
+    {
+      "source": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "target": "moth-choosing-models-by-task",
+      "target_status": "already_published"
+    },
+    {
+      "source": "making-balloons-feel-light-with-matter-js",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "moth-from-a-drawing-gallery-to-an-observatory",
+      "target": "moth-a-world-of-possibilities",
+      "target_status": "already_published"
+    },
+    {
+      "source": "moth-from-a-drawing-gallery-to-an-observatory",
+      "target": "moth-choosing-models-by-task",
+      "target_status": "already_published"
+    },
+    {
+      "source": "moth-from-a-drawing-gallery-to-an-observatory",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "moth-from-a-drawing-gallery-to-an-observatory",
+      "target": "moth-a-world-of-possibilities",
+      "target_status": "already_published"
+    },
+    {
+      "source": "moth-from-a-drawing-gallery-to-an-observatory",
+      "target": "moth-choosing-models-by-task",
+      "target_status": "already_published"
+    },
+    {
+      "source": "one-photograph-fifteen-ways-to-draw-with-data",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "one-photograph-fifteen-ways-to-draw-with-data",
+      "target": "beyond-the-visible-uv-acetate-and-the-installation-i-painted",
+      "target_status": "already_published"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "why-your-design-system-needs-oklch-not-hsl",
+      "target_status": "already_published"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "from-a-palette-generator-to-gamut-and-back-again",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "love-letter-to-garamond",
+      "target_status": "already_published"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "fluid-type-from-a-variable-font-explorer",
+      "target_status": "already_published"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "from-kern-to-type-lab-making-the-font-data-drive-the-tool",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "when-the-browser-became-part-of-the-explanation",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "when-a-blog-post-stopped-needing-a-deploy",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "from-charts-to-explorable-models",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "moth-a-world-of-possibilities",
+      "target_status": "already_published"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "i-made-a-vs-code-extension-that-turns-my-ai-agents-into-animal-crossing-villagers",
+      "target_status": "already_published"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "moth-from-a-drawing-gallery-to-an-observatory",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "lunary-the-right-data-did-not-stop-the-wrong-answer",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "moth-choosing-models-by-task",
+      "target_status": "already_published"
+    },
+    {
+      "source": "reading-the-labs-as-connected-series",
+      "target": "beyond-the-visible-uv-acetate-and-the-installation-i-painted",
+      "target_status": "already_published"
+    },
+    {
+      "source": "rebuilding-beyond-light-making-room-for-the-reveal",
+      "target": "beyond-the-visible-uv-acetate-and-the-installation-i-painted",
+      "target_status": "already_published"
+    },
+    {
+      "source": "rebuilding-beyond-light-making-room-for-the-reveal",
+      "target": "beyond-the-visible-uv-acetate-and-the-installation-i-painted",
+      "target_status": "already_published"
+    },
+    {
+      "source": "rebuilding-beyond-light-making-room-for-the-reveal",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "rebuilding-beyond-light-making-room-for-the-reveal",
+      "target": "beyond-the-visible-uv-acetate-and-the-installation-i-painted",
+      "target_status": "already_published"
+    },
+    {
+      "source": "refract-from-words-to-a-running-shader",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "refract-from-words-to-a-running-shader",
+      "target": "beyond-the-visible-uv-acetate-and-the-installation-i-painted",
+      "target_status": "already_published"
+    },
+    {
+      "source": "spectra-turning-sound-into-a-shader",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "spectra-turning-sound-into-a-shader",
+      "target": "beyond-the-visible-uv-acetate-and-the-installation-i-painted",
+      "target_status": "already_published"
+    },
+    {
+      "source": "teaching-a-computer-to-paint-what-the-baseline-taught-me",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "teaching-a-computer-to-paint-what-the-baseline-taught-me",
+      "target": "moth-a-world-of-possibilities",
+      "target_status": "already_published"
+    },
+    {
+      "source": "teaching-a-computer-to-paint-what-the-baseline-taught-me",
+      "target": "moth-choosing-models-by-task",
+      "target_status": "already_published"
+    },
+    {
+      "source": "when-a-blog-post-stopped-needing-a-deploy",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "when-the-browser-became-part-of-the-explanation",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    },
+    {
+      "source": "why-this-take-won-making-a-selection-score-readable",
+      "target": "reading-the-labs-as-connected-series",
+      "target_status": "same_draft_batch"
+    }
+  ]
+}
