@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getWorkIndex } from "../lib/lenses";
 import { WorkIndexGrid } from "./WorkIndexGrid";
 import { SiteShell } from "../src/components/site/SiteShell";
+import { LabsPortal } from "../src/components/home/LabsPortal";
 
 /**
  * /work (Phase 2H, TEMPORARY index). The homepage is the argument; this is
@@ -39,6 +40,7 @@ export default function WorkPage() {
           </section>
         ))}
       </main>
+      <LabsPortal />
     </SiteShell>
   );
 }
