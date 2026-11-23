@@ -1,4 +1,5 @@
 "use client";
+import { X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { hslToRgb, lchToRgb, luminance, oklchToRgb, inGamut, clamp, toCss, toHex, type RGB } from "../../../lib/colour";
 
@@ -126,7 +127,7 @@ export function WhyHslLies() {
               <code className="whl-row-formula">{r.formula}</code>
               <p className="whl-row-note">{r.note}</p>
               <p className="whl-row-stat">
-                Brightest swatch is <strong>{spread.toFixed(1)}×</strong> the luminance of the darkest.
+                Brightest swatch is <strong>{spread.toFixed(1)}<X size={14} aria-hidden="true" className="inline-block align-middle" /></strong> the luminance of the darkest.
               </p>
             </header>
             <div className="whl-plot">

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {
+      "file": "app/src/components/prism/Select.tsx",
+      "export": "Select",
+      "sha256": "a63763eeef848854791945f61045f11d97b56d74a9f1f0b912b9436693b502bf",
+      "adapted": true,
+      "source": {
+        "library": "Prism",
+        "repository": "https://github.com/Sammii-HK/prism",
+        "revision": "03a2e50",
+        "path": "app/lib/expressions/reserved.tsx",
+        "sha256": "6eb0ac7f39179fdb08db5a8db0b926f81d8cd3b634ec3df4b80904ad5fc512e7"
+      }
+    }
+  ]
+}

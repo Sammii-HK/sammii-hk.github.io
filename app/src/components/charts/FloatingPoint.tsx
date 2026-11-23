@@ -1,4 +1,5 @@
 "use client";
+import { X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 /**
@@ -52,7 +53,7 @@ export function FloatingPoint() {
           <label className="cst-year"><span className="cst-year-label">Container width</span><input type="range" min={300} max={1200} value={width} onChange={(e) => setWidth(Number(e.target.value))} /><output className="cst-year-value">{width}px</output></label>
         </div>
         <div className="fp-seam-wrap"><div ref={row} className="fp-row" style={{ width: `${width}px` }}>{Array.from({ length: cols }, (_, i) => <div key={i} className="fp-tile" style={{ width: `${100 / cols}%` }} />)}</div></div>
-        <p className="fp-read">{cols} × {(100 / cols).toFixed(4)}% of {width}px = {(width / cols).toFixed(3)}px each. Measured: {measured.map((m) => m.w.toFixed(3)).join(" + ")} = {totalMeasured.toFixed(3)}px{Math.abs(totalMeasured - width) > 0.001 ? ` (${(totalMeasured - width).toFixed(3)}px ${totalMeasured < width ? "short: a seam" : "over: an overflow"})` : " (exact)"}. Edges land at {measured.map((m) => m.right.toFixed(2)).join(", ")}: on a {dpr}× screen the browser can only paint at multiples of {(1 / dpr).toFixed(2)}px, so each fractional edge is either snapped or blended.</p>
+        <p className="fp-read">{cols} <X size={14} aria-hidden="true" className="inline-block align-middle" /> {(100 / cols).toFixed(4)}% of {width}px = {(width / cols).toFixed(3)}px each. Measured: {measured.map((m) => m.w.toFixed(3)).join(" + ")} = {totalMeasured.toFixed(3)}px{Math.abs(totalMeasured - width) > 0.001 ? ` (${(totalMeasured - width).toFixed(3)}px ${totalMeasured < width ? "short: a seam" : "over: an overflow"})` : " (exact)"}. Edges land at {measured.map((m) => m.right.toFixed(2)).join(", ")}: on a {dpr}<X size={14} aria-hidden="true" className="inline-block align-middle" /> screen the browser can only paint at multiples of {(1 / dpr).toFixed(2)}px, so each fractional edge is either snapped or blended.</p>
       </section>
 
       <section className="fp-block">
@@ -63,7 +64,7 @@ export function FloatingPoint() {
           <div className="fp-box" style={{ transform: `translateX(${shift}px)` }}><span>translateX({shift.toFixed(2)}px)</span></div>
           <div className="fp-box fp-box--layout" style={{ marginLeft: `${shift}px` }}><span>margin-left: {shift.toFixed(2)}px</span></div>
         </div>
-        <p className="fp-read">The same 1px border three times. A transform is applied at raster time and can sit between device pixels, so at {shift.toFixed(2)}px the edge is anti-aliased across two of them and reads as blurred. Layout positions (margin, left) are snapped to the pixel grid before painting, so the third box stays crisp. Zoom in with the OS magnifier to see it; on a 1× screen it is obvious at 0.5, on a 2× screen it is subtler because the grid is finer.</p>
+        <p className="fp-read">The same 1px border three times. A transform is applied at raster time and can sit between device pixels, so at {shift.toFixed(2)}px the edge is anti-aliased across two of them and reads as blurred. Layout positions (margin, left) are snapped to the pixel grid before painting, so the third box stays crisp. Zoom in with the OS magnifier to see it; on a 1<X size={14} aria-hidden="true" className="inline-block align-middle" /> screen it is obvious at 0.5, on a 2<X size={14} aria-hidden="true" className="inline-block align-middle" /> screen it is subtler because the grid is finer.</p>
       </section>
 
       <section className="fp-block">

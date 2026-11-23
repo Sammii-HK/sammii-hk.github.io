@@ -1,7 +1,7 @@
-.xh { font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
+.xh { min-width: 0; grid-template-columns: minmax(0, 1fr); font-family: var(--font-inter), system-ui, sans-serif; display: grid; gap: 1.25rem; }
 .xh-loading { margin: 0; opacity: 0.6; font-size: 0.875rem; }
 .xh-overlay-wrap .cst-panel-kicker { margin: 0 0 0.5rem; }
-.xh-overlay { position: relative; display: block; line-height: 1.3; word-spacing: 0.2em; white-space: nowrap; overflow-x: auto; padding: 0.15em 0.4em 0.1em; border-radius: 12px; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); background: color-mix(in oklab, currentColor 3%, transparent); overflow: hidden; }
+.xh-overlay { position: relative; display: block; line-height: 1.3; word-spacing: 0.2em; white-space: nowrap; overflow-x: auto; padding: 0.15em 0.4em 0.1em; border-radius: 12px; border: 1px solid color-mix(in oklab, currentColor 12%, transparent); background: color-mix(in oklab, currentColor 3%, transparent); overflow-x: auto; }
 .xh-overlay > span { position: relative; z-index: 1; display: inline; }
 .xh-strut { display: inline-block; width: 0; height: 0; vertical-align: baseline; }
 .xh-overlay > span:nth-child(odd) { opacity: 0.85; }

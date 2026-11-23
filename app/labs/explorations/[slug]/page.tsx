@@ -10,8 +10,9 @@ import "../explorations.css";
 export const dynamicParams = false;
 export function generateStaticParams() { return EXPLORATIONS.map(({ slug }) => ({ slug })); }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const item = getExploration(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const item = getExploration(slug);
   if (!item) return { title: "Exploration not found", robots: { index: false } };
   return {
     title: { absolute: item.seoTitle },
@@ -23,8 +24,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ExplorationPage({ params }: { params: { slug: string } }) {
-  const item = getExploration(params.slug);
+export default async function ExplorationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const item = getExploration(slug);
   if (!item) notFound();
   const related = getRelatedExplorations(item);
   return (
@@ -32,9 +34,7 @@ export default function ExplorationPage({ params }: { params: { slug: string } }
       <article className="exploration-page">
         <ExplorationSignals slug={item.slug} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(explorationJsonLd(item)).replace(/</g, "\\u003c") }} />
-        <nav className="exploration-breadcrumbs" aria-label="Breadcrumb">
-          <a href="../../">Labs</a><span aria-hidden="true">/</span><a href="../">Explorations</a><span aria-hidden="true">/</span><span aria-current="page">{item.topic}</span>
-        </nav>
+
         <header className="exploration-head">
           <p className="section-eyebrow">Explorations · {item.category}</p>
           <h1 className="exploration-title">{item.title}</h1>

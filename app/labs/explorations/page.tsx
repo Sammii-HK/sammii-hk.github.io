@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import { LabsShell } from "../../src/components/labs/LabsShell";
@@ -21,7 +22,7 @@ export default function ExplorationsIndex() {
     <LabsShell>
       <div className="exploration-index">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-        <nav className="exploration-breadcrumbs" aria-label="Breadcrumb"><a href="../">Labs</a><span aria-hidden="true">/</span><span aria-current="page">Explorations</span></nav>
+
         <header className="exploration-index-head">
           <p className="section-eyebrow">{EXPLORATIONS.length} interactive explorations</p>
           <h1 className="exploration-title">Move something.<br />See what follows.</h1>
@@ -29,7 +30,7 @@ export default function ExplorationsIndex() {
           <p className="exploration-collection-intro">Light that bends, constellations that come apart, planets with unfamiliar days and patterns that grow from small disturbances. Each exploration is a place to try an idea, with the model and its limits alongside it.</p>
         </header>
         <a className="exploration-feature" href={`./${feature.slug}/`}>
-          <img src={`/exploration-runtime/cards/${feature.slug}.png`} width={1600} height={900} alt="Calculated Schwarzschild light paths bending around a black hole" fetchPriority="high" />
+          <Image unoptimized priority src={`/exploration-runtime/cards/${feature.slug}.png`} width={1600} height={900} alt="Calculated Schwarzschild light paths bending around a black hole" />
           <div><span className="section-eyebrow">Start with light</span><h2>{feature.title}</h2><p>{feature.intro}</p><span className="exploration-card-arrow">Explore light around a black hole <ArrowUpRight size={14} aria-hidden="true" /></span></div>
         </a>
         {Array.from(new Set(categories)).map((category) => {

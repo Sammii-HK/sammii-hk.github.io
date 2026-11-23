@@ -32,6 +32,19 @@ describe('validateCaseStudy', () => {
     const errors = validateCaseStudy({ ...base, blocks: [{ type: 'media', items: [{ src: '/a.png' }] }] }, 'x');
     expect(errors[0]).toMatch(/alt: required/);
   });
+
+  it('requires evidence for every system boundary and retains it in feeds', () => {
+    const flow = { type: 'flow' as const, heading: 'An edit', caption: 'Local verification only.', steps: [
+      { label: 'Editor', detail: 'Applies the change.', href: 'https://example.com/editor' },
+      { label: 'Storage', detail: 'Persists the document.', href: 'https://example.com/storage' },
+    ] };
+    expect(validateCaseStudy({ ...base, blocks: [flow] }, 'x')).toEqual([]);
+    const markdown = caseStudyToMarkdown({ ...base, blocks: [flow] });
+    expect(markdown).toContain('[Implementation](https://example.com/storage)');
+    expect(markdown).toContain('Local verification only.');
+    expect(validateCaseStudy({ ...base, blocks: [{ ...flow, steps: [{ label: 'Editor', detail: 'Applies the change.' }, flow.steps[1]] }] }, 'x'))
+      .toContain('x.blocks[0].steps[0]: needs label, detail and implementation link');
+  });
 });
 
 describe('case studies on disk', () => {

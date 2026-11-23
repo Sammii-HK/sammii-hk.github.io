@@ -1,7 +1,10 @@
+// Preserve the public read-only route caching used before Next 15.
+export const dynamic = 'force-static';
+
 import { getAllPostsFull, REVALIDATE } from '../lib/blog';
 import { markdownToHtml } from '../lib/markdown-html';
 
-export const revalidate = REVALIDATE;
+export const revalidate = 600;
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 

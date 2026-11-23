@@ -1,0 +1,1 @@
+The reviewed runtime modules and their source-manifest hashes are unchanged. portfolio-theme.css is a separate presentation layer for neutral portfolio surfaces. It changes surrounding interface surfaces, not model equations, source data, series colours or canvas drawing logic.

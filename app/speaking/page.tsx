@@ -37,7 +37,7 @@ const TALKS = [
   {
     title: "I built a cat I don't control",
     summary:
-      "How Moth, an autonomous AI cat, is made. The talk covers designing possibilities instead of outcomes, and a character who practises and gets better at drawing. It ends with what the analytics said about her films.",
+      "How Moth, an autonomous AI cat, is made. The talk covers designing possibilities instead of outcomes, and a character with drawing skills to practise. It ends with what the analytics said about her films.",
   },
 ].map((t) => ({ ...t, format: "30-minute talk" }));
 
@@ -45,7 +45,7 @@ const SHORT_BIO =
   "Samantha Kellow is a design engineer and AI product engineer in London. She runs Lunar Computing on her own with a team of AI agents, building products including Lunary, a live astrology app, and Moth, an autonomous AI cat. Before that she was founding design engineer at Garden Computing and shipped frontend systems at ASOS. She has an MA in Visual Communication.";
 
 const LONG_BIO =
-  "Samantha Kellow is a design engineer and AI product engineer in London. She builds AI-native products end to end, from the agent systems underneath to the interface on top, and runs Lunar Computing on her own with a team of AI agents. Her products include Lunary, a live astrology app with paying subscribers, and Moth, an autonomous AI cat who lives in a world Samantha built and posts three films of her day, every day. She was founding design engineer at Garden Computing and, before that, built frontend systems at ASOS and bots. She came to engineering from design: her MA in Visual Communication was a room whose words only appeared under ultraviolet light. She writes at sammii.dev about design engineering, agents and consciousness.";
+  "Samantha Kellow is a design engineer and AI product engineer in London. She builds AI-native products end to end, from the agent systems underneath to the interface on top, and runs Lunar Computing on her own with a team of AI agents. Her products include Lunary, a live astrology app with paying subscribers, and Moth, an autonomous AI cat who lives in a world Samantha built and makes films from her day. She was founding design engineer at Garden Computing and, before that, built frontend systems at ASOS and bots. She came to engineering from design: her MA in Visual Communication was a room whose words only appeared under ultraviolet light. She writes at sammii.dev about design engineering, agents and consciousness.";
 
 export default function SpeakingPage() {
   return (

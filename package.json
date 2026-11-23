@@ -10,7 +10,7 @@
     "dev": "npm run generate-image-map && next dev",
     "build": "npm run generate-image-map && next build",
     "start": "next start",
-    "lint": "npm run lint:icons && next lint",
+    "lint": "npm run lint:icons && eslint app --ext .js,.jsx,.ts,.tsx --max-warnings=0",
     "screenshot": "node scripts/screenshot.mjs",
     "screenshot:new": "node scripts/screenshot.mjs --only spellcast,podify,artify,celestial-map",
     "test": "npm run test:icons && vitest run",
@@ -24,12 +24,12 @@
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "^9.0.5",
     "lucide-react": "^0.407.0",
-    "next": "14.2.35",
+    "next": "15.5.29",
     "next-mdx-remote": "^6.0.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
     "react-responsive-carousel": "^3.2.23",
-    "react-snap-carousel": "^0.4.0",
+    "react-snap-carousel": "^0.5.1",
     "reading-time": "^1.5.0",
     "rehype-pretty-code": "^0.14.1",
     "remark-gfm": "^4.0.1",
@@ -42,15 +42,33 @@
     "@tailwindcss/typography": "^0.5.19",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4",
+    "eslint-config-next": "15.5.29",
     "playwright": "^1.58.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
-    "vitest": "^3.2.7"
+    "vitest": "4.1.12",
+    "vite": "7.3.8"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.23"
+    },
+    "@tailwindcss/typography": {
+      "postcss-selector-parser": "6.1.5"
+    },
+    "sucrase": "3.35.1"
+  },
+  "resolutions": {
+    "next/postcss": "8.5.23",
+    "@tailwindcss/typography/postcss-selector-parser": "6.1.5",
+    "sucrase": "3.35.1"
+  }
 }

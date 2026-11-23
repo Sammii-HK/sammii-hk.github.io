@@ -1,3 +1,6 @@
+// Preserve the public read-only route caching used before Next 15.
+export const dynamic = 'force-static';
+
 import { NextResponse } from 'next/server';
 import { CHARTS, chartHref } from '../../labs/charts/registry';
 import { FACTS } from '../../labs/charts/facts';

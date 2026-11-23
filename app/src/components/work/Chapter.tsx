@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, type JSX } from "react";
 import Image from "next/image";
 import type { Lens } from "../../../common/data/projects";
 import type { Chapter as ChapterModel } from "../../../lib/selected-work";

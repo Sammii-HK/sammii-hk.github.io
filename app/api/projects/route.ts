@@ -1,10 +1,13 @@
+// Preserve the public read-only route caching used before Next 15.
+export const dynamic = 'force-static';
+
 import { NextResponse } from 'next/server';
 import { projects } from '../../common/data/projects';
 import { getAllCaseStudySlugs, getCaseStudyBySlug } from '../../lib/case-studies';
 import { CHARTS, chartHref } from '../../labs/charts/registry';
 import { getAllPosts, REVALIDATE } from '../../lib/blog';
 
-export const revalidate = REVALIDATE;
+export const revalidate = 600;
 
 /**
  * GET /api/projects: everything a writer (or a GPT) needs to know about the
