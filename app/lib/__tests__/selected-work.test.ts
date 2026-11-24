@@ -10,13 +10,13 @@ describe("Selected Work editorial contract", () => {
   it("renders the approved hierarchy for every lens", () => {
     const d = selectedWorkModel("design");
     expect(ids(d.chapters)).toEqual(["prism", "kern", "saer"]);
-    expect(ids(d.references)).toEqual(["strata", "lunary", "lattiq"]);
+    expect(ids(d.references)).toEqual(["gamut", "scapestudio", "strata", "lunary"]);
     const a = selectedWorkModel("ai");
     expect(ids(a.chapters)).toEqual(["lunary", "moth", "prism"]);
-    expect(ids(a.references)).toEqual(["spellcast", "create-mcp-server", "iprep", "orbit"]);
+    expect(ids(a.references)).toEqual(["spellcast", "podify", "conjure", "create-mcp-server", "orbit"]);
     const p = selectedWorkModel("product");
     expect(ids(p.chapters)).toEqual(["lunary", "lattiq", "strata"]);
-    expect(ids(p.references)).toEqual(["gamut", "orbit", "spellcast", "kern"]);
+    expect(ids(p.references)).toEqual(["spellcast", "crystal-index", "iprep", "podify"]);
   });
 
   it("always has exactly three chapters, numbered 1..3, with the pacing layouts in order", () => {
