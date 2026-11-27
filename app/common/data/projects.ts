@@ -98,9 +98,9 @@ export const projects: Project[] = [
     group: 'tools',
     fragment: 'gamut-palette',
     focus: {
-      design: { tier: 'work' },
+      design: { rank: 1, tier: 'supporting', summary: 'An OKLCH theme builder: eleven-step scales with chroma pulled back into sRGB, semantic tokens for light and dark, and every step checked for contrast.', emphasis: ['OKLCH', 'design tokens', 'contrast'] },
       ai: { tier: 'work' },
-      product: { rank: 1, tier: 'supporting', summary: 'A theme builder whose output drops straight into a codebase: CSS variables, Tailwind config, JSON or Style Dictionary tokens.', emphasis: ['token export', 'Style Dictionary'] },
+      product: { tier: 'work' },
     },
     liveUrl: 'https://gamut.sammii.dev',
     caseStudy: 'gamut',
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     focus: {
       design: { rank: 2, tier: 'featured', summary: 'Browse, pair and tune variable fonts in context, then export a shared type system as CSS, Tailwind or design tokens.', emphasis: ['variable fonts', 'fluid typography', 'design tokens'] },
       ai: { tier: 'work' },
-      product: { rank: 4, tier: 'supporting', summary: 'A font catalogue with live refresh and snapshot fallback, shared type-system state, and exports generated from the same inputs as the previews.', emphasis: ['catalogue fallback', 'shared export model'] },
+      product: { tier: 'work' },
     },
     liveUrl: 'https://kern.sammii.dev',
     caseStudy: 'kern',
@@ -164,6 +164,9 @@ export const projects: Project[] = [
     type: 'product',
     home: 'work',
     group: 'products',
+    focus: {
+      design: { rank: 2, tier: 'supporting', summary: 'A print-ready photo editor in the browser: monotone tone curves that never overshoot, a feathered knockout for t-shirt artwork and 300 DPI exports, all processed on the device.', emphasis: ['tone curves', 'Web Workers', 'print output'] },
+    },
     liveUrl: 'https://scapestudio.vercel.app',
     caseStudy: 'scapestudio',
     highlights: [
@@ -184,7 +187,7 @@ export const projects: Project[] = [
     group: 'products',
     fragment: 'strata-scale',
     focus: {
-      design: { rank: 1, tier: 'supporting', summary: 'One zoom gesture on one log-scaled axis: the ISS overhead to the edge of the observable universe on a single Skia canvas, and nothing collapses into a pixel.', emphasis: ['Skia canvas', 'log-scale zoom', 'gesture design'] },
+      design: { rank: 3, tier: 'supporting', summary: 'One zoom gesture on one log-scaled axis: the ISS overhead to the edge of the observable universe on a single Skia canvas, and nothing collapses into a pixel.', emphasis: ['Skia canvas', 'log-scale zoom', 'gesture design'] },
       ai: { tier: 'work' },
       product: { rank: 3, tier: 'featured', summary: 'One engine, eight maps, two products: a free installable web app, and an iPhone app where the packs are bought.', emphasis: ['React Native', 'PWA', 'one engine, eight maps'] },
     },
@@ -208,7 +211,7 @@ export const projects: Project[] = [
     group: 'products',
     fragment: 'lattiq-editor',
     focus: {
-      design: { rank: 3, tier: 'supporting', summary: 'A calm, local-first writing surface: documents saved on the device, a responsive formatting toolbar and public-domain sample texts.', emphasis: ['Lexical', 'editor UI'] },
+      design: { tier: 'work' },
       ai: { tier: 'work' },
       product: { rank: 2, tier: 'featured', summary: 'Edits persist in IndexedDB and survive a reload with no account or server, from short notes to a 122K-word novel.', emphasis: ['local-first', 'IndexedDB', 'Lexical'] },
     },
@@ -247,7 +250,7 @@ export const projects: Project[] = [
     home: 'home',
     group: 'products',
     focus: {
-      design: { rank: 2, tier: 'supporting', summary: 'Turning live planetary and lunar positions into an interface people read daily: information design for a system that never stops moving.', emphasis: ['information design', 'PWA', 'visual system'] },
+      design: { rank: 4, tier: 'supporting', summary: 'Turning live planetary and lunar positions into an interface people read daily: information design for a system that never stops moving.', emphasis: ['information design', 'PWA', 'visual system'] },
       ai: { rank: 1, tier: 'featured', summary: 'The sky is computed, never generated: positions come from the ephemeris, the AI guide is told they are the only valid source, and every reply is parsed and checked against them before anyone sees it.', emphasis: ['grounded generation', 'post-generation checks', 'MCP server, 97 tools'] },
       product: { rank: 1, tier: 'featured', summary: 'A founder-built subscription PWA: real-time astronomical computation, Stripe billing, a generated content library and the infrastructure to run it solo.', emphasis: ['Next.js 15', 'Stripe', 'Prisma + PostgreSQL'] },
     },
@@ -272,6 +275,9 @@ export const projects: Project[] = [
     type: 'product',
     home: 'work',
     group: 'ai',
+    focus: {
+      ai: { rank: 3, tier: 'supporting', summary: 'Model output treated as a contract: every reply is checked against a schema for three distinct directions, code owns the Midjourney syntax, and a Chrome extension places prompts without submitting.', emphasis: ['structured output', 'Zod contracts', 'MV3 extension'] },
+    },
     liveUrl: 'https://conjure-two.vercel.app',
     caseStudy: 'conjure',
     highlights: [
@@ -308,6 +314,10 @@ export const projects: Project[] = [
     type: 'product',
     home: 'work',
     group: 'ai',
+    focus: {
+      product: { rank: 4, tier: 'supporting', summary: 'A studio with real product edges: jobs owned by the device that made them, a monthly free tier, an operator sign-in and a public feed built for Apple and Spotify.', emphasis: ['device keys', 'quotas', 'RSS'] },
+      ai: { rank: 2, tier: 'supporting', summary: 'A podcast pipeline from text to RSS: a model writes a two-host script, a speech engine voices it with a pronunciation table and natural pauses, and long jobs survive serverless limits.', emphasis: ['script generation', 'text to speech', 'long-running jobs'] },
+    },
     liveUrl: 'https://podify-topaz.vercel.app',
     caseStudy: 'podify',
     highlights: [
@@ -329,7 +339,7 @@ export const projects: Project[] = [
     focus: {
       design: { tier: 'work' },
       ai: { rank: 1, tier: 'supporting', summary: 'Local models drafting inside each platform\'s character limit and each brand\'s voice, with Postiz and Temporal publishing and an MCP server of 100+ tools.', emphasis: ['local models', 'brand voice', 'MCP'] },
-      product: { rank: 3, tier: 'supporting', summary: 'Turborepo monorepo, Next.js front end, Node BFF, Postiz + Temporal on Hetzner via Docker Compose: a platform, self-hosted and run.', emphasis: ['Turborepo', 'Drizzle', 'Docker Compose'] },
+      product: { rank: 1, tier: 'supporting', summary: 'Turborepo monorepo, Next.js front end, Node BFF, Postiz + Temporal on Hetzner via Docker Compose: a platform, self-hosted and run.', emphasis: ['Turborepo', 'Drizzle', 'Docker Compose'] },
     },
     liveUrl: 'https://spellcast.sammii.dev',
     caseStudy: 'spellcast',
@@ -375,8 +385,8 @@ export const projects: Project[] = [
     group: 'ai',
     focus: {
       design: { tier: 'work' },
-      ai: { rank: 4, tier: 'supporting', summary: 'Specialist model-backed jobs and deterministic scripts, coordinated through explicit modes, shared context and checkpoints, shown on a simulated control room.', emphasis: ['agent roster', 'local models', 'multi-stage pipeline'] },
-      product: { rank: 2, tier: 'supporting', summary: 'A content operation built as software: explicit job modes, a resumable shell orchestrator and a separate boundary for publishing.', emphasis: ['orchestration', 'scheduling'] },
+      ai: { rank: 5, tier: 'supporting', summary: 'Specialist model-backed jobs and deterministic scripts, coordinated through explicit modes, shared context and checkpoints, shown on a simulated control room.', emphasis: ['agent roster', 'local models', 'multi-stage pipeline'] },
+      product: { tier: 'work' },
     },
     liveUrl: 'https://orbit-live.sammii.dev',
     caseStudy: 'orbit',
@@ -415,7 +425,8 @@ export const projects: Project[] = [
     home: 'work',
     group: 'ai',
     focus: {
-      ai: { rank: 3, tier: 'supporting', summary: 'Spoken practice and hands-on engineering lessons: transcription and contextual feedback alongside executable checks and explicit evidence of assisted versus independent work.', emphasis: ['transcription + feedback', 'executable exercises', 'learning evidence'] },
+      product: { rank: 3, tier: 'supporting', summary: 'A learning product that teaches before it tests: sandboxed code runs, a real TypeScript studio, spaced review that tells independent work from assisted, and Apple sign-in shared with native.', emphasis: ['spaced review', 'sandboxing', 'Apple sign-in'] },
+      ai: { tier: 'work' },
     },
     liveUrl: 'https://iprep-five.vercel.app/',
     caseStudy: 'iprep',
@@ -473,7 +484,7 @@ export const projects: Project[] = [
     group: 'ai',
     focus: {
       design: { tier: 'work' },
-      ai: { rank: 2, tier: 'supporting', summary: 'An npm CLI that scaffolds a typed MCP server with Zod validation and stdio transport from selected examples.', emphasis: ['npm', 'MCP SDK', 'Zod'] },
+      ai: { rank: 4, tier: 'supporting', summary: 'An npm CLI that scaffolds a typed MCP server with Zod validation and stdio transport from selected examples.', emphasis: ['npm', 'MCP SDK', 'Zod'] },
       product: { tier: 'work' },
     },
     liveUrl: 'https://www.npmjs.com/package/init-mcp-server',
@@ -494,6 +505,9 @@ export const projects: Project[] = [
     type: 'product',
     home: 'work',
     group: 'products',
+    focus: {
+      product: { rank: 2, tier: 'supporting', summary: 'A live crystal directory and the web service behind an iOS app: shareable filtered views, camera identification behind a throttle and a daily cap, and photos deleted once they are analysed.', emphasis: ['Next.js', 'Prisma + PostgreSQL', 'iOS API'] },
+    },
     liveUrl: 'https://crystalindex.co.uk',
     caseStudy: 'crystal-index',
     highlights: [

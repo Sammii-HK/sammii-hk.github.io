@@ -47,15 +47,15 @@ describe("getLensOrder", () => {
     };
     expect(ids("design")).toEqual({
       featured: ["prism", "kern", "saer"],
-      supporting: ["strata", "lunary", "lattiq"],
+      supporting: ["gamut", "scapestudio", "strata", "lunary"],
     });
     expect(ids("ai")).toEqual({
       featured: ["lunary", "moth", "prism"],
-      supporting: ["spellcast", "create-mcp-server", "iprep", "orbit"],
+      supporting: ["spellcast", "podify", "conjure", "create-mcp-server", "orbit"],
     });
     expect(ids("product")).toEqual({
       featured: ["lunary", "lattiq", "strata"],
-      supporting: ["gamut", "orbit", "spellcast", "kern"],
+      supporting: ["spellcast", "crystal-index", "iprep", "podify"],
     });
   });
 
@@ -112,7 +112,7 @@ describe("project data invariants", () => {
     for (const p of projects.filter((x) => x.home === "work")) {
       for (const lens of LENS_IDS) expect(tierFor(p, lens), `${p.id}.${lens}`).not.toBe("featured");
     }
-    expect(tierFor(projects.find((p) => p.id === "iprep")!, "ai")).toBe("supporting");
+    expect(tierFor(projects.find((p) => p.id === "iprep")!, "product")).toBe("supporting");
   });
 
   it("every featured project has a case study and a lens summary", () => {
